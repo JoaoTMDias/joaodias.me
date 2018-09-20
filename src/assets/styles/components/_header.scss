@@ -1,0 +1,21 @@
+body {
+  &.fixed-nav {
+    &.dark {
+      #page-header {
+        background-color: $black;
+      }
+    }
+    #page-header {
+      margin-top: 0;
+      position: fixed;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: margin 150ms ease-out;
+      @include breakpoint(large) {
+        @include fadeInDown($duration: 200ms, $function: $ease-out-quint);
+        animation-delay: 200ms;
+      }
+    }
+  }
+}

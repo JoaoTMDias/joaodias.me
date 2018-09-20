@@ -1,0 +1,23 @@
+@import '../../../assets/styles/global/settings';
+@import '../../../../node_modules/foundation-sites/scss/xy-grid/_xy-grid.scss';
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10vh;
+  flex-direction: column;
+}
+
+.information {
+  @include xy-cell(50%);
+}
+
+.information,
+.media {
+  flex: 0 0 auto;
+}
+
+.media {
+  @include xy-cell(50%);
+  padding-right: 16px;
+}

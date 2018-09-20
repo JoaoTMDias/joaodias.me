@@ -1,0 +1,102 @@
+.l {
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+    @include xy-grid();
+    position: relative;
+  }
+
+  &__row {
+    width: 100%;
+    margin: 0 auto;
+    @include xy-grid-container();
+    @include breakpoint(large) {
+      max-width: rem-calc(1200);
+    }
+    @include breakpoint(xlarge) {
+      max-width: rem-calc(1408);
+    }
+    @include breakpoint(xxlarge) {
+      max-width: rem-calc(1648);
+    }
+  }
+
+  &__project {
+    max-width: rem-calc(912);
+    margin: 0 auto;
+
+    h2 {
+      margin-top: $global-margin * 3;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    p {
+      font-size: rem-calc(19);
+      line-height: $global-lineheight;
+      font-weight: 300;
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(17);
+      }
+
+      @include breakpoint(large) {
+        font-size: rem-calc(18);
+        line-height: 2.05;
+      }
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      margin-top: $global-margin * 3;
+      margin-bottom: $global-margin * 3;
+    }
+  }
+  &__section {
+    padding-top: $global-padding * 1.5;
+    padding-bottom: $global-padding * 1.5;
+
+    @include breakpoint(large) {
+      padding-top: $global-padding * 4;
+      padding-bottom: $global-padding * 4;
+    }
+
+    &:last-child {
+      padding-bottom: $global-padding * 0.5;
+    }
+
+    &--overflow {
+      margin-top: -(($global-padding * 1.5) * 2);
+      @include breakpoint(large) {
+        margin-top: -(($global-padding * 4) * 2);
+      }
+    }
+  }
+
+  &__hero {
+    padding-top: $global-padding * 4;
+    padding-bottom: $global-padding * 3;
+
+    @include breakpoint(medium) {
+      padding-top: $global-padding * 9;
+      padding-bottom: $global-padding * 6;
+    }
+  }
+}
+
+hr {
+  border-bottom: 1px solid $gray1;
+  width: 100%;
+
+  @include breakpoint(medium) {
+    width: 75%;
+  }
+
+  @include breakpoint(large) {
+    width: 50%;
+  }
+}

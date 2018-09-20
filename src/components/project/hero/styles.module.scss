@@ -1,0 +1,22 @@
+@import '../../../assets/styles/global/settings';
+@import '../../../../node_modules/foundation-sites/scss/xy-grid/_xy-grid.scss';
+
+.container {
+  @include xy-grid-container();
+  height: 100%;
+  @include xy-grid();
+  margin-bottom: $global-margin * 1.5;
+  @include breakpoint(large) {
+    margin-bottom: $global-margin * 2;
+  }
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  @include xy-cell(100%);
+  align-items: flex-start;
+  background-color: transparent;
+}

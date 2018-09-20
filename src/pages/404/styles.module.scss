@@ -1,0 +1,115 @@
+/**
+* Libraries
+**/
+
+@import '../../assets/styles/global/settings';
+@import '../../../node_modules/foundation-sites/scss/xy-grid/_xy-grid.scss';
+
+/**
+* Styling
+**/
+
+.container {
+  margin-top: ($global-margin * 2);
+
+  @include breakpoint(large) {
+    margin-top: ($global-margin * 3);
+  }
+}
+
+.row,
+.image {
+  @include xy-cell(1 of 1);
+
+  @include breakpoint(medium) {
+    @include xy-cell(1 of 2);
+  }
+}
+
+.row {
+  order: 2;
+  margin-top: $global-margin;
+
+  @include breakpoint(medium) {
+    margin-top: 0;
+  }
+
+  @include breakpoint(large) {
+    order: 1;
+  }
+}
+.image {
+  max-width: 100%;
+  height: auto;
+  order: 1;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @include breakpoint(large) {
+    order: 2;
+  }
+}
+
+.title {
+  text-align: left;
+  line-height: 1.1;
+  color: $gray9;
+  margin-bottom: $global-margin;
+  width: 100%;
+  font-size: rem-calc(40);
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(48);
+  }
+
+  @include breakpoint(large) {
+    font-size: rem-calc(56);
+  }
+}
+
+.subtitle {
+  font-family: $body-font-family;
+  text-align: left;
+  line-height: 1.09375;
+  color: $gray8;
+  margin-bottom: $global-margin;
+  width: 100%;
+  font-size: rem-calc(20);
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(24);
+  }
+
+  @include breakpoint(large) {
+    font-size: rem-calc(32);
+  }
+}
+
+.code {
+  font-size: rem-calc(18);
+  font-family: $body-font-family;
+  color: $gray8;
+  margin-bottom: ($global-margin * 1.5);
+}
+
+.list {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  li {
+    font-size: rem-calc(16);
+
+    &:nth-child(2n) {
+      padding-top: $global-padding;
+      padding-bottom: $global-padding;
+    }
+  }
+
+  a {
+    color: $primary-color;
+  }
+}

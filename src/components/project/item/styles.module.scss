@@ -1,0 +1,179 @@
+/**
+* Libraries
+**/
+
+@import '../../../assets/styles/global/settings';
+@import '../../../../node_modules/foundation-sites/scss/xy-grid/_xy-grid.scss';
+
+/**
+* Styling
+**/
+
+.item {
+  @include xy-gutters($gutter-position: bottom);
+
+  &:nth-child(n) {
+    @include xy-cell(1 of 1);
+  }
+  @include breakpoint(medium) {
+    &:nth-child(n) {
+      @include xy-cell(1 of 2);
+    }
+    margin-bottom: $global-margin * 2;
+  }
+  @include breakpoint(large) {
+    &:nth-child(1),
+    &:nth-child(4) {
+      @include xy-cell(1 of 1);
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      @include xy-cell(1 of 2);
+    }
+    &:nth-child(7),
+    &:nth-child(8),
+    &:nth-child(9) {
+      @include xy-cell(1 of 3);
+      max-height: rem-calc(370);
+    }
+  }
+  &:nth-child(even) {
+    background-position: 25% center !important;
+  }
+
+  &:hover {
+    .inner {
+      opacity: 1;
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: rem-calc(375);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+
+    @include breakpoint(medium) {
+      height: rem-calc(414);
+    }
+    @include breakpoint(large) {
+      height: rem-calc(480);
+    }
+    @include breakpoint(xlarge) {
+      height: rem-calc(560);
+    }
+  }
+
+  &__image {
+    position: relative;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.inner {
+  display: flex;
+  padding: rem-calc(24);
+  cursor: pointer;
+  transition: all 500ms $ease-out-expo;
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: rem-calc(375);
+
+  @include breakpoint(medium) {
+    height: rem-calc(414);
+  }
+  @include breakpoint(large) {
+    height: rem-calc(480);
+  }
+  @include breakpoint(xlarge) {
+    height: rem-calc(560);
+  }
+}
+
+.header,
+.content,
+.footer {
+  display: flex;
+  flex: 1;
+}
+
+.header {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.content {
+  align-items: center;
+  p {
+    font-family: $body-font-family;
+    opacity: 0.8;
+    text-rendering: geometricPrecision;
+  }
+}
+
+.footer {
+  align-items: flex-end;
+}
+
+.title {
+  line-height: 1;
+  margin-bottom: 0;
+
+  @include responsive-typography(large, h2);
+  font-family: $header-font-family;
+  @include breakpoint(large) {
+    @include responsive-typography(large, h2);
+  }
+}
+
+.type {
+  opacity: 0.6;
+  font-family: $body-font-family;
+  margin-bottom: $global-margin * 0.5;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: rem-calc(12);
+}
+
+.description {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+  @include responsive-typography(small, h6);
+  @include breakpoint(medium) {
+    @include responsive-typography(medium, h5);
+  }
+  @include breakpoint(large) {
+    @include responsive-typography(large, h4);
+  }
+}
+
+.seemore {
+  opacity: 0.6 !important;
+  margin-bottom: 0;
+  @include responsive-typography(medium, h6);
+  @include breakpoint(large) {
+    @include responsive-typography(large, h6);
+  }
+}
+
+.panel:nth-child(even) .content {
+  margin-left: calc(7 / 12 * 100%);
+  padding-right: 0;
+}

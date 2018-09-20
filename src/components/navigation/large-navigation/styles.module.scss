@@ -1,0 +1,92 @@
+@import '../../../assets/styles/global/settings';
+
+.navigation {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-height: $navbar-height;
+    width: 100%;
+  }
+
+  &__pages {
+    justify-content: center;
+    flex-direction: row;
+    font-family: $body-font-family;
+    max-height: $navbar-height;
+    margin: 0 auto;
+    width: 100%;
+    display: none;
+    visibility: hidden;
+
+    @include breakpoint(large) {
+      // All CSS in here goes inside the media query
+      display: block;
+      display: flex;
+      visibility: visible;
+    }
+  }
+
+  &__item {
+    display: inline-flex;
+    list-style-type: none;
+    line-height: $global-padding * 3;
+    padding: 0;
+    margin-top: 0;
+    margin-right: 16px;
+    margin-bottom: 0;
+    margin-left: 16px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    flex-wrap: wrap;
+    min-width: rem-calc(72);
+
+    a {
+      padding: 0;
+      font-family: inherit;
+      font-size: 14px;
+      color: $gray8;
+      letter-spacing: 0.5px;
+      line-height: $global-padding * 3;
+      text-transform: uppercase;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $alternate-color;
+        transform: translate3d(-100%, 0, 0) translate3d(-1px, 0, 0);
+        transition: transform 640ms;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      &:hover,
+      &:focus {
+        color: $primary-color;
+
+        &:after {
+          transform: translate3d(0%, 0, 0);
+        }
+
+        &:before {
+          transform: translate3d(100%, 0, 0) translate3d(1px, 0, 0);
+        }
+      }
+
+      &:active {
+        outline: 1;
+      }
+    }
+  }
+}

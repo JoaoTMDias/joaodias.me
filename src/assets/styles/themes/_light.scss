@@ -1,0 +1,11 @@
+.item {
+  &--light {
+    &,
+    .title,
+    .type,
+    .description,
+    .seemore {
+      color: $white !important;
+    }
+  }
+}

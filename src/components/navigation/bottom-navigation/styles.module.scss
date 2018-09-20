@@ -1,0 +1,81 @@
+@import '../../../assets/styles/global/settings';
+.container {
+  width: 100%;
+  background-color: darken($gray9, 10%);
+  height: 3rem;
+  min-height: $navbar-height;
+  margin: 0 auto;
+  bottom: 0;
+  position: fixed; //border-top: 1px solid #EBEBEB;
+  box-shadow: 0px -2px 0px darken($gray9, 10%);
+  z-index: 11;
+  @include breakpoint(large) {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: $navbar-height;
+}
+
+.item {
+  width: 100%;
+  list-style-type: none;
+  text-align: center;
+  &:hover {
+    font-weight: 500;
+  }
+  .icon {
+    svg {
+      fill: $primary-color;
+    }
+  }
+}
+
+.link {
+  height: $navbar-height;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 200ms ease-in-out;
+}
+
+.label {
+  width: 100%;
+  font-size: rem-calc(10);
+  line-height: 1.428571429;
+  font-family: $body-font-family;
+  color: $gray4;
+}
+
+.icon {
+  width: rem-calc(24);
+  height: rem-calc(24);
+  border-radius: rem-calc(24);
+  svg {
+    path {
+      fill: $gray6;
+    }
+  }
+}
+
+.active {
+  background-color: $gray9;
+  .icon {
+    svg,
+    g,
+    circle,
+    path {
+      fill: $white !important;
+    }
+  }
+  .label {
+    color: $white !important;
+  }
+}

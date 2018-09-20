@@ -1,0 +1,76 @@
+.dark {
+  background-color: $black;
+
+  #page-header {
+    background-color: $black;
+  }
+
+  .brand {
+    &__circle {
+      fill: $black;
+    }
+
+    &__hair {
+      fill: $gray8;
+    }
+
+    &__glasses {
+      fill: $white;
+    }
+  }
+
+  &.fixed-nav {
+    .brand {
+      &__hair {
+        fill: $white;
+      }
+
+      &__glasses {
+        fill: $white;
+      }
+    }
+  }
+  #logo {
+    &:hover {
+      transform: scale(1.2) rotate(10deg);
+      #logoFill {
+        fill: $white !important;
+      }
+    }
+    &Fill {
+      fill: $gray3;
+    }
+  }
+
+  .src-components-project-introduction----styles-module---introduction---2BWd2 {
+    color: $white;
+  }
+
+  .src-components-page-title----styles-module---container---2l4NV {
+    background-color: $black;
+  }
+  // Top Navigation
+  .src-components-large-navigation----styles-module---navigation__item---3nWjE {
+    a {
+      color: $gray6;
+      &.active {
+        color: $gray0 !important;
+      }
+    }
+  }
+  // Section Title
+  .src-components-page-title----styles-module---title---xEaUp,
+  .src-components-page-title----styles-module---subtitle---3hhHn {
+    color: $white !important;
+  }
+}
+
+.item {
+  &--dark {
+    h2,
+    h3,
+    p {
+      color: $gray9;
+    }
+  }
+}

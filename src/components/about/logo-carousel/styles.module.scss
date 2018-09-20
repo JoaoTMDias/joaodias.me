@@ -1,0 +1,52 @@
+////////////
+// Variables
+////////////
+@import '../../../assets/styles/global/settings';
+////////////
+// Styling
+////////////
+.list {
+  &__wrapper {
+    flex-direction: column;
+  }
+  &__container {
+    overflow: hidden;
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::before {
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background-image: linear-gradient( to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
+      position: absolute;
+    }
+  }
+  &__title {
+    font-family: $body-font-family;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    color: $gray8;
+    letter-spacing: 0;
+    line-height: $ratio;
+  }
+  &__wrap {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+  }
+  &__item {
+    list-style-type: none;
+    width: 286px;
+    height: 150px;
+  }
+  &__image {
+    width: 286px;
+    height: 150px;
+  }
+}

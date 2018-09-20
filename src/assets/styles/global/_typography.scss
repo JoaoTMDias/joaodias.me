@@ -1,0 +1,63 @@
+/**
+* JD Serif
+**/
+@font-face {
+  font-family: 'jd-serif';
+  src: url('/fonts/jd-serif-regular.woff2') format('woff2'),
+    url('/fonts/jd-serif-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'jd-serif';
+  src: url('/fonts/jd-serif-regular-italic.woff2') format('woff2'),
+    url('/fonts/jd-serif-regular-italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'jd-serif';
+  src: url('/fonts/jd-serif-bold.woff2') format('woff2'),
+    url('/fonts/jd-serif-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/**
+* JD Sans
+**/
+
+// Bold
+@font-face {
+  font-family: 'jd-sans';
+  src: url('/fonts/jd-sans-bold.woff2') format('woff2'),
+    url('/fonts/jd-sans-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// regular
+@font-face {
+  font-family: 'jd-sans';
+  src: url('/fonts/jd-sans-regular.woff2') format('woff2'),
+    url('/fonts/jd-sans-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// light
+@font-face {
+  font-family: 'jd-sans';
+  src: url('/fonts/jd-sans-light.woff2') format('woff2'),
+    url('/fonts/jd-sans-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}

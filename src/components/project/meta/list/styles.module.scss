@@ -1,0 +1,33 @@
+@import '../../../../assets/styles/global/settings';
+@import '../../../../../node_modules/foundation-sites/scss/xy-grid/_xy-grid.scss';
+
+.list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+
+    @include xy-cell(1 of 1);
+
+    @include breakpoint(medium){
+        @include xy-cell(1 of 2);
+    }
+
+    @include breakpoint(large){
+        @include xy-cell(1 of 4);
+    }
+}
+
+.title {
+    margin-bottom: $global-margin * 1;
+    font-weight: 600;
+    color: $gray9;
+}
+
+li {
+    font-size: rem-calc(14);
+
+    &:not(:first-child){
+        color: $gray6;
+        font-weight: 400;
+    }
+}

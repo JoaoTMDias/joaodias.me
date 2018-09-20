@@ -1,0 +1,17 @@
+module.exports = {
+  extends: 'airbnb',
+  rules: {
+    'react/jsx-filename-extension': 'off',
+    'react/prop-types': 'on',
+    'react/require-default-props': 'off',
+    'jsx-a11y/href-no-hash': 'off',
+    'class-methods-use-this': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'jsx-a11y/anchor-is-valid': [
+      'warn',
+      {
+        aspects: ['invalidHref'],
+      },
+    ],
+  },
+}

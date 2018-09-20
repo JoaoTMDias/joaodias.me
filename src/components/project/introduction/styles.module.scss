@@ -1,0 +1,14 @@
+@import '../../../assets/styles/global/settings';
+@import '../../../../node_modules/foundation-sites/scss/xy-grid/_xy-grid.scss';
+
+.introduction {
+  @include responsive-typography(small, h2);
+
+  @include breakpoint(medium) {
+    @include responsive-typography(medium, h4);
+  }
+
+  @include breakpoint(xlarge) {
+    @include responsive-typography(large, h5);
+  }
+}

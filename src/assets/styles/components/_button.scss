@@ -1,0 +1,21 @@
+.button {
+    &.secondary {
+        background-color: $white;
+        border: 1px solid $gray2;
+        color: $gray8;
+
+        &:hover, 
+        &:focus {
+            background-color: $gray2;
+        }
+
+        &:focus {
+            border: 2px solid $gray4;
+            color: $gray8;
+        }
+
+        &:active {
+            background-color: $gray3;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+/**
+* Import
+**/
+@import '../../../../assets/styles/global/settings';
+@import '../../../../../node_modules/foundation-sites/scss/xy-grid/_xy-grid.scss';
+
+/**
+* Styling
+**/
+.container {
+  background-color: $white;
+  flex-direction: row;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+}
