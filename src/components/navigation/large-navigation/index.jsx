@@ -17,11 +17,11 @@ const LargeNavigation = () => (
           About
         </Link>
       </Item>
-      <Item>
+      {/* <Item>
         <Link to="/blog/" activeClassName="active">
           Blog
         </Link>
-      </Item>
+      </Item> */}
 
       <Item>
         <Link to="/contact/" activeClassName="active">
