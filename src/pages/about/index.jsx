@@ -1,38 +1,38 @@
 // Libraries
-import React from 'react'
-import classnames from 'classnames'
-import BodyClassName from 'react-body-classname'
+import React from 'react';
+import classnames from 'classnames';
+import BodyClassName from 'react-body-classname';
 
 // Components
-import Layout from '../../components/layout'
-import Meta from '../../components/general/meta'
-import ContentPage from '../../components/content-page'
-import MainContent from '../../components/general/main-content'
-import asyncComponent from '../../components/hoc/asyncComponent'
-import PageTitle from '../../components/ui/page-title'
+import Layout from '../../components/layout';
+import Meta from '../../components/general/meta';
+import ContentPage from '../../components/content-page';
+import MainContent from '../../components/general/main-content';
+import asyncComponent from '../../components/hoc/asyncComponent';
+import PageTitle from '../../components/ui/page-title';
 
-import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index'
-import { VerticalTimeline, VerticalTimelineElement } from '../../components/ui/vertical-timeline/index'
+import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
+import { VerticalTimeline, VerticalTimelineElement } from '../../components/ui/vertical-timeline/index';
 
 const WhoAmI = asyncComponent(() => {
-  return import(`./who-am-i`)
-})
+  return import(`./who-am-i`);
+});
 
 const Timeline = asyncComponent(() => {
-  return import(`./timeline`)
-})
+  return import(`./timeline`);
+});
 
 const Footer = asyncComponent(() => {
-  return import(`../../components/navigation/footer`)
-})
+  return import(`../../components/navigation/footer`);
+});
 
 const LogoCarousel = asyncComponent(() => {
-  return import(`../../components/about/logo-carousel/index`)
-})
+  return import(`../../components/about/logo-carousel/index`);
+});
 
 const LastPlayedSong = asyncComponent(() => {
-  return import(`../../components/about/music/last-played-song/index`)
-})
+  return import(`../../components/about/music/last-played-song/index`);
+});
 
 const AboutPage = ({ location }) => (
   <Layout>
@@ -72,6 +72,6 @@ const AboutPage = ({ location }) => (
       </ContentPage>
     </BodyClassName>
   </Layout>
-)
+);
 
-export default AboutPage
+export default AboutPage;

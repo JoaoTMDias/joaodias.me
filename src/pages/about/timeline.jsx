@@ -2,9 +2,6 @@
 import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from '../../components/ui/vertical-timeline/index';
 
-// Components
-// import Component from '../components/componentName';
-
 /** ********
  ** Component: Timeline
  ** @type: functional stateless component
