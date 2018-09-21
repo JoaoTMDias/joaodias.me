@@ -1,32 +1,31 @@
 // Libraries
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
-import { rem } from 'polished'
+import React from 'react';
+import styled from 'styled-components';
 
 //import Loadable from 'react-loadable'
-import { graphql } from 'gatsby'
+import { graphql } from 'gatsby';
 
 // Components
-import asyncComponent from '../components/hoc/asyncComponent'
-import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index'
-import Layout from '../components/layout'
-import ContentPage from '../components/content-page/index'
-import Meta from '../components/general/meta/index'
-import PortfolioItem from '../components/project/item/portfolioitem'
+import asyncComponent from '../components/hoc/asyncComponent';
+import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
+import Layout from '../components/layout';
+import ContentPage from '../components/content-page/index';
+import Meta from '../components/general/meta/index';
+import PortfolioItem from '../components/project/item/portfolioitem';
 
 const Footer = asyncComponent(() => {
-  return import(`../components/navigation/footer`)
-})
+  return import(`../components/navigation/footer`);
+});
 
 const HomePageHero = asyncComponent(() => {
-  return import(`../components/ui/full-page-hero/index`)
-})
+  return import(`../components/ui/full-page-hero/index`);
+});
 
 const IndexPage = ({ location, data }) => {
   // Latest Article
 
   const renderPortfolioItems = data => {
-    const queryPath = data.allContentfulPortfolio.edges
+    const queryPath = data.allContentfulPortfolio.edges;
 
     if (queryPath) {
       return (
@@ -46,10 +45,10 @@ const IndexPage = ({ location, data }) => {
             />
           ))}
         </List>
-      )
+      );
     }
-    return <p>Loading...</p>
-  }
+    return <p>Loading...</p>;
+  };
 
   return (
     <Layout>
@@ -76,8 +75,8 @@ const IndexPage = ({ location, data }) => {
         <Footer />
       </ContentPage>
     </Layout>
-  )
-}
+  );
+};
 
 // ////////
 // GRAPHQL
@@ -115,7 +114,7 @@ export const latestProjectsQuery = graphql`
       }
     }
   }
-`
+`;
 
 // ////////
 // STYLED COMPONENTS
@@ -126,7 +125,7 @@ const Wrapper = styled.section`
   justify-content: center;
   width: 100%;
   margin-top: 0;
-`
+`;
 
 const List = styled.div`
   list-style-type: none;
@@ -137,6 +136,6 @@ const List = styled.div`
   @media ${props => props.theme.breakpointMedium} {
     flex-direction: row;
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

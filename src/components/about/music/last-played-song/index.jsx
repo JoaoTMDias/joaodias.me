@@ -1,13 +1,16 @@
 // Libraries
 import React, { PureComponent } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 
 // Components
-import LastPlayedSongCard from './lastPlayedSongCard';
+import asyncComponent from '../../../hoc/asyncComponent';
 
 // Services
 import MusicServices from '../../../../data/services/external-services';
+
+const LastPlayedSongCard = asyncComponent(() => {
+  return import(`./lastPlayedSongCard`);
+});
 
 /** ********
  ** Class: LastPlayedSong
@@ -28,7 +31,7 @@ class LastPlayedSong extends PureComponent {
 
   fetchLatestSong() {
     MusicServices.getLatestSong()
-      .then((response) => {
+      .then(response => {
         if (response.data) {
           this.setState({
             LastPlayedSong: response.data.recenttracks.track,
@@ -54,9 +57,7 @@ class LastPlayedSong extends PureComponent {
     return (
       <section id="last-played-song" className="l__container l__section">
         <div className="l__row">
-          <Title>
-Currently listening to...
-          </Title>
+          <Title>Currently listening to...</Title>
           {this.renderLastPlayedSong()}
         </div>
       </section>

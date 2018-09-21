@@ -55,7 +55,7 @@ const BottomNavigation = () => (
           <span className={styles.label}>About</span>
         </Link>
       </li>
-      <li className={styles.item} title="Go to my Blog page">
+      {/* <li className={styles.item} title="Go to my Blog page">
         <Link
           className={styles.link}
           to="/blog"
@@ -89,7 +89,7 @@ const BottomNavigation = () => (
           </figure>
           <span className={styles.label}>Blog</span>
         </Link>
-      </li>
+      </li> */}
       <li className={styles.item} title="Go to Contact page">
         <Link
           className={styles.link}

@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { rem } from 'polished';
 
 /**
  * Import Components
@@ -96,27 +95,11 @@ const TopBar = styled.header`
   }
 `;
 
-const fadeInDown = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(-2rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
 const Row = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   max-height: ${props => props.theme.navbarHeight};
-  animation-name: ${fadeInDown};
-  animation-duration: 1000ms;
-  animation-timing-function: ${props => props.theme.easeOutBack};
-  animation-fill-mode: forwards;
-  animation-delay: 0;
 `;
 
 export default Header;
