@@ -1,11 +1,13 @@
-import asyncComponent from '../../hoc/asyncComponent'
+import asyncComponent from '../../hoc/asyncComponent';
 
 const CallToActionWrapper = asyncComponent(() => {
-  return import(`./wrapper/index`)
-})
+  // eslint-disable-next-line
+  return import(`./wrapper/index`);
+});
 
 const CallToActionItem = asyncComponent(() => {
-  return import(`./item/index`)
-})
+  // eslint-disable-next-line
+  return import(`./item/index`);
+});
 
-export { CallToActionWrapper, CallToActionItem }
+export { CallToActionWrapper, CallToActionItem };

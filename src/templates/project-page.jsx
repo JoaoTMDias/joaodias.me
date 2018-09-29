@@ -7,9 +7,7 @@ import { graphql } from 'gatsby';
 
 // Components
 import Layout from '../components/layout';
-import {
-  ProjectDescription, ProjectHero, ProjectView, ProjectMeta, ProjectIntroduction,
-} from '../components/project';
+import { ProjectHero, ProjectMeta, ProjectIntroduction } from '../components/project';
 import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
 import Footer from '../components/navigation/footer';
 
@@ -21,14 +19,14 @@ import Footer from '../components/navigation/footer';
  */
 const ProjectPage = (props) => {
   const post = get(props, 'data.contentfulPortfolio');
-  const siteTitle = get(props, 'data.site.siteMetadata.title');
-
-  console.log(post.skills);
 
   return (
     <Layout>
       <div id="content-page">
-        <Helmet title={`${post.title} | João Dias`} />
+        <Helmet>
+          <title>{`${post.title} | João Dias`}</title>
+          <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8" />
+        </Helmet>
         <ProjectIntroduction
           id={`${post.introduction.internal.contentDigest}`}
           description={`${post.description.description}`}
@@ -42,6 +40,7 @@ const ProjectPage = (props) => {
           <Body className="l__row">
             <div
               className="l__project l__section"
+              // eslint-disable-next-line
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
               }}
