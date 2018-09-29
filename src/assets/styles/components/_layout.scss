@@ -49,11 +49,17 @@
     }
 
     img {
+      display: flex;
       object-fit: cover;
+      max-width: rem-calc(912);
       width: 100%;
       height: auto;
       margin-top: $global-margin * 3;
       margin-bottom: $global-margin * 3;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: $gray1;
+      color: $gray9;
     }
   }
   &__section {
