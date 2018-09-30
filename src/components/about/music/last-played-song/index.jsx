@@ -29,6 +29,12 @@ class LastPlayedSong extends PureComponent {
     this.fetchLatestSong();
   }
 
+  componentWillUnmount() {
+    this.state = {
+     LastPlayedSong: [],
+    }
+  }
+
   fetchLatestSong() {
     MusicServices.getLatestSong()
       .then(response => {
