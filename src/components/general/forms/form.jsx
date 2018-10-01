@@ -1,39 +1,39 @@
-import React, { PureComponent } from 'react'
-import styled from 'styled-components'
+import React, { PureComponent } from 'react';
+import styled from 'styled-components';
 
 // Components
-import { TextInput, TextareaInput } from './inputs'
+import { TextInput, TextareaInput } from './inputs';
 
-import styles from './styles.module.scss'
-import { rem } from '../../../../node_modules/polished'
+import styles from './styles.module.scss';
+import { rem } from '../../../../node_modules/polished';
 
 const encode = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
+    .join('&');
+};
 
 const validateEmail = email => {
-  var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  return regex.test(String(email).toLowerCase())
-}
+  var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regex.test(String(email).toLowerCase());
+};
 
 class Form extends PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: '',
       email: '',
       message: '',
       wasSent: false,
-    }
+    };
 
-    this.handleOnSubmitForm = this.handleOnSubmitForm.bind(this)
+    this.handleOnSubmitForm = this.handleOnSubmitForm.bind(this);
   }
 
   handleOnSubmitForm(event) {
-    event.preventDefault()
-    this.toggleAriaRole()
+    event.preventDefault();
+    this.toggleAriaRole();
 
     fetch('/', {
       method: 'POST',
@@ -43,37 +43,37 @@ class Form extends PureComponent {
       .then(() => {
         this.setState({
           wasSent: true,
-        })
+        });
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
   }
 
   toggleAriaRole() {
     // Check to see if the button is pressed
-    let button = document.getElementById('submit')
-    let pressed = button.getAttribute('aria-pressed') === 'true'
+    let button = document.getElementById('submit');
+    let pressed = button.getAttribute('aria-pressed') === 'true';
     // Change aria-pressed to the opposite state
-    button.setAttribute('aria-pressed', !pressed)
+    button.setAttribute('aria-pressed', !pressed);
   }
 
   handleTextInputChange = name => event => {
     this.setState({
       [name]: event.target.value,
-    })
-  }
+    });
+  };
 
   renderFormButton() {
-    let formIsValid = ''
+    let formIsValid = '';
 
     if (this.state.name.length > 2 && this.state.message.length > 2 && validateEmail(`${this.state.email}`)) {
-      formIsValid = 'is-valid'
+      formIsValid = 'is-valid';
     }
 
     return (
       <Submit id="submit" className={`${formIsValid}`} aria-pressed="false" type="submit">
         Submit
       </Submit>
-    )
+    );
   }
 
   renderSuccessMessage() {
@@ -92,8 +92,8 @@ class Form extends PureComponent {
             free to browser my site wherever you want.
           </p>
         </div>
-      )
-    } else return null
+      );
+    } else return null;
   }
 
   render() {
@@ -143,12 +143,14 @@ class Form extends PureComponent {
               maxLength={50}
               required
             />
+            <input hidden className="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact-form" />
           </fieldset>
           <fieldset className={styles.fieldset}>{this.renderFormButton()}</fieldset>
+          <div data-netlify-recaptcha />
         </form>
       </div>
-    )
+    );
   }
 }
 
@@ -184,6 +186,6 @@ const Submit = styled.button`
       padding-bottom: ${rem('24px')};
     }
   }
-`
+`;
 
-export default Form
+export default Form;
