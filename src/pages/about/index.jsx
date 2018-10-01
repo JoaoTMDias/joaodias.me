@@ -2,6 +2,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import BodyClassName from 'react-body-classname';
+import { graphql } from 'gatsby';
 
 // Components
 import Layout from '../../components/layout';
@@ -34,44 +35,82 @@ const LastPlayedSong = asyncComponent(() => {
   return import(`../../components/about/music/last-played-song/index`);
 });
 
-const AboutPage = ({ location }) => (
-  <Layout>
-    <BodyClassName className="about">
-      <ContentPage>
-        <Meta title="About" location={location} />
-        <PageTitle
-          title="About me"
-          subtitle="Designer, Developer, Dad, Geek, Nerd, Music Lover."
-          containerBackgroundColor="var(--color-white, #ffffff)"
-        />
-        <MainContent
-          style={{
-            overflowX: 'hidden',
-          }}
-        >
-          <WhoAmI />
-          <LogoCarousel />
-          <Timeline />
-          <LastPlayedSong />
-        </MainContent>
-        <CallToActionWrapper>
-          <CallToActionItem
-            subtitle="Want it all on paper?"
-            title="Check out my resumé"
-            linkText="Download in PDF"
-            linkURL="/resume/resume-joaodias-en.pdf"
+const AboutPage = ({ location, data }) => {
+  const renderImage = data => {
+    let queryPath = data.allContentfulAsset.edges[0].node;
+
+    console.log('query path: ', queryPath);
+
+    if (queryPath) {
+      return <WhoAmI data={queryPath} />;
+    }
+    return <p>Loading...</p>;
+  };
+
+  return (
+    <Layout>
+      <BodyClassName className="about">
+        <ContentPage>
+          <Meta title="About" location={location} />
+          <PageTitle
+            title="About me"
+            subtitle="Designer, Developer, Dad, Geek, Nerd, Music Lover."
+            containerBackgroundColor="var(--color-white, #ffffff)"
           />
-          <CallToActionItem
-            subtitle="Have an idea for a project?"
-            title="Let's chat!"
-            linkText="Visit the Contacts page"
-            linkURL="/contact/"
-          />
-        </CallToActionWrapper>
-        <Footer />
-      </ContentPage>
-    </BodyClassName>
-  </Layout>
-);
+          <MainContent
+            style={{
+              overflowX: 'hidden',
+            }}
+          >
+            {renderImage(data)}
+            <LogoCarousel />
+            <Timeline />
+            <LastPlayedSong />
+          </MainContent>
+          <CallToActionWrapper>
+            <CallToActionItem
+              subtitle="Want it all on paper?"
+              title="Check out my resumé"
+              linkText="Download in PDF"
+              linkURL="/resume/resume-joaodias-en.pdf"
+            />
+            <CallToActionItem
+              subtitle="Have an idea for a project?"
+              title="Let's chat!"
+              linkText="Visit the Contacts page"
+              linkURL="/contact/"
+            />
+          </CallToActionWrapper>
+          <Footer />
+        </ContentPage>
+      </BodyClassName>
+    </Layout>
+  );
+};
+
+// ////////
+// GRAPHQL
+// ////////
+export const aboutMeQuery = graphql`
+  query AboutMeImage {
+    allContentfulAsset(filter: { title: { eq: "About me Photo" } }) {
+      edges {
+        node {
+          id
+          title
+          description
+          fluid(maxWidth: 568) {
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+            aspectRatio
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default AboutPage;

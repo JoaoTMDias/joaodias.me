@@ -1,5 +1,8 @@
 // Libraries
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import Img from 'gatsby-image';
 
 /** asc
  * Data
@@ -18,11 +21,11 @@ import styles from './styles.module.scss';
  ** @type: functional stateless component
  ** @description:  componentDescription
  ********* */
-const WhoAmI = () => (
+const WhoAmI = ({ data }) => (
   <section id="who-am-i" className="l__container l__section">
     <div className={`l__row ${styles.whoAmI}`}>
       <figure id="who-am-i-image" className={styles.whoAmI__image}>
-        <img src={`${ImageWhoAmI}`} width="568" height="568" alt="A portrait of João Dias" />
+        <Img id={data.id} fluid={data.fluid} title={data.title} alt={data.alt} fadeIn />
       </figure>
       <div id="who-am-i-text" className={styles.whoAmI__text}>
         <h3 className={styles.whoAmI__title}>I make stuff for the web.</h3>
@@ -40,5 +43,9 @@ const WhoAmI = () => (
     </div>
   </section>
 );
+
+WhoAmI.propTypes = {
+  data: PropTypes.object,
+};
 
 export default WhoAmI;
