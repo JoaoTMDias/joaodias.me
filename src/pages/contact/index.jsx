@@ -31,16 +31,17 @@ const ContactPage = ({ location }) => (
         </div>
         <CallToActionWrapper>
           <CallToActionItem
-            subtitle="João Dias"
-            title="UI Designer and Frontend developer, based in Coimbra."
-            linkText="Visit the About page"
-            linkURL="/about/"
-          />
-          <CallToActionItem
             subtitle="Want it all on paper?"
             title="Check out my resumé"
             linkText="Download in PDF"
             linkURL="/resume/resume-joaodias-en.pdf"
+            isFile
+          />
+          <CallToActionItem
+            subtitle="João Dias"
+            title="UI Designer and Frontend developer, based in Coimbra."
+            linkText="Visit the About page"
+            linkURL="/about/"
           />
         </CallToActionWrapper>
         <Footer />

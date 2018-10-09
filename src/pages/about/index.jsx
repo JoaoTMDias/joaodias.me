@@ -73,6 +73,7 @@ const AboutPage = ({ location, data }) => {
               title="Check out my resumé"
               linkText="Download in PDF"
               linkURL="/resume/resume-joaodias-en.pdf"
+              isFile
             />
             <CallToActionItem
               subtitle="Have an idea for a project?"
