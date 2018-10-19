@@ -18,6 +18,13 @@ const validateEmail = email => {
   return regex.test(String(email).toLowerCase());
 };
 
+
+/**
+ * @description Contact Form
+ * @date 2018-10-19
+ * @class Form
+ * @extends {PureComponent}
+ */
 class Form extends PureComponent {
   constructor(props) {
     super(props);

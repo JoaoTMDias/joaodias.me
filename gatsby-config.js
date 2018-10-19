@@ -2,10 +2,10 @@ const manifestOptions = {
   name: 'João Dias',
   short_name: 'João Dias',
   description: 'Portfolio of João Dias',
-  start_url: '/',
+  start_url: 'https://www.joaodias.me/',
   background_color: '#ffffff',
-  theme_color: '#0000ff',
-  display: 'minimal-ui',
+  theme_color: '#f64f52',
+  display: 'standalone',
   icons: [
     {
       src: '/android-chrome-192x192.png',

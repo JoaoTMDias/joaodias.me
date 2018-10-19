@@ -61,7 +61,7 @@ const Layout = ({ children, data }) => (
                 { name: 'HandheldFriendly', content: 'true' },
                 { name: 'MobileOptimized', content: '375' },
                 { name: 'mobile-web-app-capable', content: 'yes' },
-                { name: 'msapplication-TileColor', content: '#0000ff' },
+                { name: 'msapplication-TileColor', content: '#f64f52' },
               ]}
               link={[
                 {
@@ -96,7 +96,7 @@ const Layout = ({ children, data }) => (
                 {
                   rel: 'mask-icon',
                   href: `${maskIcon}`,
-                  color: '#0000ff',
+                  color: '#f64f52',
                 },
               ]}
             />
