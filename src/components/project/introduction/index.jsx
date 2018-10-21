@@ -12,9 +12,15 @@ import { rem } from 'polished';
 const ProjectIntroduction = ({ title, description, text }) => (
   <Wrapper className="l__row">
     <div className="l__project l__hero">
-      <h1 className="title">{title}</h1>
-      <h6 className="description">{description}</h6>
-      <p className="lead">{text}</p>
+      <h1 className="title" tabIndex="0">
+        {title}
+      </h1>
+      <h6 className="description" tabIndex="0">
+        {description}
+      </h6>
+      <p className="lead" tabIndex="0">
+        {text}
+      </p>
     </div>
   </Wrapper>
 );
@@ -69,6 +75,16 @@ const Wrapper = styled.div`
 
     @media ${props => props.theme.breakpointLarge} {
       font-size: ${rem('24px')};
+    }
+  }
+
+  .title,
+  .lead,
+  .description {
+    &:focus {
+      outline-color: $gray3;
+      outline-width: 1px;
+      outline-style: dashed;
     }
   }
 `;

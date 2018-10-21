@@ -25,10 +25,41 @@
     max-width: rem-calc(912);
     margin: 0 auto;
 
+    h2,
+    img,
+    p,
+    a {
+      &:focus {
+        outline-color: $gray3;
+        outline-width: 1px;
+        outline-style: dashed;
+      }
+    }
+
+    img,
+    .project__image {
+      display: flex;
+      object-fit: cover;
+      max-width: rem-calc(912);
+      width: 100%;
+      height: auto;
+      margin-top: $global-margin * 2;
+      margin-bottom: $global-margin * 2;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: $gray1;
+      color: $gray9;
+    }
+
     h2 {
       margin-top: $global-margin * 3;
 
       &:first-child {
+        margin-top: 0;
+      }
+
+      + img,
+      + .project__image {
         margin-top: 0;
       }
     }
@@ -46,20 +77,21 @@
         font-size: rem-calc(18);
         line-height: 2.05;
       }
-    }
 
-    img {
-      display: flex;
-      object-fit: cover;
-      max-width: rem-calc(912);
-      width: 100%;
-      height: auto;
-      margin-top: $global-margin * 3;
-      margin-bottom: $global-margin * 3;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: $gray1;
-      color: $gray9;
+      a {
+        margin: 0 ($global-margin * 0.25);
+        padding: rem-calc(8) rem-calc(4);
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:focus {
+          outline-color: $primary-color;
+          outline-width: 1px;
+          outline-style: dashed;
+        }
+      }
     }
   }
   &__section {

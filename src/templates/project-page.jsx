@@ -1,5 +1,5 @@
 // Libraries
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Helmet from 'react-helmet';
 import get from 'lodash/get';
 import styled from 'styled-components';
@@ -17,55 +17,72 @@ import Footer from '../components/navigation/footer';
  * @class ProjectPage
  * @extends {React.Component}
  */
-const ProjectPage = (props) => {
-  const post = get(props, 'data.contentfulPortfolio');
+class ProjectPage extends PureComponent {
+  componentDidMount() {
+    const items = Array.from(
+      document.querySelectorAll('.l__project h2, .l__project img, .l__project a, .l__project p')
+    );
+    console.log('items: ', items);
 
-  return (
-    <Layout>
-      <div id="content-page">
-        <Helmet>
-          <title>{`${post.title} | João Dias`}</title>
-          <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8" />
-        </Helmet>
-        <ProjectIntroduction
-          id={`${post.introduction.internal.contentDigest}`}
-          description={`${post.description.description}`}
-          title={`${post.title}`}
-          text={`${post.introduction.internal.content}`}
-        />
-        <div id="main-content">
-          <ProjectHero id={`hero-${post.slug}`} backgroundImage={post.featuredImage.file.url} />
+    items.map(item => {
+      item.tabIndex = 0;
+      return;
+    });
+  }
 
-          <ProjectMeta skills={post.skills} tools={post.tools} client={`${post.client}`} date={`${post.date}`} />
-          <Body className="l__row">
-            <div
-              className="l__project l__section"
-              // eslint-disable-next-line
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
-              }}
+  render() {
+    const post = get(this.props, 'data.contentfulPortfolio');
+
+    if (post) {
+      return (
+        <Layout>
+          <div id="content-page">
+            <Helmet>
+              <title>{`${post.title} | João Dias`}</title>
+              <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8" />
+            </Helmet>
+            <ProjectIntroduction
+              id={`${post.introduction.internal.contentDigest}`}
+              description={`${post.description.description}`}
+              title={`${post.title}`}
+              text={`${post.introduction.internal.content}`}
             />
-          </Body>
-        </div>
-        <CallToActionWrapper>
-          <CallToActionItem
-            subtitle="Related Project"
-            title="Return to the projects list"
-            linkText="Visit the About page"
-            linkURL="/about/"
-          />
-          <CallToActionItem
-            subtitle="Related Project"
-            title="Let's connect"
-            linkText="Check it out"
-            linkURL="/contact/"
-          />
-        </CallToActionWrapper>
-        <Footer />
-      </div>
-    </Layout>
-  );
-};
+            <div id="main-content">
+              <ProjectHero id={`hero-${post.slug}`} backgroundImage={post.featuredImage.file.url} />
+
+              <ProjectMeta skills={post.skills} tools={post.tools} client={`${post.client}`} date={`${post.date}`} />
+              <Body className="l__row">
+                <div
+                  className="l__project l__section"
+                  // eslint-disable-next-line
+                  dangerouslySetInnerHTML={{
+                    __html: post.body.childMarkdownRemark.html,
+                  }}
+                />
+              </Body>
+            </div>
+            <CallToActionWrapper>
+              <CallToActionItem
+                subtitle="Related Project"
+                title="Return to the projects list"
+                linkText="Visit the About page"
+                linkURL="/about/"
+              />
+              <CallToActionItem
+                subtitle="Related Project"
+                title="Let's connect"
+                linkText="Check it out"
+                linkURL="/contact/"
+              />
+            </CallToActionWrapper>
+            <Footer />
+          </div>
+        </Layout>
+      );
+    }
+    return <p>Loading...</p>;
+  }
+}
 
 export default ProjectPage;
 

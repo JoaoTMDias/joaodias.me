@@ -240,6 +240,12 @@ a {
     color: $anchor-color-hover;
     text-decoration: $anchor-text-decoration-hover;
   }
+
+  &:focus {
+    outline-color: $gray8;
+    outline-width: 2px;
+    outline-style: dashed;
+  }
 }
 
 // And undo these styles for placeholder links/named anchors (without href)
@@ -259,7 +265,9 @@ a:not([href]):not([tabindex]) {
   }
 
   &:focus {
-    outline: 0;
+    outline-color: $primary-color;
+    outline-width: 2px;
+    outline-style: dashed;
   }
 }
 
@@ -364,8 +372,9 @@ label {
 //
 // Credit: https://github.com/suitcss/base/
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline-color: $primary-color;
+  outline-width: 1px;
+  outline-style: dashed;
 }
 
 input,
