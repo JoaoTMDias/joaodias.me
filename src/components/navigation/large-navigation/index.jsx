@@ -11,9 +11,9 @@ import { rem } from 'polished';
  */
 const LargeNavigation = () => (
   <Wrapper>
-    <List>
+    <List aria-label="Main Navigation" tabIndex="-1">
       <Item>
-        <Link to="/about/" activeClassName="active">
+        <Link to="/about/" aria-label="Go to the about page" activeClassName="active" tabIndex="0">
           About
         </Link>
       </Item>
@@ -24,7 +24,7 @@ const LargeNavigation = () => (
       </Item> */}
 
       <Item>
-        <Link to="/contact/" activeClassName="active">
+        <Link to="/contact/" aria-label="Go to the contacts page" activeClassName="active" tabIndex="0">
           Contact
         </Link>
       </Item>

@@ -6,10 +6,10 @@ import ExternalLink from '../external-link';
 import styles from './styles.module.scss';
 
 const SocialNavigation = () => (
-  <nav className={styles.navigation__container}>
-    <ul className={styles.navigation__social}>
+  <nav className={styles.navigation__container} tabIndex="-1">
+    <ul className={styles.navigation__social} aria-label="Social network links" tabIndex="-1">
       <li className={styles.navigation__item}>
-        <SocialLink to="https://fb.com/JoaoTMDias" aria-label="Follow me on Facebook">
+        <SocialLink to="https://fb.com/JoaoTMDias" aria-label="Follow me on Facebook" tabIndex="0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path fill="white" d="M12.88 22v-.07a10.55 10.55 0 0 1-1.13.07z" />
             <path
@@ -20,7 +20,7 @@ const SocialNavigation = () => (
         </SocialLink>
       </li>
       <li className={styles.navigation__item}>
-        <SocialLink to="https://instagram.com/JoaoTMDias" aria-label="Follow me on Instagram">
+        <SocialLink to="https://instagram.com/JoaoTMDias" aria-label="Follow me on Instagram" tabIndex="0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               fill="#b09a9a"
@@ -36,7 +36,7 @@ const SocialNavigation = () => (
       </li>
 
       <li className={styles.navigation__item}>
-        <SocialLink to="https://github.com/Joaotmdias" aria-label="Check out my repos on Github">
+        <SocialLink to="https://github.com/Joaotmdias" aria-label="Check out my repos on Github" tabIndex="0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               fill="#b09a9a"
@@ -47,7 +47,7 @@ const SocialNavigation = () => (
       </li>
 
       <li className={styles.navigation__item}>
-        <SocialLink to="https://dribbble.com/Joaotmdias" aria-label="Check out some dribble shots">
+        <SocialLink to="https://dribbble.com/Joaotmdias" aria-label="Check out some dribble shots" tabIndex="0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               fill="#b09a9a"

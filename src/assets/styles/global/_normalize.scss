@@ -558,21 +558,4 @@ template {
     height:1px;
     overflow:hidden;
     z-index:-999;
-    color: $white;
-
-    &:focus,
-    &:active {
-      color: $white;
-      background-color:$black;
-      left: auto;
-      top: auto;
-      width: auto;
-      height: auto;
-      overflow:auto;
-      margin: 0;
-      padding:0;
-      text-align:center;
-      font-size:rem-calc(16);
-      z-index:999;
-    }
 }
