@@ -10,10 +10,12 @@ import { rem } from 'polished';
  ** @description: Project Intro section
  ********* */
 const ProjectIntroduction = ({ title, description, text }) => {
-  let pageTitle = document.querySelector('.title');
-  if (pageTitle) {
-    pageTitle.focus();
-  }
+  if (typeof document !== 'undefined') {
+    let pageTitle = document.querySelector('.title');
+    if (pageTitle) {
+      pageTitle.focus();
+    }
+  });
 
   return (
     <Wrapper className="l__row">
