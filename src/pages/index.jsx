@@ -30,25 +30,33 @@ const IndexPage = ({ location, data }) => {
     if (queryPath) {
       return (
         <List className="l__row l__container">
-          {queryPath.map(item => (
-            <PortfolioItem
-              key={item.node.id}
-              to={item.node.slug}
-              title={item.node.title}
-              theme={item.node.theme}
-              alt={item.node.featuredImage ? item.node.featuredImage.title : ''}
-              cover={item.node.featuredImage ? item.node.featuredImage.fluid : ''}
-              color={item.node.color}
-              type={item.node.date}
-              description={item.node.description ? item.node.description.description : ''}
-              project={item.node}
-            />
-          ))}
+          {queryPath.map(item => {
+            return (
+              <PortfolioItem
+                key={`${item.node.id}`}
+                to={item.node.slug}
+                title={item.node.title}
+                theme={item.node.theme}
+                alt={item.node.featuredImage ? item.node.featuredImage.title : ''}
+                cover={item.node.featuredImage ? item.node.featuredImage.fluid : {}}
+                color={item.node.color}
+                type={item.node.date}
+                description={item.node.description ? item.node.description.description : ''}
+                project={item.node}
+              />
+            );
+          })}
         </List>
       );
     }
     return <p>Loading...</p>;
   };
+
+  let focusElement = document.querySelector('[href="#main-content"]');
+
+  if (focusElement) {
+    focusElement.focus();
+  }
 
   return (
     <Layout>

@@ -19,9 +19,7 @@ import Footer from '../components/navigation/footer';
  */
 class ProjectPage extends PureComponent {
   componentDidMount() {
-    const items = Array.from(
-      document.querySelectorAll('.l__project h2, .l__project img, .l__project a, .l__project p')
-    );
+    const items = Array.from(document.querySelectorAll('.l__project h2, .l__project img, .l__project a'));
     console.log('items: ', items);
 
     items.map(item => {
@@ -65,8 +63,8 @@ class ProjectPage extends PureComponent {
               <CallToActionItem
                 subtitle="Related Project"
                 title="Return to the projects list"
-                linkText="Visit the About page"
-                linkURL="/about/"
+                linkText="Back to the Homepage"
+                linkURL="/"
               />
               <CallToActionItem
                 subtitle="Related Project"

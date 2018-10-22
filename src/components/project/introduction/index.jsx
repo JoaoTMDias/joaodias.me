@@ -9,21 +9,28 @@ import { rem } from 'polished';
  ** @type: functional stateless component
  ** @description: Project Intro section
  ********* */
-const ProjectIntroduction = ({ title, description, text }) => (
-  <Wrapper className="l__row">
-    <div className="l__project l__hero">
-      <h1 className="title" tabIndex="0">
-        {title}
-      </h1>
-      <h6 className="description" tabIndex="0">
-        {description}
-      </h6>
-      <p className="lead" tabIndex="0">
-        {text}
-      </p>
-    </div>
-  </Wrapper>
-);
+const ProjectIntroduction = ({ title, description, text }) => {
+  let pageTitle = document.querySelector('.title');
+  if (pageTitle) {
+    pageTitle.focus();
+  }
+
+  return (
+    <Wrapper className="l__row">
+      <div className="l__project l__hero">
+        <h1 className="title" tabIndex="0">
+          {title}
+        </h1>
+        <h6 className="description" tabIndex="0">
+          {description}
+        </h6>
+        <p className="lead" tabIndex="0">
+          {text}
+        </p>
+      </div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div`
   height: auto;

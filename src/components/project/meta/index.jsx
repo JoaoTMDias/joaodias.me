@@ -13,9 +13,7 @@ import ProjectMetaList from './list';
  ** @type: functional stateless component
  ** @description:  componentDescription
  * */
-const ProjectMeta = ({
-  skills, tools, client, date,
-}) => (
+const ProjectMeta = ({ skills, tools, client, date }) => (
   <Wrapper className="l__project l__section fadeInUp">
     <ProjectMetaList title="Skills">
       {skills.map((skill, index) => (

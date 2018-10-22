@@ -14,12 +14,12 @@ import styles from './styles.module.scss';
  ** @description:  componentDescription
  ********* */
 const ProjectMetaList = ({ title, children }) => (
-  <ul className={classnames(styles.list)}>
-    <li className={styles.title} tabIndex="0">
+  <ol className={classnames(styles.list)}>
+    <li className={styles.title} tabIndex="-1">
       {title}
     </li>
     {children}
-  </ul>
+  </ol>
 );
 
 export default ProjectMetaList;
