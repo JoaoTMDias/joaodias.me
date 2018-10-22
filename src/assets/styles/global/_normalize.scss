@@ -557,7 +557,7 @@ template {
     width: 1px;
     height: 1px;
     overflow: hidden;
-    z-index:-2;
+    z-index:1000;
 
     &:focus,
     &:active {
@@ -573,7 +573,7 @@ template {
       right: 0;
       text-decoration: underline;
       text-align: center;
-      z-index: 101;
+      z-index: 1000;
       outline: 1px dashed $gray7;
     }
 }
