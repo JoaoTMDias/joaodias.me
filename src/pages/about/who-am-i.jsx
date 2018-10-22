@@ -34,9 +34,9 @@ class WhoAmI extends PureComponent {
           </figure>
           <div id="who-am-i-text" className={styles.whoAmI__text}>
             <h3 className={styles.whoAmI__title}>I make stuff for the web.</h3>
-            <h5 className={styles.whoAmI__lead}>
+            <h4 className={styles.whoAmI__lead}>
               I’m João — an interface designer and frontend developer based in Coimbra, Portugal.
-            </h5>
+            </h4>
             <p>
               I’ve been working in this industry for over 9 years and now mostly specialized in UX Design and Web
               Development for all kinds of screen sizes and users.

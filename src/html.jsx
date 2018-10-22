@@ -14,7 +14,7 @@ import { siteMetadata as config } from '../gatsby-config';
  */
 const isProduction = process.env.NODE_ENV === 'production';
 
-const HTML = (props) => {
+const HTML = props => {
   const helmet = Helmet.rewind();
   const openGraphUrl = isProduction ? `${config.url}/share.png` : '/share.png';
 
@@ -40,7 +40,10 @@ const HTML = (props) => {
         <meta property="twitter:image" content={openGraphUrl} />
       </head>
       <body>
-        <div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
+        <a class="skip-main" href="#main-content" aria-label="Skip to Main Content" tabIndex="0">
+          Skip to Main Content
+        </a>
+        <div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} tabIndex="-1" />
         {postBodyComponents}
       </body>
     </html>

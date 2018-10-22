@@ -39,7 +39,7 @@ const AboutPage = ({ location, data }) => {
   const renderImage = data => {
     let queryPath = data.allContentfulAsset.edges[0].node;
 
-    console.log('query path: ', queryPath);
+    //console.log('query path: ', queryPath);
 
     if (queryPath) {
       return <WhoAmI data={queryPath} />;

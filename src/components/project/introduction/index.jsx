@@ -21,9 +21,9 @@ const ProjectIntroduction = ({ title, description, text }) => {
         <h1 className="title" tabIndex="0">
           {title}
         </h1>
-        <h6 className="description" tabIndex="0">
+        <h2 className="description" tabIndex="0">
           {description}
-        </h6>
+        </h2>
         <p className="lead" tabIndex="0">
           {text}
         </p>

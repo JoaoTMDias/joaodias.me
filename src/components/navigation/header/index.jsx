@@ -66,7 +66,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <TopBar id="page-header" role="banner">
+      <TopBar id="page-header">
         <Row key="header" className="l__row">
           <Branding />
           <LargeNavigation />

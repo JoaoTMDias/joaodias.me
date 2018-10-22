@@ -9,9 +9,7 @@ import { rem, lighten } from 'polished';
  * @class VerticalTimelineElement
  * @extends {Component}
  */
-const VerticalTimelineElement = ({
-  id, children, icon, iconStyle, date, position, className, style,
-}) => (
+const VerticalTimelineElement = ({ id, children, icon, iconStyle, date, position, className, style }) => (
   <Item id={id} className={`${className} ${position} timeline--item`} style={style}>
     <div>
       <Icon style={iconStyle} className="icon bounce-in">
@@ -262,7 +260,7 @@ const Content = styled.div`
     font-family: ${props => props.theme.bodyFontFamily};
     font-size: ${rem('16px')};
     text-text-transform: uppercase;
-    color: ${props => lighten(0.36, props.theme.gray9)};
+    color: ${props => lighten(0.56, props.theme.gray9)};
   }
 
   @media ${props => props.theme.breakpointMedium} {

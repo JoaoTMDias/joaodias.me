@@ -202,7 +202,7 @@ const Wrapper = styled.section`
 
   .disclaimer {
     font-size: ${rem('12px')};
-    color: ${props => props.theme.gray6};
+    color: ${props => props.theme.gray8};
     font-weight: 300;
   }
 `;

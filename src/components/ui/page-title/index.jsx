@@ -20,7 +20,7 @@ class PageTitle extends PureComponent {
     function setScrollParallax() {
       parallax.style.setProperty(
         '--scrollparallax',
-        (document.body.scrollTop || document.documentElement.scrollTop) * speed,
+        (document.body.scrollTop || document.documentElement.scrollTop) * speed
       );
       window.requestAnimationFrame(setScrollParallax);
     }
@@ -29,9 +29,7 @@ class PageTitle extends PureComponent {
   }
 
   render() {
-    const {
-      title, subtitle, children, transparent, center, isProject,
-    } = this.props;
+    const { title, subtitle, children, transparent, center, isProject } = this.props;
 
     return (
       <Container className="l__container l__container l__section utilities--above-the-fold" transparent={transparent}>
@@ -100,7 +98,7 @@ const Row = styled.div`
     `};
 `;
 
-const Subtitle = styled.h6`
+const Subtitle = styled.h2`
   font-family: ${props => props.theme.bodyFontFamily};
   color: ${props => props.theme.gray9} !important;
   text-align: ${props => (props.center ? 'center' : 'left')};

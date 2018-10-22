@@ -20,7 +20,7 @@ import Footer from '../components/navigation/footer';
 class ProjectPage extends PureComponent {
   componentDidMount() {
     const items = Array.from(document.querySelectorAll('.l__project h2, .l__project img, .l__project a'));
-    console.log('items: ', items);
+    // console.log('items: ', items);
 
     items.map(item => {
       item.tabIndex = 0;

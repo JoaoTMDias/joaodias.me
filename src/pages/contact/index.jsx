@@ -26,7 +26,7 @@ const ContactPage = ({ location }) => (
           subtitle="Let's work together."
           containerBackgroundColor="var(--color-white, #ffffff)"
         />
-        <div className="l__container">
+        <div id="main-content" className="l__container">
           <Form />
         </div>
         <CallToActionWrapper>

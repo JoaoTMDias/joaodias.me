@@ -13,7 +13,7 @@ import FooterWave from './wave/index';
 import FooterContent from './content/index';
 
 const Footer = () => (
-  <Wrapper className="l__container l__section" role="contentinfo">
+  <Wrapper className="l__container l__section">
     <FooterContent />
   </Wrapper>
 );

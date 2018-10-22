@@ -52,10 +52,12 @@ const IndexPage = ({ location, data }) => {
     return <p>Loading...</p>;
   };
 
-  let focusElement = document.querySelector('[href="#main-content"]');
+  if (typeof document !== 'undefined') {
+    let focusElement = document.querySelector('[href="#main-content"]');
 
-  if (focusElement) {
-    focusElement.focus();
+    if (focusElement) {
+      focusElement.focus();
+    }
   }
 
   return (

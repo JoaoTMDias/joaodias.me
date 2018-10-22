@@ -17,7 +17,7 @@ class GracefulImage extends PureComponent {
   }
 
   handleImageOnLoad() {
-    console.log('imagem carregada com sucesso');
+    //console.log('imagem carregada com sucesso');
 
     this.setState({
       imageHasLoadedClassName: IMAGE_FADE_IN_CLASS,
@@ -25,15 +25,13 @@ class GracefulImage extends PureComponent {
   }
 
   handleImageOnError() {
-    console.log('erro a carregar');
+    console.info('erro a carregar');
   }
 
   render() {
     const { imageHasLoadedClassName } = this.state;
 
-    const {
-      alt, src, width, height, placeholder,
-    } = this.props;
+    const { alt, src, width, height, placeholder } = this.props;
     return (
       <Container
         style={{
