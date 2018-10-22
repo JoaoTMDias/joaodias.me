@@ -37,9 +37,6 @@ const Layout = ({ children, data }) => (
     `}
     render={data => (
       <React.Fragment>
-        <a className="skip-main" href="#main-content" aria-label="Skip to Main Content" tabIndex="0">
-          Skip to Main Content
-        </a>
         <ThemeProvider theme={theme}>
           <div id="page-content" tabIndex="-1">
             <Helmet
