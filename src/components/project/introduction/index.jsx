@@ -15,7 +15,7 @@ const ProjectIntroduction = ({ title, description, text }) => {
     if (pageTitle) {
       pageTitle.focus();
     }
-  });
+  }
 
   return (
     <Wrapper className="l__row">
