@@ -40,7 +40,7 @@ class PageTitle extends PureComponent {
           <Subtitle className={styles.subtitle} center={center}>
             {subtitle}
           </Subtitle>
-          <Anchor />
+          <Link />
         </Row>
         {children}
       </Container>
@@ -130,7 +130,7 @@ const fadeInDown = keyframes`
   }
 `;
 
-const Anchor = styled(ScrollDownArrow)`
+const Link = styled(ScrollDownArrow)`
   animation-name: ${fadeInDown};
   animation-duration: 1000ms;
   animation-delay: 1000ms;

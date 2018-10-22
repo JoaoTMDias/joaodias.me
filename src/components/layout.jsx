@@ -20,8 +20,8 @@ import favicon194 from '../../static/favicon-194x194.png';
 import maskIcon from '../../static/safari-pinned-tab.svg';
 import appleTouchIcon from '../../static/apple-touch-icon.png';
 
-const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!../assets/styles/global/'
-  + '_settings.scss');
+const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!../assets/styles/global/' +
+  '_settings.scss');
 
 // Layout Component
 const Layout = ({ children, data }) => (
@@ -37,8 +37,11 @@ const Layout = ({ children, data }) => (
     `}
     render={data => (
       <React.Fragment>
+        <a className="skip-main" href="#main-content" aria-label="Skip to Main Content" tabIndex="0">
+          Skip to Main Content
+        </a>
         <ThemeProvider theme={theme}>
-          <div id="page-content">
+          <div id="page-content" tabIndex="-1">
             <Helmet
               htmlAttributes={{
                 lang: 'en',

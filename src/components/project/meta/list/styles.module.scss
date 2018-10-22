@@ -20,14 +20,14 @@
 .title {
   margin-bottom: $global-margin * 1;
   font-weight: 600;
-  color: $gray9;
+  color: $gray5;
 }
 
 li {
   font-size: rem-calc(14);
 
   &:not(:first-child) {
-    color: $gray6;
+    color: $gray9;
     font-weight: 400;
   }
 

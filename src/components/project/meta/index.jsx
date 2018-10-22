@@ -17,19 +17,19 @@ const ProjectMeta = ({ skills, tools, client, date }) => (
   <Wrapper className="l__project l__section fadeInUp">
     <ProjectMetaList title="Skills">
       {skills.map((skill, index) => (
-        <li key={`${index}`} tabIndex="0">{`${skill}`}</li>
+        <li key={`${index}`} aria-label={`Skill: ${skill}`} tabIndex="0">{`${skill}`}</li>
       ))}
     </ProjectMetaList>
     <ProjectMetaList title="Tools">
       {tools.map((tool, index) => (
-        <li key={`${index}`} tabIndex="0">{`${tool}`}</li>
+        <li key={`${index}`} aria-label={`Tool: ${tool}`} tabIndex="0">{`${tool}`}</li>
       ))}
     </ProjectMetaList>
     <ProjectMetaList title="Date">
-      <li tabIndex="0">{`${date}`}</li>
+      <li aria-label={`Date: ${date}`} tabIndex="0">{`${date}`}</li>
     </ProjectMetaList>
     <ProjectMetaList title="Client">
-      <li tabIndex="0">{`${client}`}</li>
+      <li aria-label={`Client: ${client}`} tabIndex="0">{`${client}`}</li>
     </ProjectMetaList>
   </Wrapper>
 );

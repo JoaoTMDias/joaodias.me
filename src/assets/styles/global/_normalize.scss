@@ -551,11 +551,29 @@ template {
 }
 
 .skip-main {
-    left:-999px;
-    position:absolute;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-    z-index:-999;
+    left: -999px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index:-2;
+
+    &:focus,
+    &:active {
+      background: $white;
+      color: $primary-color;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: rem-calc(24);
+      width: auto;
+      height: auto;
+      overflow: auto;
+      right: 0;
+      text-decoration: underline;
+      text-align: center;
+      z-index: 101;
+      outline: 1px dashed $gray7;
+    }
 }
