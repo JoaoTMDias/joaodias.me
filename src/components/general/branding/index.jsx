@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styled from 'styled-components';
 
 const Branding = () => (
-  <Brand to="/" aria-label="João Dias logo">
+  <Brand to="/" aria-label="João Dias logo" tabIndex="0">
     <Logo id="logo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
       <circle className="brand__circle" cx="24" cy="24" r="24" fill="#fff" />
       <path
