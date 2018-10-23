@@ -9,9 +9,12 @@ import React, { PureComponent } from 'react';
  */
 class ContentPage extends PureComponent {
   componentDidMount() {
+    const skipButton = document.querySelector('.skip-main');
     let mainContent = document.querySelector('#main-content');
 
-    if (mainContent) {
+    if (skipButton && mainContent) {
+      skipButton.blur();
+      console.log('focus');
       mainContent.focus();
     }
   }
