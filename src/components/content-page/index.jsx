@@ -8,6 +8,13 @@ import React, { PureComponent } from 'react';
  * @param {*} param0
  */
 class ContentPage extends PureComponent {
+  componentDidMount() {
+    let mainContent = document.querySelector('#main-content');
+
+    if (mainContent) {
+      mainContent.focus();
+    }
+  }
   render() {
     const { children } = this.props;
     return (
