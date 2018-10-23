@@ -551,29 +551,28 @@ template {
 }
 
 .skip-main {
-    left: -999px;
-    position: absolute;
-    top: auto;
+  width: calc(100% - #{rem-calc(160)});
+  text-align: center;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  z-index: 1;
+  padding: rem-calc(16);
+  margin: 0 auto;
+  text-decoration: underline;
+
+
+  &:not(:focus) {
+    white-space: nowrap;
     width: 1px;
     height: 1px;
     overflow: hidden;
-    z-index:1000;
-
-    &:focus,
-    &:active {
-      background: $white;
-      color: $primary-color;
-      position: fixed;
-      top: 0;
-      left: 0;
-      padding: rem-calc(24);
-      width: auto;
-      height: auto;
-      overflow: auto;
-      right: 0;
-      text-decoration: underline;
-      text-align: center;
-      z-index: 1000;
-      outline: 1px dashed $gray7;
-    }
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+  }
 }

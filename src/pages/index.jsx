@@ -70,16 +70,17 @@ const IndexPage = ({ location, data }) => {
         </Wrapper>
         <CallToActionWrapper>
           <CallToActionItem
+            subtitle="Want it all on paper?"
+            title="Check out my resumé"
+            linkText="Download in PDF"
+            linkURL="/resume/resume-joaodias-en.pdf"
+            isFile
+          />
+          <CallToActionItem
             subtitle="João Dias"
             title="Know more about me"
             linkText="Visit the About page"
             linkURL="/about/"
-          />
-          <CallToActionItem
-            subtitle="Like reading?"
-            title="My latest thoughts"
-            linkText="Visit my Blog on Medium.com"
-            linkURL="/contact/"
           />
         </CallToActionWrapper>
         <Footer />
