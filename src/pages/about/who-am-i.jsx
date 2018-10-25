@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
+import styled, { keyframes } from 'styled-components';
 
 /**
  *
@@ -18,7 +19,13 @@ import styles from './styles.module.scss';
 class WhoAmI extends PureComponent {
   renderImage(data) {
     if (data) {
-      return <Img fluid={data.fluid} title={data.title} alt={data.alt} fadeIn />;
+      return (
+        <Container>
+          <Shape>
+            <Img fluid={data.fluid} title={data.title} alt={data.alt} fadeIn />
+          </Shape>
+        </Container>
+      );
     }
 
     return false;
@@ -29,9 +36,9 @@ class WhoAmI extends PureComponent {
     return (
       <section id="who-am-i" className="l__container l__section">
         <div className={`l__row ${styles.whoAmI}`}>
-          <figure id="who-am-i-image" className={styles.whoAmI__image}>
+          <div id="who-am-i-image" className={styles.whoAmI__image}>
             {this.renderImage(data)}
-          </figure>
+          </div>
           <div id="who-am-i-text" className={styles.whoAmI__text}>
             <h3 className={styles.whoAmI__title}>I make stuff for the web.</h3>
             <h4 className={styles.whoAmI__lead}>
@@ -51,6 +58,67 @@ class WhoAmI extends PureComponent {
     );
   }
 }
+
+const spin = keyframes`
+  to {
+    transform: rotate(1turn);
+  }
+`;
+
+const morph = keyframes`
+  from {border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;}
+  to {border-radius: 40% 60%;}
+`;
+
+const Container = styled.figure`
+  width: 100%;
+  height: 100%;
+  animation-name: ${spin};
+  animation-duration: 12000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  position: relative;
+`;
+
+const Shape = styled.div`
+  overflow: hidden;
+
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transition: border-radius 1s ease-out;
+    animation-name: ${morph};
+    animation-duration: 10000ms;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-play-state: running;
+  }
+
+  img,
+  source {
+    width: 110% !important;
+    height: 110% !important;
+    position: absolute;
+    left: -5% !important;
+    top: -5% !important;
+    display: flex;
+    animation-name: ${spin};
+    animation-duration: 14000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    overflow: hidden;
+  }
+`;
 
 WhoAmI.propTypes = {
   // eslint-disable-next-line

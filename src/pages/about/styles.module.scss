@@ -50,27 +50,17 @@
   }
   &__image {
     position: relative;
-
-    > div,
-    .gatsby-image-wrapper {
-      overflow: visible;
-    }
-
-    img,
-    source {
-      position: relative;
-      width: 100%;
-      height: auto;
-      overflow: hidden;
-      transform: translateY(3rem) rotate(-16deg);
-      clip-path: circle(0% at center);
-      opacity: 0;
-      animation-name: imageRadialClipPathAnimation;
-      animation-duration: 1000ms;
-      animation-timing-function: $ease-out-back;
-      animation-delay: 500ms;
-      animation-fill-mode: forwards;
-      animation-direction: initial;
+    border: 1px dashed rgba($gray4, 0.4);
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border-radius: 50%;
+      border: 1px dashed rgba($gray4, 0.4);
+      transform: scale(1.42);
     }
   }
   &__text {
