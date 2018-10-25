@@ -10,7 +10,7 @@ import { Link } from 'gatsby';
 import styles from './styles.module.scss';
 
 const BottomNavigation = () => (
-  <div className={styles.container} role="navigation">
+  <nav className={styles.container}>
     <ul className={`l__row ${styles.wrapper}`}>
       <li className={styles.item} title="Go to Homepage">
         <Link
@@ -173,7 +173,7 @@ const BottomNavigation = () => (
         </Link>
       </li>
     </ul>
-  </div>
+  </nav>
 );
 
 export default BottomNavigation;

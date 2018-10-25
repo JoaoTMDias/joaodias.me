@@ -549,30 +549,3 @@ template {
   scroll-behavior: smooth;
   overflow: hidden;
 }
-
-.skip-main {
-  width: calc(100% - #{rem-calc(160)});
-  text-align: center;
-  position: absolute;
-  top: 8px;
-  left: 0;
-  right: 0;
-  background-color: $white;
-  z-index: 1;
-  padding: rem-calc(16);
-  margin: 0 auto;
-  text-decoration: underline;
-
-
-  &:not(:focus) {
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
-  }
-}

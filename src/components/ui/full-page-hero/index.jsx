@@ -9,7 +9,6 @@ import Typing from 'react-typing-animation';
 import { responsiveTypography } from '../../../helpers/helpers';
 
 import HelloAnimation from '../../hello/index';
-import ScrollDownArrow from './scroll-down-arrow';
 
 /**
  * Full Page Hero
@@ -25,7 +24,6 @@ class HomePageHero extends PureComponent {
               <Subtitle>I'm João, a web developer and designer.</Subtitle>
             </Typing>
           </Text>
-          <ScrollDownArrow />
 
           {/* <Paragraph className="fadeInUp">
             I'm also the author &amp; host of a&nbsp;
@@ -44,7 +42,8 @@ export default HomePageHero;
  */
 const Hero = styled.article`
   background-color: ${props => props.theme.white};
-  height: 80vh;
+  min-height: ${rem('480px')};
+  max-height: 50vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;

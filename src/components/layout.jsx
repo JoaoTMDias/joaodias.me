@@ -51,8 +51,7 @@ const Layout = ({ children, data }) => (
               title="joaodias.me - Welcome"
               meta={[
                 { charset: 'utf-8' },
-                { name: 'description', content: 'Sample' },
-                { name: 'keywords', content: 'sample, something' },
+                { name: 'description', content: 'Joao Dias' },
                 {
                   name: 'viewport',
                   content:
@@ -62,6 +61,7 @@ const Layout = ({ children, data }) => (
                 { name: 'MobileOptimized', content: '375' },
                 { name: 'mobile-web-app-capable', content: 'yes' },
                 { name: 'msapplication-TileColor', content: '#f64f52' },
+                { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
               ]}
               link={[
                 {

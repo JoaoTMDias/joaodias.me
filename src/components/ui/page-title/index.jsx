@@ -2,9 +2,8 @@
  * Import Libraries
  */
 import React, { PureComponent } from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import ScrollDownArrow from '../full-page-hero/scroll-down-arrow';
 
 /**
  * Styling
@@ -40,7 +39,6 @@ class PageTitle extends PureComponent {
           <Subtitle className={styles.subtitle} center={center}>
             {subtitle}
           </Subtitle>
-          <ScrollDownArrow />
         </Row>
         {children}
       </Container>
@@ -53,8 +51,8 @@ const Container = styled.section`
   margin: 0 auto;
   align-items: center;
   height: 64vh;
-  min-height: 280px;
-  max-height: 760px;
+  min-height: ${rem('280px')};
+  max-height: ${rem('560px')};
   text-align: center;
   background-color: transparent;
   background-color: ${props => (props.transparent ? 'transparent' : `${props.theme.white}`)};

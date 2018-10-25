@@ -2,13 +2,14 @@
 .container {
   width: 100%;
   background-color: darken($gray9, 10%);
-  height: 3rem;
-  min-height: $navbar-height;
-  margin: 0 auto;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
   bottom: 0;
   position: fixed; //border-top: 1px solid #EBEBEB;
   box-shadow: 0px -2px 0px darken($gray9, 10%);
   z-index: 11;
+
   @include breakpoint(large) {
     display: none;
     visibility: hidden;
@@ -19,13 +20,15 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  height: $navbar-height;
+  height: 100%;
 }
 
 .item {
   width: 100%;
+  height: 100%;
   list-style-type: none;
   text-align: center;
+
   &:hover {
     font-weight: 500;
   }
@@ -39,12 +42,28 @@
 .link {
   background-color: transparent;
   height: $navbar-height;
+  min-height: $navbar-height;
+
   width: 100%;
+  height: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   transition: all 200ms ease-in-out;
+
+  @supports (padding-top: constant(safe-area-inset-top)) {
+    --safe-area-inset-top: constant(safe-area-inset-top);
+    justify-content: flex-start;
+    height: calc(#{$navbar-height} + var(--safe-area-inset-top));
+  }
+
+  @supports (padding-top: env(safe-area-inset-top)) {
+    --safe-area-inset-top: env(safe-area-inset-top);
+    justify-content: flex-start;
+    height: calc(#{$navbar-height} + var(--safe-area-inset-top));
+  }
 
   &__label,
   &__icon {
@@ -66,11 +85,11 @@
   }
 
   &__filled {
-      display: none;
+    display: none;
   }
 
   &__stroke {
-      display: flex;
+    display: flex;
   }
 
   &.active {
@@ -83,11 +102,11 @@
       }
 
       &__filled {
-          display: flex;
+        display: flex;
       }
 
       &__stroke {
-          display: none;
+        display: none;
       }
     }
   }
