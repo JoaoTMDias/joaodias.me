@@ -94,7 +94,7 @@ const Shape = styled.div`
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     transition: border-radius 1s ease-out;
     animation-name: ${morph};
-    animation-duration: 10000ms;
+    animation-duration: 8000mss;
     animation-timing-function: ease-in-out;
     animation-delay: 0s;
     animation-iteration-count: infinite;
@@ -112,7 +112,7 @@ const Shape = styled.div`
     top: -5% !important;
     display: flex;
     animation-name: ${spin};
-    animation-duration: 14000ms;
+    animation-duration: 12000ms;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: reverse;
