@@ -40,7 +40,7 @@ class PageTitle extends PureComponent {
           <Subtitle className={styles.subtitle} center={center}>
             {subtitle}
           </Subtitle>
-          <Link />
+          <ScrollDownArrow />
         </Row>
         {children}
       </Container>
@@ -116,26 +116,6 @@ const Title = styled.h1`
     letter-spacing: 0.85px;
     line-height: 1.2;
   }
-`;
-
-const fadeInDown = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(${rem('-24px')});
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const Link = styled(ScrollDownArrow)`
-  animation-name: ${fadeInDown};
-  animation-duration: 1000ms;
-  animation-delay: 1000ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: ${props => props.theme.easeOutBack};
 `;
 
 export default PageTitle;

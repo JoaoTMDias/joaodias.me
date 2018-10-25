@@ -31,8 +31,8 @@ class LastPlayedSong extends PureComponent {
 
   componentWillUnmount() {
     this.state = {
-     LastPlayedSong: [],
-    }
+      LastPlayedSong: [],
+    };
   }
 
   fetchLatestSong() {

@@ -14,7 +14,6 @@ class ContentPage extends PureComponent {
 
     if (skipButton && mainContent) {
       skipButton.blur();
-      console.log('focus');
       mainContent.focus();
     }
   }

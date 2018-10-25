@@ -37,11 +37,11 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    return window.addEventListener('scroll', debounce(this.handleScroll, 16));
+    return document.addEventListener('scroll', debounce(this.handleScroll, 16));
   }
 
   componentWillUnmount() {
-    return window.removeEventListener('scroll', debounce(this.handleScroll, 16));
+    return document.removeEventListener('scroll', debounce(this.handleScroll, 16));
   }
 
   /**
@@ -52,12 +52,13 @@ class Header extends React.Component {
    */
   handleScroll() {
     const nav = document.querySelector('.utilities--above-the-fold');
+    const body = document.body || document.documentElement;
     if (nav) {
       const ScrollPosition = getScrollPosition();
       if (ScrollPosition.y >= 64) {
-        document.body.classList.add('fixed-nav');
+        body.classList.add('fixed-nav');
       } else if (ScrollPosition.y < 64) {
-        document.body.classList.remove('fixed-nav');
+        body.classList.remove('fixed-nav');
       }
     }
 

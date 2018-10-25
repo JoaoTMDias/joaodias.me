@@ -60,12 +60,29 @@ const circleArrow = keyframes`
   }
 `;
 
+const fadeInDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(${rem('-24px')});
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const Anchor = styled.a`
   width: auto;
   margin: 0 auto;
   justify-content: flex-start;
   margin-top: ${rem('24px')};
   transition: transform 125ms ${props => props.theme.easeOutCirc};
+  animation-name: ${fadeInDown};
+  animation-duration: 1000ms;
+  animation-delay: 1000ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ${props => props.theme.easeOutBack};
   &:hover {
     cursor: pointer;
     #circle-down {

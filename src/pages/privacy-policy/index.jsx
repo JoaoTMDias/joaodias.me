@@ -48,12 +48,8 @@ const PrivacyPolicyPage = ({ location, data }) => {
               <hr />
               {privacyPolicyArray.map(item => (
                 <Details key={item.node.id} id={`${item.node.id}`}>
-                  <summary className="title">
-                    {`${item.node.summary}`}
-                  </summary>
-                  <p className="description">
-                    {`${item.node.description.description}`}
-                  </p>
+                  <summary className="title">{`${item.node.summary}`}</summary>
+                  <p className="description">{`${item.node.description.description}`}</p>
                   <hr />
                 </Details>
               ))}
@@ -120,6 +116,14 @@ const Details = styled.details`
 
     @media ${props => props.theme.breakpointLarge} {
       font-size: ${rem('24px')};
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      outline-color: $gray4;
+      outline-width: 1px;
+      outline-style: dashed;
     }
   }
 

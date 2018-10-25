@@ -2,7 +2,8 @@ import axios from 'axios';
 import { LAST_FM_URL } from './config';
 
 export default {
-  getLatestSong() {
-    return axios.get(`${LAST_FM_URL}`);
+  async getLatestSong() {
+    const result = await axios.get(`${LAST_FM_URL}`);
+    return await result;
   },
 };

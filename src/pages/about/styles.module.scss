@@ -51,23 +51,26 @@
   &__image {
     position: relative;
 
-    img {
+    > div,
+    .gatsby-image-wrapper {
+      overflow: visible;
+    }
+
+    img,
+    source {
       position: relative;
       width: 100%;
       height: auto;
+      overflow: hidden;
+      transform: translateY(3rem) rotate(-16deg);
+      clip-path: circle(0% at center);
+      opacity: 0;
       animation-name: imageRadialClipPathAnimation;
       animation-duration: 1000ms;
       animation-timing-function: $ease-out-back;
       animation-delay: 500ms;
       animation-fill-mode: forwards;
       animation-direction: initial;
-      border: 16px solid $gray0;
-      border-bottom: 64px solid $gray0;
-      box-shadow: 0 0 16px -6px rgba(0, 0, 0, 0.5);
-      overflow: hidden;
-      transform: translateY(3rem) rotate(-16deg);
-      clip-path: circle(0% at center);
-      opacity: 0;
     }
   }
   &__text {
