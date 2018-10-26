@@ -40,8 +40,14 @@ class WhoAmI extends PureComponent {
             {this.renderImage(data)}
           </div>
           <div id="who-am-i-text" className={styles.whoAmI__text}>
-            <h3 className={styles.whoAmI__title}>I make stuff for the web.</h3>
-            <h4 className={styles.whoAmI__lead}>
+            <h3
+              className={styles.whoAmI__title}
+              aria-label="Section Title: About Me. Description: I make stuff for the web."
+              tabIndex="0"
+            >
+              I make stuff for the web.
+            </h3>
+            <h4 className={styles.whoAmI__lead} tabIndex="0">
               I’m João — an interface designer and frontend developer based in Coimbra, Portugal.
             </h4>
             <p>

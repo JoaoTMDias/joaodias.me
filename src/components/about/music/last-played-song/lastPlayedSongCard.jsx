@@ -9,7 +9,10 @@ import styled from 'styled-components';
 // ///////////////////////////////
 const LastPlayedSongCard = props => (
   <LastPlayedSong>
-    <a href={props.song.url} title="Listen this song on Last.fm">
+    <a
+      href={props.song.url}
+      title={`Click/Enter to listen to ${props.song.name} by ${props.song.artist['#text']} on Last.fm`}
+    >
       <Cover>
         <AlbumCover
           src={props.song.image[2]['#text']}
@@ -21,12 +24,16 @@ const LastPlayedSongCard = props => (
 
     <InfoContainer>
       <h2 className="track">
-        <a href={props.song.url} title="Listen this song on Last.fm">
+        <a href={props.song.url} aria-label={`Song Name: ${props.song.name}`} title={`${props.song.name}`} tabIndex="0">
           {props.song.name}
         </a>
       </h2>
-      <p className="artist">{props.song.artist['#text']}</p>
-      <span className="album">{props.song.album['#text']}</span>
+      <p className="artist" aria-label={`Artist/Band Name: ${props.song.artist['#text']}`} tabIndex="0">
+        {props.song.artist['#text']}
+      </p>
+      <span className="album" aria-label={`Album Name: ${props.song.album['#text']}`} tabIndex="0">
+        {props.song.album['#text']}
+      </span>
     </InfoContainer>
   </LastPlayedSong>
 );

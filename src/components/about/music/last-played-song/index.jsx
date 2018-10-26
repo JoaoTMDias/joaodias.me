@@ -63,7 +63,7 @@ class LastPlayedSong extends PureComponent {
     return (
       <section id="last-played-song" className="l__container l__section">
         <div className="l__row">
-          <Title>Currently listening to...</Title>
+          <Title tabIndex="0">Currently listening to...</Title>
           {this.renderLastPlayedSong()}
         </div>
       </section>

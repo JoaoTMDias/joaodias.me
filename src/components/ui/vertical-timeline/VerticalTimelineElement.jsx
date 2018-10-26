@@ -9,8 +9,14 @@ import { rem, lighten } from 'polished';
  * @class VerticalTimelineElement
  * @extends {Component}
  */
-const VerticalTimelineElement = ({ id, children, icon, iconStyle, date, position, className, style }) => (
-  <Item id={id} className={`${className} ${position} timeline--item`} style={style}>
+const VerticalTimelineElement = ({ id, children, icon, iconStyle, date, position, className, style, description }) => (
+  <Item
+    id={id}
+    className={`${className}${position} timeline--item`}
+    style={style}
+    aria-label={`${description}`}
+    tabIndex="0"
+  >
     <div>
       <Icon style={iconStyle} className="icon bounce-in">
         {icon}
@@ -30,6 +36,7 @@ VerticalTimelineElement.propTypes = {
   icon: PropTypes.element,
   iconStyle: PropTypes.shape({}),
   style: PropTypes.shape({}),
+  description: PropTypes.string,
   date: PropTypes.string,
   position: PropTypes.string,
 };
@@ -88,6 +95,13 @@ const Item = styled.div`
   }
   &:last-child {
     margin-bottom: 0;
+  }
+
+  &:focus {
+    outline-color: ${props => props.theme.gray6};
+    outline-width: 1px;
+    outline-style: dashed;
+    outline-offset: -1px;
   }
 
   @media ${props => props.theme.breakpointLarge} {

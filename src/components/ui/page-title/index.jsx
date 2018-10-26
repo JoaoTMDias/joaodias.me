@@ -33,10 +33,16 @@ class PageTitle extends PureComponent {
     return (
       <Container className="l__container l__container l__section utilities--above-the-fold" transparent={transparent}>
         <Row className="l__row parallax" center={center} isProject={isProject}>
-          <Title className={`${styles.title}`} center={center} isProject={isProject}>
+          <Title
+            className={`${styles.title}`}
+            center={center}
+            isProject={isProject}
+            aria-label={`Page Title: ${title}`}
+            tabIndex="0"
+          >
             {title}
           </Title>
-          <Subtitle className={styles.subtitle} center={center}>
+          <Subtitle className={styles.subtitle} center={center} aria-label={`Page Subtitle: ${subtitle}`} tabIndex="0">
             {subtitle}
           </Subtitle>
         </Row>

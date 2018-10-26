@@ -52,7 +52,7 @@ class CallToActionItem extends Component {
           id={`${id}`}
           to={linkURL}
           className={`${styles.item} callToAction`}
-          aria-label="Download file"
+          aria-label="Click/Enter to download my resumé"
           onMouseMove={this.handleMouseMove}
         >
           <div className={styles.item__inner}>
@@ -68,7 +68,13 @@ class CallToActionItem extends Component {
       );
     }
     return (
-      <Link id={`${id}`} to={linkURL} className={`${styles.item} callToAction`} onMouseMove={this.handleMouseMove}>
+      <Link
+        id={`${id}`}
+        to={linkURL}
+        className={`${styles.item} callToAction`}
+        aria-label="Click/Enter to go to another page"
+        onMouseMove={this.handleMouseMove}
+      >
         <div className={styles.item__inner}>
           <header className={`fadeIn ${styles.item__top}`}>
             <p className={styles.item__subtitle}>{subtitle}</p>

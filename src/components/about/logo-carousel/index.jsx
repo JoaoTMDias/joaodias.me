@@ -11,11 +11,13 @@ import { rem } from 'polished';
 const LogoCarousel = () => (
   <Wrapper id="logo-list" className="l__section">
     <header className="l__row">
-      <h5 className="title">In the recent years, I've helped to design/develop projects for some big players</h5>
+      <h5 className="title" tabIndex="0">
+        In the recent years, I've helped to design/develop projects for some big players
+      </h5>
     </header>
-    <ListContainer className="l__row">
-      <List>
-        <li className="list__item">
+    <ListContainer className="l__row" tabIndex="-1">
+      <List tabIndex="0">
+        <li className="list__item" aria-labelledby="title-vodafone-logo" tabIndex="0">
           <svg
             id="logo-vodafone"
             className="list__image"
@@ -40,7 +42,7 @@ const LogoCarousel = () => (
             />
           </svg>
         </li>
-        <li className="list__item">
+        <li className="list__item" aria-labelledby="title-yorn-logo" tabIndex="0">
           <svg
             id="logo-yorn"
             className="list__image"
@@ -55,7 +57,7 @@ const LogoCarousel = () => (
             />
           </svg>
         </li>
-        <li className="list__item">
+        <li className="list__item" aria-labelledby="title-dtag-logo" tabIndex="0">
           <svg
             id="logo-deutsche-telekom"
             className="list__image"
@@ -74,7 +76,7 @@ const LogoCarousel = () => (
             />
           </svg>
         </li>
-        <li className="list__item">
+        <li className="list__item" tabIndex="0">
           <svg
             id="logo-coca-cola"
             className="list__image"
@@ -93,7 +95,7 @@ const LogoCarousel = () => (
             />
           </svg>
         </li>
-        <li className="list__item">
+        <li className="list__item" tabIndex="0">
           <svg
             id="logo-sony-music"
             className="list__image"
@@ -112,7 +114,7 @@ const LogoCarousel = () => (
             />
           </svg>
         </li>
-        <li className="list__item">
+        <li className="list__item" tabIndex="0">
           <svg
             id="logo-kpmg"
             className="list__image"
@@ -131,7 +133,7 @@ const LogoCarousel = () => (
             />
           </svg>
         </li>
-        <li className="list__item">
+        <li className="list__item" tabIndex="0">
           <svg
             id="logo-ziggo"
             className="list__image"
@@ -166,7 +168,7 @@ const LogoCarousel = () => (
       </List>
     </ListContainer>
     <footer className="l__row">
-      <p className="disclaimer">
+      <p className="disclaimer" tabIndex="0">
         (There are also a few other companies/projects that I would love to share here, but then there are these NDA's
         and legal-s...tuff like that...)
       </p>
@@ -224,7 +226,7 @@ const ListContainer = styled.div`
   }
 `;
 
-const List = styled.ul`
+const List = styled.ol`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -246,6 +248,13 @@ const List = styled.ul`
       flex-direction: row;
       justify-content: center;
       align-items: center;
+
+      &:focus {
+        outline-color: ${props => props.theme.gray6};
+        outline-width: 1px;
+        outline-style: dashed;
+        outline-offset: -1px;
+      }
     }
 
     &__image {
