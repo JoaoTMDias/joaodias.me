@@ -38,7 +38,7 @@ const Layout = ({ children, data }) => (
     render={data => (
       <React.Fragment>
         <ThemeProvider theme={theme}>
-          <div id="page-content" tabIndex="-1">
+          <div id="page-content" aria-label="Top App wrapper. Press tab to navigate to the next item." tabIndex="-1">
             <Helmet
               htmlAttributes={{
                 lang: 'en',
@@ -102,7 +102,9 @@ const Layout = ({ children, data }) => (
             />
 
             <Header key="page-header" />
-            <main key="page-content">{children}</main>
+            <main aria-label="Main Page Content Wrapper. Press Tab to navigate" key="page-content">
+              {children}
+            </main>
 
             <BottomNavigation key="bottom-navigation" />
           </div>

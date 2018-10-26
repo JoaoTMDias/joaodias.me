@@ -70,7 +70,7 @@ class Header extends React.Component {
       <TopBar id="page-header">
         <Row key="header" className="l__row">
           <Branding />
-          <a className="skip-main" href="#main-content" aria-label="Skip to Main Content">
+          <a className="skip-main" href="#main-content" aria-label="Press Enter to skip and go to Main Content">
             Skip to Main Content
           </a>
           <LargeNavigation />
