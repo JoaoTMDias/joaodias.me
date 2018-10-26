@@ -47,9 +47,11 @@ const PrivacyPolicyPage = ({ location, data }) => {
 
               <hr />
               {privacyPolicyArray.map(item => (
-                <Details key={item.node.id} id={`${item.node.id}`}>
-                  <summary className="title">{`${item.node.summary}`}</summary>
-                  <p className="description">{`${item.node.description.description}`}</p>
+                <Details key={item.node.id} id={`${item.node.id}`} arial-labelledby={`details-summary-${item.node.id}`}>
+                  <summary id={`details-summary-${item.node.id}`} className="title" tabIndex="0">{`${
+                    item.node.summary
+                  }`}</summary>
+                  <p className="description" tabIndex="0">{`${item.node.description.description}`}</p>
                   <hr />
                 </Details>
               ))}
@@ -119,14 +121,6 @@ const Details = styled.details`
     @media ${props => props.theme.breakpointLarge} {
       font-size: ${rem('24px')};
     }
-
-    &:focus,
-    &:hover,
-    &:active {
-      outline-color: $gray4;
-      outline-width: 1px;
-      outline-style: dashed;
-    }
   }
 
   .description {
@@ -136,6 +130,16 @@ const Details = styled.details`
 
     @media ${props => props.theme.breakpointLarge} {
       font-size: ${rem('18px')};
+    }
+  }
+
+  .title,
+  .description {
+    &:focus {
+      outline-color: ${props => props.theme.gray6};
+      outline-width: 1px;
+      outline-style: dashed;
+      outline-offset: -1px;
     }
   }
 `;

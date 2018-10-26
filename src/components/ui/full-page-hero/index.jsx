@@ -19,9 +19,9 @@ class HomePageHero extends PureComponent {
       <Hero className="l__row utilities--above-the-fold">
         <Wrapper>
           <HelloAnimation />
-          <Text>
+          <Text aria-label="Page subtitle: I'm João, a frontend developer and designer." tabIndex="0">
             <Typing speed={50}>
-              <Subtitle>I'm João, a web developer and designer.</Subtitle>
+              <Subtitle>I'm João, a frontend developer and designer.</Subtitle>
             </Typing>
           </Text>
 
