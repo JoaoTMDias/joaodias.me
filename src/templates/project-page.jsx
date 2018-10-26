@@ -61,12 +61,14 @@ class ProjectPage extends PureComponent {
             </div>
             <CallToActionWrapper>
               <CallToActionItem
+                id="cta-home-page"
                 subtitle="Related Project"
                 title="Return to the projects list"
                 linkText="Back to the Homepage"
                 linkURL="/"
               />
               <CallToActionItem
+                id="cta-contacts-page"
                 subtitle="Related Project"
                 title="Let's connect"
                 linkText="Check it out"

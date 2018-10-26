@@ -9,10 +9,12 @@ import classnames from 'classnames';
  */
 import styles from './styles.module.scss';
 
-const CallToActionWrapper = ({ children }) => (
-  <aside className={classnames('l__container', 'l__section', styles.container)}>
-    <div className={classnames('l__row', styles.row)}>{children}</div>
-  </aside>
-);
+const CallToActionWrapper = ({ children }) => {
+  return (
+    <aside className={classnames('l__container', 'l__section', styles.container)}>
+      <div className={classnames('l__row', styles.row)}>{children}</div>
+    </aside>
+  );
+};
 
 export default CallToActionWrapper;

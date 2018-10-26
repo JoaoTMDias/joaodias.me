@@ -69,6 +69,7 @@ const AboutPage = ({ location, data }) => {
           </MainContent>
           <CallToActionWrapper>
             <CallToActionItem
+              id="cta-resume-paper"
               subtitle="Want it all on paper?"
               title="Check out my resumé"
               linkText="Download in PDF"
@@ -76,6 +77,7 @@ const AboutPage = ({ location, data }) => {
               isFile
             />
             <CallToActionItem
+              id="cta-lets-chat"
               subtitle="Have an idea for a project?"
               title="Let's chat!"
               linkText="Visit the Contacts page"

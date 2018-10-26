@@ -31,6 +31,7 @@ const ContactPage = ({ location }) => (
         </div>
         <CallToActionWrapper>
           <CallToActionItem
+            id="cta-resume-pdf"
             subtitle="Want it all on paper?"
             title="Check out my resumé"
             linkText="Download in PDF"
@@ -38,6 +39,7 @@ const ContactPage = ({ location }) => (
             isFile
           />
           <CallToActionItem
+            id="cta-about-page"
             subtitle="João Dias"
             title="UI Designer and Frontend developer, based in Coimbra."
             linkText="Visit the About page"

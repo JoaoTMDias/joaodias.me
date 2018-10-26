@@ -33,6 +33,7 @@ const BlogPage = ({ location }) => (
         </MainContent>
         <CallToActionWrapper>
           <CallToActionItem
+            id="cta-resume-pdf"
             subtitle="Want it all on paper?"
             title="Check out my resumé"
             linkText="Download in PDF"
@@ -40,6 +41,7 @@ const BlogPage = ({ location }) => (
             isFile
           />
           <CallToActionItem
+            id="cta-contacts-page"
             subtitle="Have an idea for a project?"
             title="Let's chat!"
             linkText="Visit the Contacts page"

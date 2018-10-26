@@ -58,12 +58,14 @@ const PrivacyPolicyPage = ({ location, data }) => {
 
           <CallToActionWrapper>
             <CallToActionItem
+              id="cta-home-page"
               subtitle="Read everything?"
               title="Back to the starting point"
-              linkText="Go to the page"
+              linkText="Go to the home page"
               linkURL="/"
             />
             <CallToActionItem
+              id="cta-contacts-page"
               subtitle="Found an issue with this doc?"
               title="Drop me an email"
               linkText="Go to the contacts page"
