@@ -116,7 +116,9 @@ class Form extends PureComponent {
   }
 
   render() {
-    let message = document.querySelector('#success-message');
+    if (typeof document !== 'undefined') {
+      let message = document.querySelector('#success-message');
+    }
 
     if (message) {
       message.focus();
