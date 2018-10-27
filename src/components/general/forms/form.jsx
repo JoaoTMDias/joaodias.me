@@ -18,7 +18,6 @@ const validateEmail = email => {
   return regex.test(String(email).toLowerCase());
 };
 
-
 /**
  * @description Contact Form
  * @date 2018-10-19
@@ -36,6 +35,7 @@ class Form extends PureComponent {
     };
 
     this.handleOnSubmitForm = this.handleOnSubmitForm.bind(this);
+    this.renderSuccessMessage = this.renderSuccessMessage.bind(this);
   }
 
   handleOnSubmitForm(event) {
@@ -58,7 +58,7 @@ class Form extends PureComponent {
   toggleAriaRole() {
     // Check to see if the button is pressed
     let button = document.getElementById('submit');
-    let pressed = button.getAttribute('aria-pressed') === 'true';
+    let pressed = button.getAttribute('aria-disabled') === 'false';
     // Change aria-pressed to the opposite state
     button.setAttribute('aria-pressed', !pressed);
   }
@@ -71,14 +71,16 @@ class Form extends PureComponent {
 
   renderFormButton() {
     let formIsValid = '';
+    let ariaDisabled = 'true';
 
     if (this.state.name.length > 2 && this.state.message.length > 2 && validateEmail(`${this.state.email}`)) {
       formIsValid = 'is-valid';
+      ariaDisabled = 'false';
     }
 
     return (
-      <Submit id="submit" className={`${formIsValid}`} aria-pressed="false" type="submit">
-        Submit
+      <Submit id="submit" className={`${formIsValid}`} aria-disabled={`${ariaDisabled}`} type="submit">
+        Send Message
       </Submit>
     );
   }
@@ -86,15 +88,25 @@ class Form extends PureComponent {
   renderSuccessMessage() {
     if (this.state.wasSent) {
       return (
-        <div className={styles.success}>
-          <figure className={styles.success__image}>
+        <div
+          id="success-message"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+          aria-relevant="statusmessage"
+          className={styles.success}
+          tabIndex="0"
+        >
+          <figure role="image" aria-label="Paperplane icon" className={styles.success__image}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
               <path d="M83.29 12.18a1.4 1.4 0 0 0-1.41 0L56.11 27.43a1.41 1.41 0 1 0 1.43 2.43L76 18.92 41.59 54.66l-17.13-5.24L46.81 36.2a1.41 1.41 0 1 0-1.43-2.42l-25.1 14.84a1.4 1.4 0 0 0-.49 1.92 1.36 1.36 0 0 0 .8.63l20.46 6.26 9 16.43a1.44 1.44 0 0 0 .66.58 1.42 1.42 0 0 0 1.53-.29L62.66 64l19.52 6A1.41 1.41 0 0 0 84 68.67V13.41a1.42 1.42 0 0 0-.71-1.23zM50.15 58.3a1.33 1.33 0 0 0-.25.8v8.6l-6.17-11.22L71 28.19 50.15 58.3zm2.56 11.54V61l6.89 2.11zm28.48-3.07l-27.64-8.45 27.64-39.89z" />
               <path d="M35.12 60.88a1.41 1.41 0 0 0-2 0L20 74a1.39 1.39 0 0 0 0 2 1.38 1.38 0 0 0 2 0l13.12-13.13a1.41 1.41 0 0 0 0-2zM17.63 78.36a1.4 1.4 0 0 0-2 0l-3.22 3.24a1.41 1.41 0 0 0 0 2 1.44 1.44 0 0 0 1 .41 1.4 1.4 0 0 0 1-.41l3.23-3.24a1.41 1.41 0 0 0-.01-2zm14.43 3.16a1.41 1.41 0 0 0-2.4 1 1.45 1.45 0 0 0 .41 1 1.43 1.43 0 0 0 1 .41 1.41 1.41 0 0 0 1-.41 1.45 1.45 0 0 0 .41-1 1.41 1.41 0 0 0-.42-1zm10.46-10.47a1.41 1.41 0 0 0-2 0l-7 7a1.41 1.41 0 0 0 0 2 1.41 1.41 0 0 0 2 0l7-7a1.41 1.41 0 0 0 0-2zm24-.53a1.41 1.41 0 0 0-2 0l-7 7a1.41 1.41 0 0 0 0 2 1.36 1.36 0 0 0 1 .41 1.4 1.4 0 0 0 1-.41l7-7a1.41 1.41 0 0 0 0-2zM51.87 31.17a1.43 1.43 0 0 0-1-.41 1.4 1.4 0 0 0-1.4 1.4 1.43 1.43 0 0 0 .41 1 1.41 1.41 0 0 0 1 .41 1.4 1.4 0 0 0 1.41-1.41 1.41 1.41 0 0 0-.42-.99z" />
             </svg>
           </figure>
-          <h2 className={styles.success__title}>Off it goes!</h2>
-          <p className={styles.success__message}>
+          <h2 aria-label="Status Message: Success" className={styles.success__title} tabIndex="0">
+            Off it goes!
+          </h2>
+          <p aria-label="Status Message description" className={styles.success__message} tabIndex="0">
             Thanks! Your message has been sent to me, so i'll get back to you as soon as I can. In the mean time, feel
             free to browser my site wherever you want.
           </p>
@@ -104,6 +116,12 @@ class Form extends PureComponent {
   }
 
   render() {
+    let message = document.querySelector('#success-message');
+
+    if (message) {
+      message.focus();
+    }
+
     return (
       <div id="contact-form" className={`l__row ${styles.container}`}>
         <form
@@ -113,6 +131,8 @@ class Form extends PureComponent {
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          aria-label="Contact form. Includes a name,email a message inputs."
+          tabIndex="0"
         >
           {this.renderSuccessMessage()}
           <fieldset className={styles.fieldset}>

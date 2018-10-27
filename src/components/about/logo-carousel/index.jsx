@@ -16,7 +16,7 @@ const LogoCarousel = () => (
       </h5>
     </header>
     <ListContainer className="l__row" tabIndex="-1">
-      <List tabIndex="0">
+      <List aria-label="A list of company logos that i've worked for in project in the recent years" tabIndex="0">
         <li className="list__item" aria-labelledby="title-vodafone-logo" tabIndex="0">
           <svg
             id="logo-vodafone"

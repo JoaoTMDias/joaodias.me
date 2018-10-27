@@ -60,8 +60,8 @@ class TextInput extends PureComponent {
 
     return (
       <Wrapper className={`${wrapperClassName} ${focusedClassName}`}>
-        <label className="content" htmlFor={`${id}`}>
-          <span className="label">{`${label}`}</span>
+        <label className="content" htmlFor={`${id}`} aria-labelledby={`${label}-${id}`}>
+          <span id={`${label}-${id}`} className="label">{`${label}`}</span>
           <input
             id={`${id}`}
             name={`${id}`}
@@ -75,6 +75,7 @@ class TextInput extends PureComponent {
             onFocus={() => this.handleEventFocus()}
             onBlur={() => this.handleEventBlur()}
             maxLength={`${maxLength}`}
+            tabIndex="0"
           />
         </label>
         <p className="helper">{`${helperText}`}</p>
@@ -90,91 +91,76 @@ const Wrapper = styled.div`
   padding: 0;
   margin: 0;
 
-  &:first-child {
-    .content {
-        border-bottom-width: 0 !important;
-      }
-    }
-  }
-
-  @media ${props => props.theme.breakpointMedium} {
-
-    &:first-child {
-      .content {
-          border-bottom-width: 2px !important;
-          border-right-width: 0 !important;
-        }
-      }
-    }
-  }
-
   &.is-focused {
     .label {
-        color: ${props => props.theme.primaryColor};
+      color: ${props => props.theme.primaryColor};
     }
     .content {
-      border: 2px solid ${props => props.theme.primaryColor};
+      outline-width: 2px;
+      outline-style: solid;
+      outline-color: ${props => props.theme.primaryColor};
+      outline-offset: -2px;
     }
   }
 
-.content,
-    .label,
-    .helper {
-      transition: all 200ms ease-in-out;
-    }
+  .content,
+  .label,
+  .helper {
+    transition: all 200ms ease-in-out;
+  }
 
-    .content {
-      position: relative;
-      background-color: ${props => props.theme.white};
-      border-radius: 0;
-      padding: ${rem('4px')} ${rem('14px')} 0 ${rem('14px')};
-      border: 2px solid ${props => props.theme.gray2};
-      width: 100%;
+  .content {
+    position: relative;
+    background-color: ${props => props.theme.white};
+    border-radius: 0;
+    padding: ${rem('4px')} ${rem('14px')} 0 ${rem('14px')};
+    border: 2px solid ${props => props.theme.gray2};
+    width: 100%;
 
-      &:hover {
-        .label {
-          color: ${props => props.theme.primaryColor};
-        }
+    &:hover {
+      .label {
+        color: ${props => props.theme.primaryColor};
       }
     }
-    .label {
-      font-size: ${rem('10px')};
-      color: ${props => props.theme.gray6};
-      margin-bottom: 0;
-      width: 100%;
-      display: block;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+  }
+  .label {
+    font-size: ${rem('10px')};
+    color: ${props => props.theme.gray6};
+    margin-bottom: 0;
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .input {
+    margin: 0;
+    color: ${props => props.theme.gray9};
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    height: ${rem('32px')};
+    background-color: ${props => props.theme.white};
+
+    &::placeholder {
+      color: ${props => props.theme.gray8} !important;
     }
 
-    .input {
-      margin: 0;
-      color: ${props => props.theme.gray9};
+    &:focus {
       border: none;
       box-shadow: none;
-      padding: 0;
-      height: ${rem('32px')};
-      background-color: ${props => props.theme.white};
-
-      &::placeholder {
-        color: ${props => props.theme.gray8} !important;
-      }
-
-      &:focus {
-        border: none;
-        box-shadow: none;
-      }
     }
-    .helper {
-      font-size: ${rem('14px')};
-      font-style: italic;
-      color: ${props => props.theme.gray4};
-      margin-top: ${rem('2px')};
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: 0;
-      text-align: left;
-    }
+  }
+  .helper {
+    font-size: ${rem('14px')};
+    font-style: italic;
+    color: ${props => props.theme.gray4};
+    margin-top: ${rem('2px')};
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-align: left;
+  }
 `;
 
 TextInput.defaultProps = {

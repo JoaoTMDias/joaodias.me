@@ -60,10 +60,23 @@
   justify-content: center;
   padding: $global-padding * 1.5;
 
+  &:focus {
+    outline-width: 1px;
+    outline-style: dashed;
+    outline-color: $white;
+    outline-offset: -3px;
+  }
+
   &__title,
   &__message {
     color: $white;
     text-align: center;
+
+    &:focus {
+      outline-width: 1px;
+      outline-style: dashed;
+      outline-color: $white;
+    }
   }
 
   &__image {
