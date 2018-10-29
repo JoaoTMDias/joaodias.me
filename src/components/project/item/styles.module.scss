@@ -102,6 +102,13 @@
   &:hover {
     .inner {
       opacity: 1;
+      transform: scale(1, 1);
+    }
+
+    .header,
+    .content,
+    .footer {
+      opacity: 1;
     }
   }
 }
@@ -111,7 +118,8 @@
   padding: rem-calc(24);
   cursor: pointer;
   transition: all 500ms $ease-out-expo;
-  transform: translate3d(0, 0, 0);
+  transform-origin: left center;
+  transform: scale(0, 1);
   opacity: 0;
   background-repeat: no-repeat;
   background-position: center;
@@ -138,8 +146,13 @@
 .header,
 .content,
 .footer {
+  transition-propert: opacity;
+  transition-duration: 500ms;
+  transition-delay: 400ms;
+  transition-timing-function: $ease-out-expo;
   display: flex;
   flex: 1;
+  opacity: 0;
 }
 
 .header {
