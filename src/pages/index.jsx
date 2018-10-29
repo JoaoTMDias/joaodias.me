@@ -34,6 +34,7 @@ const IndexPage = ({ location, data }) => {
             return (
               <PortfolioItem
                 key={`${item.node.id}`}
+                id={`${item.node.id}`}
                 to={item.node.slug}
                 title={item.node.title}
                 theme={item.node.theme}

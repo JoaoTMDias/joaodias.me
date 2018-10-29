@@ -10,6 +10,8 @@
 **/
 
 .item {
+  position: relative;
+  overflow: hidden;
   @include xy-gutters($gutter-position: bottom);
 
   &:nth-child(n) {
@@ -43,13 +45,31 @@
   }
 
   &:hover {
-    .inner {
-      opacity: 1;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
+
+    &::before {
+      --gradientSize: #{rem-calc(800)};
     }
   }
 
-  span {
+  &::before {
+    --gradientSize: 0;
+    --gradientX: 64px;
+    --gradientY: 64px;
+    content: '';
     position: absolute;
+    top: var(--gradientY);
+    left: var(--gradientX);
+    width: var(--gradientSize);
+    height: var(--gradientSize);
+    background: radial-gradient(circle closest-side, rgba(255, 255, 255, 0.5), transparent);
+    transform: translate(-50%, -50%);
+    transition: width 200ms ease, height 200ms ease;
+    z-index: 4;
+  }
+
+  span {
+    position: relative;
     top: 0;
     right: 0;
     bottom: 0;
@@ -78,6 +98,12 @@
     width: 100%;
     height: 100%;
   }
+
+  &:hover {
+    .inner {
+      opacity: 1;
+    }
+  }
 }
 
 .inner {
@@ -94,6 +120,9 @@
   align-items: flex-start;
   justify-content: center;
   height: rem-calc(375);
+  position: relative;
+  width: 100%;
+  height: 100%;
 
   @include breakpoint(medium) {
     height: rem-calc(414);
@@ -143,7 +172,7 @@
 }
 
 .type {
-  opacity: 0.6;
+  opacity: 0.8;
   font-family: $body-font-family;
   margin-bottom: $global-margin * 0.5;
   text-transform: uppercase;

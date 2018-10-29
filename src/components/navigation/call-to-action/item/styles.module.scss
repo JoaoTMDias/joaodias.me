@@ -39,6 +39,7 @@
 
     &::before {
       --size: #{rem-calc(320)};
+      z-index: 3;
     }
   }
 

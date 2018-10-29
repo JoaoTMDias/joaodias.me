@@ -29,8 +29,6 @@ class CallToActionItem extends Component {
         item: item,
       });
     }
-    console.log('item: ', item);
-    console.log('id: ', this.props.id);
   }
 
   handleMouseMove(event) {
@@ -38,8 +36,8 @@ class CallToActionItem extends Component {
     if (item) {
       let x = event.pageX - item.offsetLeft - item.offsetParent.offsetLeft;
       let y = event.pageY - item.offsetTop - item.offsetParent.offsetTop;
-      item.style.setProperty('--x', x + 'px');
-      item.style.setProperty('--y', y + 'px');
+      item.style.setProperty('--x', `${x}px`);
+      item.style.setProperty('--y', `${y}px`);
     }
   }
 

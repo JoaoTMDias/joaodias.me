@@ -1,7 +1,7 @@
 /**
  * Import libraries
  */
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
@@ -14,51 +14,64 @@ import Img from 'gatsby-image';
  */
 import styles from './styles.module.scss';
 
-const PortfolioItem = project => {
-  if (project.cover) {
-    return (
-      <Item
-        to={`/work/${project.to}`}
-        title={project.alt}
-        className={`item--${project.theme} ${styles.item}`}
-        data-theme={`${project.theme}`}
-        aria-label={`Open project`}
-      >
-        <LazyLoadImage
-          fluid={project.cover}
-          title={project.alt}
-          alt={project.alt}
-          style={{
-            position: 'absolute',
-          }}
-          backgroundColor={`${project.color}`}
-          imgStyle={{
-            position: 'relative',
-            objectFit: 'cover',
-            objectPosition: 'center center',
-          }}
-          aspectRatio={project.cover.aspectRatio}
-          fadeIn
-        />
-        <div className={styles.inner} style={{ backgroundColor: `${project.color}` }}>
-          <header className={styles.header}>
-            <h3 className={`type ${styles.type}`}>{project.type}</h3>
-            <h2 className={`title ${styles.title}`}>{project.title}</h2>
-          </header>
-
-          <div className={styles.content}>
-            <p className={`description ${styles.description}`}>{project.description}</p>
-          </div>
-
-          <footer className={styles.footer}>
-            <p className={styles.seemore}>View Project</p>
-          </footer>
-        </div>
-      </Item>
-    );
-  } else {
-    return null;
+class PortfolioItem extends Component {
+  constructor(props) {
+    super(props);
   }
+
+  render() {
+    const { cover, id, to, alt, theme, color, type, title, description } = this.props;
+
+    if (cover) {
+      return (
+        <Item
+          id={`${id}`}
+          to={`/work/${to}`}
+          title={alt}
+          className={`item--${theme} ${styles.item}`}
+          data-theme={`${theme}`}
+          aria-label={`Open project`}
+        >
+          <LazyLoadImage
+            fluid={cover}
+            title={alt}
+            alt={alt}
+            style={{
+              position: 'absolute',
+            }}
+            backgroundColor={`${color}`}
+            imgStyle={{
+              position: 'relative',
+              objectFit: 'cover',
+              objectPosition: 'center center',
+            }}
+            aspectRatio={cover.aspectRatio}
+            fadeIn
+          />
+          <div className={`${styles.inner} inner`} style={{ backgroundColor: `${color}` }}>
+            <header className={styles.header}>
+              <h3 className={`type ${styles.type}`}>{type}</h3>
+              <h2 className={`title ${styles.title}`}>{title}</h2>
+            </header>
+
+            <div className={styles.content}>
+              <p className={`description ${styles.description}`}>{description}</p>
+            </div>
+
+            <footer className={styles.footer}>
+              <p className={styles.seemore}>View Project</p>
+            </footer>
+          </div>
+        </Item>
+      );
+    } else {
+      return null;
+    }
+  }
+}
+
+PortfolioItem.propTypes = {
+  id: PropTypes.string,
 };
 
 export default PortfolioItem;
@@ -67,6 +80,8 @@ export default PortfolioItem;
 // STYLED COMPONENTS
 // ///////////////////
 const Item = styled(Link)`
+  position: relative;
+  overflow: hidden;
   background-color: ${props => props.theme.gray2};
   background-repeat: no-repeat;
   background-position: center center !important;
@@ -85,28 +100,7 @@ const Item = styled(Link)`
       .description {
         color: ${props.theme.white};
       }
-    `} &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
-    z-index: -1;
-    opacity: 0;
-    transform: scale(0.95);
-    transition: all 250ms ease-in-out;
-    will-change: transform;
-  }
-
-  &:hover {
-    &:before {
-      opacity: 1;
-      transform: scale(1);
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
-    }
-  }
+    `};
 `;
 
 const LazyLoadImage = styled(Img)`
