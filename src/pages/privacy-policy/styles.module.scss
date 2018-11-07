@@ -31,7 +31,7 @@
 }
 
 .intro {
-    font-family: $body-font-family;
+    font-family: var(--body-font-family, $body-font-family);
     color: $gray7;
     @include responsive-typography(small, h6);
     columns: 1;
@@ -41,7 +41,7 @@
         columns: 2;
         column-gap: $global-margin;
     }
-    
+
     @include breakpoint(large) {
         @include responsive-typography(large, h5);
         columns: 2;
@@ -54,7 +54,7 @@
     margin-bottom: $global-margin;
     color: $gray9;
 
-    
+
     @include responsive-typography(small, h3);
 
     @include breakpoint(medium) {

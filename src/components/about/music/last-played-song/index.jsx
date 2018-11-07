@@ -72,10 +72,10 @@ class LastPlayedSong extends PureComponent {
 }
 
 const Title = styled.h2`
-  color: #9e9eb3;
+  color: var(--color-gray8, ${props => props.theme.gray8});
   text-align: center;
   font-size: 1.125rem;
-  font-family: ${props => props.theme.bodyFontFamily};
+  font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
 `;
 
 export default LastPlayedSong;

@@ -4,7 +4,7 @@ const manifestOptions = {
   description: 'Portfolio of João Dias',
   start_url: 'https://www.joaodias.me/',
   background_color: '#ffffff',
-  theme_color: '#f64f52',
+  theme_color: '#e81b1f',
   display: 'standalone',
   icons: [
     {

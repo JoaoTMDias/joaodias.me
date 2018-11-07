@@ -184,9 +184,9 @@ const Wrapper = styled.section`
   position: relative;
 
   .title {
-    font-family: ${props => props.theme.bodyFontFamily};
+    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
     font-size: ${rem('18px')};
-    color: ${props => props.theme.gray8};
+    color: var(--color-gray8, ${props => props.theme.gray8});
     letter-spacing: 0;
   }
 
@@ -204,7 +204,7 @@ const Wrapper = styled.section`
 
   .disclaimer {
     font-size: ${rem('12px')};
-    color: ${props => props.theme.gray8};
+    color: var(--color-gray8, ${props => props.theme.gray8});
     font-weight: 300;
   }
 `;

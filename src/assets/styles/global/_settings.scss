@@ -17,18 +17,18 @@ $gray3: #dad0d0;
 $gray4: #cec0c0;
 $gray5: #c0aeae;
 $gray6: #b09a9a;
-$gray7: #988484;
-$gray8: #786868;
-$gray9: #463d3d;
+$gray7: #9d8282;
+$gray8: #806565;
+$gray9: #4b3b3b;
 $black: darken(#463d3d, 0.5);
 $foundation-palette: (
-  primary: #f64f52,
-  alternate: #4f55f6,
-  blend: #33369e,
+  primary: #e81b1f,
+  alternate: #1b22e8,
+  blend: #111595,
   secondary: $gray9,
-  success: #3adb76,
-  warning: #ffae00,
-  alert: #cc4b37,
+  success: #1be87b,
+  warning: #f2b681,
+  alert: #e87b1b,
 );
 $alternate-color: get-color(alternate);
 $blend-color: get-color(blend);
@@ -238,7 +238,7 @@ $anchor-text-decoration-hover: none;
 // $callout-margin: 0 0 1rem 0;
 // $callout-padding: 1rem;
 // $callout-font-color: $body-font-color;
-// $callout-font-color-alt: $body-background;
+// $callout-font-color-alt: var(--body-background, $body-background);
 // $callout-radius: $global-radius;
 // $callout-link-tint: 30%;
 // 14. Card
@@ -283,7 +283,7 @@ $anchor-text-decoration-hover: none;
 // 17. Dropdown
 // ------------
 // $dropdown-padding: 1rem;
-// $dropdown-background: $body-background;
+// $dropdown-background: var(--body-background, $body-background);
 // $dropdown-border: 1px solid $gray4;
 // $dropdown-font-size: 1rem;
 // $dropdown-width: 300px;

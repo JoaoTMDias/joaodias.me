@@ -1,4 +1,4 @@
 #vertical-timeline {
-  background-color: $black;
-  background-image: linear-gradient($gray8, $black);
+  background-color: var(--color-black, $black);
+  background-image: linear-gradient($gray8, var(--color-black, $black));
 }

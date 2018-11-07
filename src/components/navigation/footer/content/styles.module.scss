@@ -19,7 +19,7 @@
       display: flex;
       padding-top: $global-padding;
       padding-bottom: $global-padding;
-      margin-top: $global-margin * 3 !important; 
+      margin-top: $global-margin * 3 !important;
       margin-right: auto;
       margin-bottom: 0;
       margin-left: auto;
@@ -41,7 +41,7 @@
 
     &__left,
     &__right {
-      font-family: $body-font-family;
+      font-family: var(--body-font-family, $body-font-family);
       letter-spacing: 0;
       font-size: rem-calc(12);
       margin-top: $global-margin;

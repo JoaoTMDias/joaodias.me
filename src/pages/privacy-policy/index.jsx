@@ -16,6 +16,7 @@ import ContentPage from '../../components/content-page';
 import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import Footer from '../../components/navigation/footer';
+import A11yPageTitle from '../../components/page-title';
 
 /**
  *
@@ -31,6 +32,8 @@ const PrivacyPolicyPage = ({ location, data }) => {
     <Layout>
       <BodyClassName className="privacy-policy">
         <ContentPage>
+          <A11yPageTitle title="Privacy Policy" />
+
           <Meta location={location} />
           <PageTitle title="Privacy Policy" />
 
@@ -124,7 +127,7 @@ const Details = styled.details`
   }
 
   .description {
-    color: ${props => props.theme.gray8};
+    color: var(--color-gray8, ${props => props.theme.gray8});
     margin-left: ${rem('24px')};
     font-size: ${rem('16px')};
 

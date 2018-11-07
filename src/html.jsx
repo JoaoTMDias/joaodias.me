@@ -40,7 +40,10 @@ const HTML = props => {
         <meta property="twitter:image" content={openGraphUrl} />
       </head>
       <body>
-        <div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} tabIndex="-1" />
+        <a className="skip-main" href="#main-content" aria-label="Press Enter to skip and go to Main Content">
+          Skip to Main Content
+        </a>
+        <div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
         {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/tota11y/0.1.6/tota11y.min.js" /> */}
       </body>

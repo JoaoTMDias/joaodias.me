@@ -46,26 +46,6 @@
 
   &:hover {
     box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
-
-    &::before {
-      --gradientSize: #{rem-calc(800)};
-    }
-  }
-
-  &::before {
-    --gradientSize: 0;
-    --gradientX: 64px;
-    --gradientY: 64px;
-    content: '';
-    position: absolute;
-    top: var(--gradientY);
-    left: var(--gradientX);
-    width: var(--gradientSize);
-    height: var(--gradientSize);
-    background: radial-gradient(circle closest-side, rgba(255, 255, 255, 0.5), transparent);
-    transform: translate(-50%, -50%);
-    transition: width 200ms ease, height 200ms ease;
-    z-index: 4;
   }
 
   span {
@@ -163,8 +143,8 @@
 .content {
   align-items: center;
   p {
-    font-family: $body-font-family;
-    opacity: 0.8;
+    font-family: var(--body-font-family, $body-font-family);
+    opacity: 1;
     text-rendering: geometricPrecision;
   }
 }
@@ -185,8 +165,7 @@
 }
 
 .type {
-  opacity: 0.8;
-  font-family: $body-font-family;
+  font-family: var(--body-font-family, $body-font-family);
   margin-bottom: $global-margin * 0.5;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -207,7 +186,7 @@
 }
 
 .seemore {
-  opacity: 0.6 !important;
+  opacity: 1;
   margin-bottom: 0;
   @include responsive-typography(medium, h6);
   @include breakpoint(large) {

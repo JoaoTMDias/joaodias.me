@@ -27,7 +27,7 @@ const Wrapper = styled.footer`
   bottom: 0;
   align-items: center;
   position: relative;
-  background-color: ${props => props.theme.white};
+  background-color: var(--color-white)};
   margin-top: ${rem('32px')};
   padding-top: ${rem('96px')};
 

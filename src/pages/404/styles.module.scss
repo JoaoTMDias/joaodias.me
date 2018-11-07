@@ -71,7 +71,7 @@
 }
 
 .subtitle {
-  font-family: $body-font-family;
+  font-family: var(--body-font-family, $body-font-family);
   text-align: left;
   line-height: 1.09375;
   color: $gray8;
@@ -90,7 +90,7 @@
 
 .code {
   font-size: rem-calc(18);
-  font-family: $body-font-family;
+  font-family: var(--body-font-family, $body-font-family);
   color: $gray8;
   margin-bottom: ($global-margin * 1.5);
 }
@@ -110,6 +110,6 @@
   }
 
   a {
-    color: $primary-color;
+    color: var(--color-primary, $primary-color);
   }
 }

@@ -166,7 +166,7 @@ const Item = styled.div`
     }
     &--work,
     &--education {
-      color: ${props => props.theme.white};
+      color: var(--color-white)};
     }
   }
 `;
@@ -216,11 +216,11 @@ const Icon = styled.span`
 const Content = styled.div`
   position: relative;
   margin-left: ${rem('60px')};
-  background: ${props => props.theme.gray8};
+  background: transparent;
   border-radius: ${rem('4px')};
   padding: ${rem('16px')};
   border: ${props => props.theme.gray9};
-  box-shadow: 0 3px 0 ${props => props.theme.gray9};
+  box-shadow: 0 4px 16px rgb(74, 70, 70);
 
   &.is-hidden {
     visibility: hidden;
@@ -252,7 +252,7 @@ const Content = styled.div`
   .date {
     font-size: ${rem('13px')};
     font-weight: 500;
-    color: ${props => props.theme.gray6};
+    color: var(--color-white)};
     display: inline-block;
     float: left;
     padding: ${rem('12.8px')} 0;
@@ -267,14 +267,14 @@ const Content = styled.div`
   .title {
     font-size: ${rem('20px')};
     font-weight: 400;
-    color: ${props => lighten(0.64, props.theme.gray9)};
+    color: ${props => lighten(0.8, props.theme.white)};
   }
 
   .subtitle {
-    font-family: ${props => props.theme.bodyFontFamily};
+    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
     font-size: ${rem('16px')};
     text-text-transform: uppercase;
-    color: ${props => lighten(0.56, props.theme.gray9)};
+    color: ${props => lighten(0.7, props.theme.gray9)};
   }
 
   @media ${props => props.theme.breakpointMedium} {

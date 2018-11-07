@@ -47,7 +47,7 @@ const Wrapper = styled.nav`
 const List = styled.ul`
   justify-content: center;
   flex-direction: row;
-  font-family: ${props => props.theme.bodyFontFamily};
+  font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
   max-height: ${props => props.theme.navbarHeight};
   width: auto;
   display: none;
@@ -80,7 +80,7 @@ const Item = styled.li`
     padding: 0;
     font-family: inherit;
     font-size: ${rem('12px')};
-    color: ${props => props.theme.gray8};
+    color: var(--color-gray8, ${props => props.theme.gray8});
     letter-spacing: ${rem('2px')};
     line-height: ${rem('48px')};
     text-transform: uppercase;
@@ -92,8 +92,8 @@ const Item = styled.li`
     position: relative;
 
     &.active {
-      color: ${props => props.theme.primaryColor};
-      border-bottom: 2px dotted ${props => props.theme.primaryColor};
+      color: var(--color-primary, ${props => props.theme.primaryColor});
+      border-bottom: 2px dotted var(--color-primary, ${props => props.theme.primaryColor});
     }
 
     &:before {
@@ -111,7 +111,7 @@ const Item = styled.li`
 
     &:hover,
     &:focus {
-      color: ${props => props.theme.primaryColor};
+      color: var(--color-primary, ${props => props.theme.primaryColor});
 
       &:after {
         transform: translate3d(0%, 0, 0);

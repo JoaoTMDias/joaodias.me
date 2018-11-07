@@ -34,7 +34,7 @@
   }
   .icon {
     svg {
-      fill: $primary-color;
+      fill: var(--color-primary, $primary-color);
     }
   }
 }
@@ -53,18 +53,6 @@
   flex-direction: column;
   transition: all 200ms ease-in-out;
 
-  @supports (padding-top: constant(safe-area-inset-top)) {
-    --safe-area-inset-top: constant(safe-area-inset-top);
-    justify-content: flex-start;
-    height: calc(#{$navbar-height} + var(--safe-area-inset-top));
-  }
-
-  @supports (padding-top: env(safe-area-inset-top)) {
-    --safe-area-inset-top: env(safe-area-inset-top);
-    justify-content: flex-start;
-    height: calc(#{$navbar-height} + var(--safe-area-inset-top));
-  }
-
   &__label,
   &__icon {
     opacity: 0.7;
@@ -74,7 +62,7 @@
     width: 100%;
     font-size: rem-calc(10);
     line-height: 1.428571429;
-    font-family: $body-font-family;
+    font-family: var(--body-font-family, $body-font-family);
     color: $white;
   }
 

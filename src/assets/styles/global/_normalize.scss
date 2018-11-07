@@ -16,35 +16,44 @@
 // 5. Setting @viewport causes scrollbars to overlap content in IE11 and Edge, so
 //    we force a non-overlapping, non-auto-hiding scrollbar to counteract.
 // 6. Change the default tap highlight to be completely transparent in iOS.
-$colors: (
-  primary: $primary-color,
-  alternate: $alternate-color,
-  blend: $blend-color,
-  white: $white,
-  gray0: $gray0,
-  gray1: $gray1,
-  gray2: $gray2,
-  gray3: $gray3,
-  gray4: $gray4,
-  gray5: $gray5,
-  gray6: $gray6,
-  gray7: $gray7,
-  gray8: $gray8,
-  gray9: $gray9,
-  black: $black
-)
-
-:root {
-  // each item in color map
-  @each $name,
-    $color in $colors {
-    --color-#{$name}: $color;
-  }
-}
+@include css-vars(
+  (
+    --color-primary: var(--color-primary, $primary-color),
+    --color-select: var(--color-primary, $primary-color),
+    --color-white: $white,
+    --color-gray0: $gray0,
+    --color-gray1: $gray1,
+    --color-gray3: $gray3,
+    --color-gray2: $gray2,
+    --color-gray4: $gray4,
+    --color-gray5: $gray5,
+    --color-gray6: $gray6,
+    --color-gray7: $gray7,
+    --color-gray8: $gray8,
+    --color-gray9: $gray9,
+    --color-black: $black,
+    --body-background: $body-background,
+    --body-font-color: $body-font-color,
+    --heading-font-family: $header-font-family,
+    --body-font-family: $body-font-family,
+    --global-margin: $global-margin,
+    --global-padding: $global-padding,
+    --global-font-size: $global-font-size,
+    --global-width: $global-width,
+    --global-lineheight: $ratio,
+    --global-weight-normal: $global-weight-normal,
+    --global-weight-bold: $global-weight-bold,
+    --global-radius: $global-radius,
+    --body-antialiased: $body-antialiased,
+    --anchor-text-decoration: $anchor-text-decoration,
+    --anchor-text-decoration-hover: $anchor-text-decoration-hover,
+    --default-timing-function: $default-timing-function,
+  )
+);
 
 html {
   box-sizing: border-box; // 1
-  font-family: $body-font-family;
+  font-family: var(--body-font-family, $body-font-family);
   font-size: 16px; // 2
   line-height: $ratio;
   height: 100%; // 3
@@ -89,12 +98,12 @@ section {
 
 body {
   margin: 0; // 1
-  font-family: $body-font-family;
+  font-family: var(--body-font-family, $body-font-family);
   font-size: $global-font-size;
   font-weight: $global-weight-normal;
   line-height: $global-lineheight;
-  color: $black;
-  background-color: $body-background; // 2
+  color: var(--color-black, $black);
+  background-color: var(--body-background, $body-background); // 2
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -244,8 +253,14 @@ a {
 
 a,
 p,
-h1, h2, h3, h4, h5, h6,
-ol, ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
 li,
 button {
   &:focus {
@@ -272,7 +287,7 @@ a:not([href]):not([tabindex]) {
   }
 
   &:focus {
-    outline-color: $primary-color;
+    outline-color: var(--color-primary, $primary-color);
     outline-width: 2px;
     outline-style: dashed;
   }
@@ -379,7 +394,7 @@ label {
 //
 // Credit: https://github.com/suitcss/base/
 button:focus {
-  outline-color: $primary-color;
+  outline-color: var(--color-primary, $primary-color);
   outline-width: 1px;
   outline-style: dashed;
 }
@@ -549,7 +564,7 @@ template {
 ::-moz-selection,
 ::selection {
   color: $white;
-  background: $primary-color;
+  background: var(--color-primary, $primary-color);
 }
 
 #main-content {

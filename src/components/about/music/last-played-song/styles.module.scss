@@ -83,7 +83,7 @@ $INFO_MARGIN_2: ($RECORD_SIZE / 2);
 }
 
 .name {
-    font-family: $body-font-family;
+    font-family: var(--body-font-family, $body-font-family);
     font-size: rem-calc(18);
 }
 

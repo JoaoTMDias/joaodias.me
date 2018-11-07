@@ -60,7 +60,7 @@ const Layout = ({ children, data }) => (
                 { name: 'HandheldFriendly', content: 'true' },
                 { name: 'MobileOptimized', content: '375' },
                 { name: 'mobile-web-app-capable', content: 'yes' },
-                { name: 'msapplication-TileColor', content: '#f64f52' },
+                { name: 'msapplication-TileColor', content: '#e81b1f' },
                 { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
               ]}
               link={[
@@ -96,7 +96,7 @@ const Layout = ({ children, data }) => (
                 {
                   rel: 'mask-icon',
                   href: `${maskIcon}`,
-                  color: '#f64f52',
+                  color: '#e81b1f',
                 },
               ]}
             />

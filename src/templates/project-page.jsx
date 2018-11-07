@@ -10,6 +10,7 @@ import Layout from '../components/layout';
 import { ProjectHero, ProjectMeta, ProjectIntroduction } from '../components/project';
 import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
 import Footer from '../components/navigation/footer';
+import A11yPageTitle from '../components/page-title';
 
 /**
  * Product Page Template
@@ -35,6 +36,8 @@ class ProjectPage extends PureComponent {
       return (
         <Layout>
           <div id="content-page">
+            <A11yPageTitle title={`Project page title: ${post.title}`} />
+
             <Helmet>
               <title>{`${post.title} | João Dias`}</title>
               <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8" />

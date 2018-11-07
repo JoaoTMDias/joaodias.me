@@ -15,35 +15,23 @@ const FooterContent = () => (
       <div className="left">
         <ul className="list">
           <li className="item">
-            <Link to="/">
-Homepage
-            </Link>
+            <Link to="/">Homepage</Link>
           </li>
           <li className="item">
-            <Link to="/about/">
-About
-            </Link>
+            <Link to="/about/">About</Link>
           </li>
           <li className="item">
-            <Link to="/contact/">
-Contact
-            </Link>
+            <Link to="/contact/">Contact</Link>
           </li>
         </ul>
       </div>
       <div className="right">
         <ul className="list">
           <li className="item">
-            <Link to="/privacy-policy/">
-Privacy Policy
-            </Link>
+            <Link to="/privacy-policy/">Privacy Policy</Link>
           </li>
           <li className="item">
-            <p>
-              {new Date().getFullYear()}
-              {' '}
-&copy; João Dias. All Rights Reserved
-            </p>
+            <p>{new Date().getFullYear()} &copy; João Dias. All Rights Reserved</p>
           </li>
         </ul>
       </div>
@@ -55,7 +43,7 @@ Privacy Policy
 const Wrapper = styled.div`
   width: 100%;
   position: relative;
-  background-color: ${props => props.theme.white};
+  background-color: var(--color-white)};
   height: auto;
 
   display: flex;
@@ -85,7 +73,7 @@ const Wrapper = styled.div`
   }
 
   .left {
-    color: ${props => props.theme.gray8};
+    color: var(--color-gray8, ${props => props.theme.gray8});
     text-align: center;
     justify-content: center;
 
@@ -107,7 +95,7 @@ const Wrapper = styled.div`
 
   .left,
   .right {
-    font-family: ${props => props.theme.bodyFontFamily};
+    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
     letter-spacing: 0;
     text-align: center;
     font-size: ${rem('12px')};
@@ -135,7 +123,7 @@ const Wrapper = styled.div`
     }
 
     p {
-      color: ${props => props.theme.gray6};
+      color: var(--color-gray8, ${props => props.theme.gray8});
       flex-wrap: wrap;
     }
 
@@ -157,10 +145,10 @@ const Wrapper = styled.div`
 
     .item {
       flex-wrap: wrap;
-      color: ${props => props.theme.gray8};
+      color: var(--color-gray8, ${props => props.theme.gray8});
 
       a {
-        color: ${props => props.theme.gray8};
+        color: var(--color-gray8, ${props => props.theme.gray8});
       }
     }
   }

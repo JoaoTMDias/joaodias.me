@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    font-family: $body-font-family;
+    font-family: var(--body-font-family, $body-font-family);
     max-height: $navbar-height;
     margin: 0 auto;
     max-width: rem-calc(220);
@@ -57,8 +57,8 @@
       }
       &:hover,
       &:focus {
-        color: $primary-color;
-        fill: $primary-color;
+        color: var(--color-primary, $primary-color);
+        fill: var(--color-primary, $primary-color);
         &:after {
           transform: translate3d(0%, 0, 0);
         }

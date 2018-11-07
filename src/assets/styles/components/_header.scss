@@ -2,7 +2,7 @@ body {
   &.fixed-nav {
     &.dark {
       #page-header {
-        background-color: $black;
+        background-color: var(--color-black, $black);
       }
     }
     #page-header {

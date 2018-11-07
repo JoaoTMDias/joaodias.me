@@ -11,9 +11,8 @@ import ContentPage from '../../components/content-page';
 import MainContent from '../../components/general/main-content';
 import asyncComponent from '../../components/hoc/asyncComponent';
 import PageTitle from '../../components/ui/page-title';
-
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
-import { VerticalTimeline, VerticalTimelineElement } from '../../components/ui/vertical-timeline/index';
+import A11yPageTitle from '../../components/page-title';
 
 const WhoAmI = asyncComponent(() => {
   return import(`./who-am-i`);
@@ -51,6 +50,8 @@ const AboutPage = ({ location, data }) => {
     <Layout>
       <BodyClassName className="about">
         <ContentPage>
+          <A11yPageTitle title="About the Author" />
+
           <Meta title="About" location={location} />
           <PageTitle
             title="About me"

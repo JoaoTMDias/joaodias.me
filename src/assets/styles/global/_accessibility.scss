@@ -35,7 +35,7 @@
   margin-right: auto;
   margin-left: auto;
 
-  background-color: $primary-color;
+  background-color: var(--color-primary, $primary-color);
   border-radius: rem-calc(36);
   z-index: 1;
 
@@ -54,4 +54,12 @@
     position: absolute;
     top: rem-calc(64);
   }
+}
+
+.show-for-screen-readers {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
 }

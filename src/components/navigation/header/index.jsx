@@ -70,9 +70,6 @@ class Header extends React.Component {
       <TopBar id="page-header">
         <Row key="header" className="l__row">
           <Branding />
-          <a className="skip-main" href="#main-content" aria-label="Press Enter to skip and go to Main Content">
-            Skip to Main Content
-          </a>
           <LargeNavigation />
           <SocialNavigation />
         </Row>
@@ -85,7 +82,7 @@ class Header extends React.Component {
  *  Styling
  */
 const TopBar = styled.header`
-  background-color: ${props => props.theme.white};
+  background-color: var(--color-white)};
   max-height: ${props => props.theme.navbarHeight};
   z-index: 100;
   position: fixed;

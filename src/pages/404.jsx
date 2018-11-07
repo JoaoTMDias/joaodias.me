@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import classnames from 'classnames';
 import BodyClassName from 'react-body-classname';
 import Layout from '../components/layout';
+import A11yPageTitle from '../components/page-title';
 
 import styles from './404/styles.module.scss';
 
@@ -11,9 +12,14 @@ const NotFoundPage = () => (
   <Layout>
     <BodyClassName className="404">
       <div className={classnames('l__container', 'l__row', 'l__section', styles.container)}>
+        <A11yPageTitle title="404 Error. Page wasn't found." />
+
         <Helmet
           title="joaodias.me - Page not Found"
-          meta={[{ name: 'description', content: '404 - Page not found' }, { name: 'keywords', content: 'sample, something' }]}
+          meta={[
+            { name: 'description', content: '404 - Page not found' },
+            { name: 'keywords', content: 'sample, something' },
+          ]}
         />
         <div className={styles.row}>
           <h1 className={styles.title}>Oh, darn it!</h1>
@@ -33,7 +39,12 @@ const NotFoundPage = () => (
           </ul>
         </div>
         <figure className={styles.image}>
-          <img src="https://media.giphy.com/media/9J7tdYltWyXIY/giphy.gif" width="450" height="379" alt="A confused-looking John Travolta" />
+          <img
+            src="https://media.giphy.com/media/9J7tdYltWyXIY/giphy.gif"
+            width="450"
+            height="379"
+            alt="A confused-looking John Travolta"
+          />
         </figure>
       </div>
     </BodyClassName>

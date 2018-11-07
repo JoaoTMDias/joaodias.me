@@ -15,11 +15,14 @@ import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import Footer from '../../components/navigation/footer';
 import Form from '../../components/general/forms/form';
+import A11yPageTitle from '../../components/page-title';
 
 const ContactPage = ({ location }) => (
   <Layout>
     <BodyClassName className="contact">
       <ContentPage>
+        <A11yPageTitle title="Contacts" />
+
         <Meta title="Contacts" location={location} />
         <PageTitle
           title="Contacts"

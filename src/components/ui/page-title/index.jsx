@@ -79,7 +79,7 @@ const Row = styled.div`
   width: 100%;
   will-change: transform;
   padding: ${rem('16px')} !important;
-  background-color: ${props => props.theme.white};
+  background-color: var(--color-white)};
 
   @media ${props => props.theme.breakpointLarge} {
     padding: ${props => (props.isProject ? `${rem('48px')}` : `${rem('48px')} ${rem('16px')}`)} !important;
@@ -103,7 +103,7 @@ const Row = styled.div`
 `;
 
 const Subtitle = styled.h2`
-  font-family: ${props => props.theme.bodyFontFamily};
+  font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
   color: ${props => props.theme.gray9} !important;
   text-align: ${props => (props.center ? 'center' : 'left')};
   font-weight: 300;
@@ -114,7 +114,7 @@ const Title = styled.h1`
   text-align: ${props => (props.center ? 'center' : 'left')};
   font-family: ${props => props.theme.headerFontFamily};
   font-weight: 300;
-  color: ${props => props.theme.primaryColor};
+  color: var(--color-primary, ${props => props.theme.primaryColor});
   letter-spacing: 0.7px;
   @media ${props => props.theme.breakpointMedium} {
     letter-spacing: 0.85px;

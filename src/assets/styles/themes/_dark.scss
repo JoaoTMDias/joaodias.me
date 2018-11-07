@@ -1,13 +1,13 @@
 .dark {
-  background-color: $black;
+  background-color: var(--color-black, $black);
 
   #page-header {
-    background-color: $black;
+    background-color: var(--color-black, $black);
   }
 
   .brand {
     &__circle {
-      fill: $black;
+      fill: var(--color-black, $black);
     }
 
     &__hair {
@@ -47,7 +47,7 @@
   }
 
   .src-components-page-title----styles-module---container---2l4NV {
-    background-color: $black;
+    background-color: var(--color-black, $black);
   }
   // Top Navigation
   .src-components-large-navigation----styles-module---navigation__item---3nWjE {

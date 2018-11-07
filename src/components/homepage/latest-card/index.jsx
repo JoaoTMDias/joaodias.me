@@ -56,7 +56,7 @@ const Wrapper = styled.div`
   }
 
   h3 {
-    font-family: ${props => props.theme.bodyFontFamily};
+    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
     color: ${props => props.theme.gray4};
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -117,7 +117,7 @@ const Card = styled.a`
 
   h2,
   time {
-    color: ${props => props.theme.white};
+    color: var(--color-white)};
     text-transform: capitalize;
   }
 `;

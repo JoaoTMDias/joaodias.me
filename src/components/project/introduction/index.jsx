@@ -42,7 +42,7 @@ const Wrapper = styled.div`
     text-align: left;
     font-family: ${props => props.theme.headerFontFamily};
     font-weight: 300;
-    color: ${props => props.theme.primaryColor};
+    color: var(--color-primary, ${props => props.theme.primaryColor});
     letter-spacing: 0.7px;
 
     font-size: ${rem('32px')};
@@ -59,7 +59,7 @@ const Wrapper = styled.div`
   }
 
   .description {
-    font-family: ${props => props.theme.bodyFontFamily};
+    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
     color: ${props => props.theme.gray9};
     text-align: left;
     margin-bottom: ${rem('16px')};

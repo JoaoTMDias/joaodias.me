@@ -195,7 +195,7 @@ const Submit = styled.button`
   border: 2px solid ${props => props.theme.gray2};
   border-top-width: 0;
   border-radius: 0;
-  background-color: ${props => props.theme.white};
+  background-color: var(--color-white)};
   appearance: none;
   transition: all 200ms;
   pointer-events: none;
@@ -208,7 +208,7 @@ const Submit = styled.button`
 
     &:hover {
       background-color: ${props => props.theme.gray9};
-      color: ${props => props.theme.white};
+      color: var(--color-white)};
       border-color: ${props => props.theme.black};
       padding-top: ${rem('24px')};
       padding-bottom: ${rem('24px')};

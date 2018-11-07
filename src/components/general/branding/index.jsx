@@ -48,7 +48,7 @@ const Logo = styled.svg`
   }
 
   .brand__glasses {
-    fill: ${props => props.theme.primaryColor};
+    fill: var(--color-primary, ${props => props.theme.primaryColor});
   }
 
   &:hover {
@@ -68,7 +68,7 @@ const Logo = styled.svg`
     transform: scale(1.4) rotate(-10deg);
 
     .brand__hair {
-      fill: ${props => props.theme.primaryColor};
+      fill: var(--color-primary, ${props => props.theme.primaryColor});
     }
 
     .brand__glasses {

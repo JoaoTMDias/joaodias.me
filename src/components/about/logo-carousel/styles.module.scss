@@ -26,7 +26,7 @@
     }
   }
   &__title {
-    font-family: $body-font-family;
+    font-family: var(--body-font-family, $body-font-family);
     text-align: center;
     width: 100%;
     font-size: 18px;

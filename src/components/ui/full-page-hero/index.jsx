@@ -41,7 +41,7 @@ export default HomePageHero;
  * Styles
  */
 const Hero = styled.article`
-  background-color: ${props => props.theme.white};
+  background-color: var(--color-white)};
   min-height: ${rem('480px')};
   max-height: 50vh;
   display: flex;
@@ -84,7 +84,7 @@ const Text = styled.div`
 `;
 
 const Subtitle = styled.h2`
-  font-family: ${props => props.theme.bodyFontFamily};
+  font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
   font-weight: 300;
   color: ${props => props.theme.gray9};
   letter-spacing: 0;
@@ -112,7 +112,7 @@ const fadeInUp = keyframes`
 
 
 const Paragraph = styled.p`
-  font-family: ${props => props.theme.bodyFontFamily};
+  font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
   font-weight: 300;
   color: ${props => props.theme.gray6};
   letter-spacing: 0;

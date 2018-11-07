@@ -126,7 +126,7 @@
 
   &__subtitle,
   &__link {
-    font-family: $body-font-family;
+    font-family: var(--body-font-family, $body-font-family);
     font-weight: 400;
   }
 
@@ -134,7 +134,7 @@
     font-family: $header-font-family;
     font-style: italic;
     font-weight: 300;
-    color: $black;
+    color: var(--color-black, $black);
 
     @include responsive-typography(small, h2);
 
@@ -165,7 +165,7 @@
   }
 
   &__link {
-    color: $gray7;
+    color: $gray8;
     text-align: center;
     width: 100%;
     margin: 0 auto;

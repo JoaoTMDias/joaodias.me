@@ -87,18 +87,18 @@ class TextInput extends PureComponent {
 // Styled Components
 const Wrapper = styled.div`
   display: flex;
-  background-color: ${props => props.theme.white};
+  background-color: var(--color-white)};
   padding: 0;
   margin: 0;
 
   &.is-focused {
     .label {
-      color: ${props => props.theme.primaryColor};
+      color: var(--color-primary, ${props => props.theme.primaryColor});
     }
     .content {
       outline-width: 2px;
       outline-style: solid;
-      outline-color: ${props => props.theme.primaryColor};
+      outline-color: var(--color-primary, ${props => props.theme.primaryColor});
       outline-offset: -2px;
     }
   }
@@ -111,7 +111,7 @@ const Wrapper = styled.div`
 
   .content {
     position: relative;
-    background-color: ${props => props.theme.white};
+    background-color: var(--color-white)};
     border-radius: 0;
     padding: ${rem('4px')} ${rem('14px')} 0 ${rem('14px')};
     border: 2px solid ${props => props.theme.gray2};
@@ -119,13 +119,13 @@ const Wrapper = styled.div`
 
     &:hover {
       .label {
-        color: ${props => props.theme.primaryColor};
+        color: var(--color-primary, ${props => props.theme.primaryColor});
       }
     }
   }
   .label {
     font-size: ${rem('10px')};
-    color: ${props => props.theme.gray6};
+    color: var(--color-gray8, ${props => props.theme.gray8});
     margin-bottom: 0;
     width: 100%;
     display: block;
@@ -140,10 +140,10 @@ const Wrapper = styled.div`
     box-shadow: none;
     padding: 0;
     height: ${rem('32px')};
-    background-color: ${props => props.theme.white};
+    background-color: var(--color-white)};
 
     &::placeholder {
-      color: ${props => props.theme.gray8} !important;
+      color: var(--color-gray8, ${props => props.theme.gray8}) !important;
     }
 
     &:focus {
