@@ -7,10 +7,10 @@ import PropTypes from 'prop-types';
  ** @type: functional stateless component
  ** @description: Accessible Page Title for Reach Router
  **********/
-const A11yPageTitle = props => {
+const A11yPageTitle = ({ title }) => {
   return (
     <h1 id="page-title" className="show-for-screen-readers" role="status" aria-live="polite" aria-atomic="true">
-      {props.title}
+      {`Page Title: ${title}`}
     </h1>
   );
 };
@@ -20,7 +20,7 @@ A11yPageTitle.defaultProps = {
 };
 
 A11yPageTitle.propTypes = {
-  title: PropTypes.String,
+  title: PropTypes.string,
 };
 
 export default A11yPageTitle;

@@ -15,7 +15,7 @@
 
   display: flex;
   justify-content: center;
-  outline-color: $gray1;
+  outline-color: var(--color-gray1, $color-gray1);
 
   position: fixed;
   bottom: rem-calc(64);
@@ -43,7 +43,7 @@
 
   &,
   &:focus {
-    color: $white;
+    color: var(--color-white, $color-white);
   }
 
   @include breakpoint(medium) {

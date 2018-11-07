@@ -22,7 +22,6 @@ const ContactPage = ({ location }) => (
     <BodyClassName className="contact">
       <ContentPage>
         <A11yPageTitle title="Contacts" />
-
         <Meta title="Contacts" location={location} />
         <PageTitle
           title="Contacts"

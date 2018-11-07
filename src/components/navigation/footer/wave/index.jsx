@@ -63,7 +63,7 @@ const Wave = styled.div`
 
   .path {
     width: 100%;
-    fill: var(--color-white)};
+    fill: var(--color-white);
     animation-name: ${waveAnimation};
     animation-duration: 20000ms;
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);

@@ -77,12 +77,12 @@ const Anchor = styled.a`
   margin: 0 auto;
   justify-content: flex-start;
   margin-top: ${rem('24px')};
-  transition: transform 125ms ${props => props.theme.easeOutCirc};
+  transition: transform 125ms var(--default-timing-function);
   animation-name: ${fadeInDown};
   animation-duration: 1000ms;
   animation-delay: 1000ms;
   animation-fill-mode: forwards;
-  animation-timing-function: ${props => props.theme.easeOutBack};
+  animation-timing-function: var(--default-timing-function);
   &:hover {
     cursor: pointer;
     #circle-down {
@@ -100,7 +100,7 @@ const Icon = styled.svg`
   float: left;
   width: ${rem('32px')};
   height: ${rem('32px')};
-  transition: transform 125ms ${props => props.theme.easeOutCirc};
+  transition: transform 125ms var(--default-timing-function);
   @media ${props => props.theme.breakpointMedium} {
     width: ${rem('40px')};
     height: ${rem('40px')};

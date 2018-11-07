@@ -54,11 +54,11 @@ const Container = styled.div`
   align-items: flex-start;
   flex: 0 0 auto;
   line-height: 0;
-  transition: all 500ms ${props => props.theme.easeInOutCirc};
+  transition: all 500ms var(--default-timing-function);
   opacity: 0;
   animation-name: ${fadeIn};
   animation-duration: 3000ms;
-  animation-timing-function: ${props => props.theme.easeOutQuint};
+  animation-timing-function: var(--default-timing-function);
   animation-fill-mode: forwards;
 
   @media ${props => props.theme.breakpointMedium} {
@@ -72,7 +72,7 @@ const Container = styled.div`
   }
 
   &:focus {
-    outline-color: ${props => props.theme.gray6};
+    outline-color: var(--color-gray6);
     outline-width: 1px;
     outline-style: dashed;
     outline-offset: -1px;
@@ -88,7 +88,7 @@ const Mask = styled.figure`
   @media ${props => props.theme.breakpointLarge} {
     transform: scaleX(1) scaleY(1) scaleZ(1);
     transform-style: preserve-3d;
-    transition: transform 3000ms ${props => props.theme.easeInOutCirc};
+    transition: transform 3000ms var(--default-timing-function);
   }
 `;
 

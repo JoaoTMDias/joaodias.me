@@ -80,7 +80,7 @@ const Wrapper = styled.div`
   animation-name: ${wrapperTimeout};
   animation-duration: 500ms;
   animation-delay: ${props => (props.duration ? `${props.duration}ms` : '3000ms')};
-  animation-timing-function: ${props => props.theme.easeInBack};
+  animation-timing-function: var(--default-timing-function);
   animation-fill-mode: forwards;
   opacity: 1;
 
@@ -117,7 +117,7 @@ const Wrapper = styled.div`
 
         animation-name: ${dashAnimation};
         animation-duration: 1500ms;
-        animation-timing-function: ${props => props.theme.easeInOutQuint};
+        animation-timing-function: var(--default-timing-function);
         animation-iteration-count: infinite;
         animation-delay: 0;
         animation-direction: normal;

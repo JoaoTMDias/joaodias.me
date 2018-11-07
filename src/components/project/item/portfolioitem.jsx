@@ -82,13 +82,13 @@ export default PortfolioItem;
 const Item = styled(Link)`
   position: relative;
   overflow: hidden;
-  background-color: ${props => props.theme.gray2};
+  background-color: var(--color-gray2);
   background-repeat: no-repeat;
   background-position: center center !important;
   background-size: cover !important;
   background-color: transparent;
   text-decoration: none;
-  margin-bottom: ${props => props.theme.globalMargin};
+  margin-bottom: var(--global-margin);
   position: relative;
   transition-property: transform;
 
@@ -98,7 +98,7 @@ const Item = styled(Link)`
       .title,
       .type,
       .description {
-        color: ${props.theme.white};
+        color: var(--color-white);
       }
     `};
 `;

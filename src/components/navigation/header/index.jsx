@@ -82,8 +82,8 @@ class Header extends React.Component {
  *  Styling
  */
 const TopBar = styled.header`
-  background-color: var(--color-white)};
-  max-height: ${props => props.theme.navbarHeight};
+  background-color: var(--color-white);
+  max-height: var(--navbar-height);
   z-index: 100;
   position: fixed;
   width: 100%;
@@ -100,7 +100,7 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  max-height: ${props => props.theme.navbarHeight};
+  max-height: var(--navbar-height);
 `;
 
 export default Header;

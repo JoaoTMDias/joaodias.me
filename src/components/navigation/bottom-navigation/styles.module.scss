@@ -1,13 +1,13 @@
 @import '../../../assets/styles/global/settings';
 .container {
   width: 100%;
-  background-color: darken($gray9, 10%);
+  background-color: darken($color-gray9, 10%);
   height: auto;
   margin-right: auto;
   margin-left: auto;
   bottom: 0;
   position: fixed; //border-top: 1px solid #EBEBEB;
-  box-shadow: 0px -2px 0px darken($gray9, 10%);
+  box-shadow: 0px -2px 0px darken($color-gray9, 10%);
   z-index: 11;
 
   @include breakpoint(large) {
@@ -62,8 +62,8 @@
     width: 100%;
     font-size: rem-calc(10);
     line-height: 1.428571429;
-    font-family: var(--body-font-family, $body-font-family);
-    color: $white;
+    font-family: var(--body-font-family);
+    color: $color-white;
   }
 
   &__icon {
@@ -81,7 +81,7 @@
   }
 
   &.active {
-    background-color: $gray9;
+    background-color: $color-gray9;
 
     .link {
       &__label,

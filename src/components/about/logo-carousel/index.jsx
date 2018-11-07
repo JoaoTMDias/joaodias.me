@@ -184,9 +184,9 @@ const Wrapper = styled.section`
   position: relative;
 
   .title {
-    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
+    font-family: var(--body-font-family);
     font-size: ${rem('18px')};
-    color: var(--color-gray8, ${props => props.theme.gray8});
+    color: var(--color-gray8);
     letter-spacing: 0;
   }
 
@@ -195,7 +195,7 @@ const Wrapper = styled.section`
     width: 80%;
     margin: 0 auto;
     text-align: center;
-    line-height: ${props => props.theme.ratio};
+    line-height: var(--global-lineheight);
 
     @media ${props => props.theme.breakpointLarge} {
       width: 100%;
@@ -204,7 +204,7 @@ const Wrapper = styled.section`
 
   .disclaimer {
     font-size: ${rem('12px')};
-    color: var(--color-gray8, ${props => props.theme.gray8});
+    color: var(--color-gray8);
     font-weight: 300;
   }
 `;
@@ -237,7 +237,7 @@ const List = styled.ol`
   .list {
     &__item {
       width: 50%;
-      border: 1px solid ${props => props.theme.gray0};
+      border: 1px solid var(--color-gray0);
 
       @media ${props => props.theme.breakpointLarge} {
         width: 33.33333%;
@@ -250,7 +250,7 @@ const List = styled.ol`
       align-items: center;
 
       &:focus {
-        outline-color: ${props => props.theme.gray6};
+        outline-color: var(--color-gray6);
         outline-width: 1px;
         outline-style: dashed;
         outline-offset: -1px;

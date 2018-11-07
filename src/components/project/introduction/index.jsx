@@ -40,9 +40,9 @@ const Wrapper = styled.div`
   .title {
     width: auto;
     text-align: left;
-    font-family: ${props => props.theme.headerFontFamily};
+    font-family: var(--heading-font-family);
     font-weight: 300;
-    color: var(--color-primary, ${props => props.theme.primaryColor});
+    color: var(--color-primary);
     letter-spacing: 0.7px;
 
     font-size: ${rem('32px')};
@@ -59,8 +59,8 @@ const Wrapper = styled.div`
   }
 
   .description {
-    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
-    color: ${props => props.theme.gray9};
+    font-family: var(--body-font-family);
+    color: var(--color-gray9);
     text-align: left;
     margin-bottom: ${rem('16px')};
     font-size: ${rem('20px')};
@@ -91,7 +91,7 @@ const Wrapper = styled.div`
   .lead,
   .description {
     &:focus {
-      outline-color: $gray3;
+      outline-color: $color-gray3;
       outline-width: 1px;
       outline-style: dashed;
     }

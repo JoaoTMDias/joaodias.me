@@ -9,31 +9,31 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: $ratio;
 // Grayscale
-$white: #ffffff;
-$gray0: #faf9f9;
-$gray1: #f0ecec;
-$gray2: #e6dfdf;
-$gray3: #dad0d0;
-$gray4: #cec0c0;
-$gray5: #c0aeae;
-$gray6: #b09a9a;
-$gray7: #9d8282;
-$gray8: #806565;
-$gray9: #4b3b3b;
-$black: darken(#463d3d, 0.5);
+$color-white: #ffffff;
+$color-gray0: #faf9f9;
+$color-gray1: #f0ecec;
+$color-gray2: #e6dfdf;
+$color-gray3: #dad0d0;
+$color-gray4: #cec0c0;
+$color-gray5: #c0aeae;
+$color-gray6: #b09a9a;
+$color-gray7: #9d8282;
+$color-gray8: #806565;
+$color-gray9: #4b3b3b;
+$color-black: darken($color-gray9, 0.5);
 $foundation-palette: (
   primary: #e81b1f,
   alternate: #1b22e8,
   blend: #111595,
-  secondary: $gray9,
+  secondary: $color-gray9,
   success: #1be87b,
   warning: #f2b681,
   alert: #e87b1b,
 );
 $alternate-color: get-color(alternate);
 $blend-color: get-color(blend);
-$body-background: $white;
-$body-font-color: $black;
+$body-background: $color-white;
+$body-font-color: $color-black;
 $body-font-family: 'jd-sans', 'Work Sans', -apple-system, BlinkMacSystemFont, 'Open Sans', 'Roboto', 'Segoe UI', Roboto,
   Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 $body-antialiased: true;
@@ -95,22 +95,22 @@ $header-styles: (
     large: ( 'h1': ('font-size': 40), 'h2': ('font-size': 32), 'h3': ('font-size': 28), 'h4': ('font-size': 24), 'h5': ('font-size': 20), 'h6': ('font-size': 18)));
 $header-text-rendering: geometricPrecision;
 $small-font-size: 80%;
-$header-small-font-color: $gray4;
+$header-small-font-color: $color-gray4;
 $paragraph-lineheight: $ratio;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
-// $code-color: $black;
+// $code-color: $color-black;
 // $code-font-family: $font-family-monospace;
 // $code-font-weight: $global-weight-normal;
-// $code-background: $gray2;
-// $code-border: 1px solid $gray4;
+// $code-background: $color-gray2;
+// $code-border: 1px solid $color-gray4;
 // $code-padding: rem-calc(2 5 1);
 $anchor-color: $primary-color;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 // $hr-width: $global-width;
-// $hr-border: 1px solid $gray4;
+// $hr-border: 1px solid $color-gray4;
 // $hr-margin: rem-calc(20) auto;
 // $list-lineheight: $paragraph-lineheight;
 // $list-margin-bottom: $paragraph-margin-bottom;
@@ -121,24 +121,24 @@ $anchor-text-decoration-hover: none;
 // $defnlist-margin-bottom: 1rem;
 // $defnlist-term-weight: $global-weight-bold;
 // $defnlist-term-margin-bottom: 0.3rem;
-// $blockquote-color: $gray8;
+// $blockquote-color: $color-gray8;
 // $blockquote-padding: rem-calc(9 20 0 19);
-// $blockquote-border: 1px solid $gray4;
+// $blockquote-border: 1px solid $color-gray4;
 // $cite-font-size: rem-calc(13);
-// $cite-color: $gray8;
+// $cite-color: $color-gray8;
 // $cite-pseudo-content: '\2014 \0020';
 // $keystroke-font: $font-family-monospace;
-// $keystroke-color: $black;
-// $keystroke-background: $gray2;
+// $keystroke-color: $color-black;
+// $keystroke-background: $color-gray2;
 // $keystroke-padding: rem-calc(2 4 0);
 // $keystroke-radius: $global-radius;
-// $abbr-underline: 1px dotted $black;
+// $abbr-underline: 1px dotted $color-black;
 // 5. Typography Helpers
 // ---------------------
 // $lead-font-size: $global-font-size * 1.25;
 // $lead-lineheight: $ratio;
 // $subheader-lineheight: 1.4;
-// $subheader-color: $gray8;
+// $subheader-color: $color-gray8;
 // $subheader-font-weight: $global-weight-normal;
 // $subheader-margin-top: 0.2rem;
 // $subheader-margin-bottom: 0.5rem;
@@ -154,14 +154,14 @@ $anchor-text-decoration-hover: none;
 // $input-error-font-weight: $global-weight-bold;
 // 7. Accordion
 // ------------
-// $accordion-background: $white;
+// $accordion-background: $color-white;
 // $accordion-plusminus: true;
 // $accordion-title-font-size: rem-calc(12);
 // $accordion-item-color: $primary-color;
-// $accordion-item-background-hover: $gray2;
+// $accordion-item-background-hover: $color-gray2;
 // $accordion-item-padding: 1.25rem 1rem;
-// $accordion-content-background: $white;
-// $accordion-content-border: 1px solid $gray2;
+// $accordion-content-background: $color-white;
+// $accordion-content-border: 1px solid $color-gray2;
 // $accordion-content-color: $body-font-color;
 // $accordion-content-padding: 1rem;
 // 8. Accordion Menu
@@ -181,8 +181,8 @@ $anchor-text-decoration-hover: none;
 // 9. Badge
 // --------
 // $badge-background: $primary-color;
-// $badge-color: $white;
-// $badge-color-alt: $black;
+// $badge-color: $color-white;
+// $badge-color-alt: $color-black;
 // $badge-palette: $foundation-palette;
 // $badge-padding: 0.3em;
 // $badge-minwidth: 2.1em;
@@ -192,14 +192,14 @@ $anchor-text-decoration-hover: none;
 // $breadcrumbs-margin: 0 0 $global-margin 0;
 // $breadcrumbs-item-font-size: rem-calc(11);
 // $breadcrumbs-item-color: $primary-color;
-// $breadcrumbs-item-color-current: $black;
-// $breadcrumbs-item-color-disabled: $gray4;
+// $breadcrumbs-item-color-current: $color-black;
+// $breadcrumbs-item-color-disabled: $color-gray4;
 // $breadcrumbs-item-margin: 0.75rem;
 // $breadcrumbs-item-uppercase: true;
 // $breadcrumbs-item-separator: true;
 // $breadcrumbs-item-separator-item: '/';
 // $breadcrumbs-item-separator-item-rtl: '\\';
-// $breadcrumbs-item-separator-color: $gray4;
+// $breadcrumbs-item-separator-color: $color-gray4;
 // 11. Button
 // ----------
 // $button-font-family: inherit;
@@ -208,8 +208,8 @@ $anchor-text-decoration-hover: none;
 // $button-fill: solid;
 // $button-background: $primary-color;
 // $button-background-hover: scale-color($button-background, $lightness: -15%);
-// $button-color: $white;
-// $button-color-alt: $black;
+// $button-color: $color-white;
+// $button-color-alt: $color-black;
 // $button-radius: ($global-radius * 12);
 // $button-hollow-border-width: 1px;
 // $button-sizes: (
@@ -232,9 +232,9 @@ $anchor-text-decoration-hover: none;
 // $buttongroup-radius-on-each: true;
 // 13. Callout
 // -----------
-// $callout-background: $white;
+// $callout-background: $color-white;
 // $callout-background-fade: 85%;
-// $callout-border: 1px solid rgba($black, 0.25);
+// $callout-border: 1px solid rgba($color-black, 0.25);
 // $callout-margin: 0 0 1rem 0;
 // $callout-padding: 1rem;
 // $callout-font-color: $body-font-color;
@@ -243,10 +243,10 @@ $anchor-text-decoration-hover: none;
 // $callout-link-tint: 30%;
 // 14. Card
 // --------
-// $card-background: $white;
+// $card-background: $color-white;
 // $card-font-color: $body-font-color;
-// $card-divider-background: $gray2;
-// $card-border: 1px solid $gray2;
+// $card-divider-background: $color-gray2;
+// $card-border: 1px solid $color-gray2;
 // $card-shadow: none;
 // $card-border-radius: $global-radius;
 // $card-padding: $global-padding;
@@ -267,24 +267,24 @@ $anchor-text-decoration-hover: none;
 //   medium: 2em,
 // );
 // $closebutton-lineheight: 1;
-// $closebutton-color: $gray8;
-// $closebutton-color-hover: $black;
+// $closebutton-color: $color-gray8;
+// $closebutton-color-hover: $color-black;
 // 16. Drilldown
 // -------------
 // $drilldown-transition: transform 0.15s linear;
 // $drilldown-arrows: true;
 // $drilldown-padding: $global-menu-padding;
 // $drilldown-nested-margin: 0;
-// $drilldown-background: $white;
+// $drilldown-background: $color-white;
 // $drilldown-submenu-padding: $drilldown-padding;
-// $drilldown-submenu-background: $white;
+// $drilldown-submenu-background: $color-white;
 // $drilldown-arrow-color: $primary-color;
 // $drilldown-arrow-size: 6px;
 // 17. Dropdown
 // ------------
 // $dropdown-padding: 1rem;
 // $dropdown-background: var(--body-background, $body-background);
-// $dropdown-border: 1px solid $gray4;
+// $dropdown-border: 1px solid $color-gray4;
 // $dropdown-font-size: 1rem;
 // $dropdown-width: 300px;
 // $dropdown-radius: $global-radius;
@@ -300,12 +300,12 @@ $anchor-text-decoration-hover: none;
 // $dropdownmenu-arrow-size: 6px;
 // $dropdownmenu-arrow-padding: 1.5rem;
 // $dropdownmenu-min-width: 200px;
-// $dropdownmenu-background: $white;
+// $dropdownmenu-background: $color-white;
 // $dropdownmenu-submenu-background: $dropdownmenu-background;
 // $dropdownmenu-padding: $global-menu-padding;
 // $dropdownmenu-nested-margin: 0;
 // $dropdownmenu-submenu-padding: $dropdownmenu-padding;
-// $dropdownmenu-border: 1px solid $gray4;
+// $dropdownmenu-border: 1px solid $color-gray4;
 // $dropdown-menu-item-color-active: get-color(primary);
 // $dropdown-menu-item-background-active: transparent;
 // 19. Flexbox Utilities
@@ -319,33 +319,33 @@ $fieldset-padding: rem-calc(16);
 $fieldset-margin: rem-calc(16 0);
 $legend-padding: rem-calc(0 3);
 $form-spacing: rem-calc(16);
-$helptext-color: $black;
+$helptext-color: $color-black;
 $helptext-font-size: rem-calc(13);
 $helptext-font-style: italic;
-$input-prefix-color: $black;
-$input-prefix-background: $gray2;
-$input-prefix-border: 1px solid $gray4;
+$input-prefix-color: $color-black;
+$input-prefix-background: $color-gray2;
+$input-prefix-border: 1px solid $color-gray4;
 $input-prefix-padding: 1rem;
-$form-label-color: $black;
+$form-label-color: $color-black;
 $form-label-font-size: rem-calc(14);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
-$select-background: $white;
-$select-triangle-color: $gray8;
+$select-background: $color-white;
+$select-triangle-color: $color-gray8;
 $select-radius: $global-radius;
-$input-color: $black;
-$input-placeholder-color: $gray4;
+$input-color: $color-black;
+$input-placeholder-color: $color-gray4;
 $input-font-family: inherit;
 $input-font-size: rem-calc(16);
 $input-font-weight: $global-weight-normal;
 $input-line-height: $global-lineheight;
-$input-background: $gray0;
-$input-background-focus: $white;
-$input-background-disabled: $gray3;
-$input-border: 1px solid $gray1;
+$input-background: $color-gray0;
+$input-background-focus: $color-white;
+$input-background-disabled: $color-gray3;
+$input-border: 1px solid $color-gray1;
 $input-border-focus: 1px solid $primary-color;
 $input-padding: $form-spacing / 2;
-$input-shadow: inset 0 1px 1px rgba($black, 0.05);
+$input-shadow: inset 0 1px 1px rgba($color-black, 0.05);
 $input-shadow-focus: 0 0 4px $primary-color;
 $input-cursor-disabled: not-allowed;
 $input-transition: box-shadow 375ms, border-color 250ms ease-in-out;
@@ -355,8 +355,8 @@ $form-button-radius: $global-radius;
 // // 21. Label
 // // ---------
 // $label-background: $primary-color;
-// $label-color: $white;
-// $label-color-alt: $black;
+// $label-color: $color-white;
+// $label-color-alt: $color-black;
 // $label-palette: $foundation-palette;
 // $label-font-size: 0.8rem;
 // $label-padding: 0.33333rem 0.5rem;
@@ -372,10 +372,10 @@ $form-button-radius: $global-radius;
 // $menu-nested-margin: $global-menu-nested-margin;
 // $menu-items-padding: $global-menu-padding;
 // $menu-simple-margin: 1rem;
-// $menu-item-color-active: $white;
+// $menu-item-color-active: $color-white;
 // $menu-item-background-active: get-color(primary);
 // $menu-icon-spacing: 0.25rem;
-// $menu-item-background-hover: $gray2;
+// $menu-item-background-hover: $color-gray2;
 // $menu-state-back-compat: true;
 // $menu-centered-back-compat: true;
 // $menu-icons-back-compat: true;
@@ -383,7 +383,7 @@ $form-button-radius: $global-radius;
 // // ---------
 // $meter-height: 1rem;
 // $meter-radius: $global-radius;
-// $meter-background: $gray4;
+// $meter-background: $color-gray4;
 // $meter-fill-good: $success-color;
 // $meter-fill-medium: $warning-color;
 // $meter-fill-bad: $alert-color;
@@ -395,10 +395,10 @@ $form-button-radius: $global-radius;
 // $offcanvas-vertical-sizes: (
 //   small: 250px,
 // );
-// $offcanvas-background: $gray2;
-// $offcanvas-shadow: 0 0 10px rgba($black, 0.7);
+// $offcanvas-background: $color-gray2;
+// $offcanvas-shadow: 0 0 10px rgba($color-black, 0.7);
 // $offcanvas-inner-shadow-size: 20px;
-// $offcanvas-inner-shadow-color: rgba($black, 0.25);
+// $offcanvas-inner-shadow-color: rgba($color-black, 0.25);
 // $offcanvas-overlay-zindex: 11;
 // $offcanvas-push-zindex: 12;
 // $offcanvas-overlap-zindex: 13;
@@ -406,41 +406,41 @@ $form-button-radius: $global-radius;
 // $offcanvas-transition-length: 0.5s;
 // $offcanvas-transition-timing: ease;
 // $offcanvas-fixed-reveal: true;
-// $offcanvas-exit-background: rgba($white, 0.25);
+// $offcanvas-exit-background: rgba($color-white, 0.25);
 // $maincontent-class: 'off-canvas-content';
 // // 26. Orbit
 // // ---------
-// $orbit-bullet-background: $gray4;
-// $orbit-bullet-background-active: $gray8;
+// $orbit-bullet-background: $color-gray4;
+// $orbit-bullet-background-active: $color-gray8;
 // $orbit-bullet-diameter: 1.2rem;
 // $orbit-bullet-margin: 0.1rem;
 // $orbit-bullet-margin-top: 0.8rem;
 // $orbit-bullet-margin-bottom: 0.8rem;
-// $orbit-caption-background: rgba($black, 0.5);
+// $orbit-caption-background: rgba($color-black, 0.5);
 // $orbit-caption-padding: 1rem;
-// $orbit-control-background-hover: rgba($black, 0.5);
+// $orbit-control-background-hover: rgba($color-black, 0.5);
 // $orbit-control-padding: 1rem;
 // $orbit-control-zindex: 10;
 // // 27. Pagination
 // // --------------
 // $pagination-font-size: rem-calc(14);
 // $pagination-margin-bottom: $global-margin;
-// $pagination-item-color: $black;
+// $pagination-item-color: $color-black;
 // $pagination-item-padding: rem-calc(3 10);
 // $pagination-item-spacing: rem-calc(1);
 // $pagination-radius: $global-radius;
-// $pagination-item-background-hover: $gray2;
+// $pagination-item-background-hover: $color-gray2;
 // $pagination-item-background-current: $primary-color;
-// $pagination-item-color-current: $white;
-// $pagination-item-color-disabled: $gray4;
-// $pagination-ellipsis-color: $black;
+// $pagination-item-color-current: $color-white;
+// $pagination-item-color-disabled: $color-gray4;
+// $pagination-ellipsis-color: $color-black;
 // $pagination-mobile-items: false;
 // $pagination-mobile-current-item: false;
 // $pagination-arrows: true;
 // // 28. Progress Bar
 // // ----------------
 // $progress-height: 1rem;
-// $progress-background: $gray4;
+// $progress-background: $color-gray4;
 // $progress-margin-bottom: $global-margin;
 // $progress-meter-background: $primary-color;
 // $progress-radius: $global-radius;
@@ -448,7 +448,7 @@ $form-button-radius: $global-radius;
 // // -------------------
 // $prototype-arrow-directions: (down, up, right, left);
 // $prototype-arrow-size: 0.4375rem;
-// $prototype-arrow-color: $black;
+// $prototype-arrow-color: $color-black;
 // // 30. Prototype Border-Box
 // // ------------------------
 // $prototype-border-box-breakpoints: $global-prototype-breakpoints;
@@ -460,7 +460,7 @@ $form-button-radius: $global-radius;
 // $prototype-bordered-breakpoints: $global-prototype-breakpoints;
 // $prototype-border-width: rem-calc(1);
 // $prototype-border-type: solid;
-// $prototype-border-color: $gray4;
+// $prototype-border-color: $color-gray4;
 // // 33. Prototype Display
 // // ---------------------
 // $prototype-display-breakpoints: $global-prototype-breakpoints;
@@ -536,21 +536,21 @@ $form-button-radius: $global-radius;
 // );
 // 47. Reveal
 // ----------
-// $reveal-background: $white;
+// $reveal-background: $color-white;
 // $reveal-width: 600px;
 // $reveal-max-width: $global-width;
 // $reveal-padding: $global-padding;
-// $reveal-border: 1px solid $gray4;
+// $reveal-border: 1px solid $color-gray4;
 // $reveal-radius: $global-radius;
 // $reveal-zindex: 1005;
-// $reveal-overlay-background: rgba($black, 0.45);
+// $reveal-overlay-background: rgba($color-black, 0.45);
 // 48. Slider
 // ----------
 // $slider-width-vertical: 0.5rem;
 // $slider-transition: all 0.2s ease-in-out;
 // $slider-height: 0.5rem;
-// $slider-background: $gray2;
-// $slider-fill-background: $gray4;
+// $slider-background: $color-gray2;
+// $slider-fill-background: $color-gray4;
 // $slider-handle-height: 1.4rem;
 // $slider-handle-width: 1.4rem;
 // $slider-handle-background: $primary-color;
@@ -558,7 +558,7 @@ $form-button-radius: $global-radius;
 // $slider-radius: $global-radius;
 // 49. Switch
 // ----------
-// $switch-background: $gray4;
+// $switch-background: $color-gray4;
 // $switch-background-active: $primary-color;
 // $switch-height: 2rem;
 // $switch-height-tiny: 1.5rem;
@@ -566,13 +566,13 @@ $form-button-radius: $global-radius;
 // $switch-height-large: 2.5rem;
 // $switch-radius: $global-radius;
 // $switch-margin: $global-margin;
-// $switch-paddle-background: $white;
+// $switch-paddle-background: $color-white;
 // $switch-paddle-offset: 0.25rem;
 // $switch-paddle-radius: $global-radius;
 // $switch-paddle-transition: all 0.25s ease-out;
 // 50. Table
 // ---------
-// $table-background: $white;
+// $table-background: $color-white;
 // $table-color-scale: 5%;
 // $table-border: 1px solid smart-scale($table-background, $table-color-scale);
 $table-padding: rem-calc(8 10 10);
@@ -593,42 +593,42 @@ $table-padding: rem-calc(8 10 10);
 // 51. Tabs
 // --------
 // $tab-margin: 0;
-// $tab-background: $white;
+// $tab-background: $color-white;
 // $tab-color: $primary-color;
-// $tab-background-active: $gray2;
+// $tab-background-active: $color-gray2;
 // $tab-active-color: $primary-color;
 // $tab-item-font-size: rem-calc(12);
-// $tab-item-background-hover: $white;
+// $tab-item-background-hover: $color-white;
 // $tab-item-padding: 1.25rem 1.5rem;
 // $tab-expand-max: 6;
-// $tab-content-background: $white;
-// $tab-content-border: $gray2;
+// $tab-content-background: $color-white;
+// $tab-content-border: $color-gray2;
 // $tab-content-color: $body-font-color;
 // $tab-content-padding: 1rem;
 // 52. Thumbnail
 // -------------
-// $thumbnail-border: solid 4px $white;
+// $thumbnail-border: solid 4px $color-white;
 // $thumbnail-margin-bottom: $global-margin;
-// $thumbnail-shadow: 0 0 0 1px rgba($black, 0.2);
+// $thumbnail-shadow: 0 0 0 1px rgba($color-black, 0.2);
 // $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 // $thumbnail-transition: box-shadow 200ms ease-out;
 // $thumbnail-radius: $global-radius;
 // 53. Title Bar
 // -------------
-// $titlebar-background: $black;
-// $titlebar-color: $white;
+// $titlebar-background: $color-black;
+// $titlebar-color: $color-white;
 // $titlebar-padding: 0.5rem;
 // $titlebar-text-font-weight: bold;
-// $titlebar-icon-color: $white;
-// $titlebar-icon-color-hover: $gray4;
+// $titlebar-icon-color: $color-white;
+// $titlebar-icon-color-hover: $color-gray4;
 // $titlebar-icon-spacing: 0.25rem;
 // 54. Tooltip
 // -----------
 // $has-tip-cursor: help;
 // $has-tip-font-weight: $global-weight-bold;
-// $has-tip-border-bottom: dotted 1px $gray8;
-// $tooltip-background-color: $black;
-// $tooltip-color: $white;
+// $has-tip-border-bottom: dotted 1px $color-gray8;
+// $tooltip-background-color: $color-black;
+// $tooltip-color: $color-white;
 // $tooltip-padding: 0.75rem;
 // $tooltip-max-width: 10rem;
 // $tooltip-font-size: $small-font-size;
@@ -638,7 +638,7 @@ $table-padding: rem-calc(8 10 10);
 // 55. Top Bar
 // -----------
 // $topbar-padding: 0.5rem;
-// $topbar-background: $gray2;
+// $topbar-background: $color-gray2;
 // $topbar-submenu-background: $topbar-background;
 // $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 // $topbar-input-width: 200px;

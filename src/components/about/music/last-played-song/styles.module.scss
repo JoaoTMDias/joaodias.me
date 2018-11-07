@@ -13,98 +13,98 @@ $INFO_MARGIN_2: ($RECORD_SIZE / 2);
 **/
 
 .LastPlayedSong {
-    width: 100%;
-    max-width: $global-margin * 30;
-    min-width: $global-margin * 20;
-    flex-direction: row;
-    display: flex;
-    margin: 0 auto;
-    flex-direction: row;
-    align-items: center;
-    @include breakpoint(large) {
-        max-width: $global-margin * 40;
-        min-width: $global-margin * 35;
-    }
+  width: 100%;
+  max-width: $global-margin * 30;
+  min-width: $global-margin * 20;
+  flex-direction: row;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+  @include breakpoint(large) {
+    max-width: $global-margin * 40;
+    min-width: $global-margin * 35;
+  }
 }
 
 .cover {
-    width: ($RECORD_COVER_SIZE + 128px);
-    height: $RECORD_COVER_SIZE;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    img {
-        position: absolute;
-    }
+  width: ($RECORD_COVER_SIZE + 128px);
+  height: $RECORD_COVER_SIZE;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  img {
+    position: absolute;
+  }
 }
 
 .image {
-    width: $RECORD_COVER_SIZE;
-    height: $RECORD_COVER_SIZE;
-    z-index: 1;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
+  width: $RECORD_COVER_SIZE;
+  height: $RECORD_COVER_SIZE;
+  z-index: 1;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
 }
 
 .record {
-    width: $RECORD_SIZE;
-    height: $RECORD_SIZE;
-    border-radius: $RECORD_SIZE;
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-    margin-left: 16px;
-    float: right;
-    animation-name: recordSpinning;
-    animation-duration: 10000ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: initial;
-    animation-fill-mode: initial;
-    animation-play-state: initial;
+  width: $RECORD_SIZE;
+  height: $RECORD_SIZE;
+  border-radius: $RECORD_SIZE;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 16px;
+  float: right;
+  animation-name: recordSpinning;
+  animation-duration: 10000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: initial;
+  animation-fill-mode: initial;
+  animation-play-state: initial;
 }
 
 .info {
-    display: flex;
-    margin-left: 0;
-    flex-direction: column;
-    width: calc(100% - (#{$INFO_MARGIN} - #{$INFO_MARGIN_2}));
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  display: flex;
+  margin-left: 0;
+  flex-direction: column;
+  width: calc(100% - (#{$INFO_MARGIN} - #{$INFO_MARGIN_2}));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .album {
-    font-style: italic;
-    color: #8686a0;
+  font-style: italic;
+  color: #8686a0;
 }
 
 .artist,
 .album {
-    font-size: rem-calc(16);
+  font-size: rem-calc(16);
 }
 
 .name {
-    font-family: var(--body-font-family, $body-font-family);
-    font-size: rem-calc(18);
+  font-family: var(--body-font-family);
+  font-size: rem-calc(18);
 }
 
 .name a {
-    color: $gray9;
+  color: $color-gray9;
 }
 
 .name,
 .name a,
 .url,
 .artist {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @keyframes recordSpinning {
-    0% {
-        transform: rotate(0);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

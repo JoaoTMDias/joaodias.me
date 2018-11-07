@@ -40,15 +40,15 @@ const Wrapper = styled.nav`
   flex: 2;
   justify-content: center;
   align-self: center;
-  max-height: ${props => props.theme.navbarHeight};
+  max-height: var(--navbar-height);
   width: auto;
 `;
 
 const List = styled.ul`
   justify-content: center;
   flex-direction: row;
-  font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
-  max-height: ${props => props.theme.navbarHeight};
+  font-family: var(--body-font-family);
+  max-height: var(--navbar-height);
   width: auto;
   display: none;
   visibility: hidden;
@@ -80,7 +80,7 @@ const Item = styled.li`
     padding: 0;
     font-family: inherit;
     font-size: ${rem('12px')};
-    color: var(--color-gray8, ${props => props.theme.gray8});
+    color: var(--color-gray8);
     letter-spacing: ${rem('2px')};
     line-height: ${rem('48px')};
     text-transform: uppercase;
@@ -92,8 +92,8 @@ const Item = styled.li`
     position: relative;
 
     &.active {
-      color: var(--color-primary, ${props => props.theme.primaryColor});
-      border-bottom: 2px dotted var(--color-primary, ${props => props.theme.primaryColor});
+      color: var(--color-primary);
+      border-bottom: 2px dotted var(--color-primary);
     }
 
     &:before {
@@ -103,7 +103,7 @@ const Item = styled.li`
       left: 0;
       width: 100%;
       height: 100%;
-      background: ${props => props.theme.alternateColor};
+      background: var(--color-alternate);
       transform: translate3d(-100%, 0, 0) translate3d(-1px, 0, 0);
       transition: transform 640ms;
       transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
@@ -111,7 +111,7 @@ const Item = styled.li`
 
     &:hover,
     &:focus {
-      color: var(--color-primary, ${props => props.theme.primaryColor});
+      color: var(--color-primary);
 
       &:after {
         transform: translate3d(0%, 0, 0);

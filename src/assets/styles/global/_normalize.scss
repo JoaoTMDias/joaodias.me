@@ -18,24 +18,29 @@
 // 6. Change the default tap highlight to be completely transparent in iOS.
 @include css-vars(
   (
-    --color-primary: var(--color-primary, $primary-color),
-    --color-select: var(--color-primary, $primary-color),
-    --color-white: $white,
-    --color-gray0: $gray0,
-    --color-gray1: $gray1,
-    --color-gray3: $gray3,
-    --color-gray2: $gray2,
-    --color-gray4: $gray4,
-    --color-gray5: $gray5,
-    --color-gray6: $gray6,
-    --color-gray7: $gray7,
-    --color-gray8: $gray8,
-    --color-gray9: $gray9,
-    --color-black: $black,
+    --color-primary: $primary-color,
+    --color-select: $primary-color,
+    --color-white: $color-white,
+    --color-gray0: $color-gray0,
+    --color-gray1: $color-gray1,
+    --color-gray3: $color-gray3,
+    --color-gray2: $color-gray2,
+    --color-gray4: $color-gray4,
+    --color-gray5: $color-gray5,
+    --color-gray6: $color-gray6,
+    --color-gray7: $color-gray7,
+    --color-gray8: $color-gray8,
+    --color-gray9: $color-gray9,
+    --color-black: $color-black,
+    --color-alternate: $alternate-color,
+    --color-blend: $blend-color,
+    --anchor-text-decoration: $anchor-text-decoration,
+    --anchor-text-decoration-hover: $anchor-text-decoration-hover,
     --body-background: $body-background,
     --body-font-color: $body-font-color,
-    --heading-font-family: $header-font-family,
     --body-font-family: $body-font-family,
+    --body-antialiased: $body-antialiased,
+    --heading-font-family: $header-font-family,
     --global-margin: $global-margin,
     --global-padding: $global-padding,
     --global-font-size: $global-font-size,
@@ -44,18 +49,17 @@
     --global-weight-normal: $global-weight-normal,
     --global-weight-bold: $global-weight-bold,
     --global-radius: $global-radius,
-    --body-antialiased: $body-antialiased,
-    --anchor-text-decoration: $anchor-text-decoration,
-    --anchor-text-decoration-hover: $anchor-text-decoration-hover,
     --default-timing-function: $default-timing-function,
+    --navbar-height: $navbar-height,
+    --scrolled-navbar: $scrolled-navbar,
   )
 );
 
 html {
   box-sizing: border-box; // 1
-  font-family: var(--body-font-family, $body-font-family);
+  font-family: var(--body-font-family);
   font-size: 16px; // 2
-  line-height: $ratio;
+  line-height: var(--global-lineheight, $ratio);
   height: 100%; // 3
   -webkit-text-size-adjust: 100%; // 4
   -ms-text-size-adjust: 100%; // 4
@@ -99,10 +103,10 @@ section {
 body {
   margin: 0; // 1
   font-family: var(--body-font-family, $body-font-family);
-  font-size: $global-font-size;
-  font-weight: $global-weight-normal;
-  line-height: $global-lineheight;
-  color: var(--color-black, $black);
+  font-size: var(--global-font-size, $global-font-size);
+  font-weight: var(--global-weight-normal), $global-weight-normal;
+  line-height: var(--global-lineheight, $global-lineheight);
+  color: var(--color-black, $color-black);
   background-color: var(--body-background, $body-background); // 2
 }
 
@@ -150,7 +154,7 @@ h6 {
 // bottom margin to use `rem` units instead of `em`.
 p {
   margin-top: 0;
-  margin-bottom: $global-margin;
+  margin-bottom: var(--global-margin, $global-margin);
 }
 
 // Abbreviations
@@ -170,7 +174,7 @@ abbr[data-original-title] {
 }
 
 address {
-  margin-bottom: $global-margin;
+  margin-bottom: var(--global-margin, $global-margin);
   font-style: normal;
   line-height: inherit;
 }
@@ -179,7 +183,7 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: $global-margin;
+  margin-bottom: var(--global-margin, $global-margin);
 }
 
 ol ol,
@@ -190,7 +194,7 @@ ul ol {
 }
 
 dt {
-  font-weight: $global-weight-normal;
+  font-weight: var(--global-weight-normal, $global-weight-normal);
 }
 
 dd {
@@ -199,7 +203,7 @@ dd {
 }
 
 blockquote {
-  margin: 0 0 $global-margin;
+  margin: 0 0 var(--global-margin, $global-margin);
 }
 
 dfn {
@@ -264,7 +268,7 @@ ul,
 li,
 button {
   &:focus {
-    outline-color: $gray6;
+    outline-color: var(--color-gray6, $color-gray6);
     outline-width: 1px;
     outline-style: dashed;
   }
@@ -369,7 +373,7 @@ table {
 caption {
   padding-top: $table-padding;
   padding-bottom: $table-padding;
-  color: $gray8;
+  color: var(--color-gray8, $color-gray8);
   text-align: left;
   caption-side: bottom;
 }
@@ -563,7 +567,7 @@ template {
 
 ::-moz-selection,
 ::selection {
-  color: $white;
+  color: var(--color-white, $color-white);
   background: var(--color-primary, $primary-color);
 }
 

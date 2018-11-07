@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     left: ${rem('18px')};
     height: 100%;
     width: ${rem('4px')};
-    background: ${props => props.theme.gray9};
+    background: var(--color-gray9);
   }
 
   @media ${props => props.theme.breakpointLarge} {

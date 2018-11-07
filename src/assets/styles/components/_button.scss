@@ -1,21 +1,21 @@
 .button {
-    &.secondary {
-        background-color: $white;
-        border: 1px solid $gray2;
-        color: $gray8;
+  &.secondary {
+    background-color: var(--color-white, $color-white);
+    border: 1px solid var(--color-gray2, $color-gray2);
+    color: var(--color-gray8, $color-gray8);
 
-        &:hover, 
-        &:focus {
-            background-color: $gray2;
-        }
-
-        &:focus {
-            border: 2px solid $gray4;
-            color: $gray8;
-        }
-
-        &:active {
-            background-color: $gray3;
-        }
+    &:hover,
+    &:focus {
+      background-color: var(--color-gray2, $color-gray2);
     }
+
+    &:focus {
+      border: 2px solid var(--color-gray4, $color-gray4);
+      color: var(--color-gray8, $color-gray8);
+    }
+
+    &:active {
+      background-color: var(--color-gray3, $color-gray3);
+    }
+  }
 }

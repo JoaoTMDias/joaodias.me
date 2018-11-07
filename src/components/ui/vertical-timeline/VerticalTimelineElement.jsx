@@ -98,7 +98,7 @@ const Item = styled.div`
   }
 
   &:focus {
-    outline-color: ${props => props.theme.gray6};
+    outline-color: var(--color-gray6);
     outline-width: 1px;
     outline-style: dashed;
     outline-offset: -1px;
@@ -106,6 +106,7 @@ const Item = styled.div`
 
   @media ${props => props.theme.breakpointLarge} {
     margin: ${rem('64px')} 0;
+
     &:nth-child(even):not(.left) .content,
     &.right .content {
       float: right;
@@ -116,7 +117,7 @@ const Item = styled.div`
       left: auto;
       right: 100%;
       border-color: transparent;
-      border-right-color: ${props => lighten(0.05, props.theme.gray9)};
+      border-right-color: ${props => lighten(0.05, props.theme.colorGray9)};
     }
     &:nth-child(even):not(.left) .content .date,
     &.right .content .date {
@@ -135,7 +136,7 @@ const Item = styled.div`
     &.right .content.bounce-in {
       animation-name: ${CdBounce2Inverse};
       animation-duration: 600ms;
-      animation-timing-function: ${props => props.theme.easeOutBack};
+      animation-timing-function: var(--default-timing-function);
     }
   }
 
@@ -144,29 +145,29 @@ const Item = styled.div`
       &:first-child {
         .icon {
           background-image: linear-gradient(
-            ${props => lighten(0.3, props.theme.gray9)},
-            ${props => lighten(0.15, props.theme.gray9)}
+            ${props => lighten(0.3, props.theme.colorGray9)},
+            ${props => lighten(0.15, props.theme.colorGray9)}
           );
         }
       }
       .icon {
         background-image: linear-gradient(
-          ${props => lighten(0.15, props.theme.gray9)},
-          ${props => lighten(0.075, props.theme.gray9)}
+          ${props => lighten(0.15, props.theme.colorGray9)},
+          ${props => lighten(0.075, props.theme.colorGray9)}
         );
       }
     }
     &--education {
       .icon {
         background-image: linear-gradient(
-          ${props => lighten(0.05, props.theme.gray9)},
-          ${props => lighten(0.025, props.theme.gray9)}
+          ${props => lighten(0.05, props.theme.colorGray9)},
+          ${props => lighten(0.025, props.theme.colorGray9)}
         );
       }
     }
     &--work,
     &--education {
-      color: var(--color-white)};
+      color: var(--color-white);
     }
   }
 `;
@@ -201,7 +202,7 @@ const Icon = styled.span`
       visibility: visible;
       animation-name: ${CdBounce1};
       animation-duration: 600ms;
-      animation-timing-function: ${props => props.theme.easeOutBack};
+      animation-timing-function: var(--default-timing-function);
     }
   }
 
@@ -219,7 +220,7 @@ const Content = styled.div`
   background: transparent;
   border-radius: ${rem('4px')};
   padding: ${rem('16px')};
-  border: ${props => props.theme.gray9};
+  border: var(--color-gray9);
   box-shadow: 0 4px 16px rgb(74, 70, 70);
 
   &.is-hidden {
@@ -236,12 +237,12 @@ const Content = styled.div`
     clear: both;
   }
   h2 {
-    color: ${props => props.theme.gray7};
+    color: var(--color-gray7);
   }
   p {
     font-size: ${rem('13px')};
     font-weight: 500;
-    color: ${props => lighten(0.56, props.theme.gray9)};
+    color: ${props => lighten(0.56, props.theme.colorGray9)};
   }
 
   p {
@@ -252,7 +253,7 @@ const Content = styled.div`
   .date {
     font-size: ${rem('13px')};
     font-weight: 500;
-    color: var(--color-white)};
+    color: var(--color-white);
     display: inline-block;
     float: left;
     padding: ${rem('12.8px')} 0;
@@ -267,14 +268,14 @@ const Content = styled.div`
   .title {
     font-size: ${rem('20px')};
     font-weight: 400;
-    color: ${props => lighten(0.8, props.theme.white)};
+    color: ${props => lighten(0.8, props.theme.colorWhite)};
   }
 
   .subtitle {
-    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
+    font-family: var(--body-font-family);
     font-size: ${rem('16px')};
     text-text-transform: uppercase;
-    color: ${props => lighten(0.7, props.theme.gray9)};
+    color: ${props => lighten(0.7, props.theme.colorGray9)};
   }
 
   @media ${props => props.theme.breakpointMedium} {
@@ -297,7 +298,7 @@ const Content = styled.div`
       top: ${rem('24px')};
       left: 100%;
       border-color: transparent;
-      border-left-color: ${props => lighten(0.05, props.theme.gray9)};
+      border-left-color: ${props => lighten(0.05, props.theme.colorGray9)};
     }
     .date {
       position: absolute;

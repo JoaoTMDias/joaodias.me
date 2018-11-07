@@ -43,15 +43,15 @@ const FooterContent = () => (
 const Wrapper = styled.div`
   width: 100%;
   position: relative;
-  background-color: var(--color-white)};
+  background-color: var(--color-white);
   height: auto;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  padding-top: ${props => props.theme.globalPadding};
-  padding-bottom: ${props => props.theme.globalPadding};
+  padding-top: var(--global-padding);
+  padding-bottom: var(--global-padding);
 
   margin-top: ${rem('48px')} !important;
   margin-right: auto;
@@ -64,7 +64,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     flex-direction: column;
     display: flex;
-    margin-bottom: ${props => props.theme.navbarHeight};
+    margin-bottom: var(--navbar-height);
 
     @media ${props => props.theme.breakpointMedium} {
       flex-direction: row;
@@ -73,7 +73,7 @@ const Wrapper = styled.div`
   }
 
   .left {
-    color: var(--color-gray8, ${props => props.theme.gray8});
+    color: var(--color-gray8);
     text-align: center;
     justify-content: center;
 
@@ -95,12 +95,12 @@ const Wrapper = styled.div`
 
   .left,
   .right {
-    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
+    font-family: var(--body-font-family);
     letter-spacing: 0;
     text-align: center;
     font-size: ${rem('12px')};
-    margin-top: ${props => props.theme.globalMargin};
-    margin-bottom: ${props => props.theme.globalMargin};
+    margin-top: var(--global-margin);
+    margin-bottom: var(--global-margin);
     width: 100%;
     display: flex;
 
@@ -119,17 +119,17 @@ const Wrapper = styled.div`
     }
 
     a {
-      color: ${props => props.theme.gray9};
+      color: var(--color-gray9);
     }
 
     p {
-      color: var(--color-gray8, ${props => props.theme.gray8});
+      color: var(--color-gray8);
       flex-wrap: wrap;
     }
 
     li {
-      margin-left: ${props => props.theme.globalMargin};
-      margin-right: ${props => props.theme.globalMargin};
+      margin-left: var(--global-margin);
+      margin-right: var(--global-margin);
     }
   }
 
@@ -145,10 +145,10 @@ const Wrapper = styled.div`
 
     .item {
       flex-wrap: wrap;
-      color: var(--color-gray8, ${props => props.theme.gray8});
+      color: var(--color-gray8);
 
       a {
-        color: var(--color-gray8, ${props => props.theme.gray8});
+        color: var(--color-gray8);
       }
     }
   }

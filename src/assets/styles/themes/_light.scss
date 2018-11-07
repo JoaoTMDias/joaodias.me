@@ -5,7 +5,7 @@
     .type,
     .description,
     .seemore {
-      color: $white !important;
+      color: var(--color-white, #ffffff) !important;
     }
   }
 }

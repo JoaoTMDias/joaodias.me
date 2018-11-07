@@ -12,7 +12,7 @@
     &__container {
       width: 100%;
       position: relative;
-      background-color: $gray0;
+      background-color: $color-gray0;
       height: auto;
       justify-content: space-between;
       flex-direction: row;
@@ -25,7 +25,7 @@
       margin-left: auto;
     }
 
-    &__row{
+    &__row {
       width: 100%;
       margin: 0 auto;
       justify-content: space-between;
@@ -41,7 +41,7 @@
 
     &__left,
     &__right {
-      font-family: var(--body-font-family, $body-font-family);
+      font-family: var(--body-font-family);
       letter-spacing: 0;
       font-size: rem-calc(12);
       margin-top: $global-margin;
@@ -65,11 +65,11 @@
       }
 
       a {
-        color: $gray9;
+        color: $color-gray9;
       }
 
       p {
-        color: $gray6;
+        color: $color-gray6;
         flex-wrap: wrap;
       }
 
@@ -80,7 +80,7 @@
     }
 
     &__left {
-      color: $gray8;
+      color: $color-gray8;
       text-align: center;
       @include breakpoint(large) {
         text-align: left;
@@ -109,10 +109,10 @@
 
       li {
         flex-wrap: wrap;
-        color: $gray8;
+        color: $color-gray8;
 
         a {
-          color: $gray8;
+          color: $color-gray8;
         }
       }
     }

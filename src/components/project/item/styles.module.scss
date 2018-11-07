@@ -143,7 +143,7 @@
 .content {
   align-items: center;
   p {
-    font-family: var(--body-font-family, $body-font-family);
+    font-family: var(--body-font-family);
     opacity: 1;
     text-rendering: geometricPrecision;
   }
@@ -165,7 +165,7 @@
 }
 
 .type {
-  font-family: var(--body-font-family, $body-font-family);
+  font-family: var(--body-font-family);
   margin-bottom: $global-margin * 0.5;
   text-transform: uppercase;
   letter-spacing: 2px;

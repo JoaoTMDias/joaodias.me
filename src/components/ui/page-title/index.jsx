@@ -61,7 +61,7 @@ const Container = styled.section`
   max-height: ${rem('560px')};
   text-align: center;
   background-color: transparent;
-  background-color: ${props => (props.transparent ? 'transparent' : `${props.theme.white}`)};
+  background-color: ${props => (props.transparent ? 'transparent' : `var(--color-white)`)};
   background-position: center bottom;
   overflow: hidden;
   text-align: center;
@@ -79,7 +79,7 @@ const Row = styled.div`
   width: 100%;
   will-change: transform;
   padding: ${rem('16px')} !important;
-  background-color: var(--color-white)};
+  background-color: var(--color-white);
 
   @media ${props => props.theme.breakpointLarge} {
     padding: ${props => (props.isProject ? `${rem('48px')}` : `${rem('48px')} ${rem('16px')}`)} !important;
@@ -103,8 +103,8 @@ const Row = styled.div`
 `;
 
 const Subtitle = styled.h2`
-  font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
-  color: ${props => props.theme.gray9} !important;
+  font-family: var(--body-font-family);
+  color: var(--color-gray9) !important;
   text-align: ${props => (props.center ? 'center' : 'left')};
   font-weight: 300;
 `;
@@ -112,9 +112,9 @@ const Subtitle = styled.h2`
 const Title = styled.h1`
   width: auto;
   text-align: ${props => (props.center ? 'center' : 'left')};
-  font-family: ${props => props.theme.headerFontFamily};
+  font-family: var(--heading-font-family);
   font-weight: 300;
-  color: var(--color-primary, ${props => props.theme.primaryColor});
+  color: var(--color-primary);
   letter-spacing: 0.7px;
   @media ${props => props.theme.breakpointMedium} {
     letter-spacing: 0.85px;

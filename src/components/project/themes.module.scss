@@ -1,38 +1,38 @@
 @import '../../assets/styles/global/settings';
 .ProjectItem {
-    &--light {
-        h2,
-        h3,
-        p {
-            border-color: $gray3;
-            color: $white;
-        }
+  &--light {
+    h2,
+    h3,
+    p {
+      border-color: $color-gray3;
+      color: $color-white;
     }
-    &--dark {
-        h2,
-        h3,
-        p {
-            color: $gray9;
-        }
+  }
+  &--dark {
+    h2,
+    h3,
+    p {
+      color: $color-gray9;
     }
+  }
 }
 
 .portfolio {
-    &__item {
-        &--light {
-            h2,
-            h3,
-            p {
-                border-color: $gray3;
-                color: $white;
-            }
-        }
-        &--dark {
-            h2,
-            h3,
-            p {
-                color: $gray9;
-            }
-        }
+  &__item {
+    &--light {
+      h2,
+      h3,
+      p {
+        border-color: $color-gray3;
+        color: $color-white;
+      }
     }
+    &--dark {
+      h2,
+      h3,
+      p {
+        color: $color-gray9;
+      }
+    }
+  }
 }

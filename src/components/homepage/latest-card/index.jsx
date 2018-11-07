@@ -40,7 +40,7 @@ HomePageLatestCard.propTypes = {
 const Wrapper = styled.div`
   width: 100%;
   margin-bottom: ${rem('32px')};
-  animation-timing-function: ${props => props.theme.easeOutBack};
+  animation-timing-function: var(--default-timing-function);
   animation-duration: 500ms;
   &:first-child {
     margin-right: ${rem('24px')};
@@ -51,34 +51,34 @@ const Wrapper = styled.div`
     margin-bottom: ${rem('64px')};
   }
   @media ${props => props.theme.breakpointMedium} {
-    width: calc(50% - ${props => props.theme.globalMargin});
+    width: calc(50% - var(--global-margin));
     margin-bottom: 0;
   }
 
   h3 {
-    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
-    color: ${props => props.theme.gray4};
+    font-family: var(--body-font-family);
+    color: var(--color-gray4);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: ${rem('8px')};
 
     ${responsiveTypography({
-    minFont: 10,
-    maxFont: 12,
-    minWidth: 320,
-    maxWidth: 1440,
-  })};
+      minFont: 10,
+      maxFont: 12,
+      minWidth: 320,
+      maxWidth: 1440,
+    })};
   }
 `;
 
 const Card = styled.a`
   width: 100%;
   padding: ${rem('24px')};
-  border: 1px solid ${props => props.theme.gray1};
+  border: 1px solid var(--color-gray1);
   box-shadow: 0 1px 4px rgba(177, 177, 194, 0.4);
   display: flex;
   cursor: pointer;
-  transition: all 500ms ${props => props.theme.easeOutExpo};
+  transition: all 500ms var(--default-timing-function);
   transform: translate3d(0, 0, 0);
   background-repeat: no-repeat;
   background-position: center center;
@@ -98,26 +98,26 @@ const Card = styled.a`
 
   h2 {
     ${responsiveTypography({
-    minFont: 18,
-    maxFont: 28,
-    minWidth: 320,
-    maxWidth: 1440,
-  })};
+      minFont: 18,
+      maxFont: 28,
+      minWidth: 320,
+      maxWidth: 1440,
+    })};
   }
 
   time  {
     ${responsiveTypography({
-    minFont: 12,
-    maxFont: 16,
-    minWidth: 320,
-    maxWidth: 1440,
-  })};
+      minFont: 12,
+      maxFont: 16,
+      minWidth: 320,
+      maxWidth: 1440,
+    })};
     opacity: 0.8;
   }
 
   h2,
   time {
-    color: var(--color-white)};
+    color: var(--color-white);
     text-transform: capitalize;
   }
 `;

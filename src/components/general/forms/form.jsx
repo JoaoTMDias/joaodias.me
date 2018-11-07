@@ -133,7 +133,6 @@ class Form extends PureComponent {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           aria-label="Contact form. Includes a name,email a message inputs."
-          tabIndex="0"
         >
           {this.renderSuccessMessage()}
           <fieldset className={styles.fieldset}>
@@ -186,30 +185,30 @@ const Submit = styled.button`
   font-size: ${rem('12px')};
   text-transform: uppercase;
   letter-spacing: ${rem('4px')};
-  color: ${props => props.theme.gray4};
+  color: var(--color-gray4);
   cursor: not-allowed;
   font-weight: bold;
   text-align: center;
   width: 100%;
-  padding: ${props => props.theme.globalPadding};
-  border: 2px solid ${props => props.theme.gray2};
+  padding: var(--global-padding);
+  border: 2px solid var(--color-gray2);
   border-top-width: 0;
   border-radius: 0;
-  background-color: var(--color-white)};
+  background-color: var(--color-white);
   appearance: none;
   transition: all 200ms;
   pointer-events: none;
 
   &.is-valid {
-    color: ${props => props.theme.gray9};
+    color: var(--color-gray9);
     cursor: pointer;
     pointer-events: all;
     border-radius: 0;
 
     &:hover {
-      background-color: ${props => props.theme.gray9};
-      color: var(--color-white)};
-      border-color: ${props => props.theme.black};
+      background-color: var(--color-gray9);
+      color: var(--color-white);
+      border-color: var(--color-black);
       padding-top: ${rem('24px')};
       padding-bottom: ${rem('24px')};
     }

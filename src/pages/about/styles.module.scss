@@ -50,7 +50,7 @@
   }
   &__image {
     position: relative;
-    border: 1px dashed rgba($gray4, 0.4);
+    border: 1px dashed rgba($color-gray4, 0.4);
     &::before {
       content: '';
       position: absolute;
@@ -59,13 +59,13 @@
       bottom: 0;
       right: 0;
       border-radius: 50%;
-      border: 1px dashed rgba($gray4, 0.4);
+      border: 1px dashed rgba($color-gray4, 0.4);
       transform: scale(1.42);
     }
   }
   &__text {
     p {
-      color: $gray8;
+      color: $color-gray8;
       font-weight: 300;
     }
   }
@@ -80,8 +80,8 @@
     }
   }
   &__lead {
-    font-family: var(--body-font-family, $body-font-family);
-    color: $gray9;
+    font-family: var(--body-font-family);
+    color: $color-gray9;
     @include responsive-typography('small', 'h3');
     @include breakpoint(medium) {
       @include responsive-typography('medium', 'h4');

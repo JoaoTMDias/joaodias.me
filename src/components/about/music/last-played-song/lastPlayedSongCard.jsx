@@ -61,7 +61,7 @@ const Cover = styled.figure`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: ${props => props.theme.globalMargin};
+  margin-bottom: var(--global-margin);
 
   &:hover {
   }
@@ -95,19 +95,19 @@ const InfoContainer = styled.div`
   text-align: center;
 
   .track {
-    font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
+    font-family: var(--body-font-family);
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 0.75rem;
   }
 
   .track a {
-    color: ${props => props.theme.gray9};
+    color: var(--color-gray9);
   }
 
   .album {
     font-size: 0.875rem;
-    color: var(--color-gray8, ${props => props.theme.gray8});
+    color: var(--color-gray8);
   }
 
   .artist {

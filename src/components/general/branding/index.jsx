@@ -44,23 +44,23 @@ const Logo = styled.svg`
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 
   .brand__hair {
-    fill: ${props => props.theme.blendColor};
+    fill: var(--color-blend);
   }
 
   .brand__glasses {
-    fill: var(--color-primary, ${props => props.theme.primaryColor});
+    fill: var(--color-primary);
   }
 
   &:hover {
     transform: scale(1.2) rotate(10deg);
 
     .brand__hair {
-      fill: ${props => props.theme.blendColor};
+      fill: var(--color-blend);
     }
 
     .brand__glasses {
       transform: translateY(2px);
-      fill: ${props => props.theme.alternateColor};
+      fill: var(--color-alternate);
     }
   }
 
@@ -68,12 +68,12 @@ const Logo = styled.svg`
     transform: scale(1.4) rotate(-10deg);
 
     .brand__hair {
-      fill: var(--color-primary, ${props => props.theme.primaryColor});
+      fill: var(--color-primary);
     }
 
     .brand__glasses {
       transform: translateY(2px);
-      fill: ${props => props.theme.alternateColor};
+      fill: var(--color-alternate);
     }
   }
 `;

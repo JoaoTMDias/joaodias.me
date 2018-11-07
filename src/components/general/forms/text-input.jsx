@@ -87,18 +87,18 @@ class TextInput extends PureComponent {
 // Styled Components
 const Wrapper = styled.div`
   display: flex;
-  background-color: var(--color-white)};
+  background-color: var(--color-white);
   padding: 0;
   margin: 0;
 
   &.is-focused {
     .label {
-      color: var(--color-primary, ${props => props.theme.primaryColor});
+      color: var(--color-primary);
     }
     .content {
       outline-width: 2px;
       outline-style: solid;
-      outline-color: var(--color-primary, ${props => props.theme.primaryColor});
+      outline-color: var(--color-primary);
       outline-offset: -2px;
     }
   }
@@ -111,21 +111,22 @@ const Wrapper = styled.div`
 
   .content {
     position: relative;
-    background-color: var(--color-white)};
+    background-color: var(--color-white);
     border-radius: 0;
     padding: ${rem('4px')} ${rem('14px')} 0 ${rem('14px')};
-    border: 2px solid ${props => props.theme.gray2};
+    border: 2px solid var(--color-gray2);
     width: 100%;
 
     &:hover {
       .label {
-        color: var(--color-primary, ${props => props.theme.primaryColor});
+        color: var(--color-primary);
       }
     }
   }
+
   .label {
     font-size: ${rem('10px')};
-    color: var(--color-gray8, ${props => props.theme.gray8});
+    color: var(--color-gray8);
     margin-bottom: 0;
     width: 100%;
     display: block;
@@ -135,15 +136,15 @@ const Wrapper = styled.div`
 
   .input {
     margin: 0;
-    color: ${props => props.theme.gray9};
+    color: var(--color-gray9);
     border: none;
     box-shadow: none;
     padding: 0;
     height: ${rem('32px')};
-    background-color: var(--color-white)};
+    background-color: var(--color-white);
 
     &::placeholder {
-      color: var(--color-gray8, ${props => props.theme.gray8}) !important;
+      color: var(--color-gray8) !important;
     }
 
     &:focus {
@@ -154,7 +155,7 @@ const Wrapper = styled.div`
   .helper {
     font-size: ${rem('14px')};
     font-style: italic;
-    color: ${props => props.theme.gray4};
+    color: var(--color-gray4);
     margin-top: ${rem('2px')};
     margin-left: 0;
     margin-right: 0;

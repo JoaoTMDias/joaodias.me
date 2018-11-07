@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    font-family: var(--body-font-family, $body-font-family);
+    font-family: var(--body-font-family);
     max-height: $navbar-height;
     margin: 0 auto;
     max-width: rem-calc(220);
@@ -34,7 +34,7 @@
       padding: rem-calc(12) 0px;
       font-family: inherit;
       font-size: rem-calc(14);
-      color: $gray8;
+      color: $color-gray8;
       letter-spacing: 0.5px;
       line-height: 48px;
       text-transform: uppercase;

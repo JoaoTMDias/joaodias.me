@@ -41,7 +41,7 @@ export default HomePageHero;
  * Styles
  */
 const Hero = styled.article`
-  background-color: var(--color-white)};
+  background-color: var(--color-white);
   min-height: ${rem('480px')};
   max-height: 50vh;
   display: flex;
@@ -84,9 +84,9 @@ const Text = styled.div`
 `;
 
 const Subtitle = styled.h2`
-  font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
+  font-family: var(--body-font-family);
   font-weight: 300;
-  color: ${props => props.theme.gray9};
+  color: var(--color-gray9);
   letter-spacing: 0;
   margin-bottom: 1.5rem;
   font-size: ${rem('32px')};
@@ -112,20 +112,20 @@ const fadeInUp = keyframes`
 
 
 const Paragraph = styled.p`
-  font-family: var(--body-font-family, ${props =>props.theme.bodyFontFamily});
+  font-family: var(--body-font-family);
   font-weight: 300;
-  color: ${props => props.theme.gray6};
+  color: var(--color-gray6);
   letter-spacing: 0;
   animation-name: ${fadeInUp};
   animation-delay: 1000ms;
-  animation-timing-function: ${props => props.theme.easeOutExpo};
+  animation-timing-function: var(--default-timing-function);
   animation-duration: 2000ms;
   animation-direction: initial;
   animation-fill-mode: forwards;
 
   a {
-    color: ${props => props.theme.gray9};
-    border-bottom: 1px dotted ${props => props.theme.gray9};
+    color: var(--color-gray9);
+    border-bottom: 1px dotted var(--color-gray9);
   }
 
   &:nth-child(1) {

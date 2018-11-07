@@ -110,9 +110,9 @@ const Details = styled.details`
   }
 
   .title {
-    font-family: ${props => props.theme.headerFontFamily};
-    margin-bottom: ${props => props.theme.globalMargin};
-    color: ${props => props.theme.gray9};
+    font-family: var(--heading-font-family);
+    margin-bottom: var(--global-margin);
+    color: var(--color-gray9);
     cursor: pointer;
 
     font-size: ${rem('19px')};
@@ -127,7 +127,7 @@ const Details = styled.details`
   }
 
   .description {
-    color: var(--color-gray8, ${props => props.theme.gray8});
+    color: var(--color-gray8);
     margin-left: ${rem('24px')};
     font-size: ${rem('16px')};
 
@@ -139,7 +139,7 @@ const Details = styled.details`
   .title,
   .description {
     &:focus {
-      outline-color: ${props => props.theme.gray6};
+      outline-color: var(--color-gray6);
       outline-width: 1px;
       outline-style: dashed;
       outline-offset: -1px;

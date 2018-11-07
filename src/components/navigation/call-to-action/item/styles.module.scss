@@ -23,7 +23,7 @@
 
   @include breakpoint(medium) {
     &:nth-child(1) {
-      border-right: 1px solid $gray2;
+      border-right: 1px solid $color-gray2;
     }
 
     &:nth-child(n) {
@@ -35,7 +35,7 @@
 
   &:hover {
     box-shadow: 0 16px 48px rgba(177, 177, 194, 0.8);
-    background-color: $gray2;
+    background-color: $color-gray2;
 
     &::before {
       --size: #{rem-calc(320)};
@@ -51,7 +51,7 @@
     top: var(--y);
     width: var(--size);
     height: var(--size);
-    background: radial-gradient(circle closest-side, lighten($gray3, 10%), transparent);
+    background: radial-gradient(circle closest-side, lighten($color-gray3, 10%), transparent);
     transform: translate(-50%, -50%);
     transition: width 0.2s ease, height 0.2s ease;
   }
@@ -126,7 +126,7 @@
 
   &__subtitle,
   &__link {
-    font-family: var(--body-font-family, $body-font-family);
+    font-family: var(--body-font-family);
     font-weight: 400;
   }
 
@@ -134,7 +134,7 @@
     font-family: $header-font-family;
     font-style: italic;
     font-weight: 300;
-    color: var(--color-black, $black);
+    color: var(--color-black, $color-black);
 
     @include responsive-typography(small, h2);
 
@@ -148,7 +148,7 @@
   }
 
   &__subtitle {
-    color: $gray8;
+    color: $color-gray8;
     text-align: center;
     width: 100%;
     margin: 0 auto;
@@ -165,7 +165,7 @@
   }
 
   &__link {
-    color: $gray8;
+    color: $color-gray8;
     text-align: center;
     width: 100%;
     margin: 0 auto;

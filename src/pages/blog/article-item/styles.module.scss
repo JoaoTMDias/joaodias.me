@@ -66,14 +66,14 @@
 
   &__date {
     font-size: rem-calc(13);
-    font-family: var(--body-font-family, $body-font-family);
-    color: $gray5;
+    font-family: var(--body-font-family);
+    color: $color-gray5;
     margin-bottom: $global-margin * 0.25;
   }
 
   &__title {
     @include responsive-typography(large, h5);
-    color: var(--color-black, $black);
+    color: var(--color-black, $color-black);
   }
 
   &__date,
@@ -87,5 +87,5 @@
   font-size: rem-calc(14);
   opacity: 0;
   width: 100%;
-  color: $gray6;
+  color: $color-gray6;
 }

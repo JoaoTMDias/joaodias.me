@@ -56,7 +56,7 @@
 .title {
   text-align: left;
   line-height: 1.1;
-  color: $gray9;
+  color: $color-gray9;
   margin-bottom: $global-margin;
   width: 100%;
   font-size: rem-calc(40);
@@ -71,10 +71,10 @@
 }
 
 .subtitle {
-  font-family: var(--body-font-family, $body-font-family);
+  font-family: var(--body-font-family);
   text-align: left;
   line-height: 1.09375;
-  color: $gray8;
+  color: $color-gray8;
   margin-bottom: $global-margin;
   width: 100%;
   font-size: rem-calc(20);
@@ -90,8 +90,8 @@
 
 .code {
   font-size: rem-calc(18);
-  font-family: var(--body-font-family, $body-font-family);
-  color: $gray8;
+  font-family: var(--body-font-family);
+  color: $color-gray8;
   margin-bottom: ($global-margin * 1.5);
 }
 

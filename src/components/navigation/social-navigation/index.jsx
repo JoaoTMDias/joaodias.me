@@ -78,7 +78,7 @@ const SocialLink = styled(ExternalLink)`
 
   &:hover {
     svg path {
-      fill: var(--color-primary, ${props => props.theme.primaryColor});
+      fill: var(--color-primary);
     }
   }
 

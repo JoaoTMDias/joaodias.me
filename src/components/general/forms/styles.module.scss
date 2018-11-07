@@ -63,19 +63,19 @@
   &:focus {
     outline-width: 1px;
     outline-style: dashed;
-    outline-color: $white;
+    outline-color: $color-white;
     outline-offset: -3px;
   }
 
   &__title,
   &__message {
-    color: $white;
+    color: $color-white;
     text-align: center;
 
     &:focus {
       outline-width: 1px;
       outline-style: dashed;
-      outline-color: $white;
+      outline-color: $color-white;
     }
   }
 
@@ -87,7 +87,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: $global-margin * 1.5;
-    background-color: $white;
+    background-color: $color-white;
     clip-path: circle(3rem at 50%);
 
     svg {

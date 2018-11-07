@@ -17,7 +17,7 @@
   &__title {
     font-family: $header-font-family;
     font-weight: 400;
-    color: $gray8;
+    color: $color-gray8;
     @include breakpoint(medium) {
       font-size: rem-calc(18);
     }
@@ -30,7 +30,7 @@
   &__subtitle {
     font-size: rem-calc(16);
     margin-bottom: rem-calc(8);
-    color: $gray4;
+    color: $color-gray4;
 
     @include breakpoint(medium) {
       font-size: rem-calc(18);
@@ -75,7 +75,7 @@
       text-align: left;
       font-size: rem-calc(12);
       text-transform: uppercase;
-      color: $gray7;
+      color: $color-gray7;
     }
 
     &__input {
@@ -91,7 +91,7 @@
       border-radius: ($global-radius * 12);
 
       &:hover {
-        border: 1px solid $gray4;
+        border: 1px solid $color-gray4;
       }
     }
 
