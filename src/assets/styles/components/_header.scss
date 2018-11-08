@@ -12,6 +12,14 @@ body {
         @include fadeInDown($duration: 200ms, $function: var(--default-timing-function));
         animation-delay: 200ms;
       }
+
+      *:focus {
+        outline-color: var(--color-white, $color-white);
+      }
+    }
+
+    .large-nav__link {
+      color: var(--color-white, $color-white);
     }
 
     .brand {
@@ -25,12 +33,18 @@ body {
       }
     }
 
-    .social__fill {
-      fill: var(--color-white, $color-white);
-
-      &:focus,
-      &:hover {
+    #social-navigation {
+      .social__fill {
         fill: var(--color-white, $color-white);
+      }
+
+      .social-navigation__SocialLink-eQAYUO {
+        .social__fill {
+          &:focus,
+          &:hover {
+            fill: var(--color-white, $color-white);
+          }
+        }
       }
     }
   }

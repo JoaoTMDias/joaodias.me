@@ -13,7 +13,13 @@ const LargeNavigation = () => (
   <Wrapper>
     <List aria-label="Main Navigation" tabIndex="-1">
       <Item>
-        <Link to="/about/" aria-label="Go to the about page" activeClassName="active" tabIndex="0">
+        <Link
+          className="large-nav__link"
+          to="/about/"
+          aria-label="Go to the about page"
+          activeClassName="active"
+          tabIndex="0"
+        >
           About
         </Link>
       </Item>
@@ -24,7 +30,13 @@ const LargeNavigation = () => (
       </Item> */}
 
       <Item>
-        <Link to="/contact/" aria-label="Go to the contacts page" activeClassName="active" tabIndex="0">
+        <Link
+          className="large-nav__link"
+          to="/contact/"
+          aria-label="Go to the contacts page"
+          activeClassName="active"
+          tabIndex="0"
+        >
           Contact
         </Link>
       </Item>
