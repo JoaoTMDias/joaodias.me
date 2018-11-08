@@ -25,12 +25,14 @@ const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!../a
 
 // Layout Component
 const Layout = ({ children, data }) => {
-  const isInWebAppiOS = window.navigator.standalone == true;
-  const isInWebAppChrome = window.matchMedia('(display-mode: standalone)').matches;
-  const body = document.body || document.documentElement;
+  if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+    const isInWebAppiOS = window.navigator.standalone == true;
+    const isInWebAppChrome = window.matchMedia('(display-mode: standalone)').matches;
+    const body = document.body || document.documentElement;
 
-  if (isInWebAppiOS || isInWebAppChrome) {
-    body.setAttribute('data-fullscreen', 'true');
+    if (isInWebAppiOS || isInWebAppChrome) {
+      body.setAttribute('data-fullscreen', 'true');
+    }
   }
 
   return (
