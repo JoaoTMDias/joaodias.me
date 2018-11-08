@@ -55,16 +55,20 @@ class BottomNavigation extends Component {
    * @memberof Header
    */
   handleScroll() {
+    const body = document.body || document.documentElement;
     const bottomNavBar = document.getElementById('bottom-navigation-bar');
 
-    if (bottomNavBar) {
-      let currentScrollPosition = window.pageYOffset;
-      if (this.previousScrollPosition > currentScrollPosition) {
-        bottomNavBar.style.bottom = '0';
-      } else {
-        bottomNavBar.style.bottom = '-3rem';
+    if (body.classList.contains('project-details')) {
+      if (bottomNavBar) {
+        let currentScrollPosition = window.pageYOffset;
+        if (this.previousScrollPosition > currentScrollPosition) {
+          bottomNavBar.style.bottom = '0';
+        } else {
+          bottomNavBar.style.bottom = '-3rem';
+        }
+        this.previousScrollPosition = currentScrollPosition;
+        return true;
       }
-      this.previousScrollPosition = currentScrollPosition;
     }
 
     return false;

@@ -12,6 +12,7 @@
   transition-property: bottom;
   transition-duration: 300ms;
   transition-timing-function: var(--default-timing-function);
+  transition-delay: 300ms;
 
   @include breakpoint(large) {
     display: none;
