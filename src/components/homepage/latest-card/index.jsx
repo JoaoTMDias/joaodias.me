@@ -87,7 +87,8 @@ const Card = styled.a`
   align-items: flex-start;
   justify-content: flex-end;
   height: ${rem('240px')};
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 1;
     transform: scale(1.025);
   }

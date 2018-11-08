@@ -83,7 +83,8 @@ const Anchor = styled.a`
   animation-delay: 1000ms;
   animation-fill-mode: forwards;
   animation-timing-function: var(--default-timing-function);
-  &:hover {
+  &:hover,
+  &:focus {
     cursor: pointer;
     #circle-down {
       transform: scale(1.1);

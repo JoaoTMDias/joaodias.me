@@ -56,15 +56,28 @@
 * Components
 **/
 
-@import 'components/layout', 'components/button', 'components/projects', 'components/header', 'components/introImage',
-  'components/page-transitions', 'components/vertical-timeline';
+@import 'components/layout';
+@import 'components/button';
+@import 'components/projects';
+@import 'components/header';
+@import 'components/introImage';
+@import 'components/page-transitions';
+@import 'components/vertical-timeline';
+
 /**
 * Data
 **/
 
 @import 'data/projects';
+
 /**
 * Themes
 **/
 
 @import 'themes/themes';
+
+/**
+* modules
+**/
+
+@import './modules/fullscreen';

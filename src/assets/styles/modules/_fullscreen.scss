@@ -1,0 +1,13 @@
+body[data-fullscreen='true'] {
+  &.project-details {
+    #branding,
+    #social-navigation {
+      display: none;
+    }
+
+    #back-navigation,
+    #header-page-title {
+      display: flex;
+    }
+  }
+}

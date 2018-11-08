@@ -1,12 +1,14 @@
 /**
  * Import Libraries
  */
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
 /**
  * Import Components
  */
+import HeaderPageTitle from './header-page-title';
+import BackNavigation from './back-navigation';
 import Branding from '../../general/branding';
 import LargeNavigation from '../large-navigation';
 import SocialNavigation from '../social-navigation';
@@ -29,7 +31,7 @@ const debounce = (func, wait) => {
  * @class Header
  * @extends {React.Component}
  */
-class Header extends React.Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     // example how to bind object in React ES6
@@ -37,11 +39,11 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    return document.addEventListener('scroll', debounce(this.handleScroll, 16));
+    document.addEventListener('scroll', debounce(this.handleScroll, 16));
   }
 
   componentWillUnmount() {
-    return document.removeEventListener('scroll', debounce(this.handleScroll, 16));
+    document.removeEventListener('scroll', debounce(this.handleScroll, 16));
   }
 
   /**
@@ -70,6 +72,8 @@ class Header extends React.Component {
       <TopBar id="page-header">
         <Row key="header" className="l__row">
           <Branding />
+          <BackNavigation />
+          <HeaderPageTitle />
           <LargeNavigation />
           <SocialNavigation />
         </Row>

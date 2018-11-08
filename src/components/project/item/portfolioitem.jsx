@@ -104,6 +104,7 @@ const Item = styled(Link)`
 `;
 
 const LazyLoadImage = styled(Img)`
+  display: block;
   position: absolute;
   top: 0;
   right: 0;
@@ -111,7 +112,7 @@ const LazyLoadImage = styled(Img)`
   left: 0;
   width: 100%;
   height: ${rem('375px')};
-  overflow: hidden;
+  overflow: visible;
   background-size: cover;
   background-position: center center;
 

@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styled from 'styled-components';
 
 const Branding = () => (
-  <Brand to="/" aria-label="Press Enter/Click to go to the homepage." tabIndex="0">
+  <Brand id="branding" to="/" aria-label="Press Enter/Click to go to the homepage." tabIndex="0">
     <Logo id="logo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
       <circle className="brand__circle" cx="24" cy="24" r="24" fill="#fff" />
       <path
@@ -41,26 +41,27 @@ const Logo = styled.svg`
   vertical-align: middle;
   transition-property: all;
   transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  transition-timing-function: var(--default-timing-function);
 
   .brand__hair {
-    fill: var(--color-blend);
+    fill: var(--color-black);
   }
 
   .brand__glasses {
-    fill: var(--color-primary);
+    fill: var(--color-black);
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.2) rotate(10deg);
 
     .brand__hair {
-      fill: var(--color-blend);
+      fill: var(--color-primary);
     }
 
     .brand__glasses {
       transform: translateY(2px);
-      fill: var(--color-alternate);
+      fill: var(--color-primary);
     }
   }
 

@@ -90,7 +90,8 @@
       font-size: rem-calc(16);
       border-radius: ($global-radius * 12);
 
-      &:hover {
+      &:hover,
+      &:focus {
         border: 1px solid $color-gray4;
       }
     }

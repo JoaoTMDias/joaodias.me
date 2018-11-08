@@ -205,7 +205,8 @@ const Submit = styled.button`
     pointer-events: all;
     border-radius: 0;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--color-gray9);
       color: var(--color-white);
       border-color: var(--color-black);

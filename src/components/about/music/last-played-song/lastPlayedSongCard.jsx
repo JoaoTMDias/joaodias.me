@@ -63,9 +63,6 @@ const Cover = styled.figure`
   align-items: center;
   margin-bottom: var(--global-margin);
 
-  &:hover {
-  }
-
   img {
     position: absolute;
   }

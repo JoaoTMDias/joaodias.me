@@ -117,7 +117,8 @@ const Wrapper = styled.div`
     border: 2px solid var(--color-gray2);
     width: 100%;
 
-    &:hover {
+    &:hover,
+    &:focus {
       .label {
         color: var(--color-primary);
       }

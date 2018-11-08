@@ -1,69 +1,69 @@
 .blob {
   position: absolute;
   animation-name: blob-animation;
-  animation-duration: 5000ms;
-  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-duration: 3000ms;
+  animation-timing-function: var(--default-timing-function);
   animation-direction: initial;
   animation-fill-mode: forwards;
   &1 {
-    left: 40%;
-    top: -34%;
+    transform: translateX(40%);
+    transform: translateY(-34%);
     width: 103%;
     height: 139%;
   }
   &2 {
-    left: 76%;
-    top: -3%;
+    transform: translateX(76%);
+    transform: translateY(-3%);
     width: 39%;
     height: 68%;
   }
   &3 {
-    left: 8%;
-    top: -21%;
+    transform: translateX(8%);
+    transform: translateY(-21%);
     width: 69%;
     height: 103%;
   }
   &4 {
-    left: -25%;
-    top: 1%;
+    transform: translateX(-25%);
+    transform: translateY(1%);
     width: 77%;
     height: 93%;
   }
   &5 {
-    left: -2%;
-    top: 34%;
+    transform: translateX(-2%);
+    transform: translateY(34%);
     width: 79%;
     height: 96%;
   }
   &6 {
-    left: 67%;
-    top: 65%;
+    transform: translateX(67%);
+    transform: translateY(65%);
     width: 44%;
     height: 53%;
   }
   &7 {
-    left: 67%;
-    top: 65%;
+    transform: translateX(67%);
+    transform: translateY(65%);
     width: 44%;
     height: 53%;
   }
   &8 {
-    left: 63%;
-    top: -23%;
+    transform: translateX(63%);
+    transform: translateY(-23%);
     width: 42%;
     height: 68%;
   }
   &9 {
-    transition: opacity 200ms ease 0s, transform 2000ms ease-in-out 0s;
-    left: -43%;
-    top: -54%;
+    transition: opacity 200ms var(--default-timing-function) 0s, transform 2000ms var(--default-timing-function) 0s;
+    transform: translateX(-43%);
+    transform: translateY(-54%);
     width: 81%;
     height: 118%;
   }
   &10 {
-    transition: opacity 200ms ease 0s, transform 2000ms ease-in-out 0s;
-    left: -1%;
-    top: -14%;
+    transition: opacity 200ms var(--default-timing-function) 0s, transform 2000ms var(--default-timing-function) 0s;
+    transform: translateX(-1%);
+    transform: translateY(-14%);
     width: 39%;
     height: 57%;
   }

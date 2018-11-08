@@ -18,7 +18,7 @@ const ProjectIntroduction = ({ title, description, text }) => {
   }
 
   return (
-    <Wrapper className="l__row">
+    <Wrapper className="l__row utilities--above-the-fold">
       <div className="l__project l__hero">
         <h1 className="title" tabIndex="0">
           {title}
