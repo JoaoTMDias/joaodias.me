@@ -5,7 +5,7 @@ body {
       margin-top: 0;
       position: fixed;
       width: 100%;
-      background-color: var(--color-primary, $primary-color);
+      background-color: var(--color-black, $color-black);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       transition: all 150ms ease-out;
       @include breakpoint(large) {
@@ -20,11 +20,20 @@ body {
 
     .large-nav__link {
       color: var(--color-white, $color-white);
+
+      &.active {
+        border-bottom-color: var(--color-white, $color-white);
+        border-bottom-style: solid;
+      }
+
+      &:before {
+        background-color: var(--color-white, $color-white);
+      }
     }
 
     .brand {
       &__circle {
-        fill: var(--color-primary, $primary-color);
+        fill: var(--color-black, $color-black);
       }
 
       &__hair,
@@ -39,6 +48,9 @@ body {
       }
 
       .social-navigation__SocialLink-eQAYUO {
+        &:before {
+          background: var(--color-white, $color-white);
+        }
         .social__fill {
           &:focus,
           &:hover {

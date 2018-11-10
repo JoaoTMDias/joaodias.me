@@ -16,6 +16,8 @@ import { CallToActionItem, CallToActionWrapper } from '../../components/navigati
 import Footer from '../../components/navigation/footer';
 import Form from '../../components/general/forms/form';
 import A11yPageTitle from '../../components/page-title';
+import { BlobTwo } from '../../components/ui/blobs/index';
+
 
 const ContactPage = ({ location }) => (
   <Layout>
@@ -23,11 +25,7 @@ const ContactPage = ({ location }) => (
       <ContentPage>
         <A11yPageTitle title="Contacts" />
         <Meta title="Contacts" location={location} />
-        <PageTitle
-          title="Contacts"
-          subtitle="Let's work together."
-          containerBackgroundColor="var(--color-white, #ffffff)"
-        />
+        <PageTitle title="Contacts" subtitle="Let's work together." containerBackgroundColor="var(--color-white)" />
         <div id="main-content" className="l__container">
           <Form />
         </div>
@@ -48,6 +46,7 @@ const ContactPage = ({ location }) => (
             linkURL="/about/"
           />
         </CallToActionWrapper>
+        <BlobTwo />
         <Footer />
       </ContentPage>
     </BodyClassName>

@@ -1,6 +1,5 @@
 // Libraries
 import React from 'react';
-import classnames from 'classnames';
 import BodyClassName from 'react-body-classname';
 import { graphql } from 'gatsby';
 
@@ -13,6 +12,7 @@ import asyncComponent from '../../components/hoc/asyncComponent';
 import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import A11yPageTitle from '../../components/page-title';
+import { BlobOne } from '../../components/ui/blobs/index';
 
 const WhoAmI = asyncComponent(() => {
   return import(`./who-am-i`);
@@ -53,10 +53,11 @@ const AboutPage = ({ location, data }) => {
           <A11yPageTitle title="About the Author" />
 
           <Meta title="About" location={location} />
+
           <PageTitle
             title="About me"
             subtitle="Designer, Developer, Dad, Geek, Nerd, Music Lover."
-            containerBackgroundColor="var(--color-white, #ffffff)"
+            containerBackgroundColor="var(--color-white)"
           />
           <MainContent
             style={{
@@ -85,6 +86,7 @@ const AboutPage = ({ location, data }) => {
               linkURL="/contact/"
             />
           </CallToActionWrapper>
+          <BlobOne />
           <Footer />
         </ContentPage>
       </BodyClassName>

@@ -13,6 +13,8 @@ import { ProjectHero, ProjectMeta, ProjectIntroduction } from '../components/pro
 import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
 import Footer from '../components/navigation/footer';
 import A11yPageTitle from '../components/page-title';
+import { BlobFour } from '../components/ui/blobs/index';
+
 
 /**
  * Product Page Template
@@ -81,6 +83,7 @@ class ProjectPage extends PureComponent {
                   linkURL="/contact/"
                 />
               </CallToActionWrapper>
+              <BlobFour />
               <Footer />
             </ContentPage>
           </BodyClassName>

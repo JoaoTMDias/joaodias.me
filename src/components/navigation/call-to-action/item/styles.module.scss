@@ -13,7 +13,7 @@
   @include xy-gutters($gutter-position: bottom, $gutter-type: margin);
   box-shadow: 0 1px 4px rgba(177, 177, 194, 0.4);
   border-radius: $global-radius * 2;
-  background-color: transparent;
+  background-color: var(--color-white);
   transition: all 250ms ease-in-out;
   background-repeat: no-repeat;
   text-decoration: none;
@@ -39,7 +39,7 @@
     background-color: $color-gray2;
 
     &::before {
-      --size: #{rem-calc(320)};
+      --size: #{rem-calc(480)};
       z-index: 3;
     }
   }
@@ -52,7 +52,7 @@
     top: var(--y);
     width: var(--size);
     height: var(--size);
-    background: radial-gradient(circle closest-side, lighten($color-gray3, 10%), transparent);
+    background: radial-gradient(circle closest-side, $color-gray2, transparent);
     transform: translate(-50%, -50%);
     transition: width 0.2s ease, height 0.2s ease;
   }

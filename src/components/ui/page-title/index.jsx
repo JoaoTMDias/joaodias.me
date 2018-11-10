@@ -61,10 +61,11 @@ const Container = styled.section`
   max-height: ${rem('560px')};
   text-align: center;
   background-color: transparent;
-  background-color: ${props => (props.transparent ? 'transparent' : `var(--color-white)`)};
   background-position: center bottom;
   overflow: hidden;
   text-align: center;
+  position: relative;
+
   @media ${props => props.theme.breakpointLarge} {
     height: 65vh;
     min-height: ${rem('384px')};
@@ -79,7 +80,8 @@ const Row = styled.div`
   width: 100%;
   will-change: transform;
   padding: ${rem('16px')} !important;
-  background-color: var(--color-white);
+  background-color: transparent;
+  z-index: 1;
 
   @media ${props => props.theme.breakpointLarge} {
     padding: ${props => (props.isProject ? `${rem('48px')}` : `${rem('48px')} ${rem('16px')}`)} !important;

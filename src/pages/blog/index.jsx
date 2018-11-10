@@ -18,7 +18,7 @@ const BlogPage = ({ location }) => (
     <BodyClassName className="blog">
       <ContentPage>
         <Meta title="Blog" location={location} />
-        <PageTitle title="Blog" subtitle="Recent Articles" containerBackgroundColor="var(--color-white, #ffffff)" />
+        <PageTitle title="Blog" subtitle="Recent Articles" containerBackgroundColor="var(--color-white)" />
         <MainContent>
           <section className="l__container l__section">
             <div className="l__row">

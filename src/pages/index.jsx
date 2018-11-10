@@ -13,6 +13,7 @@ import ContentPage from '../components/content-page/index';
 import Meta from '../components/general/meta/index';
 import PortfolioItem from '../components/project/item/portfolioitem';
 import A11yPageTitle from '../components/page-title';
+import { BlobThree } from '../components/ui/blobs/index';
 
 const Footer = asyncComponent(() => {
   return import(`../components/navigation/footer`);
@@ -89,6 +90,7 @@ const IndexPage = ({ location, data }) => {
             linkURL="/about/"
           />
         </CallToActionWrapper>
+        <BlobThree />
         <Footer />
       </ContentPage>
     </Layout>

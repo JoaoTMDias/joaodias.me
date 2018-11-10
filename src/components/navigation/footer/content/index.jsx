@@ -43,7 +43,7 @@ const FooterContent = () => (
 const Wrapper = styled.div`
   width: 100%;
   position: relative;
-  background-color: var(--color-white);
+  background-color: transparent;
   height: auto;
 
   display: flex;

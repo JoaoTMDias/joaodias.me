@@ -41,7 +41,7 @@ export default HomePageHero;
  * Styles
  */
 const Hero = styled.article`
-  background-color: var(--color-white);
+  background-color: transparent;
   min-height: ${rem('480px')};
   max-height: 50vh;
   display: flex;

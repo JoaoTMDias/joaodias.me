@@ -86,7 +86,7 @@ class Header extends Component {
  *  Styling
  */
 const TopBar = styled.header`
-  background-color: var(--color-white);
+  background-color: transparent;
   max-height: var(--navbar-height);
   z-index: 100;
   position: fixed;

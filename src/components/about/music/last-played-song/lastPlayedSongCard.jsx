@@ -79,6 +79,8 @@ const AlbumCover = styled.img`
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   transition: transform 250ms;
+  background-color: var(--color-gray7);
+  color: var(--color-white);
 `;
 
 const InfoContainer = styled.div`
