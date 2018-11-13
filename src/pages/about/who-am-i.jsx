@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import styled, { keyframes } from 'styled-components';
-import SplitText from 'react-pose-text';
 
 /**
  *
