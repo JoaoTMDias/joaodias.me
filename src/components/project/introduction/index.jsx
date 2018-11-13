@@ -1,14 +1,33 @@
 // Libraries
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
+import SplitText from 'react-pose-text';
 
 /** ********
  ** Component: ProjectIntroduction
  ** @type: functional stateless component
  ** @description: Project Intro section
  ********* */
+const titlePose = {
+  exit: { opacity: 0, y: 16 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 16,
+  },
+};
+
+const descriptionPose = {
+  exit: { opacity: 0, y: 16 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 24,
+  },
+};
+
 const ProjectIntroduction = ({ title, description, text }) => {
   if (typeof document !== 'undefined') {
     let pageTitle = document.querySelector('.title');
@@ -21,10 +40,14 @@ const ProjectIntroduction = ({ title, description, text }) => {
     <Wrapper className="l__row utilities--above-the-fold">
       <div className="l__project l__hero">
         <h1 className="title" tabIndex="0">
-          {title}
+          <SplitText initialPose="exit" pose="enter" charPoses={titlePose}>
+            {title}
+          </SplitText>
         </h1>
         <h2 className="description" tabIndex="0">
-          {description}
+          <SplitText initialPose="exit" pose="enter" charPoses={descriptionPose}>
+            {description}
+          </SplitText>
         </h2>
         <p className="lead" tabIndex="0">
           {text}
@@ -33,6 +56,18 @@ const ProjectIntroduction = ({ title, description, text }) => {
     </Wrapper>
   );
 };
+
+const LeadAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const Wrapper = styled.div`
   height: auto;
@@ -72,6 +107,12 @@ const Wrapper = styled.div`
   .lead {
     font-weight: 300;
     line-height: 1.888;
+    animation-name: ${LeadAnimation};
+    animation-duration: 1000ms;
+    animation-delay: 200ms;
+    animation-timing-function: var(--default-timing-function);
+    animation-fill-mode: forwards;
+    opacity: 0;
   }
 
   .lead,

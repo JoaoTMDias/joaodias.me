@@ -4,11 +4,30 @@
 import React, { PureComponent } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
+import SplitText from 'react-pose-text';
 
 /**
  * Styling
  */
 import styles from './styles.module.scss';
+
+const titlePose = {
+  exit: { opacity: 0, y: 16 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 16,
+  },
+};
+
+const subtitlePose = {
+  exit: { opacity: 0, y: 16 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 24,
+  },
+};
 
 class PageTitle extends PureComponent {
   componentDidMount() {
@@ -38,12 +57,15 @@ class PageTitle extends PureComponent {
             center={center}
             isProject={isProject}
             aria-label={`Page Title: ${title}`}
-            tabIndex="0"
           >
-            {title}
+            <SplitText initialPose="exit" pose="enter" charPoses={titlePose}>
+              {title}
+            </SplitText>
           </Title>
           <Subtitle className={styles.subtitle} center={center} aria-label={`Page Subtitle: ${subtitle}`} tabIndex="0">
-            {subtitle}
+            <SplitText initialPose="exit" pose="enter" charPoses={subtitlePose}>
+              {subtitle}
+            </SplitText>
           </Subtitle>
         </Row>
         {children}

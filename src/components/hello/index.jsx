@@ -88,7 +88,7 @@ const Mask = styled.figure`
   @media ${props => props.theme.breakpointLarge} {
     transform: scaleX(1) scaleY(1) scaleZ(1);
     transform-style: preserve-3d;
-    transition: transform 3000ms var(--default-timing-function);
+    transition: transform 1000ms var(--default-timing-function);
   }
 `;
 

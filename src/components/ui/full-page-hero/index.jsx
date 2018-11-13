@@ -4,11 +4,20 @@
 import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
-import Typing from 'react-typing-animation';
+import SplitText from 'react-pose-text';
 // import ExternalLink from '../../navigation/external-link';
 import { responsiveTypography } from '../../../helpers/helpers';
 
 import HelloAnimation from '../../hello/index';
+
+const charPoses = {
+  exit: { opacity: 0, y: 20 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 16,
+  },
+};
 
 /**
  * Full Page Hero
@@ -19,10 +28,12 @@ class HomePageHero extends PureComponent {
       <Hero className="l__row utilities--above-the-fold">
         <Wrapper>
           <HelloAnimation />
-          <Text aria-label="Page subtitle: I'm João, a frontend developer and designer." tabIndex="0">
-            <Typing speed={50}>
-              <Subtitle>I'm João, a frontend developer and designer.</Subtitle>
-            </Typing>
+          <Text aria-label="Page subtitle: I'm João, a frontend developer and designer.">
+            <Subtitle>
+              <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                I'm João, a frontend developer and designer.
+              </SplitText>
+            </Subtitle>
           </Text>
 
           {/* <Paragraph className="fadeInUp">
