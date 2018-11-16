@@ -1,6 +1,7 @@
 // Libraries
 import React from 'react';
 import styled from 'styled-components';
+import { Spring } from 'react-spring';
 
 //import Loadable from 'react-loadable'
 import { graphql } from 'gatsby';
@@ -23,6 +24,16 @@ const HomePageHero = asyncComponent(() => {
   return import(`../components/ui/full-page-hero/index`);
 });
 
+const from = {
+  opacity: 0,
+  transform: `translate3d(0, 4rem, 0)`,
+};
+
+const to = {
+  opacity: 1,
+  transform: `translate3d(0,0,0)`,
+};
+
 const IndexPage = ({ location, data }) => {
   // Latest Article
 
@@ -31,25 +42,31 @@ const IndexPage = ({ location, data }) => {
 
     if (queryPath) {
       return (
-        <List className="l__row l__container">
-          {queryPath.map(item => {
+        <Spring delay={1000} from={from} to={to}>
+          {props => {
             return (
-              <PortfolioItem
-                key={`${item.node.id}`}
-                id={`${item.node.id}`}
-                to={item.node.slug}
-                title={item.node.title}
-                theme={item.node.theme}
-                alt={item.node.featuredImage ? item.node.featuredImage.title : ''}
-                cover={item.node.featuredImage ? item.node.featuredImage.fluid : {}}
-                color={item.node.color}
-                type={item.node.date}
-                description={item.node.description ? item.node.description.description : ''}
-                project={item.node}
-              />
+              <List className="l__row l__container" style={props}>
+                {queryPath.map(item => {
+                  return (
+                    <PortfolioItem
+                      key={`${item.node.id}`}
+                      id={`${item.node.id}`}
+                      to={item.node.slug}
+                      title={item.node.title}
+                      theme={item.node.theme}
+                      alt={item.node.featuredImage ? item.node.featuredImage.title : ''}
+                      cover={item.node.featuredImage ? item.node.featuredImage.fluid : {}}
+                      color={item.node.color}
+                      type={item.node.date}
+                      description={item.node.description ? item.node.description.description : ''}
+                      project={item.node}
+                    />
+                  );
+                })}
+              </List>
             );
-          })}
-        </List>
+          }}
+        </Spring>
       );
     }
     return <p>Loading...</p>;

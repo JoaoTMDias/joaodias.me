@@ -4,29 +4,21 @@
 import React, { PureComponent } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import SplitText from 'react-pose-text';
+import { Spring } from 'react-spring';
 
 /**
  * Styling
  */
 import styles from './styles.module.scss';
 
-const titlePose = {
-  exit: { opacity: 0, y: 16 },
-  enter: {
-    opacity: 1,
-    y: 0,
-    delay: ({ charIndex }) => charIndex * 16,
-  },
+const from = {
+  opacity: 0,
+  transform: `translate3d(0, 1rem, 0)`,
 };
 
-const subtitlePose = {
-  exit: { opacity: 0, y: 16 },
-  enter: {
-    opacity: 1,
-    y: 0,
-    delay: ({ charIndex }) => charIndex * 24,
-  },
+const to = {
+  opacity: 1,
+  transform: `translate3d(0,0,0)`,
 };
 
 class PageTitle extends PureComponent {
@@ -52,21 +44,36 @@ class PageTitle extends PureComponent {
     return (
       <Container className="l__container l__container l__section utilities--above-the-fold" transparent={transparent}>
         <Row className="l__row parallax" center={center} isProject={isProject}>
-          <Title
-            className={`${styles.title}`}
-            center={center}
-            isProject={isProject}
-            aria-label={`Page Title: ${title}`}
-          >
-            <SplitText initialPose="exit" pose="enter" charPoses={titlePose}>
-              {title}
-            </SplitText>
-          </Title>
-          <Subtitle className={styles.subtitle} center={center} aria-label={`Page Subtitle: ${subtitle}`} tabIndex="0">
-            <SplitText initialPose="exit" pose="enter" charPoses={subtitlePose}>
-              {subtitle}
-            </SplitText>
-          </Subtitle>
+          <Spring from={from} to={to} delay={100}>
+            {props => {
+              return (
+                <Title
+                  className={`${styles.title}`}
+                  center={center}
+                  isProject={isProject}
+                  aria-label={`Page Title: ${title}`}
+                  style={props}
+                >
+                  {title}
+                </Title>
+              );
+            }}
+          </Spring>
+          <Spring from={from} to={to} delay={100}>
+            {props => {
+              return (
+                <Subtitle
+                  className={styles.subtitle}
+                  center={center}
+                  aria-label={`Page Subtitle: ${subtitle}`}
+                  tabIndex="0"
+                  style={props}
+                >
+                  {subtitle}
+                </Subtitle>
+              );
+            }}
+          </Spring>
         </Row>
         {children}
       </Container>

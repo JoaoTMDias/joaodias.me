@@ -11,15 +11,6 @@ import styled, { keyframes } from 'styled-components';
  */
 import styles from './styles.module.scss';
 
-const titlePose = {
-  exit: { opacity: 0, y: 16 },
-  enter: {
-    opacity: 1,
-    y: 0,
-    delay: ({ charIndex }) => charIndex * 24,
-  },
-};
-
 /** ********
  ** Component: WhoAmI
  ** @type: functional stateless component

@@ -11,13 +11,13 @@ import BodyClassName from 'react-body-classname';
 import Layout from '../../components/layout';
 import Meta from '../../components/general/meta';
 import ContentPage from '../../components/content-page';
+import MainContent from '../../components/general/main-content';
 import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import Footer from '../../components/navigation/footer';
 import Form from '../../components/general/forms/form';
 import A11yPageTitle from '../../components/page-title';
 import { BlobTwo } from '../../components/ui/blobs/index';
-
 
 const ContactPage = ({ location }) => (
   <Layout>
@@ -26,9 +26,9 @@ const ContactPage = ({ location }) => (
         <A11yPageTitle title="Contacts" />
         <Meta title="Contacts" location={location} />
         <PageTitle title="Contacts" subtitle="Let's work together." containerBackgroundColor="var(--color-white)" />
-        <div id="main-content" className="l__container">
+        <MainContent className="l__container">
           <Form />
-        </div>
+        </MainContent>
         <CallToActionWrapper>
           <CallToActionItem
             id="cta-resume-pdf"

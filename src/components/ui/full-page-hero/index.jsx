@@ -4,19 +4,20 @@
 import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
-import SplitText from 'react-pose-text';
+import { Spring } from 'react-spring';
 // import ExternalLink from '../../navigation/external-link';
 import { responsiveTypography } from '../../../helpers/helpers';
 
 import HelloAnimation from '../../hello/index';
 
-const charPoses = {
-  exit: { opacity: 0, y: 20 },
-  enter: {
-    opacity: 1,
-    y: 0,
-    delay: ({ charIndex }) => charIndex * 16,
-  },
+const from = {
+  opacity: 0,
+  transform: `translate3d(0, 1.5rem, 0)`,
+};
+
+const to = {
+  opacity: 1,
+  transform: `translate3d(0,0,0)`,
 };
 
 /**
@@ -29,11 +30,11 @@ class HomePageHero extends PureComponent {
         <Wrapper>
           <HelloAnimation />
           <Text aria-label="Page subtitle: I'm João, a frontend developer and designer.">
-            <Subtitle>
-              <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-                I'm João, a frontend developer and designer.
-              </SplitText>
-            </Subtitle>
+            <Spring delay={750} from={from} to={to}>
+              {props => {
+                return <Subtitle style={props}>I'm João, a frontend developer and designer.</Subtitle>;
+              }}
+            </Spring>
           </Text>
 
           {/* <Paragraph className="fadeInUp">
