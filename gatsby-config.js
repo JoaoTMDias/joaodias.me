@@ -22,7 +22,7 @@ const manifestOptions = {
 
 const analyticsOptions = {
   trackingId: 'UA-54851814-1',
-  head: true,
+  head: false,
   anonymize: true,
 };
 
