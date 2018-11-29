@@ -98,7 +98,7 @@ module.exports = {
     'gatsby-plugin-sharp',
 
     // Styling
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-sass',
+    'gatsby-plugin-styled-components',
   ],
 };
