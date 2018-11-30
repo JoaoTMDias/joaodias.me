@@ -4,14 +4,19 @@ import BodyClassName from 'react-body-classname';
 import { graphql } from 'gatsby';
 
 // Components
-import Layout from '../../components/layout';
 import Meta from '../../components/general/meta';
-import ContentPage from '../../components/content-page';
 import MainContent from '../../components/general/main-content';
-import asyncComponent from '../../components/hoc/asyncComponent';
 import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
-import A11yPageTitle from '../../components/page-title';
+import {
+  asyncComponent,
+  Layout,
+  A11yPageTitle,
+  LogoCarousel,
+  LastPlayedSong,
+  ContentPage,
+} from '../../components/index';
+
 import { BlobOne } from '../../components/ui/blobs/index';
 
 const WhoAmI = asyncComponent(() => {
@@ -24,14 +29,6 @@ const Timeline = asyncComponent(() => {
 
 const Footer = asyncComponent(() => {
   return import(`../../components/navigation/footer`);
-});
-
-const LogoCarousel = asyncComponent(() => {
-  return import(`../../components/about/logo-carousel/index`);
-});
-
-const LastPlayedSong = asyncComponent(() => {
-  return import(`../../components/about/music/last-played-song/index`);
 });
 
 const AboutPage = ({ location, data }) => {

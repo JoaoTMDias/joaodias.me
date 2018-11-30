@@ -2,15 +2,9 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-// Components
-import asyncComponent from '../../../hoc/asyncComponent';
-
 // Services
 import MusicServices from '../../../../data/services/external-services';
-
-const LastPlayedSongCard = asyncComponent(() => {
-  return import(`./lastPlayedSongCard`);
-});
+import { LastPlayedSongCard } from '../..';
 
 /** ********
  ** Class: LastPlayedSong

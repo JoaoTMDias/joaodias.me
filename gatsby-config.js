@@ -64,6 +64,9 @@ module.exports = {
     description: 'I am João, a Visual designer and Web developer.',
   },
   plugins: [
+    // Typescript
+    'gatsby-plugin-typescript',
+
     // React Helmet
     'gatsby-plugin-react-helmet',
 

@@ -10,13 +10,11 @@ import { graphql } from 'gatsby';
 /**
  * Import Components
  */
-import Layout from '../../components/layout';
 import Meta from '../../components/general/meta';
-import ContentPage from '../../components/content-page';
 import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import Footer from '../../components/navigation/footer';
-import A11yPageTitle from '../../components/page-title';
+import { Layout, A11yPageTitle, ContentPage } from '../../components/index';
 
 /**
  *

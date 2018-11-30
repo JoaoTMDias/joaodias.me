@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
-import classnames from 'classnames';
 import BodyClassName from 'react-body-classname';
-import Layout from '../components/layout';
-import A11yPageTitle from '../components/page-title';
+import { Layout, A11yPageTitle } from '../components/index.js';
 
 import styles from './404/styles.module.scss';
 
 const NotFoundPage = () => (
   <Layout>
     <BodyClassName className="404">
-      <div className={classnames('l__container', 'l__row', 'l__section', styles.container)}>
+      <div className={`l__container l__row l__section ${styles.container}`}>
         <A11yPageTitle title="404 Error. Page wasn't found." />
 
         <Helmet

@@ -1,4 +1,4 @@
-import asyncComponent from '../../hoc/asyncComponent';
+import { asyncComponent } from './../../index';
 
 const CallToActionWrapper = asyncComponent(() => {
   // eslint-disable-next-line

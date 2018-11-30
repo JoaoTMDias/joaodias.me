@@ -2,18 +2,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Spring } from 'react-spring';
-
-//import Loadable from 'react-loadable'
 import { graphql } from 'gatsby';
 
 // Components
-import asyncComponent from '../components/hoc/asyncComponent';
 import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
-import Layout from '../components/layout';
-import ContentPage from '../components/content-page/index';
 import Meta from '../components/general/meta/index';
 import PortfolioItem from '../components/project/item/portfolioitem';
-import A11yPageTitle from '../components/page-title';
+import { asyncComponent, Layout, A11yPageTitle, ContentPage } from '../components/index';
+
 import { BlobThree } from '../components/ui/blobs/index';
 
 const Footer = asyncComponent(() => {
