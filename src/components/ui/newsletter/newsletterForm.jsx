@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import styles from './styles.module.scss';
 
 class NewsletterForm extends React.Component {
@@ -42,9 +41,9 @@ class NewsletterForm extends React.Component {
               name="mce-EMAIL"
               title="Please insert your email"
               placeholder="Your Email"
-              className={classnames(styles.form__field__input, 'required', 'email')}
+              className={`${styles.form__field__input} required email`}
               value={this.state.emailValue}
-              onChange={(e) => {
+              onChange={e => {
                 this.setState({ emailValue: e.target.value });
               }}
               autoCapitalize="off"
@@ -62,9 +61,9 @@ class NewsletterForm extends React.Component {
               name="mce-FNAME"
               title="Please insert your first given name"
               placeholder="Your First Name"
-              className={classnames(styles.form__field__input, 'required')}
+              className={`${styles.form__field__input} required`}
               value={this.state.fNameValue}
-              onChange={(e) => {
+              onChange={e => {
                 this.setState({ fNameValue: e.target.value });
               }}
               autoCapitalize="on"
@@ -72,16 +71,13 @@ class NewsletterForm extends React.Component {
               required
             />
           </div>
-          <div
-            id="form-submit"
-            className={classnames(styles.form__field__submit, styles.form__field__group)}
-          >
+          <div id="form-submit" className={`${styles.form__field__submit} ${styles.form__field__group}`}>
             <input
               type="button"
               value="Clear"
               name="clear"
               id="mc-embedded-clear"
-              className={classnames(styles.form__field__button, 'secondary', 'button')}
+              className={`${styles.form__field__button} secondary button`}
               onClick={this.resetForm}
             />
             <input
@@ -89,7 +85,7 @@ class NewsletterForm extends React.Component {
               value="Subscribe"
               name="subscribe"
               id="mc-embedded-subscribe"
-              className={classnames(styles.form__field__button, 'primary', 'button')}
+              className={`${styles.form__field__button} primary button`}
             />
           </div>
         </fieldset>
@@ -100,12 +96,7 @@ class NewsletterForm extends React.Component {
             <div className="response" id="mce-success-response" style={{ display: 'none' }} />
           </div>
           <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-            <input
-              type="text"
-              name="b_3b224b84ea35b152cf9b8991f_2ccb5a3395"
-              tabIndex="-1"
-              value=""
-            />
+            <input type="text" name="b_3b224b84ea35b152cf9b8991f_2ccb5a3395" tabIndex="-1" value="" />
           </div>
         </fieldset>
       </form>

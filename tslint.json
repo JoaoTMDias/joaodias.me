@@ -38,6 +38,7 @@
     "no-floating-promises": true,
     "no-unnecessary-qualifier": true,
     "strict-type-predicates": false,
-    "no-namespace": false
+    "no-namespace": false,
+    "no-debugger": false
   }
 }

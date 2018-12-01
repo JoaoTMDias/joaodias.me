@@ -62,7 +62,7 @@ const Wrapper = styled.div`
     letter-spacing: 1px;
     margin-bottom: ${rem('8px')};
 
-    ${responsiveTypography({
+    font-size: ${responsiveTypography({
       minFont: 10,
       maxFont: 12,
       minWidth: 320,
@@ -98,7 +98,7 @@ const Card = styled.a`
   }
 
   h2 {
-    ${responsiveTypography({
+    font-size: ${responsiveTypography({
       minFont: 18,
       maxFont: 28,
       minWidth: 320,
@@ -107,7 +107,7 @@ const Card = styled.a`
   }
 
   time  {
-    ${responsiveTypography({
+    font-size: ${responsiveTypography({
       minFont: 12,
       maxFont: 16,
       minWidth: 320,

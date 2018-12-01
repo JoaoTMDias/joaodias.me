@@ -1,6 +1,5 @@
 // Libraries
 import React from 'react';
-import classnames from 'classnames';
 
 // Components
 // import Component from '../components/componentName';
@@ -13,13 +12,15 @@ import styles from './styles.module.scss';
  ** @type: functional stateless component
  ** @description:  componentDescription
  ********* */
-const ProjectMetaList = ({ title, children }) => (
-  <ol className={classnames(styles.list)}>
-    <li className={styles.title} tabIndex="-1">
-      {title}
-    </li>
-    {children}
-  </ol>
-);
+const ProjectMetaList = ({ title, children }) => {
+  return (
+    <ol className={styles.list}>
+      <li className={styles.title} tabIndex="-1">
+        {title}
+      </li>
+      {children}
+    </ol>
+  );
+};
 
 export default ProjectMetaList;

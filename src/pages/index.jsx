@@ -6,9 +6,7 @@ import { graphql } from 'gatsby';
 
 // Components
 import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
-import Meta from '../components/general/meta/index';
-import PortfolioItem from '../components/project/item/portfolioitem';
-import { asyncComponent, Layout, A11yPageTitle, ContentPage } from '../components/index';
+import { asyncComponent, Layout, A11yPageTitle, ContentPage, Meta, PortfolioItem } from '../components/index';
 
 import { BlobThree } from '../components/ui/blobs/index';
 

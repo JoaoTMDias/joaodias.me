@@ -1,24 +1,30 @@
-/**
- * Import Libraries
- */
-import React from 'react';
-import Helmet from 'react-helmet';
+// Libraries
+import * as React from "react";
+import Helmet, { HelmetData } from "react-helmet";
+
+// Configurations
+import { config } from "./components/index";
+
+// Component Props
+interface IHTMLProps {
+  headComponents: any;
+  body: any;
+  postBodyComponents: any;
+}
+
+const isProduction: boolean = process.env.NODE_ENV === "production";
 
 /**
- * Site Configurations
+ * @description HTML Starter File
+ * @author  João Dias
+ * @date  01/December/2018 at 16:19
+ * @extends {React.FunctionComponent}
  */
-import { siteMetadata as config } from '../gatsby-config';
-
-/**
- * Production Configurations
- */
-const isProduction = process.env.NODE_ENV === 'production';
-
-const HTML = props => {
-  const helmet = Helmet.rewind();
-  const openGraphUrl = isProduction ? `${config.url}/share.png` : '/share.png';
-
+const HTML: React.FunctionComponent<IHTMLProps> = props => {
+  const helmet: HelmetData = Helmet.rewind();
+  const openGraphUrl: string = isProduction ? `${config.url}/share.png` : "/share.png";
   const { headComponents, body, postBodyComponents } = props;
+
   return (
     <html lang="en">
       <head>
@@ -45,7 +51,6 @@ const HTML = props => {
         </a>
         <div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
-        {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/tota11y/0.1.6/tota11y.min.js" /> */}
       </body>
     </html>
   );

@@ -1,20 +1,38 @@
 /////////////////////
 // GENERAL
 /////////////////////
-
-// Code Splitting
+import { siteMetadata as config } from '../../gatsby-config';
+import Branding from './general/branding/branding.component';
+import { Form, TextInput, TextareaInput } from './general/forms/index';
 import asyncComponent from './hoc/asyncComponent';
+import Meta from './general/meta/meta.component';
+
+export { config, Branding, Form, TextInput, TextareaInput, asyncComponent, Meta };
 
 /////////////////////
 // LAYOUT
 /////////////////////
-
-import Layout from './layout';
+import Layout from './layout.component';
 import A11yPageTitle from './ui/page-title/a11ypagetitle.component';
 import BackgroundAnimation from './background-animation/background-animation.component';
 import ContentPage from './content-page/content-page.component';
-
-// About page
+import MainContent from './general/main-content/main-content.component';
 import { LogoCarousel, LastPlayedSong, LastPlayedSongCard } from './about/index';
 
-export { asyncComponent, Layout, A11yPageTitle, BackgroundAnimation, ContentPage, LogoCarousel, LastPlayedSong, LastPlayedSongCard };
+export {
+  Layout,
+  A11yPageTitle,
+  BackgroundAnimation,
+  ContentPage,
+  MainContent,
+  LogoCarousel,
+  LastPlayedSong,
+  LastPlayedSongCard,
+};
+
+/////////////////////
+// PORTFOLIO PROJECT
+/////////////////////
+import PortfolioItem from './project/item/portfolioitem.component';
+
+export { PortfolioItem };

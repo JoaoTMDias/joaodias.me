@@ -8,13 +8,11 @@ import BodyClassName from 'react-body-classname';
 /**
  * Import Components
  */
-import Meta from '../../components/general/meta';
-import MainContent from '../../components/general/main-content';
 import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import Footer from '../../components/navigation/footer';
 import Form from '../../components/general/forms/form';
-import { Layout, A11yPageTitle, ContentPage } from '../../components/index';
+import { Layout, A11yPageTitle, ContentPage, Meta, MainContent } from '../../components/index';
 
 import { BlobTwo } from '../../components/ui/blobs/index';
 

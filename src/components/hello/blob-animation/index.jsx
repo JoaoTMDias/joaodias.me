@@ -1,10 +1,9 @@
 import React from 'react';
-import classnames from 'classnames';
 import styles from './styles.module.scss';
 
 const BlobAnimation = () => (
   <div id="blob-animation">
-    <div className={classnames(styles.blob, styles.blob1)}>
+    <div className={`${styles.blob} ${styles.blob1}`}>
       <svg viewBox="0 0 713 697" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <title>blob-1</title>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -18,7 +17,7 @@ const BlobAnimation = () => (
         </g>
       </svg>
     </div>
-    <div className={classnames(styles.blob, styles.blob2)}>
+    <div className={`${styles.blob} ${styles.blob2}`}>
       <svg viewBox="0 0 267 340" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -31,7 +30,7 @@ const BlobAnimation = () => (
         </g>
       </svg>
     </div>
-    <div className={classnames(styles.blob, styles.blob3)}>
+    <div className={`${styles.blob} ${styles.blob3}`}>
       <svg viewBox="0 0 478 514" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -44,7 +43,7 @@ const BlobAnimation = () => (
         </g>
       </svg>
     </div>
-    <div className={classnames(styles.blob, styles.blob4)}>
+    <div className={`${styles.blob} ${styles.blob4}`}>
       <svg viewBox="0 0 530 467" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -57,7 +56,7 @@ const BlobAnimation = () => (
         </g>
       </svg>
     </div>
-    <div className={classnames(styles.blob, styles.blob5)}>
+    <div className={`${styles.blob} ${styles.blob5}`}>
       <svg viewBox="0 0 546 481" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -70,7 +69,7 @@ const BlobAnimation = () => (
         </g>
       </svg>
     </div>
-    <div className={classnames(styles.blob, styles.blob6)}>
+    <div className={`${styles.blob} ${styles.blob6}`}>
       <svg viewBox="0 0 303 267" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -83,7 +82,7 @@ const BlobAnimation = () => (
         </g>
       </svg>
     </div>
-    <div className={classnames(styles.blob, styles.blob7)}>
+    <div className={`${styles.blob} ${styles.blob7}`}>
       <svg viewBox="0 0 360 348" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -96,7 +95,7 @@ const BlobAnimation = () => (
         </g>
       </svg>
     </div>
-    <div className={classnames(styles.blob, styles.blob8)}>
+    <div className={`${styles.blob} ${styles.blob8}`}>
       <svg viewBox="0 0 289 341" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -109,7 +108,7 @@ const BlobAnimation = () => (
         </g>
       </svg>
     </div>
-    <div className={classnames(styles.blob, styles.blob9)}>
+    <div className={`${styles.blob} ${styles.blob9}`}>
       <svg viewBox="0 0 559 592" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -122,7 +121,7 @@ const BlobAnimation = () => (
         </g>
       </svg>
     </div>
-    <div className={classnames(styles.blob, styles.blob10)}>
+    <div className={`${styles.blob} ${styles.blob10}`}>
       <svg viewBox="0 0 272 287" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path

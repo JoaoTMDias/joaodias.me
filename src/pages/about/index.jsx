@@ -4,8 +4,6 @@ import BodyClassName from 'react-body-classname';
 import { graphql } from 'gatsby';
 
 // Components
-import Meta from '../../components/general/meta';
-import MainContent from '../../components/general/main-content';
 import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import {
@@ -15,6 +13,8 @@ import {
   LogoCarousel,
   LastPlayedSong,
   ContentPage,
+  MainContent,
+  Meta,
 } from '../../components/index';
 
 import { BlobOne } from '../../components/ui/blobs/index';
@@ -34,8 +34,6 @@ const Footer = asyncComponent(() => {
 const AboutPage = ({ location, data }) => {
   const renderImage = data => {
     let queryPath = data.allContentfulAsset.edges[0].node;
-
-    //console.log('query path: ', queryPath);
 
     if (queryPath) {
       return <WhoAmI data={queryPath} />;

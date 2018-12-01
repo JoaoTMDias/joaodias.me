@@ -9,7 +9,7 @@ import styled from 'styled-components';
  */
 import HeaderPageTitle from './header-page-title';
 import BackNavigation from './back-navigation';
-import Branding from '../../general/branding';
+import { Branding } from '../../index';
 import LargeNavigation from '../large-navigation';
 import SocialNavigation from '../social-navigation';
 

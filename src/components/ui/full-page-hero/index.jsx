@@ -36,18 +36,11 @@ class HomePageHero extends PureComponent {
               }}
             </Spring>
           </Text>
-
-          {/* <Paragraph className="fadeInUp">
-            I'm also the author &amp; host of a&nbsp;
-            <ExternalLink to="https://coffeeonmykeyboard.com">podcast and monthly newsletter</ExternalLink>.
-          </Paragraph> */}
         </Wrapper>
       </Hero>
     );
   }
 }
-
-export default HomePageHero;
 
 /**
  * Styles
@@ -102,7 +95,7 @@ const Subtitle = styled.h2`
   letter-spacing: 0;
   margin-bottom: 1.5rem;
   font-size: ${rem('32px')};
-  ${responsiveTypography({
+  font-size: ${responsiveTypography({
     minFont: 19,
     maxFont: 32,
     minWidth: 320,
@@ -110,59 +103,4 @@ const Subtitle = styled.h2`
   })};
 `;
 
-/*
-const fadeInUp = keyframes`
-    0% {
-        opacity: 0;
-        transform: translateY(2rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-`;
-
-
-const Paragraph = styled.p`
-  font-family: var(--body-font-family);
-  font-weight: 300;
-  color: var(--color-gray6);
-  letter-spacing: 0;
-  animation-name: ${fadeInUp};
-  animation-delay: 1000ms;
-  animation-timing-function: var(--default-timing-function);
-  animation-duration: 2000ms;
-  animation-direction: initial;
-  animation-fill-mode: forwards;
-
-  a {
-    color: var(--color-gray9);
-    border-bottom: 1px dotted var(--color-gray9);
-  }
-
-  &:nth-child(1) {
-    animation-delay: 1000ms;
-  }
-
-  @media ${props => props.theme.breakpointLarge} {
-    letter-spacing: 0;
-  }
-  font-size: ${rem('20px')};
-
-  ${responsiveTypography({
-    minFont: 17,
-    maxFont: 20,
-  })};
-`;
-
-const IsTyping = keyframes`
-  from {
-    opacity: 0;
-  }
-`;
-
-const Cursor = styled.span`
-  animation: ${IsTyping} 1s infinite;
-`;
-
-*/
+export default HomePageHero;

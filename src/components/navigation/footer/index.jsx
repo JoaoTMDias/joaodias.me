@@ -2,7 +2,6 @@
  * Import Libraries
  */
 import React from 'react';
-import classnames from 'classnames';
 import styled from 'styled-components';
 import { rem } from 'polished';
 

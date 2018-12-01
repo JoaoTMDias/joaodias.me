@@ -74,8 +74,6 @@ PortfolioItem.propTypes = {
   id: PropTypes.string,
 };
 
-export default PortfolioItem;
-
 // ///////////////////
 // STYLED COMPONENTS
 // ///////////////////
@@ -132,3 +130,5 @@ const LazyLoadImage = styled(Img)`
     padding-bottom: 0 !important;
   }
 `;
+
+export default PortfolioItem;
