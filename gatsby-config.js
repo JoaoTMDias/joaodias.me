@@ -1,12 +1,32 @@
 const manifestOptions = {
   name: 'João Dias',
-  short_name: 'João Dias',
+  short_name: 'Joao Dias',
   description: 'Portfolio of João Dias',
   start_url: '/',
   background_color: '#ffffff',
   theme_color: '#e81b1f',
   display: 'standalone',
   icons: [
+    {
+      src: '/android-chrome-48x48.png',
+      sizes: '48x48',
+      type: 'image/png',
+    },
+    {
+      src: '/android-chrome-72x72.png',
+      sizes: '72x72',
+      type: 'image/png',
+    },
+    {
+      src: '/android-chrome-96x96.png',
+      sizes: '96x96',
+      type: 'image/png',
+    },
+    {
+      src: '/android-chrome-144x144.png',
+      sizes: '144x144',
+      type: 'image/png',
+    },
     {
       src: '/android-chrome-192x192.png',
       sizes: '192x192',

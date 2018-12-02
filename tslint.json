@@ -21,6 +21,7 @@
     "no-implicit-dependencies": false,
     "no-constant-condition": false,
     "triple-equals": [true, "allow-undefined-check"],
+    "no-var-requires": false,
     "ter-indent": [
       true,
       2,
@@ -39,6 +40,7 @@
     "no-unnecessary-qualifier": true,
     "strict-type-predicates": false,
     "no-namespace": false,
-    "no-debugger": false
+    "no-debugger": false,
+    "prettier": true
   }
 }

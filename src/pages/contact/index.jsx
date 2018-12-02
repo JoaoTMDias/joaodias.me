@@ -11,10 +11,7 @@ import BodyClassName from 'react-body-classname';
 import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import Footer from '../../components/navigation/footer';
-import Form from '../../components/general/forms/form';
-import { Layout, A11yPageTitle, ContentPage, Meta, MainContent } from '../../components/index';
-
-import { BlobTwo } from '../../components/ui/blobs/index';
+import { Layout, A11yPageTitle, ContentPage, Meta, MainContent, BlobTwo, Form } from '../../components/index';
 
 const ContactPage = ({ location }) => (
   <Layout>

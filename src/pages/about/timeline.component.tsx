@@ -1,13 +1,14 @@
 // Libraries
-import React from 'react';
-import { VerticalTimeline, VerticalTimelineElement } from '../../components/ui/vertical-timeline/index';
+import * as React from "react";
+import { VerticalTimeline, VerticalTimelineElement } from "../../components/index";
 
-/** ********
- ** Component: Timeline
- ** @type: functional stateless component
- ** @description: Timeline
- ********* */
-const Timeline = () => (
+/**
+ * @description Timeline
+ * @author  João Dias
+ * @date  02/December/2018 at 00:01
+ * @extends {React.SFC}
+ */
+const Timeline: React.FunctionComponent = () => (
   <section id="vertical-timeline">
     <VerticalTimeline>
       <VerticalTimelineElement

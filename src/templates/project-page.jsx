@@ -1,17 +1,16 @@
 // Libraries
 import React, { PureComponent } from 'react';
+import BodyClassName from 'react-body-classname';
 import Helmet from 'react-helmet';
 import get from 'lodash/get';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import BodyClassName from 'react-body-classname';
 
 // Components
 import { ProjectHero, ProjectMeta, ProjectIntroduction } from '../components/project';
 import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
 import Footer from '../components/navigation/footer';
-import { Layout, A11yPageTitle, ContentPage } from '../components/index.js';
-import { BlobFour } from '../components/ui/blobs/index';
+import { Layout, A11yPageTitle, ContentPage, BlobFour } from '../components/index.js';
 
 /**
  * Product Page Template

@@ -6,13 +6,16 @@ import { graphql } from 'gatsby';
 
 // Components
 import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
-import { asyncComponent, Layout, A11yPageTitle, ContentPage, Meta, PortfolioItem } from '../components/index';
-
-import { BlobThree } from '../components/ui/blobs/index';
-
-const Footer = asyncComponent(() => {
-  return import(`../components/navigation/footer`);
-});
+import {
+  asyncComponent,
+  Layout,
+  A11yPageTitle,
+  ContentPage,
+  Meta,
+  PortfolioItem,
+  BlobThree,
+  Footer,
+} from '../components/index';
 
 const HomePageHero = asyncComponent(() => {
   return import(`../components/ui/full-page-hero/index`);

@@ -1,28 +1,31 @@
 // Libraries
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
-import styled, { keyframes } from 'styled-components';
+import Img from "gatsby-image";
+import * as React from "react";
+import styled, { keyframes } from "styled-components";
 
-/**
- *
- * Styling
- *
- */
-import styles from './styles.module.scss';
+// Styling
+const styles = require("./styles.module.scss");
 
-/** ********
- ** Component: WhoAmI
- ** @type: functional stateless component
- ** @description:  componentDescription
- ********* */
-class WhoAmI extends PureComponent {
-  renderImage(data) {
+// Interface
+interface WhoAmIProps {
+  data: {
+    id: string;
+    title: string;
+    description: string;
+    fluid: any;
+    alt: string;
+  };
+}
+
+class WhoAmI extends React.Component<WhoAmIProps, any> {
+  renderImage() {
+    const { data } = this.props;
+
     if (data) {
       return (
         <Container>
           <Shape>
-            <Img fluid={data.fluid} title={data.title} alt={data.alt} fadeIn />
+            <Img fluid={data.fluid} title={data.title} alt={data.alt} fadeIn={true} />
           </Shape>
         </Container>
       );
@@ -31,23 +34,22 @@ class WhoAmI extends PureComponent {
     return false;
   }
 
-  render() {
-    const { data } = this.props;
+  public render() {
     return (
       <section id="who-am-i" className="l__container l__section">
         <div className={`l__row ${styles.whoAmI}`}>
           <div id="who-am-i-image" className={styles.whoAmI__image}>
-            {this.renderImage(data)}
+            {this.renderImage()}
           </div>
           <div id="who-am-i-text" className={styles.whoAmI__text}>
             <h3
               className={styles.whoAmI__title}
               aria-label="Section Title: About Me. Description: I make stuff for the web."
-              tabIndex="0"
+              tabIndex={0}
             >
               I make stuff for the web.
             </h3>
-            <h4 className={styles.whoAmI__lead} tabIndex="0">
+            <h4 className={styles.whoAmI__lead} tabIndex={0}>
               I’m João — an interface designer and frontend developer based in Coimbra, Portugal.
             </h4>
             <p>
@@ -126,10 +128,5 @@ const Shape = styled.div`
     overflow: hidden;
   }
 `;
-
-WhoAmI.propTypes = {
-  // eslint-disable-next-line
-  data: PropTypes.object,
-};
 
 export default WhoAmI;

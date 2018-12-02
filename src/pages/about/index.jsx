@@ -8,6 +8,7 @@ import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import {
   asyncComponent,
+  Footer,
   Layout,
   A11yPageTitle,
   LogoCarousel,
@@ -15,20 +16,15 @@ import {
   ContentPage,
   MainContent,
   Meta,
+  BlobOne,
 } from '../../components/index';
 
-import { BlobOne } from '../../components/ui/blobs/index';
-
 const WhoAmI = asyncComponent(() => {
-  return import(`./who-am-i`);
+  return import(`./who-am-i.component`);
 });
 
 const Timeline = asyncComponent(() => {
-  return import(`./timeline`);
-});
-
-const Footer = asyncComponent(() => {
-  return import(`../../components/navigation/footer`);
+  return import(`./timeline.component`);
 });
 
 const AboutPage = ({ location, data }) => {
