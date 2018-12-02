@@ -29,7 +29,7 @@ import appleiPhoneXR from '../../static/splash-screens/apple-iphone-xr_splash.pn
 import appleiPhoneXSMax from '../../static/splash-screens/apple-iphone-xsmax_splash.png';
 import appleiPad from '../../static/splash-screens/apple-ipad_splash.png';
 import appleIpadPro1 from '../../static/splash-screens/apple-ipad-pro1_splash.png';
-import appleIpadPro3 from '../../static/splash-screens/apple-ipadpro3_splash.png';
+import appleIpadPro3 from '../../static/splash-screens/apple-ipad-pro3_splash.png';
 import appleIpadPro2 from '../../static/splash-screens/apple-ipad-pro2_splash.png';
 
 // Theme
