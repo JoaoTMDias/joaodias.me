@@ -67,7 +67,7 @@ export { VerticalTimeline, VerticalTimelineElement };
 // BLOBS
 /////////////////////
 import HelloAnimation from './hello/hello-animation.component';
-import HelloAnimationBlob from './hello/blob-animation/hello-animation-blob.component';
+import HelloAnimationBlob from './hello/hello-animation-blob/hello-animation-blob.component';
 import { BlobOne, BlobTwo, BlobThree, BlobFour } from './ui/blobs/index';
 export { HelloAnimation, HelloAnimationBlob, BlobOne, BlobTwo, BlobThree, BlobFour };
 

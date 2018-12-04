@@ -1,9 +1,9 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { rem } from 'polished';
+import { rem } from "polished";
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
 // Components
-import { HelloAnimationBlob } from '../index';
+import { HelloAnimationBlob } from "../index";
 
 const HelloAnimation = () => (
   <Container id="hello" aria-label="Page welcome title: Hey What's up?" tabIndex="0">
@@ -48,7 +48,7 @@ const Container = styled.div`
   z-index: 0;
   display: block;
   width: 100%;
-  max-width: ${rem('382px')};
+  max-width: ${rem("382px")};
   height: auto;
   justify-content: flex-start;
   align-items: flex-start;
@@ -63,12 +63,12 @@ const Container = styled.div`
 
   @media ${props => props.theme.breakpointMedium} {
     width: 100%;
-    max-width: ${rem('448px')};
+    max-width: ${rem("448px")};
   }
 
   @media ${props => props.theme.breakpointLarge} {
     width: 100%;
-    max-width: ${rem('384px')};
+    max-width: ${rem("384px")};
   }
 
   &:focus {
