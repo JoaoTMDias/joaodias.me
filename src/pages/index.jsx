@@ -13,13 +13,9 @@ import {
   ContentPage,
   Meta,
   PortfolioItem,
-  BlobThree,
   Footer,
+  HomePageHero,
 } from '../components/index';
-
-const HomePageHero = asyncComponent(() => {
-  return import(`../components/ui/full-page-hero/index`);
-});
 
 const from = {
   opacity: 0,
@@ -104,7 +100,6 @@ const IndexPage = ({ location, data }) => {
             linkURL="/about/"
           />
         </CallToActionWrapper>
-        <BlobThree />
         <Footer />
       </ContentPage>
     </Layout>

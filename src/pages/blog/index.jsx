@@ -4,8 +4,7 @@ import BodyClassName from 'react-body-classname';
 import styled from 'styled-components';
 
 // Components
-import { Layout, ContentPage, Meta, MainContent } from '../../components/index';
-import PageTitle from '../../components/ui/page-title';
+import { Layout, ContentPage, Meta, MainContent, PageTitle } from '../../components/index';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action';
 import Footer from '../../components/navigation/footer';
 import ArticleItem from './article-item/index';

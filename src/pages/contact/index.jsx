@@ -8,10 +8,18 @@ import BodyClassName from 'react-body-classname';
 /**
  * Import Components
  */
-import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import Footer from '../../components/navigation/footer';
-import { Layout, A11yPageTitle, ContentPage, Meta, MainContent, BlobTwo, Form } from '../../components/index';
+import {
+  Layout,
+  A11yPageTitle,
+  ContentPage,
+  Meta,
+  MainContent,
+  BlobOne,
+  Form,
+  PageTitle,
+} from '../../components/index';
 
 const ContactPage = ({ location }) => (
   <Layout>
@@ -40,7 +48,7 @@ const ContactPage = ({ location }) => (
             linkURL="/about/"
           />
         </CallToActionWrapper>
-        <BlobTwo />
+        <BlobOne />
         <Footer />
       </ContentPage>
     </BodyClassName>

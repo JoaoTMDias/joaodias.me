@@ -1,4 +1,11 @@
-import TextInput from './text-input'
-import TextareaInput from './textarea-input'
+import { asyncComponent } from '../../index';
 
-export { TextInput, TextareaInput }
+const TextInput = asyncComponent(() => {
+  return import('./text-input');
+});
+
+const TextareaInput = asyncComponent(() => {
+  return import('./textarea-input');
+});
+
+export { TextInput, TextareaInput };

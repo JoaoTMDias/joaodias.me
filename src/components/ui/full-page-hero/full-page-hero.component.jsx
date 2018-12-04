@@ -5,10 +5,9 @@ import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
 import { Spring } from 'react-spring';
-// import ExternalLink from '../../navigation/external-link';
 import { responsiveTypography } from '../../../helpers/helpers';
 
-import HelloAnimation from '../../hello/index';
+import { HelloAnimation } from '../../index';
 
 const from = {
   opacity: 0,

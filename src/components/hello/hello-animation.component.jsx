@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
 
 // Components
-import BlobAnimation from './blob-animation/index';
+import { HelloAnimationBlob } from '../index';
 
 const HelloAnimation = () => (
   <Container id="hello" aria-label="Page welcome title: Hey What's up?" tabIndex="0">
@@ -28,7 +28,7 @@ const HelloAnimation = () => (
       </svg>
     </Mask>
     <ArtInner id="art-inner">
-      <BlobAnimation />
+      <HelloAnimationBlob />
     </ArtInner>
   </Container>
 );

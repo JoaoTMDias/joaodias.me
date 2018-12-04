@@ -1,11 +1,15 @@
 /////////////////////
 // GENERAL
 /////////////////////
-import { siteMetadata as config } from '../../gatsby-config';
-import Branding from './general/branding/branding.component';
-import { Form, TextInput, TextareaInput } from './general/forms/index';
 import asyncComponent from './hoc/asyncComponent';
-import Meta from './general/meta/meta.component';
+import { siteMetadata as config } from '../../gatsby-config';
+const Branding = asyncComponent(() => {
+  return import('./general/branding/branding.component');
+});
+const Meta = asyncComponent(() => {
+  return import('./general/meta/meta.component');
+});
+import { Form, TextInput, TextareaInput } from './general/forms/index';
 
 export { config, Branding, Form, TextInput, TextareaInput, asyncComponent, Meta };
 
@@ -19,8 +23,13 @@ const Header = asyncComponent(() => {
 const Footer = asyncComponent(() => {
   return import(`./navigation/footer/index`);
 });
-import A11yPageTitle from './ui/page-title/a11ypagetitle.component';
-import BackgroundAnimation from './background-animation/background-animation.component';
+const A11yPageTitle = asyncComponent(() => {
+  return import('./ui/page-title/a11ypagetitle.component');
+});
+
+const PageTitle = asyncComponent(() => {
+  return import('./ui/page-title/page-title.component');
+});
 import ContentPage from './content-page/content-page.component';
 import MainContent from './general/main-content/main-content.component';
 import { LogoCarousel, LastPlayedSong, LastPlayedSongCard } from './about/index';
@@ -30,7 +39,7 @@ export {
   Header,
   Footer,
   A11yPageTitle,
-  BackgroundAnimation,
+  PageTitle,
   ContentPage,
   MainContent,
   LogoCarousel,
@@ -39,21 +48,34 @@ export {
 };
 
 /////////////////////
+// HOME
+/////////////////////
+
+const HomePageHero = asyncComponent(() => {
+  return import(`./ui/full-page-hero/full-page-hero.component.jsx`);
+});
+
+export { HomePageHero };
+
+/////////////////////
 // ABOUT
 /////////////////////
 import { VerticalTimeline, VerticalTimelineElement } from './ui/vertical-timeline/index';
-
 export { VerticalTimeline, VerticalTimelineElement };
 
 /////////////////////
 // BLOBS
 /////////////////////
+import HelloAnimation from './hello/hello-animation.component';
+import HelloAnimationBlob from './hello/blob-animation/hello-animation-blob.component';
 import { BlobOne, BlobTwo, BlobThree, BlobFour } from './ui/blobs/index';
-export { BlobOne, BlobTwo, BlobThree, BlobFour };
+export { HelloAnimation, HelloAnimationBlob, BlobOne, BlobTwo, BlobThree, BlobFour };
 
 /////////////////////
 // PORTFOLIO PROJECT
 /////////////////////
-import PortfolioItem from './project/item/portfolioitem.component';
+const PortfolioItem = asyncComponent(() => {
+  return import(`./project/item/portfolioitem.component`);
+});
 
 export { PortfolioItem };

@@ -4,7 +4,6 @@ import BodyClassName from 'react-body-classname';
 import { graphql } from 'gatsby';
 
 // Components
-import PageTitle from '../../components/ui/page-title';
 import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import {
   asyncComponent,
@@ -17,6 +16,7 @@ import {
   MainContent,
   Meta,
   BlobOne,
+  PageTitle,
 } from '../../components/index';
 
 const WhoAmI = asyncComponent(() => {

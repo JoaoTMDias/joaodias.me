@@ -1,9 +1,9 @@
-import React from 'react';
-import styles from './styles.module.scss';
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
-const BlobAnimation = () => (
+const HelloAnimationBlob = () => (
   <div id="blob-animation">
-    <div className={`${styles.blob} ${styles.blob1}`}>
+    <Blob className="blob1">
       <svg viewBox="0 0 713 697" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <title>blob-1</title>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -16,8 +16,8 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
-    <div className={`${styles.blob} ${styles.blob2}`}>
+    </Blob>
+    <Blob className="blob2">
       <svg viewBox="0 0 267 340" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -29,8 +29,8 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
-    <div className={`${styles.blob} ${styles.blob3}`}>
+    </Blob>
+    <Blob className="blob3">
       <svg viewBox="0 0 478 514" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -42,8 +42,8 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
-    <div className={`${styles.blob} ${styles.blob4}`}>
+    </Blob>
+    <Blob className="blob4">
       <svg viewBox="0 0 530 467" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -55,8 +55,8 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
-    <div className={`${styles.blob} ${styles.blob5}`}>
+    </Blob>
+    <Blob className="blob5">
       <svg viewBox="0 0 546 481" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -68,8 +68,8 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
-    <div className={`${styles.blob} ${styles.blob6}`}>
+    </Blob>
+    <Blob className="blob6">
       <svg viewBox="0 0 303 267" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -81,8 +81,8 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
-    <div className={`${styles.blob} ${styles.blob7}`}>
+    </Blob>
+    <Blob className="blob7">
       <svg viewBox="0 0 360 348" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -94,8 +94,8 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
-    <div className={`${styles.blob} ${styles.blob8}`}>
+    </Blob>
+    <Blob className="blob8">
       <svg viewBox="0 0 289 341" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -107,8 +107,8 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
-    <div className={`${styles.blob} ${styles.blob9}`}>
+    </Blob>
+    <Blob className="blob9">
       <svg viewBox="0 0 559 592" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -120,8 +120,8 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
-    <div className={`${styles.blob} ${styles.blob10}`}>
+    </Blob>
+    <Blob className="blob10">
       <svg viewBox="0 0 272 287" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <path
@@ -133,8 +133,88 @@ const BlobAnimation = () => (
           />
         </g>
       </svg>
-    </div>
+    </Blob>
   </div>
 );
 
-export default BlobAnimation;
+// Styling
+const Animated = keyframes`
+  0% {
+    transform: scaleX(0) scaleY(0) scaleZ(0);
+    opacity: 0;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1) scaleY(1) scaleZ(1);
+  }
+`;
+
+const Blob = styled.div`
+  position: absolute;
+  animation-name: ${Animated};
+  animation-duration: 3000ms;
+  animation-timing-function: var(--default-timing-function);
+  animation-direction: initial;
+  animation-fill-mode: forwards;
+
+  &.blob {
+    &1 {
+      transform: translate(40%, -34%);
+      width: 104%;
+      height: 139%;
+    }
+    &2 {
+      transform: translate(76%, -3%);
+      width: 39%;
+      height: 68%;
+    }
+    &3 {
+      transform: translate(8%, -21%);
+      width: 69%;
+      height: 104%;
+    }
+    &4 {
+      transform: translate(-25%, 1%);
+      width: 77%;
+      height: 93%;
+    }
+    &5 {
+      transform: translate(-2%, 34%);
+      width: 79%;
+      height: 96%;
+    }
+    &6 {
+      transform: translate(67%, 65%);
+      width: 44%;
+      height: 53%;
+    }
+    &7 {
+      transform: translate(67%, 65%);
+      width: 16%;
+      height: 53%;
+    }
+    &8 {
+      transform: translate(63%, -23%);
+      width: 42%;
+      height: 68%;
+    }
+    &9 {
+      transition: opacity 200ms var(--default-timing-function) 0s, transform 1000ms var(--default-timing-function) 0s;
+      transform: translate(-43%, -54%);
+      width: 81%;
+      height: 118%;
+    }
+    &10 {
+      transition: opacity 200ms var(--default-timing-function) 0s, transform 1000ms var(--default-timing-function) 0s;
+      transform: translate(-1%, -14%);
+      width: 39%;
+      height: 57%;
+    }
+  }
+`;
+
+export default HelloAnimationBlob;
