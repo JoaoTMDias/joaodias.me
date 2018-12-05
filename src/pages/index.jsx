@@ -35,7 +35,7 @@ const IndexPage = ({ location, data }) => {
 
     if (queryPath) {
       return (
-        <Spring delay={1000} from={from} to={to}>
+        <Spring delay={64} from={from} to={to}>
           {props => {
             return (
               <List className="l__row l__container" style={props}>

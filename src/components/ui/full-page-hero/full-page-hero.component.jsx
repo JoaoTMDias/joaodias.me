@@ -29,7 +29,7 @@ class HomePageHero extends PureComponent {
         <Wrapper>
           <HelloAnimation />
           <Text aria-label="Page subtitle: I'm João, a frontend developer and designer.">
-            <Spring delay={500} from={from} to={to}>
+            <Spring delay={16} from={from} to={to}>
               {props => {
                 return <Subtitle style={props}>I'm João, a frontend developer and designer.</Subtitle>;
               }}
