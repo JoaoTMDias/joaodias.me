@@ -27,7 +27,7 @@ const MainContent: React.FunctionComponent<IMainContentProps> = props => {
 
   const { children, className } = props;
   return (
-    <Spring delay={750} from={from} to={to}>
+    <Spring from={from} to={to}>
       {animationProps => {
         return (
           <div id="main-content" className={`${className}`} style={animationProps}>

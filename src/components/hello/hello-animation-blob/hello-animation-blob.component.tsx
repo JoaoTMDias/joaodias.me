@@ -156,7 +156,7 @@ const Animated = keyframes`
 const Blob = styled.div`
   position: absolute;
   animation-name: ${Animated};
-  animation-duration: 3000ms;
+  animation-duration: 750ms;
   animation-timing-function: var(--default-timing-function);
   animation-direction: initial;
   animation-fill-mode: forwards;

@@ -6,7 +6,7 @@ import styled, { keyframes } from "styled-components";
 import { HelloAnimationBlob } from "../index";
 
 const HelloAnimation = () => (
-  <Container id="hello" aria-label="Page welcome title: Hey What's up?" tabIndex="0">
+  <Container id="hello" aria-label="Page welcome title: Hey What's up?" tabIndex={0}>
     <Mask id="art-mask">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 178" role="img">
         <path
@@ -54,10 +54,10 @@ const Container = styled.div`
   align-items: flex-start;
   flex: 0 0 auto;
   line-height: 0;
-  transition: all 500ms var(--default-timing-function);
+  transition: all 750ms var(--default-timing-function);
   opacity: 0;
   animation-name: ${fadeIn};
-  animation-duration: 3000ms;
+  animation-duration: 750ms;
   animation-timing-function: var(--default-timing-function);
   animation-fill-mode: forwards;
 
@@ -88,7 +88,7 @@ const Mask = styled.figure`
   @media ${props => props.theme.breakpointLarge} {
     transform: scaleX(1) scaleY(1) scaleZ(1);
     transform-style: preserve-3d;
-    transition: transform 1000ms var(--default-timing-function);
+    transition: transform 750ms var(--default-timing-function);
   }
 `;
 
