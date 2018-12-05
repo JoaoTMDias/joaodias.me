@@ -30,7 +30,7 @@ class PortfolioItem extends Component {
           title={alt}
           className={`item--${theme} ${styles.item}`}
           data-theme={`${theme}`}
-          aria-label={`Open project`}
+          aria-label={`Open project: ${title}`}
         >
           <LazyLoadImage
             fluid={cover}
@@ -46,7 +46,7 @@ class PortfolioItem extends Component {
               objectPosition: 'center center',
             }}
             aspectRatio={cover.aspectRatio}
-            fadeIn
+            fadeIn={true}
           />
           <div className={`${styles.inner} inner`} style={{ backgroundColor: `${color}` }}>
             <header className={styles.header}>

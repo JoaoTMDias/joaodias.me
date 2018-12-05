@@ -124,7 +124,7 @@ export const latestProjectsQuery = graphql`
           featuredImage {
             id
             title
-            fluid(maxWidth: 1400) {
+            fluid(maxWidth: 1024, maxHeight: 560) {
               src
               srcSet
               srcWebp
