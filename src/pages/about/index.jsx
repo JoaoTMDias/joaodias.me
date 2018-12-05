@@ -1,6 +1,5 @@
 // Libraries
 import React from 'react';
-import BodyClassName from 'react-body-classname';
 import { graphql } from 'gatsby';
 
 // Components
@@ -39,48 +38,46 @@ const AboutPage = ({ location, data }) => {
 
   return (
     <Layout>
-      <BodyClassName className="about">
-        <ContentPage>
-          <A11yPageTitle title="About the Author" />
+      <ContentPage>
+        <A11yPageTitle title="About the Author" />
 
-          <Meta title="About" location={location} />
+        <Meta title="About" location={location} />
 
-          <PageTitle
-            title="About me"
-            subtitle="Designer, Developer, Dad, Geek, Nerd, Music Lover."
-            containerBackgroundColor="var(--color-white)"
+        <PageTitle
+          title="About me"
+          subtitle="Designer, Developer, Dad, Geek, Nerd, Music Lover."
+          containerBackgroundColor="var(--color-white)"
+        />
+        <MainContent
+          style={{
+            overflowX: 'hidden',
+          }}
+        >
+          {renderImage(data)}
+          <LogoCarousel />
+          <Timeline />
+          <LastPlayedSong />
+        </MainContent>
+        <CallToActionWrapper>
+          <CallToActionItem
+            id="cta-resume-paper"
+            subtitle="Want it all on paper?"
+            title="Check out my resumé"
+            linkText="Download in PDF"
+            linkURL="/resume/resume-joaodias-en.pdf"
+            isFile
           />
-          <MainContent
-            style={{
-              overflowX: 'hidden',
-            }}
-          >
-            {renderImage(data)}
-            <LogoCarousel />
-            <Timeline />
-            <LastPlayedSong />
-          </MainContent>
-          <CallToActionWrapper>
-            <CallToActionItem
-              id="cta-resume-paper"
-              subtitle="Want it all on paper?"
-              title="Check out my resumé"
-              linkText="Download in PDF"
-              linkURL="/resume/resume-joaodias-en.pdf"
-              isFile
-            />
-            <CallToActionItem
-              id="cta-lets-chat"
-              subtitle="Have an idea for a project?"
-              title="Let's chat!"
-              linkText="Visit the Contacts page"
-              linkURL="/contact/"
-            />
-          </CallToActionWrapper>
-          <BlobOne />
-          <Footer />
-        </ContentPage>
-      </BodyClassName>
+          <CallToActionItem
+            id="cta-lets-chat"
+            subtitle="Have an idea for a project?"
+            title="Let's chat!"
+            linkText="Visit the Contacts page"
+            linkURL="/contact/"
+          />
+        </CallToActionWrapper>
+        <BlobOne />
+        <Footer />
+      </ContentPage>
     </Layout>
   );
 };
