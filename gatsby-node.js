@@ -1,6 +1,10 @@
 const Promise = require('bluebird');
 const path = require('path');
+//const Critters = require('critters-webpack-plugin');
 
+/////////////////////
+// CREATE PAGES
+/////////////////////
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -39,3 +43,16 @@ exports.createPages = ({ graphql, actions }) => {
     );
   });
 };
+
+/////////////////////
+// WEBPACK CONFIGURATION
+/////////////////////
+// exports.onCreateWebpackConfig = ({ actions }) => {
+//   actions.setWebpackConfig({
+//     plugins: [
+//       new Critters({
+//         keyframes: 'critical'
+//       })
+//     ],
+//   });
+// }

@@ -1,3 +1,6 @@
+/////////////////////
+// CONFIGURATIONS
+/////////////////////
 const manifestOptions = {
   name: 'João Dias',
   short_name: 'Joao Dias',

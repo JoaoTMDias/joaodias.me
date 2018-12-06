@@ -1,18 +1,17 @@
-/**
- * Import Libraries
- */
+// Libraries
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
-/**
- * Import Components
- */
+// Components
 import HeaderPageTitle from './header-page-title';
 import BackNavigation from './back-navigation';
 import { Branding } from '../../index';
 import LargeNavigation from '../large-navigation';
 import SocialNavigation from '../social-navigation';
 
+// Styles
+import styles from './header.module.scss';
+
+// Utility functions
 const getScrollPosition = (el = window) => ({
   y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop,
 });
@@ -69,42 +68,17 @@ class Header extends Component {
 
   render() {
     return (
-      <TopBar id="page-header">
-        <Row key="header" className="l__row">
+      <header id="page-header" className={styles.header}>
+        <div key="header" className={`l__row ${styles.header__row}`}>
           <Branding />
           <BackNavigation />
           <HeaderPageTitle />
           <LargeNavigation />
           <SocialNavigation />
-        </Row>
-      </TopBar>
+        </div>
+      </header>
     );
   }
 }
-
-/**
- *  Styling
- */
-const TopBar = styled.header`
-  background-color: transparent;
-  max-height: var(--navbar-height);
-  z-index: 100;
-  position: fixed;
-  width: 100%;
-  top: 0;
-
-  @media ${props => props.theme.breakpointLarge} {
-    background-color: transparent;
-    margin-top: 24px;
-    position: relative;
-  }
-`;
-
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  max-height: var(--navbar-height);
-`;
 
 export default Header;

@@ -43,7 +43,7 @@
 
   text-decoration: none;
 
-  transition: opacity 200ms var(--default-timing-function);
+  transition: all 200ms var(--default-timing-function, $default-timing-function);
 
   &,
   &:focus {
@@ -66,4 +66,5 @@
   overflow: hidden;
   position: absolute !important;
   width: 1px;
+  opacity: 0;
 }
