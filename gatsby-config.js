@@ -83,6 +83,7 @@ module.exports = {
     siteUrl: 'https://joaodias.me',
     description: 'I am João, a Visual designer and Web developer.',
   },
+
   plugins: [
     // Typescript
     'gatsby-plugin-typescript',

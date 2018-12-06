@@ -11,11 +11,13 @@
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     margin: -1px;
+    opacity: 0;
   }
 
   display: flex;
   justify-content: center;
   outline-color: var(--color-gray1, $color-gray1);
+  opacity: 1;
 
   position: fixed;
   bottom: rem-calc(64);
@@ -40,6 +42,8 @@
   z-index: 1;
 
   text-decoration: none;
+
+  transition: opacity 200ms var(--default-timing-function);
 
   &,
   &:focus {

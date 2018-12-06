@@ -6,8 +6,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
 
 // Components
-import Header from './navigation/header';
-import BottomNavigation from './navigation/bottom-navigation';
+import { Header, BottomNavigation } from './index';
 
 // Styling
 import './layout.scss';

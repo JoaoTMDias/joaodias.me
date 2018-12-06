@@ -5,9 +5,10 @@ import { Spring } from 'react-spring';
 import { graphql } from 'gatsby';
 
 // Components
-import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
 import {
   asyncComponent,
+  CallToActionItem,
+  CallToActionWrapper,
   Layout,
   A11yPageTitle,
   ContentPage,

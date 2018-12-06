@@ -3,10 +3,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 // Components
-import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
 import {
   asyncComponent,
   Footer,
+  CallToActionItem,
+  CallToActionWrapper,
   Layout,
   A11yPageTitle,
   LogoCarousel,

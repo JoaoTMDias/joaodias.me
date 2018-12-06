@@ -7,9 +7,15 @@ import { graphql } from 'gatsby';
 
 // Components
 import { ProjectHero, ProjectMeta, ProjectIntroduction } from '../components/project';
-import { CallToActionItem, CallToActionWrapper } from '../components/navigation/call-to-action/index';
-import Footer from '../components/navigation/footer';
-import { Layout, A11yPageTitle, ContentPage, BlobFour } from '../components/index.js';
+import {
+  Layout,
+  CallToActionItem,
+  CallToActionWrapper,
+  Footer,
+  A11yPageTitle,
+  ContentPage,
+  BlobFour,
+} from '../components/index.js';
 
 /**
  * Product Page Template

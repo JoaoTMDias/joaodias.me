@@ -1,12 +1,16 @@
-import BlobOne from './blob-1';
-import BlobTwo from './blob-2';
-import BlobThree from './blob-3';
-import BlobFour from './blob-4';
+import { asyncComponent } from '../../index';
 
+const BlobOne = asyncComponent(() => {
+  return import(`./blob-1`);
+});
+const BlobTwo = asyncComponent(() => {
+  return import(`./blob-2`);
+});
+const BlobThree = asyncComponent(() => {
+  return import(`./blob-3`);
+});
+const BlobFour = asyncComponent(() => {
+  return import(`./blob-4`);
+});
 
-export {
-    BlobOne,
-    BlobTwo,
-    BlobThree,
-    BlobFour
-};
+export { BlobOne, BlobTwo, BlobThree, BlobFour };

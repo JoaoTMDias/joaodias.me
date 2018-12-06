@@ -7,11 +7,12 @@ import Helmet from 'react-helmet';
 /**
  * Import Components
  */
-import { CallToActionItem, CallToActionWrapper } from '../../components/navigation/call-to-action/index';
-import Footer from '../../components/navigation/footer';
 import {
   Layout,
   A11yPageTitle,
+  CallToActionItem,
+  CallToActionWrapper,
+  Footer,
   ContentPage,
   Meta,
   MainContent,

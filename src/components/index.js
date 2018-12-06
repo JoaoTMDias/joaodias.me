@@ -16,28 +16,43 @@ export { config, Branding, Form, TextInput, TextareaInput, asyncComponent, Meta 
 /////////////////////
 // LAYOUT
 /////////////////////
-import Layout from './layout.component';
+const Layout = asyncComponent(() => {
+  return import('./layout.component');
+});
 const Header = asyncComponent(() => {
   return import(`./navigation/header/index`);
+});
+const BottomNavigation = asyncComponent(() => {
+  return import(`./navigation/bottom-navigation/bottom-navigation.component`);
 });
 const Footer = asyncComponent(() => {
   return import(`./navigation/footer/index`);
 });
+
+import { CallToActionItem, CallToActionWrapper } from './navigation/call-to-action/index';
+
 const A11yPageTitle = asyncComponent(() => {
   return import('./ui/page-title/a11ypagetitle.component');
 });
-
 const PageTitle = asyncComponent(() => {
   return import('./ui/page-title/page-title.component');
 });
-import ContentPage from './content-page/content-page.component';
-import MainContent from './general/main-content/main-content.component';
+const ContentPage = asyncComponent(() => {
+  return import('./content-page/content-page.component');
+});
+const MainContent = asyncComponent(() => {
+  return import('./general/main-content/main-content.component');
+});
+
 import { LogoCarousel, LastPlayedSong, LastPlayedSongCard } from './about/index';
 
 export {
   Layout,
   Header,
+  BottomNavigation,
   Footer,
+  CallToActionItem,
+  CallToActionWrapper,
   A11yPageTitle,
   PageTitle,
   ContentPage,
@@ -52,7 +67,7 @@ export {
 /////////////////////
 
 const HomePageHero = asyncComponent(() => {
-  return import(`./ui/full-page-hero/full-page-hero.component.jsx`);
+  return import(`./ui/full-page-hero/full-page-hero.component`);
 });
 
 export { HomePageHero };
@@ -66,8 +81,12 @@ export { VerticalTimeline, VerticalTimelineElement };
 /////////////////////
 // BLOBS
 /////////////////////
-import HelloAnimation from './hello/hello-animation.component';
-import HelloAnimationBlob from './hello/hello-animation-blob/hello-animation-blob.component';
+const HelloAnimation = asyncComponent(() => {
+  return import(`./hello/hello-animation.component`);
+});
+const HelloAnimationBlob = asyncComponent(() => {
+  return import(`./hello/hello-animation-blob/hello-animation-blob.component`);
+});
 import { BlobOne, BlobTwo, BlobThree, BlobFour } from './ui/blobs/index';
 export { HelloAnimation, HelloAnimationBlob, BlobOne, BlobTwo, BlobThree, BlobFour };
 
