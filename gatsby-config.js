@@ -101,18 +101,10 @@ module.exports = {
       options: contentfulOptions,
     },
 
-    // Site Configs
+    // SEO e Analytics
     {
       resolve: 'gatsby-plugin-sitemap',
       options: sitemapOptions,
-    },
-    {
-      resolve: 'gatsby-plugin-offline',
-      options: offlineOptions,
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: manifestOptions,
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
@@ -123,6 +115,16 @@ module.exports = {
     // Images
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+
+    // PWA
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: manifestOptions,
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: offlineOptions,
+    },
 
     // Styling
     {
