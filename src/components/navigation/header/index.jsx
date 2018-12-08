@@ -4,9 +4,8 @@ import React, { Component } from 'react';
 // Components
 import HeaderPageTitle from './header-page-title';
 import BackNavigation from './back-navigation';
-import { Branding } from '../../index';
+import { Branding, SocialNavigation } from '../../index';
 import LargeNavigation from '../large-navigation';
-import SocialNavigation from '../social-navigation';
 
 // Styles
 import styles from './header.module.scss';

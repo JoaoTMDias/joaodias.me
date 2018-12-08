@@ -6,7 +6,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
 
 // Components
-import { Header, BottomNavigation } from './index';
+import { Header, BottomNavigation, SkipLink } from './index';
 
 // Styling
 import './layout.scss';
@@ -62,6 +62,7 @@ const Layout = ({ children, data }) => {
         <React.Fragment>
           <ThemeProvider theme={theme}>
             <div id="page-content" aria-label="Top App wrapper. Press tab to navigate to the next item." tabIndex="-1">
+              <SkipLink />
               <Helmet
                 htmlAttributes={{
                   lang: 'en',

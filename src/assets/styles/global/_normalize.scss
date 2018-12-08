@@ -1,21 +1,3 @@
-// scss-lint:disable QualifyingElement, DuplicateProperty, VendorPrefix
-
-// Reboot
-//
-// Normalization of HTML elements, manually forked from Normalize.css to remove
-// styles targeting irrelevant browsers while applying new styles.
-//
-// Normalize is licensed MIT. https://github.com/necolas/normalize.css
-
-// Document
-//
-// 1. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
-// 2. Change the default font family in all browsers.
-// 3. Correct the line height in all browsers.
-// 4. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
-// 5. Setting @viewport causes scrollbars to overlap content in IE11 and Edge, so
-//    we force a non-overlapping, non-auto-hiding scrollbar to counteract.
-// 6. Change the default tap highlight to be completely transparent in iOS.
 @include css-vars(
   (
     --color-primary: $primary-color,
@@ -59,9 +41,13 @@
 html {
   box-sizing: border-box; // 1
   font-family: var(--body-font-family);
-  font-size: 16px; // 2
+  font-size: 16px;
+  font-display: swap;
+  // 2
   line-height: var(--global-lineheight, $ratio);
-  height: 100%; // 3
+  height: 100%;
+
+  // 3
   -webkit-text-size-adjust: 100%; // 4
   -ms-text-size-adjust: 100%; // 4
   -ms-overflow-style: scrollbar; // 5
@@ -575,4 +561,21 @@ template {
 #main-content {
   scroll-behavior: smooth;
   overflow: hidden;
+}
+
+.preloader {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-white, $color-white);
+  position: fixed;
+  z-index: 101;
+
+  &.is-loaded {
+    display: none;
+    opacity: 0;
+  }
 }

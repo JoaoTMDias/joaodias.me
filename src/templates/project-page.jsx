@@ -36,7 +36,6 @@ class ProjectPage extends PureComponent {
 
   render() {
     const post = get(this.props, 'data.contentfulPortfolio');
-    debugger;
     if (post) {
       return (
         <Layout>

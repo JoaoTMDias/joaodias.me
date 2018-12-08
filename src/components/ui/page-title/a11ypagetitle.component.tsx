@@ -1,5 +1,6 @@
 // Libraries
-import * as React from 'react';
+import * as React from "react";
+import styled from "styled-components";
 
 // Component Props
 interface IA11yPageTitleProps {
@@ -15,11 +16,20 @@ interface IA11yPageTitleProps {
 const A11yPageTitle: React.FunctionComponent<IA11yPageTitleProps> = props => {
   const { title } = props;
   return (
-    <h1 id="page-title" className="show-for-screen-readers" role="status" aria-live="polite" aria-atomic="true">
+    <Title id="page-title" role="status" aria-live="polite" aria-atomic="true">
       {`Page Title: ${title}`}
-    </h1>
+    </Title>
   );
 };
+
+const Title = styled.h1`
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  opacity: 0;
+`;
 
 A11yPageTitle.defaultProps = {
   title: `Page Title`,

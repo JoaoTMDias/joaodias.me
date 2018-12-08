@@ -125,7 +125,12 @@ module.exports = {
     'gatsby-plugin-sharp',
 
     // Styling
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: true,
+      },
+    },
     'gatsby-plugin-sass',
-    'gatsby-plugin-styled-components',
   ],
 };

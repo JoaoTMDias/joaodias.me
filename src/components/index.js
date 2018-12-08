@@ -29,6 +29,12 @@ const Footer = asyncComponent(() => {
   return import(`./navigation/footer/index`);
 });
 
+const SocialNavigation = asyncComponent(() => {
+  return import(`./navigation/social-navigation/social-navigation.component`);
+});
+
+import SkipLink from './navigation/skip-link/skip-link.component';
+
 import { CallToActionItem, CallToActionWrapper } from './navigation/call-to-action/index';
 
 const A11yPageTitle = asyncComponent(() => {
@@ -51,6 +57,8 @@ export {
   Header,
   BottomNavigation,
   Footer,
+  SocialNavigation,
+  SkipLink,
   CallToActionItem,
   CallToActionWrapper,
   A11yPageTitle,

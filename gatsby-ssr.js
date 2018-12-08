@@ -3,7 +3,7 @@ import React from 'react';
 
 const onRenderBody = (
   {
- setHeadComponents,
+    setHeadComponents,
     setHtmlAttributes,
     setBodyAttributes,
   }, pluginOptions

@@ -46,9 +46,6 @@ const HTML: React.FunctionComponent<IHTMLProps> = props => {
         <meta property="twitter:image" content={openGraphUrl} />
       </head>
       <body>
-        <a className="skip-main" href="#main-content" aria-label="Press Enter to skip and go to Main Content">
-          Skip to Main Content
-        </a>
         <div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
       </body>
