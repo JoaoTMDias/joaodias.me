@@ -4,7 +4,7 @@
 import React, { PureComponent } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { Spring } from 'react-spring';
+import { Spring } from 'react-spring/renderprops';
 
 /**
  * Styling

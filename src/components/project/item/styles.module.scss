@@ -18,13 +18,17 @@
   &:nth-child(n) {
     @include xy-cell(1 of 1);
   }
+
   @include breakpoint(medium) {
     &:nth-child(n) {
       @include xy-cell(1 of 2);
     }
+
     margin-bottom: $global-margin * 2;
   }
+
   @include breakpoint(large) {
+
     &:nth-child(1),
     &:nth-child(4) {
       @include xy-cell(1 of 1);
@@ -34,6 +38,7 @@
     &:nth-child(3) {
       @include xy-cell(1 of 2);
     }
+
     &:nth-child(7),
     &:nth-child(8),
     &:nth-child(9) {
@@ -41,6 +46,7 @@
       max-height: rem-calc(370);
     }
   }
+
   &:nth-child(even) {
     background-position: 25% center !important;
   }
@@ -125,9 +131,11 @@
   @include breakpoint(medium) {
     height: rem-calc(414);
   }
+
   @include breakpoint(large) {
     height: rem-calc(480);
   }
+
   @include breakpoint(xlarge) {
     height: rem-calc(560);
   }
@@ -136,7 +144,7 @@
 .header,
 .content,
 .footer {
-  transition-propert: opacity;
+  transition-property: opacity;
   transition-duration: 500ms;
   transition-delay: 400ms;
   transition-timing-function: $ease-out-expo;
@@ -152,6 +160,7 @@
 
 .content {
   align-items: center;
+
   p {
     font-family: var(--body-font-family);
     opacity: 1;
@@ -169,6 +178,7 @@
 
   @include responsive-typography(large, h2);
   font-family: $header-font-family;
+
   @include breakpoint(large) {
     @include responsive-typography(large, h2);
   }
@@ -187,9 +197,11 @@
   justify-content: flex-start;
   flex: 1;
   @include responsive-typography(small, h6);
+
   @include breakpoint(medium) {
     @include responsive-typography(medium, h5);
   }
+
   @include breakpoint(large) {
     @include responsive-typography(large, h4);
   }
@@ -199,6 +211,7 @@
   opacity: 1;
   margin-bottom: 0;
   @include responsive-typography(medium, h6);
+
   @include breakpoint(large) {
     @include responsive-typography(large, h6);
   }

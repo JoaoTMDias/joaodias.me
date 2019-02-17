@@ -1,8 +1,16 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier", "tslint-eslint-rules"],
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-config-prettier",
+    "tslint-eslint-rules",
+    "tslint-config-standard"
+  ],
   "rules": {
-    "interface-name": [false],
+    "max-line-length": {
+      "options": [80]
+    },
     "trailing-comma": [
       true,
       {
@@ -11,7 +19,7 @@
     ],
     "object-curly-spacing": 0,
     "ordered-imports": [true],
-    "quotemark": [true, "double"],
+    "quotemark": [true, "single", "jsx-single", "avoid-escape"],
     "semicolon": [true, "always"],
     "member-access": [false],
     "member-ordering": [false],
@@ -21,7 +29,6 @@
     "no-implicit-dependencies": false,
     "no-constant-condition": false,
     "triple-equals": [true, "allow-undefined-check"],
-    "no-var-requires": false,
     "ter-indent": [
       true,
       2,
@@ -33,14 +40,11 @@
     "jsx-alignment": true,
     "jsx-no-bind": true,
     "jsx-no-lambda": false,
-    "max-classes-per-file": [false],
     "await-promise": true,
     "deprecation": true,
     "no-floating-promises": true,
     "no-unnecessary-qualifier": true,
     "strict-type-predicates": false,
     "no-namespace": false,
-    "no-debugger": false,
-    "prettier": true
   }
 }

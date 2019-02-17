@@ -1,6 +1,6 @@
 // Libraries
-import * as React from "react";
-import { Spring } from "react-spring";
+import * as React from 'react';
+import { Spring } from 'react-spring/renderprops';
 
 // Component Props
 interface IMainContentProps {

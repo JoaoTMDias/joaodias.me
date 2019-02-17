@@ -4,7 +4,7 @@
 import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
-import { Spring } from 'react-spring';
+import { Spring, config } from 'react-spring/renderprops';
 import { responsiveTypography } from '../../../helpers/helpers';
 
 import { HelloAnimation } from '../../index';
@@ -29,7 +29,7 @@ class HomePageHero extends PureComponent {
         <Wrapper>
           <HelloAnimation />
           <Text aria-label="Page subtitle: I'm João, a frontend developer and designer.">
-            <Spring from={from} to={to}>
+            <Spring from={from} to={to} config={config.stiff} delay={1000}>
               {props => {
                 return <Subtitle style={props}>I'm João, a frontend developer and designer.</Subtitle>;
               }}

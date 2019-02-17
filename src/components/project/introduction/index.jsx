@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { Spring } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
+import { Spring } from 'react-spring/renderprops';
 
 /** ********
  ** Component: ProjectIntroduction
@@ -31,7 +32,7 @@ const ProjectIntroduction = ({ title, description, text }) => {
   return (
     <Wrapper className="l__row utilities--above-the-fold">
       <div className="l__project l__hero">
-        <Spring from={from} to={to} delay={100}>
+        <Spring from={from} to={to} delay={125}>
           {props => {
             return (
               <h1 className="title" tabIndex="0" aria-label={`${title}`} style={props}>
@@ -40,7 +41,7 @@ const ProjectIntroduction = ({ title, description, text }) => {
             );
           }}
         </Spring>
-        <Spring from={from} to={to} delay={200}>
+        <Spring from={from} to={to} delay={375}>
           {props => {
             return (
               <h2 className="description" tabIndex="0" aria-label={`${description}`} style={props}>
@@ -49,7 +50,7 @@ const ProjectIntroduction = ({ title, description, text }) => {
             );
           }}
         </Spring>
-        <Spring from={from} to={to} delay={300}>
+        <Spring from={from} to={to} delay={500}>
           {props => {
             return (
               <p className="lead" tabIndex="0" aria-label={`${text}`} style={props}>

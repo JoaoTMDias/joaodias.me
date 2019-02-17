@@ -1,7 +1,7 @@
 // Libraries
 import React from 'react';
 import styled from 'styled-components';
-import { Spring } from 'react-spring';
+import { Spring, config } from 'react-spring/renderprops';
 import { graphql } from 'gatsby';
 
 // Components
@@ -36,7 +36,7 @@ const IndexPage = ({ location, data }) => {
 
     if (queryPath) {
       return (
-        <Spring delay={64} from={from} to={to}>
+        <Spring delay={500} from={from} to={to} config={config.gentle}>
           {props => {
             return (
               <List className="l__row l__container" style={props}>

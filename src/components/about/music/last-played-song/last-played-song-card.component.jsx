@@ -2,41 +2,55 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Components
+import AlbumCover from './album-cover.component';
+
 // ///////////////////////////////
 // /// Component: lastPlayedSongCard
 // /// @type: functional stateless component
 // /// @description:  componentDescription
 // ///////////////////////////////
-const LastPlayedSongCard = props => (
-  <LastPlayedSong>
-    <a
-      href={props.song.url}
-      title={`Click/Enter to listen to ${props.song.name} by ${props.song.artist['#text']} on Last.fm`}
-    >
-      <Cover>
-        <AlbumCover
-          src={props.song.image[2]['#text']}
-          height="174"
-          alt={`Album Cover for ${props.song.album['#text']}`}
-        />
-      </Cover>
-    </a>
+const LastPlayedSongCard = props => {
+  const { song } = props;
+  return (
+    <LastPlayedSong>
+      <AlbumCover
+        url={song.url}
+        name={song.name}
+        artist={song.artist[`#text`]}
+        src={song.image[2][`#text`]}
+        alt={`Album Cover for ${song.album[`#text`]}`}
+      />
 
-    <InfoContainer>
-      <h2 className="track">
-        <a href={props.song.url} aria-label={`Song Name: ${props.song.name}`} title={`${props.song.name}`} tabIndex="0">
-          {props.song.name}
-        </a>
-      </h2>
-      <p className="artist" aria-label={`Artist/Band Name: ${props.song.artist['#text']}`} tabIndex="0">
-        {props.song.artist['#text']}
-      </p>
-      <span className="album" aria-label={`Album Name: ${props.song.album['#text']}`} tabIndex="0">
-        {props.song.album['#text']}
-      </span>
-    </InfoContainer>
-  </LastPlayedSong>
-);
+      <InfoContainer>
+        <h2 className="track">
+          <a
+            href={song.url}
+            aria-label={`Song Name: ${song.name}`}
+            title={`${song.name}`}
+            tabIndex="0"
+          >
+            {song.name}
+          </a>
+        </h2>
+        <p
+          className="artist"
+          aria-label={`Artist/Band Name: ${song.artist[`#text`]}`}
+          tabIndex="0"
+        >
+          {song.artist[`#text`]}
+        </p>
+        <span
+          className="album"
+          aria-label={`Album Name: ${song.album[`#text`]}`}
+          tabIndex="0"
+        >
+          {song.album[`#text`]}
+        </span>
+      </InfoContainer>
+    </LastPlayedSong>
+  );
+};
 
 const LastPlayedSong = styled.div`
   width: 100%;
@@ -51,36 +65,6 @@ const LastPlayedSong = styled.div`
     max-width: 40rem;
     min-width: 35rem;
   }
-`;
-
-const RECORD_COVER_SIZE = 174;
-
-const Cover = styled.figure`
-  width: ${RECORD_COVER_SIZE}px;
-  height: ${RECORD_COVER_SIZE}px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: var(--global-margin);
-
-  img {
-    position: absolute;
-  }
-
-  @media ${props => props.theme.breakpointLarge} {
-    justify-content: flex-start;
-  }
-`;
-
-const AlbumCover = styled.img`
-  width: ${RECORD_COVER_SIZE}px;
-  height: ${RECORD_COVER_SIZE}px;
-  z-index: 1;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-  transition: transform 250ms;
-  background-color: var(--color-gray7);
-  color: var(--color-white);
 `;
 
 const InfoContainer = styled.div`

@@ -20,22 +20,32 @@ $color-gray6: #b09a9a;
 $color-gray7: #9d8282;
 $color-gray8: #806565;
 $color-gray9: #4b3b3b;
-$color-black: darken($color-gray9, 0.5);
-$foundation-palette: (
-  primary: #e81b1f,
-  alternate: #1b22e8,
-  blend: #111595,
-  secondary: $color-gray9,
-  success: #1be87b,
-  warning: #f2b681,
-  alert: #e87b1b,
+$color-black: darken($color-gray9, 20%);
+$foundation-palette: (primary: #e81b1f,
+alternate: #1b22e8,
+blend: #111595,
+secondary: $color-gray9,
+success: #1be87b,
+warning: #f2b681,
+alert: #e87b1b,
 );
 $alternate-color: get-color(alternate);
 $blend-color: get-color(blend);
 $body-background: $color-white;
 $body-font-color: $color-black;
-$body-font-family: 'jd-sans', 'Work Sans', -apple-system, BlinkMacSystemFont, 'Open Sans', 'Roboto', 'Segoe UI', Roboto,
-  Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+$body-font-family: 'jd-sans',
+'Work Sans',
+-apple-system,
+BlinkMacSystemFont,
+'Open Sans',
+'Roboto',
+'Segoe UI',
+Roboto,
+Oxygen,
+Ubuntu,
+Cantarell,
+'Helvetica Neue',
+sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -54,12 +64,11 @@ $print-transparent-backgrounds: true;
 @include add-foundation-colors;
 // 2. Breakpoints
 // --------------
-$breakpoints: (
-  small: 0,
-  medium: 640px,
-  large: 1024px,
-  xlarge: 1200px,
-  xxlarge: 1440px,
+$breakpoints: (small: 0,
+medium: 640px,
+large: 1024px,
+xlarge: 1200px,
+xxlarge: 1440px,
 );
 $breakpoint-medium: 'screen and #{breakpoint(medium)}';
 $breakpoint-large: 'screen and #{breakpoint(large)}';
@@ -71,28 +80,35 @@ $breakpoint-classes: (small medium large xlarge xxlarge);
 // -----------
 $grid-row-width: $global-width;
 $grid-column-count: 12;
-$grid-column-gutter: (
-  small: 16px,
-  medium: 32px,
+$grid-column-gutter: (small: 16px,
+medium: 32px,
 );
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';
 $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
-$header-font-family: 'jd-serif', 'Lucida Bright', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif';
+$header-font-family: 'jd-serif',
+'Lucida Bright',
+'Georgia',
+'Cambria',
+'Times New Roman',
+'Times',
+'serif';
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
-$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+$font-family-monospace: Consolas,
+'Liberation Mono',
+Courier,
+monospace;
 $header-color: inherit;
 $header-lineheight: $ratio;
 $header-margin-bottom: 1rem;
 /* prettier-ignore */
 
-$header-styles: (
-    small: ( 'h1': ('font-size': 24), 'h2': ('font-size': 20), 'h3': ('font-size': 19), 'h4': ('font-size': 18), 'h5': ('font-size': 17), 'h6': ('font-size': 16)),
-    medium: ( 'h1': ('font-size': 28), 'h2': ('font-size': 24), 'h3': ('font-size': 22), 'h4': ('font-size': 20), 'h5': ('font-size': 18), 'h6': ('font-size': 16)),
-    large: ( 'h1': ('font-size': 40), 'h2': ('font-size': 32), 'h3': ('font-size': 28), 'h4': ('font-size': 24), 'h5': ('font-size': 20), 'h6': ('font-size': 18)));
+$header-styles: (small: ('h1': ('font-size': 24), 'h2': ('font-size': 20), 'h3': ('font-size': 19), 'h4': ('font-size': 18), 'h5': ('font-size': 17), 'h6': ('font-size': 16)),
+medium: ('h1': ('font-size': 28), 'h2': ('font-size': 24), 'h3': ('font-size': 22), 'h4': ('font-size': 20), 'h5': ('font-size': 18), 'h6': ('font-size': 16)),
+large: ('h1': ('font-size': 40), 'h2': ('font-size': 32), 'h3': ('font-size': 28), 'h4': ('font-size': 24), 'h5': ('font-size': 20), 'h6': ('font-size': 18)));
 $header-text-rendering: geometricPrecision;
 $small-font-size: 80%;
 $header-small-font-color: $color-gray4;
@@ -348,7 +364,8 @@ $input-padding: $form-spacing / 2;
 $input-shadow: inset 0 1px 1px rgba($color-black, 0.05);
 $input-shadow-focus: 0 0 4px $primary-color;
 $input-cursor-disabled: not-allowed;
-$input-transition: box-shadow 375ms, border-color 250ms ease-in-out;
+$input-transition: box-shadow 375ms,
+border-color 250ms ease-in-out;
 $input-number-spinners: true;
 $input-radius: $global-radius;
 $form-button-radius: $global-radius;
@@ -648,9 +665,8 @@ $table-padding: rem-calc(8 10 10);
 $xy-grid: true;
 $grid-container: $global-width;
 $grid-columns: 12;
-$grid-margin-gutters: (
-  small: 16px,
-  medium: 32px,
+$grid-margin-gutters: (small: 16px,
+medium: 32px,
 );
 $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
