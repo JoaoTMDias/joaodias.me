@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { rem } from 'polished';
 
-const VerticalTimeline = props => <Wrapper className="vertical-timeline--animate">{props.children}</Wrapper>;
+const VerticalTimeline = props => (
+  <Wrapper className="vertical-timeline--animate">{props.children}</Wrapper>
+);
 
 // Styled Components
 const Wrapper = styled.div`
@@ -30,7 +32,7 @@ const Wrapper = styled.div`
     left: ${rem('18px')};
     height: 100%;
     width: ${rem('4px')};
-    background: var(--color-gray9);
+    background: var(--color-black);
   }
 
   @media ${props => props.theme.breakpointLarge} {
@@ -45,7 +47,10 @@ const Wrapper = styled.div`
 `;
 
 VerticalTimeline.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export default VerticalTimeline;

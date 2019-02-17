@@ -10,19 +10,19 @@ $global-width: rem-calc(1200);
 $global-lineheight: $ratio;
 // Grayscale
 $color-white: #ffffff;
-$color-gray0: #faf9f9;
-$color-gray1: #f0ecec;
-$color-gray2: #e6dfdf;
-$color-gray3: #dad0d0;
-$color-gray4: #cec0c0;
-$color-gray5: #c0aeae;
-$color-gray6: #b09a9a;
-$color-gray7: #9d8282;
-$color-gray8: #806565;
-$color-gray9: #4b3b3b;
+$color-gray0: #f9f9f9;
+$color-gray1: #ededed;
+$color-gray2: #e1e0e0;
+$color-gray3: #d3d2d2;
+$color-gray4: #c4c3c3;
+$color-gray5: #b3b2b2;
+$color-gray6: #a09f9f;
+$color-gray7: #8a8888;
+$color-gray8: #6d6b6b;
+$color-gray9: #413e3e;
 $color-black: darken($color-gray9, 20%);
 $foundation-palette: (primary: #e81b1f,
-alternate: #1b22e8,
+alternate: #0037EA,
 blend: #111595,
 secondary: $color-gray9,
 success: #1be87b,

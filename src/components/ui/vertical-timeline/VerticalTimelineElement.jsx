@@ -9,7 +9,17 @@ import { rem, lighten } from 'polished';
  * @class VerticalTimelineElement
  * @extends {Component}
  */
-const VerticalTimelineElement = ({ id, children, icon, iconStyle, date, position, className, style, description }) => (
+const VerticalTimelineElement = ({
+  id,
+  children,
+  icon,
+  iconStyle,
+  date,
+  position,
+  className,
+  style,
+  description,
+}) => (
   <Item
     id={id}
     className={`${className}${position} timeline--item`}
@@ -31,7 +41,10 @@ const VerticalTimelineElement = ({ id, children, icon, iconStyle, date, position
 
 VerticalTimelineElement.propTypes = {
   id: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   className: PropTypes.string,
   icon: PropTypes.element,
   iconStyle: PropTypes.shape({}),
@@ -117,7 +130,7 @@ const Item = styled.div`
       left: auto;
       right: 100%;
       border-color: transparent;
-      border-right-color: ${props => lighten(0.05, props.theme.colorGray9)};
+      border-right-color: ${props => lighten(0.05, props.theme.colorBlack)};
     }
     &:nth-child(even):not(.left) .content .date,
     &.right .content .date {
@@ -145,23 +158,23 @@ const Item = styled.div`
       &:first-child {
         .icon {
           background-image: linear-gradient(
-            ${props => lighten(0.3, props.theme.colorGray9)},
-            ${props => lighten(0.15, props.theme.colorGray9)}
+            ${props => lighten(0.1, props.theme.colorBlack)},
+            ${props => lighten(0.05, props.theme.colorBlack)}
           );
         }
       }
       .icon {
         background-image: linear-gradient(
-          ${props => lighten(0.15, props.theme.colorGray9)},
-          ${props => lighten(0.075, props.theme.colorGray9)}
+          ${props => lighten(0.1, props.theme.colorBlack)},
+          ${props => lighten(0.075, props.theme.colorBlack)}
         );
       }
     }
     &--education {
       .icon {
         background-image: linear-gradient(
-          ${props => lighten(0.05, props.theme.colorGray9)},
-          ${props => lighten(0.025, props.theme.colorGray9)}
+          ${props => lighten(0.1, props.theme.colorBlack)},
+          ${props => lighten(0.025, props.theme.colorBlack)}
         );
       }
     }
@@ -179,8 +192,10 @@ const Icon = styled.span`
   width: ${rem('40px')};
   height: ${rem('40px')};
   border-radius: ${rem('40px')};
-  box-shadow: 0 0 8px 8px rgba(70, 61, 61, 0.2), inset 0 2px 0 rgba(120, 104, 104, 0.4),
-    0 3px 3px 4px rgba(152, 132, 132, 0.1) svg {
+  box-shadow: 0 0 4px 4px var(--color-black), inset 0 2px 0 var(--color-gray8),
+    0 2px 2px 4px var(--color-gray9);
+
+  svg {
     display: block;
     width: ${rem('24px')};
     height: ${rem('24px')};
@@ -221,7 +236,7 @@ const Content = styled.div`
   border-radius: ${rem('4px')};
   padding: ${rem('16px')};
   border: var(--color-gray9);
-  box-shadow: 0 4px 16px rgb(74, 70, 70);
+  box-shadow: 0 4px 16px var(--color-black);
 
   &.is-hidden {
     visibility: hidden;
@@ -242,7 +257,7 @@ const Content = styled.div`
   p {
     font-size: ${rem('13px')};
     font-weight: 500;
-    color: ${props => lighten(0.56, props.theme.colorGray9)};
+    color: ${props => lighten(0.56, props.theme.colorBlack)};
   }
 
   p {
@@ -275,7 +290,7 @@ const Content = styled.div`
     font-family: var(--body-font-family);
     font-size: ${rem('16px')};
     text-text-transform: uppercase;
-    color: ${props => lighten(0.7, props.theme.colorGray9)};
+    color: ${props => lighten(0.7, props.theme.colorBlack)};
   }
 
   @media ${props => props.theme.breakpointMedium} {
@@ -298,7 +313,7 @@ const Content = styled.div`
       top: ${rem('24px')};
       left: 100%;
       border-color: transparent;
-      border-left-color: ${props => lighten(0.05, props.theme.colorGray9)};
+      border-left-color: ${props => lighten(0.05, props.theme.colorBlack)};
     }
     .date {
       position: absolute;
