@@ -10,7 +10,7 @@ import AlbumCover from './album-cover.component';
 // /// @type: functional stateless component
 // /// @description:  componentDescription
 // ///////////////////////////////
-const LastPlayedSongCard = props => {
+export const LastPlayedSongCard = props => {
   const { song } = props;
   return (
     <LastPlayedSong>
@@ -111,5 +111,3 @@ const InfoContainer = styled.div`
     text-overflow: ellipsis;
   }
 `;
-
-export default LastPlayedSongCard;

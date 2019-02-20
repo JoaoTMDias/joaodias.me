@@ -14,7 +14,9 @@ interface ILogoCarouselProps {
  * @date  30/November/2018 at 00:41
  * @extends {React.SFC}
  */
-const LogoCarousel: React.FunctionComponent<ILogoCarouselProps> = props => {
+export const LogoCarousel: React.FunctionComponent<
+  ILogoCarouselProps
+> = props => {
   return (
     <Wrapper id="logo-list" className="l__section">
       <header className="l__row">
@@ -266,13 +268,9 @@ const ListContainer = styled.div`
 const List = styled.ol`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 50%);
   justify-items: center;
   list-style-type: none;
-
-  @media ${props => props.theme.breakpointMedium} {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   @media ${props => props.theme.breakpointLarge} {
     grid-template-columns: repeat(3, 1fr);
@@ -302,5 +300,3 @@ const List = styled.ol`
     }
   }
 `;
-
-export default LogoCarousel;

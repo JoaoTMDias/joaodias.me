@@ -17,6 +17,7 @@ import {
   Meta,
   BlobOne,
   PageTitle,
+  SkillsDeck,
 } from '../../components/index';
 
 const WhoAmI = asyncComponent(() => {
@@ -55,6 +56,7 @@ const AboutPage = ({ location, data }) => {
           }}
         >
           {renderImage(data)}
+          <SkillsDeck />
           <LogoCarousel />
           <Timeline />
           <LastPlayedSong />

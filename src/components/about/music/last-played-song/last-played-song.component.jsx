@@ -11,7 +11,7 @@ import { LastPlayedSongCard } from '../..';
  ** @type: Class
  ** @description: Retrieves info from Last.fm and displays on the widget
  ********* */
-class LastPlayedSong extends PureComponent {
+export class LastPlayedSong extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,9 +44,9 @@ class LastPlayedSong extends PureComponent {
   renderLastPlayedSong() {
     const numberofSongs = 1;
 
-    const LatestSong = this.state.LastPlayedSong.slice(0, numberofSongs).map(song => (
-      <LastPlayedSongCard key={song.name} song={song} />
-    ));
+    const LatestSong = this.state.LastPlayedSong.slice(0, numberofSongs).map(
+      song => <LastPlayedSongCard key={song.name} song={song} />,
+    );
 
     return LatestSong;
   }
@@ -71,5 +71,3 @@ const Title = styled.h2`
   font-size: 1.125rem;
   font-family: var(--body-font-family);
 `;
-
-export default LastPlayedSong;

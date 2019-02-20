@@ -50,7 +50,7 @@ const MainContent = asyncComponent(() => {
   return import('./general/main-content/main-content.component');
 });
 
-import { LogoCarousel, LastPlayedSong, LastPlayedSongCard } from './about/index';
+export * from './about/index';
 
 export {
   Layout,
@@ -65,9 +65,6 @@ export {
   PageTitle,
   ContentPage,
   MainContent,
-  LogoCarousel,
-  LastPlayedSong,
-  LastPlayedSongCard,
 };
 
 /////////////////////
