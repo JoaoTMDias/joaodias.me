@@ -93,6 +93,7 @@
     svg {
       width: rem-calc(72);
       height: rem-calc(72);
+
       path {
         fill: var(--color-primary, $primary-color);
       }

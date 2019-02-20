@@ -10,17 +10,17 @@ $global-width: rem-calc(1200);
 $global-lineheight: $ratio;
 // Grayscale
 $color-white: #ffffff;
-$color-gray0: #f9f9f9;
-$color-gray1: #ededed;
-$color-gray2: #e1e0e0;
-$color-gray3: #d3d2d2;
-$color-gray4: #c4c3c3;
-$color-gray5: #b3b2b2;
-$color-gray6: #a09f9f;
-$color-gray7: #8a8888;
-$color-gray8: #6d6b6b;
-$color-gray9: #413e3e;
-$color-black: darken($color-gray9, 20%);
+$color-gray0: #f9f9fa;
+$color-gray1: #ecedf0;
+$color-gray2: #dfe0e5;
+$color-gray3: #d0d2d9;
+$color-gray4: #c0c3cc;
+$color-gray5: #afb2be;
+$color-gray6: #9a9fae;
+$color-gray7: #82889b;
+$color-gray8: #646b82;
+$color-gray9: #3a3e4c;
+$color-black: darken($color-gray9, 25%);
 $foundation-palette: (primary: #e81b1f,
 alternate: #0037EA,
 blend: #111595,
@@ -29,7 +29,7 @@ success: #1be87b,
 warning: #f2b681,
 alert: #e87b1b,
 );
-$alternate-color: get-color(alternate);
+$color-alternate: get-color(alternate);
 $blend-color: get-color(blend);
 $body-background: $color-white;
 $body-font-color: $color-black;

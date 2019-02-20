@@ -105,7 +105,8 @@ const Item = styled.li`
 
     &.active {
       color: var(--color-primary);
-      border-bottom: 2px dotted var(--color-primary);
+      text-decoration: line-through;
+      text-decoration-color: var(--color-alternate);
     }
 
     &:before {

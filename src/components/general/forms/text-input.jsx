@@ -60,7 +60,11 @@ class TextInput extends PureComponent {
 
     return (
       <Wrapper className={`${wrapperClassName} ${focusedClassName}`}>
-        <label className="content" htmlFor={`${id}`} aria-labelledby={`${label}-${id}`}>
+        <label
+          className="content"
+          htmlFor={`${id}`}
+          aria-labelledby={`${label}-${id}`}
+        >
           <span id={`${label}-${id}`} className="label">{`${label}`}</span>
           <input
             id={`${id}`}

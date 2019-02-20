@@ -111,7 +111,7 @@ const Item = styled.div`
   }
 
   &:focus {
-    outline-color: var(--color-gray6);
+    outline-color: var(--color-gray2);
     outline-width: 1px;
     outline-style: dashed;
     outline-offset: -1px;
@@ -130,7 +130,7 @@ const Item = styled.div`
       left: auto;
       right: 100%;
       border-color: transparent;
-      border-right-color: ${props => lighten(0.05, props.theme.colorBlack)};
+      border-right-color: var(--color-gray7);
     }
     &:nth-child(even):not(.left) .content .date,
     &.right .content .date {
@@ -155,32 +155,24 @@ const Item = styled.div`
 
   &.type {
     &--work {
-      &:first-child {
-        .icon {
-          background-image: linear-gradient(
-            ${props => lighten(0.1, props.theme.colorBlack)},
-            ${props => lighten(0.05, props.theme.colorBlack)}
-          );
-        }
-      }
       .icon {
         background-image: linear-gradient(
-          ${props => lighten(0.1, props.theme.colorBlack)},
-          ${props => lighten(0.075, props.theme.colorBlack)}
+          var(--color-white),
+          var(--color-gray1)
         );
       }
     }
     &--education {
       .icon {
         background-image: linear-gradient(
-          ${props => lighten(0.1, props.theme.colorBlack)},
-          ${props => lighten(0.025, props.theme.colorBlack)}
+          var(--color-white),
+          var(--color-gray2)
         );
       }
     }
     &--work,
     &--education {
-      color: var(--color-white);
+      color: var(--color-gray5);
     }
   }
 `;
@@ -189,11 +181,10 @@ const Icon = styled.span`
   position: absolute;
   top: 0;
   left: 0;
-  width: ${rem('40px')};
-  height: ${rem('40px')};
-  border-radius: ${rem('40px')};
-  box-shadow: 0 0 4px 4px var(--color-black), inset 0 2px 0 var(--color-gray8),
-    0 2px 2px 4px var(--color-gray9);
+  width: ${rem('24px')};
+  height: ${rem('24px')};
+  border-radius: ${rem('24px')};
+  box-shadow: 0 0 16px 2px var(--color-gray0);
 
   svg {
     display: block;
@@ -222,28 +213,34 @@ const Icon = styled.span`
   }
 
   @media ${props => props.theme.breakpointLarge} {
-    width: ${rem('60px')};
-    height: ${rem('60px')};
+    width: ${rem('28px')};
+    height: ${rem('28px')};
     left: 50%;
-    margin-left: ${rem('-30px')};
+    margin-left: ${rem('-16px')};
   }
 `;
 
 const Content = styled.div`
   position: relative;
   margin-left: ${rem('60px')};
-  background: transparent;
+  background: rgba(255, 255, 255, 0.05);
   border-radius: ${rem('4px')};
   padding: ${rem('16px')};
-  border: var(--color-gray9);
-  box-shadow: 0 4px 16px var(--color-black);
+  border: var(--color-gray2);
+  box-shadow: 0 4px 24px var(--color-gray2);
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: var(--color-white);
+  }
 
   &.is-hidden {
     visibility: hidden;
   }
   &.bounce-in {
     visibility: visible;
-    ${CdBounce2Inverse};
+    animation-name: ${CdBounce2Inverse};
   }
 
   &:after {
@@ -255,20 +252,18 @@ const Content = styled.div`
     color: var(--color-gray7);
   }
   p {
-    font-size: ${rem('13px')};
+    font-size: ${rem('11px')};
+    text-transform: uppercase;
     font-weight: 500;
-    color: ${props => lighten(0.56, props.theme.colorBlack)};
-  }
-
-  p {
+    color: var(--color-gray5);
     margin: ${rem('16px')} 0 0;
     line-height: 1.6;
   }
 
   .date {
-    font-size: ${rem('13px')};
+    font-size: ${rem('12px')};
     font-weight: 500;
-    color: var(--color-white);
+    color: var(--color-gray4);
     display: inline-block;
     float: left;
     padding: ${rem('12.8px')} 0;
@@ -283,14 +278,14 @@ const Content = styled.div`
   .title {
     font-size: ${rem('20px')};
     font-weight: 400;
-    color: ${props => lighten(0.8, props.theme.colorWhite)};
+    color: var(--color-gray9);
   }
 
   .subtitle {
     font-family: var(--body-font-family);
     font-size: ${rem('16px')};
-    text-text-transform: uppercase;
-    color: ${props => lighten(0.7, props.theme.colorBlack)};
+    text-transform: capitalize;
+    color: var(--color-gray8);
   }
 
   @media ${props => props.theme.breakpointMedium} {
@@ -298,7 +293,7 @@ const Content = styled.div`
       font-size: ${rem('20px')};
     }
     p {
-      font-size: ${rem('16px')};
+      font-size: ${rem('12px')};
     }
     .date {
       font-size: ${rem('14px')};

@@ -1,13 +1,13 @@
 body {
   &.fixed-nav {
-    --back-navigation-fill: var(--color-white);
     #page-header {
       margin-top: 0;
       position: fixed;
       width: 100%;
-      background-color: var(--color-black, $color-black);
+      background-color: var(--color-gray0, $color-gray0);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       transition: all 150ms ease-out;
+
       @include breakpoint(large) {
         @include fadeInDown($duration: 200ms, $function: var(--default-timing-function));
         animation-delay: 200ms;
@@ -19,12 +19,7 @@ body {
     }
 
     .large-nav__link {
-      color: var(--color-white, $color-white);
-
-      &.active {
-        border-bottom-color: var(--color-white, $color-white);
-        border-bottom-style: solid;
-      }
+      color: var(--color-gray6, $color-gray6);
 
       &:before {
         background-color: var(--color-white, $color-white);
@@ -33,28 +28,30 @@ body {
 
     .brand {
       &__circle {
-        fill: var(--color-black, $color-black);
+        fill: var(--color-gray0, $color-gray0);
       }
 
       &__hair,
       &__glasses {
-        fill: var(--color-white, $color-white);
+        fill: var(--color-gray9, $color-gray9);
       }
     }
 
     #social-navigation {
       .social__fill {
-        fill: var(--color-white, $color-white);
+        fill: var(--color-gray8, $color-gray8);
       }
 
       .social-navigation__SocialLink-eQAYUO {
         &:before {
-          background: var(--color-white, $color-white);
+          background: var(--color-gray8, $color-gray8);
         }
+
         .social__fill {
+
           &:focus,
           &:hover {
-            fill: var(--color-white, $color-white);
+            fill: var(--color-gray8, $color-gray8);
           }
         }
       }

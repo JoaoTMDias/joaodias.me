@@ -29,10 +29,10 @@ const Wrapper = styled.div`
     content: '';
     position: absolute;
     top: 0;
-    left: ${rem('18px')};
+    left: ${rem('12px')};
     height: 100%;
-    width: ${rem('4px')};
-    background: var(--color-black);
+    width: ${rem('2px')};
+    background: linear-gradient(var(--color-white), var(--color-gray2));
   }
 
   @media ${props => props.theme.breakpointLarge} {
