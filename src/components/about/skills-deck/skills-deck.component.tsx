@@ -133,7 +133,7 @@ export const SkillsDeck: React.FunctionComponent<ISkillsDeckProps> = props => {
 
   return (
     <Wrapper className="l__container l__section">
-      <div className="l__row">{list}</div>
+      <ul className="l__row">{list}</ul>
     </Wrapper>
   );
 };
@@ -159,7 +159,7 @@ const Wrapper = styled.section`
   }
 `;
 
-const Item = styled.div`
+const Item = styled.li`
   position: absolute;
   width: 50vw;
   max-width: ${rem('230px')};
@@ -196,8 +196,8 @@ const Image = styled.figure`
   background-position: center center;
   will-change: transform;
   border-radius: 10px;
-  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
-    0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  box-shadow: 0 12px 96px -12px rgba(50, 50, 73, 0.1),
+    0 8px 8px -8px rgba(50, 50, 73, 0.2);
   margin: 0;
   padding: 0;
 `;
