@@ -6,7 +6,11 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 // Components
-import { ProjectHero, ProjectMeta, ProjectIntroduction } from '../components/project';
+import {
+  ProjectHero,
+  ProjectMeta,
+  ProjectIntroduction,
+} from '../components/project';
 import {
   Layout,
   CallToActionItem,
@@ -25,7 +29,11 @@ import {
  */
 class ProjectPage extends PureComponent {
   componentDidMount() {
-    const items = Array.from(document.querySelectorAll('.l__project h2, .l__project img, .l__project a'));
+    const items = Array.from(
+      document.querySelectorAll(
+        '.l__project h2, .l__project img, .l__project a',
+      ),
+    );
     // console.log('items: ', items);
 
     items.map(item => {
@@ -44,7 +52,11 @@ class ProjectPage extends PureComponent {
 
             <Helmet>
               <title>{`${post.title} | João Dias`}</title>
-              <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8" />
+              <script
+                async
+                src="//cdn.embedly.com/widgets/platform.js"
+                charset="UTF-8"
+              />
             </Helmet>
             <ProjectIntroduction
               id={`${post.introduction.internal.contentDigest}`}
@@ -53,9 +65,17 @@ class ProjectPage extends PureComponent {
               text={`${post.introduction.internal.content}`}
             />
             <div id="main-content">
-              <ProjectHero id={`hero-${post.slug}`} backgroundImage={post.featuredImage.file.url} />
+              <ProjectHero
+                id={`hero-${post.slug}`}
+                backgroundImage={post.featuredImage.file.url}
+              />
 
-              <ProjectMeta skills={post.skills} tools={post.tools} client={`${post.client}`} date={`${post.date}`} />
+              <ProjectMeta
+                skills={post.skills}
+                tools={post.tools}
+                client={`${post.client}`}
+                date={`${post.date}`}
+              />
               <Body className="l__row">
                 <div
                   className="l__project l__section"

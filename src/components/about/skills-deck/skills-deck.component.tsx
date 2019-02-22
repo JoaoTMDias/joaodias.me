@@ -3,28 +3,15 @@ import React, { useState } from 'react';
 import { useSprings, animated, interpolate } from 'react-spring';
 import { useGesture } from 'react-with-gesture';
 
+import { AllContentfulSkillsEdge } from '../../../data/interfaces/index.interfaces';
 import styled from 'styled-components';
 import { rem } from 'polished';
 
 // Interface
 interface ISkillsDeckProps {
   theme?: any;
+  cards: AllContentfulSkillsEdge[];
 }
-
-const cards = [
-  'https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/9/9b/RWS_Tarot_07_Chariot.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/690px-RWS_Tarot_02_High_Priestess.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/9/9b/RWS_Tarot_07_Chariot.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/690px-RWS_Tarot_02_High_Priestess.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg',
-];
 
 const to = (i: number) => ({
   x: 0,
@@ -50,7 +37,9 @@ const trans = (rotate: number, scale: number) =>
  * @date 2019-02-16
  * @returns {React.FunctionComponent<ISkillsDeckProps>}
  */
-export const SkillsDeck: React.FunctionComponent<ISkillsDeckProps> = props => {
+export const SkillsDeck: React.FunctionComponent<ISkillsDeckProps> = ({
+  cards,
+}) => {
   const [gone] = useState(() => new Set());
   const [data, set] = useSprings(
     cards.length,
@@ -111,7 +100,9 @@ export const SkillsDeck: React.FunctionComponent<ISkillsDeckProps> = props => {
   const list: JSX.Element[] = data.map(
     ({ x, y, rotate, scale }: any, index: number) => (
       <Container
-        key={index}
+        key={cards[index].node.id}
+        aria-title={`${cards[index].node.title}`}
+        aria-label={`${cards[index].node.description}`}
         style={{
           transform: interpolate(
             [x, y],
@@ -122,9 +113,11 @@ export const SkillsDeck: React.FunctionComponent<ISkillsDeckProps> = props => {
         {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
         <Card
           {...bind(index)}
+          aria-label={`${cards[index].node.icon.description}`}
           style={{
             transform: interpolate([rotate, scale], trans),
-            backgroundImage: `url(${cards[index]})`,
+            backgroundImage: `url(${cards[index].node.icon.file.url})`,
+            backgroundColor: `${cards[index].node.backgroundColor}`,
           }}
         />
       </Container>

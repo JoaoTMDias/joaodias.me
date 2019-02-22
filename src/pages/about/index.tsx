@@ -2,6 +2,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+// Interfaces
+import {
+  Data,
+  AllContentfulSkillsEdge,
+} from '../../data/interfaces/index.interfaces';
+
 // Components
 import {
   asyncComponent,
@@ -28,15 +34,25 @@ const Timeline = asyncComponent(() => {
   return import(`./timeline.component`);
 });
 
-const AboutPage = ({ location, data }) => {
-  const renderImage = data => {
-    let queryPath = data.allContentfulAsset.edges[0].node;
+interface IAboutPageProps {
+  location: any;
+  data: Data;
+}
+
+const AboutPage: React.FunctionComponent<IAboutPageProps> = props => {
+  const { location, data } = props;
+  const renderImage = () => {
+    const queryPath = data.allContentfulAsset.edges[0].node;
 
     if (queryPath) {
       return <WhoAmI data={queryPath} />;
     }
     return <p>Loading...</p>;
   };
+
+  const cards: AllContentfulSkillsEdge[] = data
+    ? data.allContentfulSkills.edges
+    : [];
 
   return (
     <Layout>
@@ -55,8 +71,8 @@ const AboutPage = ({ location, data }) => {
             overflowX: 'hidden',
           }}
         >
-          {renderImage(data)}
-          <SkillsDeck />
+          {renderImage()}
+          <SkillsDeck cards={cards} />
           <LogoCarousel />
           <Timeline />
           <LastPlayedSong />
@@ -103,6 +119,24 @@ export const aboutMeQuery = graphql`
             srcSetWebp
             sizes
             aspectRatio
+          }
+        }
+      }
+    }
+    allContentfulSkills {
+      edges {
+        node {
+          id
+          title
+          description
+          backgroundColor
+          icon {
+            file {
+              url
+              contentType
+            }
+            title
+            description
           }
         }
       }
