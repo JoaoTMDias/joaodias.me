@@ -57,6 +57,7 @@ class ProjectPage extends PureComponent {
                 src="//cdn.embedly.com/widgets/platform.js"
                 charset="UTF-8"
               />
+              <body className="project" />
             </Helmet>
             <ProjectIntroduction
               id={`${post.introduction.internal.contentDigest}`}

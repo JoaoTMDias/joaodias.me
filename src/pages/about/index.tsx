@@ -72,8 +72,8 @@ const AboutPage: React.FunctionComponent<IAboutPageProps> = props => {
           }}
         >
           {renderImage()}
-          <SkillsDeck cards={cards} />
           <LogoCarousel />
+          <SkillsDeck cards={cards} />
           <Timeline />
           <LastPlayedSong />
         </MainContent>

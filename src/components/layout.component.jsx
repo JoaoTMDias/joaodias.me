@@ -39,7 +39,8 @@ const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!../a
 const Layout = ({ children, data }) => {
   if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     const isInWebAppiOS = window.navigator.standalone == true;
-    const isInWebAppChrome = window.matchMedia('(display-mode: standalone)').matches;
+    const isInWebAppChrome = window.matchMedia('(display-mode: standalone)')
+      .matches;
     const body = document.body || document.documentElement;
 
     if (isInWebAppiOS || isInWebAppChrome) {
@@ -61,7 +62,11 @@ const Layout = ({ children, data }) => {
       render={data => (
         <React.Fragment>
           <ThemeProvider theme={theme}>
-            <div id="page-content" aria-label="Top App wrapper. Press tab to navigate to the next item." tabIndex="-1">
+            <div
+              id="page-content"
+              aria-label="Top App wrapper. Press tab to navigate to the next item."
+              tabIndex="-1"
+            >
               <SkipLink />
               <Helmet
                 htmlAttributes={{
@@ -86,7 +91,10 @@ const Layout = ({ children, data }) => {
                   { name: 'apple-mobile-web-app-capable', content: 'yes' },
                   { name: 'mobile-web-app-capable', content: 'yes' },
                   { name: 'msapplication-TileColor', content: '#e81b1f' },
-                  { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+                  {
+                    name: 'apple-mobile-web-app-status-bar-style',
+                    content: 'default',
+                  },
                 ]}
                 link={[
                   {
@@ -97,52 +105,62 @@ const Layout = ({ children, data }) => {
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)',
+                    media:
+                      '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)',
                     href: `${appleiPhone5}`,
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)',
+                    media:
+                      '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)',
                     href: `${appleiPhone6}`,
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)',
+                    media:
+                      '(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)',
                     href: `${appleiPhonePlus}`,
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)',
+                    media:
+                      '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)',
                     href: `${appleiPhoneX}`,
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)',
+                    media:
+                      '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)',
                     href: `${appleiPhoneXR}`,
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)',
+                    media:
+                      '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)',
                     href: `${appleiPhoneXSMax}`,
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)',
+                    media:
+                      '(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)',
                     href: `${appleiPad}`,
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)',
+                    media:
+                      '(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)',
                     href: `${appleIpadPro1}`,
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)',
+                    media:
+                      '(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)',
                     href: `${appleIpadPro2}`,
                   },
                   {
                     rel: 'apple-touch-startup-image',
-                    media: '(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)',
+                    media:
+                      '(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)',
                     href: `${appleIpadPro3}`,
                   },
                   {
@@ -177,7 +195,10 @@ const Layout = ({ children, data }) => {
               />
 
               <Header key="page-header" />
-              <main aria-label="Main Page Content Wrapper. Press Tab to navigate" key="page-content">
+              <main
+                aria-label="Main Page Content Wrapper. Press Tab to navigate"
+                key="page-content"
+              >
                 {children}
               </main>
 

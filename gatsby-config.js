@@ -116,16 +116,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
 
-    // PWA
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: manifestOptions,
-    },
-    {
-      resolve: 'gatsby-plugin-offline',
-      options: offlineOptions,
-    },
-
     // Styling
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -134,5 +124,15 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
+
+
+    // PWA
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: manifestOptions,
+    }, {
+      resolve: 'gatsby-plugin-offline',
+      options: offlineOptions,
+    },
   ],
 };

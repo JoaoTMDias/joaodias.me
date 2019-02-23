@@ -32,28 +32,43 @@ const ProjectIntroduction = ({ title, description, text }) => {
   return (
     <Wrapper className="l__row utilities--above-the-fold">
       <div className="l__project l__hero">
-        <Spring from={from} to={to} delay={125}>
+        <Spring from={from} to={to} delay={300}>
           {props => {
             return (
-              <h1 className="title" tabIndex="0" aria-label={`${title}`} style={props}>
+              <h1
+                className="title"
+                tabIndex="0"
+                aria-label={`${title}`}
+                style={props}
+              >
                 {title}
               </h1>
             );
           }}
         </Spring>
-        <Spring from={from} to={to} delay={375}>
+        <Spring from={from} to={to} delay={550}>
           {props => {
             return (
-              <h2 className="description" tabIndex="0" aria-label={`${description}`} style={props}>
+              <h2
+                className="description"
+                tabIndex="0"
+                aria-label={`${description}`}
+                style={props}
+              >
                 {description}
               </h2>
             );
           }}
         </Spring>
-        <Spring from={from} to={to} delay={500}>
+        <Spring from={from} to={to} delay={850}>
           {props => {
             return (
-              <p className="lead" tabIndex="0" aria-label={`${text}`} style={props}>
+              <p
+                className="lead"
+                tabIndex="0"
+                aria-label={`${text}`}
+                style={props}
+              >
                 {text}
               </p>
             );
@@ -90,7 +105,7 @@ const Wrapper = styled.div`
 
   .description {
     font-family: var(--body-font-family);
-    color: var(--color-gray9);
+    color: var(--color-gray0);
     text-align: left;
     margin-bottom: ${rem('16px')};
     font-size: ${rem('20px')};
@@ -102,6 +117,8 @@ const Wrapper = styled.div`
   .lead {
     font-weight: 300;
     line-height: 1.888;
+
+    color: var(--color-gray4);
   }
 
   .lead,

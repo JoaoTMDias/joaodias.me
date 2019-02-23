@@ -14,9 +14,7 @@ interface ILogoCarouselProps {
  * @date  30/November/2018 at 00:41
  * @extends {React.SFC}
  */
-export const LogoCarousel: React.FunctionComponent<
-  ILogoCarouselProps
-> = props => {
+export const LogoCarousel: React.FunctionComponent<ILogoCarouselProps> = () => {
   return (
     <Wrapper id="logo-list" className="l__section">
       <header className="l__row">

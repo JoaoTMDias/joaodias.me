@@ -19,20 +19,20 @@
 
 .title {
   margin-bottom: $global-margin * 1;
-  font-weight: 600;
-  color: $color-gray5;
+  font-weight: 400;
+  color: var(--color-gray6, $color-gray6);
 }
 
 li {
   font-size: rem-calc(14);
 
   &:not(:first-child) {
-    color: $color-gray9;
+    color: var(--color-gray2, $color-gray2);
     font-weight: 400;
   }
 
   &:focus {
-    outline-color: $color-gray2;
+    outline-color: var(--color-gray4, $color-gray4);
     outline-width: 1px;
     outline-style: dashed;
   }

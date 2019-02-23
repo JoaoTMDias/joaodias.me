@@ -1,0 +1,82 @@
+body {
+    &.project {
+        --body-background: var(--color-black);
+        --call-to-action-wrapper-background: hsl(227, 12%, 9%);
+
+        --call-to-action-wrapper-background-hover: var(--color-gray9);
+        --call-to-action-wrapper-gradient: var(--color-gray8);
+        --call-to-action-wrapper-shadow: var(--color-gray9);
+        --call-to-action-wrapper-border: var(--color-black);
+
+        --call-to-action-title: var(--color-gray6);
+        --call-to-action-subtitle: var(--color-gray8);
+        --call-to-action-link: var(--color-gray7);
+
+        .brand {
+            &__circle {
+                fill: transparent;
+            }
+
+            &__hair,
+            &__glasses {
+                fill: var(--color-gray6);
+            }
+        }
+
+        &.fixed-nav {
+            #page-header {
+                background-color: var(--color-gray9);
+                box-shadow: 0 1px 3px var(--color-black);
+                transition: all 150ms ease-out;
+
+                @include breakpoint(large) {
+                    @include fadeInDown($duration: 200ms, $function: var(--default-timing-function));
+                    animation-delay: 200ms;
+                }
+
+                *:focus {
+                    outline-color: var(--color-gray6);
+                }
+            }
+
+            .large-nav__link {
+                color: var(--color-gray6, $color-gray6);
+
+                &:before {
+                    background-color: var(--color-gray5, $color-gray5);
+                }
+            }
+
+            .brand {
+                &__circle {
+                    fill: transparent;
+                }
+
+                &__hair,
+                &__glasses {
+                    fill: var(--color-gray5, $color-gray5);
+                }
+            }
+
+            #social-navigation {
+                .social__fill {
+                    fill: var(--color-gray7, $color-gray7);
+                }
+
+                .social-navigation__SocialLink-eQAYUO {
+                    &:before {
+                        background: var(--color-gray7, $color-gray7);
+                    }
+
+                    .social__fill {
+
+                        &:focus,
+                        &:hover {
+                            fill: var(--color-gray7, $color-gray7);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

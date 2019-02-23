@@ -7,9 +7,14 @@ import styled from 'styled-components';
  ** @type: functional stateless component
  ** @description: Graphical Blob
  **********/
-const BlobTwo = props => {
+const BlobTwo = () => {
   return (
-    <Blob xmlns="http://www.w3.org/2000/svg" viewBox="0 0 502 502" aria-labelledby="contact-blob-title" tabIndex="-1">
+    <Blob
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 502 502"
+      aria-labelledby="contact-blob-title"
+      tabIndex="-1"
+    >
       <title id="contact-blob-title">Graphical Element for background</title>
       <path
         fill="var(--color-gray1)"

@@ -10,12 +10,15 @@
     width: 100%;
     margin: 0 auto;
     @include xy-grid-container();
+
     @include breakpoint(large) {
       max-width: rem-calc(1200);
     }
+
     @include breakpoint(xlarge) {
       max-width: rem-calc(1408);
     }
+
     @include breakpoint(xxlarge) {
       max-width: rem-calc(1648);
     }
@@ -53,13 +56,14 @@
 
     h2 {
       margin-top: $global-margin * 3;
+      color: var(--color-gray2, $color-gray2);
 
       &:first-child {
         margin-top: 0;
       }
 
-      + img,
-      + .project__image {
+      +img,
+      +.project__image {
         margin-top: 0;
       }
     }
@@ -68,6 +72,8 @@
       font-size: rem-calc(19);
       line-height: var(--global-lineheight, $global-lineheight);
       font-weight: 300;
+      color: var(--color-gray4, $color-gray4);
+
 
       @include breakpoint(medium) {
         font-size: rem-calc(17);
@@ -94,6 +100,7 @@
       }
     }
   }
+
   &__section {
     padding-top: $global-padding * 1.5;
     padding-bottom: $global-padding * 1.5;
@@ -109,6 +116,7 @@
 
     &--overflow {
       margin-top: -(($global-padding * 1.5) * 2);
+
       @include breakpoint(large) {
         margin-top: -(($global-padding * 4) * 2);
       }

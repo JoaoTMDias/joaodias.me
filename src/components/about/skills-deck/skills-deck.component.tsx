@@ -96,12 +96,10 @@ export const SkillsDeck: React.FunctionComponent<ISkillsDeckProps> = ({
   const Container = animated(Item);
   const Card = animated(Image);
 
-  // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   const list: JSX.Element[] = data.map(
     ({ x, y, rotate, scale }: any, index: number) => (
       <Container
         key={cards[index].node.id}
-        aria-title={`${cards[index].node.title}`}
         aria-label={`${cards[index].node.description}`}
         style={{
           transform: interpolate(
@@ -110,7 +108,6 @@ export const SkillsDeck: React.FunctionComponent<ISkillsDeckProps> = ({
           ),
         }}
       >
-        {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
         <Card
           {...bind(index)}
           aria-label={`${cards[index].node.icon.description}`}
@@ -119,14 +116,17 @@ export const SkillsDeck: React.FunctionComponent<ISkillsDeckProps> = ({
             backgroundImage: `url(${cards[index].node.icon.file.url})`,
             backgroundColor: `${cards[index].node.backgroundColor}`,
           }}
+          tabIndex={0}
         />
       </Container>
     ),
   );
 
   return (
-    <Wrapper className="l__container l__section">
+    <Wrapper className="skills l__container l__section">
+      <h5 className="skills__title">My skillset (sort of)</h5>
       <ul className="l__row">{list}</ul>
+      <p className="skills__disclaimer">Swipe Left/Right to check them out.</p>
     </Wrapper>
   );
 };
@@ -150,6 +150,33 @@ const Wrapper = styled.section`
     width: 100%;
     height: 50vh;
   }
+
+  .skills {
+    &__title {
+      font-family: var(--body-font-family);
+      font-size: ${rem('18px')};
+      color: var(--color-gray8);
+      letter-spacing: 0;
+    }
+
+    &__title,
+    &__disclaimer {
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      line-height: var(--global-lineheight);
+
+      @media ${props => props.theme.breakpointLarge} {
+        width: 100%;
+      }
+    }
+
+    &__disclaimer {
+      font-size: ${rem('12px')};
+      color: var(--color-gray8);
+      font-weight: 300;
+    }
+  }
 `;
 
 const Item = styled.li`
@@ -157,7 +184,7 @@ const Item = styled.li`
   width: 50vw;
   max-width: ${rem('230px')};
   height: 50vh;
-  max-height: ${rem('300px')};
+  max-height: ${rem('380px')};
   margin: 0 auto;
   top: 0;
   right: 0;

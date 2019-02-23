@@ -1,42 +1,49 @@
-@include css-vars(
-  (
-    --color-primary: $primary-color,
-    --color-select: $primary-color,
-    --color-white: $color-white,
-    --color-gray0: $color-gray0,
-    --color-gray1: $color-gray1,
-    --color-gray3: $color-gray3,
-    --color-gray2: $color-gray2,
-    --color-gray4: $color-gray4,
-    --color-gray5: $color-gray5,
-    --color-gray6: $color-gray6,
-    --color-gray7: $color-gray7,
-    --color-gray8: $color-gray8,
-    --color-gray9: $color-gray9,
-    --color-black: $color-black,
-    --color-alternate: $color-alternate,
-    --color-blend: $blend-color,
-    --anchor-text-decoration: $anchor-text-decoration,
-    --anchor-text-decoration-hover: $anchor-text-decoration-hover,
-    --body-background: $body-background,
-    --body-font-color: $body-font-color,
-    --body-font-family: $body-font-family,
-    --body-antialiased: $body-antialiased,
-    --heading-font-family: $header-font-family,
-    --global-margin: $global-margin,
-    --global-padding: $global-padding,
-    --global-font-size: $global-font-size,
-    --global-width: $global-width,
-    --global-lineheight: $ratio,
-    --global-weight-normal: $global-weight-normal,
-    --global-weight-bold: $global-weight-bold,
-    --global-radius: $global-radius,
-    --default-timing-function: $default-timing-function,
-    --navbar-height: $navbar-height,
-    --scrolled-navbar: $scrolled-navbar,
-    --back-navigation-fill: $color-gray8,
-  )
-);
+@include css-vars((--color-primary: $primary-color,
+--color-select: $primary-color,
+--color-white: $color-white,
+--color-gray0: $color-gray0,
+--color-gray1: $color-gray1,
+--color-gray3: $color-gray3,
+--color-gray2: $color-gray2,
+--color-gray4: $color-gray4,
+--color-gray5: $color-gray5,
+--color-gray6: $color-gray6,
+--color-gray7: $color-gray7,
+--color-gray8: $color-gray8,
+--color-gray9: $color-gray9,
+--color-black: $color-black,
+--color-alternate: $color-alternate,
+--color-blend: $blend-color,
+--anchor-text-decoration: $anchor-text-decoration,
+--anchor-text-decoration-hover: $anchor-text-decoration-hover,
+--body-background: $body-background,
+--body-font-color: $body-font-color,
+--body-font-family: $body-font-family,
+--body-antialiased: $body-antialiased,
+--heading-font-family: $header-font-family,
+--global-margin: $global-margin,
+--global-padding: $global-padding,
+--global-font-size: $global-font-size,
+--global-width: $global-width,
+--global-lineheight: $ratio,
+--global-weight-normal: $global-weight-normal,
+--global-weight-bold: $global-weight-bold,
+--global-radius: $global-radius,
+--default-timing-function: $default-timing-function,
+--navbar-height: $navbar-height,
+--scrolled-navbar: $scrolled-navbar,
+--back-navigation-fill: $color-gray8,
+
+--call-to-action-wrapper-background: $color-white,
+--call-to-action-wrapper-background-hover: $color-gray2,
+--call-to-action-wrapper-gradient: $color-gray2,
+--call-to-action-wrapper-shadow: $color-gray6,
+--call-to-action-wrapper-border: $color-gray2,
+
+--call-to-action-title: $color-black,
+--call-to-action-subtitle: $color-gray8,
+--call-to-action-link: $color-gray8,
+));
 
 html {
   box-sizing: border-box; // 1
@@ -222,6 +229,7 @@ sup {
 sub {
   bottom: -0.25em;
 }
+
 sup {
   top: -0.5em;
 }
