@@ -43,7 +43,8 @@ const ProjectMeta = ({ skills, tools, client, date }) => (
 );
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: calc(100% - 1rem);
+  padding: 2rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -55,12 +56,14 @@ const Wrapper = styled.div`
   margin-bottom: ${rem('32px')} !important;
 
   @media ${props => props.theme.breakpointMedium} {
+    width: calc(100% - 2rem);
     flex-direction: row;
     padding: ${rem('32px')};
     box-shadow: 0 8px 24px 0 rgba(108, 158, 195, 0.11);
   }
 
   @media ${props => props.theme.breakpointLarge} {
+    width: 100%;
     margin-top: ${rem('64px')} !important;
     margin-bottom: ${rem('64px')} !important;
   }

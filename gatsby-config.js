@@ -125,7 +125,6 @@ module.exports = {
     },
     'gatsby-plugin-sass',
 
-
     // PWA
     {
       resolve: 'gatsby-plugin-manifest',

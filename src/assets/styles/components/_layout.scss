@@ -55,7 +55,7 @@
     }
 
     h2 {
-      margin-top: $global-margin * 3;
+      margin-top: $global-margin * 2;
       color: var(--color-gray2, $color-gray2);
 
       &:first-child {
@@ -125,11 +125,11 @@
 
   &__hero {
     padding-top: $global-padding * 4;
-    padding-bottom: $global-padding * 3;
+    padding-bottom: $global-padding * 2;
 
     @include breakpoint(medium) {
       padding-top: $global-padding * 9;
-      padding-bottom: $global-padding * 6;
+      padding-bottom: $global-padding * 4;
     }
   }
 }

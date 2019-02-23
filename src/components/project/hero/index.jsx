@@ -1,7 +1,7 @@
 // Libraries
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const ProjectHero = props => {
   const { id, backgroundImage } = props;
@@ -12,6 +12,19 @@ const ProjectHero = props => {
   );
 };
 
+const MaskAnimation = keyframes`
+ 0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+ }
+
+ 90% {
+    clip-path: polygon(0 0, 89% 0, 78% 100%, 0% 100%);
+ }
+
+ 100% {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+ }
+`;
 const Masthead = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -21,7 +34,13 @@ const Masthead = styled.div`
   height: 60vh;
   max-height: 20rem;
   background-color: transparent;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  animation-name: ${MaskAnimation};
+  animation-duration: 1500ms;
+  animation-delay: 500ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 
   @media ${props => props.theme.breakpointMedium} {
     margin-top: 0;
