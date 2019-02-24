@@ -46,5 +46,6 @@
     "no-unnecessary-qualifier": true,
     "strict-type-predicates": false,
     "no-namespace": false,
+    "no-empty-interface": true,
   }
 }

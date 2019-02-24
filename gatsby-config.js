@@ -84,7 +84,7 @@ module.exports = {
     author: 'João Dias',
     url: 'https://joaodias.me',
     siteUrl: 'https://joaodias.me',
-    description: 'I am João, a Visual designer and Web developer.',
+    description: 'I am João, a Frontend developer and Visual Designer',
   },
 
   plugins: [
