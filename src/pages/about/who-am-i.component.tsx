@@ -57,7 +57,7 @@ class WhoAmI extends React.Component<WhoAmIProps, any> {
               Development for all kinds of screen sizes and users.
             </p>
             <p>
-              WIT Software is where I work since 2013, and it is one of the most proeminent software companies in
+              Feedzai is where I work since September 2019, and it is one of the most proeminent software companies in
               Portugal.
             </p>
           </div>
