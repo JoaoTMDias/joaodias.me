@@ -13,8 +13,17 @@ const Timeline: React.FunctionComponent = () => (
     <VerticalTimeline>
       <VerticalTimelineElement
         className="type--work"
-        date="2013 - present"
-        description="Career Progress: Since 2013, I've been working at WIT Software, a software company in Coimbra, Portugal"
+        date="2019 - Present"
+        description="Career Progress: From September 2019 I've been working at Feedzai, a software company also in Coimbra, Portugal"
+      >
+        <h3 className="title">Feedzai</h3>
+        <h4 className="subtitle">Coimbra, Portugal</h4>
+        <p>Frontend Development, UX Design</p>
+      </VerticalTimelineElement>
+      <VerticalTimelineElement
+        className="type--work"
+        date="2013 - 2019"
+        description="Career Progress: From 2013 to 2019, I grew up a lot at WIT Software in Coimbra, Portugal"
       >
         <h3 className="title">WIT Software</h3>
         <h4 className="subtitle">Coimbra, Portugal</h4>
