@@ -1,88 +1,158 @@
 {
-  "name": "joaodias.me",
-  "description": "joaodias-me website",
-  "version": "1.0.0",
-  "author": "Joao Dias <hello@joaodias.me>",
-  "dependencies": {
-    "@babel/preset-typescript": "^7.7.4",
-    "@types/node": "^12.12.17",
-    "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4",
-    "@types/react-helmet": "^5.0.14",
-    "axios": "^0.19.0",
-    "babel-plugin-styled-components": "^1.10.6",
-    "bluebird": "^3.7.2",
-    "foundation-sites": "^6.6.0",
-    "gatsby": "2.18.11",
-    "gatsby-cli": "^2.8.18",
-    "gatsby-image": "^2.2.36",
-    "gatsby-plugin-google-analytics": "2.1.31",
-    "gatsby-plugin-manifest": "2.2.33",
-    "gatsby-plugin-netlify": "^2.1.30",
-    "gatsby-plugin-offline": "^3.0.29",
-    "gatsby-plugin-react-helmet": "3.1.18",
-    "gatsby-plugin-sass": "2.1.26",
-    "gatsby-plugin-sharp": "^2.3.7",
-    "gatsby-plugin-sitemap": "2.2.24",
-    "gatsby-plugin-styled-components": "3.1.16",
-    "gatsby-plugin-typescript": "^2.1.23",
-    "gatsby-source-contentful": "^2.1.69",
-    "gatsby-source-filesystem": "^2.1.42",
-    "gatsby-transformer-remark": "2.6.42",
-    "gatsby-transformer-sharp": "^2.3.9",
-    "intersection-observer": "^0.7.0",
-    "node-sass": "^4.13.0",
-    "polished": "^3.4.2",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "react-spring": "^8.0.27",
-    "react-with-gesture": "^4.0.8",
-    "sanitize-html-react": "^1.13.0",
-    "styled-components": "^4.4.1"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "start": "gatsby develop",
-    "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "type-check": "tsc --noEmit",
-    "lint": "tslint --project ."
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.7.6",
-    "@types/styled-components": "^4.4.1",
-    "critters-webpack-plugin": "^2.4.0",
-    "eslint": "^6.7.2",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.17.0",
-    "prettier": "^1.19.1",
-    "sass-extract": "^2.1.0",
-    "sass-extract-js": "^0.4.0",
-    "sass-extract-loader": "^1.1.0",
-    "sass-styled-theme": "^0.1.0",
-    "tslint": "^5.20.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-config-standard": "^9.0.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-react": "^4.1.0",
-    "typescript": "^3.7.3",
-    "typescript-styled-plugin": "^0.15.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "browserslist": [
-    "> 0.7%"
-  ]
+	"name": "joaodias.me",
+	"description": "joaodias-me website",
+	"version": "1.0.0",
+	"author": "Joao Dias <hello@joaodias.me>",
+	"dependencies": {
+		"@loadable/component": "^5.11.0",
+		"@testing-library/react": "^9.4.0",
+		"axios": "^0.19.0",
+		"babel-jest": "^24.9.0",
+		"bluebird": "^3.7.2",
+		"foundation-sites": "^6.6.1",
+		"gatsby": "2.18.17",
+		"gatsby-cli": "^2.8.22",
+		"gatsby-image": "^2.2.37",
+		"gatsby-plugin-google-analytics": "2.1.31",
+		"gatsby-plugin-manifest": "2.2.34",
+		"gatsby-plugin-netlify": "^2.1.30",
+		"gatsby-plugin-offline": "^3.0.30",
+		"gatsby-plugin-react-helmet": "3.1.18",
+		"gatsby-plugin-sass": "2.1.26",
+		"gatsby-plugin-sharp": "^2.3.10",
+		"gatsby-plugin-sitemap": "2.2.24",
+		"gatsby-plugin-styled-components": "3.1.16",
+		"gatsby-plugin-typescript": "^2.1.23",
+		"gatsby-source-contentful": "^2.1.72",
+		"gatsby-source-filesystem": "^2.1.43",
+		"gatsby-transformer-remark": "2.6.45",
+		"gatsby-transformer-sharp": "^2.3.9",
+		"intersection-observer": "^0.7.0",
+		"node-sass": "^4.13.0",
+		"p-min-delay": "^3.1.0",
+		"polished": "^3.4.2",
+		"prop-types": "^15.7.2",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"react-helmet": "^5.2.1",
+		"react-spring": "^9.0.0-beta.34",
+		"react-with-gesture": "^4.0.8",
+		"sanitize-html-react": "^1.13.0",
+		"styled-components": "^4.4.1"
+	},
+	"keywords": [
+		"gatsby"
+	],
+	"license": "MIT",
+	"scripts": {
+		"clean": "rm -rf node_modules && rm -rf ./.cache",
+		"build": "gatsby build",
+		"start": "gatsby develop",
+		"develop": "gatsby develop",
+		"prettier:base": "prettier --parser typescript",
+		"format:fix": "npm run prettier:base -- --write 'src/**/*.{ts,tsx, js, jsx, json}'",
+		"format:lint": "eslint --fix src/**/*.tsx",
+		"test": "jest --watchAll --env=jsdom",
+		"type-check": "tsc --noEmit",
+		"prebuild": "npm run format:fix && npm run format:lint && npm run test"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.7.7",
+		"@babel/plugin-proposal-class-properties": "^7.7.4",
+		"@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+		"@babel/polyfill": "^7.7.0",
+		"@babel/preset-env": "^7.7.7",
+		"@babel/preset-typescript": "^7.7.7",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@types/jest": "^24.0.24",
+		"@types/node": "^13.1.0",
+		"@types/react": "^16.9.17",
+		"@types/react-dom": "^16.9.4",
+		"@types/react-helmet": "^5.0.14",
+		"@types/styled-components": "^4.4.1",
+		"@typescript-eslint/eslint-plugin": "^2.13.0",
+		"@typescript-eslint/parser": "^2.13.0",
+		"babel-plugin-styled-components": "^1.10.6",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+		"babel-preset-gatsby": "^0.2.26",
+		"eslint": "^6.8.0",
+		"eslint-config-airbnb": "^18.0.1",
+		"eslint-config-prettier": "^6.8.0",
+		"eslint-import-resolver-typescript": "^2.0.0",
+		"eslint-plugin-import": "^2.19.1",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-react": "^7.17.0",
+		"eslint-plugin-react-hooks": "^2.3.0",
+		"husky": "^3.1.0",
+		"identity-obj-proxy": "^3.0.0",
+		"jest": "^24.9.0",
+		"lint-staged": "^9.5.0",
+		"prettier": "^1.19.1",
+		"sass-extract": "^2.1.0",
+		"sass-extract-js": "^0.4.0",
+		"sass-extract-loader": "^1.1.0",
+		"sass-styled-theme": "^0.1.0",
+		"ts-jest": "^24.2.0",
+		"typescript": "^3.7.4",
+		"typescript-styled-plugin": "^0.15.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gatsbyjs/gatsby-starter-default"
+	},
+	"browserslist": [
+		"> 0.5%"
+	],
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"jest": {
+		"setupFilesAfterEnv": [
+			"@testing-library/jest-dom/extend-expect",
+			"./setup-jest.js"
+		],
+		"globals": {
+			"__PATH_PREFIX__": ""
+		},
+		"testURL": "http://localhost",
+		"transform": {
+			"^.+\\.(tsx?|jsx?)$": "ts-jest"
+		},
+		"transformIgnorePatterns": [
+			"node_modules/(?!(gatsby)/)",
+			"static"
+		],
+		"testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
+		"testPathIgnorePatterns": [
+			"node_modules",
+			".cache",
+			"static"
+		],
+		"moduleFileExtensions": [
+			"ts",
+			"tsx",
+			"js",
+			"jsx"
+		],
+		"moduleNameMapper": {
+			"typeface-*": "identity-obj-proxy",
+			".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
+			".+\\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/file.js"
+		},
+		"collectCoverage": false,
+		"coverageReporters": [
+			"lcov",
+			"text",
+			"html"
+		]
+	}
 }

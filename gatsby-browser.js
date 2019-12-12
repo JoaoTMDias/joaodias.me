@@ -1,4 +1,4 @@
-import { Logger } from './src/helpers/logger.helper';
+import { Logger } from "./src/helpers/logger.helper";
 
 /**
  * Implement Gatsby's Browser APIs in this file.
@@ -13,9 +13,9 @@ import { Logger } from './src/helpers/logger.helper';
  * @date 2019-01-15
  */
 export const onClientEntry = async () => {
-    if (typeof IntersectionObserver === `undefined`) {
-        await import(`intersection-observer`);
-    }
+	if (typeof IntersectionObserver === `undefined`) {
+		await import(`intersection-observer`);
+	}
 };
 
 /**
@@ -24,20 +24,19 @@ export const onClientEntry = async () => {
  * @param {*} msg
  */
 const confirmDialog = msg => {
-    return new Promise(function (resolve, reject) {
-        let confirmed = window.confirm(msg);
+	return new Promise(function(resolve, reject) {
+		let confirmed = window.confirm(msg);
 
-        return confirmed ? resolve(true) : reject(false);
-    });
+		return confirmed ? resolve(true) : reject(false);
+	});
 };
 
-
 export const onServiceWorkerUpdateFound = () => {
-    Logger({
-      type: `info`,
-      message: `A New Update has been found!`,
-      showOnProduction: true,
-    });
+	Logger({
+		type: `info`,
+		message: `A New Update has been found!`,
+		showOnProduction: true,
+	});
 };
 
 /**
@@ -46,13 +45,13 @@ export const onServiceWorkerUpdateFound = () => {
  * @date 2019-01-15
  */
 export const onServiceWorkerUpdateReady = () => {
-    confirmDialog(
-            `I've just made a few adjustments.` + `Reload to display the latest version?`,
-        )
-        .then(() => window.location.reload())
-        .catch(err => Logger({
-            type: `warning`,
-            message: `Service Worker will keep the current version.`,
-            showOnProduction: true,
-        }));
+	confirmDialog(`I've just made a few adjustments.` + `Reload to display the latest version?`)
+		.then(() => window.location.reload())
+		.catch(err =>
+			Logger({
+				type: `warning`,
+				message: `Service Worker will keep the current version.`,
+				showOnProduction: true,
+			}),
+		);
 };

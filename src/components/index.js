@@ -1,105 +1,66 @@
-/////////////////////
-// GENERAL
-/////////////////////
-import asyncComponent from './hoc/asyncComponent';
-import { siteMetadata as config } from '../../gatsby-config';
-const Branding = asyncComponent(() => {
-  return import('./general/branding/branding.component');
-});
-const Meta = asyncComponent(() => {
-  return import('./general/meta/meta.component');
-});
-import { Form, TextInput, TextareaInput } from './general/forms/index';
+// ///////////////////
+// IMPORTS
+// ///////////////////
+import loadable from "@loadable/component";
+import pMinDelay from "p-min-delay";
+import { BlobOne, BlobTwo, BlobThree, BlobFour } from "./blobs/index";
+import { CallToActionItem } from "./navigation/call-to-action/call-to-action-item.component";
+import { CallToActionWrapper } from "./navigation/call-to-action/call-to-action-wrapper.component";
+import { Form, TextInput, TextareaInput } from "./forms/index";
+import { siteMetadata as config } from "../../gatsby-config";
+import { VerticalTimeline, VerticalTimelineElement } from "./vertical-timeline/index";
+import SkipLink from "./navigation/skip-link/index";
 
-export { config, Branding, Form, TextInput, TextareaInput, asyncComponent, Meta };
+// ///////////////////
+// LAZY LOADED
+// ///////////////////
+const Meta = loadable(() => pMinDelay(import("./meta"), 200));
 
-/////////////////////
-// LAYOUT
-/////////////////////
-const Layout = asyncComponent(() => {
-  return import('./layout.component');
-});
-const Header = asyncComponent(() => {
-  return import(`./navigation/header/index`);
-});
-const BottomNavigation = asyncComponent(() => {
-  return import(`./navigation/bottom-navigation/bottom-navigation.component`);
-});
-const Footer = asyncComponent(() => {
-  return import(`./navigation/footer/index`);
-});
+const A11yPageTitle = loadable(() => pMinDelay(import("./page-title/a11ypagetitle"), 200));
 
-const SocialNavigation = asyncComponent(() => {
-  return import(`./navigation/social-navigation/social-navigation.component`);
-});
+const PageTitle = loadable(() => pMinDelay(import("./page-title/page-title"), 200));
 
-import SkipLink from './navigation/skip-link/skip-link.component';
+const ContentPage = loadable(() => pMinDelay(import("./content-page"), 200));
 
-import { CallToActionItem, CallToActionWrapper } from './navigation/call-to-action/index';
+const MainContent = loadable(() => pMinDelay(import("./main-content/main-content.component"), 200));
 
-const A11yPageTitle = asyncComponent(() => {
-  return import('./ui/page-title/a11ypagetitle.component');
-});
-const PageTitle = asyncComponent(() => {
-  return import('./ui/page-title/page-title.component');
-});
-const ContentPage = asyncComponent(() => {
-  return import('./content-page/content-page.component');
-});
-const MainContent = asyncComponent(() => {
-  return import('./general/main-content/main-content.component');
-});
+const HelloAnimation = loadable(() => pMinDelay(import("./hello"), 200));
 
-export * from './about/index';
+const HelloAnimationBlob = loadable(() => pMinDelay(import("./hello/hello-animation-blob"), 200));
 
+// ///////////////////
+// EXPORTS
+// ///////////////////
+export * from "./branding";
+export * from "./full-page-hero/full-page-hero";
+export * from "./last-played-song/last-played-song-card";
+export * from "./last-played-song/last-played-song";
+export * from "./layout";
+export * from "./logo-carousel/logo-carousel.component";
+export * from "./navigation/bottom-navigation/bottom-navigation.component";
+export * from "./navigation/footer/index";
+export * from "./navigation/header";
+export * from "./navigation/social-navigation/social-navigation.component";
+export * from "./skills-deck";
 export {
-  Layout,
-  Header,
-  BottomNavigation,
-  Footer,
-  SocialNavigation,
-  SkipLink,
-  CallToActionItem,
-  CallToActionWrapper,
-  A11yPageTitle,
-  PageTitle,
-  ContentPage,
-  MainContent,
+	A11yPageTitle,
+	BlobFour,
+	BlobOne,
+	BlobThree,
+	BlobTwo,
+	CallToActionItem,
+	CallToActionWrapper,
+	config,
+	ContentPage,
+	Form,
+	HelloAnimation,
+	HelloAnimationBlob,
+	MainContent,
+	Meta,
+	PageTitle,
+	SkipLink,
+	TextareaInput,
+	TextInput,
+	VerticalTimeline,
+	VerticalTimelineElement,
 };
-
-/////////////////////
-// HOME
-/////////////////////
-
-const HomePageHero = asyncComponent(() => {
-  return import(`./ui/full-page-hero/full-page-hero.component`);
-});
-
-export { HomePageHero };
-
-/////////////////////
-// ABOUT
-/////////////////////
-import { VerticalTimeline, VerticalTimelineElement } from './ui/vertical-timeline/index';
-export { VerticalTimeline, VerticalTimelineElement };
-
-/////////////////////
-// BLOBS
-/////////////////////
-const HelloAnimation = asyncComponent(() => {
-  return import(`./hello/hello-animation.component`);
-});
-const HelloAnimationBlob = asyncComponent(() => {
-  return import(`./hello/hello-animation-blob/hello-animation-blob.component`);
-});
-import { BlobOne, BlobTwo, BlobThree, BlobFour } from './ui/blobs/index';
-export { HelloAnimation, HelloAnimationBlob, BlobOne, BlobTwo, BlobThree, BlobFour };
-
-/////////////////////
-// PORTFOLIO PROJECT
-/////////////////////
-const PortfolioItem = asyncComponent(() => {
-  return import(`./project/item/portfolioitem.component`);
-});
-
-export { PortfolioItem };
