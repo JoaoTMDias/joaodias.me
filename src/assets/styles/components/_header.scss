@@ -1,60 +1,57 @@
 body {
-  &.fixed-nav {
-    #page-header {
-      margin-top: 0;
-      position: fixed;
-      width: 100%;
-      background-color: var(--color-gray0, $color-gray0);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      transition: all 150ms ease-out;
+	&.fixed-nav {
+		#page-header {
+			margin-top: 0;
+			position: sticky;
+			width: 100%;
+			background-color: var(--color-gray0, $color-gray0);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+			transition: all 112ms ease-out;
 
-      @include breakpoint(large) {
-        @include fadeInDown($duration: 200ms, $function: var(--default-timing-function));
-        animation-delay: 200ms;
-      }
+			@include breakpoint(large) {
+				@include fadeInDown($duration: 112ms, $function: var(--default-timing-function));
+				animation-delay: 112ms;
+			}
 
-      *:focus {
-        outline-color: var(--color-white, $color-white);
-      }
-    }
+			*:focus {
+				outline-color: var(--color-white, $color-white);
+			}
+		}
 
-    .large-nav__link {
-      color: var(--color-gray6, $color-gray6);
+		.large-nav__link {
+			&:before {
+				background-color: var(--color-white, $color-white);
+			}
+		}
 
-      &:before {
-        background-color: var(--color-white, $color-white);
-      }
-    }
+		.brand {
+			&__circle {
+				fill: var(--color-gray0, $color-gray0);
+			}
 
-    .brand {
-      &__circle {
-        fill: var(--color-gray0, $color-gray0);
-      }
+			&__hair,
+			&__glasses {
+				fill: var(--color-gray9, $color-gray9);
+			}
+		}
 
-      &__hair,
-      &__glasses {
-        fill: var(--color-gray9, $color-gray9);
-      }
-    }
+		#social-navigation {
+			.social__fill {
+				fill: var(--color-gray8, $color-gray8);
+			}
 
-    #social-navigation {
-      .social__fill {
-        fill: var(--color-gray8, $color-gray8);
-      }
+			.social-navigation__SocialLink-eQAYUO {
+				&:before {
+					background: var(--color-gray8, $color-gray8);
+				}
 
-      .social-navigation__SocialLink-eQAYUO {
-        &:before {
-          background: var(--color-gray8, $color-gray8);
-        }
-
-        .social__fill {
-
-          &:focus,
-          &:hover {
-            fill: var(--color-gray8, $color-gray8);
-          }
-        }
-      }
-    }
-  }
+				.social__fill {
+					&:focus,
+					&:hover {
+						fill: var(--color-gray8, $color-gray8);
+					}
+				}
+			}
+		}
+	}
 }

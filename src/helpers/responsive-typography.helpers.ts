@@ -1,17 +1,54 @@
-const responsiveTypography = (params: {
-  minFont: number;
-  maxFont: number;
-  minScreen: number;
-  maxScreen: number;
-  units: string;
-}) => {
-  const minScreen = params.minScreen ? params.minScreen : 240;
-  const maxScreen = params.smaxScreen ? params.maxScreen : 1440;
-  const units = params.units ? `${params.units}` : `px`;
-  const result: string = `calc(${params.minFont}${units} + ${params.maxFont -
-    params.minFont} * (100vw - ${minScreen}${units}) / ${maxScreen - minScreen})`;
+import { css, FlattenSimpleInterpolation } from "styled-components";
+import { rem } from "polished";
+import { RESPONSIVE_HEADING, EHeadingSize } from "../data/constants/headings";
 
-  return result;
-};
+interface IFluidTypeProps {
+	minFont: number;
+	maxFont: number;
+	minScreen?: number;
+	maxScreen?: number;
+	units?: string;
+}
 
-export { responsiveTypography };
+/**
+ * Returns a fluid typographic font-size, that scales between a
+ * minimum and a maximum screen, as well as a minimum and a maximum font.
+ *
+ * @export
+ * @param {IFluidTypeProps} params
+ * @returns
+ */
+export function fluidType(params: IFluidTypeProps) {
+	const minScreen = params.minScreen || 240;
+	const maxScreen = params.maxScreen || 1440;
+	const units = params.units || "px";
+	const result = `calc(${params.minFont}${units} + ${params.maxFont -
+		params.minFont} * (100vw - ${minScreen}${units}) / ${maxScreen - minScreen})`;
+
+	return result;
+}
+
+/**
+ * Returns a pre-defined heading font-size declaration.
+ *
+ * It ranges from small to large.
+ *
+ * @example <caption>Calling the small h4.</caption>
+ * responsiveHeading(EHeadingSize.SMALL, 4);
+ *
+ * @export
+ * @param {EHeadingSize} size
+ *  @param {number} position
+ * @returns {FlattenSimpleInterpolation}
+ */
+export function responsiveHeading(size: EHeadingSize, position: number): FlattenSimpleInterpolation {
+	const entry = RESPONSIVE_HEADING[size];
+	const value = entry[position > 0 ? position - 1 : position];
+	const fontSizeValue = rem(`${value}px`);
+
+	return css`
+		font-size: ${fontSizeValue};
+	`;
+}
+
+export default fluidType;

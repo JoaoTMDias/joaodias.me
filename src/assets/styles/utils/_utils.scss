@@ -236,7 +236,9 @@ $css-vars-debug-log: false !default;
   @if (length($args) ==0) {
     @error "Variable name is expected to be passed to the var() function";
   }
-  @if (str-length(nth($args, 1)) < 2 or str-slice(nth($args, 1), 0, 2) != '--') {
+  @if (
+    str-length(nth($args, 1)) < 2 or str-slice(nth($args, 1), 0, 2) != '--'
+  ) {
     @error "Variable name is expected to start from '--'";
   }
   // PROCESS
@@ -292,7 +294,10 @@ $css-vars-debug-log: false !default;
     // Sass or debug
     // merge variables and values to the global map (provides no output)
     @each $varName, $varValue in $varMap {
-      $css-vars: _cssVarAssign($varName, $varValue) !global; // store in global variable
+      $css-vars: _cssVarAssign(
+        $varName,
+        $varValue
+      ) !global; // store in global variable
     }
   }
   @if ($css-vars-use-native) {
@@ -309,3 +314,5 @@ $css-vars-debug-log: false !default;
     }
   }
 }
+
+@import './breakpoints';

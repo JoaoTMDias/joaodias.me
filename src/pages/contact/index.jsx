@@ -1,56 +1,59 @@
 /**
  * Import Libraries
  */
-import React from 'react';
-import Helmet from 'react-helmet';
+import React from "react";
+import Helmet from "react-helmet";
 
 /**
  * Import Components
  */
 import {
-  Layout,
-  A11yPageTitle,
-  CallToActionItem,
-  CallToActionWrapper,
-  Footer,
-  ContentPage,
-  Meta,
-  MainContent,
-  BlobOne,
-  Form,
-  PageTitle,
-} from '../../components/index';
+	Layout,
+	A11yPageTitle,
+	CallToActionItem,
+	CallToActionWrapper,
+	Footer,
+	ContentPage,
+	Meta,
+	MainContent,
+	BlobOne,
+	Form,
+	PageTitle,
+} from "../../components/index";
 
 const ContactPage = ({ location }) => (
-  <Layout>
-    <ContentPage>
-      <A11yPageTitle title="Contacts" />
-      <Meta title="Contacts" location={location} />
-      <PageTitle title="Contacts" subtitle="Let's work together." containerBackgroundColor="var(--color-white)" />
-      <MainContent className="l__container">
-        <Form />
-      </MainContent>
-      <CallToActionWrapper>
-        <CallToActionItem
-          id="cta-resume-pdf"
-          subtitle="Want it all on paper?"
-          title="Check out my resumé"
-          linkText="Download in PDF"
-          linkURL="/resume/resume-joaodias-en.pdf"
-          isFile
-        />
-        <CallToActionItem
-          id="cta-about-page"
-          subtitle="João Dias"
-          title="UI Designer and Frontend developer, based in Coimbra."
-          linkText="Visit the About page"
-          linkURL="/about/"
-        />
-      </CallToActionWrapper>
-      <BlobOne />
-      <Footer />
-    </ContentPage>
-  </Layout>
+	<Layout>
+		<ContentPage>
+			<A11yPageTitle title="Contacts" />
+			<Meta title="Contacts" location={location} />
+			<PageTitle
+				title="Contacts"
+				subtitle="Let's work together."
+				containerBackgroundColor="var(--color-white, #ffffff)"
+			/>
+			<MainContent className="layout__container">
+				<Form />
+			</MainContent>
+			<CallToActionWrapper>
+				<CallToActionItem
+					id="cta-resume-pdf"
+					subtitle="Want it all on paper?"
+					title="Check out my resumé"
+					linkText="Download in PDF"
+					linkURL="/resume/resume-joaodias-en.pdf"
+					isFile
+				/>
+				<CallToActionItem
+					id="cta-about-page"
+					subtitle="João Dias"
+					title="UI Designer and Frontend developer, based in Coimbra."
+					linkText="Visit the About page"
+					linkURL="/about/"
+				/>
+			</CallToActionWrapper>
+			<BlobOne />
+		</ContentPage>
+	</Layout>
 );
 
 export default ContactPage;

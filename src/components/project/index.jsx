@@ -1,6 +1,4 @@
-export { default as ProjectItem } from './item';
-export { default as ProjectView } from './view';
-export { default as ProjectHero } from './hero';
-export { default as ProjectMeta } from './meta';
-export { default as ProjectDescription } from './description';
-export { default as ProjectIntroduction } from './introduction';
+export { default as ProjectHero } from "./hero/index";
+export { default as ProjectMeta } from "./meta/index";
+export { default as ProjectItem } from "./item/index";
+export { default as ProjectIntroduction } from "./introduction/index";

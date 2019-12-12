@@ -1,41 +1,40 @@
 /**
  * Import Libraries
  */
-import React from 'react';
-import styled from 'styled-components';
-import { rem } from 'polished';
+import React from "react";
+import styled from "styled-components";
+import { rem } from "polished";
 
 /**
  * Import Components
  */
-import FooterWave from './wave/index';
-import FooterContent from './content/index';
+import FooterContent from "./footer-content";
+import { above } from "../../../helpers/media-queries.helper";
 
-const Footer = () => (
-  <Wrapper className="l__container l__section">
-    <FooterContent />
-  </Wrapper>
+export const Footer = () => (
+	<Wrapper className="layout__container layout__section">
+		<FooterContent />
+	</Wrapper>
 );
 
 /**
  * Styling
  */
 const Wrapper = styled.footer`
-  width: 100%;
-  margin: 0 auto;
-  bottom: 0;
-  align-items: center;
-  position: relative;
-  background-color: transparent;
-  margin-top: ${rem('32px')};
-  padding-top: ${rem('96px')};
+	align-items: center;
+	background-color: var(--body-background);
+	bottom: 0;
+	flex-direction: column;
+	margin-top: ${rem("32px")};
+	margin: 0 auto;
+	padding-bottom: 0;
+	padding-top: ${rem("96px")};
+	position: relative;
+	width: 100%;
 
-  padding-bottom: 0;
-  flex-direction: column;
-
-  @media ${props => props.theme.breakpointMedium} {
-    flex-direction: row;
-  }
+	${above.medium`
+      flex-direction: row;
+  `};
 `;
 
 export default Footer;

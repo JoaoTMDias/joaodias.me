@@ -24,7 +24,7 @@ const Title = styled.h2`
   line-height: 1;
   text-align: center;
   margin: 0;
-  color: var(--color-white);
+  color: var(--color-white, #ffffff);
 `;
 
 HeaderPageTitle.defaultProps = {
