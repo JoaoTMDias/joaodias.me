@@ -116,9 +116,6 @@ module.exports = {
 		"gatsby-transformer-sharp",
 		"gatsby-plugin-sharp",
 
-		// Web Fonts
-		"gatsby-plugin-subfont",
-
 		// Styling
 		{
 			resolve: "gatsby-plugin-styled-components",
@@ -133,6 +130,10 @@ module.exports = {
 			resolve: "gatsby-plugin-manifest",
 			options: manifestOptions,
 		},
+
+		// Web Fonts
+		"gatsby-plugin-subfont",
+
 		{
 			resolve: "gatsby-plugin-offline",
 			options: offlineOptions,
