@@ -1,6 +1,5 @@
 // Libraries
 import React from "react";
-import { useSpring, animated, config } from "react-spring";
 import { graphql } from "gatsby";
 import { Wrapper, List } from "./styles";
 
@@ -12,33 +11,11 @@ import {
 	A11yPageTitle,
 	ContentPage,
 	Meta,
-	Footer,
 	HomePageHero,
 } from "../components/index";
 import { ProjectItem } from "../components/project";
 
-const from = {
-	opacity: 0,
-	transform: "translate3d(0, 4rem, 0)",
-};
-
-const to = {
-	opacity: 1,
-	transform: "translate3d(0,0,0)",
-};
-
 const IndexPage = ({ location, data }) => {
-	const animationProps = useSpring({
-		from,
-		to,
-		config: {
-			...config.gentle,
-			delay: 500,
-		},
-	});
-
-	const AnimatedList = animated(List);
-
 	/**
 	 *
 	 *
@@ -49,7 +26,7 @@ const IndexPage = ({ location, data }) => {
 
 		if (queryPath) {
 			return (
-				<AnimatedList className="layout__row" style={animationProps}>
+				<List className="layout__row">
 					{queryPath.map(item => {
 						return (
 							<ProjectItem
@@ -67,14 +44,14 @@ const IndexPage = ({ location, data }) => {
 							/>
 						);
 					})}
-				</AnimatedList>
+				</List>
 			);
 		}
 		return <p>Loading...</p>;
 	}
 
 	if (typeof document !== "undefined") {
-		const focusElement = document.querySelector('[href="#main-content"]');
+		const focusElement = document.querySelector("[href='#main-content']");
 
 		if (focusElement) {
 			focusElement.focus();
