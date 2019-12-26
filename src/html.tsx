@@ -33,13 +33,12 @@ const HTML: React.FunctionComponent<IHTMLProps> = props => {
 				<meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
 				{/* Meta */}
+				<link rel="preconnect dns-prefetch" href="https://stats.g.doubleclick.net" />
+				<link rel="preconnect dns-prefetch" href="https://images.ctfassets.net" />
 				{helmet.title.toComponent()}
 				{helmet.meta.toComponent()}
 
 				{headComponents}
-
-				<link rel="preconnect" href="https://stats.g.doubleclick.net" />
-				<link rel="preconnect" href="https://images.ctfassets.net" />
 
 				<meta property="og:site_name" content={config.title} />
 				<meta property="og:type" content="website" />
