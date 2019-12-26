@@ -34,7 +34,6 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 						position: "absolute",
 					}}
 					backgroundColor={color}
-					critical={false}
 					loading="lazy"
 					imgStyle={{
 						position: "relative",
