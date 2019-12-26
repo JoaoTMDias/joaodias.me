@@ -1,6 +1,6 @@
-/////////////////////
+// ///////////////////
 // CONFIGURATIONS
-/////////////////////
+// ///////////////////
 const manifestOptions = {
 	name: "João Dias",
 	short_name: "Joao Dias",
@@ -116,9 +116,12 @@ module.exports = {
 		"gatsby-transformer-sharp",
 		"gatsby-plugin-sharp",
 
+		// Web Fonts
+		"gatsby-plugin-subfont",
+
 		// Styling
 		{
-			resolve: `gatsby-plugin-styled-components`,
+			resolve: "gatsby-plugin-styled-components",
 			options: {
 				displayName: true,
 			},

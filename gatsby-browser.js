@@ -13,8 +13,8 @@ import { Logger } from "./src/helpers/logger.helper";
  * @date 2019-01-15
  */
 export const onClientEntry = async () => {
-	if (typeof IntersectionObserver === `undefined`) {
-		await import(`intersection-observer`);
+	if (typeof IntersectionObserver === "undefined") {
+		await import("intersection-observer");
 	}
 };
 
@@ -25,7 +25,7 @@ export const onClientEntry = async () => {
  */
 const confirmDialog = msg => {
 	return new Promise(function(resolve, reject) {
-		let confirmed = window.confirm(msg);
+		const confirmed = window.confirm(msg);
 
 		return confirmed ? resolve(true) : reject(false);
 	});
@@ -33,8 +33,8 @@ const confirmDialog = msg => {
 
 export const onServiceWorkerUpdateFound = () => {
 	Logger({
-		type: `info`,
-		message: `A New Update has been found!`,
+		type: "info",
+		message: "A New Update has been found!",
 		showOnProduction: true,
 	});
 };
@@ -45,12 +45,12 @@ export const onServiceWorkerUpdateFound = () => {
  * @date 2019-01-15
  */
 export const onServiceWorkerUpdateReady = () => {
-	confirmDialog(`I've just made a few adjustments.` + `Reload to display the latest version?`)
+	confirmDialog("I've just made a few adjustments." + "Reload to display the latest version?")
 		.then(() => window.location.reload())
 		.catch(err =>
 			Logger({
-				type: `warning`,
-				message: `Service Worker will keep the current version.`,
+				type: "warning",
+				message: `Service Worker will keep the current version. ${err}`,
 				showOnProduction: true,
 			}),
 		);
