@@ -33,13 +33,14 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 					style={{
 						position: "absolute",
 					}}
-					backgroundColor={`${color}`}
+					backgroundColor={color}
+					critical={false}
+					loading="lazy"
 					imgStyle={{
 						position: "relative",
 						objectFit: "cover",
 						objectPosition: "center center",
 					}}
-					aspectRatio={cover.aspectRatio}
 					fadeIn
 				/>
 				<Inner className="inner" style={{ backgroundColor: `${color}` }}>
