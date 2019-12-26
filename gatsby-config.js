@@ -50,7 +50,7 @@ const analyticsOptions = {
 };
 
 const offlineOptions = {
-	cacheId: "joaodias-cache",
+	cacheId: "joaotmdias-cache",
 };
 
 const sitemapOptions = {
@@ -130,10 +130,6 @@ module.exports = {
 			resolve: "gatsby-plugin-manifest",
 			options: manifestOptions,
 		},
-
-		// Web Fonts
-		"gatsby-plugin-subfont",
-
 		{
 			resolve: "gatsby-plugin-offline",
 			options: offlineOptions,
