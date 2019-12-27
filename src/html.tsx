@@ -47,10 +47,6 @@ const HTML: React.FunctionComponent<IHTMLProps> = props => {
 				<meta name="twitter:site" content="@joaotmdias" />
 				<meta name="twitter:creator" content="@joaotmdias" />
 				<meta property="twitter:image" content={openGraphUrl} />
-				<link rel="preload" href="/fonts/jd-sans-bold.woff2" type="font/woff2" as="font" crossOrigin="anonymous" />
-				<link rel="preload" href="/fonts/jd-sans-regular.woff2" type="font/woff2" as="font" crossOrigin="anonymous" />
-				<link rel="preload" href="/fonts/jd-serif-bold.woff2" type="font/woff2" as="font" crossOrigin="anonymous" />
-				<link rel="preload" href="/fonts/jd-serif-regular.woff2" type="font/woff2" as="font" crossOrigin="anonymous" />
 			</head>
 			<body>
 				<noscript id="no-javascript" className="no-javascript">
