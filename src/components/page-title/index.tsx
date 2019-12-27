@@ -16,7 +16,13 @@ const to = {
 	transform: "translate3d(0,0,0)",
 };
 
-const PageTitle: React.FunctionComponent<IPageTitleProps> = ({ title, subtitle, children, center, isProject }) => {
+export const PageTitle: React.FunctionComponent<IPageTitleProps> = ({
+	title,
+	subtitle,
+	children,
+	center,
+	isProject,
+}) => {
 	useEffect(() => {
 		const parallax: HTMLElement | null = document.querySelector(".parallax");
 		const speed = -0.5;

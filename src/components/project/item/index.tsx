@@ -41,6 +41,7 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 						objectPosition: "center center",
 					}}
 					fadeIn
+					durationFadeIn={128}
 				/>
 				<Inner className="inner" style={{ backgroundColor: `${color}` }}>
 					<header className="inner__header">

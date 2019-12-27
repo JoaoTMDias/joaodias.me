@@ -18,19 +18,12 @@ const A11yPageTitle = loadable(
 	/* webpackChunkName: "a11ypagetitle" */ () => pMinDelay(import("./page-title/a11ypagetitle"), 16),
 );
 
-const PageTitle = loadable(/* webpackChunkName: "pagetitle" */ () => pMinDelay(import("./page-title/page-title"), 16));
-
-const HelloAnimation = loadable(/* webpackChunkName: "helloanimation" */ () => pMinDelay(import("./hello"), 16));
-
-const HelloAnimationBlob = loadable(
-	/* webpackChunkName: "helloanimationblob" */ () => pMinDelay(import("./hello/hello-animation-blob"), 16),
-);
-
 const Footer = loadable(/* webpackChunkName: "footer" */ () => pMinDelay(import("./navigation/footer/index"), 16));
 
 // ///////////////////
 // EXPORTS
 // ///////////////////
+export * from "./page-title/index";
 export * from "./branding";
 export * from "./full-page-hero/full-page-hero";
 export * from "./last-played-song/last-played-song";
@@ -52,9 +45,6 @@ export {
 	config,
 	Form,
 	Footer,
-	HelloAnimation,
-	HelloAnimationBlob,
-	PageTitle,
 	SkipLink,
 	TextareaInput,
 	TextInput,

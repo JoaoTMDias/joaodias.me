@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <header
-        class="sc-eqIVtm cQqwyE header"
+        class="sc-kjoXOD bLTHkZ header"
         id="page-header"
       >
         <div
@@ -15,12 +15,12 @@ Object {
           <a
             aria-current="page"
             aria-label="Press Enter/Click to go to the homepage."
-            class="sc-cSHVUG ezoGnA"
+            class="sc-kGXeez eUKehD"
             href="/"
             id="branding"
           >
             <svg
-              class="sc-kAzzGY gQbpWy"
+              class="sc-kpOJdX grkhiz"
               height="48"
               id="logo"
               viewBox="0 0 48 48"
@@ -85,15 +85,15 @@ Object {
             Project Details
           </h2>
           <nav
-            class="sc-fBuWsC enoLqX"
+            class="sc-fAjcbJ edDHmO"
             id="top-navigation"
             title="Top Navigation"
           >
             <ul
-              class="sc-fMiknA cHkchB"
+              class="sc-caSCKo jNojOT"
             >
               <li
-                class="sc-dVhcbM hWIHTP"
+                class="sc-gisBJw kFmshB"
               >
                 <a
                   aria-label="Go to the about page"
@@ -104,7 +104,7 @@ Object {
                 </a>
               </li>
               <li
-                class="sc-dVhcbM hWIHTP"
+                class="sc-gisBJw kFmshB"
               >
                 <a
                   aria-label="Go to the contacts page"
@@ -117,19 +117,19 @@ Object {
             </ul>
           </nav>
           <nav
-            class="sc-jlyJG iLFoRH"
+            class="sc-bRBYWo ldbHco"
             id="social-navigation"
             title="Social network links"
           >
             <ul
-              class="sc-gipzik dClvSF"
+              class="sc-hzDkRC hMPHAj"
             >
               <li
-                class="sc-csuQGl exHRHf"
+                class="sc-jhAzac fsPQmB"
               >
                 <a
                   aria-label="Follow me on Facebook"
-                  class="sc-Rmtcm ghqkuW"
+                  class="sc-fBuWsC holJni"
                   href="https://fb.com/JoaoTMDias"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -153,11 +153,11 @@ Object {
                 </a>
               </li>
               <li
-                class="sc-csuQGl exHRHf"
+                class="sc-jhAzac fsPQmB"
               >
                 <a
                   aria-label="Follow me on Instagram"
-                  class="sc-Rmtcm ghqkuW"
+                  class="sc-fBuWsC holJni"
                   href="https://instagram.com/JoaoTMDias"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -188,11 +188,11 @@ Object {
                 </a>
               </li>
               <li
-                class="sc-csuQGl exHRHf"
+                class="sc-jhAzac fsPQmB"
               >
                 <a
                   aria-label="Check out my repos on Github"
-                  class="sc-Rmtcm ghqkuW"
+                  class="sc-fBuWsC holJni"
                   href="https://github.com/Joaotmdias"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -212,11 +212,11 @@ Object {
                 </a>
               </li>
               <li
-                class="sc-csuQGl exHRHf"
+                class="sc-jhAzac fsPQmB"
               >
                 <a
                   aria-label="Check out some dribble shots"
-                  class="sc-Rmtcm ghqkuW"
+                  class="sc-fBuWsC holJni"
                   href="https://dribbble.com/Joaotmdias"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -248,7 +248,7 @@ Object {
   </body>,
   "container": <div>
     <header
-      class="sc-eqIVtm cQqwyE header"
+      class="sc-kjoXOD bLTHkZ header"
       id="page-header"
     >
       <div
@@ -257,12 +257,12 @@ Object {
         <a
           aria-current="page"
           aria-label="Press Enter/Click to go to the homepage."
-          class="sc-cSHVUG ezoGnA"
+          class="sc-kGXeez eUKehD"
           href="/"
           id="branding"
         >
           <svg
-            class="sc-kAzzGY gQbpWy"
+            class="sc-kpOJdX grkhiz"
             height="48"
             id="logo"
             viewBox="0 0 48 48"
@@ -327,15 +327,15 @@ Object {
           Project Details
         </h2>
         <nav
-          class="sc-fBuWsC enoLqX"
+          class="sc-fAjcbJ edDHmO"
           id="top-navigation"
           title="Top Navigation"
         >
           <ul
-            class="sc-fMiknA cHkchB"
+            class="sc-caSCKo jNojOT"
           >
             <li
-              class="sc-dVhcbM hWIHTP"
+              class="sc-gisBJw kFmshB"
             >
               <a
                 aria-label="Go to the about page"
@@ -346,7 +346,7 @@ Object {
               </a>
             </li>
             <li
-              class="sc-dVhcbM hWIHTP"
+              class="sc-gisBJw kFmshB"
             >
               <a
                 aria-label="Go to the contacts page"
@@ -359,19 +359,19 @@ Object {
           </ul>
         </nav>
         <nav
-          class="sc-jlyJG iLFoRH"
+          class="sc-bRBYWo ldbHco"
           id="social-navigation"
           title="Social network links"
         >
           <ul
-            class="sc-gipzik dClvSF"
+            class="sc-hzDkRC hMPHAj"
           >
             <li
-              class="sc-csuQGl exHRHf"
+              class="sc-jhAzac fsPQmB"
             >
               <a
                 aria-label="Follow me on Facebook"
-                class="sc-Rmtcm ghqkuW"
+                class="sc-fBuWsC holJni"
                 href="https://fb.com/JoaoTMDias"
                 rel="noopener noreferrer"
                 tabindex="0"
@@ -395,11 +395,11 @@ Object {
               </a>
             </li>
             <li
-              class="sc-csuQGl exHRHf"
+              class="sc-jhAzac fsPQmB"
             >
               <a
                 aria-label="Follow me on Instagram"
-                class="sc-Rmtcm ghqkuW"
+                class="sc-fBuWsC holJni"
                 href="https://instagram.com/JoaoTMDias"
                 rel="noopener noreferrer"
                 tabindex="0"
@@ -430,11 +430,11 @@ Object {
               </a>
             </li>
             <li
-              class="sc-csuQGl exHRHf"
+              class="sc-jhAzac fsPQmB"
             >
               <a
                 aria-label="Check out my repos on Github"
-                class="sc-Rmtcm ghqkuW"
+                class="sc-fBuWsC holJni"
                 href="https://github.com/Joaotmdias"
                 rel="noopener noreferrer"
                 tabindex="0"
@@ -454,11 +454,11 @@ Object {
               </a>
             </li>
             <li
-              class="sc-csuQGl exHRHf"
+              class="sc-jhAzac fsPQmB"
             >
               <a
                 aria-label="Check out some dribble shots"
-                class="sc-Rmtcm ghqkuW"
+                class="sc-fBuWsC holJni"
                 href="https://dribbble.com/Joaotmdias"
                 rel="noopener noreferrer"
                 tabindex="0"
