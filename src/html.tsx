@@ -47,8 +47,21 @@ const HTML: React.FunctionComponent<IHTMLProps> = props => {
 				<meta name="twitter:site" content="@joaotmdias" />
 				<meta name="twitter:creator" content="@joaotmdias" />
 				<meta property="twitter:image" content={openGraphUrl} />
+				<link rel="preload" href="/fonts/jd-sans-bold.woff2" type="font/woff2" as="font" crossOrigin="anonymous" />
+				<link rel="preload" href="/fonts/jd-sans-regular.woff2" type="font/woff2" as="font" crossOrigin="anonymous" />
+				<link rel="preload" href="/fonts/jd-serif-bold.woff2" type="font/woff2" as="font" crossOrigin="anonymous" />
+				<link rel="preload" href="/fonts/jd-serif-regular.woff2" type="font/woff2" as="font" crossOrigin="anonymous" />
 			</head>
 			<body>
+				<noscript id="no-javascript" className="no-javascript">
+					<h1 className="no-javascript__title">
+						I need you to activate Javascript in order to see my website
+						<span role="img" aria-label="A nerdy-looking emoji">
+							🤓
+						</span>
+						.
+					</h1>
+				</noscript>
 				<div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
 				{postBodyComponents}
 			</body>

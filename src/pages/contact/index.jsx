@@ -2,7 +2,6 @@
  * Import Libraries
  */
 import React from "react";
-import Helmet from "react-helmet";
 
 /**
  * Import Components
@@ -12,14 +11,13 @@ import {
 	A11yPageTitle,
 	CallToActionItem,
 	CallToActionWrapper,
-	Footer,
 	ContentPage,
-	Meta,
 	MainContent,
 	BlobOne,
 	Form,
 	PageTitle,
 } from "../../components/index";
+import { Meta } from "../../components/meta";
 
 const ContactPage = ({ location }) => (
 	<Layout>

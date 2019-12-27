@@ -10,10 +10,10 @@ import {
 	Layout,
 	A11yPageTitle,
 	ContentPage,
-	Meta,
 	HomePageHero,
 } from "../components/index";
 import { ProjectItem } from "../components/project";
+import { Meta } from "../components/meta";
 
 const IndexPage = ({ location, data }) => {
 	/**

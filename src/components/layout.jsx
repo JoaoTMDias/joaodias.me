@@ -31,14 +31,14 @@ import appleiPad from "../../static/splash-screens/apple-ipad_splash.png";
 import appleIpadPro1 from "../../static/splash-screens/apple-ipad-pro1_splash.png";
 import appleIpadPro3 from "../../static/splash-screens/apple-ipad-pro3_splash.png";
 import appleIpadPro2 from "../../static/splash-screens/apple-ipad-pro2_splash.png";
-import Footer from "./navigation/footer";
+import { Footer } from "./navigation/footer";
 
 // Theme
 const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!../assets/styles/global/' +
 	"_settings.scss");
 
 // Layout Component
-export const Layout = ({ children, data }) => {
+export const Layout = ({ children }) => {
 	if (typeof window !== "undefined" && typeof document !== "undefined") {
 		const isInWebAppiOS = window.navigator.standalone == true;
 		const isInWebAppChrome = window.matchMedia("(display-mode: standalone)").matches;

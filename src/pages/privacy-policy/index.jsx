@@ -3,7 +3,7 @@
  */
 import React from "react";
 import { graphql } from "gatsby";
-import { Wrapper, Details, ArticleWrapper, Intro } from "./index.styles";
+import { Details, ArticleWrapper, Intro } from "./styles";
 
 /**
  * Import Components
@@ -13,11 +13,10 @@ import {
 	A11yPageTitle,
 	CallToActionItem,
 	CallToActionWrapper,
-	Footer,
 	ContentPage,
-	Meta,
 	PageTitle,
 } from "../../components/index";
+import { Meta } from "../../components/meta";
 
 const PrivacyPolicyPage = ({ location, data }) => {
 	const privacyPolicyArray = data.allContentfulPrivacyPolicy.edges;
@@ -33,23 +32,17 @@ const PrivacyPolicyPage = ({ location, data }) => {
 				<section id="about-video" className="layout__container layout__section">
 					<ArticleWrapper className="layout__row">
 						<Intro>
-							This privacy policy has been compiled to better serve those of you who are concerned
-							with how their 'Personally Identifiable Information' (PII) is being used on my
-							website. PII, as described in EU privacy law and information security, is information
-							that can be used on its own or with other information to identify, contact, or locate
-							a single person, or to identify an individual in context. Please read my privacy
-							policy carefully to get a clear understanding of how I collect, use, protect or
-							otherwise handle your Personally Identifiable Information in accordance with my
-							website.
+							This privacy policy has been compiled to better serve those of you who are concerned with how their
+							Personally Identifiable Information (PII) is being used on my website. PII, as described in EU privacy law
+							and information security, is information that can be used on its own or with other information to
+							identify, contact, or locate a single person, or to identify an individual in context. Please read my
+							privacy policy carefully to get a clear understanding of how I collect, use, protect or otherwise handle
+							your Personally Identifiable Information in accordance with my website.
 						</Intro>
 
 						<hr />
 						{privacyPolicyArray.map(item => (
-							<Details
-								key={item.node.id}
-								id={`${item.node.id}`}
-								arial-labelledby={`details-summary-${item.node.id}`}
-							>
+							<Details key={item.node.id} id={`${item.node.id}`} arial-labelledby={`details-summary-${item.node.id}`}>
 								<summary id={`details-summary-${item.node.id}`} className="title">
 									{`${item.node.summary}`}
 								</summary>

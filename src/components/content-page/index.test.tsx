@@ -1,16 +1,15 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-
-import { IApp } from "./index";
+import { ContentPage } from "./index";
 
 afterEach(cleanup);
 
-describe("<IApp />", () => {
+describe("<ContentPage />", () => {
 	it("should render without errors", () => {
 		const component = render(
-			<IApp>
+			<ContentPage>
 				<p>teste</p>
-			</IApp>,
+			</ContentPage>,
 		);
 
 		expect(component).toMatchSnapshot();
@@ -18,9 +17,9 @@ describe("<IApp />", () => {
 
 	it("should render a child component ", async () => {
 		const { findByTestId } = render(
-			<IApp>
+			<ContentPage>
 				<p data-testid="test">test</p>
-			</IApp>,
+			</ContentPage>,
 		);
 		const child = await findByTestId("test");
 

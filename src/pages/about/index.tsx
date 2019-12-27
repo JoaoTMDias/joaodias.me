@@ -13,16 +13,16 @@ import {
 	A11yPageTitle,
 	LogoCarousel,
 	LastPlayedSong,
-	ContentPage,
 	MainContent,
-	Meta,
 	BlobOne,
 	PageTitle,
 	SkillsDeck,
+	ContentPage,
 } from "../../components/index";
 
 import { WhoAmI } from "../../components/who-am-i";
 import { Timeline } from "../../components/vertical-timeline/timeline";
+import { Meta } from "../../components/meta";
 
 interface IAboutPageProps {
 	location: any;
