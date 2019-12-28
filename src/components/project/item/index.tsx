@@ -16,7 +16,6 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 	type,
 	title,
 	description,
-	loading,
 }) => {
 	if (fluid) {
 		return (

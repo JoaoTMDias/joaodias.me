@@ -26,7 +26,7 @@ export class LazyLoadingImage extends React.PureComponent<IImageLazyProps> {
 		useNativeLazyLoading: false,
 		width: 375,
 		height: 375,
-		debounce: 0,
+		debounce: 64,
 		speed: 128,
 		objectFit: "cover",
 		objectPositionY: "center",
