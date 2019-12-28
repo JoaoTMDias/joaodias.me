@@ -1,7 +1,7 @@
 import { FluidObject } from "gatsby-image";
 
 export interface IPortfolioItemProps {
-	cover?: FluidObject | FluidObject[];
+	fluid?: FluidObject | FluidObject[];
 	id: string;
 	to: string;
 	alt: string;
@@ -10,4 +10,5 @@ export interface IPortfolioItemProps {
 	type: string;
 	title: string;
 	description: string;
+	loading: "auto" | "lazy" | "eager";
 }

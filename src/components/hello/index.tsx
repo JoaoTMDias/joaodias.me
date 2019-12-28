@@ -89,7 +89,7 @@ const Mask = styled.figure`
 	${above.large`
 		transform: scaleX(1) scaleY(1) scaleZ(1);
 		transform-style: preserve-3d;
-		transition: transform 750ms var(--default-timing-function);
+		transition: transform 500ms var(--default-timing-function);
 	`};
 `;
 

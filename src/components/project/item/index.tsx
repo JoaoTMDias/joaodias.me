@@ -2,11 +2,12 @@
  * Import libraries
  */
 import React, { FunctionComponent } from "react";
-import { Item, LazyLoadImage, Inner } from "./styles";
+import { Item, Inner } from "./styles";
 import { IPortfolioItemProps } from "./types";
+import { LazyLoadingImage } from "../../lazy-loading-images";
 
 export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
-	cover,
+	fluid,
 	id,
 	to,
 	alt,
@@ -15,34 +16,19 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 	type,
 	title,
 	description,
+	loading,
 }) => {
-	if (cover) {
+	if (fluid) {
 		return (
 			<Item
-				id={`${id}`}
+				id={id}
 				to={`/work/${to}`}
 				title={alt}
 				className={`item--${theme}`}
 				data-theme={theme}
 				aria-label={`Open project: ${title}`}
 			>
-				<LazyLoadImage
-					fluid={cover}
-					title={alt}
-					alt={alt}
-					style={{
-						position: "absolute",
-					}}
-					backgroundColor={color}
-					loading="lazy"
-					imgStyle={{
-						position: "relative",
-						objectFit: "cover",
-						objectPosition: "center center",
-					}}
-					fadeIn
-					durationFadeIn={128}
-				/>
+				<LazyLoadingImage id={id} title={alt} fluid={fluid} alt={alt} backgroundColor={color} objectFit="cover" />
 				<Inner className="inner" style={{ backgroundColor: `${color}` }}>
 					<header className="inner__header">
 						<h3 className="type inner__type">{type}</h3>

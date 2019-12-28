@@ -35,6 +35,7 @@
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
 		"react-helmet": "^5.2.1",
+		"react-lazy-images": "^1.1.0",
 		"react-spring": "^9.0.0-beta.34",
 		"react-with-gesture": "^4.0.8",
 		"sanitize-html-react": "^1.13.0",

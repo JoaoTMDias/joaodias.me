@@ -20,5 +20,5 @@
 		"target": "esnext"
 	},
 	"include": ["./src/**/*", "./test/**/*"],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "public", ".cache"]
 }

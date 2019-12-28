@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { rem } from "polished";
-import Img from "gatsby-image";
 import { Link } from "gatsby";
 import { above } from "../../../helpers/media-queries.helper";
 import { responsiveHeading } from "../../../helpers/responsive-typography.helpers";
@@ -79,36 +78,25 @@ export const Item = styled(Link)`
 		width: 100%;
 		height: 100%;
 	}
-`;
 
-export const LazyLoadImage = styled(Img)`
-	background-position: center center;
-	background-size: cover;
-	bottom: 0;
-	display: block;
-	left: 0;
-	overflow: visible;
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	min-height: ${rem("375px")};
+	.gatsby-image-wrapper {
+		background-position: center center;
+		background-size: cover;
+		bottom: 0;
+		display: block;
+		left: 0;
+		overflow: visible;
+		position: inherit;
+		right: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		min-height: ${rem("375px")};
 
-	${above.medium`
-		min-height: ${rem("414px")};
-	`};
-
-	${above.medium`
-		min-height: ${rem("480px")};
-	`};
-
-	${above.medium`
-		min-height: ${rem("560px")};
-	`};
-
-	> div {
-		padding-bottom: 0 !important;
+		> div,
+		figure {
+			padding-bottom: 0 !important;
+		}
 	}
 `;
 

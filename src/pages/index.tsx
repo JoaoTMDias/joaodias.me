@@ -14,48 +14,42 @@ import {
 } from "../components/index";
 import { ProjectItem } from "../components/project";
 import { Meta } from "../components/meta";
+import { IIndexPageProps, IIndexPageEdge } from "../data/interfaces/index.interfaces";
+import { ContentSpinner } from "../components/content-spinner";
 
-const IndexPage = ({ location, data }) => {
+const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data }) => {
 	/**
-	 *
+	 * Renders the portfolio items
 	 *
 	 * @returns
 	 */
 	function renderPortfolioItems() {
-		const queryPath = data.allContentfulPortfolio.edges;
+		const query = data.allContentfulPortfolio.edges;
 
-		if (queryPath) {
-			return (
-				<List className="layout__row">
-					{queryPath.map(item => {
-						return (
-							<ProjectItem
-								key={`${item.node.id}`}
-								id={`${item.node.id}`}
-								to={item.node.slug}
-								title={item.node.title}
-								theme={item.node.theme}
-								alt={item.node.featuredImage ? item.node.featuredImage.title : ""}
-								cover={item.node.featuredImage ? item.node.featuredImage.fluid : {}}
-								color={item.node.color}
-								type={item.node.date}
-								description={item.node.description ? item.node.description.description : ""}
-								project={item.node}
-							/>
-						);
-					})}
-				</List>
-			);
+		if (query) {
+			const list = query.map((item: IIndexPageEdge) => {
+				const { id, slug, title, theme, featuredImage, color, date, description } = item.node;
+
+				return (
+					<ProjectItem
+						alt={featuredImage ? featuredImage.description : ""}
+						color={color}
+						description={description ? description.description : ""}
+						fluid={featuredImage ? featuredImage.fluid : undefined}
+						id={id}
+						key={id}
+						loading="lazy"
+						theme={theme}
+						title={title}
+						to={slug}
+						type={date}
+					/>
+				);
+			});
+			return <List className="layout__row">{list || <ContentSpinner />}</List>;
 		}
-		return <p>Loading...</p>;
-	}
 
-	if (typeof document !== "undefined") {
-		const focusElement = document.querySelector("[href='#main-content']");
-
-		if (focusElement) {
-			focusElement.focus();
-		}
+		return null;
 	}
 
 	return (
@@ -63,7 +57,7 @@ const IndexPage = ({ location, data }) => {
 			<ContentPage>
 				<A11yPageTitle title="Initial Page" />
 
-				<Meta location={location} />
+				<Meta title="Homepage" location={location} />
 				<HomePageHero />
 				<Wrapper id="main-content" className="layout__container layout__section">
 					{renderPortfolioItems()}
@@ -108,7 +102,7 @@ export const latestProjectsQuery = graphql`
 					featuredImage {
 						id
 						title
-						fluid(maxWidth: 1024, maxHeight: 560, quality: 80) {
+						fluid(maxWidth: 1024, quality: 75) {
 							src
 							srcSet
 							srcWebp
@@ -116,6 +110,7 @@ export const latestProjectsQuery = graphql`
 							sizes
 							aspectRatio
 						}
+						description
 					}
 					theme
 					date(fromNow: true, locale: "en-us")
