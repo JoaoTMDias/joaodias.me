@@ -27,7 +27,15 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 				data-theme={theme}
 				aria-label={`Open project: ${title}`}
 			>
-				<LazyLoadingImage id={id} title={alt} fluid={fluid} alt={alt} backgroundColor={color} objectFit="cover" />
+				<LazyLoadingImage
+					id={id}
+					title={alt}
+					fluid={fluid}
+					alt={alt}
+					backgroundColor={color}
+					objectFit="cover"
+					useNativeLazyLoading
+				/>
 				<Inner className="inner" style={{ backgroundColor: `${color}` }}>
 					<header className="inner__header">
 						<h3 className="type inner__type">{type}</h3>

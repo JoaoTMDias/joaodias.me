@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { rem } from "polished";
-import { fluidType } from "../../helpers/helpers";
+import { fluidType } from "../../helpers";
 import { above } from "../../helpers/media-queries.helper";
 
 export const Hero = styled.article`

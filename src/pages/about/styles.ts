@@ -17,7 +17,7 @@ export const Container = styled.figure`
 	width: 100%;
 	height: 100%;
 	animation-name: ${spin};
-	animation-duration: 20000ms;
+	animation-duration: 60000ms;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 	position: relative;
@@ -38,7 +38,7 @@ export const Shape = styled.div`
 		border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 		transition: border-radius 1s ease-out;
 		animation-name: ${morph};
-		animation-duration: 16000ms;
+		animation-duration: 56000ms;
 		animation-timing-function: ease-in-out;
 		animation-delay: 0s;
 		animation-iteration-count: infinite;
@@ -56,7 +56,7 @@ export const Shape = styled.div`
 		top: -5% !important;
 		display: flex;
 		animation-name: ${spin};
-		animation-duration: 20000ms;
+		animation-duration: 56000ms;
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
 		animation-direction: reverse;

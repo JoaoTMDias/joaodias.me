@@ -1,7 +1,16 @@
-import { FluidObject } from "gatsby-image";
-
+export interface IFluidObject {
+	aspectRatio: number;
+	src: string;
+	srcSet: string;
+	sizes: string;
+	base64?: string;
+	tracedSVG?: string;
+	srcWebp?: string;
+	srcSetWebp?: string;
+	media?: string;
+}
 export interface IPortfolioItemProps {
-	fluid?: FluidObject | FluidObject[];
+	fluid?: IFluidObject | IFluidObject[];
 	id: string;
 	to: string;
 	alt: string;

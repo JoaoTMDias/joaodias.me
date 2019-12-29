@@ -6,7 +6,7 @@ import { LastPlayedSongCard } from "./last-played-song-card";
 import { LastPlayedSongTitle } from "./styles";
 import { ITrack } from "./types";
 import { LAST_FM_URL } from "../../data/services/config";
-import { useAsyncHook } from "../../helpers/helpers";
+import { useAsyncHook } from "../../helpers";
 
 /**
  * Retrieves info from Last.fm and displays on the widget

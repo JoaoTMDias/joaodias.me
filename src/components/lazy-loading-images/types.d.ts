@@ -2,10 +2,16 @@ import { IPortfolioItemProps } from "../project/item/types";
 
 type PickerProperties = Pick<IPortfolioItemProps, "fluid" | "id" | "alt" | "title">;
 
+declare module "react" {
+	interface ImgHTMLAttributes<T> extends HTMLAttributes<T> {
+		loading?: "auto" | "eager" | "lazy";
+	}
+}
+
 export interface IImageLazyProps extends PickerProperties {
 	useNativeLazyLoading?: boolean;
-	width: number;
-	height: number;
+	width?: number;
+	height?: number;
 	debounce?: number;
 	backgroundColor?: string;
 	speed?: number;

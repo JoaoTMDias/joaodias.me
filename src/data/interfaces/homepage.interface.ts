@@ -1,4 +1,4 @@
-import { FluidObject } from "gatsby-image";
+import { IFluidObject } from "../../components/project/item/types";
 
 export interface IIndexPageProps {
 	location: Location;
@@ -40,6 +40,6 @@ export interface IIndexPageDescription {
 export interface IIndexPageFeaturedImage {
 	id: string;
 	title: string;
-	fluid: FluidObject | FluidObject[];
+	fluid: IFluidObject | IFluidObject[];
 	description: string;
 }

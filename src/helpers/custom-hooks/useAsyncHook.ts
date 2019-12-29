@@ -1,6 +1,6 @@
 import React from "react";
-import ExternalServices from "../data/services/external-services";
-import { ITrack } from "../components/last-played-song/types";
+import ExternalServices from "../../data/services/external-services";
+import { ITrack } from "../../components/last-played-song/types";
 
 const FIRST_SONG = 1;
 
