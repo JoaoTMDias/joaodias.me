@@ -101,3 +101,5 @@ export const Image = styled.figure`
   	order: 2;
 	`};
 `;
+
+export default Container;
