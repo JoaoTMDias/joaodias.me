@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { above, supportsWebp } from "../../../helpers/helpers";
+import { above, supportsWebp } from "../../../helpers";
 
 export const MaskAnimation = keyframes`
  0% {

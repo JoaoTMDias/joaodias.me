@@ -79,14 +79,14 @@ export const Item = styled(Link)`
 		height: 100%;
 	}
 
-	.gatsby-image-wrapper {
+	.lazy-loading-image__wrapper {
 		background-position: center center;
 		background-size: cover;
 		bottom: 0;
 		display: block;
 		left: 0;
-		overflow: visible;
-		position: inherit;
+		overflow: hidden;
+		position: absolute;
 		right: 0;
 		top: 0;
 		width: 100%;
