@@ -51,7 +51,6 @@ const HTML: React.FunctionComponent<IHTMLProps> = props => {
 			lang="en"
 			prefix="http://ogp.me/ns#"
 			i18n-values="dir:textdirection"
-			itemScope=""
 			itemType="http://schema.org/WebPage"
 			dir="ltr"
 		>

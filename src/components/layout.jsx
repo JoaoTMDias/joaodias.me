@@ -1,5 +1,5 @@
 // Libraries
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import { ThemeProvider } from "styled-components";
@@ -40,7 +40,7 @@ export const Layout = ({ children }) => {
 					}
 				}
 			`}
-			render={data => (
+			render={() => (
 				<>
 					<ThemeProvider theme={theme}>
 						<SkipLink />
