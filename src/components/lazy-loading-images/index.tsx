@@ -30,7 +30,7 @@ export const LazyLoadingImage: React.FunctionComponent<IImageLazyProps> = ({
 }) => {
 	const target = useRef<HTMLDivElement>(null);
 	const hasIntersected = useIntersectionObserver(target, {
-		rootMargin: "375px",
+		rootMargin: "0px 0px 0px 0px",
 		once: true,
 	});
 
