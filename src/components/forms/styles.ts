@@ -158,7 +158,7 @@ export const Fieldset = styled.div`
 `;
 
 export const Success = styled.div`
-	background-color: var(--color-primary, $primary-color);
+	background-color: var(--color-primary, $color-primary);
 	width: 100%;
 	height: 100%;
 	position: absolute;
