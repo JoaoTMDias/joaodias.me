@@ -10,7 +10,7 @@ export const BottomNavigation: FunctionComponent = () => {
 			<List className="layout__row">
 				<Item title="Go to Homepage">
 					<TabLink to="/" activeClassName="is-active" aria-label="Click to go to the Homepage" tabIndex="0">
-						<figure className="link__icon" tabIndex="-1">
+						<figure className="link__icon" tabIndex={-1}>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 								<title>Homepage Icon</title>
 								<path
@@ -26,7 +26,7 @@ export const BottomNavigation: FunctionComponent = () => {
 							</svg>
 						</figure>
 
-						<span className="link__label" tabIndex="-1">
+						<span className="link__label" tabIndex={-1}>
 							Home
 						</span>
 					</TabLink>
@@ -34,7 +34,7 @@ export const BottomNavigation: FunctionComponent = () => {
 
 				<Item title="Go to my About page">
 					<TabLink to="/about" activeClassName="is-active" aria-label="Click to go to the About page" tabIndex="0">
-						<figure className="link__icon" tabIndex="-1">
+						<figure className="link__icon" tabIndex={-1}>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 								<title>About Icon</title>
 								<g id="about--filled">
@@ -88,14 +88,14 @@ export const BottomNavigation: FunctionComponent = () => {
 								</g>
 							</svg>
 						</figure>
-						<span className="link__label" tabIndex="-1">
+						<span className="link__label" tabIndex={-1}>
 							About
 						</span>
 					</TabLink>
 				</Item>
 				<Item title="Go to Contact page">
 					<TabLink to="/contact" activeClassName="is-active" aria-label="Click to go to the Contacts page" tabIndex="0">
-						<figure className="link__icon" tabIndex="-1">
+						<figure className="link__icon" tabIndex={-1}>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 								<title>Contact Icon</title>
 								<path
@@ -110,7 +110,7 @@ export const BottomNavigation: FunctionComponent = () => {
 								/>
 							</svg>
 						</figure>
-						<span className="link__label" tabIndex="-1">
+						<span className="link__label" tabIndex={-1}>
 							Contact
 						</span>
 					</TabLink>
