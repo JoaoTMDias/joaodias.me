@@ -23,56 +23,54 @@ body {
 			}
 		}
 
-		&.fixed-nav {
-			#page-header {
-				background-color: var(--color-black, #030304);
-				box-shadow: 0 1px 3px var(--color-gray9, #3a3e4c);
-				transition: all 150ms ease-out;
+		#page-header {
+			background-color: var(--color-black, #030304);
+			box-shadow: 0 1px 3px var(--color-gray9, #3a3e4c);
+			transition: all 150ms ease-out;
 
-				@include breakpoint(large) {
-					@include fadeInDown($duration: 200ms, $function: var(--default-timing-function));
-					animation-delay: 200ms;
-				}
-
-				*:focus {
-					outline-color: var(--color-gray6, #9a9fae);
-				}
+			@include breakpoint(large) {
+				@include fadeInDown($duration: 200ms, $function: var(--default-timing-function));
+				animation-delay: 200ms;
 			}
 
-			.large-nav__link {
-				color: var(--color-gray3, $color-gray3);
+			*:focus {
+				outline-color: var(--color-gray6, #9a9fae);
+			}
+		}
 
+		.large-nav__link {
+			color: var(--color-gray3, $color-gray3);
+
+			&:before {
+				background-color: var(--color-gray5, $color-gray5);
+			}
+		}
+
+		.brand {
+			&__circle {
+				fill: transparent;
+			}
+
+			&__hair,
+			&__glasses {
+				fill: var(--color-gray0, $color-gray0);
+			}
+		}
+
+		#social-navigation {
+			.social__fill {
+				fill: var(--color-gray7, $color-gray7);
+			}
+
+			.social-navigation__SocialLink-eQAYUO {
 				&:before {
-					background-color: var(--color-gray5, $color-gray5);
-				}
-			}
-
-			.brand {
-				&__circle {
-					fill: transparent;
+					background: var(--color-gray7, $color-gray7);
 				}
 
-				&__hair,
-				&__glasses {
-					fill: var(--color-gray0, $color-gray0);
-				}
-			}
-
-			#social-navigation {
 				.social__fill {
-					fill: var(--color-gray7, $color-gray7);
-				}
-
-				.social-navigation__SocialLink-eQAYUO {
-					&:before {
-						background: var(--color-gray7, $color-gray7);
-					}
-
-					.social__fill {
-						&:focus,
-						&:hover {
-							fill: var(--color-gray7, $color-gray7);
-						}
+					&:focus,
+					&:hover {
+						fill: var(--color-gray7, $color-gray7);
 					}
 				}
 			}
@@ -80,7 +78,7 @@ body {
 
 		#bottom-navigation-bar {
 			background-color: var(--color-black, #030304);
-			box-shadow: 0px -2px 0px var(--color-black, #030304);
+			box-shadow: 0 -2px 0 var(--color-black, #030304);
 		}
 	}
 }

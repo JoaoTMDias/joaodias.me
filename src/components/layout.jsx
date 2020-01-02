@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import { ThemeProvider } from "styled-components";
-import { Header } from "./navigation/header";
+import { Header } from "./navigation/header/index";
 
 // Components
 import { BottomNavigation, SkipLink } from "./index";

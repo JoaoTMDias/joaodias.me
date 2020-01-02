@@ -12,10 +12,9 @@ import {
 	ContentPage,
 	HomePageHero,
 } from "../components/index";
-import { ProjectItem } from "../components/project";
 import { Meta } from "../components/meta";
 import { IIndexPageProps, IIndexPageEdge } from "../data/interfaces/index.interfaces";
-import { ContentSpinner } from "../components/content-spinner";
+import { ProjectItem } from "../components/project";
 
 const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data }) => {
 	/**
@@ -26,30 +25,36 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 	function renderPortfolioItems() {
 		const query = data.allContentfulPortfolio.edges;
 
-		if (query) {
-			const list = query.map((item: IIndexPageEdge) => {
-				const { id, slug, title, theme, featuredImage, color, date, description } = item.node;
+		const list = query?.map((item: IIndexPageEdge) => {
+			const { id, slug, title, theme, featuredImage, color, date, description } = item.node;
 
-				return (
-					<ProjectItem
-						alt={featuredImage ? featuredImage.description : ""}
-						color={color}
-						description={description ? description.description : ""}
-						fluid={featuredImage ? featuredImage.fluid : undefined}
-						id={id}
-						key={id}
-						loading="auto"
-						theme={theme}
-						title={title}
-						to={slug}
-						type={date}
-					/>
-				);
-			});
-			return <List className="layout__row">{list || <ContentSpinner />}</List>;
-		}
-
-		return null;
+			return (
+				<ProjectItem
+					alt={featuredImage ? featuredImage.description : ""}
+					color={color}
+					description={description ? description.description : ""}
+					fluid={featuredImage ? featuredImage.fluid : undefined}
+					id={id}
+					key={id}
+					loading="auto"
+					theme={theme}
+					title={title}
+					to={slug}
+					type={date}
+				/>
+			);
+		});
+		return (
+			<List
+				className="layout__row fadeInUp"
+				role="list"
+				style={{
+					animationDuration: "496ms",
+				}}
+			>
+				{list}
+			</List>
+		);
 	}
 
 	return (
