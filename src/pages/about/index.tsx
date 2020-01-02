@@ -49,11 +49,7 @@ const AboutPage: React.FunctionComponent<IAboutPageProps> = props => {
 
 				<Meta title="About" location={location} />
 
-				<PageTitle
-					title="About me"
-					subtitle="Designer, Developer, Dad, Geek, Nerd, Music Lover."
-					containerBackgroundColor="var(--color-white, #ffffff)"
-				/>
+				<PageTitle title="About me" subtitle="Designer + Developer" backgroundColor="var(--color-white, #ffffff)" />
 				<MainContent
 					style={{
 						overflowX: "hidden",

@@ -27,7 +27,7 @@ const ContactPage = ({ location }) => (
 			<PageTitle
 				title="Contacts"
 				subtitle="Let's work together."
-				containerBackgroundColor="var(--color-white, #ffffff)"
+				backgroundColor="var(--color-white, #ffffff)"
 			/>
 			<MainContent className="layout__container">
 				<Form />

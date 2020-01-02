@@ -67,7 +67,7 @@ export const Subtitle = styled.h2`
 	color: var(--color-gray9, #3a3e4c) !important;
 	text-align: ${(props: IPageTitleProps) => (props.center ? "center" : "left")};
 	font-weight: 300;
-	font-size: ${rem("32px")};
+	font-size: ${rem("20px")};
 
 	${above.medium`
 		font-size: ${rem("24px")};
