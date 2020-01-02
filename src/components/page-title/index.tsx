@@ -23,29 +23,6 @@ export const PageTitle: React.FunctionComponent<IPageTitleProps> = ({
 	center,
 	isProject,
 }) => {
-	useEffect(() => {
-		const parallax: HTMLElement | null = document.querySelector(".parallax");
-		const speed = -0.5;
-
-		if (parallax) {
-			parallax.style.transform = "translateY( calc( var(--scrollparallax) * 1px ) )";
-		}
-
-		/**
-		 * Sets the scroll parallax
-		 */
-		function setScrollParallax() {
-			if (parallax) {
-				const value = (document.body.scrollTop || document.documentElement.scrollTop) * speed;
-				parallax.style.setProperty("--scrollparallax", `${value}`);
-			}
-
-			window.requestAnimationFrame(setScrollParallax);
-		}
-
-		window.requestAnimationFrame(setScrollParallax);
-	}, []);
-
 	const animatedProps = useSpring({
 		from,
 		to,
