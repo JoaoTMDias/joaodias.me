@@ -44,16 +44,7 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 				/>
 			);
 		});
-		return (
-			<List
-				className="layout__row fadeInUp"
-				style={{
-					animationDuration: "496ms",
-				}}
-			>
-				{list}
-			</List>
-		);
+		return <List className="layout__row">{list}</List>;
 	}
 
 	return (
