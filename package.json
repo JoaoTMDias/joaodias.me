@@ -100,18 +100,11 @@
 		"type": "git",
 		"url": "https://github.com/JoaoTMDias/joaodias.me"
 	},
-	"browserslist": {
-		"production": [
-			">0.5%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
+	"browserslist": [
+		">1.5%",
+		"not dead",
+		"not op_mini all"
+	],
 	"husky": {
 		"hooks": {
 			"pre-commit": "lint-staged"
