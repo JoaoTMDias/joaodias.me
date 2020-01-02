@@ -156,7 +156,7 @@ const Animated = keyframes`
 const Blob = styled.div`
 	position: absolute;
 	animation-name: ${Animated};
-	animation-duration: 500ms;
+	animation-duration: 250ms;
 	animation-timing-function: var(--default-timing-function);
 	animation-direction: initial;
 	animation-fill-mode: forwards;
@@ -203,13 +203,13 @@ const Blob = styled.div`
 			height: 68%;
 		}
 		&9 {
-			transition: opacity 200ms var(--default-timing-function) 0s, transform 1000ms var(--default-timing-function) 0s;
+			transition: opacity 125ms var(--default-timing-function) 0s, transform 500ms var(--default-timing-function) 0s;
 			transform: translate(-43%, -54%);
 			width: 81%;
 			height: 118%;
 		}
 		&10 {
-			transition: opacity 200ms var(--default-timing-function) 0s, transform 1000ms var(--default-timing-function) 0s;
+			transition: opacity 125ms var(--default-timing-function) 0s, transform 500ms var(--default-timing-function) 0s;
 			transform: translate(-1%, -14%);
 			width: 39%;
 			height: 57%;

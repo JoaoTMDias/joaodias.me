@@ -46,13 +46,15 @@
 	"license": "MIT",
 	"scripts": {
 		"clean": "rm -rf node_modules && rm -rf ./.cache",
+		"rebuild": "npm run clean && npm run install",
 		"build": "gatsby build",
 		"start": "gatsby develop",
 		"develop": "gatsby develop",
 		"prettier:base": "prettier --parser typescript",
 		"format:fix": "npm run prettier:base -- --write 'src/**/*.{ts,tsx, js, jsx, json}'",
 		"format:lint": "eslint --fix src/**/*.tsx",
-		"test": "jest --watchAll --env=jsdom",
+		"test": "jest --env=jsdom",
+		"test:watch": "jest --watchAll --env=jsdom",
 		"type-check": "tsc --noEmit",
 		"prebuild": "npm run format:fix && npm run format:lint && npm run test"
 	},
@@ -65,20 +67,20 @@
 		"@babel/preset-typescript": "^7.7.7",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@types/jest": "^24.0.25",
-		"@types/node": "^13.1.1",
+		"@types/node": "^13.1.2",
 		"@types/react": "^16.9.17",
 		"@types/react-dom": "^16.9.4",
 		"@types/react-helmet": "^5.0.14",
 		"@types/shallowequal": "^1.1.1",
 		"@types/styled-components": "^4.4.1",
-		"@typescript-eslint/eslint-plugin": "^2.13.0",
-		"@typescript-eslint/parser": "^2.13.0",
+		"@typescript-eslint/eslint-plugin": "^2.14.0",
+		"@typescript-eslint/parser": "^2.14.0",
 		"babel-plugin-styled-components": "^1.10.6",
 		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
 		"babel-preset-gatsby": "^0.2.26",
 		"eslint": "^6.8.0",
 		"eslint-config-airbnb": "^18.0.1",
-		"eslint-config-prettier": "^6.8.0",
+		"eslint-config-prettier": "^6.9.0",
 		"eslint-import-resolver-typescript": "^2.0.0",
 		"eslint-plugin-import": "^2.19.1",
 		"eslint-plugin-jsx-a11y": "^6.2.3",
@@ -90,21 +92,26 @@
 		"jest": "^24.9.0",
 		"lint-staged": "^9.5.0",
 		"prettier": "^1.19.1",
-		"sass-extract": "^2.1.0",
-		"sass-extract-js": "^0.4.0",
-		"sass-extract-loader": "^1.1.0",
-		"sass-styled-theme": "^0.1.0",
 		"ts-jest": "^24.2.0",
 		"typescript": "^3.7.4",
 		"typescript-styled-plugin": "^0.15.0"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/gatsbyjs/gatsby-starter-default"
+		"url": "https://github.com/JoaoTMDias/joaodias.me"
 	},
-	"browserslist": [
-		"> 0.5%"
-	],
+	"browserslist": {
+		"production": [
+			">0.5%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "lint-staged"

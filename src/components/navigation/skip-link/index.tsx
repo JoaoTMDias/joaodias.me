@@ -4,18 +4,13 @@ import * as React from "react";
 import styled from "styled-components";
 import { above } from "../../../helpers/media-queries.helper";
 
-// Component Props
-interface ISkipLinkProps {
-	theme?: any;
-}
-
 /**
  * @description Skip Link to Main Content
  * @author  João Dias
  * @date  07/December/2018 at 23:19
  * @extends {React.SFC}
  */
-const SkipLink: React.FunctionComponent<ISkipLinkProps> = () => {
+const SkipLink: React.FunctionComponent = () => {
 	return (
 		<Link href="#main-content" aria-label="Press Enter to skip and go to Main Content">
 			Skip to Main Content

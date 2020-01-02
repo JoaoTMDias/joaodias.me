@@ -10,17 +10,7 @@ import { above } from "../../helpers/media-queries.helper";
  * @class VerticalTimelineElement
  * @extends {Component}
  */
-const VerticalTimelineElement = ({
-	id,
-	children,
-	icon,
-	iconStyle,
-	date,
-	position,
-	className,
-	style,
-	description,
-}) => (
+const VerticalTimelineElement = ({ id, children, icon, iconStyle, date, position, className, style, description }) => (
 	<Item
 		id={id}
 		className={`${className}${position} timeline--item`}
@@ -300,7 +290,7 @@ const Content = styled.div`
 			top: ${rem("24px")};
 			left: 100%;
 			border-color: transparent;
-			border-left-color: ${props => lighten(0.05, props.theme.colorBlack)};
+			border-left-color: ${lighten(0.05, "#030304")};
 		}
 		.date {
 			position: absolute;

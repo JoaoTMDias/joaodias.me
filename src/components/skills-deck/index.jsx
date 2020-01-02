@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useSprings, animated, interpolate } from "react-spring";
 import { useGesture } from "react-with-gesture";
-import { AllContentfulSkillsEdge } from "../../data/interfaces/index.interfaces";
 import { Wrapper, Item, Image } from "./styles";
 
 const ROTATION_FACTOR = 10;
