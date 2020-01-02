@@ -6,12 +6,12 @@ import { ThemeProvider } from "styled-components";
 import { Header } from "./navigation/header/index";
 
 // Components
-import { BottomNavigation, SkipLink } from "./index";
+import { Footer } from "./navigation/footer";
+import { BottomNavigation } from "./navigation/bottom-navigation";
+import SkipLink from "./navigation/skip-link/index";
 
 // Styling
 import "./layout.scss";
-
-import { Footer } from "./navigation/footer";
 
 // Theme
 const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!../assets/styles/global/' +

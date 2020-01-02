@@ -31,9 +31,9 @@ export * from "./layout";
 export * from "./main-content";
 export * from "./content-page";
 export * from "./logo-carousel/logo-carousel.component";
-export * from "./navigation/bottom-navigation/bottom-navigation.component";
+export * from "./navigation/bottom-navigation/index";
 export * from "./navigation/social-navigation/social-navigation.component";
-export * from "./skills-deck";
+export * from "./skills-deck/index";
 export {
 	A11yPageTitle,
 	BlobFour,
