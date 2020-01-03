@@ -1,4 +1,6 @@
+import React from "react";
 import { Logger } from "./src/helpers/logger.helper";
+import { Layout } from "./src/components/layout.jsx";
 
 /**
  * Implement Gatsby's Browser APIs in this file.
@@ -54,4 +56,8 @@ export const onServiceWorkerUpdateReady = () => {
 				showOnProduction: true,
 			}),
 		);
+};
+
+export const wrapPageElement = ({ element, props }) => {
+	return <Layout {...props}>{element}</Layout>;
 };

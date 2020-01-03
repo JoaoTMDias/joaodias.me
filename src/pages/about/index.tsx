@@ -9,7 +9,6 @@ import { Data, AllContentfulSkillsEdge } from "../../data/interfaces/index.inter
 import {
 	CallToActionItem,
 	CallToActionWrapper,
-	Layout,
 	A11yPageTitle,
 	LogoCarousel,
 	LastPlayedSong,
@@ -43,44 +42,42 @@ const AboutPage: React.FunctionComponent<IAboutPageProps> = props => {
 	const cards: AllContentfulSkillsEdge[] = data ? data.allContentfulSkills.edges : [];
 
 	return (
-		<Layout data={data}>
-			<ContentPage>
-				<A11yPageTitle title="About the Author" />
+		<ContentPage>
+			<A11yPageTitle title="About the Author" />
 
-				<Meta title="About" location={location} />
+			<Meta title="About" location={location} />
 
-				<PageTitle title="About me" subtitle="Designer + Developer" backgroundColor="var(--color-white, #ffffff)" />
-				<MainContent
-					style={{
-						overflowX: "hidden",
-					}}
-				>
-					{renderImage()}
-					<LogoCarousel />
-					<SkillsDeck cards={cards} />
-					<Timeline />
-					<LastPlayedSong />
-				</MainContent>
-				<CallToActionWrapper>
-					<CallToActionItem
-						id="cta-resume-paper"
-						subtitle="Want it all on paper?"
-						title="Check out my resumé"
-						linkText="Download in PDF"
-						linkURL="/resume/resume-joaodias-en.pdf"
-						isFile
-					/>
-					<CallToActionItem
-						id="cta-lets-chat"
-						subtitle="Have an idea for a project?"
-						title="Let's chat!"
-						linkText="Visit the Contacts page"
-						linkURL="/contact/"
-					/>
-				</CallToActionWrapper>
-				<BlobOne />
-			</ContentPage>
-		</Layout>
+			<PageTitle title="About me" subtitle="Designer + Developer" backgroundColor="var(--color-white, #ffffff)" />
+			<MainContent
+				style={{
+					overflowX: "hidden",
+				}}
+			>
+				{renderImage()}
+				<LogoCarousel />
+				<SkillsDeck cards={cards} />
+				<Timeline />
+				<LastPlayedSong />
+			</MainContent>
+			<CallToActionWrapper>
+				<CallToActionItem
+					id="cta-resume-paper"
+					subtitle="Want it all on paper?"
+					title="Check out my resumé"
+					linkText="Download in PDF"
+					linkURL="/resume/resume-joaodias-en.pdf"
+					isFile
+				/>
+				<CallToActionItem
+					id="cta-lets-chat"
+					subtitle="Have an idea for a project?"
+					title="Let's chat!"
+					linkText="Visit the Contacts page"
+					linkURL="/contact/"
+				/>
+			</CallToActionWrapper>
+			<BlobOne />
+		</ContentPage>
 	);
 };
 

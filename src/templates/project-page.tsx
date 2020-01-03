@@ -33,52 +33,50 @@ const ProjectPage: React.FunctionComponent<IProjectPageProps> = props => {
 
 	if (post) {
 		return (
-			<Layout>
-				<ContentPage>
-					<A11yPageTitle title={`Project title: ${post.title}`} />
-					<Helmet>
-						<title>{`${post.title} | João Dias`}</title>
-						<script async src="//cdn.embedly.com/widgets/platform.js" />
-						<body className="project" />
-					</Helmet>
-					<ProjectIntroduction
-						id={`${post.introduction.internal.contentDigest}`}
-						description={`${post.description.description}`}
-						title={`${post.title}`}
-						text={`${post.introduction.internal.content}`}
+			<ContentPage>
+				<A11yPageTitle title={`Project title: ${post.title}`} />
+				<Helmet>
+					<title>{`${post.title} | João Dias`}</title>
+					<script async src="//cdn.embedly.com/widgets/platform.js" />
+					<body className="project" />
+				</Helmet>
+				<ProjectIntroduction
+					id={`${post.introduction.internal.contentDigest}`}
+					description={`${post.description.description}`}
+					title={`${post.title}`}
+					text={`${post.introduction.internal.content}`}
+				/>
+				<div id="main-content">
+					<ProjectHero id={`hero-${post.slug}`} backgroundImage={post.featuredImage.file.url} />
+					<ProjectMeta skills={post.skills} tools={post.tools} client={`${post.client}`} date={`${post.date}`} />
+					<Body className="layout__row">
+						<div
+							className="layout__project layout__section"
+							// eslint-disable-next-line
+							dangerouslySetInnerHTML={{
+								__html: post.body.childMarkdownRemark.html,
+							}}
+						/>
+					</Body>
+				</div>
+				<CallToActionWrapper>
+					<CallToActionItem
+						id="cta-home-page"
+						subtitle="Related Project"
+						title="Return to the projects list"
+						linkText="Back to the Homepage"
+						linkURL="/"
 					/>
-					<div id="main-content">
-						<ProjectHero id={`hero-${post.slug}`} backgroundImage={post.featuredImage.file.url} />
-						<ProjectMeta skills={post.skills} tools={post.tools} client={`${post.client}`} date={`${post.date}`} />
-						<Body className="layout__row">
-							<div
-								className="layout__project layout__section"
-								// eslint-disable-next-line
-								dangerouslySetInnerHTML={{
-									__html: post.body.childMarkdownRemark.html,
-								}}
-							/>
-						</Body>
-					</div>
-					<CallToActionWrapper>
-						<CallToActionItem
-							id="cta-home-page"
-							subtitle="Related Project"
-							title="Return to the projects list"
-							linkText="Back to the Homepage"
-							linkURL="/"
-						/>
-						<CallToActionItem
-							id="cta-contacts-page"
-							subtitle="Related Project"
-							title="Let's connect"
-							linkText="Check it out"
-							linkURL="/contact/"
-						/>
-					</CallToActionWrapper>
-					<BlobFour />
-				</ContentPage>
-			</Layout>
+					<CallToActionItem
+						id="cta-contacts-page"
+						subtitle="Related Project"
+						title="Let's connect"
+						linkText="Check it out"
+						linkURL="/contact/"
+					/>
+				</CallToActionWrapper>
+				<BlobFour />
+			</ContentPage>
 		);
 	}
 	return <ContentSpinner fullPage center color="var(--color-primary)" />;

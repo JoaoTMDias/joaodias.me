@@ -52,32 +52,30 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 	}
 
 	return (
-		<Layout>
-			<ContentPage>
-				<A11yPageTitle title="Initial Page" />
+		<ContentPage>
+			<A11yPageTitle title="Initial Page" />
 
-				<Meta title="Homepage" location={location} />
-				<HomePageHero />
-				{renderPortfolioItems()}
-				<CallToActionWrapper>
-					<CallToActionItem
-						id="cta-resume-pdf"
-						subtitle="Want it all on paper?"
-						title="Check out my resumé"
-						linkText="Download in PDF"
-						linkURL="/resume/resume-joaodias-en.pdf"
-						isFile
-					/>
-					<CallToActionItem
-						id="cta-about-page"
-						subtitle="João Dias"
-						title="Know more about me"
-						linkText="Visit the About page"
-						linkURL="/about/"
-					/>
-				</CallToActionWrapper>
-			</ContentPage>
-		</Layout>
+			<Meta title="Homepage" location={location} />
+			<HomePageHero />
+			{renderPortfolioItems()}
+			<CallToActionWrapper>
+				<CallToActionItem
+					id="cta-resume-pdf"
+					subtitle="Want it all on paper?"
+					title="Check out my resumé"
+					linkText="Download in PDF"
+					linkURL="/resume/resume-joaodias-en.pdf"
+					isFile
+				/>
+				<CallToActionItem
+					id="cta-about-page"
+					subtitle="João Dias"
+					title="Know more about me"
+					linkText="Visit the About page"
+					linkURL="/about/"
+				/>
+			</CallToActionWrapper>
+		</ContentPage>
 	);
 };
 
