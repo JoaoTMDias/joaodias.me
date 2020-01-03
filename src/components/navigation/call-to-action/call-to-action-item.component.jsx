@@ -16,12 +16,7 @@ import { above } from "../../../helpers/media-queries.helper";
 export const CallToActionItem = ({ id, title, subtitle, linkText, linkURL, isFile }) => {
 	if (isFile) {
 		return (
-			<External
-				id={`${id}`}
-				to={linkURL}
-				className="callToAction"
-				aria-label="Click/Enter to download my resumé"
-			>
+			<External id={`${id}`} to={linkURL} className="callToAction" aria-label="Click/Enter to download my resumé">
 				<div className="item__inner">
 					<header className="item__top">
 						<p className="item__subtitle">{subtitle}</p>
@@ -35,12 +30,7 @@ export const CallToActionItem = ({ id, title, subtitle, linkText, linkURL, isFil
 		);
 	}
 	return (
-		<Item
-			id={`${id}`}
-			to={linkURL}
-			className="callToAction"
-			aria-label="Click/Enter to go to another page"
-		>
+		<Item id={`${id}`} to={linkURL} className="callToAction" aria-label="Click/Enter to go to another page">
 			<div className="item__inner">
 				<header className="item__top">
 					<p className="item__subtitle">{subtitle}</p>
@@ -162,7 +152,6 @@ const Item = styled(Link)`
 
 	.item__title {
 		font-family: var(--heading-font-family);
-		font-style: italic;
 		font-weight: 300;
 		color: var(--call-to-action-title, #030304);
 		font-size: ${rem("20px")};

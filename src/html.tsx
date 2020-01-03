@@ -11,18 +11,6 @@ import favicon194 from "../static/favicon-194x194.png";
 import maskIcon from "../static/safari-pinned-tab.svg";
 import appleTouchIcon from "../static/apple-touch-icon.png";
 
-// Launch Splash Screens
-import appleiPhone5 from "../static/splash-screens/apple-iphone5_splash.png";
-import appleiPhone6 from "../static/splash-screens/apple-iphone6_splash.png";
-import appleiPhonePlus from "../static/splash-screens/apple-iphoneplus_splash.png";
-import appleiPhoneX from "../static/splash-screens/apple-iphonex_splash.png";
-import appleiPhoneXR from "../static/splash-screens/apple-iphone-xr_splash.png";
-import appleiPhoneXSMax from "../static/splash-screens/apple-iphone-xsmax_splash.png";
-import appleiPad from "../static/splash-screens/apple-ipad_splash.png";
-import appleIpadPro1 from "../static/splash-screens/apple-ipad-pro1_splash.png";
-import appleIpadPro3 from "../static/splash-screens/apple-ipad-pro3_splash.png";
-import appleIpadPro2 from "../static/splash-screens/apple-ipad-pro2_splash.png";
-
 // Configurations
 import { config } from "./components/index";
 
@@ -74,56 +62,6 @@ const HTML: React.FunctionComponent<IHTMLProps> = props => {
 				<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
 				<link rel="apple-touch-icon" type="image/png" sizes="180x180" href={appleTouchIcon} />
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
-					href={appleiPhone5}
-				/>
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
-					href={appleiPhone6}
-				/>
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
-					href={appleiPhonePlus}
-				/>
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
-					href={appleiPhoneX}
-				/>
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
-					href={appleiPhoneXR}
-				/>
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
-					href={appleiPhoneXSMax}
-				/>
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
-					href={appleiPad}
-				/>
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
-					href={appleIpadPro1}
-				/>
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
-					href={appleIpadPro2}
-				/>
-				<link
-					rel="apple-touch-startup-image"
-					media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
-					href={appleIpadPro3}
-				/>
 				<link rel="shortcut icon" type="image/png" href={favicon} />
 				<link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
 				<link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
