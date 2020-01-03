@@ -3,7 +3,7 @@
 // ///////////////////
 import loadable from "@loadable/component";
 import pMinDelay from "p-min-delay";
-import { BlobOne, BlobTwo, BlobThree, BlobFour } from "./blobs/index";
+import { BlobOne, BlobTwo, BlobThree, BlobFour } from "./hello/blobs/index";
 import { CallToActionItem } from "./navigation/call-to-action/call-to-action-item.component";
 import { CallToActionWrapper } from "./navigation/call-to-action/call-to-action-wrapper.component";
 import { Form, TextInput, TextareaInput } from "./forms/index";
@@ -25,7 +25,7 @@ const Footer = loadable(/* webpackChunkName: "footer" */ () => pMinDelay(import(
 // ///////////////////
 export * from "./page-title/index";
 export * from "./branding";
-export * from "./full-page-hero/full-page-hero";
+export * from "./full-page-hero";
 export * from "./last-played-song/last-played-song";
 export * from "./layout";
 export * from "./main-content";

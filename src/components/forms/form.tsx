@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Submit, FormWrapper, Fieldset, Success, Container } from "./styles";
-import TextInput from "./input/text-input";
-import TextAreaInput from "./textarea/textarea-input";
+import { TextInput } from "./input";
+import { TextAreaInput } from "./textarea";
 import ExternalServices from "../../data/services/external-services";
 import { Logger } from "../../helpers/logger.helper";
 
@@ -84,7 +84,14 @@ const Form = () => {
 		}
 
 		return (
-			<Submit ref={button} id="submit" className={`${formIsValid}`} aria-disabled={ariaDisabled} type="submit">
+			<Submit
+				ref={button}
+				id="submit"
+				data-testid="submit-button"
+				className={`${formIsValid}`}
+				aria-disabled={ariaDisabled}
+				type="submit"
+			>
 				Send Message
 			</Submit>
 		);
@@ -97,7 +104,14 @@ const Form = () => {
 	 */
 	function renderSuccessMessage() {
 		return (
-			<Success ref={successMessage} id="success-message" role="alert" aria-live="assertive" aria-atomic="true">
+			<Success
+				ref={successMessage}
+				id="success-message"
+				data-testid="success-message"
+				role="alert"
+				aria-live="assertive"
+				aria-atomic="true"
+			>
 				<figure role="presentation" aria-label="Paperplane icon" className="success__image">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
 						<path d="M83.29 12.18a1.4 1.4 0 0 0-1.41 0L56.11 27.43a1.41 1.41 0 1 0 1.43 2.43L76 18.92 41.59 54.66l-17.13-5.24L46.81 36.2a1.41 1.41 0 1 0-1.43-2.42l-25.1 14.84a1.4 1.4 0 0 0-.49 1.92 1.36 1.36 0 0 0 .8.63l20.46 6.26 9 16.43a1.44 1.44 0 0 0 .66.58 1.42 1.42 0 0 0 1.53-.29L62.66 64l19.52 6A1.41 1.41 0 0 0 84 68.67V13.41a1.42 1.42 0 0 0-.71-1.23zM50.15 58.3a1.33 1.33 0 0 0-.25.8v8.6l-6.17-11.22L71 28.19 50.15 58.3zm2.56 11.54V61l6.89 2.11zm28.48-3.07l-27.64-8.45 27.64-39.89z" />
@@ -125,6 +139,7 @@ const Form = () => {
 		<Container id="contact-form" className="layout__row">
 			<FormWrapper
 				name="contact-form"
+				data-id="contact-form"
 				onSubmit={onSubmitForm}
 				method="POST"
 				data-netlify="true"

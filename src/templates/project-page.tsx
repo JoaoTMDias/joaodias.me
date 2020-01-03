@@ -81,7 +81,7 @@ const ProjectPage: React.FunctionComponent<IProjectPageProps> = props => {
 			</Layout>
 		);
 	}
-	return <ContentSpinner isFullPage center color="var(--color-primary)" />;
+	return <ContentSpinner fullPage center color="var(--color-primary)" />;
 };
 
 export default ProjectPage;

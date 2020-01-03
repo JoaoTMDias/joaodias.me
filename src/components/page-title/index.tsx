@@ -40,7 +40,7 @@ export const PageTitle: React.FunctionComponent<IPageTitleProps> = ({
 				<AnimatedTitle center={center} isProject={isProject} aria-label={`Page Title: ${title}`} style={animatedProps}>
 					{title}
 				</AnimatedTitle>
-				<AnimatedSubtitle center={center} aria-label={`Page Subtitle: ${subtitle}`} tabIndex="0" style={animatedProps}>
+				<AnimatedSubtitle center={center} aria-label={`Page Subtitle: ${subtitle}`} tabIndex={0} style={animatedProps}>
 					{subtitle}
 				</AnimatedSubtitle>
 			</Row>

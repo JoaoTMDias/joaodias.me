@@ -16,7 +16,7 @@ const VerticalTimelineElement = ({ id, children, icon, iconStyle, date, position
 		className={`${className}${position} timeline--item`}
 		style={style}
 		aria-label={`${description}`}
-		tabIndex="0"
+		tabIndex={0}
 	>
 		<div>
 			<Icon style={iconStyle} className="icon bounce-in">

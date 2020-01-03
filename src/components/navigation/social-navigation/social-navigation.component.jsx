@@ -8,7 +8,7 @@ export const SocialNavigation = () => (
 	<Container id="social-navigation" title="Social network links">
 		<List>
 			<Item>
-				<Link to="https://fb.com/JoaoTMDias" aria-label="Follow me on Facebook" tabIndex="0">
+				<Link to="https://fb.com/JoaoTMDias" aria-label="Follow me on Facebook" tabIndex={0}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path fill="white" d="M12.88 22v-.07a10.55 10.55 0 0 1-1.13.07z" />
 						<path
@@ -23,7 +23,7 @@ export const SocialNavigation = () => (
 				<Link
 					to="https://instagram.com/JoaoTMDias"
 					aria-label="Follow me on Instagram"
-					tabIndex="0"
+					tabIndex={0}
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path
@@ -45,7 +45,7 @@ export const SocialNavigation = () => (
 				<Link
 					to="https://github.com/Joaotmdias"
 					aria-label="Check out my repos on Github"
-					tabIndex="0"
+					tabIndex={0}
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path
@@ -61,7 +61,7 @@ export const SocialNavigation = () => (
 				<Link
 					to="https://dribbble.com/Joaotmdias"
 					aria-label="Check out some dribble shots"
-					tabIndex="0"
+					tabIndex={0}
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path

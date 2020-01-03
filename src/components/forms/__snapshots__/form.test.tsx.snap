@@ -1,0 +1,352 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> should render without errors 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-bZQynM hzHeYo layout__row"
+        id="contact-form"
+      >
+        <form
+          aria-label="Contact form. Includes a name,email a message inputs."
+          class="sc-htpNat erVJxO"
+          data-id="contact-form"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          method="POST"
+          name="contact-form"
+        >
+          <div
+            class="sc-ifAKCX cKsNRg"
+            role="group"
+          >
+            <div
+              class="sc-bdVaJa eiyRDm"
+              data-form="input"
+              data-testid="component-text-wrapper"
+            >
+              <label
+                aria-labelledby="Name-name"
+                class="content"
+                data-testid="component-text-label"
+                for="name"
+              >
+                <span
+                  class="label"
+                  id="Name-name"
+                >
+                  Name
+                </span>
+                <input
+                  class="input undefined"
+                  data-testid="component-text-input"
+                  id="name"
+                  maxlength="50"
+                  name="name"
+                  placeholder="What's your name?"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </label>
+              <p
+                class="helper"
+                data-testid="component-text-helper"
+              />
+            </div>
+            <div
+              class="sc-bdVaJa eiyRDm"
+              data-form="input"
+              data-testid="component-text-wrapper"
+            >
+              <label
+                aria-labelledby="Email-email"
+                class="content"
+                data-testid="component-text-label"
+                for="email"
+              >
+                <span
+                  class="label"
+                  id="Email-email"
+                >
+                  Email
+                </span>
+                <input
+                  class="input undefined"
+                  data-testid="component-text-input"
+                  id="email"
+                  maxlength="200"
+                  name="email"
+                  placeholder="Your fancy email"
+                  required=""
+                  type="email"
+                  value=""
+                />
+              </label>
+              <p
+                class="helper"
+                data-testid="component-text-helper"
+              />
+            </div>
+            <div
+              class="sc-bdVaJa sc-bwzfXH jsyJJk"
+              data-form="textarea"
+              data-testid="component-text-area-wrapper"
+            >
+              <label
+                class="content"
+                data-testid="component-text-area-label"
+                for="message"
+              >
+                <span
+                  class="label"
+                >
+                  Message
+                </span>
+                <textarea
+                  class="input undefined"
+                  cols="50"
+                  data-testid="component-text-area-input"
+                  id="message"
+                  name="message"
+                  placeholder="Got something you want to say?"
+                  required=""
+                />
+              </label>
+              <p
+                class="helper"
+                data-testid="component-text-area-helper"
+              />
+            </div>
+            <input
+              class="hidden"
+              hidden=""
+              name="bot-field"
+            />
+            <input
+              name="form-name"
+              type="hidden"
+              value="contact-form"
+            />
+          </div>
+          <div
+            class="sc-ifAKCX cKsNRg"
+          >
+            <button
+              aria-disabled="true"
+              class="sc-bxivhb jqgYzL"
+              data-testid="submit-button"
+              id="submit"
+              type="submit"
+            >
+              Send Message
+            </button>
+          </div>
+          <div
+            data-netlify-recaptcha="true"
+          />
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-bZQynM hzHeYo layout__row"
+      id="contact-form"
+    >
+      <form
+        aria-label="Contact form. Includes a name,email a message inputs."
+        class="sc-htpNat erVJxO"
+        data-id="contact-form"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        method="POST"
+        name="contact-form"
+      >
+        <div
+          class="sc-ifAKCX cKsNRg"
+          role="group"
+        >
+          <div
+            class="sc-bdVaJa eiyRDm"
+            data-form="input"
+            data-testid="component-text-wrapper"
+          >
+            <label
+              aria-labelledby="Name-name"
+              class="content"
+              data-testid="component-text-label"
+              for="name"
+            >
+              <span
+                class="label"
+                id="Name-name"
+              >
+                Name
+              </span>
+              <input
+                class="input undefined"
+                data-testid="component-text-input"
+                id="name"
+                maxlength="50"
+                name="name"
+                placeholder="What's your name?"
+                required=""
+                type="text"
+                value=""
+              />
+            </label>
+            <p
+              class="helper"
+              data-testid="component-text-helper"
+            />
+          </div>
+          <div
+            class="sc-bdVaJa eiyRDm"
+            data-form="input"
+            data-testid="component-text-wrapper"
+          >
+            <label
+              aria-labelledby="Email-email"
+              class="content"
+              data-testid="component-text-label"
+              for="email"
+            >
+              <span
+                class="label"
+                id="Email-email"
+              >
+                Email
+              </span>
+              <input
+                class="input undefined"
+                data-testid="component-text-input"
+                id="email"
+                maxlength="200"
+                name="email"
+                placeholder="Your fancy email"
+                required=""
+                type="email"
+                value=""
+              />
+            </label>
+            <p
+              class="helper"
+              data-testid="component-text-helper"
+            />
+          </div>
+          <div
+            class="sc-bdVaJa sc-bwzfXH jsyJJk"
+            data-form="textarea"
+            data-testid="component-text-area-wrapper"
+          >
+            <label
+              class="content"
+              data-testid="component-text-area-label"
+              for="message"
+            >
+              <span
+                class="label"
+              >
+                Message
+              </span>
+              <textarea
+                class="input undefined"
+                cols="50"
+                data-testid="component-text-area-input"
+                id="message"
+                name="message"
+                placeholder="Got something you want to say?"
+                required=""
+              />
+            </label>
+            <p
+              class="helper"
+              data-testid="component-text-area-helper"
+            />
+          </div>
+          <input
+            class="hidden"
+            hidden=""
+            name="bot-field"
+          />
+          <input
+            name="form-name"
+            type="hidden"
+            value="contact-form"
+          />
+        </div>
+        <div
+          class="sc-ifAKCX cKsNRg"
+        >
+          <button
+            aria-disabled="true"
+            class="sc-bxivhb jqgYzL"
+            data-testid="submit-button"
+            id="submit"
+            type="submit"
+          >
+            Send Message
+          </button>
+        </div>
+        <div
+          data-netlify-recaptcha="true"
+        />
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -42,7 +42,7 @@ const spinnerRotate = keyframes`
 export const ContentSpinnerWrapper = styled.div`
 	width: 100%;
 	height: ${(props: IContentSpinnerProps) => {
-		if (props.isFullPage) {
+		if (props.fullPage) {
 			return "100vh";
 		}
 		if (props.center) {
@@ -63,7 +63,7 @@ export const ContentSpinnerWrapper = styled.div`
 	pointer-events: none;
 
 	${(props: IContentSpinnerProps) =>
-		props.isTemporary &&
+		props.temporary &&
 		css`
 			animation-name: ${hideTimeout};
 			animation-duration: 500ms;

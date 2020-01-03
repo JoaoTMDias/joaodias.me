@@ -1,15 +1,21 @@
 /**
  * Import Libraries
  */
-import React, { Component, FunctionComponent, useEffect } from "react";
-import { Wrapper, List, Item, TabLink } from "./index.styles.ts";
+import React, { FunctionComponent } from "react";
+import { Wrapper, List, Item, TabLink } from "./index.styles";
 
 export const BottomNavigation: FunctionComponent = () => {
 	return (
 		<Wrapper id="bottom-navigation-bar">
 			<List className="layout__row">
 				<Item title="Go to Homepage">
-					<TabLink to="/" activeClassName="is-active" aria-label="Click to go to the Homepage" tabIndex="0">
+					<TabLink
+						to="/"
+						data-testid="tab-link"
+						activeClassName="is-active"
+						aria-label="Click to go to the Homepage"
+						tabIndex={0}
+					>
 						<figure className="link__icon" tabIndex={-1}>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 								<title>Homepage Icon</title>
@@ -33,7 +39,13 @@ export const BottomNavigation: FunctionComponent = () => {
 				</Item>
 
 				<Item title="Go to my About page">
-					<TabLink to="/about" activeClassName="is-active" aria-label="Click to go to the About page" tabIndex="0">
+					<TabLink
+						to="/about"
+						data-testid="tab-link"
+						activeClassName="is-active"
+						aria-label="Click to go to the About page"
+						tabIndex={0}
+					>
 						<figure className="link__icon" tabIndex={-1}>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 								<title>About Icon</title>
@@ -94,7 +106,13 @@ export const BottomNavigation: FunctionComponent = () => {
 					</TabLink>
 				</Item>
 				<Item title="Go to Contact page">
-					<TabLink to="/contact" activeClassName="is-active" aria-label="Click to go to the Contacts page" tabIndex="0">
+					<TabLink
+						to="/contact"
+						data-testid="tab-link"
+						activeClassName="is-active"
+						aria-label="Click to go to the Contacts page"
+						tabIndex={0}
+					>
 						<figure className="link__icon" tabIndex={-1}>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 								<title>Contact Icon</title>

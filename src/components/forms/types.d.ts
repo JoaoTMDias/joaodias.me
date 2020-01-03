@@ -1,13 +1,13 @@
 interface IInputProps {
-	id: string;
 	className?: string | undefined;
-	value: string;
-	label: string;
-	helperText?: string | undefined;
-	placeholder: string;
-	maxLength: number;
-	required: boolean;
 	disabled?: boolean | undefined;
+	helperText?: string | undefined;
+	id: string;
+	label: string;
+	maxLength: number;
+	placeholder: string;
+	required: boolean;
+	value: string;
 }
 
 export interface ITextAreaInputProps extends IInputProps {

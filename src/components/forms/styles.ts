@@ -10,7 +10,7 @@ export const TextInputWrapper = styled.div`
 	padding: 0;
 	margin: 0;
 
-	&.is-focused {
+	&.isFocused {
 		.label {
 			color: var(--color-primary);
 		}
