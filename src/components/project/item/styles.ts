@@ -171,6 +171,7 @@ export const Inner = styled.div`
 			margin-bottom: 0;
 			${responsiveHeading(EHeadingSize.LARGE, 2)};
 			font-family: var(--heading-font-family);
+			font-weight: 300;
 
 			${above.medium`
 				${responsiveHeading(EHeadingSize.MEDIUM, 5)};

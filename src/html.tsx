@@ -59,6 +59,8 @@ const HTML: React.FunctionComponent<IHTMLProps> = props => {
 				<meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
 				{/* Meta */}
+				<link rel="preload" href="/fonts/jd-sans-light.woff2" as="font" crossOrigin="true" />
+				<link rel="preload" href="/fonts/jd-sans-regular.woff2" as="font" crossOrigin="true" />
 				<link rel="preconnect dns-prefetch" href="https://images.ctfassets.net" />
 
 				<meta name="description" content="João Dias" />

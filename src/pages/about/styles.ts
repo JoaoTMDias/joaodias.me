@@ -105,7 +105,7 @@ export const Content = styled.div`
 	}
 
 	.title {
-		font-weight: bold;
+		font-weight: 300;
 		font-size: ${rem("24px")};
 		font-family: var(--heading-font-family);
 
