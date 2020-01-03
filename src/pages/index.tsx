@@ -4,14 +4,7 @@ import { graphql } from "gatsby";
 import { Wrapper, List } from "./styles";
 
 // Components
-import {
-	CallToActionItem,
-	CallToActionWrapper,
-	Layout,
-	A11yPageTitle,
-	ContentPage,
-	HomePageHero,
-} from "../components/index";
+import { CallToActionItem, CallToActionWrapper, A11yPageTitle, ContentPage, HomePageHero } from "../components/index";
 import { Meta } from "../components/meta";
 import { IIndexPageProps, IIndexPageEdge } from "../data/interfaces/index.interfaces";
 import { ProjectItem } from "../components/project";

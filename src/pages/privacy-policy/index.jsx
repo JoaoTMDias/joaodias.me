@@ -8,14 +8,7 @@ import { Details, ArticleWrapper, Intro } from "./styles";
 /**
  * Import Components
  */
-import {
-	Layout,
-	A11yPageTitle,
-	CallToActionItem,
-	CallToActionWrapper,
-	ContentPage,
-	PageTitle,
-} from "../../components/index";
+import { A11yPageTitle, CallToActionItem, CallToActionWrapper, ContentPage, PageTitle } from "../../components/index";
 import { Meta } from "../../components/meta";
 
 const PrivacyPolicyPage = ({ location, data }) => {
