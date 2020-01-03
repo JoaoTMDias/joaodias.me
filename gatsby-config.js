@@ -94,8 +94,6 @@ module.exports = {
 			resolve: "gatsby-source-contentful",
 			options: contentfulOptions,
 		},
-
-		// SEO e Analytics
 		{
 			resolve: "gatsby-plugin-sitemap",
 			options: sitemapOptions,
