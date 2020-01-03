@@ -6,7 +6,7 @@
 	src: url("/fonts/jd-serif-regular.woff2") format("woff2"), url("/fonts/jd-serif-regular.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional;
 }
 
 @font-face {
@@ -15,7 +15,7 @@
 		url("/fonts/jd-serif-regular-italic.woff") format("woff");
 	font-weight: normal;
 	font-style: italic;
-	font-display: swap;
+	font-display: optional;
 }
 
 /**
@@ -28,7 +28,7 @@
 	src: url("/fonts/jd-sans-bold.woff2") format("woff2"), url("/fonts/jd-sans-bold.woff") format("woff");
 	font-weight: 700;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional;
 }
 
 // regular
