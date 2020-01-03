@@ -49,11 +49,6 @@ const HTML: React.FunctionComponent<IHTMLProps> = props => {
 				{/* Meta */}
 				<link rel="preconnect dns-prefetch" href="https://images.ctfassets.net" />
 
-				<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/jd-serif-regular.woff2" />
-				<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/jd-sans-bold.woff2" />
-				<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/jd-sans-regular.woff2" />
-				<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="/fonts/jd-sans-light.woff2" />
-
 				<meta name="description" content="João Dias" />
 				<meta
 					name="viewport"
