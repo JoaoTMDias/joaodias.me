@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
-import { above, supportsWebp } from "../../../helpers";
+import { above } from "../../../helpers";
+import supportsWebP from "supports-webp";
 
 export const MaskAnimation = keyframes`
  0% {
@@ -50,9 +51,15 @@ export const BackgroundImage = styled.figure`
 	height: 100%;
 	background-image: ${(props: { backgroundImage: string }) => {
 		if (props.backgroundImage) {
-			const src = supportsWebp()
-				? `url(${props.backgroundImage}?h=640&fm=webp&q=100)`
-				: `url(${props.backgroundImage}?h=640&fm=jpg&q=90&fl=progressive)`;
+			let src = "";
+
+			supportsWebP.then(supported => {
+				if (supported) {
+					src = `url(${props.backgroundImage}?h=640&fm=webp&q=100)`;
+				} else {
+					src = `url(${props.backgroundImage}?h=640&fm=jpg&q=90&fl=progressive)`;
+				}
+			});
 			return src;
 		}
 

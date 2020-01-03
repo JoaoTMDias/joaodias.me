@@ -5,8 +5,8 @@ import { RESPONSIVE_HEADING, EHeadingSize } from "../data/constants/headings";
 interface IFluidTypeProps {
 	minFont: number;
 	maxFont: number;
-	minScreen?: number;
-	maxScreen?: number;
+	minScreen: number;
+	maxScreen: number;
 	units?: string;
 }
 
@@ -16,14 +16,11 @@ interface IFluidTypeProps {
  *
  * @export
  * @param {IFluidTypeProps} params
- * @returns
+ * @returns {string}
  */
-export function fluidType(params: IFluidTypeProps) {
-	const minScreen = params.minScreen || 240;
-	const maxScreen = params.maxScreen || 1440;
-	const units = params.units || "px";
-	const result = `calc(${params.minFont}${units} + ${params.maxFont -
-		params.minFont} * (100vw - ${minScreen}${units}) / ${maxScreen - minScreen})`;
+export function fluidType({ minFont, maxFont, minScreen, maxScreen, units = "px" }: IFluidTypeProps): string {
+	const result = `calc(${minFont}${units} + ${maxFont - minFont} * (100vw - ${minScreen}${units}) / ${maxScreen -
+		minScreen})`;
 
 	return result;
 }

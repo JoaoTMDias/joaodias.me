@@ -37,13 +37,6 @@ export interface IDateClass {
 }
 
 export interface IImage {
-	size: ISize;
+	size: "extralarge" | "large" | "medium" | "small";
 	"#text": string;
-}
-
-export enum ISize {
-	Extralarge = "extralarge",
-	Large = "large",
-	Medium = "medium",
-	Small = "small",
 }

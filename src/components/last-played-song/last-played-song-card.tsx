@@ -4,7 +4,7 @@ import AlbumCover from "./album-cover";
 import { ITrack } from "./types";
 import { LastPlayedSong, InfoContainer } from "./styles";
 
-interface ILastPlayedSongCardProps {
+export interface ILastPlayedSongCardProps {
 	song: ITrack;
 }
 
@@ -12,7 +12,7 @@ interface ILastPlayedSongCardProps {
  * Last Played Song Card
  *
  * @export
- * @param {*} props
+ * @param {ILastPlayedSongCardProps} props
  * @returns
  */
 export const LastPlayedSongCard: React.FunctionComponent<ILastPlayedSongCardProps> = ({ song }) => {

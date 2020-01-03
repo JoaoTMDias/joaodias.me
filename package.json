@@ -39,7 +39,8 @@
 		"react-with-gesture": "^4.0.8",
 		"sanitize-html-react": "^1.13.0",
 		"shallowequal": "^1.1.0",
-		"styled-components": "^4.4.1"
+		"styled-components": "^4.4.1",
+		"supports-webp": "^2.0.1"
 	},
 	"keywords": [
 		"gatsby"
