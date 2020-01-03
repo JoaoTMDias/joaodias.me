@@ -1,5 +1,5 @@
 // Libraries
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { rem } from "polished";
@@ -10,35 +10,44 @@ import { above } from "../../../helpers/media-queries.helper";
  ** @type: functional stateless component
  ** @description: Copyright on Bottom
  ********* */
-const FooterContent = () => (
-	<Wrapper className="layout__container">
-		<div className="layout__row">
-			<div className="left">
-				<ul className="list">
-					<li className="item">
-						<Link to="/">Homepage</Link>
-					</li>
-					<li className="item">
-						<Link to="/about/">About</Link>
-					</li>
-					<li className="item">
-						<Link to="/contact/">Contact</Link>
-					</li>
-				</ul>
+const FooterContent = () => {
+	const [year, setYear] = useState("");
+
+	useEffect(() => {
+		const date = new Date().getFullYear();
+		setYear(date);
+	}, []);
+
+	return (
+		<Wrapper className="layout__container">
+			<div className="layout__row">
+				<div className="left">
+					<ul className="list">
+						<li className="item">
+							<Link to="/">Homepage</Link>
+						</li>
+						<li className="item">
+							<Link to="/about/">About</Link>
+						</li>
+						<li className="item">
+							<Link to="/contact/">Contact</Link>
+						</li>
+					</ul>
+				</div>
+				<div className="right">
+					<ul className="list">
+						<li className="item">
+							<Link to="/privacy-policy/">Privacy Policy</Link>
+						</li>
+						<li className="item">
+							<p>{`${year} - João Dias. All Rights Reserved`}</p>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div className="right">
-				<ul className="list">
-					<li className="item">
-						<Link to="/privacy-policy/">Privacy Policy</Link>
-					</li>
-					<li className="item">
-						<p>{new Date().getFullYear()} &copy; João Dias. All Rights Reserved</p>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</Wrapper>
-);
+		</Wrapper>
+	);
+};
 
 // Styled
 const Wrapper = styled.div`

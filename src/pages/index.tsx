@@ -30,10 +30,10 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 
 			return (
 				<ProjectItem
-					alt={featuredImage ? featuredImage.description : ""}
+					alt={featuredImage?.description || ""}
 					color={color}
-					description={description ? description.description : ""}
-					fluid={featuredImage ? featuredImage.fluid : undefined}
+					description={description?.description || ""}
+					fluid={featuredImage?.fluid || undefined}
 					id={id}
 					key={id}
 					loading="auto"
@@ -44,7 +44,11 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 				/>
 			);
 		});
-		return <List className="layout__row">{list}</List>;
+		return (
+			<Wrapper id="main-content" className="layout__container layout__section">
+				<List className="layout__row">{list}</List>
+			</Wrapper>
+		);
 	}
 
 	return (
@@ -54,9 +58,7 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 
 				<Meta title="Homepage" location={location} />
 				<HomePageHero />
-				<Wrapper id="main-content" className="layout__container layout__section">
-					{renderPortfolioItems()}
-				</Wrapper>
+				{renderPortfolioItems()}
 				<CallToActionWrapper>
 					<CallToActionItem
 						id="cta-resume-pdf"

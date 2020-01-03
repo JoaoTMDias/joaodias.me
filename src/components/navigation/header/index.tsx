@@ -22,7 +22,7 @@ import { Branding } from "../../branding";
 export const Header: FunctionComponent = () => {
 	return (
 		<Wrapper id="page-header" className="header">
-			<div key="header" className="layout__row header__row">
+			<div className="layout__row header__row">
 				<Branding />
 				<BackNavigation />
 				<HeaderPageTitle />
