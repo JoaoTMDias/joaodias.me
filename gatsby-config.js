@@ -43,12 +43,6 @@ const manifestOptions = {
 	],
 };
 
-const analyticsOptions = {
-	trackingId: "UA-54851814-1",
-	head: false,
-	anonymize: true,
-};
-
 const offlineOptions = {
 	cacheId: "joaotmdias-cache",
 };
@@ -105,10 +99,6 @@ module.exports = {
 		{
 			resolve: "gatsby-plugin-sitemap",
 			options: sitemapOptions,
-		},
-		{
-			resolve: "gatsby-plugin-google-analytics",
-			options: analyticsOptions,
 		},
 		"gatsby-plugin-netlify",
 
