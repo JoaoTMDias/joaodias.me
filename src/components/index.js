@@ -32,7 +32,7 @@ export * from "./main-content";
 export * from "./content-page";
 export * from "./logo-carousel/logo-carousel.component";
 export * from "./navigation/bottom-navigation/index";
-export * from "./navigation/social-navigation/social-navigation.component";
+export * from "./navigation/social-navigation/index";
 export * from "./skills-deck/index";
 export {
 	A11yPageTitle,

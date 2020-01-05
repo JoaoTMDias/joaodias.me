@@ -148,6 +148,7 @@ const Wrapper = styled.div`
 		display: flex;
 		flex-direction: column;
 		margin: 0;
+		padding: 0;
 
 		${above.large`
       flex-direction: row;

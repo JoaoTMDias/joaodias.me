@@ -10,7 +10,7 @@ import { LargeNavigation } from "../large-navigation";
 
 // Styles
 import { above } from "../../../helpers/media-queries.helper";
-import { SocialNavigation } from "../social-navigation/social-navigation.component";
+import { SocialNavigation } from "../social-navigation/index";
 import { Branding } from "../../branding";
 
 /**

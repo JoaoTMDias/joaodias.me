@@ -1,14 +1,16 @@
 import React from "react";
-import styled from "styled-components";
-import { rem } from "polished";
-import ExternalLink from "../external-link";
-import { above } from "../../../helpers/media-queries.helper";
+import { Container, List, Link, Item } from "./styles";
 
 export const SocialNavigation = () => (
 	<Container id="social-navigation" title="Social network links">
 		<List>
 			<Item>
-				<Link to="https://fb.com/JoaoTMDias" aria-label="Follow me on Facebook" tabIndex={0}>
+				<Link
+					to="https://fb.com/JoaoTMDias"
+					aria-label="Follow me on Facebook"
+					title="Follow me on Facebook"
+					tabIndex={0}
+				>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path fill="white" d="M12.88 22v-.07a10.55 10.55 0 0 1-1.13.07z" />
 						<path
@@ -23,6 +25,7 @@ export const SocialNavigation = () => (
 				<Link
 					to="https://instagram.com/JoaoTMDias"
 					aria-label="Follow me on Instagram"
+					title="Follow me on Instagram"
 					tabIndex={0}
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -45,6 +48,7 @@ export const SocialNavigation = () => (
 				<Link
 					to="https://github.com/Joaotmdias"
 					aria-label="Check out my repos on Github"
+					title="Check out my repos on Github"
 					tabIndex={0}
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -61,6 +65,7 @@ export const SocialNavigation = () => (
 				<Link
 					to="https://dribbble.com/Joaotmdias"
 					aria-label="Check out some dribble shots"
+					title="Check out some dribble shots"
 					tabIndex={0}
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -77,108 +82,25 @@ export const SocialNavigation = () => (
 					</svg>
 				</Link>
 			</Item>
+
+			<Item>
+				<Link
+					to="https://twitter.com/Joaotmdias"
+					aria-label="Follow me on Twitter"
+					title="Follow me on Twitter"
+					tabIndex={0}
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+						<path
+							className="social__fill"
+							fill="var(--color-gray5, #afb2be)"
+							d="M24 4.309c-.892.391-1.843.65-2.835.776a4.893 4.893 0 0 0 2.165-2.719 9.833 9.833 0 0 1-3.12 1.191 4.919 4.919 0 0 0-8.511 3.365c0 .39.033.764.114 1.121-4.091-.199-7.71-2.16-10.142-5.146a4.954 4.954 0 0 0-.673 2.487c0 1.704.877 3.214 2.185 4.089A4.859 4.859 0 0 1 .96 8.867v.054a4.943 4.943 0 0 0 3.942 4.835c-.4.109-.837.162-1.29.162a4.35 4.35 0 0 1-.932-.084c.638 1.948 2.447 3.38 4.598 3.427a9.886 9.886 0 0 1-6.1 2.099c-.404 0-.791-.018-1.178-.068A13.852 13.852 0 0 0 7.548 21.5c9.054 0 14.004-7.5 14.004-14.001 0-.217-.008-.427-.018-.636A9.816 9.816 0 0 0 24 4.309z"
+						/>
+					</svg>
+				</Link>
+			</Item>
 		</List>
 	</Container>
 );
-
-// Styles
-const Container = styled.nav`
-	max-height: var(--navbar-height);
-	display: flex;
-	align-self: flex-end;
-`;
-
-const List = styled.ul`
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
-	font-family: var(--body-font-family);
-	max-height: $navbar-height;
-	margin: 0 auto;
-	max-width: ${rem("220px")};
-	width: 100%;
-`;
-
-const Item = styled.li`
-	display: inline-flex;
-	list-style-type: none;
-	line-height: ${rem("48px")};
-	padding: 0;
-	margin: 0;
-	align-items: flex-start;
-	justify-content: center;
-	position: relative;
-
-	&:last-item {
-		margin-right: 0;
-	}
-	a {
-		padding: ${rem("12px")} 0px;
-		font-family: inherit;
-		font-size: ${rem("14px")};
-		color: var(--color-gray8, #646b82);
-		letter-spacing: ${rem("0.5px")};
-		line-height: ${rem("48px")};
-		text-transform: uppercase;
-		text-decoration: none;
-		align-items: center;
-		display: flex;
-		overflow: hidden;
-		position: relative;
-
-		&:before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: $color-primary;
-			transform: translate3d(-100%, 0, 0) translate3d(-1px, 0, 0);
-			transition: transform 640ms;
-			transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-		}
-		&:hover,
-		&:focus {
-			color: var(--color-alternate);
-			fill: var(--color-alternate);
-			&:after {
-				transform: translate3d(0%, 0, 0);
-			}
-			&:before {
-				transform: translate3d(100%, 0, 0) translate3d(1px, 0, 0);
-			}
-		}
-		&:active {
-			outline: 1;
-		}
-	}
-`;
-
-const Link = styled(ExternalLink)`
-	width: ${rem("32px")};
-	height: ${rem("48px")};
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-
-	${above.large`
-		width: ${rem("48px")};
-	`};
-
-	&:hover,
-	&:focus {
-		.social__fill {
-			fill: var(--color-alternate);
-		}
-	}
-
-	svg {
-		width: ${rem("24px")};
-		height: ${rem("24px")};
-		display: flex;
-	}
-`;
 
 export default SocialNavigation;
