@@ -21,7 +21,8 @@ const ProjectPage: React.FunctionComponent<IProjectPageProps> = props => {
 	const [post, setPost] = useState<IContentfulPortfolio | null>(null);
 
 	useEffect(() => {
-		setPost(get<IProjectPageProps>(props, "data.contentfulPortfolio"));
+		const newPost = get<IProjectPageProps>(props, "data.contentfulPortfolio");
+		setPost(newPost);
 	}, [props]);
 
 	if (post) {

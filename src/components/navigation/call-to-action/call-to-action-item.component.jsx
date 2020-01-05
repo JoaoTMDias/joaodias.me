@@ -155,6 +155,7 @@ const Item = styled(Link)`
 		font-weight: 300;
 		color: var(--call-to-action-title, #030304);
 		font-size: ${rem("20px")};
+		margin-top: ${rem("8px")};
 
 		${above.medium`
       font-size: ${rem("24px")};
@@ -187,11 +188,12 @@ const Item = styled(Link)`
 		text-align: center;
 		width: 100%;
 		margin: 0 auto;
-
-		font-size: ${rem("16px")};
+		text-transform: uppercase;
+		letter-spacing: ${rem("2px")};
+		font-size: ${rem("12px")};
 
 		${above.large`
-      font-size: ${rem("18px")};
+      font-size: ${rem("14px")};
     `};
 	}
 `;

@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import { above } from "../../../helpers";
-import supportsWebP from "supports-webp";
 
 export const MaskAnimation = keyframes`
  0% {
@@ -28,8 +27,8 @@ export const Masthead = styled.div`
 	margin-top: 1rem;
 	clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
 	animation-name: ${MaskAnimation};
-	animation-duration: 1500ms;
-	animation-delay: 500ms;
+	animation-duration: 750ms;
+	animation-delay: 250ms;
 	animation-fill-mode: forwards;
 	animation-timing-function: ease-in-out;
 
@@ -49,21 +48,12 @@ export const Masthead = styled.div`
 export const BackgroundImage = styled.figure`
 	width: 100%;
 	height: 100%;
-	background-image: ${(props: { backgroundImage: string }) => {
-		if (props.backgroundImage) {
-			let src = "";
-
-			supportsWebP.then(supported => {
-				if (supported) {
-					src = `url(${props.backgroundImage}?h=640&fm=webp&q=100)`;
-				} else {
-					src = `url(${props.backgroundImage}?h=640&fm=jpg&q=90&fl=progressive)`;
-				}
-			});
-			return src;
+	background-image: ${({ supports, file }: { supports: boolean; file: string }) => {
+		if (!file) {
+			return "none";
 		}
 
-		return "none";
+		return supports ? `url(${file}?h=640&fm=webp&q=100)` : `url(${file}?h=640&fm=jpg&q=90&fl=progressive)`;
 	}};
 	background-size: cover;
 	background-repeat: no-repeat;

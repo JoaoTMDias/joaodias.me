@@ -42,7 +42,6 @@ const Wrapper = styled.header`
 	top: 0;
 
 	${above.large`
-    background-color: transparent;
     margin-top: ${rem("24px")};
   `};
 
