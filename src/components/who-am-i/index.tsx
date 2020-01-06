@@ -2,16 +2,18 @@
 import Img from "gatsby-image";
 import * as React from "react";
 import { Container, Shape, Content } from "../../pages/about/styles";
+import { ContentSpinner } from "../content-spinner";
 
 // Interface
-interface IWhoAmIProps {
-	data: {
-		id: string;
-		title: string;
-		description: string;
-		fluid: any;
-		alt?: string;
-	};
+export interface IWhoAmIData {
+	id: string;
+	title: string;
+	description: string;
+	fluid: any;
+	alt?: string;
+}
+export interface IWhoAmIProps {
+	data?: IWhoAmIData;
 }
 
 /**
@@ -25,7 +27,7 @@ export const WhoAmI: React.FunctionComponent<IWhoAmIProps> = ({ data }) => {
 	 *
 	 * @returns {JSX.Element|null}
 	 */
-	function renderImage(): JSX.Element | null {
+	function renderImage(): JSX.Element {
 		if (data) {
 			return (
 				<Container>
@@ -36,7 +38,7 @@ export const WhoAmI: React.FunctionComponent<IWhoAmIProps> = ({ data }) => {
 			);
 		}
 
-		return null;
+		return <ContentSpinner />;
 	}
 
 	return (

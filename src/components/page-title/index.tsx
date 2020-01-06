@@ -2,6 +2,7 @@
  * Import Libraries
  */
 import React from "react";
+import classnames from "classnames";
 import { useSpring, animated } from "react-spring";
 import { Container, Row, Title, Subtitle } from "./styles";
 import { IPageTitleProps } from "./types";
@@ -22,6 +23,7 @@ export const PageTitle: React.FunctionComponent<IPageTitleProps> = ({
 	children,
 	center,
 	isProject,
+	backgroundColor,
 }) => {
 	const animatedProps = useSpring({
 		from,
@@ -34,13 +36,39 @@ export const PageTitle: React.FunctionComponent<IPageTitleProps> = ({
 	const AnimatedTitle = animated(Title);
 	const AnimatedSubtitle = animated(Subtitle);
 
+	const rowClassNames = classnames("layout__row", "parallax", {
+		isCenter: center,
+		isProject,
+	});
+	const classNames = center ? "isCenter" : "";
+
 	return (
 		<Container className="layout__container layout__container layout__section utilities--above-the-fold">
-			<Row className="layout__row parallax" center={center} isProject={isProject}>
-				<AnimatedTitle center={center} isProject={isProject} aria-label={`Page Title: ${title}`} style={animatedProps}>
+			<Row
+				data-testid="row"
+				className={rowClassNames}
+				center={center}
+				isProject={isProject}
+				backgroundColor={backgroundColor}
+			>
+				<AnimatedTitle
+					data-testid="title"
+					classNames={classNames}
+					center={center}
+					isProject={isProject}
+					aria-label={`Page Title: ${title}`}
+					style={animatedProps}
+				>
 					{title}
 				</AnimatedTitle>
-				<AnimatedSubtitle center={center} aria-label={`Page Subtitle: ${subtitle}`} tabIndex={0} style={animatedProps}>
+				<AnimatedSubtitle
+					data-testid="subtitle"
+					classNames={classNames}
+					center={center}
+					aria-label={`Page Subtitle: ${subtitle}`}
+					tabIndex={0}
+					style={animatedProps}
+				>
 					{subtitle}
 				</AnimatedSubtitle>
 			</Row>

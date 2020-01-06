@@ -38,6 +38,7 @@ export const ContentSpinner: React.FunctionComponent<IContentSpinnerProps> = pro
 			fullPage={fullPage}
 			color={color}
 			delay={delay}
+			size={size}
 			duration={duration}
 			style={style}
 		>

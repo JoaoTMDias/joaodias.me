@@ -1,77 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LargeNavigation /> should render without errors 1`] = `
+exports[`<PageTitle> should render a title and a subtitle: subtitle 1`] = `
+<h2
+  aria-label="Page Subtitle: subtitle"
+  class="sc-htpNat bZdFfz"
+  data-testid="subtitle"
+  style="opacity: 0; transform: translate3d(0, 1rem, 0);"
+  tabindex="0"
+>
+  subtitle
+</h2>
+`;
+
+exports[`<PageTitle> should render without error 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <nav
-        class="sc-bdVaJa gaIdZl"
-        id="top-navigation"
-        title="Top Navigation"
+      <section
+        class="sc-bdVaJa klHDzb layout__container layout__container layout__section utilities--above-the-fold"
       >
-        <ul
-          class="sc-bwzfXH femaaO"
+        <div
+          class="sc-bwzfXH jHdqqA layout__row parallax"
+          data-testid="row"
         >
-          <li
-            class="sc-htpNat dSWCFY"
-          >
-            <a
-              aria-label="Go to the about page"
-              class="large-nav__link"
-              href="/about/"
-            >
-              About
-            </a>
-          </li>
-          <li
-            class="sc-htpNat dSWCFY"
-          >
-            <a
-              aria-label="Go to the contacts page"
-              class="large-nav__link"
-              href="/contact/"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
+          <h1
+            aria-label="Page Title: undefined"
+            class="sc-bxivhb jxZTUD"
+            data-testid="title"
+            style="opacity: 0; transform: translate3d(0, 1rem, 0);"
+          />
+          <h2
+            aria-label="Page Subtitle: undefined"
+            class="sc-htpNat bZdFfz"
+            data-testid="subtitle"
+            style="opacity: 0; transform: translate3d(0, 1rem, 0);"
+            tabindex="0"
+          />
+        </div>
+      </section>
     </div>
   </body>,
   "container": <div>
-    <nav
-      class="sc-bdVaJa gaIdZl"
-      id="top-navigation"
-      title="Top Navigation"
+    <section
+      class="sc-bdVaJa klHDzb layout__container layout__container layout__section utilities--above-the-fold"
     >
-      <ul
-        class="sc-bwzfXH femaaO"
+      <div
+        class="sc-bwzfXH jHdqqA layout__row parallax"
+        data-testid="row"
       >
-        <li
-          class="sc-htpNat dSWCFY"
-        >
-          <a
-            aria-label="Go to the about page"
-            class="large-nav__link"
-            href="/about/"
-          >
-            About
-          </a>
-        </li>
-        <li
-          class="sc-htpNat dSWCFY"
-        >
-          <a
-            aria-label="Go to the contacts page"
-            class="large-nav__link"
-            href="/contact/"
-          >
-            Contact
-          </a>
-        </li>
-      </ul>
-    </nav>
+        <h1
+          aria-label="Page Title: undefined"
+          class="sc-bxivhb jxZTUD"
+          data-testid="title"
+          style="opacity: 0; transform: translate3d(0, 1rem, 0);"
+        />
+        <h2
+          aria-label="Page Subtitle: undefined"
+          class="sc-htpNat bZdFfz"
+          data-testid="subtitle"
+          style="opacity: 0; transform: translate3d(0, 1rem, 0);"
+          tabindex="0"
+        />
+      </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,77 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LargeNavigation /> should render without errors 1`] = `
+exports[`<SkipLink> should render without error 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <nav
-        class="sc-bdVaJa gaIdZl"
-        id="top-navigation"
-        title="Top Navigation"
+      <a
+        aria-label="Press Enter to skip and go to Main Content"
+        class="sc-bdVaJa hzEVzb"
+        href="#main-content"
       >
-        <ul
-          class="sc-bwzfXH femaaO"
-        >
-          <li
-            class="sc-htpNat dSWCFY"
-          >
-            <a
-              aria-label="Go to the about page"
-              class="large-nav__link"
-              href="/about/"
-            >
-              About
-            </a>
-          </li>
-          <li
-            class="sc-htpNat dSWCFY"
-          >
-            <a
-              aria-label="Go to the contacts page"
-              class="large-nav__link"
-              href="/contact/"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
+        Skip to Main Content
+      </a>
     </div>
   </body>,
   "container": <div>
-    <nav
-      class="sc-bdVaJa gaIdZl"
-      id="top-navigation"
-      title="Top Navigation"
+    <a
+      aria-label="Press Enter to skip and go to Main Content"
+      class="sc-bdVaJa hzEVzb"
+      href="#main-content"
     >
-      <ul
-        class="sc-bwzfXH femaaO"
-      >
-        <li
-          class="sc-htpNat dSWCFY"
-        >
-          <a
-            aria-label="Go to the about page"
-            class="large-nav__link"
-            href="/about/"
-          >
-            About
-          </a>
-        </li>
-        <li
-          class="sc-htpNat dSWCFY"
-        >
-          <a
-            aria-label="Go to the contacts page"
-            class="large-nav__link"
-            href="/contact/"
-          >
-            Contact
-          </a>
-        </li>
-      </ul>
-    </nav>
+      Skip to Main Content
+    </a>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

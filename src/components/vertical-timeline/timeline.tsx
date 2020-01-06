@@ -6,7 +6,7 @@ import { VerticalTimeline, VerticalTimelineElement } from "../index";
  * @description Timeline
  * @author  João Dias
  * @date  02/December/2018 at 00:01
- * @extends {React.SFC}
+ * @extends {React.FC}
  */
 export const Timeline: React.FunctionComponent = () => (
 	<section id="vertical-timeline">

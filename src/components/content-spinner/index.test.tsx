@@ -47,11 +47,19 @@ describe("<ContentSpinner />", () => {
 		expect(spinner).toHaveClass("isCenter");
 	});
 
+	it("should not center the spinner", async () => {
+		const center = false;
+		const { findByTestId } = render(<ContentSpinner size={40} delay={1500} temporary center={center} />);
+		const spinner = await findByTestId("component-content-spinner");
+
+		expect(spinner).not.toHaveClass("isCenter");
+	});
+
 	it("should render custom styles", async () => {
 		const customStyles = {
 			animationDelay: "3000ms",
 		};
-		const { findByTestId } = render(<ContentSpinner style={customStyles} />);
+		const { findByTestId } = render(<ContentSpinner fullPage duration={5000} size={40} style={customStyles} />);
 		const spinner = await findByTestId("component-content-spinner");
 
 		expect(spinner).toHaveStyle(`

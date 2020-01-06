@@ -6,9 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdVaJa gEUmbN content-spinner isCenter"
+        class="sc-bdVaJa kYrJVa content-spinner isCenter"
         color="hsl(0, 0%, 60%)"
         data-testid="component-content-spinner"
+        size="24"
         tabindex="-1"
       >
         <svg
@@ -33,9 +34,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-bdVaJa gEUmbN content-spinner isCenter"
+      class="sc-bdVaJa kYrJVa content-spinner isCenter"
       color="hsl(0, 0%, 60%)"
       data-testid="component-content-spinner"
+      size="24"
       tabindex="-1"
     >
       <svg

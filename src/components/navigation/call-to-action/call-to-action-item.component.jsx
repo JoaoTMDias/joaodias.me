@@ -6,7 +6,6 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { rem } from "polished";
-import ExternalLink from "../external-link";
 
 /**
  * Styling

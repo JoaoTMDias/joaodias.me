@@ -1,6 +1,5 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 import AlbumCover, { defaultProps } from "./album-cover";
 import { LastPlayedSong } from "./last-played-song";
 import { LastPlayedSongCard, ILastPlayedSongCardProps } from "./last-played-song-card";

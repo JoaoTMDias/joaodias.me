@@ -41,39 +41,41 @@ const spinnerRotate = keyframes`
 // Markup
 export const ContentSpinnerWrapper = styled.div`
 	width: 100%;
-	height: ${(props: IContentSpinnerProps) => {
-		if (props.fullPage) {
+	height: ${({ fullPage, center, size }: IContentSpinnerProps) => {
+		if (fullPage) {
 			return "100vh";
 		}
-		if (props.center) {
+		if (center) {
 			return "100%";
 		}
-		return `${props.size}px`;
+		return `${size}px`;
 	}};
 	margin: 0 auto;
 	position: relative;
 	display: table;
 	display: flex;
 	flex-direction: row;
-	justify-content: ${(props: IContentSpinnerProps) => (props.center ? "center" : "inherit")};
-	align-items: ${(props: IContentSpinnerProps) => (props.center ? "center" : "inherit")};
+	justify-content: ${({ center }: IContentSpinnerProps) => (center ? "center" : "inherit")};
+	align-items: ${({ center }: IContentSpinnerProps) => (center ? "center" : "inherit")};
 	background-color: transparent;
 	opacity: 1;
 	user-select: none;
 	pointer-events: none;
 
-	${(props: IContentSpinnerProps) =>
-		props.temporary &&
-		css`
-			animation-name: ${hideTimeout};
-			animation-duration: 500ms;
-			animation-delay: ${props.duration ? `${props.duration}ms` : "3000ms"};
-			animation-timing-function: var(--default-timing-function);
-			animation-fill-mode: forwards;
-		`};
+	${({ temporary, duration }: IContentSpinnerProps) => {
+		if (temporary) {
+			return css`
+				animation-name: ${hideTimeout};
+				animation-duration: 500ms;
+				animation-delay: ${`${duration}ms`};
+				animation-timing-function: var(--default-timing-function);
+				animation-fill-mode: forwards;
+			`;
+		}
+	}};
 
 	.spinner {
-		&__content {
+		&__container {
 			display: table-cell;
 			vertical-align: middle;
 			display: flex;
@@ -82,20 +84,22 @@ export const ContentSpinnerWrapper = styled.div`
 			top: 50%;
 			left: 50%;
 
-			${(props: IContentSpinnerProps) =>
-				props.size &&
-				css`
-					margin-top: ${rem(`${-1 * (props.size * 0.5)}px`)};
-					margin-right: 0;
-					margin-bottom: 0;
-					margin-left: ${rem(`${-1 * (props.size * 0.5)}px`)}
+			${({ size }: IContentSpinnerProps) => {
+				if (size) {
+					return css`
+						margin-top: ${rem(`${-1 * (size * 0.5)}px`)};
+						margin-right: 0;
+						margin-bottom: 0;
+						margin-left: ${rem(`${-1 * (size * 0.5)}px`)}
 
-					width: ${rem(`${props.size}px`)};
-					height: ${rem(`${props.size}px`)};
-				`};
+						width: ${rem(`${size}px`)};
+						height: ${rem(`${size}px`)};
+					`;
+				}
+			}};
 
 			animation-name: ${spinnerRotate};
-			animation-duration: ${(props: IContentSpinnerProps) => `${props.duration}ms`};
+			animation-duration: ${({ duration }: IContentSpinnerProps) => `${duration}ms`};
 			animation-timing-function: linear;
 			animation-delay: 0s;
 			animation-iteration-count: infinite;
@@ -105,11 +109,11 @@ export const ContentSpinnerWrapper = styled.div`
 		}
 
 		&__icon {
-			stroke: ${(props: IContentSpinnerProps) => `${props.color}`};
+			stroke: ${({ color }: IContentSpinnerProps) => `${color}`};
 			stroke-linecap: round;
 
 			animation-name: ${dashAnimation};
-			animation-duration: ${(props: IContentSpinnerProps) => (props.duration ? `${props.duration * 0.5}ms` : "3000ms")};
+			animation-duration: ${({ duration }: IContentSpinnerProps) => duration && `${duration * 0.5}ms`};
 			animation-timing-function: var(--default-timing-function);
 			animation-iteration-count: infinite;
 			animation-delay: 0;
@@ -117,13 +121,14 @@ export const ContentSpinnerWrapper = styled.div`
 			animation-fill-mode: none;
 			animation-play-state: running;
 
-			${(props: IContentSpinnerProps) =>
-				props.delay &&
-				css`
-					animation-delay: ${props.delay ? `${props.delay}ms` : "1000ms"};
-				`};
+			${({ delay }: IContentSpinnerProps) => {
+				if (delay) {
+					return css`
+						animation-delay: ${delay && `${delay}ms`};
+					`;
+				}
+			}};
 		}
-	}
 `;
 
 export default ContentSpinnerWrapper;

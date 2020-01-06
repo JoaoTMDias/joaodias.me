@@ -18,12 +18,15 @@ export function useAsyncHook(url: string) {
 	const [loading, setLoading] = React.useState<IUserAsyncHookLoading>(false);
 
 	React.useEffect(() => {
+		/**
+		 * Fetches the latest song
+		 */
 		async function fetchLatestSong() {
 			try {
 				setLoading(true);
 				const response = await ExternalServices.getLatestSong(url);
 				const { data } = await response;
-				const { recenttracks } = data;
+				const { recenttracks } = await data;
 				const song = recenttracks.track.slice(0, FIRST_SONG)[0];
 
 				setResult(song);

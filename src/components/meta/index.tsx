@@ -15,7 +15,7 @@ interface IMetaProps {
  * @description Meta Configurations
  * @author  João Dias
  * @date  01/December/2018 at 16:57
- * @extends {React.SFC}
+ * @extends {React.FC}
  */
 export const Meta: React.FunctionComponent<IMetaProps> = props => {
 	const { title, description, location, noIndex } = props;

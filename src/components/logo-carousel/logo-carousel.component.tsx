@@ -8,7 +8,7 @@ import { above } from "../../helpers/media-queries.helper";
  * @description asdasd
  * @author  João Dias
  * @date  30/November/2018 at 00:41
- * @extends {React.SFC}
+ * @extends {React.FC}
  */
 export const LogoCarousel: React.FunctionComponent = () => {
 	return (

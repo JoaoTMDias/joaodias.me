@@ -11,7 +11,7 @@ import { A11yPageTitle } from "../../components/index";
  * @descriptZion Not Found Page
  * @author  João Dias
  * @date  02/December/2018 at 00:01
- * @extends {React.SFC}
+ * @extends {React.FC}
  */
 const NotFoundPage: React.FunctionComponent = () => {
 	return (

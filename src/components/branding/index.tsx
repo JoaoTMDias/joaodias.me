@@ -6,7 +6,7 @@ import { Brand, Logo } from "./styles";
  * @description JoaoDias Logo
  * @author  João Dias
  * @date  01/December/2018 at 16:38
- * @extends {React.SFC}
+ * @extends {React.FC}
  */
 export const Branding: React.FunctionComponent = () => {
 	return (

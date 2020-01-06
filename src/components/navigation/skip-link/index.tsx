@@ -8,9 +8,9 @@ import { above } from "../../../helpers/media-queries.helper";
  * @description Skip Link to Main Content
  * @author  João Dias
  * @date  07/December/2018 at 23:19
- * @extends {React.SFC}
+ * @extends {React.FC}
  */
-const SkipLink: React.FunctionComponent = () => {
+export const SkipLink = () => {
 	return (
 		<Link href="#main-content" aria-label="Press Enter to skip and go to Main Content">
 			Skip to Main Content
