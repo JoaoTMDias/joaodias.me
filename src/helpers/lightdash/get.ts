@@ -8,7 +8,7 @@
  * @param {*} [value]
  * @returns {*}
  */
-export function get<T>(object: T | any, path: string | string[], value?: any): any {
+export function get<T>(object: T | any, path: string | string[] | null, value?: any): any {
 	// If path is not defined or it has false value
 	if (!path) return undefined;
 
