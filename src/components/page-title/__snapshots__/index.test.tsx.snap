@@ -3,7 +3,7 @@
 exports[`<PageTitle> should render a title and a subtitle: subtitle 1`] = `
 <h2
   aria-label="Page Subtitle: subtitle"
-  class="sc-htpNat bZdFfz"
+  class="sc-AykKE bILEXQ"
   data-testid="subtitle"
   style="opacity: 0; transform: translate3d(0, 1rem, 0);"
   tabindex="0"
@@ -18,21 +18,21 @@ Object {
   "baseElement": <body>
     <div>
       <section
-        class="sc-bdVaJa klHDzb layout__container layout__container layout__section utilities--above-the-fold"
+        class="sc-AykKC ejEVkx layout__container layout__container layout__section utilities--above-the-fold"
       >
         <div
-          class="sc-bwzfXH jHdqqA layout__row parallax"
+          class="sc-AykKD cVzQVZ layout__row parallax"
           data-testid="row"
         >
           <h1
             aria-label="Page Title: undefined"
-            class="sc-bxivhb jxZTUD"
+            class="sc-AykKF cWGchN"
             data-testid="title"
             style="opacity: 0; transform: translate3d(0, 1rem, 0);"
           />
           <h2
             aria-label="Page Subtitle: undefined"
-            class="sc-htpNat bZdFfz"
+            class="sc-AykKE bILEXQ"
             data-testid="subtitle"
             style="opacity: 0; transform: translate3d(0, 1rem, 0);"
             tabindex="0"
@@ -43,21 +43,21 @@ Object {
   </body>,
   "container": <div>
     <section
-      class="sc-bdVaJa klHDzb layout__container layout__container layout__section utilities--above-the-fold"
+      class="sc-AykKC ejEVkx layout__container layout__container layout__section utilities--above-the-fold"
     >
       <div
-        class="sc-bwzfXH jHdqqA layout__row parallax"
+        class="sc-AykKD cVzQVZ layout__row parallax"
         data-testid="row"
       >
         <h1
           aria-label="Page Title: undefined"
-          class="sc-bxivhb jxZTUD"
+          class="sc-AykKF cWGchN"
           data-testid="title"
           style="opacity: 0; transform: translate3d(0, 1rem, 0);"
         />
         <h2
           aria-label="Page Subtitle: undefined"
-          class="sc-htpNat bZdFfz"
+          class="sc-AykKE bILEXQ"
           data-testid="subtitle"
           style="opacity: 0; transform: translate3d(0, 1rem, 0);"
           tabindex="0"

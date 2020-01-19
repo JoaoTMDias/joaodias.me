@@ -19,6 +19,6 @@
 		"strictNullChecks": true,
 		"target": "esnext"
 	},
-	"include": ["./src/**/*", "./test/**/*"],
+	"include": ["./global.d.ts", "./src/**/*", "./test/**/*"],
 	"exclude": ["node_modules", "public", ".cache"]
 }

@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <footer
-        class="sc-bwzfXH bqZPIk layout__container layout__section"
+        class="sc-AykKD cXSwCk layout__container layout__section"
       >
         <div
-          class="sc-bdVaJa cTKECA layout__container"
+          class="sc-AykKC AFixT layout__container"
         >
           <div
             class="layout__row"
@@ -82,10 +82,10 @@ Object {
   </body>,
   "container": <div>
     <footer
-      class="sc-bwzfXH bqZPIk layout__container layout__section"
+      class="sc-AykKD cXSwCk layout__container layout__section"
     >
       <div
-        class="sc-bdVaJa cTKECA layout__container"
+        class="sc-AykKC AFixT layout__container"
       >
         <div
           class="layout__row"

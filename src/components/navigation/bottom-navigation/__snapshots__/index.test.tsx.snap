@@ -6,20 +6,20 @@ Object {
   "baseElement": <body>
     <div>
       <nav
-        class="sc-bdVaJa fPAtZY"
+        class="sc-AykKC kajxDN"
         id="bottom-navigation-bar"
       >
         <ul
-          class="sc-bwzfXH jvfBqE layout__row"
+          class="sc-AykKD grkKaP layout__row"
         >
           <li
-            class="sc-htpNat dnKusL"
+            class="sc-AykKE jsSRMZ"
             title="Go to Homepage"
           >
             <a
               aria-current="page"
               aria-label="Click to go to the Homepage"
-              class="sc-bxivhb gqRPSz is-active"
+              class="sc-AykKF hlMpTp is-active"
               data-testid="tab-link"
               href="/"
               tabindex="0"
@@ -56,12 +56,12 @@ Object {
             </a>
           </li>
           <li
-            class="sc-htpNat dnKusL"
+            class="sc-AykKE jsSRMZ"
             title="Go to my About page"
           >
             <a
               aria-label="Click to go to the About page"
-              class="sc-bxivhb gqRPSz"
+              class="sc-AykKF hlMpTp"
               data-testid="tab-link"
               href="/about"
               tabindex="0"
@@ -141,12 +141,12 @@ Object {
             </a>
           </li>
           <li
-            class="sc-htpNat dnKusL"
+            class="sc-AykKE jsSRMZ"
             title="Go to Contact page"
           >
             <a
               aria-label="Click to go to the Contacts page"
-              class="sc-bxivhb gqRPSz"
+              class="sc-AykKF hlMpTp"
               data-testid="tab-link"
               href="/contact"
               tabindex="0"
@@ -188,20 +188,20 @@ Object {
   </body>,
   "container": <div>
     <nav
-      class="sc-bdVaJa fPAtZY"
+      class="sc-AykKC kajxDN"
       id="bottom-navigation-bar"
     >
       <ul
-        class="sc-bwzfXH jvfBqE layout__row"
+        class="sc-AykKD grkKaP layout__row"
       >
         <li
-          class="sc-htpNat dnKusL"
+          class="sc-AykKE jsSRMZ"
           title="Go to Homepage"
         >
           <a
             aria-current="page"
             aria-label="Click to go to the Homepage"
-            class="sc-bxivhb gqRPSz is-active"
+            class="sc-AykKF hlMpTp is-active"
             data-testid="tab-link"
             href="/"
             tabindex="0"
@@ -238,12 +238,12 @@ Object {
           </a>
         </li>
         <li
-          class="sc-htpNat dnKusL"
+          class="sc-AykKE jsSRMZ"
           title="Go to my About page"
         >
           <a
             aria-label="Click to go to the About page"
-            class="sc-bxivhb gqRPSz"
+            class="sc-AykKF hlMpTp"
             data-testid="tab-link"
             href="/about"
             tabindex="0"
@@ -323,12 +323,12 @@ Object {
           </a>
         </li>
         <li
-          class="sc-htpNat dnKusL"
+          class="sc-AykKE jsSRMZ"
           title="Go to Contact page"
         >
           <a
             aria-label="Click to go to the Contacts page"
-            class="sc-bxivhb gqRPSz"
+            class="sc-AykKF hlMpTp"
             data-testid="tab-link"
             href="/contact"
             tabindex="0"

@@ -6,15 +6,15 @@ Object {
   "baseElement": <body>
     <div>
       <nav
-        class="sc-bdVaJa gaIdZl"
+        class="sc-AykKC htBHgQ"
         id="top-navigation"
         title="Top Navigation"
       >
         <ul
-          class="sc-bwzfXH femaaO"
+          class="sc-AykKD ktOThc"
         >
           <li
-            class="sc-htpNat dSWCFY"
+            class="sc-AykKE dOVNZf"
           >
             <a
               aria-label="Go to the about page"
@@ -25,7 +25,7 @@ Object {
             </a>
           </li>
           <li
-            class="sc-htpNat dSWCFY"
+            class="sc-AykKE dOVNZf"
           >
             <a
               aria-label="Go to the contacts page"
@@ -41,15 +41,15 @@ Object {
   </body>,
   "container": <div>
     <nav
-      class="sc-bdVaJa gaIdZl"
+      class="sc-AykKC htBHgQ"
       id="top-navigation"
       title="Top Navigation"
     >
       <ul
-        class="sc-bwzfXH femaaO"
+        class="sc-AykKD ktOThc"
       >
         <li
-          class="sc-htpNat dSWCFY"
+          class="sc-AykKE dOVNZf"
         >
           <a
             aria-label="Go to the about page"
@@ -60,7 +60,7 @@ Object {
           </a>
         </li>
         <li
-          class="sc-htpNat dSWCFY"
+          class="sc-AykKE dOVNZf"
         >
           <a
             aria-label="Go to the contacts page"
