@@ -2,7 +2,6 @@
 
 exports[`<PageTitle> should render a title and a subtitle: subtitle 1`] = `
 <h2
-  aria-label="Page Subtitle: subtitle"
   class="sc-AykKE bILEXQ"
   data-testid="subtitle"
   style="opacity: 0; transform: translate3d(0, 1rem, 0);"
@@ -25,13 +24,11 @@ Object {
           data-testid="row"
         >
           <h1
-            aria-label="Page Title: undefined"
             class="sc-AykKF cWGchN"
             data-testid="title"
             style="opacity: 0; transform: translate3d(0, 1rem, 0);"
           />
           <h2
-            aria-label="Page Subtitle: undefined"
             class="sc-AykKE bILEXQ"
             data-testid="subtitle"
             style="opacity: 0; transform: translate3d(0, 1rem, 0);"
@@ -50,13 +47,11 @@ Object {
         data-testid="row"
       >
         <h1
-          aria-label="Page Title: undefined"
           class="sc-AykKF cWGchN"
           data-testid="title"
           style="opacity: 0; transform: translate3d(0, 1rem, 0);"
         />
         <h2
-          aria-label="Page Subtitle: undefined"
           class="sc-AykKE bILEXQ"
           data-testid="subtitle"
           style="opacity: 0; transform: translate3d(0, 1rem, 0);"

@@ -25,7 +25,7 @@ export const A11yPageTitle: React.FunctionComponent<IA11yPageTitleProps> = props
 			aria-atomic="true"
 			tabIndex={-1}
 		>
-			{`Page Title: ${title}`}
+			{title}
 		</Title>
 	);
 };

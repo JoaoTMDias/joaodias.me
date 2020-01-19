@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import { Wrapper, List } from "./styles";
 
 // Components
-import { CallToActionItem, CallToActionWrapper, A11yPageTitle, ContentPage, HomePageHero } from "../components/index";
+import { CallToActionItem, CallToActionWrapper, ContentPage, HomePageHero } from "../components/index";
 import { Meta } from "../components/meta";
 import { IIndexPageProps, IIndexPageEdge } from "../data/interfaces/index.interfaces";
 import { ProjectItem } from "../components/project";
@@ -46,8 +46,6 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 
 	return (
 		<ContentPage>
-			<A11yPageTitle title="Initial Page" />
-
 			<Meta title="Homepage" location={location} />
 			<HomePageHero />
 			{renderPortfolioItems()}

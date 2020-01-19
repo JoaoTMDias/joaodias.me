@@ -7,7 +7,6 @@ import React from "react";
  * Import Components
  */
 import {
-	A11yPageTitle,
 	CallToActionItem,
 	CallToActionWrapper,
 	ContentPage,
@@ -20,7 +19,6 @@ import { Meta } from "../../components/meta";
 
 const ContactPage = ({ location }) => (
 	<ContentPage>
-		<A11yPageTitle title="Contacts" />
 		<Meta title="Contacts" location={location} />
 		<PageTitle title="Contacts" subtitle="Let's work together." backgroundColor="var(--color-white, #ffffff)" />
 		<MainContent className="layout__container">

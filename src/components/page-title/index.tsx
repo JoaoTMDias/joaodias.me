@@ -56,7 +56,6 @@ export const PageTitle: React.FunctionComponent<IPageTitleProps> = ({
 					classNames={classNames}
 					center={center}
 					isProject={isProject}
-					aria-label={`Page Title: ${title}`}
 					style={animatedProps}
 				>
 					{title}
@@ -65,7 +64,6 @@ export const PageTitle: React.FunctionComponent<IPageTitleProps> = ({
 					data-testid="subtitle"
 					classNames={classNames}
 					center={center}
-					aria-label={`Page Subtitle: ${subtitle}`}
 					tabIndex={0}
 					style={animatedProps}
 				>

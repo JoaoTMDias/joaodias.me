@@ -10,7 +10,7 @@ import { Brand, Logo } from "./styles";
  */
 export const Branding: React.FunctionComponent = () => {
 	return (
-		<Brand id="branding" to="/" aria-label="Press Enter/Click to go to the homepage.">
+		<Brand id="branding" to="/" aria-label="Go to the Homepage">
 			<Logo id="logo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
 				<circle className="brand__circle" cx="24" cy="24" r="24" fill="transparent" />
 				<path

@@ -6,8 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        aria-label="Press Enter to skip and go to Main Content"
-        class="sc-AykKC hhDxTT"
+        class="sc-AykKC eBXhZw"
         href="#main-content"
       >
         Skip to Main Content
@@ -16,8 +15,7 @@ Object {
   </body>,
   "container": <div>
     <a
-      aria-label="Press Enter to skip and go to Main Content"
-      class="sc-AykKC hhDxTT"
+      class="sc-AykKC eBXhZw"
       href="#main-content"
     >
       Skip to Main Content

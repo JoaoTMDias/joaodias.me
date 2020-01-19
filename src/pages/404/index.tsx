@@ -4,9 +4,6 @@ import * as React from "react";
 import Helmet from "react-helmet";
 import { Container, Row, Image } from "./styles";
 
-// Components
-import { A11yPageTitle } from "../../components/index";
-
 /**
  * @descriptZion Not Found Page
  * @author  João Dias
@@ -16,8 +13,6 @@ import { A11yPageTitle } from "../../components/index";
 const NotFoundPage: React.FunctionComponent = () => {
 	return (
 		<Container className="layout__row">
-			<A11yPageTitle title="404 Error. Page wasn't found." />
-
 			<Helmet
 				title="joaodias.me - Page not Found"
 				meta={[

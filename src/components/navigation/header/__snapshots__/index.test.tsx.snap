@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <header
-        class="sc-fzXfLQ gVldIJ header"
+        class="sc-fzXfLQ kYZRdp header"
         id="page-header"
       >
         <div
@@ -14,7 +14,7 @@ Object {
         >
           <a
             aria-current="page"
-            aria-label="Press Enter/Click to go to the homepage."
+            aria-label="Go to the Homepage"
             class="sc-fzXfLO kaVewC"
             href="/"
             id="branding"
@@ -278,7 +278,7 @@ Object {
   </body>,
   "container": <div>
     <header
-      class="sc-fzXfLQ gVldIJ header"
+      class="sc-fzXfLQ kYZRdp header"
       id="page-header"
     >
       <div
@@ -286,7 +286,7 @@ Object {
       >
         <a
           aria-current="page"
-          aria-label="Press Enter/Click to go to the homepage."
+          aria-label="Go to the Homepage"
           class="sc-fzXfLO kaVewC"
           href="/"
           id="branding"

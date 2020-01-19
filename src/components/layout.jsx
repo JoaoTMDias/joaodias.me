@@ -44,7 +44,7 @@ export const Layout = ({ children }) => {
 					<SkipLink />
 					<Header />
 					<BottomNavigation />
-					<main aria-label="Main Page Content Wrapper. Press Tab to navigate">{children}</main>
+					<main>{children}</main>
 					<Footer />
 				</>
 			)}

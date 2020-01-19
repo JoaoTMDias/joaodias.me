@@ -9,7 +9,7 @@ import { CallToActionWrapper } from "./navigation/call-to-action/call-to-action-
 import { Form, TextInput, TextareaInput } from "./forms/index";
 import { siteMetadata as config } from "../../gatsby-config";
 import { VerticalTimeline, VerticalTimelineElement } from "./vertical-timeline/index";
-import SkipLink from "./navigation/skip-link/index";
+import { SkipLink } from "./navigation/skip-link/index";
 
 // ///////////////////
 // LAZY LOADED

@@ -8,7 +8,7 @@ import { Details, ArticleWrapper, Intro } from "./styles";
 /**
  * Import Components
  */
-import { A11yPageTitle, CallToActionItem, CallToActionWrapper, ContentPage, PageTitle } from "../../components/index";
+import { CallToActionItem, CallToActionWrapper, ContentPage, PageTitle } from "../../components/index";
 import { Meta } from "../../components/meta";
 
 const PrivacyPolicyPage = ({ location, data }) => {
@@ -16,8 +16,6 @@ const PrivacyPolicyPage = ({ location, data }) => {
 
 	return (
 		<ContentPage>
-			<A11yPageTitle title="Privacy Policy" />
-
 			<Meta location={location} />
 			<PageTitle title="Privacy Policy" />
 

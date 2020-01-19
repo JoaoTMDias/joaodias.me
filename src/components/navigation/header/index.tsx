@@ -34,22 +34,22 @@ export const Header: FunctionComponent = () => {
 };
 
 const Wrapper = styled.header`
-	position: sticky;
 	background-color: var(--color-white);
 	max-height: var(--navbar-height);
-	z-index: 100;
-	width: 100%;
+	position: sticky;
 	top: 0;
+	width: 100%;
+	z-index: 2;
 
 	${above.large`
     margin-top: ${rem("24px")};
   `};
 
 	.header__row {
+		align-items: center;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		align-items: center;
 		max-height: var(--navbar-height);
 	}
 `;

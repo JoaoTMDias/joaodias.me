@@ -54,6 +54,6 @@ describe("<A11yPageTitle />", () => {
 	it("should render without error", async () => {
 		const component = render(<A11yPageTitle title={expected.title} />);
 		const title = await component.findByTestId("a11y-page-title");
-		expect(title).toHaveTextContent(`Page Title: ${expected.title}`);
+		expect(title).toHaveTextContent(`${expected.title}`);
 	});
 });

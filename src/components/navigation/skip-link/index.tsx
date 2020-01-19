@@ -11,60 +11,50 @@ import { above } from "../../../helpers/media-queries.helper";
  * @extends {React.FC}
  */
 export const SkipLink = () => {
-	return (
-		<Link href="#main-content" aria-label="Press Enter to skip and go to Main Content">
-			Skip to Main Content
-		</Link>
-	);
+	return <Link href="#main-content">Skip to Main Content</Link>;
 };
 
 // Styling
 const Link = styled.a`
 	&:not(:focus) {
-		left: ${rem("-9999px")};
-		bottom: 0;
-		white-space: nowrap;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
 		border: 0;
-		padding: 0;
-		clip: rect(0 0 0 0);
+		bottom: 0;
 		clip-path: inset(50%);
+		clip: rect(0 0 0 0);
+		height: 1px;
+		left: ${rem("-9999px")};
 		margin: -1px;
 		opacity: 0;
+		overflow: hidden;
+		padding: 0;
+		white-space: nowrap;
+		width: 1px;
 	}
-
-	display: flex;
-	justify-content: center;
-	outline-color: var(--color-gray1, #ecedf0);
-	opacity: 1;
-
-	position: fixed;
-	bottom: ${rem("64px")};
-	left: 0;
-	right: 0;
-
-	width: calc(100% - 11.25rem);
-	height: ${rem("36px")};
-	text-align: center;
-	font-size: ${rem("12px")};
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	line-height: ${rem("36px")};
-
-	padding: 0 ${rem("8px")};
-	margin-right: auto;
-	margin-left: auto;
 
 	background-color: var(--color-primary);
 	border-radius: ${rem("36px")};
-	z-index: 1;
-
+	bottom: ${rem("64px")};
+	display: flex;
+	font-size: ${rem("12px")};
+	font-weight: bold;
+	height: ${rem("36px")};
+	justify-content: center;
+	left: 0;
+	letter-spacing: 1px;
+	line-height: ${rem("36px")};
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 1;
+	outline-color: var(--color-gray1, #ecedf0);
+	padding: 0 ${rem("8px")};
+	position: fixed;
+	right: 0;
+	text-align: center;
 	text-decoration: none;
-
+	text-transform: uppercase;
 	transition: all 200ms var(--default-timing-function);
+	width: calc(100% - 11.25rem);
+	z-index: 3;
 
 	&,
 	&:focus,

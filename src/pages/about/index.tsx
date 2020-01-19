@@ -9,7 +9,6 @@ import { Data, AllContentfulSkillsEdge } from "../../data/interfaces/index.inter
 import {
 	CallToActionItem,
 	CallToActionWrapper,
-	A11yPageTitle,
 	LogoCarousel,
 	LastPlayedSong,
 	MainContent,
@@ -43,8 +42,6 @@ const AboutPage: React.FunctionComponent<IAboutPageProps> = props => {
 
 	return (
 		<ContentPage>
-			<A11yPageTitle title="About the Author" />
-
 			<Meta title="About" location={location} />
 
 			<PageTitle title="About me" subtitle="Designer + Developer" backgroundColor="var(--color-white, #ffffff)" />

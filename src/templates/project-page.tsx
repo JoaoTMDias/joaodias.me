@@ -6,7 +6,7 @@ import { graphql } from "gatsby";
 
 // Components
 import { ProjectHero, ProjectMeta, ProjectIntroduction } from "../components/project";
-import { CallToActionItem, CallToActionWrapper, A11yPageTitle, BlobFour, ContentPage } from "../components/index.js";
+import { CallToActionItem, CallToActionWrapper, BlobFour, ContentPage } from "../components/index.js";
 import { get } from "../helpers/lightdash";
 import { ContentSpinner } from "../components/content-spinner";
 import { IProjectPageProps, IContentfulPortfolio } from "./types";
@@ -28,7 +28,6 @@ const ProjectPage: React.FunctionComponent<IProjectPageProps> = props => {
 	if (post) {
 		return (
 			<ContentPage>
-				<A11yPageTitle title={`Project title: ${post.title}`} />
 				<Helmet>
 					<title>{`${post.title} | João Dias`}</title>
 					<script async src="//cdn.embedly.com/widgets/platform.js" />

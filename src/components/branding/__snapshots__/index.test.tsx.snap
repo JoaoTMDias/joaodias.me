@@ -7,7 +7,7 @@ Object {
     <div>
       <a
         aria-current="page"
-        aria-label="Press Enter/Click to go to the homepage."
+        aria-label="Go to the Homepage"
         class="sc-AykKC gMspVs"
         href="/"
         id="branding"
@@ -42,7 +42,7 @@ Object {
   "container": <div>
     <a
       aria-current="page"
-      aria-label="Press Enter/Click to go to the homepage."
+      aria-label="Go to the Homepage"
       class="sc-AykKC gMspVs"
       href="/"
       id="branding"
