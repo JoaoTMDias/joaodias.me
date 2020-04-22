@@ -127,6 +127,25 @@ export const Content = styled.div`
 			font-size: ${rem("20px")};
 		`};
 	}
+
+	html[data-theme="dark"] && {
+		.image {
+			border-color: var(--color-gray9);
+
+			&::before {
+				border-color: var(--color-gray9);
+			}
+		}
+
+		.title {
+			color: var(--color-gray1);
+		}
+
+		.lead,
+		.text p {
+			color: var(--color-gray4);
+		}
+	}
 `;
 
 export default Content;

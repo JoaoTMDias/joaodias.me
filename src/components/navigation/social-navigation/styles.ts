@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { rem } from "polished";
-import ExternalLink from "../external-link";
+import { ExternalLink } from "../external-link";
 import { above } from "../../../helpers/media-queries.helper";
 
 // Styles
 export const Container = styled.nav`
 	max-height: var(--navbar-height);
 	display: flex;
-	align-self: flex-end;
+	width: 100%;
 `;
 
 export const List = styled.ul`
@@ -19,6 +19,7 @@ export const List = styled.ul`
 	padding: 0;
 	margin: 0 auto;
 	width: 100%;
+	max-width: calc(3rem * 5);
 
 	${above.large`
 		grid-gap: 0;

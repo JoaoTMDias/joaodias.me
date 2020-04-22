@@ -1,15 +1,16 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { Layout } from "./src/components/layout.jsx";
+const React = require("react");
+const { Helmet } = require("react-helmet")
+const { Layout } = require("./src/components/layout");
 
-export const onRenderBody = ({ setHtmlAttributes, setBodyAttributes }) => {
+exports.onRenderBody = (
+  { setHeadComponents, setHtmlAttributes, setBodyAttributes },
+  pluginOptions
+) => {
 	const helmet = Helmet.renderStatic();
 	setHtmlAttributes(helmet.htmlAttributes.toComponent());
 	setBodyAttributes(helmet.bodyAttributes.toComponent());
-};
+}
 
-export const wrapPageElement = ({ element, props }) => {
+exports.wrapPageElement = ({ element, props }) => {
 	return <Layout {...props}>{element}</Layout>;
 };
-
-export default onRenderBody;

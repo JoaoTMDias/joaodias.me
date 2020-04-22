@@ -1,7 +1,7 @@
 // Libraries
 import { Link } from "gatsby";
 import * as React from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { Container, Row, Image } from "./styles";
 
 /**

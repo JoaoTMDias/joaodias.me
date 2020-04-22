@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 // Libraries
 import * as React from "react";
-import Helmet, { HelmetData } from "react-helmet";
+import { Helmet, HelmetData } from "react-helmet";
 
 // Favicons
 import favicon from "../static/favicon.ico";

@@ -1,6 +1,6 @@
 // Libraries
 import React, { useState, useEffect } from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 

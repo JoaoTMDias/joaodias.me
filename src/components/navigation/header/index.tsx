@@ -10,8 +10,8 @@ import { LargeNavigation } from "../large-navigation";
 
 // Styles
 import { above } from "../../../helpers/media-queries.helper";
-import { SocialNavigation } from "../social-navigation/index";
 import { Branding } from "../../branding";
+import ThemeButton from "../../themes/button";
 
 /**
  * Page Header
@@ -27,7 +27,7 @@ export const Header: FunctionComponent = () => {
 				<BackNavigation />
 				<HeaderPageTitle />
 				<LargeNavigation />
-				<SocialNavigation />
+				<ThemeButton />
 			</div>
 		</Wrapper>
 	);

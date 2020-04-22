@@ -64,7 +64,7 @@ export const Row = styled.div<IPageTitleProps>`
 
 export const Subtitle = styled.h2`
 	font-family: var(--body-font-family);
-	color: var(--color-gray9, #3a3e4c) !important;
+	color: var(--color-gray9, #3a3e4c);
 	text-align: ${(props: IPageTitleProps) => (props.center ? "center" : "left")};
 	font-weight: 300;
 	font-size: ${rem("20px")};
@@ -72,6 +72,10 @@ export const Subtitle = styled.h2`
 	${above.medium`
 		font-size: ${rem("24px")};
 	`};
+
+	html[data-theme="dark"] && {
+		color: var(--color-gray2);
+	}
 `;
 
 export const Title = styled.h1`
@@ -88,4 +92,8 @@ export const Title = styled.h1`
 		line-height: 1.2;
 		font-size: ${rem("40px")};
 	`};
+
+	html[data-theme="dark"] && {
+		color: var(--color-white);
+	}
 `;

@@ -61,6 +61,10 @@ export const Item = styled(Link)`
 				opacity: 1;
 			}
 		}
+
+		html[data-theme="dark"] && {
+			box-shadow: 0 24px 64px var(--color-gray10);
+		}
 	}
 
 	picture {

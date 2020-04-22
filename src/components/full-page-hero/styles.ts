@@ -59,4 +59,8 @@ export const Subtitle = styled.h2`
 		minScreen: 320,
 		maxScreen: 1440,
 	})};
+
+	html[data-theme="dark"] && {
+		color: var(--color-gray2);
+	}
 `;

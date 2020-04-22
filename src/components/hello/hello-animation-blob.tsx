@@ -154,6 +154,7 @@ const Animated = keyframes`
 `;
 
 const Blob = styled.div`
+	--blob-background: var(--color-primary);
 	position: absolute;
 	animation-name: ${Animated};
 	animation-duration: 250ms;
@@ -213,6 +214,16 @@ const Blob = styled.div`
 			transform: translate(-1%, -14%);
 			width: 39%;
 			height: 57%;
+		}
+	}
+
+	[id^="blob-"] {
+		fill: var(--blob-background);
+	}
+
+	html[data-theme="dark"] && {
+		[id^="blob-"] {
+			fill: var(--color-white);
 		}
 	}
 `;
