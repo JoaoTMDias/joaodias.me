@@ -6,19 +6,19 @@ Object {
   "baseElement": <body>
     <div>
       <nav
-        class="sc-AykKC eFNDvK"
+        class="sc-AxjAm iDKrK"
         id="social-navigation"
         title="Social network links"
       >
         <ul
-          class="sc-AykKD dihaWU"
+          class="sc-AxirZ hHJQHM"
         >
           <li
-            class="sc-AykKE jIMcEx"
+            class="sc-AxiKw dEopTX"
           >
             <a
               aria-label="Follow me on Facebook"
-              class="sc-AykKF dCickX"
+              class="sc-AxhCb ivbIBI"
               data-testid="component-external-link"
               href="https://fb.com/JoaoTMDias"
               rel="noopener noreferrer"
@@ -43,11 +43,11 @@ Object {
             </a>
           </li>
           <li
-            class="sc-AykKE jIMcEx"
+            class="sc-AxiKw dEopTX"
           >
             <a
               aria-label="Follow me on Instagram"
-              class="sc-AykKF dCickX"
+              class="sc-AxhCb ivbIBI"
               data-testid="component-external-link"
               href="https://instagram.com/JoaoTMDias"
               rel="noopener noreferrer"
@@ -79,11 +79,11 @@ Object {
             </a>
           </li>
           <li
-            class="sc-AykKE jIMcEx"
+            class="sc-AxiKw dEopTX"
           >
             <a
               aria-label="Check out my repos on Github"
-              class="sc-AykKF dCickX"
+              class="sc-AxhCb ivbIBI"
               data-testid="component-external-link"
               href="https://github.com/Joaotmdias"
               rel="noopener noreferrer"
@@ -104,11 +104,11 @@ Object {
             </a>
           </li>
           <li
-            class="sc-AykKE jIMcEx"
+            class="sc-AxiKw dEopTX"
           >
             <a
               aria-label="Check out some dribble shots"
-              class="sc-AykKF dCickX"
+              class="sc-AxhCb ivbIBI"
               data-testid="component-external-link"
               href="https://dribbble.com/Joaotmdias"
               rel="noopener noreferrer"
@@ -134,11 +134,11 @@ Object {
             </a>
           </li>
           <li
-            class="sc-AykKE jIMcEx"
+            class="sc-AxiKw dEopTX"
           >
             <a
               aria-label="Follow me on Twitter"
-              class="sc-AykKF dCickX"
+              class="sc-AxhCb ivbIBI"
               data-testid="component-external-link"
               href="https://twitter.com/Joaotmdias"
               rel="noopener noreferrer"
@@ -165,19 +165,19 @@ Object {
   </body>,
   "container": <div>
     <nav
-      class="sc-AykKC eFNDvK"
+      class="sc-AxjAm iDKrK"
       id="social-navigation"
       title="Social network links"
     >
       <ul
-        class="sc-AykKD dihaWU"
+        class="sc-AxirZ hHJQHM"
       >
         <li
-          class="sc-AykKE jIMcEx"
+          class="sc-AxiKw dEopTX"
         >
           <a
             aria-label="Follow me on Facebook"
-            class="sc-AykKF dCickX"
+            class="sc-AxhCb ivbIBI"
             data-testid="component-external-link"
             href="https://fb.com/JoaoTMDias"
             rel="noopener noreferrer"
@@ -202,11 +202,11 @@ Object {
           </a>
         </li>
         <li
-          class="sc-AykKE jIMcEx"
+          class="sc-AxiKw dEopTX"
         >
           <a
             aria-label="Follow me on Instagram"
-            class="sc-AykKF dCickX"
+            class="sc-AxhCb ivbIBI"
             data-testid="component-external-link"
             href="https://instagram.com/JoaoTMDias"
             rel="noopener noreferrer"
@@ -238,11 +238,11 @@ Object {
           </a>
         </li>
         <li
-          class="sc-AykKE jIMcEx"
+          class="sc-AxiKw dEopTX"
         >
           <a
             aria-label="Check out my repos on Github"
-            class="sc-AykKF dCickX"
+            class="sc-AxhCb ivbIBI"
             data-testid="component-external-link"
             href="https://github.com/Joaotmdias"
             rel="noopener noreferrer"
@@ -263,11 +263,11 @@ Object {
           </a>
         </li>
         <li
-          class="sc-AykKE jIMcEx"
+          class="sc-AxiKw dEopTX"
         >
           <a
             aria-label="Check out some dribble shots"
-            class="sc-AykKF dCickX"
+            class="sc-AxhCb ivbIBI"
             data-testid="component-external-link"
             href="https://dribbble.com/Joaotmdias"
             rel="noopener noreferrer"
@@ -293,11 +293,11 @@ Object {
           </a>
         </li>
         <li
-          class="sc-AykKE jIMcEx"
+          class="sc-AxiKw dEopTX"
         >
           <a
             aria-label="Follow me on Twitter"
-            class="sc-AykKF dCickX"
+            class="sc-AxhCb ivbIBI"
             data-testid="component-external-link"
             href="https://twitter.com/Joaotmdias"
             rel="noopener noreferrer"

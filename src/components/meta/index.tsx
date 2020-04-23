@@ -17,7 +17,7 @@ interface IMetaProps {
  * @date  01/December/2018 at 16:57
  * @extends {React.FC}
  */
-export const Meta: React.FunctionComponent<IMetaProps> = props => {
+export const Meta: React.FunctionComponent<IMetaProps> = (props) => {
 	const { title, description, location, noIndex } = props;
 	const mainTitle = `${config.title} - Designer and Developer`;
 	const metaTitle: string = title ? `${title} | ${mainTitle}` : mainTitle;

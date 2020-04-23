@@ -15,12 +15,12 @@ const ProjectMeta: React.FunctionComponent<IProjectMetaProps> = ({ skills, tools
 	return (
 		<Wrapper className="layout__project layout__section fadeInUp">
 			<ProjectMetaList data-test="project-meta-list-skills" title="Skills">
-				{skills.map(skill => (
+				{skills.map((skill) => (
 					<li key={skill} aria-label={`Skill: ${skill}`}>{`${skill}`}</li>
 				))}
 			</ProjectMetaList>
 			<ProjectMetaList data-test="project-meta-list-tools" title="Tools">
-				{tools.map(tool => (
+				{tools.map((tool) => (
 					<li key={tool} aria-label={`Tool: ${tool}`}>{`${tool}`}</li>
 				))}
 			</ProjectMetaList>

@@ -13,7 +13,7 @@ interface IA11yPageTitleProps {
  * @date  29/November/2018 at 23:42
  * @extends {React.FunctionComponent}
  */
-export const A11yPageTitle: React.FunctionComponent<IA11yPageTitleProps> = props => {
+export const A11yPageTitle: React.FunctionComponent<IA11yPageTitleProps> = (props) => {
 	const { title } = props;
 	return (
 		<Title

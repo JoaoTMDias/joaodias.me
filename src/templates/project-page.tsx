@@ -17,7 +17,7 @@ import { IProjectPageProps, IContentfulPortfolio } from "./types";
  * @class ProjectPage
  * @extends {React.Component}
  */
-const ProjectPage: React.FunctionComponent<IProjectPageProps> = props => {
+const ProjectPage: React.FunctionComponent<IProjectPageProps> = (props) => {
 	const [post, setPost] = useState<IContentfulPortfolio | null>(null);
 
 	useEffect(() => {

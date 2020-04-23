@@ -19,7 +19,7 @@ export const defaultProps = {
  * @date  14/December/2018 at 10:37
  * @extends {React.FC}
  */
-export const ContentSpinner: React.FunctionComponent<IContentSpinnerProps> = props => {
+export const ContentSpinner: React.FunctionComponent<IContentSpinnerProps> = (props) => {
 	const { center, color, delay, duration, fullPage, size, style, temporary } = props;
 
 	const className = classnames("content-spinner", {

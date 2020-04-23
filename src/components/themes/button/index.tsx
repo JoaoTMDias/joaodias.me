@@ -67,6 +67,7 @@ const ThemeButton: React.FunctionComponent = () => {
 			className="theme-button"
 			data-testid="component-theme-button-toggle"
 			title="Light/Dark theme switcher"
+			data-current-theme={theme}
 			aria-label={ariaLabel}
 			onClick={handleOnClick}
 		>

@@ -10,14 +10,14 @@ Object {
         id="who-am-i"
       >
         <div
-          class="sc-AykKE ngybD layout__row"
+          class="sc-AxiKw cXDDcG layout__row"
         >
           <div
             class="image"
             id="who-am-i-image"
           >
             <div
-              class="sc-AykKF ivyvBz content-spinner isCenter"
+              class="sc-AxhCb eARWVt content-spinner isCenter"
               color="hsl(0, 0%, 60%)"
               data-testid="component-content-spinner"
               size="24"
@@ -74,14 +74,14 @@ Object {
       id="who-am-i"
     >
       <div
-        class="sc-AykKE ngybD layout__row"
+        class="sc-AxiKw cXDDcG layout__row"
       >
         <div
           class="image"
           id="who-am-i-image"
         >
           <div
-            class="sc-AykKF ivyvBz content-spinner isCenter"
+            class="sc-AxhCb eARWVt content-spinner isCenter"
             color="hsl(0, 0%, 60%)"
             data-testid="component-content-spinner"
             size="24"

@@ -7,7 +7,7 @@ Object {
     <div>
       <a
         alt="Album Cover for Vault 9: Live in Seattle 12/8/1993"
-        class="sc-AykKF vBeGl"
+        class="sc-AxhCb hPqFFW"
         data-testid="component-animated-cover"
         href="https://www.last.fm/music/Pearl+Jam/_/Animal+(Live)"
         name="Animal (Live)"
@@ -18,7 +18,7 @@ Object {
       >
         <img
           alt="Album Cover for Vault 9: Live in Seattle 12/8/1993"
-          class="sc-AykKG jJMQUb"
+          class="sc-AxhUy bLQUJk"
           height="240"
           name="Animal (Live)"
           src="https://lastfm.freetls.fastly.net/i/u/174s/c6aaab6608ee5ed79cac652a7a3d3cd9.jpg"
@@ -30,7 +30,7 @@ Object {
   "container": <div>
     <a
       alt="Album Cover for Vault 9: Live in Seattle 12/8/1993"
-      class="sc-AykKF vBeGl"
+      class="sc-AxhCb hPqFFW"
       data-testid="component-animated-cover"
       href="https://www.last.fm/music/Pearl+Jam/_/Animal+(Live)"
       name="Animal (Live)"
@@ -41,7 +41,7 @@ Object {
     >
       <img
         alt="Album Cover for Vault 9: Live in Seattle 12/8/1993"
-        class="sc-AykKG jJMQUb"
+        class="sc-AxhUy bLQUJk"
         height="240"
         name="Animal (Live)"
         src="https://lastfm.freetls.fastly.net/i/u/174s/c6aaab6608ee5ed79cac652a7a3d3cd9.jpg"
@@ -170,11 +170,11 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-AykKD jHDohJ"
+        class="sc-AxirZ dNmJYG"
       >
         <a
           alt="Album Cover for Vault 9: Live in Seattle 12/8/93"
-          class="sc-AykKF vBeGl"
+          class="sc-AxhCb hPqFFW"
           data-testid="component-animated-cover"
           href="https://www.last.fm/music/Pearl+Jam/_/Animal+(Live)"
           name="Animal (Live)"
@@ -185,7 +185,7 @@ Object {
         >
           <img
             alt="Album Cover for Vault 9: Live in Seattle 12/8/93"
-            class="sc-AykKG jJMQUb"
+            class="sc-AxhUy bLQUJk"
             height="240"
             name="Animal (Live)"
             src="https://lastfm.freetls.fastly.net/i/u/174s/c6aaab6608ee5ed79cac652a7a3d3cd9.jpg"
@@ -193,13 +193,14 @@ Object {
           />
         </a>
         <div
-          class="sc-AykKE iDJlDx"
+          class="sc-AxiKw hHZmfB"
         >
           <h2
             class="track"
           >
             <a
               aria-label="Song Name: Animal (Live)"
+              data-testid="last-played-title"
               href="https://www.last.fm/music/Pearl+Jam/_/Animal+(Live)"
               title="Animal (Live)"
             >
@@ -209,12 +210,14 @@ Object {
           <p
             aria-label="Artist/Band Name: Pearl Jam"
             class="artist"
+            data-testid="last-played-artist"
           >
             Pearl Jam
           </p>
           <span
             aria-label="Album Name: Vault 9: Live in Seattle 12/8/93"
             class="album"
+            data-testid="last-played-album"
           >
             Vault 9: Live in Seattle 12/8/93
           </span>
@@ -224,11 +227,11 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-AykKD jHDohJ"
+      class="sc-AxirZ dNmJYG"
     >
       <a
         alt="Album Cover for Vault 9: Live in Seattle 12/8/93"
-        class="sc-AykKF vBeGl"
+        class="sc-AxhCb hPqFFW"
         data-testid="component-animated-cover"
         href="https://www.last.fm/music/Pearl+Jam/_/Animal+(Live)"
         name="Animal (Live)"
@@ -239,7 +242,7 @@ Object {
       >
         <img
           alt="Album Cover for Vault 9: Live in Seattle 12/8/93"
-          class="sc-AykKG jJMQUb"
+          class="sc-AxhUy bLQUJk"
           height="240"
           name="Animal (Live)"
           src="https://lastfm.freetls.fastly.net/i/u/174s/c6aaab6608ee5ed79cac652a7a3d3cd9.jpg"
@@ -247,13 +250,14 @@ Object {
         />
       </a>
       <div
-        class="sc-AykKE iDJlDx"
+        class="sc-AxiKw hHZmfB"
       >
         <h2
           class="track"
         >
           <a
             aria-label="Song Name: Animal (Live)"
+            data-testid="last-played-title"
             href="https://www.last.fm/music/Pearl+Jam/_/Animal+(Live)"
             title="Animal (Live)"
           >
@@ -263,12 +267,14 @@ Object {
         <p
           aria-label="Artist/Band Name: Pearl Jam"
           class="artist"
+          data-testid="last-played-artist"
         >
           Pearl Jam
         </p>
         <span
           aria-label="Album Name: Vault 9: Live in Seattle 12/8/93"
           class="album"
+          data-testid="last-played-album"
         >
           Vault 9: Live in Seattle 12/8/93
         </span>

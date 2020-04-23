@@ -2,7 +2,7 @@
 
 exports[`<PageTitle> should render a title and a subtitle: subtitle 1`] = `
 <h2
-  class="sc-AykKE bILEXQ"
+  class="sc-AxiKw eaRcaI"
   data-testid="subtitle"
   style="opacity: 0; transform: translate3d(0, 1rem, 0);"
   tabindex="0"
@@ -17,19 +17,19 @@ Object {
   "baseElement": <body>
     <div>
       <section
-        class="sc-AykKC ejEVkx layout__container layout__container layout__section utilities--above-the-fold"
+        class="sc-AxjAm kHCYAy layout__container layout__container layout__section utilities--above-the-fold"
       >
         <div
-          class="sc-AykKD cVzQVZ layout__row parallax"
+          class="sc-AxirZ gVtcha layout__row parallax"
           data-testid="row"
         >
           <h1
-            class="sc-AykKF cWGchN"
+            class="sc-AxhCb gvVZKr"
             data-testid="title"
             style="opacity: 0; transform: translate3d(0, 1rem, 0);"
           />
           <h2
-            class="sc-AykKE bILEXQ"
+            class="sc-AxiKw eaRcaI"
             data-testid="subtitle"
             style="opacity: 0; transform: translate3d(0, 1rem, 0);"
             tabindex="0"
@@ -40,19 +40,19 @@ Object {
   </body>,
   "container": <div>
     <section
-      class="sc-AykKC ejEVkx layout__container layout__container layout__section utilities--above-the-fold"
+      class="sc-AxjAm kHCYAy layout__container layout__container layout__section utilities--above-the-fold"
     >
       <div
-        class="sc-AykKD cVzQVZ layout__row parallax"
+        class="sc-AxirZ gVtcha layout__row parallax"
         data-testid="row"
       >
         <h1
-          class="sc-AykKF cWGchN"
+          class="sc-AxhCb gvVZKr"
           data-testid="title"
           style="opacity: 0; transform: translate3d(0, 1rem, 0);"
         />
         <h2
-          class="sc-AykKE bILEXQ"
+          class="sc-AxiKw eaRcaI"
           data-testid="subtitle"
           style="opacity: 0; transform: translate3d(0, 1rem, 0);"
           tabindex="0"

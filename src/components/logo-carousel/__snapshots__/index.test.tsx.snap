@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <section
-        class="sc-AykKC dTTccu layout__section"
+        class="sc-AxjAm cUVJXH layout__section"
         id="logo-list"
       >
         <header
@@ -19,12 +19,12 @@ Object {
           </h5>
         </header>
         <div
-          class="sc-AykKD hsyvfq layout__row"
+          class="sc-AxirZ iqcuNx layout__row"
           tabindex="-1"
         >
           <ol
             aria-label="A list of company logos that i have worked for in project in the recent years"
-            class="sc-AykKE ilSQRY"
+            class="sc-AxiKw cHWGca"
             tabindex="0"
           >
             <li
@@ -248,7 +248,7 @@ Object {
   </body>,
   "container": <div>
     <section
-      class="sc-AykKC dTTccu layout__section"
+      class="sc-AxjAm cUVJXH layout__section"
       id="logo-list"
     >
       <header
@@ -261,12 +261,12 @@ Object {
         </h5>
       </header>
       <div
-        class="sc-AykKD hsyvfq layout__row"
+        class="sc-AxirZ iqcuNx layout__row"
         tabindex="-1"
       >
         <ol
           aria-label="A list of company logos that i have worked for in project in the recent years"
-          class="sc-AykKE ilSQRY"
+          class="sc-AxiKw cHWGca"
           tabindex="0"
         >
           <li

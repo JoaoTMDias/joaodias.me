@@ -29,7 +29,7 @@ const isProduction: boolean = process.env.NODE_ENV === "production";
  * @date  01/December/2018 at 16:19
  * @extends {React.FunctionComponent}
  */
-const HTML: React.FunctionComponent<IHTMLProps> = props => {
+const HTML: React.FunctionComponent<IHTMLProps> = (props) => {
 	const helmet: HelmetData = Helmet.rewind();
 	const openGraphUrl: string = isProduction ? `${config.url}/share.png` : "/share.png";
 	const { headComponents, body, postBodyComponents } = props;
@@ -41,6 +41,7 @@ const HTML: React.FunctionComponent<IHTMLProps> = props => {
 			i18n-values="dir:textdirection"
 			itemType="http://schema.org/WebPage"
 			dir="ltr"
+			data-testid="html-element"
 		>
 			<head>
 				<meta charSet="utf-8" />

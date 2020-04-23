@@ -6,18 +6,18 @@ Object {
   "baseElement": <body>
     <div>
       <article
-        class="sc-AykKC WqYKd layout__row utilities--above-the-fold"
+        class="sc-AxjAm cMPbVw layout__row utilities--above-the-fold"
       >
         <div
-          class="sc-AykKD ctlhIy"
+          class="sc-AxirZ gSXyWH"
         >
           <div
             aria-label="Page welcome title: Hey What's up?"
-            class="sc-AykKH hMIppO"
+            class="sc-AxgMl ldrmZf"
             id="hello"
           >
             <figure
-              class="sc-AykKI iigMzg"
+              class="sc-AxheI dLjYFx"
               id="art-mask"
             >
               <svg
@@ -44,14 +44,14 @@ Object {
               </svg>
             </figure>
             <div
-              class="sc-AykKJ bRfkwp"
+              class="sc-Axmtr gBlMlM"
               id="art-inner"
             >
               <div
                 id="blob-animation"
               >
                 <div
-                  class="sc-AykKG bKUKxz blob1"
+                  class="sc-AxhUy kOtEJr blob1"
                 >
                   <svg
                     version="1.1"
@@ -78,7 +78,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-AykKG bKUKxz blob2"
+                  class="sc-AxhUy kOtEJr blob2"
                 >
                   <svg
                     version="1.1"
@@ -102,7 +102,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-AykKG bKUKxz blob3"
+                  class="sc-AxhUy kOtEJr blob3"
                 >
                   <svg
                     version="1.1"
@@ -126,7 +126,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-AykKG bKUKxz blob4"
+                  class="sc-AxhUy kOtEJr blob4"
                 >
                   <svg
                     version="1.1"
@@ -150,7 +150,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-AykKG bKUKxz blob5"
+                  class="sc-AxhUy kOtEJr blob5"
                 >
                   <svg
                     version="1.1"
@@ -174,7 +174,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-AykKG bKUKxz blob6"
+                  class="sc-AxhUy kOtEJr blob6"
                 >
                   <svg
                     version="1.1"
@@ -198,7 +198,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-AykKG bKUKxz blob7"
+                  class="sc-AxhUy kOtEJr blob7"
                 >
                   <svg
                     version="1.1"
@@ -222,7 +222,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-AykKG bKUKxz blob8"
+                  class="sc-AxhUy kOtEJr blob8"
                 >
                   <svg
                     version="1.1"
@@ -246,7 +246,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-AykKG bKUKxz blob9"
+                  class="sc-AxhUy kOtEJr blob9"
                 >
                   <svg
                     version="1.1"
@@ -270,7 +270,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-AykKG bKUKxz blob10"
+                  class="sc-AxhUy kOtEJr blob10"
                 >
                   <svg
                     version="1.1"
@@ -297,10 +297,10 @@ Object {
             </div>
           </div>
           <div
-            class="sc-AykKE bkVRzC"
+            class="sc-AxiKw iKygOq"
           >
             <h2
-              class="sc-AykKF hlBqMd"
+              class="sc-AxhCb hUvezt"
             >
               I am João, a frontend developer and designer.
             </h2>
@@ -311,18 +311,18 @@ Object {
   </body>,
   "container": <div>
     <article
-      class="sc-AykKC WqYKd layout__row utilities--above-the-fold"
+      class="sc-AxjAm cMPbVw layout__row utilities--above-the-fold"
     >
       <div
-        class="sc-AykKD ctlhIy"
+        class="sc-AxirZ gSXyWH"
       >
         <div
           aria-label="Page welcome title: Hey What's up?"
-          class="sc-AykKH hMIppO"
+          class="sc-AxgMl ldrmZf"
           id="hello"
         >
           <figure
-            class="sc-AykKI iigMzg"
+            class="sc-AxheI dLjYFx"
             id="art-mask"
           >
             <svg
@@ -349,14 +349,14 @@ Object {
             </svg>
           </figure>
           <div
-            class="sc-AykKJ bRfkwp"
+            class="sc-Axmtr gBlMlM"
             id="art-inner"
           >
             <div
               id="blob-animation"
             >
               <div
-                class="sc-AykKG bKUKxz blob1"
+                class="sc-AxhUy kOtEJr blob1"
               >
                 <svg
                   version="1.1"
@@ -383,7 +383,7 @@ Object {
                 </svg>
               </div>
               <div
-                class="sc-AykKG bKUKxz blob2"
+                class="sc-AxhUy kOtEJr blob2"
               >
                 <svg
                   version="1.1"
@@ -407,7 +407,7 @@ Object {
                 </svg>
               </div>
               <div
-                class="sc-AykKG bKUKxz blob3"
+                class="sc-AxhUy kOtEJr blob3"
               >
                 <svg
                   version="1.1"
@@ -431,7 +431,7 @@ Object {
                 </svg>
               </div>
               <div
-                class="sc-AykKG bKUKxz blob4"
+                class="sc-AxhUy kOtEJr blob4"
               >
                 <svg
                   version="1.1"
@@ -455,7 +455,7 @@ Object {
                 </svg>
               </div>
               <div
-                class="sc-AykKG bKUKxz blob5"
+                class="sc-AxhUy kOtEJr blob5"
               >
                 <svg
                   version="1.1"
@@ -479,7 +479,7 @@ Object {
                 </svg>
               </div>
               <div
-                class="sc-AykKG bKUKxz blob6"
+                class="sc-AxhUy kOtEJr blob6"
               >
                 <svg
                   version="1.1"
@@ -503,7 +503,7 @@ Object {
                 </svg>
               </div>
               <div
-                class="sc-AykKG bKUKxz blob7"
+                class="sc-AxhUy kOtEJr blob7"
               >
                 <svg
                   version="1.1"
@@ -527,7 +527,7 @@ Object {
                 </svg>
               </div>
               <div
-                class="sc-AykKG bKUKxz blob8"
+                class="sc-AxhUy kOtEJr blob8"
               >
                 <svg
                   version="1.1"
@@ -551,7 +551,7 @@ Object {
                 </svg>
               </div>
               <div
-                class="sc-AykKG bKUKxz blob9"
+                class="sc-AxhUy kOtEJr blob9"
               >
                 <svg
                   version="1.1"
@@ -575,7 +575,7 @@ Object {
                 </svg>
               </div>
               <div
-                class="sc-AykKG bKUKxz blob10"
+                class="sc-AxhUy kOtEJr blob10"
               >
                 <svg
                   version="1.1"
@@ -602,10 +602,10 @@ Object {
           </div>
         </div>
         <div
-          class="sc-AykKE bkVRzC"
+          class="sc-AxiKw iKygOq"
         >
           <h2
-            class="sc-AykKF hlBqMd"
+            class="sc-AxhCb hUvezt"
           >
             I am João, a frontend developer and designer.
           </h2>

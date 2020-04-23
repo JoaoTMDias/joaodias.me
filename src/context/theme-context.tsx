@@ -14,7 +14,7 @@ export interface IThemeContext {
 
 export const defaultThemeContext: IThemeContext = {
 	theme: ETHEME.light,
-	onChange: () => { },
+	onChange: () => {},
 };
 
 /**

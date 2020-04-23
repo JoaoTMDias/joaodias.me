@@ -16,7 +16,7 @@ export const defaultProps = {
  * @date 2019-02-16
  * @returns {React.FunctionComponent<IAlbumCoverProps>}
  */
-const AlbumCover: React.FunctionComponent<IAlbumCoverProps> = props => {
+const AlbumCover: React.FunctionComponent<IAlbumCoverProps> = (props) => {
 	const { src, alt, url, name, artist, width } = props;
 	const { ...rest } = props;
 
@@ -40,7 +40,7 @@ const AlbumCover: React.FunctionComponent<IAlbumCoverProps> = props => {
 				// eslint-disable-next-line react/jsx-curly-newline
 			}
 			onMouseLeave={() => setAnimation({ xys: [0, 0, 1] })}
-			style={{ transform: animation.xys.interpolate(trans) }}
+			style={{ transform: animation.xys.to(trans) }}
 			{...rest}
 		>
 			<Album {...rest} src={src} width={width} height={width} alt={alt} />

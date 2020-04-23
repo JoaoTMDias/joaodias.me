@@ -19,8 +19,9 @@ interface IFluidTypeProps {
  * @returns {string}
  */
 export function fluidType({ minFont, maxFont, minScreen, maxScreen, units = "px" }: IFluidTypeProps): string {
-	const result = `calc(${minFont}${units} + ${maxFont - minFont} * (100vw - ${minScreen}${units}) / ${maxScreen -
-		minScreen})`;
+	const result = `calc(${minFont}${units} + ${maxFont - minFont} * (100vw - ${minScreen}${units}) / ${
+		maxScreen - minScreen
+	})`;
 
 	return result;
 }
