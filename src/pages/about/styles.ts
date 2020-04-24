@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { rem } from "polished";
 import { above } from "../../helpers/media-queries.helper";
+import { theme } from '../../helpers/theme.helper';
 
 export const spin = keyframes`
   to {
@@ -128,7 +129,7 @@ export const Content = styled.div`
 		`};
 	}
 
-	html[data-theme="dark"] && {
+	${theme.dark`
 		.image {
 			border-color: var(--color-gray9);
 
@@ -145,7 +146,7 @@ export const Content = styled.div`
 		.text p {
 			color: var(--color-gray4);
 		}
-	}
+	`};
 `;
 
 export default Content;

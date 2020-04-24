@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from '../../../helpers/theme.helper';
 
 export const Wrapper = styled.button`
 	-webkit-appearance: none;
@@ -24,15 +25,15 @@ export const Wrapper = styled.button`
 		svg {
 			--color-icon: var(--color-gray8);
 
-			html[data-theme="dark"] && {
-				--color-icon: var(--color-gray3, #d0d2d9);
-			}
+			${theme.dark`
+					--color-icon: var(--color-gray3, #d0d2d9);
+			`};
 		}
 	}
 `;
 
 export const Icon = styled.svg`
-	--color-icon: var(--color-gray2);
+	--color-icon: var(--color-gray4);
 
 	width: 3rem;
 	height: 3rem;
@@ -40,6 +41,10 @@ export const Icon = styled.svg`
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+
+	.moon {
+		transform: translateY(-0.25rem);
+	}
 
 	.sun__rays,
 	.sun__sphere,

@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { rem } from "polished";
 import { above } from "../../helpers/media-queries.helper";
+import { theme } from '../../helpers/theme.helper';
 
 export const Wrapper = styled.section`
 	width: 100%;
 	height: auto;
 	display: flex;
+	overflow-x: hidden;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -47,6 +49,16 @@ export const Wrapper = styled.section`
 			font-weight: 300;
 		}
 	}
+
+	${theme.dark`		
+		.skills {
+			&__title, 
+			&__disclaimer {
+				color: var(--color-gray4);
+				letter-spacing: 0;
+			}
+		}
+	`};
 `;
 
 export const Item = styled.li`
@@ -70,7 +82,10 @@ export const Item = styled.li`
 	`};
 `;
 
-export const Image = styled.figure`
+export const Image = styled.button`
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
 	width: 50vw;
 	max-width: ${rem("230px")};
 	height: 50vh;

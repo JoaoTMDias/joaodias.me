@@ -1,12 +1,17 @@
 import styled from "styled-components";
 import { above } from "../../helpers/media-queries.helper";
 import { rem } from "polished";
+import { theme } from '../../helpers/theme.helper';
 
 export const LastPlayedSongTitle = styled.h2`
 	color: var(--color-gray8, #646b82);
 	text-align: center;
 	font-size: 1.125rem;
 	font-family: var(--body-font-family);
+
+	${theme.dark`
+		color: var(--color-gray4);
+	`};
 `;
 
 export const LastPlayedSong = styled.div`
@@ -67,6 +72,18 @@ export const InfoContainer = styled.div`
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+
+	${theme.dark`
+		.track a,
+		.artist {
+			color: var(--color-gray3);
+		}
+		
+
+		.album {
+			color: var(--color-gray4);
+		}
+	`};
 `;
 
 export const RECORD_COVER_SIZE = 240;

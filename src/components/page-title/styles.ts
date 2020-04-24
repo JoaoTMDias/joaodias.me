@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { rem } from "polished";
 import { above } from "../../helpers/media-queries.helper";
 import { IPageTitleProps } from "./types";
+import { theme } from '../../helpers/theme.helper';
 
 export const Container = styled.section`
 	width: 100%;
@@ -73,9 +74,9 @@ export const Subtitle = styled.h2`
 		font-size: ${rem("24px")};
 	`};
 
-	html[data-theme="dark"] && {
+	${theme.dark`
 		color: var(--color-gray2);
-	}
+	`};
 `;
 
 export const Title = styled.h1`
@@ -93,7 +94,7 @@ export const Title = styled.h1`
 		font-size: ${rem("40px")};
 	`};
 
-	html[data-theme="dark"] && {
+	${theme.dark`
 		color: var(--color-white);
-	}
+	`};
 `;

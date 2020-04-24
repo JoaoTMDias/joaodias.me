@@ -6,14 +6,14 @@ import { Wrapper, Item, Image } from "./styles";
 
 const ROTATION_FACTOR = 10;
 
-const to = i => ({
+const to = (i) => ({
 	x: 0,
 	y: i * -4,
 	scale: 1,
 	rotate: -10 + Math.random() * 20,
 	delay: i * 100,
 });
-const from = i => ({
+const from = (i) => ({
 	x: 0,
 	y: i * -4,
 	rotate: 0,
@@ -33,7 +33,7 @@ export const SkillsDeck = ({ cards }) => {
 	const [spring, setSpring] = useSprings(
 		cards.length,
 
-		i => {
+		(i) => {
 			return {
 				...to(i),
 				from: from(i),
@@ -51,7 +51,7 @@ export const SkillsDeck = ({ cards }) => {
 			gone.add(index);
 		}
 
-		setSpring(i => {
+		setSpring((i) => {
 			if (index !== i) return;
 
 			const isGone = gone.has(index);
@@ -77,38 +77,61 @@ export const SkillsDeck = ({ cards }) => {
 		});
 
 		if (!down && gone.size === cards.length) {
-			setTimeout(() => gone.clear() || setSpring(i => to(i)), 600);
+			setTimeout(() => gone.clear() || setSpring((i) => to(i)), 600);
 		}
 	});
 
 	const Container = animated(Item);
 	const Card = animated(Image);
 
-	const list = spring.map(({ x, y, rotate, scale }, index) => (
-		<Container
-			key={cards[index].node.id}
-			aria-label={`${cards[index].node.description}`}
-			style={{
-				transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`),
-			}}
-		>
-			<Card
-				{...bind(index)}
-				aria-label={`${cards[index].node.icon.description}`}
+	/**
+	 *
+	 * @param {object} param
+	 * @param {React.KeyboardEvent<HTMLButtonElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>} param.event
+	 * @param {number} param.index
+	 * @param {boolean} [param.isDoubleClick]
+	 */
+	
+	function removeCardfromIndex({ event, index, isDoubleClick = false }) {
+		if (event.keyCode === 13 || isDoubleClick) {
+			event.preventDefault();
+
+			gone.add(index);
+			bind(index).onMouseDown(event);
+		}
+	}
+
+	const list = spring.map(({ x, y, rotate, scale }, index) => {
+		const isRemoved = !!gone.has(index);
+		return (
+			<Container
+				key={cards[index].node.id}
+				aria-label={`${cards[index].node.description}`}
 				style={{
-					transform: interpolate([rotate, scale], trans),
-					backgroundImage: `url(${cards[index].node.icon.file.url})`,
-					backgroundColor: `${cards[index].node.backgroundColor}`,
+					transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`),
 				}}
-				tabIndex={0}
-			/>
-		</Container>
-	));
+			>
+				<Card
+					{...bind(index)}
+					type="button"
+					aria-label={`${cards[index].node.icon.description}`}
+					onKeyUp={(event) => removeCardfromIndex({ event, index })}
+					onDoubleClick={(event) => removeCardfromIndex({ event, index, isDoubleClick: true })}
+					tabIndex={isRemoved ? -1 : 0}
+					style={{
+						transform: interpolate([rotate, scale], trans),
+						backgroundImage: `url(${cards[index].node.icon.file.url})`,
+						backgroundColor: `${cards[index].node.backgroundColor}`,
+					}}
+				/>
+			</Container>
+		);
+	});
 
 	return (
 		<Wrapper className="skills layout__container layout__section">
-			<h5 className="skills__title">My current skillset</h5>
-			<ul className="layout__row">{list}</ul>
+			<h5 className="skills__title">My skillset</h5>
+			<ol className="layout__row">{list}</ol>
 			<p className="skills__disclaimer">Swipe Left/Right to check them out.</p>
 		</Wrapper>
 	);

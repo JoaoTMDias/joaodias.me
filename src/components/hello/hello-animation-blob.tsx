@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { theme } from '../../helpers/theme.helper';
 
 const HelloAnimationBlob = () => (
 	<div id="blob-animation">
@@ -221,11 +222,11 @@ const Blob = styled.div`
 		fill: var(--blob-background);
 	}
 
-	html[data-theme="dark"] && {
+	${theme.dark`
 		[id^="blob-"] {
 			fill: var(--color-white);
 		}
-	}
+	`};
 `;
 
 export default HelloAnimationBlob;
