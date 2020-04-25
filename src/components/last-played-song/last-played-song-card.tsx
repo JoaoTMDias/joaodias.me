@@ -28,7 +28,12 @@ export const LastPlayedSongCard: React.FunctionComponent<ILastPlayedSongCardProp
 
 			<InfoContainer>
 				<h2 className="track">
-					<a href={song.url} data-testid="last-played-title" aria-label={`Song Name: ${song.name}`} title={`${song.name}`}>
+					<a
+						href={song.url}
+						data-testid="last-played-title"
+						aria-label={`Song Name: ${song.name}`}
+						title={`${song.name}`}
+					>
 						{song.name}
 					</a>
 				</h2>

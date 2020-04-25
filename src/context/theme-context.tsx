@@ -14,6 +14,7 @@ export interface IThemeContext {
 
 export const defaultThemeContext: IThemeContext = {
 	theme: ETHEME.light,
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	onChange: () => {},
 };
 

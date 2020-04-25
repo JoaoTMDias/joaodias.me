@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { rem } from "polished";
 import { fluidType } from "../../helpers";
 import { above } from "../../helpers/media-queries.helper";
-import { theme } from '../../helpers/theme.helper';
+import { theme } from "../../helpers/theme.helper";
 
 export const Hero = styled.article`
 	background-color: transparent;
@@ -55,11 +55,11 @@ export const Subtitle = styled.h2`
 	margin-bottom: 1.5rem;
 	font-size: ${rem("32px")};
 	font-size: ${fluidType({
-	minFont: 19,
-	maxFont: 32,
-	minScreen: 320,
-	maxScreen: 1440,
-})};
+		minFont: 19,
+		maxFont: 32,
+		minScreen: 320,
+		maxScreen: 1440,
+	})};
 
 	${theme.dark`
 			color: var(--color-gray2);

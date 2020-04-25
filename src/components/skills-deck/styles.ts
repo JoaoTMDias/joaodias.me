@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { rem } from "polished";
 import { above } from "../../helpers/media-queries.helper";
-import { theme } from '../../helpers/theme.helper';
+import { theme } from "../../helpers/theme.helper";
 
 export const Wrapper = styled.section`
 	width: 100%;

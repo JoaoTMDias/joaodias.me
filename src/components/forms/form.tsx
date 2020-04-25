@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Submit, FormWrapper, Fieldset, Success, Container } from "./styles";
+import { Submit, FormWrapper, Fieldset, Success } from "./styles";
 import { TextInput } from "./input";
 import { TextAreaInput } from "./textarea";
 import ExternalServices from "../../data/services/external-services";

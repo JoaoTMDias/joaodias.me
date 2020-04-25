@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-AxjAm sc-AxirZ lkrxBa"
+        class="sc-AxjAm sc-AxirZ gwUnXi"
         data-form="textarea"
         data-testid="component-text-area-wrapper"
       >
@@ -36,7 +36,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-AxjAm sc-AxirZ lkrxBa"
+      class="sc-AxjAm sc-AxirZ gwUnXi"
       data-form="textarea"
       data-testid="component-text-area-wrapper"
     >

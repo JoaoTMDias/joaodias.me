@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { above } from "../../helpers/media-queries.helper";
 import { rem } from "polished";
-import { theme } from '../../helpers/theme.helper';
+import { theme } from "../../helpers/theme.helper";
 
 export const LastPlayedSongTitle = styled.h2`
 	color: var(--color-gray8, #646b82);

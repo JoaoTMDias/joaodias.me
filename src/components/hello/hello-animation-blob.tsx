@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { theme } from '../../helpers/theme.helper';
+import { theme } from "../../helpers/theme.helper";
 
 const HelloAnimationBlob = () => (
 	<div id="blob-animation">

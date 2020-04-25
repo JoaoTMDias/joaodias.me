@@ -20,6 +20,7 @@ Object {
               aria-label="Go to the about page"
               class="large-nav__link"
               href="/about/"
+              title="Go to the about page"
             >
               About
             </a>
@@ -31,6 +32,7 @@ Object {
               aria-label="Go to the contacts page"
               class="large-nav__link"
               href="/contact/"
+              title="Go to the contacts page"
             >
               Contact
             </a>
@@ -55,6 +57,7 @@ Object {
             aria-label="Go to the about page"
             class="large-nav__link"
             href="/about/"
+            title="Go to the about page"
           >
             About
           </a>
@@ -66,6 +69,7 @@ Object {
             aria-label="Go to the contacts page"
             class="large-nav__link"
             href="/contact/"
+            title="Go to the contacts page"
           >
             Contact
           </a>

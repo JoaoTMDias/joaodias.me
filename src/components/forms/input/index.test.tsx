@@ -49,7 +49,7 @@ describe("<TextInput />", () => {
 		expect(wrapper).not.toHaveClass("isFocused");
 	});
 
-	it("should not have isFocused class when loses focus", async () => {
+	it("should have helper text", async () => {
 		const helperText = "This a helper text";
 		const { findByTestId } = render(<TextInput value="" {...defaultProps} helperText={helperText} />);
 

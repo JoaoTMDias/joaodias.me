@@ -6,7 +6,7 @@ import { graphql } from "gatsby";
 
 // Components
 import { ProjectHero, ProjectMeta, ProjectIntroduction } from "../components/project";
-import { CallToActionItem, CallToActionWrapper, BlobFour, ContentPage } from "../components/index.js";
+import { CallToActionItem, CallToActionWrapper, BlobFour, ContentPage } from "../components/index";
 import { get } from "../helpers/lightdash";
 import { ContentSpinner } from "../components/content-spinner";
 import { IProjectPageProps, IContentfulPortfolio } from "./types";

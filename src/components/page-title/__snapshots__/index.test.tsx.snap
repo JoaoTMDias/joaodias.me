@@ -2,7 +2,7 @@
 
 exports[`<PageTitle> should render a title and a subtitle: subtitle 1`] = `
 <h2
-  class="sc-AxiKw eaRcaI"
+  class="sc-AxiKw gmHMXq"
   data-testid="subtitle"
   style="opacity: 0; transform: translate3d(0, 1rem, 0);"
   tabindex="0"
@@ -20,16 +20,16 @@ Object {
         class="sc-AxjAm kHCYAy layout__container layout__container layout__section utilities--above-the-fold"
       >
         <div
-          class="sc-AxirZ gVtcha layout__row parallax"
+          class="sc-AxirZ RkooK layout__row parallax"
           data-testid="row"
         >
           <h1
-            class="sc-AxhCb gvVZKr"
+            class="sc-AxhCb hIHSIp"
             data-testid="title"
             style="opacity: 0; transform: translate3d(0, 1rem, 0);"
           />
           <h2
-            class="sc-AxiKw eaRcaI"
+            class="sc-AxiKw gmHMXq"
             data-testid="subtitle"
             style="opacity: 0; transform: translate3d(0, 1rem, 0);"
             tabindex="0"
@@ -43,16 +43,16 @@ Object {
       class="sc-AxjAm kHCYAy layout__container layout__container layout__section utilities--above-the-fold"
     >
       <div
-        class="sc-AxirZ gVtcha layout__row parallax"
+        class="sc-AxirZ RkooK layout__row parallax"
         data-testid="row"
       >
         <h1
-          class="sc-AxhCb gvVZKr"
+          class="sc-AxhCb hIHSIp"
           data-testid="title"
           style="opacity: 0; transform: translate3d(0, 1rem, 0);"
         />
         <h2
-          class="sc-AxiKw eaRcaI"
+          class="sc-AxiKw gmHMXq"
           data-testid="subtitle"
           style="opacity: 0; transform: translate3d(0, 1rem, 0);"
           tabindex="0"

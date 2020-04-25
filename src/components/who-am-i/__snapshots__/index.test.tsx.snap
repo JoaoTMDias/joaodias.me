@@ -10,7 +10,7 @@ Object {
         id="who-am-i"
       >
         <div
-          class="sc-AxiKw cXDDcG layout__row"
+          class="sc-AxiKw iJTxDc layout__row"
         >
           <div
             class="image"
@@ -74,7 +74,7 @@ Object {
       id="who-am-i"
     >
       <div
-        class="sc-AxiKw cXDDcG layout__row"
+        class="sc-AxiKw iJTxDc layout__row"
       >
         <div
           class="image"

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from '../../../helpers/theme.helper';
+import { theme } from "../../../helpers/theme.helper";
 
 export const Wrapper = styled.button`
 	-webkit-appearance: none;

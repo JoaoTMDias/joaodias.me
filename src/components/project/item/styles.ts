@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import { above } from "../../../helpers/media-queries.helper";
 import { responsiveHeading } from "../../../helpers/responsive-typography.helpers";
 import { EHeadingSize } from "../../../data/constants/headings";
-import { theme } from '../../../helpers/theme.helper';
+import { theme } from "../../../helpers/theme.helper";
 
 // ///////////////////
 // STYLED COMPONENTS

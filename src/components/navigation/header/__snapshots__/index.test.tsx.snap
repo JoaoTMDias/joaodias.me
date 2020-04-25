@@ -99,6 +99,7 @@ Object {
                   aria-label="Go to the about page"
                   class="large-nav__link"
                   href="/about/"
+                  title="Go to the about page"
                 >
                   About
                 </a>
@@ -110,6 +111,7 @@ Object {
                   aria-label="Go to the contacts page"
                   class="large-nav__link"
                   href="/contact/"
+                  title="Go to the contacts page"
                 >
                   Contact
                 </a>
@@ -118,15 +120,15 @@ Object {
           </nav>
           <button
             aria-label="Current theme is light. Click to change"
-            class="sc-Axmtr ijYeNf theme-button"
+            class="sc-Axmtr juAVvl theme-button"
             data-current-theme="light"
             data-testid="component-theme-button-toggle"
             id="theme-button-toggle"
-            title="Light/Dark theme switcher"
+            title="Toggle theme"
             type="button"
           >
             <svg
-              class="sc-AxmLO cAuNYQ theme-button__icon"
+              class="sc-AxmLO kWwUNg theme-button__icon"
               fill="none"
               height="48"
               viewBox="0 0 48 48"
@@ -272,6 +274,7 @@ Object {
                 aria-label="Go to the about page"
                 class="large-nav__link"
                 href="/about/"
+                title="Go to the about page"
               >
                 About
               </a>
@@ -283,6 +286,7 @@ Object {
                 aria-label="Go to the contacts page"
                 class="large-nav__link"
                 href="/contact/"
+                title="Go to the contacts page"
               >
                 Contact
               </a>
@@ -291,15 +295,15 @@ Object {
         </nav>
         <button
           aria-label="Current theme is light. Click to change"
-          class="sc-Axmtr ijYeNf theme-button"
+          class="sc-Axmtr juAVvl theme-button"
           data-current-theme="light"
           data-testid="component-theme-button-toggle"
           id="theme-button-toggle"
-          title="Light/Dark theme switcher"
+          title="Toggle theme"
           type="button"
         >
           <svg
-            class="sc-AxmLO cAuNYQ theme-button__icon"
+            class="sc-AxmLO kWwUNg theme-button__icon"
             fill="none"
             height="48"
             viewBox="0 0 48 48"

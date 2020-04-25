@@ -46,7 +46,9 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 					</div>
 
 					<footer className="inner__footer">
-						<p className="inner__seemore" title="Click to view this project">View Project</p>
+						<p className="inner__seemore" title="Click to view this project">
+							View Project
+						</p>
 					</footer>
 				</Inner>
 			</Item>

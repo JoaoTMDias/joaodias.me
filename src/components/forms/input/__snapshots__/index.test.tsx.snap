@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-AxjAm ha-dmAl"
+        class="sc-AxjAm iCcPvG"
         data-form="input"
         data-testid="component-text-wrapper"
       >
@@ -40,7 +40,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-AxjAm ha-dmAl"
+      class="sc-AxjAm iCcPvG"
       data-form="input"
       data-testid="component-text-wrapper"
     >

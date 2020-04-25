@@ -3,7 +3,7 @@ import { rem } from "polished";
 import { above } from "../../helpers/media-queries.helper";
 import { EHeadingSize } from "../../data/constants/headings";
 import { responsiveHeading } from "../../helpers/responsive-typography.helpers";
-import { theme } from '../../helpers/theme.helper';
+import { theme } from "../../helpers/theme.helper";
 
 // Styled Components
 export const TextInputWrapper = styled.div`

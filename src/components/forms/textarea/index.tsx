@@ -11,6 +11,7 @@ export const defaultProps = {
 	placeholder: "Text Area placeholder...",
 	required: false,
 	value: "",
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	onChange: () => {},
 };
 

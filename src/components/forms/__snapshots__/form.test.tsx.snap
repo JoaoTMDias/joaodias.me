@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-AxheI bOcOtZ layout__row"
+        class="layout__row"
         id="contact-form"
       >
         <form
@@ -23,7 +23,7 @@ Object {
             role="group"
           >
             <div
-              class="sc-AxjAm ha-dmAl"
+              class="sc-AxjAm iCcPvG"
               data-form="input"
               data-testid="component-text-wrapper"
             >
@@ -57,7 +57,7 @@ Object {
               />
             </div>
             <div
-              class="sc-AxjAm ha-dmAl"
+              class="sc-AxjAm iCcPvG"
               data-form="input"
               data-testid="component-text-wrapper"
             >
@@ -91,7 +91,7 @@ Object {
               />
             </div>
             <div
-              class="sc-AxjAm sc-AxirZ lkrxBa"
+              class="sc-AxjAm sc-AxirZ gwUnXi"
               data-form="textarea"
               data-testid="component-text-area-wrapper"
             >
@@ -136,7 +136,7 @@ Object {
           >
             <button
               aria-disabled="true"
-              class="sc-AxhCb eHoJcI"
+              class="sc-AxhCb fslhpO"
               data-testid="submit-button"
               id="submit"
               type="submit"
@@ -153,7 +153,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-AxheI bOcOtZ layout__row"
+      class="layout__row"
       id="contact-form"
     >
       <form
@@ -170,7 +170,7 @@ Object {
           role="group"
         >
           <div
-            class="sc-AxjAm ha-dmAl"
+            class="sc-AxjAm iCcPvG"
             data-form="input"
             data-testid="component-text-wrapper"
           >
@@ -204,7 +204,7 @@ Object {
             />
           </div>
           <div
-            class="sc-AxjAm ha-dmAl"
+            class="sc-AxjAm iCcPvG"
             data-form="input"
             data-testid="component-text-wrapper"
           >
@@ -238,7 +238,7 @@ Object {
             />
           </div>
           <div
-            class="sc-AxjAm sc-AxirZ lkrxBa"
+            class="sc-AxjAm sc-AxirZ gwUnXi"
             data-form="textarea"
             data-testid="component-text-area-wrapper"
           >
@@ -283,7 +283,7 @@ Object {
         >
           <button
             aria-disabled="true"
-            class="sc-AxhCb eHoJcI"
+            class="sc-AxhCb fslhpO"
             data-testid="submit-button"
             id="submit"
             type="submit"

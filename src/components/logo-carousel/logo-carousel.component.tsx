@@ -3,7 +3,7 @@ import { rem } from "polished";
 import * as React from "react";
 import styled from "styled-components";
 import { above } from "../../helpers/media-queries.helper";
-import { theme } from '../../helpers/theme.helper';
+import { theme } from "../../helpers/theme.helper";
 
 /**
  * @description asdasd
@@ -214,7 +214,6 @@ const Wrapper = styled.section`
 		font-size: ${rem("18px")};
 		color: var(--color-gray8, #646b82);
 		letter-spacing: 0;
-
 	}
 
 	.title,
@@ -278,7 +277,6 @@ const List = styled.ol`
 				outline-style: dashed;
 				outline-offset: -1px;
 			}
-
 		}
 
 		&__image {

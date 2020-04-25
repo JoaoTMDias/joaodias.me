@@ -5,7 +5,7 @@ import React from "react";
 // import Component from '../components/componentName';
 
 // Styling
-import { List, Item } from "./styles.ts";
+import { List, Item } from "./styles";
 import { IProjectMetaListProps } from "../types";
 
 /**
