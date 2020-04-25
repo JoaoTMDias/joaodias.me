@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <header
-        class="sc-fzXfLQ kYZRdp header"
+        class="sc-fzozJi PbOHg header"
         id="page-header"
       >
         <div
@@ -15,12 +15,12 @@ Object {
           <a
             aria-current="page"
             aria-label="Go to the Homepage"
-            class="sc-fzXfLO kaVewC"
+            class="sc-AxgMl hUbrj"
             href="/"
             id="branding"
           >
             <svg
-              class="sc-fzXfLP gKYQbo"
+              class="sc-AxheI ijwVAa"
               height="48"
               id="logo"
               viewBox="0 0 48 48"
@@ -46,7 +46,7 @@ Object {
           </a>
           <nav
             aria-label="Back Navigation Button"
-            class="sc-AykKD FxXVP"
+            class="sc-AxirZ kUbctk"
             id="back-navigation"
           >
             <a
@@ -79,21 +79,21 @@ Object {
             </a>
           </nav>
           <h2
-            class="sc-AykKC hUIJoS"
+            class="sc-AxjAm bMcuaR"
             id="header-page-title"
           >
             Project Details
           </h2>
           <nav
-            class="sc-AykKE gxYeFO"
+            class="sc-AxiKw enfiDq"
             id="top-navigation"
             title="Top Navigation"
           >
             <ul
-              class="sc-AykKF tiyzS"
+              class="sc-AxhCb PhWGT"
             >
               <li
-                class="sc-AykKG ipsmiZ"
+                class="sc-AxhUy iFPtNu"
               >
                 <a
                   aria-label="Go to the about page"
@@ -104,7 +104,7 @@ Object {
                 </a>
               </li>
               <li
-                class="sc-AykKG ipsmiZ"
+                class="sc-AxhUy iFPtNu"
               >
                 <a
                   aria-label="Go to the contacts page"
@@ -116,169 +116,70 @@ Object {
               </li>
             </ul>
           </nav>
-          <nav
-            class="sc-AykKH dABFTP"
-            id="social-navigation"
-            title="Social network links"
+          <button
+            aria-label="Current theme is light. Click to change"
+            class="sc-Axmtr ijYeNf theme-button"
+            data-current-theme="light"
+            data-testid="component-theme-button-toggle"
+            id="theme-button-toggle"
+            title="Light/Dark theme switcher"
+            type="button"
           >
-            <ul
-              class="sc-AykKI WixrV"
+            <svg
+              class="sc-AxmLO cAuNYQ theme-button__icon"
+              fill="none"
+              height="48"
+              viewBox="0 0 48 48"
+              width="48"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <li
-                class="sc-AykKJ hGqVGe"
+              <g
+                class="moon"
               >
-                <a
-                  aria-label="Follow me on Facebook"
-                  class="sc-AykKK djjMzQ"
-                  data-testid="component-external-link"
-                  href="https://fb.com/JoaoTMDias"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
-                  title="Follow me on Facebook"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12.88 22v-.07a10.55 10.55 0 0 1-1.13.07z"
-                      fill="white"
-                    />
-                    <path
-                      class="social__fill"
-                      d="M15.12 13l1.13-2.81h-3.37V7.94A1.13 1.13 0 0 1 14 6.81h1.12V4h-2.24A3.38 3.38 0 0 0 9.5 7.38v2.81H7.25V13H9.5v8.74a10.41 10.41 0 0 0 2.25.26 10.55 10.55 0 0 0 1.13-.07V13z"
-                      fill="var(--color-gray5, #afb2be)"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li
-                class="sc-AykKJ hGqVGe"
+                <path
+                  class="moon__sphere"
+                  d="M27.5719 31.9875C23.2078 32.8172 19.2047 29.4703 19.2047 25.0641C19.2047 22.5234 20.5641 20.1891 22.7719 18.9328C23.1141 18.7406 23.025 18.225 22.6406 18.15C17.0953 17.1281 12 21.375 12 27C12 31.9687 16.0219 36 20.9906 36C23.7656 36 26.2969 34.7391 27.975 32.6672C28.2234 32.3625 27.9516 31.9125 27.5719 31.9875Z"
+                  fill="#E11C1C"
+                  style="opacity: 0; transform: scale(0) rotate(-0.75turn);"
+                />
+                <path
+                  class="moon__star--small"
+                  d="M27 15L26.25 16.5L25.5 15L24 14.25L25.5 13.5L26.25 12L27 13.5L28.5 14.25L27 15Z"
+                  fill="#E11C1C"
+                  style="opacity: 0; transform: scale(0);"
+                />
+                <path
+                  class="moon__star"
+                  d="M32.25 18L33.5016 20.4984L36 21.75L33.5016 23.0016L32.25 25.5L30.9984 23.0016L28.5 21.75L30.9984 20.4984L32.25 18Z"
+                  fill="#E11C1C"
+                  style="opacity: 0; transform: scale(0);"
+                />
+              </g>
+              <g
+                class="sun"
               >
-                <a
-                  aria-label="Follow me on Instagram"
-                  class="sc-AykKK djjMzQ"
-                  data-testid="component-external-link"
-                  href="https://instagram.com/JoaoTMDias"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
-                  title="Follow me on Instagram"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      class="social__fill"
-                      d="M15.75 2h-7.5A6.25 6.25 0 0 0 2 8.25v7.5A6.25 6.25 0 0 0 8.25 22h7.5A6.25 6.25 0 0 0 22 15.75v-7.5A6.25 6.25 0 0 0 15.75 2zm4.37 13.75a4.37 4.37 0 0 1-4.37 4.37h-7.5a4.37 4.37 0 0 1-4.37-4.37v-7.5a4.37 4.37 0 0 1 4.37-4.37h7.5a4.37 4.37 0 0 1 4.37 4.37z"
-                      fill="var(--color-gray5, #afb2be)"
-                    />
-                    <path
-                      class="social__fill"
-                      d="M12 7a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8.12A3.12 3.12 0 1 1 15.12 12 3.12 3.12 0 0 1 12 15.12z"
-                      fill="var(--color-gray5, #afb2be)"
-                    />
-                    <circle
-                      cx="17.38"
-                      cy="6.62"
-                      fill="var(--color-gray5, #afb2be)"
-                      r=".67"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li
-                class="sc-AykKJ hGqVGe"
-              >
-                <a
-                  aria-label="Check out my repos on Github"
-                  class="sc-AykKK djjMzQ"
-                  data-testid="component-external-link"
-                  href="https://github.com/Joaotmdias"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
-                  title="Check out my repos on Github"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      class="social__fill"
-                      d="M12 2.21a10 10 0 0 0-3.16 19.56c.5.1.68-.21.68-.48v-1.71c-2.78.61-3.37-1.34-3.37-1.34A2.64 2.64 0 0 0 5 16.77c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1 2.13 2.13 0 0 0 2.94.84 2.22 2.22 0 0 1 .63-1.35c-2.22-.25-4.55-1.11-4.55-5A3.89 3.89 0 0 1 6.65 9a3.62 3.62 0 0 1 .1-2.66s.84-.27 2.75 1a9.92 9.92 0 0 1 2.5-.28 10 10 0 0 1 2.51.34c1.9-1.3 2.74-1 2.74-1a3.56 3.56 0 0 1 .1 2.6 3.89 3.89 0 0 1 1 2.69c0 3.86-2.34 4.71-4.57 5a2.39 2.39 0 0 1 .68 1.86v2.75c0 .33.18.58.69.48A10 10 0 0 0 12 2.21z"
-                      fill="var(--color-gray5, #afb2be)"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li
-                class="sc-AykKJ hGqVGe"
-              >
-                <a
-                  aria-label="Check out some dribble shots"
-                  class="sc-AykKK djjMzQ"
-                  data-testid="component-external-link"
-                  href="https://dribbble.com/Joaotmdias"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
-                  title="Check out some dribble shots"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      class="social__fill"
-                      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18.75A8.75 8.75 0 1 1 20.75 12 8.77 8.77 0 0 1 12 20.75z"
-                      fill="var(--color-gray5, #afb2be)"
-                    />
-                    <path
-                      class="social__fill"
-                      d="M16.79 6.23A7.47 7.47 0 0 0 12 4.5a7 7 0 0 0-1.53.16 36 36 0 0 1 2.46 4 18 18 0 0 0 3.86-2.43zM14.39 11.88a13.87 13.87 0 0 1 5.1-.09 7.44 7.44 0 0 0-1.81-4.68 19 19 0 0 1-4.21 2.68c.33.69.64 1.38.92 2.09zM9.21 5a7.48 7.48 0 0 0-4.51 5.31 17.6 17.6 0 0 0 7.06-1.16A34.25 34.25 0 0 0 9.21 5zM12.33 10.29a18.92 18.92 0 0 1-6.83 1.3h-1v.45a7.46 7.46 0 0 0 1.77 4.83 14.05 14.05 0 0 1 6.9-4.64c-.26-.68-.54-1.32-.84-1.94zM14.85 13.06a35.73 35.73 0 0 1 1.4 5.11A7.48 7.48 0 0 0 19.42 13a12.76 12.76 0 0 0-4.57.06zM7.16 17.72A7.43 7.43 0 0 0 12 19.5a7.52 7.52 0 0 0 3.11-.68 35.06 35.06 0 0 0-1.49-5.47 12.78 12.78 0 0 0-6.46 4.37z"
-                      fill="var(--color-gray5, #afb2be)"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li
-                class="sc-AykKJ hGqVGe"
-              >
-                <a
-                  aria-label="Follow me on Twitter"
-                  class="sc-AykKK djjMzQ"
-                  data-testid="component-external-link"
-                  href="https://twitter.com/Joaotmdias"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
-                  title="Follow me on Twitter"
-                >
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      class="social__fill"
-                      d="M24 4.309c-.892.391-1.843.65-2.835.776a4.893 4.893 0 0 0 2.165-2.719 9.833 9.833 0 0 1-3.12 1.191 4.919 4.919 0 0 0-8.511 3.365c0 .39.033.764.114 1.121-4.091-.199-7.71-2.16-10.142-5.146a4.954 4.954 0 0 0-.673 2.487c0 1.704.877 3.214 2.185 4.089A4.859 4.859 0 0 1 .96 8.867v.054a4.943 4.943 0 0 0 3.942 4.835c-.4.109-.837.162-1.29.162a4.35 4.35 0 0 1-.932-.084c.638 1.948 2.447 3.38 4.598 3.427a9.886 9.886 0 0 1-6.1 2.099c-.404 0-.791-.018-1.178-.068A13.852 13.852 0 0 0 7.548 21.5c9.054 0 14.004-7.5 14.004-14.001 0-.217-.008-.427-.018-.636A9.816 9.816 0 0 0 24 4.309z"
-                      fill="var(--color-gray5, #afb2be)"
-                    />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </nav>
+                <path
+                  class="sun__rays"
+                  d="M35.5511 23.2734L31.1119 21.0562L32.6823 16.35C32.8932 15.7125 32.2885 15.1078 31.6556 15.3234L26.9492 16.8938L24.7272 12.45C24.4272 11.85 23.574 11.85 23.274 12.45L21.0567 16.8891L16.3455 15.3188C15.708 15.1078 15.1033 15.7125 15.3189 16.3453L16.8893 21.0516L12.45 23.2734C11.85 23.5734 11.85 24.4266 12.45 24.7266L16.8893 26.9437L15.3189 31.6547C15.108 32.2922 15.7127 32.8969 16.3455 32.6812L21.052 31.1109L23.2693 35.55C23.5693 36.15 24.4225 36.15 24.7225 35.55L26.9398 31.1109L31.6463 32.6812C32.2838 32.8922 32.8885 32.2875 32.6729 31.6547L31.1025 26.9484L35.5418 24.7312C36.1512 24.4266 36.1512 23.5734 35.5511 23.2734ZM28.243 28.2422C25.9038 30.5812 22.0974 30.5812 19.7582 28.2422C17.419 25.9031 17.419 22.0969 19.7582 19.7578C22.0974 17.4187 25.9038 17.4187 28.243 19.7578C30.5822 22.0969 30.5822 25.9031 28.243 28.2422Z"
+                  fill="#4B8E2B"
+                  style="opacity: 1; transform: scale(1) rotate(4turn);"
+                />
+                <path
+                  class="sun__sphere"
+                  d="M19.5004 24C19.5004 21.5203 21.5208 19.5 24.0006 19.5C26.4804 19.5 28.5008 21.5203 28.5008 24C28.5008 26.4797 26.4804 28.5 24.0006 28.5C21.5208 28.5 19.5004 26.4797 19.5004 24Z"
+                  fill="#4B8E2B"
+                  style="transform: scale(1);"
+                />
+              </g>
+            </svg>
+          </button>
         </div>
       </header>
     </div>
   </body>,
   "container": <div>
     <header
-      class="sc-fzXfLQ kYZRdp header"
+      class="sc-fzozJi PbOHg header"
       id="page-header"
     >
       <div
@@ -287,12 +188,12 @@ Object {
         <a
           aria-current="page"
           aria-label="Go to the Homepage"
-          class="sc-fzXfLO kaVewC"
+          class="sc-AxgMl hUbrj"
           href="/"
           id="branding"
         >
           <svg
-            class="sc-fzXfLP gKYQbo"
+            class="sc-AxheI ijwVAa"
             height="48"
             id="logo"
             viewBox="0 0 48 48"
@@ -318,7 +219,7 @@ Object {
         </a>
         <nav
           aria-label="Back Navigation Button"
-          class="sc-AykKD FxXVP"
+          class="sc-AxirZ kUbctk"
           id="back-navigation"
         >
           <a
@@ -351,21 +252,21 @@ Object {
           </a>
         </nav>
         <h2
-          class="sc-AykKC hUIJoS"
+          class="sc-AxjAm bMcuaR"
           id="header-page-title"
         >
           Project Details
         </h2>
         <nav
-          class="sc-AykKE gxYeFO"
+          class="sc-AxiKw enfiDq"
           id="top-navigation"
           title="Top Navigation"
         >
           <ul
-            class="sc-AykKF tiyzS"
+            class="sc-AxhCb PhWGT"
           >
             <li
-              class="sc-AykKG ipsmiZ"
+              class="sc-AxhUy iFPtNu"
             >
               <a
                 aria-label="Go to the about page"
@@ -376,7 +277,7 @@ Object {
               </a>
             </li>
             <li
-              class="sc-AykKG ipsmiZ"
+              class="sc-AxhUy iFPtNu"
             >
               <a
                 aria-label="Go to the contacts page"
@@ -388,162 +289,63 @@ Object {
             </li>
           </ul>
         </nav>
-        <nav
-          class="sc-AykKH dABFTP"
-          id="social-navigation"
-          title="Social network links"
+        <button
+          aria-label="Current theme is light. Click to change"
+          class="sc-Axmtr ijYeNf theme-button"
+          data-current-theme="light"
+          data-testid="component-theme-button-toggle"
+          id="theme-button-toggle"
+          title="Light/Dark theme switcher"
+          type="button"
         >
-          <ul
-            class="sc-AykKI WixrV"
+          <svg
+            class="sc-AxmLO cAuNYQ theme-button__icon"
+            fill="none"
+            height="48"
+            viewBox="0 0 48 48"
+            width="48"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <li
-              class="sc-AykKJ hGqVGe"
+            <g
+              class="moon"
             >
-              <a
-                aria-label="Follow me on Facebook"
-                class="sc-AykKK djjMzQ"
-                data-testid="component-external-link"
-                href="https://fb.com/JoaoTMDias"
-                rel="noopener noreferrer"
-                tabindex="0"
-                target="_blank"
-                title="Follow me on Facebook"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.88 22v-.07a10.55 10.55 0 0 1-1.13.07z"
-                    fill="white"
-                  />
-                  <path
-                    class="social__fill"
-                    d="M15.12 13l1.13-2.81h-3.37V7.94A1.13 1.13 0 0 1 14 6.81h1.12V4h-2.24A3.38 3.38 0 0 0 9.5 7.38v2.81H7.25V13H9.5v8.74a10.41 10.41 0 0 0 2.25.26 10.55 10.55 0 0 0 1.13-.07V13z"
-                    fill="var(--color-gray5, #afb2be)"
-                  />
-                </svg>
-              </a>
-            </li>
-            <li
-              class="sc-AykKJ hGqVGe"
+              <path
+                class="moon__sphere"
+                d="M27.5719 31.9875C23.2078 32.8172 19.2047 29.4703 19.2047 25.0641C19.2047 22.5234 20.5641 20.1891 22.7719 18.9328C23.1141 18.7406 23.025 18.225 22.6406 18.15C17.0953 17.1281 12 21.375 12 27C12 31.9687 16.0219 36 20.9906 36C23.7656 36 26.2969 34.7391 27.975 32.6672C28.2234 32.3625 27.9516 31.9125 27.5719 31.9875Z"
+                fill="#E11C1C"
+                style="opacity: 0; transform: scale(0) rotate(-0.75turn);"
+              />
+              <path
+                class="moon__star--small"
+                d="M27 15L26.25 16.5L25.5 15L24 14.25L25.5 13.5L26.25 12L27 13.5L28.5 14.25L27 15Z"
+                fill="#E11C1C"
+                style="opacity: 0; transform: scale(0);"
+              />
+              <path
+                class="moon__star"
+                d="M32.25 18L33.5016 20.4984L36 21.75L33.5016 23.0016L32.25 25.5L30.9984 23.0016L28.5 21.75L30.9984 20.4984L32.25 18Z"
+                fill="#E11C1C"
+                style="opacity: 0; transform: scale(0);"
+              />
+            </g>
+            <g
+              class="sun"
             >
-              <a
-                aria-label="Follow me on Instagram"
-                class="sc-AykKK djjMzQ"
-                data-testid="component-external-link"
-                href="https://instagram.com/JoaoTMDias"
-                rel="noopener noreferrer"
-                tabindex="0"
-                target="_blank"
-                title="Follow me on Instagram"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    class="social__fill"
-                    d="M15.75 2h-7.5A6.25 6.25 0 0 0 2 8.25v7.5A6.25 6.25 0 0 0 8.25 22h7.5A6.25 6.25 0 0 0 22 15.75v-7.5A6.25 6.25 0 0 0 15.75 2zm4.37 13.75a4.37 4.37 0 0 1-4.37 4.37h-7.5a4.37 4.37 0 0 1-4.37-4.37v-7.5a4.37 4.37 0 0 1 4.37-4.37h7.5a4.37 4.37 0 0 1 4.37 4.37z"
-                    fill="var(--color-gray5, #afb2be)"
-                  />
-                  <path
-                    class="social__fill"
-                    d="M12 7a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8.12A3.12 3.12 0 1 1 15.12 12 3.12 3.12 0 0 1 12 15.12z"
-                    fill="var(--color-gray5, #afb2be)"
-                  />
-                  <circle
-                    cx="17.38"
-                    cy="6.62"
-                    fill="var(--color-gray5, #afb2be)"
-                    r=".67"
-                  />
-                </svg>
-              </a>
-            </li>
-            <li
-              class="sc-AykKJ hGqVGe"
-            >
-              <a
-                aria-label="Check out my repos on Github"
-                class="sc-AykKK djjMzQ"
-                data-testid="component-external-link"
-                href="https://github.com/Joaotmdias"
-                rel="noopener noreferrer"
-                tabindex="0"
-                target="_blank"
-                title="Check out my repos on Github"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    class="social__fill"
-                    d="M12 2.21a10 10 0 0 0-3.16 19.56c.5.1.68-.21.68-.48v-1.71c-2.78.61-3.37-1.34-3.37-1.34A2.64 2.64 0 0 0 5 16.77c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1 2.13 2.13 0 0 0 2.94.84 2.22 2.22 0 0 1 .63-1.35c-2.22-.25-4.55-1.11-4.55-5A3.89 3.89 0 0 1 6.65 9a3.62 3.62 0 0 1 .1-2.66s.84-.27 2.75 1a9.92 9.92 0 0 1 2.5-.28 10 10 0 0 1 2.51.34c1.9-1.3 2.74-1 2.74-1a3.56 3.56 0 0 1 .1 2.6 3.89 3.89 0 0 1 1 2.69c0 3.86-2.34 4.71-4.57 5a2.39 2.39 0 0 1 .68 1.86v2.75c0 .33.18.58.69.48A10 10 0 0 0 12 2.21z"
-                    fill="var(--color-gray5, #afb2be)"
-                  />
-                </svg>
-              </a>
-            </li>
-            <li
-              class="sc-AykKJ hGqVGe"
-            >
-              <a
-                aria-label="Check out some dribble shots"
-                class="sc-AykKK djjMzQ"
-                data-testid="component-external-link"
-                href="https://dribbble.com/Joaotmdias"
-                rel="noopener noreferrer"
-                tabindex="0"
-                target="_blank"
-                title="Check out some dribble shots"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    class="social__fill"
-                    d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18.75A8.75 8.75 0 1 1 20.75 12 8.77 8.77 0 0 1 12 20.75z"
-                    fill="var(--color-gray5, #afb2be)"
-                  />
-                  <path
-                    class="social__fill"
-                    d="M16.79 6.23A7.47 7.47 0 0 0 12 4.5a7 7 0 0 0-1.53.16 36 36 0 0 1 2.46 4 18 18 0 0 0 3.86-2.43zM14.39 11.88a13.87 13.87 0 0 1 5.1-.09 7.44 7.44 0 0 0-1.81-4.68 19 19 0 0 1-4.21 2.68c.33.69.64 1.38.92 2.09zM9.21 5a7.48 7.48 0 0 0-4.51 5.31 17.6 17.6 0 0 0 7.06-1.16A34.25 34.25 0 0 0 9.21 5zM12.33 10.29a18.92 18.92 0 0 1-6.83 1.3h-1v.45a7.46 7.46 0 0 0 1.77 4.83 14.05 14.05 0 0 1 6.9-4.64c-.26-.68-.54-1.32-.84-1.94zM14.85 13.06a35.73 35.73 0 0 1 1.4 5.11A7.48 7.48 0 0 0 19.42 13a12.76 12.76 0 0 0-4.57.06zM7.16 17.72A7.43 7.43 0 0 0 12 19.5a7.52 7.52 0 0 0 3.11-.68 35.06 35.06 0 0 0-1.49-5.47 12.78 12.78 0 0 0-6.46 4.37z"
-                    fill="var(--color-gray5, #afb2be)"
-                  />
-                </svg>
-              </a>
-            </li>
-            <li
-              class="sc-AykKJ hGqVGe"
-            >
-              <a
-                aria-label="Follow me on Twitter"
-                class="sc-AykKK djjMzQ"
-                data-testid="component-external-link"
-                href="https://twitter.com/Joaotmdias"
-                rel="noopener noreferrer"
-                tabindex="0"
-                target="_blank"
-                title="Follow me on Twitter"
-              >
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    class="social__fill"
-                    d="M24 4.309c-.892.391-1.843.65-2.835.776a4.893 4.893 0 0 0 2.165-2.719 9.833 9.833 0 0 1-3.12 1.191 4.919 4.919 0 0 0-8.511 3.365c0 .39.033.764.114 1.121-4.091-.199-7.71-2.16-10.142-5.146a4.954 4.954 0 0 0-.673 2.487c0 1.704.877 3.214 2.185 4.089A4.859 4.859 0 0 1 .96 8.867v.054a4.943 4.943 0 0 0 3.942 4.835c-.4.109-.837.162-1.29.162a4.35 4.35 0 0 1-.932-.084c.638 1.948 2.447 3.38 4.598 3.427a9.886 9.886 0 0 1-6.1 2.099c-.404 0-.791-.018-1.178-.068A13.852 13.852 0 0 0 7.548 21.5c9.054 0 14.004-7.5 14.004-14.001 0-.217-.008-.427-.018-.636A9.816 9.816 0 0 0 24 4.309z"
-                    fill="var(--color-gray5, #afb2be)"
-                  />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </nav>
+              <path
+                class="sun__rays"
+                d="M35.5511 23.2734L31.1119 21.0562L32.6823 16.35C32.8932 15.7125 32.2885 15.1078 31.6556 15.3234L26.9492 16.8938L24.7272 12.45C24.4272 11.85 23.574 11.85 23.274 12.45L21.0567 16.8891L16.3455 15.3188C15.708 15.1078 15.1033 15.7125 15.3189 16.3453L16.8893 21.0516L12.45 23.2734C11.85 23.5734 11.85 24.4266 12.45 24.7266L16.8893 26.9437L15.3189 31.6547C15.108 32.2922 15.7127 32.8969 16.3455 32.6812L21.052 31.1109L23.2693 35.55C23.5693 36.15 24.4225 36.15 24.7225 35.55L26.9398 31.1109L31.6463 32.6812C32.2838 32.8922 32.8885 32.2875 32.6729 31.6547L31.1025 26.9484L35.5418 24.7312C36.1512 24.4266 36.1512 23.5734 35.5511 23.2734ZM28.243 28.2422C25.9038 30.5812 22.0974 30.5812 19.7582 28.2422C17.419 25.9031 17.419 22.0969 19.7582 19.7578C22.0974 17.4187 25.9038 17.4187 28.243 19.7578C30.5822 22.0969 30.5822 25.9031 28.243 28.2422Z"
+                fill="#4B8E2B"
+                style="opacity: 1; transform: scale(1) rotate(4turn);"
+              />
+              <path
+                class="sun__sphere"
+                d="M19.5004 24C19.5004 21.5203 21.5208 19.5 24.0006 19.5C26.4804 19.5 28.5008 21.5203 28.5008 24C28.5008 26.4797 26.4804 28.5 24.0006 28.5C21.5208 28.5 19.5004 26.4797 19.5004 24Z"
+                fill="#4B8E2B"
+                style="transform: scale(1);"
+              />
+            </g>
+          </svg>
+        </button>
       </div>
     </header>
   </div>,

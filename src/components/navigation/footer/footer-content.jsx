@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { rem } from "polished";
 import { above } from "../../../helpers/media-queries.helper";
+import { theme } from "../../../helpers/theme.helper";
 
 /** ********
  ** Component: FooterCopyright
@@ -69,7 +70,6 @@ const Wrapper = styled.div`
 	margin-left: auto;
 
 	.layout__row {
-		width: 100%;
 		margin: 0 auto;
 		justify-content: space-between;
 		flex-direction: column;
@@ -124,7 +124,7 @@ const Wrapper = styled.div`
 			width: 100%;
 
 			${above.medium`
-              line-height: ${rem("64px")};
+				line-height: ${rem("64px")};
       `};
 		}
 
@@ -168,6 +168,34 @@ const Wrapper = styled.div`
 			}
 		}
 	}
+
+	${theme.dark`
+		.left {
+			color: var(--color-gray4);
+		}
+
+		.left,
+		.right {
+			a {
+				color: var(--color-gray5, #3a3e4c);
+			}
+
+			p {
+				color: var(--color-gray4, #646b82);
+			}
+		}
+
+		.list {
+			.item {
+				flex-wrap: wrap;
+				color: var(--color-gray4);
+
+				a {
+					color: var(--color-gray4);
+				}
+			}
+		}
+	`};
 `;
 
 export default FooterContent;

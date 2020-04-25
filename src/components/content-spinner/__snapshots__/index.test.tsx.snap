@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-AykKC dKGkYA content-spinner isCenter"
+        class="sc-AxjAm kqIhCq content-spinner isCenter"
         color="hsl(0, 0%, 60%)"
         data-testid="component-content-spinner"
         size="24"
@@ -34,7 +34,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-AykKC dKGkYA content-spinner isCenter"
+      class="sc-AxjAm kqIhCq content-spinner isCenter"
       color="hsl(0, 0%, 60%)"
       data-testid="component-content-spinner"
       size="24"

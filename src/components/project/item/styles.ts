@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import { above } from "../../../helpers/media-queries.helper";
 import { responsiveHeading } from "../../../helpers/responsive-typography.helpers";
 import { EHeadingSize } from "../../../data/constants/headings";
+import { theme } from '../../../helpers/theme.helper';
 
 // ///////////////////
 // STYLED COMPONENTS
@@ -61,6 +62,10 @@ export const Item = styled(Link)`
 				opacity: 1;
 			}
 		}
+
+		${theme.dark`
+			box-shadow: 0 24px 64px var(--color-gray10);
+		`};
 	}
 
 	picture {

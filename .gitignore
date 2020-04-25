@@ -66,3 +66,5 @@ package-lock.json
 # lighthouse reports
 /reports/*
 *.report.html
+cypress.env.json
+.env

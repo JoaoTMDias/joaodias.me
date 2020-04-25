@@ -1,6 +1,6 @@
 // Libraries
 import React, { useState, useEffect } from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 
@@ -17,7 +17,7 @@ import { IProjectPageProps, IContentfulPortfolio } from "./types";
  * @class ProjectPage
  * @extends {React.Component}
  */
-const ProjectPage: React.FunctionComponent<IProjectPageProps> = props => {
+const ProjectPage: React.FunctionComponent<IProjectPageProps> = (props) => {
 	const [post, setPost] = useState<IContentfulPortfolio | null>(null);
 
 	useEffect(() => {

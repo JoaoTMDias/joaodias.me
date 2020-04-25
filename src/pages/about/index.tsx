@@ -27,7 +27,7 @@ interface IAboutPageProps {
 	data: Data;
 }
 
-const AboutPage: React.FunctionComponent<IAboutPageProps> = props => {
+const AboutPage: React.FunctionComponent<IAboutPageProps> = (props) => {
 	const { location, data } = props;
 	const renderImage = () => {
 		const queryPath = data.allContentfulAsset.edges[0].node;

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled, { keyframes } from "styled-components";
 import { rem, lighten } from "polished";
 import { above } from "../../helpers/media-queries.helper";
+import { theme } from '../../helpers/theme.helper';
 
 /**
  *
@@ -157,6 +158,22 @@ const Item = styled.div`
 			color: var(--color-gray5, #afb2be);
 		}
 	}
+
+	${theme.dark`
+		&.type {
+			&--work,
+			&--education {
+				.icon {
+					background-image: linear-gradient(var(--color-gray9), var(--color-gray10));
+				}
+			}
+
+			&--work,
+			&--education {
+				color: var(--color-gray9);
+			}
+		}
+	`};
 `;
 
 const Icon = styled.span`
@@ -199,6 +216,10 @@ const Icon = styled.span`
 		height: ${rem("28px")};
 		left: 50%;
 		margin-left: ${rem("-16px")};
+	`};
+
+	${theme.dark`
+			box-shadow: 0 0 16px 2px var(--color-gray10);
 	`};
 `;
 
@@ -298,6 +319,38 @@ const Content = styled.div`
 			left: 142%;
 			top: ${rem("6px")};
 			font-size: ${rem("16px")};
+		}
+	`};
+
+	${theme.dark`
+		background: rgba(0, 0, 0, 0.05);
+		border-color: var(--color-gray9);
+		box-shadow: 0 4px 24px var(--color-gray10);
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: var(--color-gray8);
+		}
+
+		h2 {
+			color: var(--color-gray4);
+		}
+
+		p {
+			color: var(--color-gray5);
+		}
+
+		.date {
+			color: var(--color-gray4);
+		}
+
+		.title {
+			color: var(--color-gray3);
+		}
+
+		.subtitle {
+			color: var(--color-gray4);
 		}
 	`};
 `;

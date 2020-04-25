@@ -10,6 +10,7 @@ import SkipLink from "./navigation/skip-link/index";
 
 // Styling
 import "./layout.scss";
+import ThemeProvider from "../context/theme";
 
 // Components
 const Footer = loadable(/* webpackChunkName: "footer" */ () => pMinDelay(import("./navigation/footer"), 200));
@@ -40,13 +41,13 @@ export const Layout = ({ children }) => {
 				}
 			`}
 			render={() => (
-				<>
+				<ThemeProvider>
 					<SkipLink />
 					<Header />
 					<BottomNavigation />
 					<main>{children}</main>
 					<Footer />
-				</>
+				</ThemeProvider>
 			)}
 		/>
 	);

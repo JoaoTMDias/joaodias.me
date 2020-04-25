@@ -28,9 +28,7 @@ export const PageTitle: React.FunctionComponent<IPageTitleProps> = ({
 	const animatedProps = useSpring({
 		from,
 		to,
-		config: {
-			delay: 100,
-		},
+		delay: 200,
 	});
 
 	const AnimatedTitle = animated(Title);

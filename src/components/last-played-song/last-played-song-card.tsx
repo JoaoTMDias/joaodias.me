@@ -28,14 +28,14 @@ export const LastPlayedSongCard: React.FunctionComponent<ILastPlayedSongCardProp
 
 			<InfoContainer>
 				<h2 className="track">
-					<a href={song.url} aria-label={`Song Name: ${song.name}`} title={`${song.name}`}>
+					<a href={song.url} data-testid="last-played-title" aria-label={`Song Name: ${song.name}`} title={`${song.name}`}>
 						{song.name}
 					</a>
 				</h2>
-				<p className="artist" aria-label={`Artist/Band Name: ${song.artist["#text"]}`}>
+				<p className="artist" data-testid="last-played-artist" aria-label={`Artist/Band Name: ${song.artist["#text"]}`}>
 					{song.artist["#text"]}
 				</p>
-				<span className="album" aria-label={`Album Name: ${song.album["#text"]}`}>
+				<span className="album" data-testid="last-played-album" aria-label={`Album Name: ${song.album["#text"]}`}>
 					{song.album["#text"]}
 				</span>
 			</InfoContainer>
