@@ -105,10 +105,9 @@ export const TextInputWrapper = styled.div`
 			color: var(--color-gray3);
 		}
 
-		.input,
-		.input:-internal-autofill-selected {
+		.input {
 			color: var(--color-gray1) !important;
-			background-color: var(--color-gray10) !important;
+			background-color: transparent !important;
 
 			&::placeholder {
 				color: var(--color-gray7) !important;
@@ -130,6 +129,7 @@ export const TextAreaInputWrapper = styled(TextInputWrapper)`
 		flex: 1;
 		min-height: ${rem("200px")};
 		max-height: ${rem("480px")};
+		background-color: transparent;
 	}
 `;
 
