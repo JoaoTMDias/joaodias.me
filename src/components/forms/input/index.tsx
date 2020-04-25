@@ -43,7 +43,11 @@ export const TextInput: React.FunctionComponent<ITextInputProps> = ({
 	const focusedClassName = focused ? "isFocused" : "";
 
 	return (
-		<TextInputWrapper data-testid="component-text-wrapper" data-form="input" className={focusedClassName}>
+		<TextInputWrapper
+			data-testid="component-text-wrapper"
+			data-form="input"
+			className={focusedClassName}
+		>
 			<label
 				data-testid="component-text-label"
 				className="content"

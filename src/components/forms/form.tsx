@@ -136,7 +136,7 @@ const Form = () => {
 	}
 
 	return (
-		<Container id="contact-form" className="layout__row">
+		<div id="contact-form" className="layout__row">
 			<FormWrapper
 				name="contact-form"
 				data-id="contact-form"
@@ -183,7 +183,7 @@ const Form = () => {
 				<Fieldset>{renderFormButton()}</Fieldset>
 				<div data-netlify-recaptcha />
 			</FormWrapper>
-		</Container>
+		</div>
 	);
 };
 

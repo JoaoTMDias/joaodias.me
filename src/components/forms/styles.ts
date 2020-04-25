@@ -3,9 +3,12 @@ import { rem } from "polished";
 import { above } from "../../helpers/media-queries.helper";
 import { EHeadingSize } from "../../data/constants/headings";
 import { responsiveHeading } from "../../helpers/responsive-typography.helpers";
+import { theme } from '../../helpers/theme.helper';
 
 // Styled Components
 export const TextInputWrapper = styled.div`
+	-webkit-appearance: none;
+	appearance: none;
 	background-color: var(--color-white, #ffffff);
 	padding: 0;
 	margin: 0;
@@ -89,6 +92,37 @@ export const TextInputWrapper = styled.div`
 		margin-bottom: 0;
 		text-align: left;
 	}
+
+	${theme.dark`
+		background-color: var(--color-gray10);
+
+		.content {
+			background-color: var(--color-gray10);
+			border-color: var(--color-gray10);
+		}
+
+		.label {
+			color: var(--color-gray3);
+		}
+
+		.input,
+		.input:-internal-autofill-selected {
+			color: var(--color-gray1) !important;
+			background-color: var(--color-gray10) !important;
+
+			&::placeholder {
+				color: var(--color-gray7) !important;
+			}
+
+			&:focus {
+				border: none;
+				box-shadow: none;
+			}
+		}
+		.helper {
+			color: var(--color-gray8);
+		}
+	`};
 `;
 
 export const TextAreaInputWrapper = styled(TextInputWrapper)`
@@ -116,7 +150,9 @@ export const Submit = styled.button`
 	text-align: center;
 	width: 100%;
 	padding: var(--global-padding);
-	border: 2px solid var(--color-gray2, #dfe0e5);
+	border-width: 2px;
+	border-style: solid;
+	border-color: var(--color-gray2, #dfe0e5);
 	border-radius: 0;
 	background-color: var(--color-white, #ffffff);
 	appearance: none;
@@ -139,6 +175,24 @@ export const Submit = styled.button`
 			padding-bottom: ${rem("24px")};
 		}
 	}
+
+	${theme.dark`
+		color: var(--color-gray9);
+		background-color: var(--color-black);
+		border-color: transparent;
+
+		&.is-valid {
+			color: var(--color-gray4);
+			border-color: transparent;
+
+			&:hover,
+			&:focus {
+				background-color: var(--color-gray10);
+				color: var(--color-gray3);
+				border-color: var(--color-gray10);
+			}
+		}
+	`};
 `;
 
 export const Fieldset = styled.div`
@@ -225,8 +279,4 @@ export const Success = styled.div`
 			margin: 0 auto;
 		}
 	}
-`;
-
-export const Container = styled.div`
-	width: 100%;
 `;

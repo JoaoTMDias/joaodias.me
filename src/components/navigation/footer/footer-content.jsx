@@ -70,7 +70,6 @@ const Wrapper = styled.div`
 	margin-left: auto;
 
 	.layout__row {
-		width: 100%;
 		margin: 0 auto;
 		justify-content: space-between;
 		flex-direction: column;

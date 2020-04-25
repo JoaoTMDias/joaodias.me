@@ -30,7 +30,6 @@ export const Container = styled.section`
 `;
 
 export const Row = styled.div<IPageTitleProps>`
-	width: 100%;
 	will-change: transform;
 	padding: ${rem("16px")} !important;
 	background-color: transparent;
