@@ -14,8 +14,7 @@ import { IProjectPageProps, IContentfulPortfolio } from "./types";
 /**
  * Product Page Template
  *
- * @class ProjectPage
- * @extends {React.Component}
+ * @extends {React.FunctionComponent}
  */
 const ProjectPage: React.FunctionComponent<IProjectPageProps> = (props) => {
 	const [post, setPost] = useState<IContentfulPortfolio | null>(null);

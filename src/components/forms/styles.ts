@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { rem } from "polished";
 import { above } from "../../helpers/media-queries.helper";
 import { EHeadingSize } from "../../data/constants/headings";
@@ -211,6 +211,32 @@ export const Fieldset = styled.div`
 	`};
 `;
 
+const PaperPlaneAnimation = keyframes`
+	0% {
+		transform: translate3d(-6rem, 0, 0) rotate3d(1, 0, 0, 0.1turn) scale(1.1);
+	}
+
+	15% {
+		transform: translate3d(0, 0, 0) rotate3d(1, 0, 0, -0.1turn) scale(1);
+	}
+
+	30% {
+		transform: translate3d(-.5rem, 0, 0) rotate3d(1, 0, 0, 0turn) scale(1);
+	}
+
+	60% {
+		transform: translate3d(.25rem, 0, 0) rotate3d(1, 0, 0, 0.5turn) scale(0.95);
+	}
+
+	75% {
+		transform: translate3d(-.5rem, 0, 0) rotate3d(1, 0, 0, 0turn) scale(0.75);
+	}
+
+	100% {
+		transform: translate3d(6rem, 0, 0) rotate3d(1, 0, 0, 1turn) scale(0.9);
+	}
+`;
+
 export const Success = styled.div`
 	background-color: var(--color-primary, $color-primary);
 	width: 100%;
@@ -257,10 +283,16 @@ export const Success = styled.div`
 			margin-bottom: calc(var(global-margin) * 1.5);
 			background-color: var(--color-white, #ffffff);
 			clip-path: circle(3rem at 50%);
+			overflow: hidden;
 
 			svg {
 				width: ${rem("72px")};
 				height: ${rem("72px")};
+				animation-name: ${PaperPlaneAnimation};
+				animation-duration: 6000ms;
+				animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+				animation-fill-mode: forwards;
+				animation-iteration-count: infinite;
 
 				path {
 					fill: var(--color-primary);

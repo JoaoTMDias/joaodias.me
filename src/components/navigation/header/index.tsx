@@ -17,7 +17,7 @@ import ThemeButton from "../../themes/button";
  * Page Header
  *
  * @class Header
- * @extends {React.Component}
+ * @returns {FunctionComponent}
  */
 export const Header: FunctionComponent = () => {
 	return (
