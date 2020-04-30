@@ -166,6 +166,7 @@ const Form = () => {
 		<div id="contact-form" className="layout__row">
 			<FormWrapper
 				name="contact-form"
+				data-testid="contact-form"
 				data-id="contact-form"
 				onSubmit={onSubmitForm}
 				method="POST"
