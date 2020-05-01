@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-AxjAm iCcPvG"
+        class="sc-AxjAm cktUFz"
         data-form="input"
         data-testid="component-text-wrapper"
       >
@@ -25,22 +25,23 @@ Object {
             data-testid="component-text-input"
             id="text-input-id"
             maxlength="50"
+            minlength="3"
             name="text-input-id"
             placeholder="text-input-placeholder"
             type="text"
             value=""
           />
+          <p
+            class="helper"
+            data-testid="component-text-helper"
+          />
         </label>
-        <p
-          class="helper"
-          data-testid="component-text-helper"
-        />
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="sc-AxjAm iCcPvG"
+      class="sc-AxjAm cktUFz"
       data-form="input"
       data-testid="component-text-wrapper"
     >
@@ -59,16 +60,17 @@ Object {
           data-testid="component-text-input"
           id="text-input-id"
           maxlength="50"
+          minlength="3"
           name="text-input-id"
           placeholder="text-input-placeholder"
           type="text"
           value=""
         />
+        <p
+          class="helper"
+          data-testid="component-text-helper"
+        />
       </label>
-      <p
-        class="helper"
-        data-testid="component-text-helper"
-      />
     </div>
   </div>,
   "debug": [Function],

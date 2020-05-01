@@ -85,12 +85,17 @@ export const TextInputWrapper = styled.div`
 	.helper {
 		font-size: ${rem("14px")};
 		font-style: italic;
-		color: var(--color-gray4, #c0c3cc);
+		color: var(--color-white);
+		background-color: var(--color-primary);
 		margin-top: ${rem("2px")};
 		margin-left: 0;
 		margin-right: 0;
 		margin-bottom: 0;
 		text-align: left;
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0 0.25rem;
 	}
 
 	${theme.dark`
@@ -117,9 +122,6 @@ export const TextInputWrapper = styled.div`
 				border: none;
 				box-shadow: none;
 			}
-		}
-		.helper {
-			color: var(--color-gray8);
 		}
 	`};
 `;

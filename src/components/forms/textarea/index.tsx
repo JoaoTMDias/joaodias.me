@@ -2,17 +2,18 @@
 import React from "react";
 import { TextAreaInputWrapper } from "../styles";
 import { ITextAreaInputProps } from "../types";
+import { FIELDS_BOUNDARIES } from '../validation-schema';
 
 export const defaultProps = {
 	helperText: "",
 	id: "text-area-input",
 	label: "",
-	maxLength: 50,
 	placeholder: "Text Area placeholder...",
 	required: false,
 	value: "",
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	onChange: () => {},
+	onBlur: () => {}
 };
 
 /**
@@ -29,14 +30,21 @@ export const TextAreaInput: React.FunctionComponent<ITextAreaInputProps> = ({
 	className,
 	placeholder,
 	onChange,
+	onBlur,
 	required,
 	disabled,
-	helperText,
-	maxLength,
+	helperText
 }) => {
 	const [focused, setFocused] = React.useState(false);
 
 	const focusedClassName = focused ? "isFocused" : "";
+
+	function handleFocus(event: React.FocusEvent<HTMLTextAreaElement>, status: boolean) {
+		if(!status) {
+			onBlur(event);
+		}
+		setFocused(status);
+	}
 
 	return (
 		<TextAreaInputWrapper data-testid="component-text-area-wrapper" data-form="textarea" className={focusedClassName}>
@@ -44,15 +52,15 @@ export const TextAreaInput: React.FunctionComponent<ITextAreaInputProps> = ({
 				<span className="label">{label}</span>
 				<textarea
 					className={`input ${className}`}
-					cols={maxLength}
+					cols={FIELDS_BOUNDARIES.textarea.max}
 					data-testid="component-text-area-input"
 					defaultValue={value}
 					disabled={disabled}
 					id={id}
 					name={id}
-					onBlur={() => setFocused(false)}
 					onChange={onChange}
-					onFocus={() => setFocused(true)}
+					onFocus={(event) => handleFocus(event, true)}
+					onBlur={(event) => handleFocus(event, false)}
 					placeholder={placeholder}
 					required={required}
 				/>

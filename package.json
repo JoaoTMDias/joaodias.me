@@ -11,6 +11,7 @@
 		"babel-jest": "^25.5.1",
 		"bluebird": "^3.7.2",
 		"classnames": "^2.2.6",
+		"formik": "^2.1.4",
 		"gatsby": "2.21.5",
 		"gatsby-cli": "^2.12.5",
 		"gatsby-image": "^2.4.0",
@@ -40,7 +41,8 @@
 		"react-with-gesture": "^4.0.8",
 		"shallowequal": "^1.1.0",
 		"styled-components": "^5.1.0",
-		"supports-webp": "^2.0.1"
+		"supports-webp": "^2.0.1",
+		"yup": "^0.28.5"
 	},
 	"keywords": [
 		"gatsby"
@@ -79,6 +81,7 @@
 		"@types/react-helmet": "^5.0.15",
 		"@types/shallowequal": "^1.1.1",
 		"@types/styled-components": "^5.1.0",
+		"@types/yup": "^0.28.0",
 		"@typescript-eslint/eslint-plugin": "^2.30.0",
 		"@typescript-eslint/parser": "^2.30.0",
 		"babel-plugin-styled-components": "^1.10.7",

@@ -15,15 +15,17 @@ Object {
           data-id="contact-form"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          data-testid="contact-form"
           method="POST"
           name="contact-form"
         >
           <div
+            aria-hidden="false"
             class="sc-AxhUy bETLpA"
             role="group"
           >
             <div
-              class="sc-AxjAm iCcPvG"
+              class="sc-AxjAm cktUFz"
               data-form="input"
               data-testid="component-text-wrapper"
             >
@@ -44,20 +46,21 @@ Object {
                   data-testid="component-text-input"
                   id="name"
                   maxlength="50"
+                  minlength="3"
                   name="name"
                   placeholder="What's your name?"
                   required=""
                   type="text"
                   value=""
                 />
+                <p
+                  class="helper"
+                  data-testid="component-text-helper"
+                />
               </label>
-              <p
-                class="helper"
-                data-testid="component-text-helper"
-              />
             </div>
             <div
-              class="sc-AxjAm iCcPvG"
+              class="sc-AxjAm cktUFz"
               data-form="input"
               data-testid="component-text-wrapper"
             >
@@ -77,21 +80,22 @@ Object {
                   class="input undefined"
                   data-testid="component-text-input"
                   id="email"
-                  maxlength="200"
+                  maxlength="50"
+                  minlength="3"
                   name="email"
                   placeholder="Your fancy email"
                   required=""
                   type="email"
                   value=""
                 />
+                <p
+                  class="helper"
+                  data-testid="component-text-helper"
+                />
               </label>
-              <p
-                class="helper"
-                data-testid="component-text-helper"
-              />
             </div>
             <div
-              class="sc-AxjAm sc-AxirZ gwUnXi"
+              class="sc-AxjAm sc-AxirZ kOZIao"
               data-form="textarea"
               data-testid="component-text-area-wrapper"
             >
@@ -107,7 +111,7 @@ Object {
                 </span>
                 <textarea
                   class="input undefined"
-                  cols="50"
+                  cols="500"
                   data-testid="component-text-area-input"
                   id="message"
                   name="message"
@@ -132,6 +136,7 @@ Object {
             />
           </div>
           <div
+            aria-hidden="false"
             class="sc-AxhUy bETLpA"
           >
             <button
@@ -162,15 +167,17 @@ Object {
         data-id="contact-form"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        data-testid="contact-form"
         method="POST"
         name="contact-form"
       >
         <div
+          aria-hidden="false"
           class="sc-AxhUy bETLpA"
           role="group"
         >
           <div
-            class="sc-AxjAm iCcPvG"
+            class="sc-AxjAm cktUFz"
             data-form="input"
             data-testid="component-text-wrapper"
           >
@@ -191,20 +198,21 @@ Object {
                 data-testid="component-text-input"
                 id="name"
                 maxlength="50"
+                minlength="3"
                 name="name"
                 placeholder="What's your name?"
                 required=""
                 type="text"
                 value=""
               />
+              <p
+                class="helper"
+                data-testid="component-text-helper"
+              />
             </label>
-            <p
-              class="helper"
-              data-testid="component-text-helper"
-            />
           </div>
           <div
-            class="sc-AxjAm iCcPvG"
+            class="sc-AxjAm cktUFz"
             data-form="input"
             data-testid="component-text-wrapper"
           >
@@ -224,21 +232,22 @@ Object {
                 class="input undefined"
                 data-testid="component-text-input"
                 id="email"
-                maxlength="200"
+                maxlength="50"
+                minlength="3"
                 name="email"
                 placeholder="Your fancy email"
                 required=""
                 type="email"
                 value=""
               />
+              <p
+                class="helper"
+                data-testid="component-text-helper"
+              />
             </label>
-            <p
-              class="helper"
-              data-testid="component-text-helper"
-            />
           </div>
           <div
-            class="sc-AxjAm sc-AxirZ gwUnXi"
+            class="sc-AxjAm sc-AxirZ kOZIao"
             data-form="textarea"
             data-testid="component-text-area-wrapper"
           >
@@ -254,7 +263,7 @@ Object {
               </span>
               <textarea
                 class="input undefined"
-                cols="50"
+                cols="500"
                 data-testid="component-text-area-input"
                 id="message"
                 name="message"
@@ -279,6 +288,7 @@ Object {
           />
         </div>
         <div
+          aria-hidden="false"
           class="sc-AxhUy bETLpA"
         >
           <button

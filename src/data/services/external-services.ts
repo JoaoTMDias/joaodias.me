@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import axios, { AxiosPromise } from "axios";
 import { IExternalServiceSongs } from "../../components/last-played-song/types";
 import { IFormState } from "../../components/forms/types";
@@ -23,12 +24,22 @@ class ExternalService {
 	 * @memberof ExternalService
 	 */
 	postUserForm(data: IFormState) {
-		const options = {
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: encode({ "form-name": "contact-form", ...data }, "&"),
-		};
-
-		return axios.post("/", options);
+		return new Promise((resolve, reject) => {
+			const options = {
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+				body: encode({ "form-name": "contact-form", ...data }, "&"),
+			};
+			
+			axios.post("/", options)
+				.then((response) => {
+					if(response.status === 200) {
+						resolve(response.statusText);
+					}
+				})
+				.catch(() => {
+					reject(new Error("Error submitting the form"));
+				});
+		});
 	}
 }
 

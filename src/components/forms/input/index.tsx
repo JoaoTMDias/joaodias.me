@@ -1,7 +1,8 @@
 // Libraries
-import React from "react";
+import React, { memo, useState} from "react";
 import { TextInputWrapper } from "../styles";
 import { ITextInputProps } from "../types";
+import { FIELDS_BOUNDARIES } from '../validation-schema';
 
 export const defaultProps = {
 	disabled: false,
@@ -9,9 +10,9 @@ export const defaultProps = {
 	helperText: "",
 	id: "text-input-id",
 	label: "",
-	maxLength: 50,
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	onChange: () => {},
+	onBlur: () => {},
 	placeholder: "text-input-placeholder",
 	required: false,
 	type: "text",
@@ -25,7 +26,7 @@ export const defaultProps = {
  * @extends {FunctionComponent<ITextInputProps>}
  * @returns {JSX.Element[]}
  */
-export const TextInput: React.FunctionComponent<ITextInputProps> = ({
+export const TextInput: React.FunctionComponent<ITextInputProps> = memo(({
 	id,
 	label,
 	value,
@@ -33,15 +34,22 @@ export const TextInput: React.FunctionComponent<ITextInputProps> = ({
 	type,
 	placeholder,
 	onChange,
+	onBlur,
 	required,
 	pattern,
 	disabled,
-	helperText,
-	maxLength,
+	helperText
 }) => {
-	const [focused, setFocused] = React.useState(false);
+	const [focused, setFocused] = useState(false);
 
 	const focusedClassName = focused ? "isFocused" : "";
+
+	function handleFocus(event: React.FocusEvent<HTMLInputElement>, status: boolean) {
+		if(!status) {
+			onBlur(event);
+		}
+		setFocused(status);
+	}
 
 	return (
 		<TextInputWrapper data-testid="component-text-wrapper" data-form="input" className={focusedClassName}>
@@ -64,17 +72,18 @@ export const TextInput: React.FunctionComponent<ITextInputProps> = ({
 					required={required}
 					disabled={disabled}
 					pattern={pattern}
-					onFocus={() => setFocused(true)}
-					onBlur={() => setFocused(false)}
-					maxLength={maxLength}
+					onFocus={(event) => handleFocus(event, true)}
+					onBlur={(event) => handleFocus(event, false)}
+					minLength={FIELDS_BOUNDARIES.input.min}
+					maxLength={FIELDS_BOUNDARIES.input.max}
 				/>
+				<p data-testid="component-text-helper" className="helper">
+					{helperText}
+				</p>
 			</label>
-			<p data-testid="component-text-helper" className="helper">
-				{helperText}
-			</p>
 		</TextInputWrapper>
 	);
-};
+});
 
 TextInput.defaultProps = defaultProps;
 
