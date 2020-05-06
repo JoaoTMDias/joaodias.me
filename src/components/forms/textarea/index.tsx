@@ -36,7 +36,7 @@ export const TextAreaInput: React.FunctionComponent<ITextAreaInputProps> = ({
 	helperText
 }) => {
 	const [focused, setFocused] = React.useState(false);
-
+	const helperId = helperText && helperText.length > 0 ? `${id}-helper` : undefined;
 	const focusedClassName = focused ? "isFocused" : "";
 
 	function handleFocus(event: React.FocusEvent<HTMLTextAreaElement>, status: boolean) {
@@ -51,21 +51,32 @@ export const TextAreaInput: React.FunctionComponent<ITextAreaInputProps> = ({
 			<label data-testid="component-text-area-label" className="content" htmlFor={id}>
 				<span className="label">{label}</span>
 				<textarea
-					className={`input ${className}`}
-					cols={FIELDS_BOUNDARIES.textarea.max}
-					data-testid="component-text-area-input"
-					defaultValue={value}
-					disabled={disabled}
 					id={id}
 					name={id}
+					data-testid="component-text-area-input"
+					className={`input ${className}`}
+					placeholder={placeholder}
+					defaultValue={value}
 					onChange={onChange}
+					required={required}
+					disabled={disabled}
+					cols={FIELDS_BOUNDARIES.textarea.max}
 					onFocus={(event) => handleFocus(event, true)}
 					onBlur={(event) => handleFocus(event, false)}
-					placeholder={placeholder}
-					required={required}
+					minLength={FIELDS_BOUNDARIES.textarea.min}
+					maxLength={FIELDS_BOUNDARIES.textarea.max}
 				/>
-			</label>
-			<p data-testid="component-text-area-helper" className="helper">{`${helperText}`}</p>
+				{helperText && (
+					<p
+						id={helperId}
+						data-testid="component-text-area-helper"
+						className="helper"
+						aria-live="polite"
+					>
+						{helperText}
+					</p>
+				)}
+			</label>			
 		</TextAreaInputWrapper>
 	);
 };
