@@ -1,7 +1,7 @@
 /**
  * Import Libraries
  */
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
@@ -21,6 +21,7 @@ export const CallToActionItem = ({ id, title, subtitle, linkText, linkURL, isFil
 				className="callToAction"
 				aria-label="Download my resumé in PDF format"
 				download="true"
+				target="_blank"
 			>
 				<div className="item__inner">
 					<header className="item__top">
