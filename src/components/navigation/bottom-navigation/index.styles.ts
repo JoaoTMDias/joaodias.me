@@ -20,7 +20,6 @@ export const Wrapper = styled.nav`
 
 	${above.large`
 			display: none;
-			visibility: hidden;
 	`};
 `;
 

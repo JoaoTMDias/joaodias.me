@@ -69,7 +69,6 @@ const HTML: React.FunctionComponent<IHTMLProps> = (props) => {
 				<link rel="icon" type="image/png" sizes="194x194" href={favicon194} />
 				<link rel="mask-icon" href={maskIcon} color="#e81b1f" />
 
-				{helmet.title.toComponent()}
 				{helmet.meta.toComponent()}
 
 				{headComponents}

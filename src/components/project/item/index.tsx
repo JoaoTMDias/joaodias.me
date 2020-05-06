@@ -29,6 +29,7 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 			>
 				<LazyLoadingImage
 					id={id}
+					title={title}
 					fluid={fluid}
 					alt={alt}
 					backgroundColor={color}
@@ -37,8 +38,8 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 				/>
 				<Inner className="inner" style={{ backgroundColor: `${color}` }}>
 					<header className="inner__header">
-						<h3 className="type inner__type">{type}</h3>
-						<h2 className="title inner__title">{title}</h2>
+						<p className="type inner__type">{type}</p>
+						<h3 className="title inner__title">{title}</h3>
 					</header>
 
 					<div className="inner__content">

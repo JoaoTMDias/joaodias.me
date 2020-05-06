@@ -41,6 +41,7 @@ export const TextInput: React.FunctionComponent<ITextInputProps> = memo(({
 	helperText
 }) => {
 	const [focused, setFocused] = useState(false);
+	const helperId = helperText && helperText.length > 0 ? `${id}-helper` : undefined;
 
 	const focusedClassName = focused ? "isFocused" : "";
 
@@ -72,14 +73,22 @@ export const TextInput: React.FunctionComponent<ITextInputProps> = memo(({
 					required={required}
 					disabled={disabled}
 					pattern={pattern}
+					aria-labelledby={helperId}
 					onFocus={(event) => handleFocus(event, true)}
 					onBlur={(event) => handleFocus(event, false)}
 					minLength={FIELDS_BOUNDARIES.input.min}
 					maxLength={FIELDS_BOUNDARIES.input.max}
 				/>
-				<p data-testid="component-text-helper" className="helper">
-					{helperText}
-				</p>
+				{helperText && (
+					<p
+						id={helperId}
+						data-testid="component-text-helper"
+						className="helper"
+						aria-live="polite"
+					>
+						{helperText}
+					</p>
+				)}
 			</label>
 		</TextInputWrapper>
 	);

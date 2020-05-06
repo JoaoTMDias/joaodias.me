@@ -19,7 +19,7 @@ interface IMetaProps {
  */
 export const Meta: React.FunctionComponent<IMetaProps> = (props) => {
 	const { title, description, location, noIndex } = props;
-	const mainTitle = `${config.title} - Designer and Developer`;
+	const mainTitle = `${config.title}`;
 	const metaTitle: string = title ? `${title} | ${mainTitle}` : mainTitle;
 	const metaDescription: string = description || config.description;
 	const absoluteUrl = `${config.url}${location.pathname}`;
