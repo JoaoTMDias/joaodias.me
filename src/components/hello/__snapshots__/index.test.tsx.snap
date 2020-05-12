@@ -6,16 +6,16 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        aria-label="Page welcome title: Hey What's up?"
+        aria-hidden="true"
         class="sc-AxirZ fednSg"
         id="hello"
+        tabindex="-1"
       >
         <figure
           class="sc-AxiKw eiBfyI"
           id="art-mask"
         >
           <svg
-            role="img"
             viewBox="0 0 320 178"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -52,9 +52,6 @@ Object {
                 viewBox="0 0 713 697"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <title>
-                  blob-1
-                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -294,16 +291,16 @@ Object {
   </body>,
   "container": <div>
     <div
-      aria-label="Page welcome title: Hey What's up?"
+      aria-hidden="true"
       class="sc-AxirZ fednSg"
       id="hello"
+      tabindex="-1"
     >
       <figure
         class="sc-AxiKw eiBfyI"
         id="art-mask"
       >
         <svg
-          role="img"
           viewBox="0 0 320 178"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -340,9 +337,6 @@ Object {
               viewBox="0 0 713 697"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                blob-1
-              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"

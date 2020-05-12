@@ -7,16 +7,16 @@ afterEach(cleanup);
 
 describe("<TextInput />", () => {
 	it("should render without errors", () => {
-		const component = render(<TextInput value="" {...defaultProps} />);
+		const component = render(<TextInput id="name" value="" {...defaultProps} />);
 
 		expect(component).toMatchSnapshot();
 	});
 
 	it("should call onChange when typing", async () => {
 		const onChangeMock = jest.fn();
-		const { findByTestId } = render(<TextInput value="" {...defaultProps} onChange={onChangeMock} />);
+		const { findByTestId } = render(<TextInput {...defaultProps} id="name" value="" onChange={onChangeMock} />);
 
-		const input = await findByTestId("component-text-input");
+		const input = await findByTestId("component-text-input-name");
 
 		fireEvent.change(input, {
 			target: {
@@ -28,9 +28,9 @@ describe("<TextInput />", () => {
 	});
 
 	it("should have isFocused class when focused", async () => {
-		const { findByTestId } = render(<TextInput value="" {...defaultProps} />);
+		const { findByTestId } = render(<TextInput {...defaultProps} id="name" value="" />);
 
-		const input = await findByTestId("component-text-input");
+		const input = await findByTestId("component-text-input-name");
 		const wrapper = await findByTestId("component-text-wrapper");
 
 		fireEvent.focus(input);
@@ -39,9 +39,9 @@ describe("<TextInput />", () => {
 	});
 
 	it("should not have isFocused class when loses focus", async () => {
-		const { findByTestId } = render(<TextInput value="" {...defaultProps} />);
+		const { findByTestId } = render(<TextInput {...defaultProps} id="name" value="" />);
 
-		const input = await findByTestId("component-text-input");
+		const input = await findByTestId("component-text-input-name");
 		const wrapper = await findByTestId("component-text-wrapper");
 
 		fireEvent.blur(input);
@@ -51,7 +51,7 @@ describe("<TextInput />", () => {
 
 	it("should have helper text", async () => {
 		const helperText = "This a helper text";
-		const { findByTestId } = render(<TextInput value="" {...defaultProps} helperText={helperText} />);
+		const { findByTestId } = render(<TextInput {...defaultProps} id="name" value="" helperText={helperText} />);
 
 		const helper = await findByTestId("component-text-helper");
 

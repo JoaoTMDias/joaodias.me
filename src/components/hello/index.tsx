@@ -7,9 +7,9 @@ import { above } from "../../helpers/media-queries.helper";
 import HelloAnimationBlob from "./hello-animation-blob";
 
 const HelloAnimation = () => (
-	<Container id="hello" aria-label="Page welcome title: Hey What's up?">
+	<Container id="hello" aria-hidden="true" tabIndex={-1}>
 		<Mask id="art-mask">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 178" role="img">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 178">
 				<path
 					d="M274.05,122.35a7.78,7.78,0,0,0-5.33,2.13,12.3,12.3,0,0,0-3.41,6.15v19.72a7.44,7.44,0,0,0,2.69,3.06,7.74,7.74,0,0,0,4.27,1.15q9.41,0,9.4-17Q281.67,122.35,274.05,122.35Z"
 					fill="var(--body-background, #ffffff)"

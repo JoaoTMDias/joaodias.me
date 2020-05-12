@@ -1,5 +1,6 @@
 import React from "react";
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import user from "@testing-library/user-event";
+import { render, cleanup, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Form from "./form";
 
@@ -19,31 +20,18 @@ describe("<Form />", () => {
 	});
 
 	it("should enable the submit button once the form is filled", async () => {
-		const { findByTestId, queryAllByTestId } = render(<Form />);
-		const inputs = await queryAllByTestId("component-text-input");
-		const name = inputs[0];
-		const email = inputs[1];
-		const message = await findByTestId("component-text-area-input");
-		const button = await findByTestId("submit-button");
+		const { getByTestId } = render(<Form />);
+		const name = await getByTestId("component-text-input-name");
+		const email = await getByTestId("component-text-input-email");
+		const message = await getByTestId("component-text-area-input");
+		const button = await getByTestId("submit-button");
 
-		fireEvent.change(name, {
-			target: {
-				value: "name input",
-			},
+		user.type(name, "name input");
+		user.type(email, "email@email.com");
+		user.type(message, "textarea message content here");
+
+		await waitFor(() => {
+			expect(button).toHaveAttribute("aria-disabled", "false");
 		});
-
-		fireEvent.change(email, {
-			target: {
-				value: "email@email.com",
-			},
-		});
-
-		fireEvent.change(message, {
-			target: {
-				value: "textarea message content here",
-			},
-		});
-
-		expect(button).toHaveAttribute("aria-disabled", "false");
 	});
 });

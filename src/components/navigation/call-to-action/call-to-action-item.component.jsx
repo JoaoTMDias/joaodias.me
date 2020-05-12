@@ -1,7 +1,7 @@
 /**
  * Import Libraries
  */
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
@@ -15,11 +15,18 @@ import { above } from "../../../helpers/media-queries.helper";
 export const CallToActionItem = ({ id, title, subtitle, linkText, linkURL, isFile }) => {
 	if (isFile) {
 		return (
-			<External id={`${id}`} to={linkURL} className="callToAction" aria-label="Click/Enter to download my resumé">
+			<External
+				id={`${id}`}
+				to={linkURL}
+				className="callToAction"
+				aria-label="Download my resumé in PDF format"
+				download="true"
+				target="_blank"
+			>
 				<div className="item__inner">
 					<header className="item__top">
 						<p className="item__subtitle">{subtitle}</p>
-						<h1 className="item__title">{title}</h1>
+						<h3 className="item__title">{title}</h3>
 					</header>
 					<footer className="item__bottom">
 						<p className="fadeIn item__link">{linkText}</p>
@@ -33,7 +40,7 @@ export const CallToActionItem = ({ id, title, subtitle, linkText, linkURL, isFil
 			<div className="item__inner">
 				<header className="item__top">
 					<p className="item__subtitle">{subtitle}</p>
-					<h1 className="item__title">{title}</h1>
+					<h3 className="item__title">{title}</h3>
 				</header>
 				<footer className="item__bottom">
 					<p className="fadeIn item__link">{linkText}</p>

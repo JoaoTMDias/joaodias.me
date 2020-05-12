@@ -22,7 +22,7 @@ Object {
           />
           <input
             class="input undefined"
-            data-testid="component-text-input"
+            data-testid="component-text-input-text-input-id"
             id="text-input-id"
             maxlength="50"
             minlength="3"
@@ -31,10 +31,7 @@ Object {
             type="text"
             value=""
           />
-          <p
-            class="helper"
-            data-testid="component-text-helper"
-          />
+          
         </label>
       </div>
     </div>
@@ -57,7 +54,7 @@ Object {
         />
         <input
           class="input undefined"
-          data-testid="component-text-input"
+          data-testid="component-text-input-text-input-id"
           id="text-input-id"
           maxlength="50"
           minlength="3"
@@ -66,10 +63,7 @@ Object {
           type="text"
           value=""
         />
-        <p
-          class="helper"
-          data-testid="component-text-helper"
-        />
+        
       </label>
     </div>
   </div>,

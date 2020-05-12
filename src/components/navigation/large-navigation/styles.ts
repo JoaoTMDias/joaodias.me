@@ -20,7 +20,6 @@ export const List = styled.ul`
 	max-height: var(--navbar-height);
 	width: auto;
 	display: none;
-	visibility: hidden;
 	margin: 0;
 	padding: 0;
 

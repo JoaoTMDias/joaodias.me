@@ -43,7 +43,7 @@ Object {
                 </span>
                 <input
                   class="input undefined"
-                  data-testid="component-text-input"
+                  data-testid="component-text-input-name"
                   id="name"
                   maxlength="50"
                   minlength="3"
@@ -53,10 +53,7 @@ Object {
                   type="text"
                   value=""
                 />
-                <p
-                  class="helper"
-                  data-testid="component-text-helper"
-                />
+                
               </label>
             </div>
             <div
@@ -78,20 +75,17 @@ Object {
                 </span>
                 <input
                   class="input undefined"
-                  data-testid="component-text-input"
+                  data-testid="component-text-input-email"
                   id="email"
                   maxlength="50"
-                  minlength="3"
+                  minlength="5"
                   name="email"
                   placeholder="Your fancy email"
                   required=""
                   type="email"
                   value=""
                 />
-                <p
-                  class="helper"
-                  data-testid="component-text-helper"
-                />
+                
               </label>
             </div>
             <div
@@ -114,15 +108,14 @@ Object {
                   cols="500"
                   data-testid="component-text-area-input"
                   id="message"
+                  maxlength="500"
+                  minlength="10"
                   name="message"
                   placeholder="Got something you want to say?"
                   required=""
                 />
+                
               </label>
-              <p
-                class="helper"
-                data-testid="component-text-area-helper"
-              />
             </div>
             <input
               class="hidden"
@@ -195,7 +188,7 @@ Object {
               </span>
               <input
                 class="input undefined"
-                data-testid="component-text-input"
+                data-testid="component-text-input-name"
                 id="name"
                 maxlength="50"
                 minlength="3"
@@ -205,10 +198,7 @@ Object {
                 type="text"
                 value=""
               />
-              <p
-                class="helper"
-                data-testid="component-text-helper"
-              />
+              
             </label>
           </div>
           <div
@@ -230,20 +220,17 @@ Object {
               </span>
               <input
                 class="input undefined"
-                data-testid="component-text-input"
+                data-testid="component-text-input-email"
                 id="email"
                 maxlength="50"
-                minlength="3"
+                minlength="5"
                 name="email"
                 placeholder="Your fancy email"
                 required=""
                 type="email"
                 value=""
               />
-              <p
-                class="helper"
-                data-testid="component-text-helper"
-              />
+              
             </label>
           </div>
           <div
@@ -266,15 +253,14 @@ Object {
                 cols="500"
                 data-testid="component-text-area-input"
                 id="message"
+                maxlength="500"
+                minlength="10"
                 name="message"
                 placeholder="Got something you want to say?"
                 required=""
               />
+              
             </label>
-            <p
-              class="helper"
-              data-testid="component-text-area-helper"
-            />
           </div>
           <input
             class="hidden"

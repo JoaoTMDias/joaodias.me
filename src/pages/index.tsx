@@ -39,6 +39,7 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 		});
 		return (
 			<Wrapper id="main-content" className="layout__container layout__section">
+				<h2 className="sr-only">List of recent projects</h2>
 				<List className="layout__row">{list}</List>
 			</Wrapper>
 		);

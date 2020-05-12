@@ -52,7 +52,7 @@ const Link = styled.a`
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
-	transition: all 200ms var(--default-timing-function);
+	transition: all 64ms var(--default-timing-function);
 	width: calc(100% - 11.25rem);
 	z-index: 3;
 
@@ -68,7 +68,9 @@ const Link = styled.a`
 
 	${above.large`
 		position: absolute;
-		top: ${rem("64px")};
+		top: ${rem("32px")};
+		left: ${rem("112px")};
+		right: auto;
 	`};
 `;
 

@@ -8,6 +8,7 @@ import { above } from "../../../helpers/media-queries.helper";
 export const CallToActionWrapper = ({ children }) => {
 	return (
 		<Wrapper className="layout__container layout__section">
+			<h2 className="sr-only">Related links</h2>
 			<div className="layout__row">{children}</div>
 		</Wrapper>
 	);
