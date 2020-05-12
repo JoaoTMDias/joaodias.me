@@ -9,9 +9,12 @@ Cypress.Commands.add("getByAttr", (attribute, value) => {
 Cypress.Commands.add("fillForm", (fields) => {
 	fields.forEach(({ alias, value }) => {
 		if(typeof value === "string") {
-			cy.get(alias).type(value);
+			cy.get(alias).scrollIntoView().type(value, { force: true });
 		} else {
-			cy.get(alias).type(value.text, value.options);
+			cy.get(alias).scrollIntoView().type(value.text, {
+				...value.options,
+				force: true
+			});
 		}
 	});
 });

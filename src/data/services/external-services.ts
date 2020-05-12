@@ -29,10 +29,11 @@ class ExternalService {
 				headers: { "Content-Type": "application/x-www-form-urlencoded" },
 				body: encode({ "form-name": "contact-form", ...data }, "&"),
 			};
-			
-			axios.post("/", options)
+
+			axios
+				.post("/", options)
 				.then((response) => {
-					if(response.status === 200) {
+					if (response.status === 200) {
 						resolve(response.statusText);
 					}
 				})

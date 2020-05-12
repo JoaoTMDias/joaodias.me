@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Success } from "./styles";
 
-export function SuccessMessage(){
+export function SuccessMessage() {
 	const successMessage = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -22,7 +22,6 @@ export function SuccessMessage(){
 			aria-atomic="true"
 			aria-labelledby="success-title"
 			aria-describedby="success-message"
-
 		>
 			<figure role="presentation" aria-label="Paperplane icon" className="success__image">
 				<svg
@@ -58,11 +57,11 @@ export function SuccessMessage(){
 				</svg>
 			</figure>
 			<h2 id="success-title" className="success__title">
-					Off it goes!
+				Off it goes!
 			</h2>
 			<p id="success-message" className="success__message">
-					Thanks! Your message has been sent to me, so i&apos;ll get back to you as soon as I can. In the mean time,
-					feel free to browser my site wherever you want.
+				Thanks! Your message has been sent to me, so i&apos;ll get back to you as soon as I can. In the mean time, feel
+				free to browser my site wherever you want.
 			</p>
 		</Success>
 	);

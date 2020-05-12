@@ -14,7 +14,10 @@ export const HomePageHero: React.FunctionComponent = () => {
 	return (
 		<Hero className="layout__row utilities--above-the-fold">
 			<Wrapper>
-				<h1><HelloAnimation /><span className="sr-only">Hey, what's up?</span></h1>
+				<h1>
+					<HelloAnimation />
+					<span className="sr-only">Hey, what's up?</span>
+				</h1>
 				<Text>
 					<Subtitle>{text}</Subtitle>
 				</Text>

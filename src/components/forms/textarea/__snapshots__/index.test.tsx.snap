@@ -23,14 +23,13 @@ Object {
             cols="500"
             data-testid="component-text-area-input"
             id="text-area-input"
+            maxlength="500"
+            minlength="10"
             name="text-area-input"
             placeholder="Text Area placeholder..."
           />
+          
         </label>
-        <p
-          class="helper"
-          data-testid="component-text-area-helper"
-        />
       </div>
     </div>
   </body>,
@@ -53,14 +52,13 @@ Object {
           cols="500"
           data-testid="component-text-area-input"
           id="text-area-input"
+          maxlength="500"
+          minlength="10"
           name="text-area-input"
           placeholder="Text Area placeholder..."
         />
+        
       </label>
-      <p
-        class="helper"
-        data-testid="component-text-area-helper"
-      />
     </div>
   </div>,
   "debug": [Function],

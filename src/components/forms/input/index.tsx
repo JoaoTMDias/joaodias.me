@@ -35,6 +35,7 @@ export const TextInput: React.FunctionComponent<ITextInputProps> = memo(
 			isFocused: focused,
 			"has-errors": helperText && helperText.length > 0,
 		});
+		const inputTestId = `component-text-input-${id}`;
 
 		function handleFocus(event: React.FocusEvent<HTMLInputElement>, status: boolean) {
 			if (!status) {
@@ -55,7 +56,7 @@ export const TextInput: React.FunctionComponent<ITextInputProps> = memo(
 					<input
 						id={id}
 						name={id}
-						data-testid="component-text-input"
+						data-testid={inputTestId}
 						className={`input ${className}`}
 						type={type}
 						placeholder={`${placeholder}`}

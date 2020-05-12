@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <nav
-        class="sc-AxjAm dUslPO"
+        class="sc-AxjAm fWtcQ"
         id="bottom-navigation-bar"
       >
         <ul
@@ -188,7 +188,7 @@ Object {
   </body>,
   "container": <div>
     <nav
-      class="sc-AxjAm dUslPO"
+      class="sc-AxjAm fWtcQ"
       id="bottom-navigation-bar"
     >
       <ul

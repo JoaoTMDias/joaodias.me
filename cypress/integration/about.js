@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+
 import { setupLayout } from "../mocks/setupLayout";
 import { API_LAST_FM } from "../constants/api";
 

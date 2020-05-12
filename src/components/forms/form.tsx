@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
 import { Submit, FormWrapper, Fieldset } from "./styles";
 import { TextInput } from "./input";
 import { TextAreaInput } from "./textarea";
 import ExternalServices from "../../data/services/external-services";
 import { Logger } from "../../helpers/logger.helper";
-import { INITIAL_VALUES } from './initial-values';
-import { CONTACT_FORM_SCHEMA } from './validation-schema';
-import { IFormState } from './types';
-import { SuccessMessage } from './success-message';
+import { INITIAL_VALUES } from "./initial-values";
+import { CONTACT_FORM_SCHEMA } from "./validation-schema";
+import { IFormState } from "./types";
+import { SuccessMessage } from "./success-message";
 
 /**
  * @description Contact Form
@@ -26,11 +26,11 @@ const Form = () => {
 		try {
 			const submit = {
 				...values,
-				wasSent: true
-			}
-			
+				wasSent: true,
+			};
+
 			const response = await ExternalServices.postUserForm(submit);
-			
+
 			if (response === "OK") {
 				sent.current = true;
 
@@ -50,7 +50,7 @@ const Form = () => {
 	const formik = useFormik<IFormState>({
 		initialValues: INITIAL_VALUES,
 		validationSchema: CONTACT_FORM_SCHEMA,
-		onSubmit: onSubmitForm
+		onSubmit: onSubmitForm,
 	});
 
 	/**
@@ -60,9 +60,10 @@ const Form = () => {
 		let formIsValid = "";
 		let ariaDisabled = true;
 
-		const hasErrors = Object.keys(formik.errors).filter((field) => {
-			return field !== null && field !== undefined;
-		}).length > 0;
+		const hasErrors =
+			Object.keys(formik.errors).filter((field) => {
+				return field !== null && field !== undefined;
+			}).length > 0;
 
 		if (!hasErrors && formik.dirty) {
 			formIsValid = "is-valid";
