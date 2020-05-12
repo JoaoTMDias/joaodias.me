@@ -87,15 +87,15 @@ const Form = () => {
 	return (
 		<div id="contact-form" className="layout__row">
 			<FormWrapper
-				name="contact-form"
-				method="POST"
-				data-testid="contact-form"
-				data-id="contact-form"
+				name="contact-page-form"
+				method="post"
+				data-testid="contact-page-form"
 				data-netlify="true"
 				data-netlify-honeypot="bot-field"
 				aria-label="Contact form. Includes a name,email a message inputs."
 				onSubmit={formik.handleSubmit}
 			>
+				<input type="hidden" name="form-name" value="contact-page-form" />
 				{sent.current && <SuccessMessage />}
 				<Fieldset aria-hidden={sent.current} role="group">
 					<TextInput
@@ -131,7 +131,6 @@ const Form = () => {
 						required
 					/>
 					<input hidden className="hidden" name="bot-field" />
-					<input type="hidden" name="form-name" value="contact-form" />
 				</Fieldset>
 				<Fieldset aria-hidden={sent.current}>{renderFormButton()}</Fieldset>
 				<div data-netlify-recaptcha />
