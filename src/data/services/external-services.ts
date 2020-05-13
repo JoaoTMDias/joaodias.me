@@ -1,8 +1,13 @@
 /* eslint-disable class-methods-use-this */
 import axios, { AxiosPromise } from "axios";
-import { encode } from "querystring";
 import { IExternalServiceSongs } from "../../components/last-played-song/types";
 import { IFormState } from "../../components/forms/types";
+
+function encode(data: any) {
+	return Object.keys(data)
+		.map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+		.join("&");
+}
 
 class ExternalService {
 	/**
@@ -30,7 +35,10 @@ class ExternalService {
 					Accept: "application/x-www-form-urlencoded;charset=UTF-8",
 					"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
 				},
-				body: encode({ "form-name": "contact-page-form", ...data }, "&"),
+				body: encode({
+					"form-name": "contact-page-form",
+					...data,
+				}),
 			};
 
 			axios
