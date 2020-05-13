@@ -18,6 +18,7 @@ export const CallToActionItem = ({ id, title, subtitle, linkText, linkURL, isFil
 			<External
 				id={`${id}`}
 				to={linkURL}
+				as="a"
 				className="callToAction"
 				aria-label="Download my resumé in PDF format"
 				download="true"
