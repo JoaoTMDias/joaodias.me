@@ -14,7 +14,7 @@ Object {
           aria-label="Contact form. Includes a name,email a message inputs."
           class="sc-AxiKw doLXDD"
           data-netlify="true"
-          data-netlify-honeypot="bot-field"
+          data-netlify-honeypot="hpfield"
           data-testid="contact-page-form"
           method="post"
           name="contact-page-form"
@@ -125,7 +125,7 @@ Object {
             <input
               class="hidden"
               hidden=""
-              name="bot-field"
+              name="hpfield"
             />
           </div>
           <div
@@ -159,7 +159,7 @@ Object {
         aria-label="Contact form. Includes a name,email a message inputs."
         class="sc-AxiKw doLXDD"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        data-netlify-honeypot="hpfield"
         data-testid="contact-page-form"
         method="post"
         name="contact-page-form"
@@ -270,7 +270,7 @@ Object {
           <input
             class="hidden"
             hidden=""
-            name="bot-field"
+            name="hpfield"
           />
         </div>
         <div
