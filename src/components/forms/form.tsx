@@ -95,6 +95,7 @@ const Form = () => {
 			<FormWrapper
 				name="contact-page-form"
 				method="post"
+				action="/contact"
 				data-testid="contact-page-form"
 				data-netlify="true"
 				data-netlify-honeypot="bot-field"
