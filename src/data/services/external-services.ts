@@ -26,7 +26,10 @@ class ExternalService {
 	postUserForm(data: IFormState) {
 		return new Promise((resolve, reject) => {
 			const options = {
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+				headers: {
+					Accept: "application/x-www-form-urlencoded;charset=UTF-8",
+					"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+				},
 				body: encode({ "form-name": "contact-page-form", ...data }, "&"),
 			};
 
