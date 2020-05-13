@@ -24,7 +24,6 @@ export const Container = styled.section`
 	`};
 
 	${above.xlarge`
-    height: 70vh;
     min-height: ${rem("448px")};
 	`};
 `;

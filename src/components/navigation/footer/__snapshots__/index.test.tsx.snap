@@ -25,6 +25,7 @@ Object {
                 >
                   <a
                     aria-current="page"
+                    aria-label="Footer link: Home page"
                     class=""
                     href="/"
                   >
@@ -32,6 +33,7 @@ Object {
                   </a>
                 </li>
                 <li
+                  aria-label="Footer link: About page"
                   class="item"
                 >
                   <a
@@ -41,6 +43,7 @@ Object {
                   </a>
                 </li>
                 <li
+                  aria-label="Footer link: Contact page"
                   class="item"
                 >
                   <a
@@ -61,6 +64,7 @@ Object {
                   class="item"
                 >
                   <a
+                    aria-label="Footer link: Privacy Police page"
                     href="/privacy-policy/"
                   >
                     Privacy Policy
@@ -257,6 +261,7 @@ Object {
               >
                 <a
                   aria-current="page"
+                  aria-label="Footer link: Home page"
                   class=""
                   href="/"
                 >
@@ -264,6 +269,7 @@ Object {
                 </a>
               </li>
               <li
+                aria-label="Footer link: About page"
                 class="item"
               >
                 <a
@@ -273,6 +279,7 @@ Object {
                 </a>
               </li>
               <li
+                aria-label="Footer link: Contact page"
                 class="item"
               >
                 <a
@@ -293,6 +300,7 @@ Object {
                 class="item"
               >
                 <a
+                  aria-label="Footer link: Privacy Police page"
                   href="/privacy-policy/"
                 >
                   Privacy Policy

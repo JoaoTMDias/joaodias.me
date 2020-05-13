@@ -57,6 +57,7 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 					title="Check out my resumé"
 					linkText="Download in PDF"
 					linkURL="/resume/resume-joaodias-en.pdf"
+					ariaLabel="Save my resumé in a PDF format"
 					isFile
 				/>
 				<CallToActionItem
@@ -64,6 +65,7 @@ const IndexPage: React.FunctionComponent<IIndexPageProps> = ({ location, data })
 					subtitle="João Dias"
 					title="Know more about me"
 					linkText="Visit the About page"
+					ariaLabel="Navigate to the about page"
 					linkURL="/about/"
 				/>
 			</CallToActionWrapper>

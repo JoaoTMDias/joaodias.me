@@ -4,8 +4,8 @@
 import loadable from "@loadable/component";
 import pMinDelay from "p-min-delay";
 import { BlobOne, BlobTwo, BlobThree, BlobFour } from "./hello/blobs/index";
-import { CallToActionItem } from "./navigation/call-to-action/call-to-action-item.component";
-import { CallToActionWrapper } from "./navigation/call-to-action/call-to-action-wrapper.component";
+import { CallToActionItem } from "./navigation/call-to-action/item";
+import { CallToActionWrapper } from "./navigation/call-to-action/wrapper";
 import { Form, TextInput, TextareaInput } from "./forms/index";
 import { siteMetadata as config } from "../../gatsby-config";
 import { VerticalTimeline, VerticalTimelineElement } from "./vertical-timeline/index";

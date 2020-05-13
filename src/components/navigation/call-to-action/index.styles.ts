@@ -1,57 +1,9 @@
-/**
- * Import Libraries
- */
-import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { rem } from "polished";
+import { above } from "../../../helpers";
 
-/**
- * Styling
- */
-import { above } from "../../../helpers/media-queries.helper";
-
-export const CallToActionItem = ({ id, title, subtitle, linkText, linkURL, isFile }) => {
-	if (isFile) {
-		return (
-			<External
-				id={`${id}`}
-				to={linkURL}
-				as="a"
-				className="callToAction"
-				aria-label="Download my resumé in PDF format"
-				download="true"
-				target="_blank"
-			>
-				<div className="item__inner">
-					<header className="item__top">
-						<p className="item__subtitle">{subtitle}</p>
-						<h3 className="item__title">{title}</h3>
-					</header>
-					<footer className="item__bottom">
-						<p className="fadeIn item__link">{linkText}</p>
-					</footer>
-				</div>
-			</External>
-		);
-	}
-	return (
-		<Item id={`${id}`} to={linkURL} className="callToAction" aria-label="Click/Enter to go to another page">
-			<div className="item__inner">
-				<header className="item__top">
-					<p className="item__subtitle">{subtitle}</p>
-					<h3 className="item__title">{title}</h3>
-				</header>
-				<footer className="item__bottom">
-					<p className="fadeIn item__link">{linkText}</p>
-				</footer>
-			</div>
-		</Item>
-	);
-};
-
-const Item = styled(Link)`
+export const Item = styled(Link)`
 	position: relative;
 	box-shadow: 0 1px 4px rgba(177, 177, 194, 0.4);
 	border-radius: calc(var(--global-radius) * 2);
@@ -205,17 +157,21 @@ const Item = styled(Link)`
 	}
 `;
 
-const External = styled(Item)`
+export const External = styled(Item)`
 	position: relative;
 `;
 
-CallToActionItem.propTypes = {
-	id: PropTypes.string,
-	title: PropTypes.string,
-	subtitle: PropTypes.string,
-	linkText: PropTypes.string,
-	linkURL: PropTypes.string,
-	isFile: PropTypes.bool,
-};
+export const Wrapper = styled.div`
+	flex-direction: row;
 
-export default CallToActionItem;
+	.layout__row {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: var(--global-margin);
+
+		${above.medium`
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: calc(var(--global-margin) * 2)
+		`};
+	}
+`;

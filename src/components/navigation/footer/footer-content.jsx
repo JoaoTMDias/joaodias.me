@@ -25,12 +25,14 @@ const FooterContent = () => {
 				<div className="left">
 					<ul className="list">
 						<li className="item">
-							<Link to="/">Homepage</Link>
+							<Link to="/" aria-label="Footer link: Home page">
+								Homepage
+							</Link>
 						</li>
-						<li className="item">
+						<li className="item" aria-label="Footer link: About page">
 							<Link to="/about/">About</Link>
 						</li>
-						<li className="item">
+						<li className="item" aria-label="Footer link: Contact page">
 							<Link to="/contact/">Contact</Link>
 						</li>
 					</ul>
@@ -38,7 +40,9 @@ const FooterContent = () => {
 				<div className="right">
 					<ul className="list">
 						<li className="item">
-							<Link to="/privacy-policy/">Privacy Policy</Link>
+							<Link to="/privacy-policy/" aria-label="Footer link: Privacy Police page">
+								Privacy Policy
+							</Link>
 						</li>
 						<li className="item">
 							<p>{`${year} - João Dias. All Rights Reserved`}</p>

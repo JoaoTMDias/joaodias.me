@@ -17,7 +17,7 @@ Object {
   "baseElement": <body>
     <div>
       <section
-        class="sc-AxjAm kHCYAy layout__container layout__container layout__section utilities--above-the-fold"
+        class="sc-AxjAm iuLcGT layout__container layout__container layout__section utilities--above-the-fold"
       >
         <div
           class="sc-AxirZ RkooK layout__row parallax"
@@ -40,7 +40,7 @@ Object {
   </body>,
   "container": <div>
     <section
-      class="sc-AxjAm kHCYAy layout__container layout__container layout__section utilities--above-the-fold"
+      class="sc-AxjAm iuLcGT layout__container layout__container layout__section utilities--above-the-fold"
     >
       <div
         class="sc-AxirZ RkooK layout__row parallax"

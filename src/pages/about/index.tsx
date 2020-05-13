@@ -63,6 +63,7 @@ const AboutPage: React.FunctionComponent<IAboutPageProps> = (props) => {
 					title="Check out my resumé"
 					linkText="Download in PDF"
 					linkURL="/resume/resume-joaodias-en.pdf"
+					ariaLabel="Save my resumé in a PDF format"
 					isFile
 				/>
 				<CallToActionItem
@@ -70,6 +71,7 @@ const AboutPage: React.FunctionComponent<IAboutPageProps> = (props) => {
 					subtitle="Have an idea for a project?"
 					title="Let's chat!"
 					linkText="Visit the Contacts page"
+					ariaLabel="Navigate to the contacts page"
 					linkURL="/contact/"
 				/>
 			</CallToActionWrapper>

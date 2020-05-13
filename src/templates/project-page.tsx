@@ -57,6 +57,7 @@ const ProjectPage: React.FunctionComponent<IProjectPageProps> = (props) => {
 						subtitle="Related Project"
 						title="Return to the projects list"
 						linkText="Back to the Homepage"
+						ariaLabel="Navigate to the home page"
 						linkURL="/"
 					/>
 					<CallToActionItem
@@ -65,6 +66,7 @@ const ProjectPage: React.FunctionComponent<IProjectPageProps> = (props) => {
 						title="Let's connect"
 						linkText="Check it out"
 						linkURL="/contact/"
+						ariaLabel="Navigate to the contacts page"
 					/>
 				</CallToActionWrapper>
 				<BlobFour />

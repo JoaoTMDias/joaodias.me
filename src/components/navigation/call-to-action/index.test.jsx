@@ -15,6 +15,7 @@ describe("<CallToAction />", () => {
 					title="Check out my resumé"
 					linkText="Download in PDF"
 					linkURL="/resume/resume-joaodias-en.pdf"
+					ariaLabel="Save my resumé in a PDF format"
 					isFile
 				/>
 				<CallToActionItem
@@ -23,6 +24,7 @@ describe("<CallToAction />", () => {
 					title="Let's chat!"
 					linkText="Visit the Contacts page"
 					linkURL="/contact/"
+					ariaLabel="Navigate to the contacts page"
 				/>
 			</CallToActionWrapper>,
 		);
