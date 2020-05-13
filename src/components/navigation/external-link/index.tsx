@@ -7,7 +7,7 @@ export const defaultProps = {
 };
 
 export const ExternalLink: React.FunctionComponent<IExternalLinkProps> = ({ to, children, ...props }) => (
-	<a href={to} data-testid="component-external-link" target="_blank" rel="noopener noreferrer" {...props}>
+	<a href={to} data-testid="component-external-link" {...props}>
 		{children}
 	</a>
 );

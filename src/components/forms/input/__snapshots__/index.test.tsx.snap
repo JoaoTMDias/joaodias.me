@@ -11,22 +11,22 @@ Object {
         data-testid="component-text-wrapper"
       >
         <label
-          aria-labelledby="-text-input-id"
+          aria-labelledby="-name"
           class="content"
           data-testid="component-text-label"
-          for="text-input-id"
+          for="name"
         >
           <span
             class="label"
-            id="-text-input-id"
+            id="-name"
           />
           <input
             class="input undefined"
-            data-testid="component-text-input-text-input-id"
-            id="text-input-id"
+            data-testid="component-text-input-name"
+            id="name"
             maxlength="50"
             minlength="3"
-            name="text-input-id"
+            name="name"
             placeholder="text-input-placeholder"
             type="text"
             value=""
@@ -43,22 +43,22 @@ Object {
       data-testid="component-text-wrapper"
     >
       <label
-        aria-labelledby="-text-input-id"
+        aria-labelledby="-name"
         class="content"
         data-testid="component-text-label"
-        for="text-input-id"
+        for="name"
       >
         <span
           class="label"
-          id="-text-input-id"
+          id="-name"
         />
         <input
           class="input undefined"
-          data-testid="component-text-input-text-input-id"
-          id="text-input-id"
+          data-testid="component-text-input-name"
+          id="name"
           maxlength="50"
           minlength="3"
-          name="text-input-id"
+          name="name"
           placeholder="text-input-placeholder"
           type="text"
           value=""

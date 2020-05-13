@@ -1,8 +1,8 @@
-type LinkProperties = Pick<HTMLAnchorElement, "target" | "rel">;
-
-export interface IExternalLinkProps extends LinkProperties {
+export interface IExternalLinkProps {
 	id?: string;
 	className?: string;
 	title?: string;
 	to: string;
+	target?: React.AnchorHTMLAttributes<HTMLAnchorElement>["target"];
+	rel?: React.AnchorHTMLAttributes<HTMLAnchorElement>["rel"];
 }
