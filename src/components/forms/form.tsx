@@ -97,8 +97,8 @@ const Form = () => {
 				method="post"
 				action="/contact"
 				data-testid="contact-page-form"
-				data-netlify="true"
-				data-netlify-honeypot="bot-field"
+				netlify="true"
+				netlify-honeypot="bot-field"
 				aria-label="Contact form. Includes a name,email a message inputs."
 				onSubmit={handleFormSubmission}
 			>
