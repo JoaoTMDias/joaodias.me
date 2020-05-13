@@ -28,28 +28,22 @@ class ExternalService {
 	 * @returns
 	 * @memberof ExternalService
 	 */
-	postUserForm(data: IFormState) {
-		return new Promise((resolve, reject) => {
-			const options = {
-				body: encode({
+	async postUserForm(data: IFormState) {
+		try {
+			axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+
+			const request = await axios.post(
+				"/contact?no-cache=1",
+				encode({
 					"form-name": "contact-page-form",
 					...data,
 				}),
-			};
+			);
 
-			axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-
-			axios
-				.post("/contact?no-cache=1", options.body)
-				.then((response) => {
-					if (response.status === 200) {
-						resolve(response.statusText);
-					}
-				})
-				.catch(() => {
-					reject(new Error("Error submitting the form"));
-				});
-		});
+			return request;
+		} catch (error) {
+			throw new Error("Error submitting the form");
+		}
 	}
 }
 

@@ -26,7 +26,9 @@ const Form = () => {
 		try {
 			const response = await ExternalServices.postUserForm(values);
 
-			if (response === "OK") {
+			console.log("response: ", response);
+
+			if (response.status === 200) {
 				sent.current = true;
 
 				if (button && button.current) {
