@@ -24,11 +24,7 @@ const Form = () => {
 	 */
 	async function onSubmitForm(values: IFormState) {
 		try {
-			const submit = {
-				...values,
-			};
-
-			const response = await ExternalServices.postUserForm(submit);
+			const response = await ExternalServices.postUserForm(values);
 
 			if (response === "OK") {
 				sent.current = true;
@@ -51,6 +47,17 @@ const Form = () => {
 		validationSchema: CONTACT_FORM_SCHEMA,
 		onSubmit: onSubmitForm,
 	});
+
+	/**
+	 * Handles the form submission
+	 *
+	 * @param {React.FormEvent<HTMLFormElement>} event
+	 */
+	function handleFormSubmission(event: React.FormEvent<HTMLFormElement>) {
+		event.preventDefault();
+
+		formik.handleSubmit(event);
+	}
 
 	/**
 	 * Renders the form submit button
@@ -92,7 +99,7 @@ const Form = () => {
 				data-netlify="true"
 				data-netlify-honeypot="bot-field"
 				aria-label="Contact form. Includes a name,email a message inputs."
-				onSubmit={formik.handleSubmit}
+				onSubmit={handleFormSubmission}
 			>
 				<input type="hidden" name="form-name" value="contact-page-form" />
 				{sent.current && <SuccessMessage />}

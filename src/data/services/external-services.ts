@@ -31,7 +31,7 @@ class ExternalService {
 			};
 
 			axios
-				.post("/", options)
+				.post("/contact", options)
 				.then((response) => {
 					if (response.status === 200) {
 						resolve(response.statusText);
