@@ -31,7 +31,7 @@ class ExternalService {
 			};
 
 			axios
-				.post("/contact", options)
+				.post("/contact?no-cache=1", options)
 				.then((response) => {
 					if (response.status === 200) {
 						resolve(response.statusText);
