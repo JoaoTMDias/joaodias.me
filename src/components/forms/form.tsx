@@ -54,9 +54,8 @@ const Form = () => {
 	 * @param {React.FormEvent<HTMLFormElement>} event
 	 */
 	function handleFormSubmission(event: React.FormEvent<HTMLFormElement>) {
-		event.preventDefault();
-
 		formik.handleSubmit(event);
+		event.preventDefault();
 	}
 
 	/**
@@ -98,7 +97,7 @@ const Form = () => {
 				action="/contact"
 				data-testid="contact-page-form"
 				data-netlify="true"
-				data-netlify-honeypot="bot-field"
+				data-netlify-honeypot="hpfield"
 				aria-label="Contact form. Includes a name,email a message inputs."
 				onSubmit={handleFormSubmission}
 			>
@@ -137,7 +136,7 @@ const Form = () => {
 						helperText={formik.errors.message && formik.touched.message ? formik.errors.message : undefined}
 						required
 					/>
-					<input hidden className="hidden" name="bot-field" />
+					<input hidden className="hidden" name="hpfield" />
 				</Fieldset>
 				<Fieldset aria-hidden={sent.current}>{renderFormButton()}</Fieldset>
 				<div data-netlify-recaptcha />

@@ -74,6 +74,7 @@ export const LazyLoadingImage: React.FunctionComponent<IImageLazyProps> = ({
 			objectFit,
 			objectPosition,
 		};
+		const imageId = `${id}-image`;
 
 		return (
 			<>
@@ -82,7 +83,7 @@ export const LazyLoadingImage: React.FunctionComponent<IImageLazyProps> = ({
 				)}
 				<source data-testid="lazy-loading-images-source" srcSet={srcSet} sizes={sizes} />
 				<Image
-					id={id}
+					id={imageId}
 					data-testid="lazy-loading-images-img"
 					src={src}
 					srcSet={srcSet}

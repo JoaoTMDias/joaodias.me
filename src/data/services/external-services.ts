@@ -31,18 +31,16 @@ class ExternalService {
 	postUserForm(data: IFormState) {
 		return new Promise((resolve, reject) => {
 			const options = {
-				headers: {
-					Accept: "application/x-www-form-urlencoded;charset=UTF-8",
-					"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-				},
 				body: encode({
 					"form-name": "contact-page-form",
 					...data,
 				}),
 			};
 
+			axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+
 			axios
-				.post("/contact?no-cache=1", options)
+				.post("/contact?no-cache=1", options.body)
 				.then((response) => {
 					if (response.status === 200) {
 						resolve(response.statusText);

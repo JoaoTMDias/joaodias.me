@@ -37,20 +37,20 @@ export const PortfolioItem: FunctionComponent<IPortfolioItemProps> = ({
 					useNativeLazyLoading
 				/>
 				<Inner className="inner" style={{ backgroundColor: `${color}` }}>
-					<header className="inner__header">
+					<div className="inner__header">
 						<p className="type inner__type">{type}</p>
 						<h3 className="title inner__title">{title}</h3>
-					</header>
+					</div>
 
 					<div className="inner__content">
 						<p className="description inner__description">{description}</p>
 					</div>
 
-					<footer className="inner__footer">
+					<div className="inner__footer">
 						<p className="inner__seemore" title="Click to view this project">
 							View Project
 						</p>
-					</footer>
+					</div>
 				</Inner>
 			</Item>
 		);

@@ -10,6 +10,7 @@ Object {
         id="contact-form"
       >
         <form
+          action="/contact"
           aria-label="Contact form. Includes a name,email a message inputs."
           class="sc-AxiKw doLXDD"
           data-netlify="true"
@@ -154,6 +155,7 @@ Object {
       id="contact-form"
     >
       <form
+        action="/contact"
         aria-label="Contact form. Includes a name,email a message inputs."
         class="sc-AxiKw doLXDD"
         data-netlify="true"
