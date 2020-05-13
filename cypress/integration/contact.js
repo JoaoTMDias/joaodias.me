@@ -35,18 +35,17 @@ describe("Contact", () => {
 			method: "POST",
 			url: "/",
 			body: {
-				"form-name": "contact-form",
+				"form-name": "contact-page-form",
 				name: EXPECTED.name,
 				email: EXPECTED.email,
-				message: EXPECTED.message,
-				wasSent: true,
+				message: EXPECTED.message
 			},
 		}).as("formSubmit");
 	});
 
 	describe("Form", () => {
 		beforeEach(() => {
-			cy.getByTestId("contact-form").as("formWrapper");
+			cy.getByTestId("contact-page-form").as("formWrapper");
 
 			cy.get("label[for='name']").as("nameInputWrapper");
 			cy.get("@nameInputWrapper").find(".label").as("nameInputLabel");

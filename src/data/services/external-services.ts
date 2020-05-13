@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import axios, { AxiosPromise } from "axios";
+import { encode } from "querystring";
 import { IExternalServiceSongs } from "../../components/last-played-song/types";
 import { IFormState } from "../../components/forms/types";
-import { encode } from "querystring";
 
 class ExternalService {
 	/**
@@ -27,7 +27,7 @@ class ExternalService {
 		return new Promise((resolve, reject) => {
 			const options = {
 				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-				body: encode({ "form-name": "contact-form", ...data }, "&"),
+				body: encode({ "form-name": "contact-page-form", ...data }, "&"),
 			};
 
 			axios

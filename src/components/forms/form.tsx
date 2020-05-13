@@ -26,7 +26,6 @@ const Form = () => {
 		try {
 			const submit = {
 				...values,
-				wasSent: true,
 			};
 
 			const response = await ExternalServices.postUserForm(submit);

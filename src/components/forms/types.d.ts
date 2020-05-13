@@ -30,5 +30,4 @@ export interface IFormState {
 	name: string;
 	email: string;
 	message: string;
-	wasSent: boolean;
 }
