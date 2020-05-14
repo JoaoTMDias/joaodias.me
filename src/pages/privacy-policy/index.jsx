@@ -34,11 +34,11 @@ const PrivacyPolicyPage = ({ location, data }) => {
 						<HorizontalRule />
 						<List>
 							{privacyPolicyArray.map((item) => (
-								<Details key={item.node.id} id={`${item.node.id}`} arial-labelledby={`details-summary-${item.node.id}`}>
-									<summary id={`details-summary-${item.node.id}`} className="title">
+								<Details key={item.node.id} id={`${item.node.id}`} data-testid="component-details-wrapper" arial-labelledby={`details-summary-${item.node.id}`}>
+									<summary id={`details-summary-${item.node.id}`} data-testid="component-details-title" className="title">
 										{`${item.node.summary}`}
 									</summary>
-									<p className="description" dangerouslySetInnerHTML={{ __html: item.node.description.description }} />
+									<p className="description" data-testid="component-details-description" dangerouslySetInnerHTML={{ __html: item.node.description.description }} />
 								</Details>
 							))}
 						</List>
