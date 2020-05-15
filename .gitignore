@@ -68,5 +68,5 @@ package-lock.json
 *.report.html
 cypress.env.json
 .env
-cypress/videos/*/*.mp4
-cypress/videos/*/*.png
+cypress/videos
+.nyc_output
