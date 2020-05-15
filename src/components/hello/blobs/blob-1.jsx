@@ -1,16 +1,17 @@
 // Libraries
 import React from "react";
 import styled from "styled-components";
-import { theme } from '../../../helpers/theme.helper';
+import { theme } from "../../../helpers/theme.helper";
+import { above } from "../../../helpers";
 
 // Components
 // import Component from '../components/componentName';
 
-/**********
+/** ********
  ** Component: BlobOne
  ** @type: functional stateless component
  ** @description: Graphical Blob
- **********/
+ ********* */
 export const BlobOne = () => {
 	return (
 		<Blob xmlns="http://www.w3.org/2000/svg" viewBox="0 0 502 502" aria-labelledby="about-blob-title" tabIndex="-1">
@@ -41,13 +42,17 @@ const Blob = styled.svg`
 	height: auto;
 	z-index: -1;
 	left: 0;
-	top: 0;
+	top: 3rem;
 	opacity: 0.32;
 	overflow: hidden;
 
 	.blob__shape {
 		fill: var(--fill-color);
 	}
+
+	${above.medium`
+		top: 4.5rem;
+	`};
 
 	${theme.dark`
 		--fill-color: var(--color-gray9);

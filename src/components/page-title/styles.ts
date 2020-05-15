@@ -8,7 +8,7 @@ export const Container = styled.section`
 	width: 100%;
 	margin: 0 auto;
 	align-items: center;
-	height: 64vh;
+	height: 48vh;
 	min-height: ${rem("280px")};
 	max-height: ${rem("560px")};
 	text-align: center;

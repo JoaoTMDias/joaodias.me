@@ -25,11 +25,9 @@ body.project {
 
 	#page-header {
 		background-color: var(--color-black, #030304);
-		box-shadow: 0 1px 3px var(--color-gray9, #3a3e4c);
 		transition: all 150ms ease-out;
 
 		@media #{$breakpoint-medium} {
-			background-color: transparent;
 			box-shadow: none;
 		}
 
