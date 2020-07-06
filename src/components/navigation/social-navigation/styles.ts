@@ -19,26 +19,31 @@ export const List = styled.ul`
 	padding: 0;
 	margin: 0 auto;
 	width: 100%;
-	max-width: calc(3rem * 5);
 
 	${above.large`
 		grid-gap: 0;
+		max-width: calc(3rem * 5);
 	`};
 `;
 
 export const Item = styled.li`
-	display: block;
+	display: flex;
 	list-style-type: none;
 	line-height: ${rem("48px")};
-	padding: 0;
+	padding: 0 ${rem("8px")};
 	margin: 0;
 	align-items: flex-start;
 	justify-content: center;
 	position: relative;
 
+	${above.large`
+		padding: 0;
+	`};
+
 	&:last-item {
 		margin-right: 0;
 	}
+
 	a {
 		padding: ${rem("12px")} 0px;
 		font-family: inherit;
@@ -65,6 +70,7 @@ export const Item = styled.li`
 			transition: transform 640ms;
 			transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 		}
+
 		&:hover,
 		&:focus {
 			color: var(--color-alternate);
@@ -76,6 +82,7 @@ export const Item = styled.li`
 				transform: translate3d(100%, 0, 0) translate3d(1px, 0, 0);
 			}
 		}
+
 		&:active {
 			outline: 1;
 		}

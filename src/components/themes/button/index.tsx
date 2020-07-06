@@ -58,7 +58,7 @@ const ThemeButton: React.FunctionComponent = () => {
 		onChange();
 	}
 
-	const ariaLabel = `Current theme is ${theme}. Click to change`;
+	const ariaLabel = `Current theme is ${theme}. Click to toggle`;
 
 	return (
 		<Wrapper
@@ -68,6 +68,7 @@ const ThemeButton: React.FunctionComponent = () => {
 			data-testid="component-theme-button-toggle"
 			title="Toggle theme"
 			data-current-theme={theme}
+			aria-live="assertive"
 			aria-label={ariaLabel}
 			onClick={handleOnClick}
 		>

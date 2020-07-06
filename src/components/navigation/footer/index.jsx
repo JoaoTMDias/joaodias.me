@@ -10,12 +10,12 @@ import { rem } from "polished";
  */
 import FooterContent from "./footer-content";
 import { above } from "../../../helpers/media-queries.helper";
-import SocialNavigation from '../social-navigation';
+import SocialNavigation from "../social-navigation";
 
 export const Footer = () => (
 	<Wrapper className="layout__container layout__section">
-		<FooterContent />
 		<SocialNavigation />
+		<FooterContent />
 	</Wrapper>
 );
 
