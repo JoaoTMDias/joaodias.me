@@ -119,7 +119,8 @@ Object {
             </ul>
           </nav>
           <button
-            aria-label="Current theme is light. Click to change"
+            aria-label="Current theme is light. Click to toggle"
+            aria-live="assertive"
             class="sc-Axmtr juAVvl theme-button"
             data-current-theme="light"
             data-testid="component-theme-button-toggle"
@@ -294,7 +295,8 @@ Object {
           </ul>
         </nav>
         <button
-          aria-label="Current theme is light. Click to change"
+          aria-label="Current theme is light. Click to toggle"
+          aria-live="assertive"
           class="sc-Axmtr juAVvl theme-button"
           data-current-theme="light"
           data-testid="component-theme-button-toggle"

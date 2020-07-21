@@ -11,10 +11,10 @@ Object {
         title="Social network links"
       >
         <ul
-          class="sc-AxirZ hHJQHM"
+          class="sc-AxirZ kMQXnF"
         >
           <li
-            class="sc-AxiKw dEopTX"
+            class="sc-AxiKw kejSoH"
           >
             <a
               aria-label="Follow me on Facebook"
@@ -43,7 +43,7 @@ Object {
             </a>
           </li>
           <li
-            class="sc-AxiKw dEopTX"
+            class="sc-AxiKw kejSoH"
           >
             <a
               aria-label="Follow me on Instagram"
@@ -79,7 +79,7 @@ Object {
             </a>
           </li>
           <li
-            class="sc-AxiKw dEopTX"
+            class="sc-AxiKw kejSoH"
           >
             <a
               aria-label="Check out my repos on Github"
@@ -104,7 +104,7 @@ Object {
             </a>
           </li>
           <li
-            class="sc-AxiKw dEopTX"
+            class="sc-AxiKw kejSoH"
           >
             <a
               aria-label="Check out some dribble shots"
@@ -134,7 +134,7 @@ Object {
             </a>
           </li>
           <li
-            class="sc-AxiKw dEopTX"
+            class="sc-AxiKw kejSoH"
           >
             <a
               aria-label="Follow me on Twitter"
@@ -170,10 +170,10 @@ Object {
       title="Social network links"
     >
       <ul
-        class="sc-AxirZ hHJQHM"
+        class="sc-AxirZ kMQXnF"
       >
         <li
-          class="sc-AxiKw dEopTX"
+          class="sc-AxiKw kejSoH"
         >
           <a
             aria-label="Follow me on Facebook"
@@ -202,7 +202,7 @@ Object {
           </a>
         </li>
         <li
-          class="sc-AxiKw dEopTX"
+          class="sc-AxiKw kejSoH"
         >
           <a
             aria-label="Follow me on Instagram"
@@ -238,7 +238,7 @@ Object {
           </a>
         </li>
         <li
-          class="sc-AxiKw dEopTX"
+          class="sc-AxiKw kejSoH"
         >
           <a
             aria-label="Check out my repos on Github"
@@ -263,7 +263,7 @@ Object {
           </a>
         </li>
         <li
-          class="sc-AxiKw dEopTX"
+          class="sc-AxiKw kejSoH"
         >
           <a
             aria-label="Check out some dribble shots"
@@ -293,7 +293,7 @@ Object {
           </a>
         </li>
         <li
-          class="sc-AxiKw dEopTX"
+          class="sc-AxiKw kejSoH"
         >
           <a
             aria-label="Follow me on Twitter"
