@@ -1,0 +1,57 @@
+<div class="sub-section">
+  <h3 class="sr-only">My Skillset</h3>
+  <ul class="skills">
+    <li class="skills__item">React</li>
+    <li class="skills__item">Vue</li>
+    <li class="skills__item">Typescript</li>
+    <li class="skills__item">Cypress</li>
+    <li class="skills__item">Jest</li>
+    <li class="skills__item">Figma</li>
+    <li class="skills__item">Redux</li>
+    <li class="skills__item">GraphQl</li>
+    <li class="skills__item">Node</li>
+    <li class="skills__item">UI Design</li>
+    <li class="skills__item">Accessibility</li>
+  </ul>
+</div>
+
+<style lang="scss">
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    column-gap: 3.5rem;
+    &__item {
+      position: relative;
+      text-transform: uppercase;
+      font-family: var(--text-font-family);
+      font-size: 3.75rem;
+      line-height: 4.5625rem;
+
+      &:after {
+        content: "/";
+        position: absolute;
+        font-family: var(--text-font-family);
+        font-weight: 300;
+        font-size: 3.75rem;
+        transform: translateX(1rem);
+      }
+
+      &:nth-child(odd) {
+        font-family: var(--heading-font-family);
+        font-size: 4.125rem;
+        line-height: 5rem;
+      }
+
+      &:last-child::after {
+        content: "";
+      }
+    }
+  }
+</style>

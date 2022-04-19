@@ -1,0 +1,69 @@
+---
+import Hero from '../components/hero/index.astro';
+import Intro from "../components/intro/index.astro";
+import Skills from "../components/skills/index.astro";
+import Bio from "../components/bio/index.astro";
+import Experience from "../components/experience/index.astro";
+import Work from "../components/work/index.astro";
+import '../assets/styles/index.scss';
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = 'João Dias';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{title}</title>
+
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+	<style>
+		.container {
+			width: 100%;
+			display: grid;
+			grid-template-rows: var(--hero-height) 1fr;
+			grid-gap: 0;
+		}
+		section {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			padding-block: 14rem;
+			padding-inline: 3rem;
+			max-width: 80rem;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<Hero />
+		<main>
+			<section>
+				<h2 id="about" class="sr-only">About me</h2>
+				<Intro />
+				<Skills />
+				<Bio />
+				<Experience />
+			</section>
+			<section aria-labelledby="work">
+				<Work />
+			</section>
+		</main>
+		<footer id="footer">
+
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+---
+import Logo from '../logo/index.astro';
+import MainNavigation from '../main-navigation/index.astro';
+---
+<div class="navigation">
+    <Logo width={64} height={64} />
+    <MainNavigation />
+</div>
+
+<style>
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    height: var(--header-height);
+  }
+</style>

@@ -1,0 +1,64 @@
+<div class="intro">
+  <h3 class="sr-only">Intro</h3>
+  <h4 class="intro__heading">
+    <span class="intro__subtitle">Hey, what's up?</span>
+    <span class="intro__title">I'm João Dias, a frontend developer and web accessibility expert from Coimbra, <span class="sr-only">Portugal</span><span aria-hidden="true">PT</span></span>
+  </h4>
+  <p>Currently working at <a href="https://www.feedzai.com" target="_blank">Feedzai</a></p>
+</div>
+
+<style lang="scss">
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+  }
+
+  .intro__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .intro__title,
+  .intro__subtitle,
+  p {
+    font-style: normal;
+    font-weight: 400;
+    max-width: 51.625rem;
+  }
+
+  .intro__title,
+  p {
+    font-family: var(--heading-font-family);
+  }
+
+  .intro__subtitle {
+    display: flex;
+    font-family: var(--text-font-family);
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+
+  .intro__title {
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+
+  p {
+    font-style: italic;
+    font-size: 2rem;
+    line-height: 2.4375rem;
+  }
+
+  a {
+    text-decoration-style: wavy;
+  }
+</style>

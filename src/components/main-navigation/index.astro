@@ -1,0 +1,55 @@
+<nav aria-label="Main Navigation">
+  <ul class="header__list">
+    <li class="header__list__item">
+      <a href="#about" class="header__link">About</a>
+    </li>
+    <li class="header__list__item">
+      <a href="#work" class="header__link">Work</a>
+    </li>
+    <li class="header__list__item">
+      <a href="#contact" class="header__link">Contact</a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  nav, ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+    list-style-type: none;
+  }
+
+  li {
+    min-width: 5.625rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--text-font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+</style>

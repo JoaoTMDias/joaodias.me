@@ -1,0 +1,125 @@
+---
+const {title, subtitle, skills} = Astro.props;
+---
+<details class="item">
+  <summary class="title">
+    <figure>
+      <img src="https://place-hold.it/123x123" width="123" height="123" alt="WinPicker logo" />
+    </figure>
+    <div class="content">
+      <h3 class="content__title">{title}</h3>
+      <p class="content__subtitle">{subtitle}</p>
+      <ul class="skills">
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </div>
+    <svg class="content__toggle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48">
+      <path class="content__toggle__path" stroke="var(--text-color)" stroke-width="1.25" d="M24.25 13v22.5M35.5 24.25H13"/>
+    </svg>
+  </summary>
+  <div class="content">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, temporibus, tenetur quibusdam repudiandae quia id optio expedita reprehenderit molestias fuga iste aliquid unde incidunt. Fuga odio delectus in eaque facilis!
+  </div>
+</details>
+
+<style lang="scss">
+  details {
+    box-shadow: 0 -1px 0px var(--text-color), 0 1px 0px var(--text-color);
+    padding-block: 3rem;
+    padding-inline: 0;
+  }
+
+  figure {
+    width: 7.6875rem;
+    height: 7.6875rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .content__title {
+    font-family: var(--heading-font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 3.625rem;
+    margin-bottom: 0.5rem;
+    text-transform: initial;
+  }
+
+  .content__subtitle {
+    font-family: var(--text-font-family);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+
+  .content__toggle {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    margin-left: auto;
+    flex-shrink: 0;
+    flex-grow: 0;
+    fill: none;
+  }
+
+  .content__toggle__path {
+    fill: var(--text-color);
+  }
+
+  .skills {
+    list-style-type: none;
+    margin-block-start: 1rem;
+    margin-block-end: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--text-font-family);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1;
+
+    li::before {
+      content: "#";
+    }
+
+    li {
+      text-transform: lowercase;
+    }
+  }
+
+  summary {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+
+      outline-color: var(--text-color);
+    }
+
+    &:focus-within {
+      .content__toggle {
+        background: var(--text-color);
+      }
+
+      .content__toggle__path {
+        fill: red;
+      }
+    }
+  }
+</style>
