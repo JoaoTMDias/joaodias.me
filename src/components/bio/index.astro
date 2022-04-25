@@ -6,7 +6,7 @@
     </figure>
     <div class="bio__content">
       <h4 class="bio__title">I focus on creating great, accessible and rich web experiences for everyone. I’ve been lucky enough to have been doing that since 2011.</h4>
-      <p class="bio__paragraph">“He’s a pretty chilled dude”, thats what my friends would say. Besides working as a Senior Frontend Engineer, I also teach web development classes at 1<sup>st</sup> and 2<sup>nd</sup> year students on the Polythecnic Institute of Coimbra.</p>
+      <p class="bio__paragraph">“He’s a pretty chilled dude”, thats what my friends would say. Besides working as a Senior Frontend Engineer, I also teach web development classes at first and second year students on the Polythecnic Institute of Coimbra.</p>
       <p class="bio__paragraph">On my free time I usually go out and explore the fantastic world of craft beers, rock out to some great live music and hit the gym whenever I can.</p>
     </div>
   </div>
@@ -21,6 +21,19 @@
     &__picture {
       grid-column-start: 2;
       grid-column-end: 5;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: 2px solid var(--text-color);
+        transform: translate3d(3rem,1.5rem,0) scale(1.025);
+      }
     }
 
     &__content {

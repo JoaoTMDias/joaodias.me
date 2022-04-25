@@ -37,14 +37,14 @@ export const WORKS = [
       </svg>
     </span>
     <span>Selected work</span>
-    <div class="work__list">
-      {WORKS.map((work) => {
-        return (
-          <Item {...work} />
-        );
-      })}
-    </div>
   </h2>
+  <div class="work__list">
+    {WORKS.map((work) => {
+      return (
+        <Item {...work} />
+      );
+    })}
+  </div>
 </div>
 
 <style lang="scss">

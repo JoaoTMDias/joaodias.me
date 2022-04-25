@@ -1,13 +1,17 @@
+---
+import Link from "./link.astro";
+---
+
 <nav aria-label="Main Navigation">
   <ul class="header__list">
     <li class="header__list__item">
-      <a href="#about" class="header__link">About</a>
+      <Link href="#about" text="About" />
     </li>
     <li class="header__list__item">
-      <a href="#work" class="header__link">Work</a>
+      <Link href="#work" text="Work" />
     </li>
     <li class="header__list__item">
-      <a href="#contact" class="header__link">Contact</a>
+      <Link href="#contact" text="Contact" />
     </li>
   </ul>
 </nav>

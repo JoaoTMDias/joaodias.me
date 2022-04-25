@@ -1,0 +1,35 @@
+.item {
+  position: relative;
+  text-transform: uppercase;
+  font-family: var(--text-font-family);
+  font-size: 3.75rem;
+  line-height: 4.5625rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-y: hidden;
+  overflow-x: visible;
+
+  &[data-type="odd"] {
+    font-family: var(--heading-font-family);
+    font-size: 4.125rem;
+    line-height: 5rem;
+  }
+}
+
+.name {
+  transform: translate3d(0, 200%, 0);
+  transition: transform 700ms ease-in-out;
+  overflow: hidden;
+
+  &[data-visible="true"] {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slash {
+  position: relative;
+  font-family: var(--text-font-family);
+  font-weight: 300;
+  font-size: 3.75rem;
+}

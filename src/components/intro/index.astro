@@ -1,10 +1,13 @@
+---
+import Link from "../main-navigation/link.astro";
+---
 <div class="intro">
   <h3 class="sr-only">Intro</h3>
   <h4 class="intro__heading">
     <span class="intro__subtitle">Hey, what's up?</span>
     <span class="intro__title">I'm João Dias, a frontend developer and web accessibility expert from Coimbra, <span class="sr-only">Portugal</span><span aria-hidden="true">PT</span></span>
   </h4>
-  <p>Currently working at <a href="https://www.feedzai.com" target="_blank">Feedzai</a></p>
+  <p>Currently working at <span class="link-container"><Link href="https://www.feedzai.com" target="_blank" text="Feedzai" /></span></p>
 </div>
 
 <style lang="scss">
@@ -58,7 +61,10 @@
     line-height: 2.4375rem;
   }
 
-  a {
-    text-decoration-style: wavy;
+  p,
+  .link-container {
+  }
+  .link-container {
+    display: inline-flex;
   }
 </style>
