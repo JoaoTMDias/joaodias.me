@@ -46,19 +46,29 @@ import Link from "../main-navigation/link.astro";
   .intro__subtitle {
     display: flex;
     font-family: var(--text-font-family);
-    font-size: 1.125rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
     line-height: 1.375rem;
+    text-transform: uppercase;
   }
 
   .intro__title {
-    font-size: 3.5rem;
-    line-height: 4rem;
+    font-size: 2.125rem;
+    line-height: 114.28571429%;
+
+    @media (min-width: 60rem) {
+      font-size: 3.5rem;
+    }
   }
 
   p {
     font-style: italic;
-    font-size: 2rem;
-    line-height: 2.4375rem;
+    font-size: 1.5rem;
+    line-height: 1.21875;
+
+    @media (min-width: 60rem) {
+      font-size: 2rem;
+    }
   }
 
   p,

@@ -1,10 +1,11 @@
 ---
+import Header from "../components/header/index.astro";
 import Hero from '../components/hero/index.astro';
 import Intro from "../components/intro/index.astro";
 import Skills from "../components/skills/index.astro";
 import Bio from "../components/bio/index.astro";
 import Experience from "../components/experience/index.astro";
-import Work from "../components/work/index.astro";
+import Work from "../components/work/index.tsx";
 import CurrentlyListening from "../components/currently-listening/index.astro";
 import '../assets/styles/index.scss';
 
@@ -13,7 +14,7 @@ let title = 'João Dias';
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,user-scalable=yes,viewport-fit=cover">
 	<title>{title}</title>
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -22,7 +23,7 @@ let title = 'João Dias';
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
-	<style>
+	<style lang="scss">
 		.container {
 			width: 100%;
 			display: grid;
@@ -33,26 +34,34 @@ let title = 'João Dias';
 			display: flex;
 			flex-direction: column;
 			min-height: 100vh;
-			padding-block: 14rem;
-			padding-inline: 3rem;
-			max-width: 80rem;
+			padding-block: 10vh;
+			padding-inline: 1rem;
 			margin: 0 auto;
+
+
+
+			@media (min-width: 60rem) {
+				padding-block: 14rem;
+				padding-inline: 3rem;
+				max-width: 80rem;
+			}
 		}
 	</style>
 </head>
 <body>
 	<div class="container">
-		<Hero />
+		<Header />
 		<main>
+			<Hero />
 			<section>
 				<h2 id="about" class="sr-only">About me</h2>
 				<Intro />
-				<Skills client:load />
+ 				<Skills client:load />
 				<Bio />
 				<Experience />
 			</section>
 			<section aria-labelledby="work">
-				<Work />
+				<Work client:load />
 			</section>
 		</main>
 		<footer id="footer">

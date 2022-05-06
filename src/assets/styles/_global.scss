@@ -12,8 +12,8 @@
     "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L",
     Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook",
     "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
-  --header-height: 4rem;
-  --hero-height: 100vh;
+  --header-height: 3rem;
+  --hero-height: 3rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,7 +30,7 @@ html {
 body {
   font-family: var(--text-font-family);
   font-size: 1rem;
-  padding-block: 1rem;
+  padding-block: 0;
   padding-inline: 0;
   width: 100%;
   min-height: 100vh;
@@ -40,6 +40,10 @@ body {
   align-items: stretch;
   background: var(--background-color);
   color: var(--text-color);
+
+  @media (min-width: 60rem) {
+    padding-block: 1rem;
+  }
 }
 
 a {

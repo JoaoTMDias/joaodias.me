@@ -1,35 +1,31 @@
 ---
-import Logo from '../logo/index.astro';
-import MainNavigation from '../main-navigation/index.astro';
 import Arrow from '../arrow/index.astro';
 import Profile from '../profile/index.astro';
 ---
-<header class="hero">
-  <h1 class="sr-only">João Dias's personal homepage</h1>
-  <Logo />
-  <MainNavigation />
-  <Profile />
+<section class="hero">
   <Arrow />
+  <Profile />
   <div class="fake-copyright">
     <p class="fake-copyright__text">Since 1987 © Limited Edition</p>
   </div>
-</header>
+</section>
 
 <style lang="scss">
 .hero {
-  display: grid;
-  grid-template-columns: var(--header-height) 1fr max-content;
-  grid-template-rows: var(--header-height) 1fr 281px;
-  gap: 0;
-  grid-auto-flow: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
 }
 
 .fake-copyright {
-  grid-area: 3 / 3 / 4 / 4;
-  display: grid;
-  justify-content: end;
-  align-items: end;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
 
   &__text {
     text-align: right;
