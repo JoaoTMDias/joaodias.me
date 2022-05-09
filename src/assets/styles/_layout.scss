@@ -6,3 +6,7 @@
 .sub-section {
   margin-block-start: clamp(7rem, 40vh, 24rem);
 }
+
+.modal--open {
+  overflow: hidden;
+}

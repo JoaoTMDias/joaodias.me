@@ -1,13 +1,13 @@
 ---
-import Link from "../main-navigation/link.astro";
+import FancyLink from "../fancy-link";
 ---
 <div class="intro">
   <h3 class="sr-only">Intro</h3>
   <h4 class="intro__heading">
     <span class="intro__subtitle">Hey, what's up?</span>
-    <span class="intro__title">I'm João Dias, a frontend developer and web accessibility expert from Coimbra, <span class="sr-only">Portugal</span><span aria-hidden="true">PT</span></span>
+    <span class="intro__title">I'm João Dias, a web developer and accessibility advocate from <span lang="pt-PT">Coimbra, Portugal</span></span>
   </h4>
-  <p>Currently working at <span class="link-container"><Link href="https://www.feedzai.com" target="_blank" text="Feedzai" /></span></p>
+  <p>Currently working at <span class="link-container"><FancyLink href="https://www.feedzai.com" target="_blank" text="Feedzai" aria-label="Feed Zai" /></span></p>
 </div>
 
 <style lang="scss">

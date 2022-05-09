@@ -1,0 +1,153 @@
+@use "./motion";
+@use "./projectMeta";
+@use "./cover";
+@use "./gallery";
+
+.dialog {
+  background: var(--background-color);
+  color: var(--text-color);
+  padding-block: 2rem;
+  padding-inline: 2rem;
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  @media (min-width: 60rem) {
+    padding-inline: 3rem;
+  }
+}
+
+.main,
+.header,
+.heading,
+.content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.main {
+  margin-top: 2rem;
+  gap: 3rem;
+}
+
+.main,
+.heading {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.heading {
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 3rem;
+}
+
+.close {
+  margin-left: auto;
+  appearance: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border-color: currentColor;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3rem;
+  position: sticky;
+  top: 1rem;
+  right: 0;
+  cursor: pointer;
+  transform: scale(1);
+  transition: all 200ms ease-in-out;
+  z-index: 1;
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+}
+
+.title {
+  font-family: var(--heading-font-family);
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.title,
+.date {
+  text-align: left;
+}
+
+.date {
+  font-size: clamp(1.5rem, 3vh, 2rem);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vh, 2rem);
+}
+
+.date,
+.intro {
+  font-family: var(--text-font-family);
+}
+
+.intro {
+  font-size: 1.375rem;
+  line-height: 1.5;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1rem;
+  width: 70ch;
+
+  h3,
+  p {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  h3 {
+    font-family: var(--heading-font-family);
+    font-weight: 400;
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.618;
+  }
+}

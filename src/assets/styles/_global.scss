@@ -5,7 +5,9 @@
 
 :root {
   --background-color: hsl(0, 0%, 77%);
+  --background-color-faded: hsla(0, 0%, 77%, 0.25);
   --text-color: hsl(0, 0%, 10%);
+  --text-color-faded: hsla(0, 0%, 10%, 0.25);
   --text-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI, Helvetica,
     Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   --heading-font-family: "Cormorant", "Palatino Linotype", Palatino, Palladio, "URW Palladio L",
@@ -19,7 +21,9 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: hsl(0, 0%, 10%);
+    --background-faded: hsla(0, 0%, 10%, 0.25);
     --text-color: hsl(0, 0%, 77%);
+    --text-color-faded: hsla(0, 0%, 77%, 0.25);
   }
 }
 
@@ -80,4 +84,21 @@ a {
   outline-offset: 4px;
   outline-color: var(--text-color);
   outline-width: 2px;
+}
+
+*::-webkit-scrollbar {
+  width: 1.25rem;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--background-color-faded);
+  border-color: var(--text-color-faded);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 1.25rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+  border-radius: 1.25rem;
 }
