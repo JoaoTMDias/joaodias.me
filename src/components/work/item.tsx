@@ -17,11 +17,14 @@ function Item({ id, title, subtitle, skills, onClick }) {
     onClick();
   }
 
+  const ariaLabel = `${title}, ${subtitle}`;
+
   return (
     <button
       ref={internalRef}
       id={id}
       type="button"
+      aria-label={ariaLabel}
       className={styles.item}
       tabIndex={tabIndex}
       onKeyUp={handleRoverOnKeyUp}

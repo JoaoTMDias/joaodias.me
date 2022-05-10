@@ -1,0 +1,289 @@
+{
+  "data": [
+    {
+      "id": "42654a86-254e-4167-a9b3-e2471ecfacd6",
+      "title": "WinPicker",
+      "shortDescription": "A colour picker for Windows 11",
+      "thumbnail": {
+        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "width": 123,
+        "height": 123,
+        "alt": "cenas"
+      },
+      "skills": ["react", "vitejs", "electron", "fluent-ui", "windows-11"],
+      "details": {
+        "date": "January 2022",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+        "cover": {
+          "src": "https://source.unsplash.com/random/800x600/?cats",
+          "width": 800,
+          "height": 600,
+          "alt": "cenas"
+        },
+        "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+        "problem": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "solution": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "photos": [
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c82cef84-32ea-4528-8d8b-530bae6bf5a4",
+      "title": "Google Chat Formatter",
+      "shortDescription": "A browser extension that helps google chat users to type rich text",
+      "thumbnail": {
+        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "width": 123,
+        "height": 123,
+        "alt": "cenas"
+      },
+      "skills": ["preact", "vitejs", "cypress", "chromium"],
+      "details": {
+        "date": "January 2022",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+        "cover": {
+          "src": "https://source.unsplash.com/random/800x600/?cats",
+          "width": 800,
+          "height": 600,
+          "alt": "cenas"
+        },
+        "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+        "problem": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "solution": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "photos": [
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e99253d9-594f-47dd-aa19-17cfcc02ff81",
+      "title": "istovaidarmerda.online",
+      "shortDescription": "A website for an online pandemic-centric conference. Includes some smelly easter eggs.",
+      "thumbnail": {
+        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "width": 123,
+        "height": 123,
+        "alt": "cenas"
+      },
+      "skills": ["nextjs", "cypress", "jest", "testing-library"],
+      "details": {
+        "date": "January 2021",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+        "cover": {
+          "src": "https://source.unsplash.com/random/800x600/?cats",
+          "width": 800,
+          "height": 600,
+          "alt": "cenas"
+        },
+        "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+        "problem": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "solution": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "photos": [
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          }
+        ]
+      }
+    },
+    {
+      "id": "40ea5eb3-310c-4dde-b4d0-0fc2faf8be3a",
+      "title": "Paperboy",
+      "shortDescription": "A progressive web app for a concept news reader.",
+      "thumbnail": {
+        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "width": 123,
+        "height": 123,
+        "alt": "cenas"
+      },
+      "skills": ["gatsby", "news-api", "cypress", "service-workers", "styled-components"],
+      "details": {
+        "date": "September 2020",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+        "cover": {
+          "src": "https://source.unsplash.com/random/800x600/?cats",
+          "width": 800,
+          "height": 600,
+          "alt": "cenas"
+        },
+        "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+        "problem": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "solution": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "photos": [
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          }
+        ]
+      }
+    },
+    {
+      "id": "840682ad-c5a7-49fa-9751-be787ea436ff",
+      "title": "@feedzai/react-a11y-tools",
+      "shortDescription": "A small component library that eases the process of creating accessible design systems, web apps or websites. Available on npm.",
+      "thumbnail": {
+        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "width": 123,
+        "height": 123,
+        "alt": "cenas"
+      },
+      "skills": ["react", "node", "cypress-component-testing", "esbuild", "rollup"],
+      "details": {
+        "date": "September 2020",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+        "cover": {
+          "src": "https://source.unsplash.com/random/800x600/?cats",
+          "width": 800,
+          "height": 600,
+          "alt": "cenas"
+        },
+        "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+        "problem": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "solution": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+        ],
+        "photos": [
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          },
+          {
+            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "width": 640,
+            "height": 480,
+            "alt": "cenas"
+          }
+        ]
+      }
+    }
+  ]
+}

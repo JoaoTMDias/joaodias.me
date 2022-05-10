@@ -29,16 +29,6 @@
   }
 }
 
-.name {
-  transform: translate3d(0, 200%, 0);
-  transition: transform 700ms ease-in-out;
-  overflow: hidden;
-
-  &[data-visible="true"] {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 .slash {
   position: relative;
   font-family: var(--text-font-family);

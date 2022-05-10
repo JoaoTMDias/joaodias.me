@@ -1,11 +1,11 @@
-import React from "react";
+import { FunctionComponent } from "react";
 import { Track } from "../../../typings/index";
 import styles from "./styles.module.scss";
 
 /**
  * Last Played Song Card
  */
-export const LastPlayedSongCard: React.FunctionComponent<{
+export const LastPlayedSongCard: FunctionComponent<{
   song: Track;
 }> = ({ song }) => {
   return (
@@ -23,14 +23,14 @@ export const LastPlayedSongCard: React.FunctionComponent<{
           {song.name}
         </a>
         <span className="sr-only">by</span>
-        <span className={styles.artist} aria-hidden="true">
+        <span className={styles.artist} role="presentation" aria-hidden="true">
           ♠
         </span>
         <span className={styles.artist} data-testid="last-played-artist">
           {song.artist["#text"]}
         </span>
         <span className="sr-only">from the</span>
-        <span className={styles.artist} aria-hidden="true">
+        <span className={styles.artist} role="presentation" aria-hidden="true">
           ♣
         </span>
         <span className={styles.album} data-testid="last-played-album">

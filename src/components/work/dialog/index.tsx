@@ -1,11 +1,17 @@
 import { FocusManager } from "@feedzai/react-a11y-tools";
 import { useEffect, useRef } from "react";
+import { Project } from "../../../data/selected-work/types";
 import DialogCover from "./DialogCover";
 import DialogHeader from "./DialogHeader";
 import DialogProjectMeta from "./DialogProjectMeta";
 import styles from "./index.module.scss";
 
-function Dialog({ children, onClose }) {
+interface Props {
+  data: Project;
+  onClose: () => void;
+}
+
+function Dialog({ data, onClose }: Props): JSX.Element {
   const modalRef = useRef<HTMLDivElement>(null);
 
   /**
@@ -70,87 +76,35 @@ function Dialog({ children, onClose }) {
           </button>
           <div className={styles.main}>
             <DialogHeader
-              title="Project Title"
-              date="2022"
-              intro="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni,
-              eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat
-              modi autem facilis nesciunt exercitationem ratione, porro non!"
+              title={data.title}
+              date={data.details.date}
+              intro={data.details.description}
             />
-            <DialogCover
-              src="https://source.unsplash.com/random/800x600/?cats"
-              width="800"
-              height="600"
-              loading="lazy"
-              alt="cenas"
-            />
+            <DialogCover loading="lazy" {...data.details.cover} />
             <div className={styles.content}>
-              <DialogProjectMeta />
+              <DialogProjectMeta
+                skills={data.skills}
+                date={data.details.date}
+                sourceCode={data.details.sourceCode}
+              />
               <div className={styles.section}>
                 <h3>The Problem</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio
-                  reprehenderit numquam. Laboriosam accusantium maxime similique aut quis,
-                  voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam!
-                  Excepturi, voluptatibus.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio
-                  reprehenderit numquam. Laboriosam accusantium maxime similique aut quis,
-                  voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam!
-                  Excepturi, voluptatibus.
-                </p>
+                {data.details.problem.map((item, index) => {
+                  return <p key={index}>{item}</p>;
+                })}
               </div>
               <div className={styles.section}>
                 <h3>The Solution</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio
-                  reprehenderit numquam. Laboriosam accusantium maxime similique aut quis,
-                  voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam!
-                  Excepturi, voluptatibus.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio
-                  reprehenderit numquam. Laboriosam accusantium maxime similique aut quis,
-                  voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam!
-                  Excepturi, voluptatibus.
-                </p>
+                {data.details.solution.map((item, index) => {
+                  return <p key={index}>{item}</p>;
+                })}
               </div>
               <div className={styles.section}>
-                <img
-                  className={styles.gallery}
-                  src="https://source.unsplash.com/random/640x480/?cats"
-                  width="640"
-                  height="480"
-                  loading="lazy"
-                  alt="cenas"
-                />
-                <img
-                  className={styles.gallery}
-                  src="https://source.unsplash.com/random/640x480/?cats"
-                  width="640"
-                  height="480"
-                  loading="lazy"
-                  alt="cenas"
-                />
-                <img
-                  className={styles.gallery}
-                  src="https://source.unsplash.com/random/640x480/?cats"
-                  width="640"
-                  height="480"
-                  loading="lazy"
-                  alt="cenas"
-                />
-                <img
-                  className={styles.gallery}
-                  src="https://source.unsplash.com/random/640x480/?cats"
-                  width="640"
-                  height="480"
-                  loading="lazy"
-                  alt="cenas"
-                />
+                {data.details.photos.map((photo, index) => {
+                  return <img key={index} className={styles.gallery} loading="lazy" {...photo} />;
+                })}
               </div>
             </div>
-            {children}
           </div>
         </div>
       </FocusManager>

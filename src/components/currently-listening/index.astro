@@ -10,7 +10,7 @@ const song = recenttracks.track.slice(0, 1)[0];
 ---
 <div class="section">
   <h2 id="current-listening" class="title">
-    Currently Listening
+    Currently Listening To...
   </h2>
   <div class="marquee">
     <Marquee client:only><TrackInfo song={song} /></Marquee>
@@ -24,6 +24,7 @@ const song = recenttracks.track.slice(0, 1)[0];
     justify-content: flex-start;
     align-items: stretch;
     gap: 1rem;
+    width: 100%;
   }
 
   .title {

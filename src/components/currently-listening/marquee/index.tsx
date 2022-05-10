@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { ReactNode, FC, CSSProperties, useEffect, useState, useRef } from "react";
 import styles from "./styles.module.scss";
 
 interface MarqueeProps {
@@ -7,7 +7,7 @@ interface MarqueeProps {
    * Type: object
    * Default: {}
    */
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   /**
    * Class name to style the container div
    * Type: string
@@ -56,19 +56,7 @@ interface MarqueeProps {
    * Default: 0
    */
   loop?: number;
-  /**
-   * Whether to show the gradient or not
-   * Type: boolean
-   * Default: true
-   */
-  gradient?: boolean;
 
-  /**
-   * The width of the gradient on either side
-   * Type: string
-   * Default: 200
-   */
-  gradientWidth?: number | string;
   /**
    * A callback for when the marquee finishes scrolling and stops. Only calls if loop is non-zero.
    * Type: Function
@@ -86,10 +74,10 @@ interface MarqueeProps {
    * Type: ReactNode
    * Default: null
    */
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
-export const Marquee: React.FC<MarqueeProps> = ({
+export const Marquee: FC<MarqueeProps> = ({
   style = {},
   className = "",
   play = true,
@@ -99,8 +87,6 @@ export const Marquee: React.FC<MarqueeProps> = ({
   speed = 20,
   delay = 0,
   loop = 0,
-  gradient = true,
-  gradientWidth = 250,
   onFinish,
   onCycleComplete,
   children,
@@ -140,12 +126,23 @@ export const Marquee: React.FC<MarqueeProps> = ({
     setIsMounted(true);
   }, []);
 
-  // Gradient color in an unfinished rgba format
-  const currentBackgroundColor = getComputedStyle(document.documentElement).getPropertyValue(
-    "--background-color"
+  const marqueeElement = (
+    <div
+      ref={marqueeRef}
+      style={{
+        ["--play" as string]: play ? "running" : "paused",
+        ["--direction" as string]: direction === "left" ? "normal" : "reverse",
+        ["--duration" as string]: `${duration}s`,
+        ["--delay" as string]: `${delay}s`,
+        ["--iteration-count" as string]: !!loop ? `${loop}` : "infinite",
+      }}
+      className={styles.marquee}
+      onAnimationIteration={onCycleComplete}
+      onAnimationEnd={onFinish}
+    >
+      {children}
+    </div>
   );
-  const strippedColor = currentBackgroundColor.slice(5, currentBackgroundColor.length - 1);
-  const hslGradientColor = `hsla(${strippedColor}`;
 
   return (
     <>
@@ -159,43 +156,9 @@ export const Marquee: React.FC<MarqueeProps> = ({
           }}
           className={className + styles["marquee-container"]}
         >
-          {gradient && (
-            <div
-              style={{
-                ["--gradient-color" as string]: `${hslGradientColor}, 1), ${hslGradientColor}, 0)`,
-                ["--gradient-width" as string]:
-                  typeof gradientWidth === "number" ? `${gradientWidth}px` : gradientWidth,
-              }}
-              className={styles.overlay}
-            />
-          )}
-          <div
-            ref={marqueeRef}
-            style={{
-              ["--play" as string]: play ? "running" : "paused",
-              ["--direction" as string]: direction === "left" ? "normal" : "reverse",
-              ["--duration" as string]: `${duration}s`,
-              ["--delay" as string]: `${delay}s`,
-              ["--iteration-count" as string]: !!loop ? `${loop}` : "infinite",
-            }}
-            className={styles.marquee}
-            onAnimationIteration={onCycleComplete}
-            onAnimationEnd={onFinish}
-          >
-            {children}
-          </div>
-          <div
-            style={{
-              ["--play" as string]: play ? "running" : "paused",
-              ["--direction" as string]: direction === "left" ? "normal" : "reverse",
-              ["--duration" as string]: `${duration}s`,
-              ["--delay" as string]: `${delay}s`,
-              ["--iteration-count" as string]: !!loop ? `${loop}` : "infinite",
-            }}
-            className={styles.marquee}
-          >
-            {children}
-          </div>
+          {marqueeElement}
+          {marqueeElement}
+          {marqueeElement}
         </div>
       )}
     </>

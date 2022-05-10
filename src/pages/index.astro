@@ -6,6 +6,7 @@ import Skills from "../components/skills/index.astro";
 import Bio from "../components/bio/index.astro";
 import Experience from "../components/experience/index.astro";
 import Work from "../components/work/index.tsx";
+import SocialLinks from "../components/social-links/index.astro";
 import CurrentlyListening from "../components/currently-listening/index.astro";
 import '../assets/styles/index.scss';
 
@@ -30,6 +31,27 @@ let title = 'João Dias';
 			grid-template-rows: var(--hero-height) 1fr;
 			grid-gap: 0;
 		}
+
+		.footer {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items:center;
+			gap: 2rem;
+			width: 100%;
+			flex-grow: 1;
+
+			&__bottom {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items:center;
+				height: 3rem;
+				width: 100%;
+								max-width: 80rem;
+			}
+		}
+		.section,
 		section {
 			display: flex;
 			flex-direction: column;
@@ -56,7 +78,7 @@ let title = 'João Dias';
 			<section>
 				<h2 id="about" class="sr-only">About me</h2>
 				<Intro />
- 				<Skills client:load />
+ 				<Skills />
 				<Bio />
 				<Experience />
 			</section>
@@ -64,8 +86,14 @@ let title = 'João Dias';
 				<Work client:load />
 			</section>
 		</main>
-		<footer id="footer">
+		<footer class="footer" id="footer">
 				<CurrentlyListening client:load />
+				<div class="footer__bottom">
+					<SocialLinks />
+					<p class="footer__others">
+						&copy; 2022 - João Dias. All Rights Reserved
+					</p>
+				</div>
 		</footer>
 	</div>
 	<div class="grid-background" role="presentation">
