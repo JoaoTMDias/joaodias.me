@@ -29,13 +29,15 @@
   top: 0;
   left: 0;
   pointer-events: none;
+  user-select: none;
   fill: none;
   stroke: var(--text-color);
   stroke-width: 2px;
   transition: transform 700ms;
   transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
-  z-index: -1;
   background-color: transparent;
+  width: 300%;
+  height: 100%;
 }
 
 .grid-background {

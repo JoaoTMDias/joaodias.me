@@ -8,6 +8,7 @@ import Experience from "../components/experience/index.astro";
 import Work from "../components/work/index.tsx";
 import SocialLinks from "../components/social-links/index.astro";
 import CurrentlyListening from "../components/currently-listening/index.astro";
+import SkipLink from "../components/skip-link";
 import '../assets/styles/index.scss';
 
 let title = 'João Dias';
@@ -71,11 +72,12 @@ let title = 'João Dias';
 	</style>
 </head>
 <body>
+	<SkipLink />
 	<div class="container">
 		<Header />
 		<main>
 			<Hero />
-			<section>
+			<section id="content">
 				<h2 id="about" class="sr-only">About me</h2>
 				<Intro />
  				<Skills />

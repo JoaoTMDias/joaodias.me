@@ -10,8 +10,6 @@ function FancyLink({ text, ...props }: Props) {
       <span>{text}</span>
       <svg
         className="fancy__link__underline"
-        width="300%"
-        height="100%"
         viewBox="0 0 1200 60"
         preserveAspectRatio="none"
         role="presentation"
