@@ -167,9 +167,10 @@
   margin-block-end: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   font-family: var(--text-font-family);
   font-style: normal;
@@ -208,5 +209,6 @@
 
   .skills {
     flex-direction: row;
+    justify-content: flex-start;
   }
 }
