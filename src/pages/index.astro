@@ -11,7 +11,9 @@ import CurrentlyListening from "../components/currently-listening/index.astro";
 import SkipLink from "../components/skip-link";
 import '../assets/styles/index.scss';
 
-let title = 'João Dias';
+let title = 'You have arrived at a website called joaodias.me: João Dias';
+const currentYear = new Date().getFullYear();
+const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 ---
 <html lang="en">
 <head>
@@ -77,8 +79,8 @@ let title = 'João Dias';
 		<Header />
 		<main>
 			<Hero />
-			<section id="content">
-				<h2 id="about" class="sr-only">About me</h2>
+			<section id="content" tabindex={-1} aria-labelledby="about">
+				<h2 id="about" class="sr-only">Main Content</h2>
 				<Intro />
  				<Skills />
 				<Bio />
@@ -93,7 +95,7 @@ let title = 'João Dias';
 				<div class="footer__bottom">
 					<SocialLinks />
 					<p class="footer__others">
-						&copy; 2022 - João Dias. All Rights Reserved
+						{footer}
 					</p>
 				</div>
 		</footer>
