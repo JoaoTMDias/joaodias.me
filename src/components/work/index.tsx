@@ -63,6 +63,8 @@ function Work() {
                 title={work.title}
                 skills={work.skills}
                 subtitle={work.shortDescription}
+                thumbnail={work.thumbnail}
+                theme={work.theme}
                 onClick={() => handleOnClickOnButton(index)}
               />
             ))}

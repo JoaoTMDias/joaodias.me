@@ -5,54 +5,64 @@
       "title": "WinPicker",
       "shortDescription": "A colour picker for Windows 11",
       "thumbnail": {
-        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "src": "projects/winpicker/project-icon.svg",
         "width": 123,
         "height": 123,
-        "alt": "cenas"
+        "alt": ""
+      },
+      "theme": {
+        "background": "#003C6D",
+        "foreground": "#FFCACA"
       },
       "skills": ["react", "vitejs", "electron", "fluent-ui", "windows-11"],
       "details": {
         "date": "January 2022",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+        "description": "I created a Fluent UI app for Windows 11 and used React, Electron and its Node API. This litte piece of software enables web developers and designers to pick foreground and background colours and get an instant preview of its contrast ratio",
         "cover": {
-          "src": "https://source.unsplash.com/random/800x600/?cats",
+          "src": "projects/winpicker/winpicker-cover.jpeg",
           "width": 800,
           "height": 600,
-          "alt": "cenas"
+          "alt": ""
         },
         "sourceCode": "https://github.com/JoaoTMDias/winpicker",
         "problem": [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          "I'm not a Windows or Apple fanboy: I've used all of them operating systems, from MacOS, to several Linux distros, to several Windows versions as well",
+          "I mean, tools are tools, right? At least for me.",
+          "Before my latest switch to Windows 11, I used to extensively work with a little app for MacOS called Pika. It enabled me to quickly pick two colours, get an instant contrast ratio score as well as let me know which WCAG levels it passed and which ones it failed. It was simple, did the job and had a native look-and-feel to it.",
+          "When switching to Windows I went to the Windows Store and looked up for the same type of app. There were some results, sure, but I didn't find any that did the same, with the same ease of use and native look-and-feel.",
+          "There are also dozens of Chrome and Firefox browser extensions, sure, but nothing really 'good' for the desktop and that respects the user interface design guidelines for that specific environment.",
+          "Basically, I was in search for a small and specially dedicated app for doing web accessibility development and design.",
+          "If it's good for me and does the job, maybe it can also be good for others."
         ],
         "solution": [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          "As usual, if the need exists but there's nothing serving that, I pull up my 'coding sleeves' and do the work myself.",
+          "I've used React Native in the past, and I thought I could follow the same path and develop a native app for the operating system using React Native for Windows.",
+          "But, at the same time, I know my ways around a web application, I know how to make it accessible and I wanted to prototype fast.",
+          "And, besides, I wanted to try building a native app with Electron JS and use its Node API to communicate between system-level APIs and the user interface (at the time the Eyedropper API isn't correctly supported in Electron for Windows)",
+          "So yeah, I still went with React, but chose the web first and used Vite for bundling everything together. I find Vite to be super-duper easy to configure and freaking-fast!",
+          "I honestly dread everytime I have to touch a webpack config file at work...I mean, I do it, but it's something that doesn't give me as much pleasure as using rollup/Vite/esbuild.",
+          "As for the user interface, besides building my own components, I used the ones made by Microsoft for the @fluentui/react package. It gives me the native look and feel I want for the app, so that users can feel at home with the interface.",
+          "Finally, the features of the app are all built around getting as much relevant information as fast as possible so, when choosing two colours, you have a 5 star rating as well as a check/failed score for AA and AAA levels for large and regular font sizes",
+          "The colour picker is an external .exe file that I load up using Node and Electron's ipcMain process and make its results available to the UI using the ipcRenderer process"
         ],
         "photos": [
           {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "src": "projects/winpicker/winpicker-1.png",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "src": "projects/winpicker/winpicker-2.png",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "src": "projects/winpicker/winpicker-3.jpg",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
-          },
-          {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
-            "width": 640,
-            "height": 480,
-            "alt": "cenas"
+            "alt": ""
           }
         ]
       }
@@ -62,24 +72,28 @@
       "title": "Google Chat Formatter",
       "shortDescription": "A browser extension that helps google chat users to type rich text",
       "thumbnail": {
-        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "src": "projects/g-chat-format-bar/project-icon.jpg",
         "width": 123,
         "height": 123,
-        "alt": "cenas"
+        "alt": ""
+      },
+      "theme": {
+        "background": "#0f1729",
+        "foreground": "#69f0ae"
       },
       "skills": ["preact", "vitejs", "cypress", "chromium"],
       "details": {
         "date": "January 2022",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+        "description": "A browser extension for Chromium that helps Google Chat users to create richer text content",
         "cover": {
-          "src": "https://source.unsplash.com/random/800x600/?cats",
+          "src": "projects/g-chat-format-bar/project-1.jpg",
           "width": 800,
           "height": 600,
-          "alt": "cenas"
+          "alt": ""
         },
         "sourceCode": "https://github.com/JoaoTMDias/winpicker",
         "problem": [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+          "Google Chat",
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
         ],
         "solution": [
@@ -88,28 +102,22 @@
         ],
         "photos": [
           {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "src": "projects/g-chat-format-bar/project-2.jpg",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "src": "projects/g-chat-format-bar/project-3.jpg",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "src": "projects/g-chat-format-bar/project-4.jpg",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
-          },
-          {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
-            "width": 640,
-            "height": 480,
-            "alt": "cenas"
+            "alt": ""
           }
         ]
       }
@@ -119,10 +127,14 @@
       "title": "istovaidarmerda.online",
       "shortDescription": "A website for an online pandemic-centric conference. Includes some smelly easter eggs.",
       "thumbnail": {
-        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "src": "projects/istovaidarmerda.online/project-icon.png",
         "width": 123,
         "height": 123,
-        "alt": "cenas"
+        "alt": ""
+      },
+      "theme": {
+        "background": "#f5e7ad",
+        "foreground": "#4d352d"
       },
       "skills": ["nextjs", "cypress", "jest", "testing-library"],
       "details": {
@@ -132,7 +144,7 @@
           "src": "https://source.unsplash.com/random/800x600/?cats",
           "width": 800,
           "height": 600,
-          "alt": "cenas"
+          "alt": ""
         },
         "sourceCode": "https://github.com/JoaoTMDias/winpicker",
         "problem": [
@@ -148,25 +160,25 @@
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           }
         ]
       }
@@ -176,10 +188,14 @@
       "title": "Paperboy",
       "shortDescription": "A progressive web app for a concept news reader.",
       "thumbnail": {
-        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "src": "projects/paperboy/project-icon.jpg",
         "width": 123,
         "height": 123,
-        "alt": "cenas"
+        "alt": ""
+      },
+      "theme": {
+        "background": "#ffffff",
+        "foreground": "#b12013"
       },
       "skills": ["gatsby", "news-api", "cypress", "service-workers", "styled-components"],
       "details": {
@@ -189,7 +205,7 @@
           "src": "https://source.unsplash.com/random/800x600/?cats",
           "width": 800,
           "height": 600,
-          "alt": "cenas"
+          "alt": ""
         },
         "sourceCode": "https://github.com/JoaoTMDias/winpicker",
         "problem": [
@@ -205,25 +221,25 @@
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           }
         ]
       }
@@ -233,10 +249,14 @@
       "title": "@feedzai/react-a11y-tools",
       "shortDescription": "A small component library that eases the process of creating accessible design systems, web apps or websites. Available on npm.",
       "thumbnail": {
-        "src": "https://source.unsplash.com/random/123x123/?cats",
+        "src": "projects/react-a11y-tools/project-icon.svg",
         "width": 123,
         "height": 123,
-        "alt": "cenas"
+        "alt": ""
+      },
+      "theme": {
+        "background": "#FFC9CB",
+        "foreground": "#1b1d1c"
       },
       "skills": ["react", "node", "cypress-component-testing", "esbuild", "rollup"],
       "details": {
@@ -246,7 +266,7 @@
           "src": "https://source.unsplash.com/random/800x600/?cats",
           "width": 800,
           "height": 600,
-          "alt": "cenas"
+          "alt": ""
         },
         "sourceCode": "https://github.com/JoaoTMDias/winpicker",
         "problem": [
@@ -262,25 +282,25 @@
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           },
           {
             "src": "https://source.unsplash.com/random/640x480/?cats",
             "width": 640,
             "height": 480,
-            "alt": "cenas"
+            "alt": ""
           }
         ]
       }

@@ -3,19 +3,31 @@ import { LAST_FM_URL } from "../../data/services/config";
 import { Marquee } from "./marquee/index";
 import { TrackInfo } from "./track-info/index";
 
-const request = await fetch(LAST_FM_URL);
-const data = await request.json();
-const { recenttracks } = await data;
-const song = recenttracks.track.slice(0, 1)[0];
+let song;
+
+try {
+  const request = await fetch(LAST_FM_URL);
+  const data = await request.json();
+  const { recenttracks } = await data;
+
+  song = recenttracks.track.slice(0, 1)[0];
+} catch (error) {
+  console.warn(error);
+}
 ---
+
+{song ? (
 <div class="section">
   <h2 id="current-listening" class="title">
     Currently Listening To...
   </h2>
   <div class="marquee">
-    <Marquee client:only><TrackInfo song={song} /></Marquee>
+    <Marquee client:only>
+      <TrackInfo song={song} />
+    </Marquee>
   </div>
 </div>
+) : null}
 
 <style lang="scss">
   .section {
@@ -42,7 +54,7 @@ const song = recenttracks.track.slice(0, 1)[0];
   }
 
   .marquee {
-    display:grid;
+    display: grid;
     place-items: center;
     background-color: var(--background-color);
     box-shadow: 0 -1px 0 0 var(--text-color), 0 1px 0 0 var(--text-color);

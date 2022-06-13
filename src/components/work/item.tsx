@@ -7,10 +7,24 @@
  * (c) 2022 joaodias.me, Rights Reserved.
  */
 import { useFocus, useRover } from "@feedzai/react-a11y-tools";
-import { useRef } from "react";
+import * as React from "react";
+import { HTMLAttributes, useRef } from "react";
 import styles from "./index.module.scss";
 
-function Item({ id, title, subtitle, skills, onClick }) {
+interface Props {
+  id: string;
+  title: string;
+  subtitle: string;
+  skills: string[];
+  thumbnail: HTMLAttributes<HTMLImageElement>;
+  theme: {
+    foreground: string;
+    background: string;
+  };
+  onClick: () => void;
+}
+
+function Item({ id, title, subtitle, skills, thumbnail, theme, onClick }: Props) {
   const internalRef = useRef<HTMLButtonElement>(null);
   const [tabIndex, focused, handleRoverOnKeyUp, handleRoverOnClick] = useRover(
     internalRef,
@@ -37,9 +51,15 @@ function Item({ id, title, subtitle, skills, onClick }) {
       tabIndex={tabIndex}
       onKeyUp={handleRoverOnKeyUp}
       onClick={handleOnClick}
+      style={
+        {
+          "--text-color-hover": theme.foreground,
+          "--background-color-hover": theme.background,
+        } as React.CSSProperties
+      }
     >
       <figure className={styles.figure}>
-        <img src="https://place-hold.it/123x123" width="123" height="123" alt="WinPicker logo" />
+        <img {...thumbnail} />
       </figure>
       <div className={styles.content}>
         <h3 className={styles.content__title}>{title}</h3>
