@@ -84,9 +84,9 @@
       "skills": ["preact", "vitejs", "cypress", "chromium"],
       "details": {
         "date": "January 2022",
-        "description": "A browser extension for Chromium that helps Google Chat users to create richer text content",
+        "description": "A browser extension that helps Google Chat users to create richer text content",
         "cover": {
-          "src": "projects/g-chat-format-bar/project-1.jpg",
+          "src": "projects/g-chat-format-bar/project-cover.jpg",
           "width": 800,
           "height": 600,
           "alt": ""
@@ -102,6 +102,12 @@
         ],
         "photos": [
           {
+            "src": "projects/g-chat-format-bar/project-1.jpg",
+            "width": 640,
+            "height": 480,
+            "alt": ""
+          },
+          {
             "src": "projects/g-chat-format-bar/project-2.jpg",
             "width": 640,
             "height": 480,
@@ -109,12 +115,6 @@
           },
           {
             "src": "projects/g-chat-format-bar/project-3.jpg",
-            "width": 640,
-            "height": 480,
-            "alt": ""
-          },
-          {
-            "src": "projects/g-chat-format-bar/project-4.jpg",
             "width": 640,
             "height": 480,
             "alt": ""
@@ -141,12 +141,12 @@
         "date": "January 2021",
         "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
         "cover": {
-          "src": "https://source.unsplash.com/random/800x600/?cats",
+          "src": "projects/istovaidarmerda.online/project-cover.jpg",
           "width": 800,
           "height": 600,
           "alt": ""
         },
-        "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+        "sourceCode": "https://github.com/JoaoTMDias/istovaidarmerda.online",
         "problem": [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
@@ -157,25 +157,13 @@
         ],
         "photos": [
           {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "src": "projects/istovaidarmerda.online/project-1.jpg",
             "width": 640,
             "height": 480,
             "alt": ""
           },
           {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
-            "width": 640,
-            "height": 480,
-            "alt": ""
-          },
-          {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
-            "width": 640,
-            "height": 480,
-            "alt": ""
-          },
-          {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "src": "projects/istovaidarmerda.online/project-2.jpg",
             "width": 640,
             "height": 480,
             "alt": ""
@@ -200,43 +188,39 @@
       "skills": ["gatsby", "news-api", "cypress", "service-workers", "styled-components"],
       "details": {
         "date": "September 2020",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+        "description": "To be properly informed these days is a very tedious task. Plus, all the information is spread across different websites, news sources and blogs. The paper days are gone, so now we have all these devices where we should be getting information easily and without any biased curation.",
         "cover": {
-          "src": "https://source.unsplash.com/random/800x600/?cats",
+          "src": "projects/paperboy/project-cover.jpg",
           "width": 800,
           "height": 600,
           "alt": ""
         },
-        "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+        "sourceCode": "https://github.com/joaotmdias/paperboy",
         "problem": [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          "Most people read their news from one, maybe two sources. Perhaps they get their daily info from Facebook or some other social network. In the realm of these Silicon-Valley types of companies, it's very easy to fall into that cycle of misinformation we all came to know, one or or another. Most times you only read from what you think is the truth. It might be, but you never to seek the real information by comparing it from different sources.",
+          "This movement of false information spreading, fake news and really bad journalism was and is fed by the lack of tools to compare news. In this era of click-bait articles, the newspapers are also to blame.",
+          "People should have access to an easy, free way to read news on their mobile phone, but at the same time, be allowed to choose from a wide variety of news outlets and also search for specific topics in order to see what all parts say about one thing. Sounds democratic, sounds like what the internet was made for.",
+          "Well, it's not that easy. Finding different perspectives on a topic it's a arduous task. We wander from site to site, skipping ads, clicking on cookies acceptance terms and the regular pay-to-access forms.",
+          "And I for one can understand why so many people choose to stay with only one or two sources of information: Because it's easier to manage our lives that way. Not the correct one, but easier.",
+          "How about access on all platforms? Why can't someone start to read something on an iPhone and continue to read that on their Firefox browser on their desktop computer at home."
         ],
         "solution": [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          "The News API is a wonderful, underrated tool. The News APIwebsite is a wonderful, underrated tool. Yes, it has a paid tear for X number of calls, but, for a demo, it suits very well.",
+          "One of the most important goals of the app is to get as quickly as possible to a place where you could read articles from your favourite news sources, without too much messing around with login forms, passwords and all sorts of permissions. Just free information, that's it.",
+          "Apple News, a service launched by the fruit company, is a way for people to read on their fruit devices. Unfortunately, it is curated by Apple and isn't available to Android devices, only on Apple devices, and not even all of them (Although a colleague of mine actually discovered how to open Apple News in Portugal, using MacOS Mojave).",
+          "Google News is another free tool but, as much as I like a few thinks that they create, it still lacks that feeling of open-ness and freedom of choice.",
+          "I want something that I could share with others, so that they could use for themselves, without business boundaries.",
+          "I have tried Swift and Java in the past. I felt like I removed myself from the visual side of things whilst learning the basics of those two.",
+          "I like to write software with good-old web standards: HTML, CSS and Javascript. They are old, they are new. They are powerful, but easy to manage. They are accessible by default and always evolving.",
+          "I went with React Native as it seemed like the best choice for this app. I kew React, and React Native seemed like the perfect way to target two operating systems myself. Plus, all the layout is made with CSS-like syntax, there are a lot of cool features to play with.",
+          "I'm using React Native with Expo, Native Base and Axios.",
+          "One very cool feature of doing layouts React Native, is the ability to think of different screen sizes in the most logical way: using media queries. For that I used a library called react-native-extended-stylesheets, which made the process to build something that looks good on a hand-held device or a tablet, a breeze.",
+          "For navigation i'm using React Navigation 2.0 and for the icons in the bottom bars, I'm using SVG icons instead of PNG's.",
+          "The development is still in progress, but you can check out the source code here."
         ],
         "photos": [
           {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
-            "width": 640,
-            "height": 480,
-            "alt": ""
-          },
-          {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
-            "width": 640,
-            "height": 480,
-            "alt": ""
-          },
-          {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
-            "width": 640,
-            "height": 480,
-            "alt": ""
-          },
-          {
-            "src": "https://source.unsplash.com/random/640x480/?cats",
+            "src": "projects/paperboy/project-1.jpg",
             "width": 640,
             "height": 480,
             "alt": ""

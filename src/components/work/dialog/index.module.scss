@@ -59,7 +59,7 @@
 }
 
 .heading {
-  gap: 1rem;
+  gap: 0.5rem;
   align-items: flex-start;
 }
 
@@ -102,6 +102,8 @@
 
   &:hover,
   &:focus {
+    background-color: var(--text-color);
+    color: var(--background-color);
     transform: scale(1.2);
   }
 }
@@ -118,9 +120,8 @@
 }
 
 .date {
-  font-size: clamp(1.5rem, 3vh, 2rem);
-  font-weight: 500;
-  font-size: clamp(1.5rem, 3vh, 2rem);
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .date,

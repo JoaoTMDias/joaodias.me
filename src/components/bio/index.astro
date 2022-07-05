@@ -2,12 +2,16 @@
   <h3 class="sr-only">Bio</h3>
   <div class="bio">
     <figure class="bio__picture">
-      <img src="/BioPicture.jpg" width="300" height="554" alt="">
+      <img class="bio__image" src="/BioPicture.jpg" width="300" height="554" alt="">
     </figure>
     <div class="bio__content">
-      <h4 class="bio__title">I focus on creating great, accessible and rich web experiences for everyone. I’ve been lucky enough to have been doing that since 2011.</h4>
-      <p class="bio__paragraph">“He’s a pretty chilled dude”, thats what my friends would say. Besides working as a Senior Frontend Engineer, I also teach web development classes at first and second year students on the Polythecnic Institute of Coimbra.</p>
-      <p class="bio__paragraph">On my free time I usually go out and explore the fantastic world of craft beers, rock out to some great live music and hit the gym whenever I can.</p>
+      <h4 class="bio__title">I focus on creating great, accessible and rich web experiences for everyone. I’ve been
+        lucky enough to have been doing that since 2011.</h4>
+      <p class="bio__paragraph">“He’s a pretty chilled dude”, thats what my friends would say. Besides working as a
+        Senior Frontend Engineer, I also teach web development classes at first and second year students on the
+        Polythecnic Institute of Coimbra.</p>
+      <p class="bio__paragraph">On my free time I usually go out and explore the fantastic world of craft beers, rock
+        out to some great live music and hit the gym whenever I can.</p>
     </div>
   </div>
 </div>
@@ -38,17 +42,34 @@
         height: 100%;
         background-color: transparent;
         border: 2px solid var(--text-color);
-        transform: translate3d(6vw,4vh,0) scale(1.025);
+        transform: translate3d(6vw, 4vh, 0) scale(1.025);
+        pointer-events: none;
+        transition: transform 200ms ease-in-out;
+        border-radius: 4px;
+
 
         @media (min-width: 60rem) {
-          transform: translate3d(3rem,1.5rem,0) scale(1.025);
+          transform: translate3d(3rem, 1.5rem, 0) scale(1.025);
         }
       }
+
+      @media (prefers-reduced-motion: no-preference) {
+        &:hover:after {
+          @media (min-width: 60rem) {
+            transform: translate3d(2rem, 1rem, 0) scale(1.025);
+          }
+        }
+      }
+
 
       @media (min-width: 60rem) {
         grid-column-start: 2;
         grid-column-end: 5;
       }
+    }
+
+    &__image {
+      border-radius: 2px;
     }
 
     &__content {
@@ -74,7 +95,7 @@
       font-size: clamp(1.2rem, 6vw, 1.375rem);
       line-height: 1.2727272727;
 
-      + .bio__paragraph {
+      +.bio__paragraph {
         margin-top: 1.5rem;
       }
     }
