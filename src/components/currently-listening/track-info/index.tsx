@@ -6,10 +6,37 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-
+import { LAST_FM_URL } from "../../../data/services/config";
+import { ExternalServiceSongs, Track } from "../../../typings/index";
 import LastPlayedSongCard from "./LastPlayedSongCard";
-import { Track } from "../../../typings/index";
+import { useEffect, useState } from "react";
 
-export function TrackInfo({ song }: { song: Track }) {
+async function getSong() {
+  const request = await fetch(LAST_FM_URL);
+  const data: ExternalServiceSongs = await request.json();
+  const { recenttracks } = await data;
+
+  return recenttracks.track.slice(0, 1)[0];
+}
+
+export function TrackInfo() {
+  const [song, setSong] = useState<Track>(null);
+
+  useEffect(() => {
+    try {
+      getSong().then((result) => {
+        if (result) {
+          setSong(result);
+        }
+      });
+    } catch (error) {
+      console.warn("Problems fetching the current song: ", error);
+    }
+  }, []);
+
+  if (!song) {
+    return <p>Loading...</p>;
+  }
+
   return <LastPlayedSongCard key={song.name} song={song} />;
 }

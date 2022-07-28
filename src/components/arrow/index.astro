@@ -1,57 +1,60 @@
 <div class="arrow">
-    <svg class="vector" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 261">
-      <path stroke="var(--text-color)" d="M12.66.178V163"/>
-      <path fill="var(--text-color)" d="M12.762 163.25c2.916 0 5.105.42 6.714 1.271 1.6.846 2.644 2.126 3.258 3.889.618 1.773.802 4.04.661 6.849-.14 2.807-.605 6.137-1.272 10.026-2.665 15.553-8.538 39.952-9.605 75.202l.49.016c1.065-35.203 6.928-59.552 9.598-75.132.667-3.894 1.136-7.248 1.278-10.086.143-2.837-.04-5.18-.689-7.043-.652-1.873-1.776-3.256-3.494-4.165-1.707-.903-3.986-1.327-6.939-1.327v.5Z"/>
-      <path fill="var(--text-color)" d="M12.762 163.25c-3.328 0-5.833.421-7.678 1.277-1.835.851-3.024 2.136-3.721 3.893-.702 1.768-.913 4.03-.752 6.837.16 2.805.69 6.133 1.449 10.022 3.036 15.552 9.73 39.954 10.947 75.207l-.49.018c-1.214-35.2-7.895-59.545-10.937-75.128-.76-3.894-1.296-7.249-1.458-10.09-.162-2.839.045-5.186.787-7.054.746-1.879 2.027-3.257 3.972-4.16 1.936-.898 4.522-1.322 7.881-1.322v.5Z"/>
-    </svg>
+  <svg class="vector" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 261">
+    <path stroke="var(--text-color)" d="M12.66.178V163" />
+    <path fill="var(--text-color)"
+      d="M12.762 163.25c2.916 0 5.105.42 6.714 1.271 1.6.846 2.644 2.126 3.258 3.889.618 1.773.802 4.04.661 6.849-.14 2.807-.605 6.137-1.272 10.026-2.665 15.553-8.538 39.952-9.605 75.202l.49.016c1.065-35.203 6.928-59.552 9.598-75.132.667-3.894 1.136-7.248 1.278-10.086.143-2.837-.04-5.18-.689-7.043-.652-1.873-1.776-3.256-3.494-4.165-1.707-.903-3.986-1.327-6.939-1.327v.5Z" />
+    <path fill="var(--text-color)"
+      d="M12.762 163.25c-3.328 0-5.833.421-7.678 1.277-1.835.851-3.024 2.136-3.721 3.893-.702 1.768-.913 4.03-.752 6.837.16 2.805.69 6.133 1.449 10.022 3.036 15.552 9.73 39.954 10.947 75.207l-.49.018c-1.214-35.2-7.895-59.545-10.937-75.128-.76-3.894-1.296-7.249-1.458-10.09-.162-2.839.045-5.186.787-7.054.746-1.879 2.027-3.257 3.972-4.16 1.936-.898 4.522-1.322 7.881-1.322v.5Z" />
+  </svg>
 </div>
 
 <style lang="scss">
-.arrow {
-  width: var(--header-height);
-  height: 17rem;
-  display: grid;
-  place-items: center;
-  content: "";
-  position: absolute;
-  left: 2rem;
-  bottom: 2rem;
-  z-index: 1;
+  .arrow {
+    width: var(--header-height);
+    height: 10vh;
+    display: grid;
+    place-items: center;
+    content: "";
+    position: absolute;
+    left: 2rem;
+    bottom: 23vh;
+    z-index: 1;
 
-  @media (min-width: 60rem) {
-    left: 1rem;
+    @media (min-width: 60rem) {
+      height: 17rem;
+      left: 1rem;
+    }
   }
-}
 
-.vector {
-  width: 1.5rem;
-  height: 16.375rem;
-}
+  .vector {
+    width: 1.5rem;
+    height: 16.375rem;
+  }
 
-.arrow svg {
-  opacity: 0;
-  transform: translateY(-100%) rotateY(0turn);
-  animation-name: slidein;
-  animation-duration: 1000ms;
-  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  animation-fill-mode: forwards;
-  animation-delay: 1000ms;
-  backface-visibility: visible;
-}
-
-@keyframes slidein {
-  0% {
+  .arrow svg {
     opacity: 0;
     transform: translateY(-100%) rotateY(0turn);
+    animation-name: slidein;
+    animation-duration: 1000ms;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-fill-mode: forwards;
+    animation-delay: 1000ms;
+    backface-visibility: visible;
   }
 
-  25% {
-    opacity: 1;
-  }
+  @keyframes slidein {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%) rotateY(0turn);
+    }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0%) rotateY(1turn);
+    25% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0%) rotateY(1turn);
+    }
   }
-}
 </style>

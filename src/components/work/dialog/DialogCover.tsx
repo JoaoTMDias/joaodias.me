@@ -9,11 +9,20 @@
 import * as React from "react";
 import styles from "./index.module.scss";
 
-function DialogCover(props: React.ImgHTMLAttributes<HTMLImageElement>) {
+interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {
+  "data-background"?: string;
+}
+
+function DialogCover({ "data-background": dataBackground, ...props }: Props) {
+  const fallbackColor = dataBackground
+    ? ({
+        "--cover-background-color": dataBackground,
+      } as React.CSSProperties)
+    : undefined;
   return (
-    <figure className={styles.cover}>
-      <img {...props} />
-    </figure>
+    <div className={styles.cover}>
+      <img {...props} loading="lazy" style={fallbackColor} />
+    </div>
   );
 }
 

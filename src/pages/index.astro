@@ -6,26 +6,29 @@ import Skills from "../components/skills/index.astro";
 import Bio from "../components/bio/index.astro";
 import Experience from "../components/experience/index.astro";
 import Work from "../components/work/index.tsx";
+import { Marquee } from "../components/currently-listening/marquee/index";
 import SocialLinks from "../components/social-links/index.astro";
-import CurrentlyListening from "../components/currently-listening/index.astro";
-import SkipLink from "../components/skip-link";
 import '../assets/styles/index.scss';
 
 let title = 'You have arrived at a website called joaodias.me: João Dias';
 const currentYear = new Date().getFullYear();
 const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 ---
+
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,user-scalable=yes,viewport-fit=cover">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,maximum-scale=5.0,user-scalable=yes,viewport-fit=cover">
 	<title>{title}</title>
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;1,400&display=swap"
+		rel="stylesheet">
 
 	<style lang="scss">
 		.container {
@@ -38,22 +41,31 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 		.footer {
 			display: flex;
 			flex-direction: column;
-			justify-content: flex-end;
-			align-items:center;
+			justify-content: flex-start;
+			align-items: center;
 			gap: 2rem;
 			width: 100%;
 			flex-grow: 1;
+			overflow: hidden;
+
+			&__marquee {}
 
 			&__bottom {
 				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				align-items:center;
-				height: 3rem;
-				width: 100%;
-								max-width: 80rem;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+
+				@media (min-width: 60rem) {
+					flex-direction: row;
+					justify-content: space-between;
+					height: 3rem;
+					width: 100%;
+					max-width: 80rem;
+				}
 			}
 		}
+
 		.section,
 		section {
 			display: flex;
@@ -62,8 +74,7 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 			padding-block: 10vh;
 			padding-inline: 1rem;
 			margin: 0 auto;
-
-
+			max-width: 100vw;
 
 			@media (min-width: 60rem) {
 				padding-block: 6rem;
@@ -71,10 +82,47 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 				max-width: 80rem;
 			}
 		}
+
+		.currently-listening {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: stretch;
+			gap: 1rem;
+			width: 100%;
+
+			&__title {
+				font-family: var(--text-font-family);
+				font-style: normal;
+				font-weight: 500;
+				font-size: 0.875rem;
+				line-height: 1.0625rem;
+				text-transform: uppercase;
+				color: var(--text-color);
+				max-width: 80rem;
+				margin: 0 auto;
+				width: 100%;
+				padding-inline: 3rem;
+				text-align: center;
+
+				@media (min-width: 60rem) {
+					text-align: left;
+				}
+			}
+
+			&__marquee {
+				display: grid;
+				place-items: center;
+				background-color: var(--background-color);
+				box-shadow: 0 -1px 0 0 var(--text-color), 0 1px 0 0 var(--text-color);
+				height: 4rem;
+				position: relative;
+			}
+		}
 	</style>
 </head>
+
 <body>
-	<SkipLink />
 	<div class="container">
 		<Header />
 		<main>
@@ -82,22 +130,29 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 			<section id="content" tabindex={-1} aria-labelledby="about">
 				<h2 id="about" class="sr-only">Main Content</h2>
 				<Intro />
- 				<Skills />
+				<Skills />
 				<Bio />
 				<Experience />
 			</section>
-			<section aria-labelledby="work">
+			<section class="section" aria-labelledby="work">
 				<Work client:load />
 			</section>
 		</main>
 		<footer class="footer" id="footer">
-				<CurrentlyListening client:load />
-				<div class="footer__bottom">
-					<SocialLinks />
-					<p class="footer__others">
-						{footer}
-					</p>
+			<div class="currently-listening">
+				<h2 id="current-listening" class="currently-listening__title">
+					Currently Listening To...
+				</h2>
+				<div class="currently-listening__marquee">
+					<Marquee client:load />
 				</div>
+			</div>
+			<div class="footer__bottom">
+				<SocialLinks />
+				<p class="footer__others">
+					{footer}
+				</p>
+			</div>
 		</footer>
 	</div>
 	<div class="grid-background" role="presentation">
@@ -111,4 +166,5 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 		<span class="grid-background__item"></span>
 	</div>
 </body>
+
 </html>

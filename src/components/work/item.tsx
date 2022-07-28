@@ -40,6 +40,10 @@ function Item({ id, title, subtitle, skills, thumbnail, theme, onClick }: Props)
   }
 
   const ariaLabel = `${title}, ${subtitle}`;
+  const styleProperties = {
+    "--text-color-hover": theme.foreground,
+    "--background-color-hover": theme.background,
+  } as React.CSSProperties;
 
   return (
     <button
@@ -51,16 +55,11 @@ function Item({ id, title, subtitle, skills, thumbnail, theme, onClick }: Props)
       tabIndex={tabIndex}
       onKeyUp={handleRoverOnKeyUp}
       onClick={handleOnClick}
-      style={
-        {
-          "--text-color-hover": theme.foreground,
-          "--background-color-hover": theme.background,
-        } as React.CSSProperties
-      }
+      style={styleProperties}
     >
-      <figure className={styles.figure}>
+      <div className={styles.figure}>
         <img {...thumbnail} />
-      </figure>
+      </div>
       <div className={styles.content}>
         <h3 className={styles.content__title}>{title}</h3>
         <p className={styles.content__subtitle}>{subtitle}</p>

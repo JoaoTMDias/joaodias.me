@@ -15,7 +15,12 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
 function FancyLink({ text, ...props }: Props) {
   return (
     <a {...props} className="fancy__link">
-      <span>{text}</span>
+      <span>
+        {text}{" "}
+        {props.target && props.target === "_blank" && (
+          <span className="sr-only">. This link opens in a new tab</span>
+        )}
+      </span>
       <svg
         className="fancy__link__underline"
         viewBox="0 0 1200 60"

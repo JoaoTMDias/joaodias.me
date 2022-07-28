@@ -23,13 +23,14 @@ export const LastPlayedSongCard: FunctionComponent<{
         src={song.image[2]["#text"]}
         width="32"
         height="32"
-        alt={`Album Cover for ${song.album["#text"]}`}
+        alt={`${song.album["#text"]} cover`}
         loading="lazy"
       />
 
       <p className={styles.info}>
-        <a className={styles.track} href={song.url} data-testid="last-played-title">
+        <a className={styles.track} href={song.url} target="_blank" data-testid="last-played-title">
           {song.name}
+          <span className="sr-only">. This link will open in a new tab</span>
         </a>
         <span className="sr-only">by</span>
         <span className={styles.artist} role="presentation" aria-hidden="true">

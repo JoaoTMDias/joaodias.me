@@ -8,6 +8,8 @@
  */
 
 import { ReactNode, FC, CSSProperties, useEffect, useState, useRef } from "react";
+import { TrackInfo } from "../track-info";
+
 import styles from "./styles.module.scss";
 
 interface MarqueeProps {
@@ -149,7 +151,7 @@ export const Marquee: FC<MarqueeProps> = ({
       onAnimationIteration={onCycleComplete}
       onAnimationEnd={onFinish}
     >
-      {children}
+      <TrackInfo />
     </div>
   );
 

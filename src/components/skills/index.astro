@@ -3,7 +3,7 @@ import SkillsItem from "./item.astro";
 
 const SKILLS_LIST = [
   "React",
-  "React Native",
+  "Web Components",
   "Vue",
   "Typescript",
   "Redux",
@@ -11,7 +11,7 @@ const SKILLS_LIST = [
   "Jest",
   "Testing-Library",
   "Node",
-  "UI Design",
+  "Interface Design",
   "Accessibility",
 ]
 ---
@@ -20,15 +20,11 @@ const SKILLS_LIST = [
   <h3 class="sr-only">A list of my skill set</h3>
   <ul class="skills">
     {SKILLS_LIST.map((item, index) => {
-      const type = (index % 2  == 0) ? "even" : "odd";
+    const type = (index % 2 == 0) ? "even" : "odd";
 
-      return (
-        <SkillsItem
-          name={item}
-          type={type}
-          client:load
-        />
-      )
+    return (
+    <SkillsItem name={item} type={type} client:load />
+    )
     })}
   </ul>
 </div>

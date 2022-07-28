@@ -191,6 +191,7 @@
         "description": "To be properly informed these days is a very tedious task. Plus, all the information is spread across different websites, news sources and blogs. The paper days are gone, so now we have all these devices where we should be getting information easily and without any biased curation.",
         "cover": {
           "src": "projects/paperboy/project-cover.jpg",
+          "data-background": "#7e6a5c",
           "width": 800,
           "height": 600,
           "alt": ""

@@ -1,9 +1,9 @@
 <div class="sub-section">
   <h3 class="sr-only">Bio</h3>
   <div class="bio">
-    <figure class="bio__picture">
-      <img class="bio__image" src="/BioPicture.jpg" width="300" height="554" alt="">
-    </figure>
+    <div class="bio__picture">
+      <img class="bio__image" src="/BioPicture.jpg" width="300" height="554" alt="João Dias sitting in a chair, in his grandparents garden, on a sunny day.">
+    </div>
     <div class="bio__content">
       <h4 class="bio__title">I focus on creating great, accessible and rich web experiences for everyone. I’ve been
         lucky enough to have been doing that since 2011.</h4>
@@ -23,6 +23,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
+    width: 100%;
 
     @media (min-width: 60rem) {
       display: grid;
@@ -32,6 +33,7 @@
 
     &__picture {
       position: relative;
+      width: fit-content;
 
       &:after {
         content: "";
@@ -42,7 +44,7 @@
         height: 100%;
         background-color: transparent;
         border: 2px solid var(--text-color);
-        transform: translate3d(6vw, 4vh, 0) scale(1.025);
+        transform: translate3d(6vw, 4vh, 0) scale(1);
         pointer-events: none;
         transition: transform 200ms ease-in-out;
         border-radius: 4px;

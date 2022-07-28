@@ -88,7 +88,7 @@ function Dialog({ data, onClose }: Props): JSX.Element {
               date={data.details.date}
               intro={data.details.description}
             />
-            <DialogCover loading="lazy" {...data.details.cover} />
+            <DialogCover {...data.details.cover} />
             <div className={styles.content}>
               <DialogProjectMeta
                 skills={data.skills}

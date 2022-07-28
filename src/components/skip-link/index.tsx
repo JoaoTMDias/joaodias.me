@@ -19,17 +19,17 @@ interface ISkipLink {
 const items: ISkipLink[] = [
   {
     target: "#content",
-    text: "Skip to main content",
+    text: "Skip to content",
     as: "link",
   },
   {
     target: "#work",
-    text: "Go to projects",
+    text: "Skip to projects",
     as: "link",
   },
   {
     target: "#contact",
-    text: "Go to social links",
+    text: "Skip to social links",
     as: "link",
   },
 ];
