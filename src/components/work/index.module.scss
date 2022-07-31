@@ -13,16 +13,29 @@
   align-items: stretch;
   gap: 1rem;
   padding: 2rem;
+
+  @media (min-width: 60rem) {
+    gap: 2rem;
+  }
 }
 
 .title {
   font-family: var(--heading-font-family);
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(2.125rem, 10vw, 5.125rem);
+  font-size: clamp(2.125rem, 10vw, 4rem);
   line-height: 1.2;
   text-transform: capitalize;
   position: relative;
+  text-align: center;
+
+  @media (min-width: 60rem) {
+    text-align: left;
+  }
+
+  @media (min-width: 75rem) {
+    font-size: clamp(2.125rem, 10vw, 5.125rem);
+  }
 }
 
 .arrow {
@@ -34,6 +47,13 @@
   place-items: center;
   top: 0.75rem;
   left: -2rem;
+
+  @media (min-width: 75rem) {
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 2rem;
+    left: -4rem;
+  }
 }
 
 .work__list {
@@ -47,19 +67,6 @@
 
   @media (min-width: 60rem) {
     gap: 0.5rem;
-  }
-}
-
-@media (min-width: 60rem) {
-  .work {
-    gap: 2rem;
-  }
-
-  .arrow {
-    width: 2.5rem;
-    height: 2.5rem;
-    top: 2rem;
-    left: -4rem;
   }
 }
 

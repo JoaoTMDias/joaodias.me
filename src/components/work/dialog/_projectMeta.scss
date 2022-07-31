@@ -12,8 +12,13 @@
   border-style: solid;
   padding: 4rem 3rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
   width: 100%;
+
+  @media (min-width: 40rem) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .projectColumn {

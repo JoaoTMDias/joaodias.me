@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "cypress", "cypress-real-events", "@testing-library/cypress", "./support"],
+    "baseUrl": ".",
+    "paths": {
+      "fixtures/*": ["./fixtures/*"],
+      "support/*": ["./support/*"],
+      "src/*": ["../src/*"]
+    }
+  },
+  "include": ["**/*.cy.ts", "**/*.cy.tsx", "cypress.d.ts"]
+}

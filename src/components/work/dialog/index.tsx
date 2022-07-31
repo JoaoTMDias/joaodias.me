@@ -83,12 +83,14 @@ function Dialog({ data, onClose }: Props): JSX.Element {
             <span className="sr-only">Close and go back to the work list</span>
           </button>
           <div className={styles.main}>
-            <DialogHeader
-              title={data.title}
-              date={data.details.date}
-              intro={data.details.description}
-            />
-            <DialogCover {...data.details.cover} />
+            <div className={styles.top}>
+              <DialogHeader
+                title={data.title}
+                date={data.details.date}
+                intro={data.details.description}
+              />
+              <DialogCover {...data.details.cover} />
+            </div>
             <div className={styles.content}>
               <DialogProjectMeta
                 skills={data.skills}

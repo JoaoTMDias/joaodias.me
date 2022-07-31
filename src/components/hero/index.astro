@@ -2,6 +2,7 @@
 import Arrow from '../arrow/index.astro';
 import Profile from '../profile/index.astro';
 ---
+
 <section class="hero">
   <Arrow />
   <Profile />
@@ -11,27 +12,38 @@ import Profile from '../profile/index.astro';
 </section>
 
 <style lang="scss">
-.hero {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  width: 100%;
-  height: calc(100vh - var(--header-height));
-}
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+    position: relative;
 
-.fake-copyright {
-  content: "";
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-
-  &__text {
-    text-align: right;
-    line-height: 2rem;
-    margin-bottom: 1rem;
-    margin-right: 1.25rem;
+    @media (min-width: 60rem) {
+      height: calc(100vh - var(--header-height));
+    }
   }
-}
+
+  .fake-copyright {
+    position: relative;
+
+    @media (min-width: 60rem) {
+      content: "";
+      position: absolute;
+      left: auto;
+      right: auto;
+      bottom: 1rem;
+      right: 1rem;
+    }
+
+    &__text {
+      text-align: right;
+      line-height: 2rem;
+      margin-bottom: 1rem;
+      margin-right: 1.25rem;
+    }
+  }
 </style>

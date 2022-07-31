@@ -15,7 +15,11 @@
     Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook",
     "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
   --header-height: 3rem;
-  --hero-height: 3rem;
+  --hero-height: auto;
+
+  @media (min-width: 60rem) {
+    --hero-height: 3rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

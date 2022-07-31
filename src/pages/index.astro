@@ -35,7 +35,11 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 			width: 100%;
 			display: grid;
 			grid-template-rows: var(--hero-height) 1fr;
-			grid-gap: 0;
+			grid-gap: 3rem;
+
+			@media (min-width: 60rem) {
+				grid-gap: 0;
+			}
 		}
 
 		.footer {
@@ -47,8 +51,6 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 			width: 100%;
 			flex-grow: 1;
 			overflow: hidden;
-
-			&__marquee {}
 
 			&__bottom {
 				display: flex;
