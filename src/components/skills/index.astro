@@ -1,25 +1,12 @@
 ---
 import SkillsItem from "./item.astro";
-
-const SKILLS_LIST = [
-  "React",
-  "Web Components",
-  "Vue",
-  "Typescript",
-  "Redux",
-  "Cypress",
-  "Jest",
-  "Testing-Library",
-  "Node",
-  "Interface Design",
-  "Accessibility",
-]
+import PAGE_CONTENT from "../../data/index.json";
 ---
 
 <div class="sub-section">
-  <h3 class="sr-only">A list of my skill set</h3>
+  <h3 class="sr-only">{PAGE_CONTENT.about.skills.title}</h3>
   <ul class="skills">
-    {SKILLS_LIST.map((item, index) => {
+    {PAGE_CONTENT.about.skills.items.map((item, index) => {
     const type = (index % 2 == 0) ? "even" : "odd";
 
     return (

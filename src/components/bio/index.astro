@@ -1,18 +1,22 @@
+---
+import PAGE_CONTENT from "../../data/index.json";
+---
+
 <div class="sub-section">
-  <h3 class="sr-only">Bio</h3>
+  <h3 class="sr-only">{PAGE_CONTENT.about.bio.title}</h3>
   <div class="bio">
     <div class="bio__picture">
-      <img class="bio__image" src="/BioPicture.jpg" width="300" height="554"
-        alt="João Dias sitting in a chair, in his grandparents garden, on a sunny day.">
+      <img class="bio__image" src={PAGE_CONTENT.about.bio["bio-picture"].src}
+        width={PAGE_CONTENT.about.bio["bio-picture"].width} height={PAGE_CONTENT.about.bio["bio-picture"].height}
+        alt={PAGE_CONTENT.about.bio["bio-picture"].alt} data-testid="bio-image">
     </div>
     <div class="bio__content">
-      <h4 class="bio__title">I focus on creating great, accessible and rich web experiences for everyone. I’ve been
-        lucky enough to have been doing that since 2011.</h4>
-      <p class="bio__paragraph">“He’s a pretty chilled dude”, thats what my friends would say. Besides working as a
-        Senior Frontend Engineer, I also teach web development classes at first and second year students on the
-        Polythecnic Institute of Coimbra.</p>
-      <p class="bio__paragraph">On my free time I usually go out and explore the fantastic world of craft beers, rock
-        out to some great live music and hit the gym whenever I can.</p>
+      <h4 class="bio__title" data-testid="bio-intro">{PAGE_CONTENT.about.bio.mainTitle}</h4>
+      {PAGE_CONTENT.about.bio.description.map((paragraph, index) => {
+      return (
+      <p key={index} class="bio__paragraph" data-testid="bio-description">{paragraph}</p>
+      )
+      })}
     </div>
   </div>
 </div>

@@ -1,16 +1,19 @@
 ---
 import FancyLink from "../fancy-link";
+import PAGE_CONTENT from "../../data/index.json";
 ---
 
 <div class="intro">
-  <h3 class="sr-only">Intro</h3>
+  <h3 class="sr-only">{PAGE_CONTENT.about.intro.title}</h3>
   <h4 class="intro__heading">
-    <span class="intro__subtitle">Hey, what's up?</span>
-    <span class="intro__title">I'm <span lang="pt-PT">João Dias</span>, a web developer and accessibility advocate from
-      <span lang="pt-PT">Coimbra, Portugal</span></span>
+    <span class="intro__subtitle" data-testid="intro-subtitle">{PAGE_CONTENT.about.intro.subtitle}</span>
+    <span class="intro__title" data-testid="intro-title">{PAGE_CONTENT.about.intro.mainTitle["title-first"]} <span
+        lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-name"]}</span>{PAGE_CONTENT.about.intro.mainTitle["title-second"]}
+      <span lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-location"]}</span></span>
   </h4>
   <p>Currently at <span class="link-container">
-      <FancyLink href="https://www.feedzai.com" target="_blank" text="Feedzai" />
+      <FancyLink href={PAGE_CONTENT.about.intro["currently-at"].href} target="_blank"
+        text={PAGE_CONTENT.about.intro["currently-at"].text} data-testid="employer-link" />
     </span></p>
 </div>
 

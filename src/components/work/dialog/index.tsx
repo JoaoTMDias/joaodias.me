@@ -8,14 +8,14 @@
  */
 import { FocusManager } from "@feedzai/react-a11y-tools";
 import { useEffect, useRef } from "react";
-import { Project } from "../../../data/selected-work/types";
+import { WorkData } from "../../../data/content-types";
 import DialogCover from "./DialogCover";
 import DialogHeader from "./DialogHeader";
 import DialogProjectMeta from "./DialogProjectMeta";
 import styles from "./index.module.scss";
 
 interface Props {
-  data: Project;
+  data: WorkData;
   onClose: () => void;
 }
 

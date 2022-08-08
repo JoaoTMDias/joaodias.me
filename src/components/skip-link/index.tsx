@@ -8,6 +8,7 @@
  */
 import { SkipLinks } from "@feedzai/react-a11y-tools";
 import "@feedzai/react-a11y-tools/dist/index.css";
+import PAGE_CONTENT from "../../data/index.json";
 import "./index.module.scss";
 
 interface ISkipLink {
@@ -16,23 +17,7 @@ interface ISkipLink {
   as?: "link" | "button";
 }
 
-const items: ISkipLink[] = [
-  {
-    target: "#content",
-    text: "Skip to content",
-    as: "link",
-  },
-  {
-    target: "#work",
-    text: "Skip to projects",
-    as: "link",
-  },
-  {
-    target: "#contact",
-    text: "Skip to social links",
-    as: "link",
-  },
-];
+const items: ISkipLink[] = PAGE_CONTENT.header["links"];
 
 function SkipLink() {
   return <SkipLinks items={items} />;

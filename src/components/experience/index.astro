@@ -1,69 +1,48 @@
+---
+import PAGE_CONTENT from "../../data/index.json";
+
+const { experience } = PAGE_CONTENT.about;
+---
+
 <div class="sub-section">
-  <h3 id="professional-experience" class="sr-only">Professional Experience</h3>
-  <ul class="experience" aria-labelledby="professional-experience">
+  <h3 id="professional-experience" class="sr-only">{experience.title}</h3>
+  <ul class="experience" aria-labelledby="professional-experience" data-testid="professional-experience">
     <li class="present">
-      <h4 class="sr-only">Currently</h4>
-      <div class="list" data-current>
-        <div class="item">
-          <h5 class="title">Feedzai</h5>
-          <p class="description">Senior Frontend Engineer and Accessibility advocate</p>
+      <h4 class="sr-only">{experience.currently.title}</h4>
+      <div class="list" data-testid="experience-item" data-current>
+        {experience.currently.items.map((item, index) => (
+        <div key={index} class="item">
+          <h5 class="title">{item.title}</h5>
+          <p class="description">{item.description}</p>
           <div class="metadata">
-            <p><span class="sr-only">Duration:</span><span>2019</span><span class="sr-only">until</span><span aria-hidden="true">-</span><span>Present</span></p>
-            <p><span class="sr-only">Location:</span><span lang="pt-PT">Coimbra, Portugal</span></p>
+            <p><span class="sr-only">Duration:</span><span>{item.duration.from}</span><span
+                class="sr-only">until</span><span aria-hidden="true">-</span><span>{item.duration.to}</span></p>
+            <p><span class="sr-only">Location:</span><span lang="pt-PT">{item.location}</span></p>
           </div>
         </div>
-        <div class="item">
-          <h5 class="title">ISEC</h5>
-          <p class="description">Invited assistant professor</p>
-          <div class="metadata">
-            <p><span class="sr-only">Duration:</span><span>2022</span><span class="sr-only">until</span><span aria-hidden="true">-</span><span>Present</span></p>
-            <p><span class="sr-only">Location:</span><span lang="pt-PT">Coimbra, Portugal</span></p>
-          </div>
-        </div>
+        ))}
       </div>
     </li>
     <li class="past">
-      <div class="list">
-        <div class="item">
-          <h5 class="title">wit software</h5>
-          <p class="description">UI and Graphic Designer, Frontend Developer</p>
+      <h4 class="sr-only">{experience.past.title}</h4>
+      <div class="list" data-testid="experience-item">
+        {experience.past.items.map((item, index) => (
+        <div key={index} class="item">
+          <h5 class="title">{item.title}</h5>
+          <p class="description">{item.description}</p>
           <div class="metadata">
-            <p><span class="sr-only">Duration:</span><span>2013</span><span class="sr-only">until</span><span aria-hidden="true">-</span><span>2019</span></p>
-            <p><span class="sr-only">Location:</span><span lang="pt-PT">Coimbra, Portugal</span></p>
+            <p><span class="sr-only">Duration:</span><span>{item.duration.from}</span><span
+                class="sr-only">until</span><span aria-hidden="true">-</span><span>{item.duration.to}</span></p>
+            <p><span class="sr-only">Location:</span><span lang="pt-PT">{item.location}</span></p>
           </div>
         </div>
-
-        <div class="item">
-          <h5 class="title">load interactive</h5>
-          <p class="description">Web, Mobile and Graphic Designer</p>
-          <div class="metadata">
-            <p><span class="sr-only">Duration:</span><span>2012</span><span class="sr-only">until</span><span aria-hidden="true">-</span><span>2013</span></p>
-            <p><span class="sr-only">Location:</span><span lang="pt-PT">Aveiro, Portugal</span></p>
-          </div>
-        </div>
-
-        <div class="item">
-          <h5 class="title">design corner</h5>
-          <p class="description">Web designer</p>
-          <div class="metadata">
-            <p><span class="sr-only">Duration:</span>2011</p>
-            <p><span class="sr-only">Location:</span><span lang="pt-PT">Coimbra, Portugal</span></p>
-          </div>
-        </div>
-
-        <div class="item">
-          <h5 class="title">joaodias.me</h5>
-          <p class="description">Web and Graphic designer (freelance)</p>
-          <div class="metadata">
-            <p><span class="sr-only">Duration:</span><span>2008</span><span class="sr-only">until</span><span aria-hidden="true">-</span><span>2012</span></p>
-            <p><span class="sr-only">Location:</span><span lang="pt-PT"> Figueira da Foz, Portugal</span></p>
-          </div>
-        </div>
+        ))}
       </div>
     </li>
   </ul>
   <div class="footer">
-    <a href="/resume-joao-dias.pdf" download="resume-joao-dias.pdf" aria-label="Download my CV in PDF" class="download">Download my CV<span class="extension">(PDF)</span></a>
+    <a href={experience.download.href} download={experience.download.download} aria-label={experience.download.label}
+      class="download">{experience.download.text}<span class="extension">(PDF)</span></a>
   </div>
 </div>
 
@@ -119,19 +98,19 @@
       gap: 4rem;
 
       .title {
-          position: relative;
+        position: relative;
 
-          &::before {
-              content: "";
-              position: absolute;
-              top: 0.75rem;
-              left: calc(3rem * -1);
-              width: 1rem;
-              height: 1rem;
-              background-image: url("/asterisk.svg");
-              background-repeat: no-repeat;
-              background-position: center;
-          }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0.75rem;
+          left: calc(3rem * -1);
+          width: 1rem;
+          height: 1rem;
+          background-image: url("/asterisk.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+        }
       }
     }
   }

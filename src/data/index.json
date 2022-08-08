@@ -1,0 +1,483 @@
+{
+  "title": "You have arrived at a website called joaodias.me: João Dias",
+  "copyright": "João Dias. All Rights Reserved",
+  "header": {
+    "links": [
+      {
+        "target": "#content",
+        "text": "Skip to content",
+        "as": "link"
+      },
+      {
+        "target": "#work",
+        "text": "Skip to Projects",
+        "as": "link"
+      },
+      {
+        "target": "#contact",
+        "text": "Skip to Social links",
+        "as": "link"
+      }
+    ],
+    "logo": {
+      "title-first": "You have arrived at a website named",
+      "title-name": "João Dias",
+      "title-second": ".me"
+    },
+    "main-navigation": [
+      {
+        "href": "#about",
+        "label": "About João Dias",
+        "text": "About"
+      },
+      {
+        "href": "#work",
+        "label": "Selected Works",
+        "text": "Work"
+      },
+      {
+        "href": "#contact",
+        "label": "Social media and other contacts",
+        "text": "Contact"
+      }
+    ]
+  },
+  "hero": {
+    "profile-picture": {
+      "src": "/ProfilePicture.jpg",
+      "width": "300",
+      "height": "400",
+      "alt": "João sitting at a park bench, similing at the camera"
+    },
+    "copyright": "Since 1987 © Limited Edition"
+  },
+  "about": {
+    "title": "Main Content",
+    "intro": {
+      "title": "Intro",
+      "subtitle": "Hey, what's up?",
+      "mainTitle": {
+        "title-first": "I'm",
+        "title-name": "João Dias",
+        "title-second": ", a web developer and accessibility advocate from",
+        "title-location": "Coimbra, Portugal"
+      },
+      "currently-at": {
+        "href": "https://www.feedzai.com",
+        "text": "Feedzai"
+      }
+    },
+    "skills": {
+      "title": "A list of my skill set",
+      "items": [
+        "React",
+        "Web Components",
+        "Vue",
+        "Typescript",
+        "Redux",
+        "Cypress",
+        "Jest",
+        "Testing-Library",
+        "Node",
+        "Interface Design",
+        "Accessibility"
+      ]
+    },
+    "bio": {
+      "title": "Bio",
+      "bio-picture": {
+        "src": "/BioPicture.jpg",
+        "width": "300",
+        "height": "554",
+        "alt": "João Dias leaning against a wall."
+      },
+      "mainTitle": "I focus on creating great, accessible and rich web experiences for everyone. I’ve been lucky enough to have been doing that since 2011.",
+      "description": [
+        "“He’s a pretty chilled dude”, thats what my friends would say. Besides working as a Senior Frontend Engineer, I also teach web development classes at first and second year students on the Polythecnic Institute of Coimbra.",
+        "On my free time I usually go out and explore the fantastic world of craft beers, rock out to some great live music and hit the gym whenever I can."
+      ]
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "currently": {
+        "title": "Currently",
+        "items": [
+          {
+            "title": "Feedzai",
+            "description": "Senior Frontend Engineer and Accessibility advocate",
+            "duration": {
+              "from": "2019",
+              "to": "Present"
+            },
+            "location": "Coimbra, Portugal"
+          },
+          {
+            "title": "ISEC",
+            "description": "Invited assistant professor",
+            "duration": {
+              "from": "2022",
+              "to": "Present"
+            },
+            "location": "Coimbra, Portugal"
+          }
+        ]
+      },
+      "past": {
+        "title": "Past Jobs",
+        "items": [
+          {
+            "title": "WIT Software",
+            "description": "UI and Graphic Designer, Frontend Developer",
+            "duration": {
+              "from": "2013",
+              "to": "2019"
+            },
+            "location": "Coimbra, Portugal"
+          },
+          {
+            "title": "Load Interactive",
+            "description": "Web, Mobile and Graphic Designer",
+            "duration": {
+              "from": "2012",
+              "to": "2013"
+            },
+            "location": "Aveiro, Portugal"
+          },
+          {
+            "title": "Design Corner",
+            "description": "Web designer",
+            "duration": {
+              "from": "2011",
+              "to": "2011"
+            },
+            "location": "Coimbra, Portugal"
+          },
+          {
+            "title": "joaodias.me",
+            "description": "Web and Graphic designer (freelance)",
+            "duration": {
+              "from": "2008",
+              "to": "2012"
+            },
+            "location": "Figueira da Foz, Portugal"
+          }
+        ]
+      },
+      "download": {
+        "href": "/resume-joao-dias.pdf",
+        "download": "resume-joao-dias.pdf",
+        "label": "Download my curriculum in PDF",
+        "text": "Download my CV"
+      }
+    }
+  },
+  "work": {
+    "title": "Selected work",
+    "description": "Press up and down arrows to navigate between projects",
+    "data": [
+      {
+        "id": "42654a86-254e-4167-a9b3-e2471ecfacd6",
+        "title": "WinPicker",
+        "shortDescription": "A colour picker for Windows 11",
+        "thumbnail": {
+          "src": "projects/winpicker/project-icon.svg",
+          "width": 123,
+          "height": 123,
+          "alt": ""
+        },
+        "theme": {
+          "background": "#003C6D",
+          "foreground": "#FFCACA"
+        },
+        "skills": ["react", "vitejs", "electron", "fluent-ui", "windows-11"],
+        "details": {
+          "date": "January 2022",
+          "description": "I created a Fluent UI app for Windows 11 and used React, Electron and its Node API. This litte piece of software enables web developers and designers to pick foreground and background colours and get an instant preview of its contrast ratio",
+          "cover": {
+            "src": "projects/winpicker/winpicker-cover.jpeg",
+            "width": 800,
+            "height": 600,
+            "alt": ""
+          },
+          "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+          "problem": [
+            "I'm not a Windows or Apple fanboy: I've used all of them operating systems, from MacOS, to several Linux distros, to several Windows versions as well",
+            "I mean, tools are tools, right? At least for me.",
+            "Before my latest switch to Windows 11, I used to extensively work with a little app for MacOS called Pika. It enabled me to quickly pick two colours, get an instant contrast ratio score as well as let me know which WCAG levels it passed and which ones it failed. It was simple, did the job and had a native look-and-feel to it.",
+            "When switching to Windows I went to the Windows Store and looked up for the same type of app. There were some results, sure, but I didn't find any that did the same, with the same ease of use and native look-and-feel.",
+            "There are also dozens of Chrome and Firefox browser extensions, sure, but nothing really 'good' for the desktop and that respects the user interface design guidelines for that specific environment.",
+            "Basically, I was in search for a small and specially dedicated app for doing web accessibility development and design.",
+            "If it's good for me and does the job, maybe it can also be good for others."
+          ],
+          "solution": [
+            "As usual, if the need exists but there's nothing serving that, I pull up my 'coding sleeves' and do the work myself.",
+            "I've used React Native in the past, and I thought I could follow the same path and develop a native app for the operating system using React Native for Windows.",
+            "But, at the same time, I know my ways around a web application, I know how to make it accessible and I wanted to prototype fast.",
+            "And, besides, I wanted to try building a native app with Electron JS and use its Node API to communicate between system-level APIs and the user interface (at the time the Eyedropper API isn't correctly supported in Electron for Windows)",
+            "So yeah, I still went with React, but chose the web first and used Vite for bundling everything together. I find Vite to be super-duper easy to configure and freaking-fast!",
+            "I honestly dread everytime I have to touch a webpack config file at work...I mean, I do it, but it's something that doesn't give me as much pleasure as using rollup/Vite/esbuild.",
+            "As for the user interface, besides building my own components, I used the ones made by Microsoft for the @fluentui/react package. It gives me the native look and feel I want for the app, so that users can feel at home with the interface.",
+            "Finally, the features of the app are all built around getting as much relevant information as fast as possible so, when choosing two colours, you have a 5 star rating as well as a check/failed score for AA and AAA levels for large and regular font sizes",
+            "The colour picker is an external .exe file that I load up using Node and Electron's ipcMain process and make its results available to the UI using the ipcRenderer process"
+          ],
+          "photos": [
+            {
+              "src": "projects/winpicker/winpicker-1.png",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            },
+            {
+              "src": "projects/winpicker/winpicker-2.png",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            },
+            {
+              "src": "projects/winpicker/winpicker-3.jpg",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            }
+          ]
+        }
+      },
+      {
+        "id": "c82cef84-32ea-4528-8d8b-530bae6bf5a4",
+        "title": "Google Chat Formatter",
+        "shortDescription": "A browser extension that helps google chat users to type rich text",
+        "thumbnail": {
+          "src": "projects/g-chat-format-bar/project-icon.jpg",
+          "width": 123,
+          "height": 123,
+          "alt": ""
+        },
+        "theme": {
+          "background": "#0f1729",
+          "foreground": "#69f0ae"
+        },
+        "skills": ["preact", "vitejs", "cypress", "chromium"],
+        "details": {
+          "date": "January 2022",
+          "description": "A browser extension that helps Google Chat users to create richer text content",
+          "cover": {
+            "src": "projects/g-chat-format-bar/project-cover.jpg",
+            "width": 800,
+            "height": 600,
+            "alt": ""
+          },
+          "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+          "problem": [
+            "Google Chat",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          ],
+          "solution": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          ],
+          "photos": [
+            {
+              "src": "projects/g-chat-format-bar/project-1.jpg",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            },
+            {
+              "src": "projects/g-chat-format-bar/project-2.jpg",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            },
+            {
+              "src": "projects/g-chat-format-bar/project-3.jpg",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            }
+          ]
+        }
+      },
+      {
+        "id": "e99253d9-594f-47dd-aa19-17cfcc02ff81",
+        "title": "istovaidarmerda.online",
+        "shortDescription": "A website for an online pandemic-centric conference. Includes some smelly easter eggs.",
+        "thumbnail": {
+          "src": "projects/istovaidarmerda.online/project-icon.png",
+          "width": 123,
+          "height": 123,
+          "alt": ""
+        },
+        "theme": {
+          "background": "#f5e7ad",
+          "foreground": "#4d352d"
+        },
+        "skills": ["nextjs", "cypress", "jest", "testing-library"],
+        "details": {
+          "date": "January 2021",
+          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+          "cover": {
+            "src": "projects/istovaidarmerda.online/project-cover.jpg",
+            "width": 800,
+            "height": 600,
+            "alt": ""
+          },
+          "sourceCode": "https://github.com/JoaoTMDias/istovaidarmerda.online",
+          "problem": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          ],
+          "solution": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          ],
+          "photos": [
+            {
+              "src": "projects/istovaidarmerda.online/project-1.jpg",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            },
+            {
+              "src": "projects/istovaidarmerda.online/project-2.jpg",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            }
+          ]
+        }
+      },
+      {
+        "id": "40ea5eb3-310c-4dde-b4d0-0fc2faf8be3a",
+        "title": "Paperboy",
+        "shortDescription": "A progressive web app for a concept news reader.",
+        "thumbnail": {
+          "src": "projects/paperboy/project-icon.jpg",
+          "width": 123,
+          "height": 123,
+          "alt": ""
+        },
+        "theme": {
+          "background": "#ffffff",
+          "foreground": "#b12013"
+        },
+        "skills": ["gatsby", "news-api", "cypress", "service-workers", "styled-components"],
+        "details": {
+          "date": "September 2020",
+          "description": "To be properly informed these days is a very tedious task. Plus, all the information is spread across different websites, news sources and blogs. The paper days are gone, so now we have all these devices where we should be getting information easily and without any biased curation.",
+          "cover": {
+            "src": "projects/paperboy/project-cover.jpg",
+            "data-background": "#7e6a5c",
+            "width": 800,
+            "height": 600,
+            "alt": ""
+          },
+          "sourceCode": "https://github.com/joaotmdias/paperboy",
+          "problem": [
+            "Most people read their news from one, maybe two sources. Perhaps they get their daily info from Facebook or some other social network. In the realm of these Silicon-Valley types of companies, it's very easy to fall into that cycle of misinformation we all came to know, one or or another. Most times you only read from what you think is the truth. It might be, but you never to seek the real information by comparing it from different sources.",
+            "This movement of false information spreading, fake news and really bad journalism was and is fed by the lack of tools to compare news. In this era of click-bait articles, the newspapers are also to blame.",
+            "People should have access to an easy, free way to read news on their mobile phone, but at the same time, be allowed to choose from a wide variety of news outlets and also search for specific topics in order to see what all parts say about one thing. Sounds democratic, sounds like what the internet was made for.",
+            "Well, it's not that easy. Finding different perspectives on a topic it's a arduous task. We wander from site to site, skipping ads, clicking on cookies acceptance terms and the regular pay-to-access forms.",
+            "And I for one can understand why so many people choose to stay with only one or two sources of information: Because it's easier to manage our lives that way. Not the correct one, but easier.",
+            "How about access on all platforms? Why can't someone start to read something on an iPhone and continue to read that on their Firefox browser on their desktop computer at home."
+          ],
+          "solution": [
+            "The News API is a wonderful, underrated tool. The News APIwebsite is a wonderful, underrated tool. Yes, it has a paid tear for X number of calls, but, for a demo, it suits very well.",
+            "One of the most important goals of the app is to get as quickly as possible to a place where you could read articles from your favourite news sources, without too much messing around with login forms, passwords and all sorts of permissions. Just free information, that's it.",
+            "Apple News, a service launched by the fruit company, is a way for people to read on their fruit devices. Unfortunately, it is curated by Apple and isn't available to Android devices, only on Apple devices, and not even all of them (Although a colleague of mine actually discovered how to open Apple News in Portugal, using MacOS Mojave).",
+            "Google News is another free tool but, as much as I like a few thinks that they create, it still lacks that feeling of open-ness and freedom of choice.",
+            "I want something that I could share with others, so that they could use for themselves, without business boundaries.",
+            "I have tried Swift and Java in the past. I felt like I removed myself from the visual side of things whilst learning the basics of those two.",
+            "I like to write software with good-old web standards: HTML, CSS and Javascript. They are old, they are new. They are powerful, but easy to manage. They are accessible by default and always evolving.",
+            "I went with React Native as it seemed like the best choice for this app. I kew React, and React Native seemed like the perfect way to target two operating systems myself. Plus, all the layout is made with CSS-like syntax, there are a lot of cool features to play with.",
+            "I'm using React Native with Expo, Native Base and Axios.",
+            "One very cool feature of doing layouts React Native, is the ability to think of different screen sizes in the most logical way: using media queries. For that I used a library called react-native-extended-stylesheets, which made the process to build something that looks good on a hand-held device or a tablet, a breeze.",
+            "For navigation i'm using React Navigation 2.0 and for the icons in the bottom bars, I'm using SVG icons instead of PNG's.",
+            "The development is still in progress, but you can check out the source code here."
+          ],
+          "photos": [
+            {
+              "src": "projects/paperboy/project-1.jpg",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            }
+          ]
+        }
+      },
+      {
+        "id": "840682ad-c5a7-49fa-9751-be787ea436ff",
+        "title": "@feedzai/react-a11y-tools",
+        "shortDescription": "A small component library that eases the process of creating accessible design systems, web apps or websites. Available on npm.",
+        "thumbnail": {
+          "src": "projects/react-a11y-tools/project-icon.svg",
+          "width": 123,
+          "height": 123,
+          "alt": ""
+        },
+        "theme": {
+          "background": "#FFC9CB",
+          "foreground": "#1b1d1c"
+        },
+        "skills": ["react", "node", "cypress-component-testing", "esbuild", "rollup"],
+        "details": {
+          "date": "September 2020",
+          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+          "cover": {
+            "src": "https://source.unsplash.com/random/800x600/?cats",
+            "width": 800,
+            "height": 600,
+            "alt": ""
+          },
+          "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+          "problem": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          ],
+          "solution": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+          ],
+          "photos": [
+            {
+              "src": "https://source.unsplash.com/random/640x480/?cats",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            },
+            {
+              "src": "https://source.unsplash.com/random/640x480/?cats",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            },
+            {
+              "src": "https://source.unsplash.com/random/640x480/?cats",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            },
+            {
+              "src": "https://source.unsplash.com/random/640x480/?cats",
+              "width": 640,
+              "height": 480,
+              "alt": ""
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "footer": {
+    "title": "Currently Listening To...",
+    "marquee": {
+      "loading": "Loading...",
+      "card": {
+        "width": "32",
+        "height": "32"
+      },
+      "track": ". This link will open in a new tab",
+      "artist": "from the",
+      "album": "record"
+    }
+  }
+}

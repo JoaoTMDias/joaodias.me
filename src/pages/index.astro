@@ -8,11 +8,11 @@ import Experience from "../components/experience/index.astro";
 import Work from "../components/work/index.tsx";
 import { Marquee } from "../components/currently-listening/marquee/index";
 import SocialLinks from "../components/social-links/index.astro";
+import PAGE_CONTENT from "../data/index.json";
 import '../assets/styles/index.scss';
 
-let title = 'You have arrived at a website called joaodias.me: João Dias';
 const currentYear = new Date().getFullYear();
-const footer = `© ${currentYear} - João Dias. All Rights Reserved`
+const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`
 ---
 
 <html lang="en">
@@ -21,7 +21,7 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 	<meta charset="UTF-8">
 	<meta name="viewport"
 		content="width=device-width,initial-scale=1.0,maximum-scale=5.0,user-scalable=yes,viewport-fit=cover">
-	<title>{title}</title>
+	<title>{PAGE_CONTENT.title}</title>
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,7 +130,7 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 		<main>
 			<Hero />
 			<section id="content" tabindex={-1} aria-labelledby="about">
-				<h2 id="about" class="sr-only">Main Content</h2>
+				<h2 id="about" class="sr-only">{PAGE_CONTENT.about.title}</h2>
 				<Intro />
 				<Skills />
 				<Bio />
@@ -143,7 +143,7 @@ const footer = `© ${currentYear} - João Dias. All Rights Reserved`
 		<footer class="footer" id="footer">
 			<div class="currently-listening">
 				<h2 id="current-listening" class="currently-listening__title">
-					Currently Listening To...
+					{PAGE_CONTENT.footer.title}
 				</h2>
 				<div class="currently-listening__marquee">
 					<Marquee client:load />

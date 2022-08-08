@@ -6,7 +6,7 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-
+import PAGE_CONTENT from "../../../data/index.json";
 import { FunctionComponent } from "react";
 import { Track } from "../../../typings/index";
 import styles from "./styles.module.scss";
@@ -21,8 +21,8 @@ export const LastPlayedSongCard: FunctionComponent<{
     <div className={styles.container}>
       <img
         src={song.image[2]["#text"]}
-        width="32"
-        height="32"
+        width={PAGE_CONTENT.footer.marquee.card.width}
+        height={PAGE_CONTENT.footer.marquee.card.height}
         alt={`${song.album["#text"]} cover`}
         loading="lazy"
       />
@@ -30,7 +30,7 @@ export const LastPlayedSongCard: FunctionComponent<{
       <p className={styles.info}>
         <a className={styles.track} href={song.url} target="_blank" data-testid="last-played-title">
           {song.name}
-          <span className="sr-only">. This link will open in a new tab</span>
+          <span className="sr-only">{PAGE_CONTENT.footer.marquee.track}</span>
         </a>
         <span className="sr-only">by</span>
         <span className={styles.artist} role="presentation" aria-hidden="true">
@@ -39,14 +39,14 @@ export const LastPlayedSongCard: FunctionComponent<{
         <span className={styles.artist} data-testid="last-played-artist">
           {song.artist["#text"]}
         </span>
-        <span className="sr-only">from the</span>
+        <span className="sr-only">{PAGE_CONTENT.footer.marquee.artist}</span>
         <span className={styles.artist} role="presentation" aria-hidden="true">
           ♣
         </span>
         <span className={styles.album} data-testid="last-played-album">
           {song.album["#text"]}
         </span>
-        <span className="sr-only">record</span>
+        <span className="sr-only">{PAGE_CONTENT.footer.marquee.album}</span>
       </p>
     </div>
   );

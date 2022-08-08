@@ -11,8 +11,8 @@ import { RoverProvider } from "@feedzai/react-a11y-tools";
 import Dialog from "./dialog";
 import Item from "./item";
 import styles from "./index.module.scss";
-import SelectWorkData from "../../data/selected-work/index.json";
-import { Project } from "../../data/selected-work/types";
+import PAGE_CONTENT from "../../data/index.json";
+import { WorkData } from "../../data/content-types";
 
 const TitleArrow = () => (
   <span className={styles.arrow} aria-hidden="true">
@@ -24,6 +24,8 @@ const TitleArrow = () => (
     </svg>
   </span>
 );
+
+const { title, description, data: SelectWorkData } = PAGE_CONTENT.work;
 
 function Work() {
   const [showDialog, setShowDialog] = useState(false);
@@ -39,7 +41,7 @@ function Work() {
   }
 
   function renderDialog() {
-    const data: Project = SelectWorkData.data[selectedProject];
+    const data: WorkData = SelectWorkData[selectedProject];
 
     return <Dialog data={data} onClose={handleOnClose} />;
   }
@@ -49,14 +51,14 @@ function Work() {
       <div className={styles.work}>
         <h2 id="work" aria-describedby="work-description" className={styles.title}>
           <TitleArrow />
-          <span>Selected work</span>
+          <span>{title}</span>
         </h2>
         <span id="work-description" className="sr-only">
-          Press up and down arrows to navigate between projects
+          {description}
         </span>
         <RoverProvider direction="vertical">
-          <div className={styles.work__list}>
-            {SelectWorkData.data.map((work, index) => (
+          <div className={styles.work__list} data-testid="work-list">
+            {SelectWorkData.map((work, index) => (
               <Item
                 key={work.id}
                 id={work.id}

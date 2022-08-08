@@ -9,7 +9,7 @@ const { name, type } = Astro.props as SkillsItemProps;
 ---
 
 <li class={styles.item} data-type={type}>
-  <span class={styles.name}>{name}</span>
+  <span class={styles.name} data-testid="skills-item">{name}</span>
   <span class={styles.slash} aria-hidden="true">
     /
   </span>

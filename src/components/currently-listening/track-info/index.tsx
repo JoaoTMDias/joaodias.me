@@ -6,6 +6,7 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
+import PAGE_CONTENT from "../../../data/index.json";
 import { LAST_FM_URL } from "../../../data/services/config";
 import { ExternalServiceSongs, Track } from "../../../typings/index";
 import LastPlayedSongCard from "./LastPlayedSongCard";
@@ -35,7 +36,7 @@ export function TrackInfo() {
   }, []);
 
   if (!song) {
-    return <p>Loading...</p>;
+    return <p>{PAGE_CONTENT.footer.marquee.loading}</p>;
   }
 
   return <LastPlayedSongCard key={song.name} song={song} />;

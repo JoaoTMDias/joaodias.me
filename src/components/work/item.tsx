@@ -56,21 +56,30 @@ function Item({ id, title, subtitle, skills, thumbnail, theme, onClick }: Props)
       onKeyUp={handleRoverOnKeyUp}
       onClick={handleOnClick}
       style={styleProperties}
+      data-testid="work-item"
     >
       <div className={styles.figure}>
         <img {...thumbnail} />
       </div>
       <div className={styles.content}>
-        <h3 className={styles.content__title}>{title}</h3>
-        <p className={styles.content__subtitle}>{subtitle}</p>
-        <ul className={styles.skills}>
+        <h3 className={styles.content__title} data-testid="work-item-title">
+          {title}
+        </h3>
+        <p className={styles.content__subtitle} data-testid="work-item-subtitle">
+          {subtitle}
+        </p>
+        <ul className={styles.skills} data-testid="work-item-skills">
           {skills.map((skill) => (
-            <li key={skill}>{skill}</li>
+            <li key={skill} data-testid="work-item-skill">
+              {skill}
+            </li>
           ))}
         </ul>
       </div>
       <div className={styles.content__toggle}>
-        <p className={styles.content__toggle__label}>Open Project</p>
+        <p className={styles.content__toggle__label} data-testid="work-item-open">
+          Open Project
+        </p>
         <svg
           className={styles.content__toggle__vector}
           xmlns="http://www.w3.org/1999/xlink"

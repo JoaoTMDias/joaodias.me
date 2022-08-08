@@ -1,13 +1,14 @@
 ---
 import Arrow from '../arrow/index.astro';
 import Profile from '../profile/index.astro';
+import PAGE_CONTENT from "../../data/index.json";
 ---
 
 <section class="hero">
   <Arrow />
   <Profile />
   <div class="fake-copyright">
-    <p class="fake-copyright__text">Since 1987 © Limited Edition</p>
+    <p class="fake-copyright__text" data-testid="fake-copyright">{PAGE_CONTENT.hero.copyright}</p>
   </div>
 </section>
 
