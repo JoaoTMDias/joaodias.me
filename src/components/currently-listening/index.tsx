@@ -6,9 +6,9 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import PAGE_CONTENT from "../../../data/index.json";
-import { LAST_FM_URL } from "../../../data/services/config";
-import { ExternalServiceSongs, Track } from "../../../typings/index";
+import PAGE_CONTENT from "../../data/index.json";
+import { LAST_FM_URL } from "../../data/services/config";
+import { ExternalServiceSongs, Track } from "../../typings/index";
 import LastPlayedSongCard from "./LastPlayedSongCard";
 import { useEffect, useState } from "react";
 
@@ -20,7 +20,7 @@ async function getSong() {
   return recenttracks.track.slice(0, 1)[0];
 }
 
-export function TrackInfo() {
+function CurrentlyListening() {
   const [song, setSong] = useState<Track>(null);
 
   useEffect(() => {
@@ -41,3 +41,5 @@ export function TrackInfo() {
 
   return <LastPlayedSongCard key={song.name} song={song} />;
 }
+
+export default CurrentlyListening;

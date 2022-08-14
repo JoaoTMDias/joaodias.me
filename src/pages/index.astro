@@ -6,7 +6,7 @@ import Skills from "../components/skills/index.astro";
 import Bio from "../components/bio/index.astro";
 import Experience from "../components/experience/index.astro";
 import Work from "../components/work/index.tsx";
-import { Marquee } from "../components/currently-listening/marquee/index";
+import CurrentlyListening from "../components/currently-listening/index.tsx";
 import SocialLinks from "../components/social-links/index.astro";
 import PAGE_CONTENT from "../data/index.json";
 import '../assets/styles/index.scss';
@@ -57,14 +57,6 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`
 				flex-direction: column;
 				justify-content: flex-start;
 				align-items: center;
-
-				@media (min-width: 60rem) {
-					flex-direction: row;
-					justify-content: space-between;
-					height: 3rem;
-					width: 100%;
-					max-width: 80rem;
-				}
 			}
 		}
 
@@ -81,7 +73,7 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`
 			@media (min-width: 60rem) {
 				padding-block: 6rem;
 				padding-inline: 3rem;
-				max-width: 80rem;
+				max-width: 75rem;
 			}
 		}
 
@@ -106,13 +98,9 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`
 				width: 100%;
 				padding-inline: 3rem;
 				text-align: center;
-
-				@media (min-width: 60rem) {
-					text-align: left;
-				}
 			}
 
-			&__marquee {
+			&__container {
 				display: grid;
 				place-items: center;
 				background-color: var(--background-color);
@@ -145,8 +133,8 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`
 				<h2 id="current-listening" class="currently-listening__title">
 					{PAGE_CONTENT.footer.title}
 				</h2>
-				<div class="currently-listening__marquee">
-					<Marquee client:load />
+				<div class="currently-listening__container">
+					<CurrentlyListening client:load />
 				</div>
 			</div>
 			<div class="footer__bottom">
