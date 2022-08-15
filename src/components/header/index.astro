@@ -1,0 +1,33 @@
+---
+import Logo from '../logo/index.astro';
+import MainNavigation from '../main-navigation/index.astro';
+import SkipLink from "../skip-link";
+---
+
+<header class="navigation">
+  <SkipLink />
+  <Logo />
+  <MainNavigation />
+</header>
+
+<style lang="scss">
+  .navigation {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    gap: 1rem;
+    min-height: var(--header-height);
+
+    @media (min-width: 60rem) {
+      --header-height: 4rem;
+      top: 1rem;
+      justify-content: space-between;
+      flex-wrap: initial;
+    }
+  }
+</style>

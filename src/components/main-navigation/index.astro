@@ -1,0 +1,63 @@
+---
+import FancyLink from "../fancy-link";
+import PAGE_CONTENT from "../../data/index.json";
+---
+
+<nav aria-label="Page Sections">
+  <ul class="header__list">
+    {PAGE_CONTENT.header["main-navigation"].map((item) => {
+    return (
+    <li class="header__list__item">
+      <FancyLink href={item.href} text={item.text} aria-label={item.label} data-testid="top-nav-link" />
+    </li>
+    );
+    })}
+  </ul>
+</nav>
+
+<style lang="scss">
+  nav,
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 60rem) {
+      justify-content: flex-end;
+    }
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+    list-style-type: none;
+  }
+
+  li {
+    min-width: 5.625rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--text-font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+</style>

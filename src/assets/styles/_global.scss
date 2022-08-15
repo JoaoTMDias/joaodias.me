@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --background-color: hsl(0, 0%, 77%);
+  --background-color-faded: hsla(0, 0%, 77%, 0.25);
+  --text-color: hsl(0, 0%, 10%);
+  --text-color-faded: hsla(0, 0%, 10%, 0.25);
+  --text-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --heading-font-family: "Cormorant", "Palatino Linotype", Palatino, Palladio, "URW Palladio L",
+    "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L",
+    Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook",
+    "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+  --header-height: 3rem;
+  --hero-height: auto;
+
+  @media (min-width: 60rem) {
+    --hero-height: 3rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: hsl(0, 0%, 10%);
+    --background-faded: hsla(0, 0%, 10%, 0.25);
+    --text-color: hsl(0, 0%, 77%);
+    --text-color-faded: hsla(0, 0%, 77%, 0.25);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--text-font-family);
+  font-size: 1rem;
+  padding-block: 0;
+  padding-inline: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  background: var(--background-color);
+  color: var(--text-color);
+
+  @media (min-width: 60rem) {
+    padding-block: 1rem;
+  }
+}
+
+a {
+  color: inherit;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
+}
+
+*:focus {
+  outline-offset: 4px;
+  outline-color: var(--text-color);
+  outline-width: 2px;
+}
+
+*::-webkit-scrollbar {
+  width: 1.25rem;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--background-color-faded);
+  border-color: var(--text-color-faded);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 1.25rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+  border-radius: 1.25rem;
+}

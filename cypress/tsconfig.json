@@ -1,11 +1,13 @@
 {
-	"compilerOptions": {
-		"allowJs": true,
-		"strict": true,
-		"baseUrl": "../node_modules",
-		"target": "es5",
-		"lib": ["es5", "dom"],
-		"types": ["cypress"]
-	},
-	"include": ["**/*.*"]
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "cypress", "cypress-real-events", "@testing-library/cypress", "./support"],
+    "baseUrl": ".",
+    "paths": {
+      "fixtures/*": ["./fixtures/*"],
+      "support/*": ["./support/*"],
+      "src/*": ["../src/*"]
+    }
+  },
+  "include": ["**/*.cy.ts", "**/*.cy.tsx", "cypress.d.ts"]
 }

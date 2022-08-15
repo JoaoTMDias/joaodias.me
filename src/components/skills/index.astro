@@ -1,0 +1,32 @@
+---
+import SkillsItem from "./item.astro";
+import PAGE_CONTENT from "../../data/index.json";
+---
+
+<div class="sub-section">
+  <h3 class="sr-only">{PAGE_CONTENT.about.skills.title}</h3>
+  <ul class="skills">
+    {PAGE_CONTENT.about.skills.items.map((item, index) => {
+    const type = (index % 2 == 0) ? "even" : "odd";
+
+    return (
+    <SkillsItem name={item} type={type} />
+    )
+    })}
+  </ul>
+</div>
+
+<style lang="scss">
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    column-gap: 3.5rem;
+  }
+</style>

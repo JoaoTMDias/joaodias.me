@@ -1,0 +1,44 @@
+/**
+ * This file is open-source. This means that it can be reproduced in whole
+ * or in part, stored in a retrieval system transmitted in any form, or by
+ * any means electronic with my prior permission as an author and owner
+ * Please refer to the terms of the license agreement in the root of the project
+ *
+ * (c) 2022 joaodias.me, Rights Reserved.
+*/
+
+.container,
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+.container {
+  gap: 2rem;
+}
+
+.info {
+  gap: 1.5rem;
+}
+
+.track,
+.artist,
+.album {
+  font-family: var(--heading-font-family);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  text-transform: uppercase;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.track {
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}

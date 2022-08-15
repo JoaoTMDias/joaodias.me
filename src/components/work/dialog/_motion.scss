@@ -1,0 +1,70 @@
+/**
+ * This file is open-source. This means that it can be reproduced in whole
+ * or in part, stored in a retrieval system transmitted in any form, or by
+ * any means electronic with my prior permission as an author and owner
+ * Please refer to the terms of the license agreement in the root of the project
+ *
+ * (c) 2022 joaodias.me, Rights Reserved.
+*/
+@media (prefers-reduced-motion: no-preference) {
+  .dialog {
+    clip-path: circle(0% at 50% 100%);
+    animation-name: dialogIntro;
+    animation-duration: 325ms;
+    animation-timing-function: cubic-bezier(0.11, 0, 0.5, 0);
+    animation-fill-mode: forwards;
+  }
+
+  .header,
+  .cover,
+  .content {
+    animation-name: fadeInUpContent;
+    animation-duration: 250ms;
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-delay: 250ms;
+    transform: translateY(50%);
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .close {
+    transform: translateY(-500%);
+    animation-name: slideInDownCloseButton;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-fill-mode: forwards;
+    animation-duration: 325ms;
+    animation-delay: 375ms;
+  }
+}
+
+@keyframes dialogIntro {
+  from {
+    clip-path: circle(0% at 50% 100%);
+  }
+
+  to {
+    clip-path: circle(100% at 50% 50%);
+  }
+}
+
+@keyframes fadeInUpContent {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDownCloseButton {
+  from {
+    transform: translateY(-150px);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}

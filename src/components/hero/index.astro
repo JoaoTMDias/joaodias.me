@@ -1,0 +1,50 @@
+---
+import Arrow from '../arrow/index.astro';
+import Profile from '../profile/index.astro';
+import PAGE_CONTENT from "../../data/index.json";
+---
+
+<section class="hero">
+  <Arrow />
+  <Profile />
+  <div class="fake-copyright">
+    <p class="fake-copyright__text" data-testid="fake-copyright">{PAGE_CONTENT.hero.copyright}</p>
+  </div>
+</section>
+
+<style lang="scss">
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    @media (min-width: 60rem) {
+      height: calc(100vh - var(--header-height));
+    }
+  }
+
+  .fake-copyright {
+    position: relative;
+
+    @media (min-width: 60rem) {
+      content: "";
+      position: absolute;
+      left: auto;
+      right: auto;
+      bottom: 1rem;
+      right: 1rem;
+    }
+
+    &__text {
+      text-align: right;
+      line-height: 2rem;
+      margin-bottom: 1rem;
+      margin-right: 1.25rem;
+    }
+  }
+</style>
