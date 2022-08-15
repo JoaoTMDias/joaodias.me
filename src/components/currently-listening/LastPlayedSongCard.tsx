@@ -28,7 +28,13 @@ export const LastPlayedSongCard: FunctionComponent<{
       />
 
       <p className={styles.info}>
-        <a className={styles.track} href={song.url} target="_blank" data-testid="last-played-title">
+        <a
+          className={`${styles.track} tooltip`}
+          href={song.url}
+          target="_blank"
+          data-testid="last-played-title"
+          data-tooltip="View song on Last.fm"
+        >
           {song.name}
           <span className="sr-only">{PAGE_CONTENT.footer.marquee.track}</span>
         </a>

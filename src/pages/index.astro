@@ -15,15 +15,17 @@ const currentYear = new Date().getFullYear();
 const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`
 ---
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" prefix="http://ogp.me/ns#" i18n-values="dir:textdirection" itemtype="http://schema.org/WebPage"
+	dir="ltr" data-testid="html-element">
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport"
-		content="width=device-width,initial-scale=1.0,maximum-scale=5.0,user-scalable=yes,viewport-fit=cover">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 	<title>{PAGE_CONTENT.title}</title>
 
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<link rel="icon" type="image/png" href="/favicon_fallback.png" />
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -50,7 +52,6 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`
 			gap: 2rem;
 			width: 100%;
 			flex-grow: 1;
-			overflow: hidden;
 
 			&__bottom {
 				display: flex;

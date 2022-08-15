@@ -80,3 +80,61 @@
     opacity: 1;
   }
 }
+
+.tooltip {
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    text-align: center;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &::before {
+    content: attr(data-tooltip);
+    z-index: 2;
+    min-width: 12rem;
+    color: var(--background-color);
+    background: var(--text-color);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    margin-inline: auto;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-family: var(--text-font-family);
+    font-weight: normal;
+    font-style: normal;
+    text-transform: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: none;
+    text-align: center;
+  }
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 8px;
+    border-left: 0.25rem solid transparent;
+    border-right: 0.25rem solid transparent;
+  }
+}
