@@ -25,6 +25,7 @@ export const LastPlayedSongCard: FunctionComponent<{
         height={PAGE_CONTENT.footer.marquee.card.height}
         alt={`${song.album["#text"]} cover`}
         loading="lazy"
+        data-testid="currently-listening-album-cover"
       />
 
       <p className={styles.info}>
@@ -32,8 +33,8 @@ export const LastPlayedSongCard: FunctionComponent<{
           className={`${styles.track} tooltip`}
           href={song.url}
           target="_blank"
-          data-testid="last-played-title"
           data-tooltip="View song on Last.fm"
+          data-testid="currently-listening-song"
         >
           {song.name}
           <span className="sr-only">{PAGE_CONTENT.footer.marquee.track}</span>
@@ -42,14 +43,14 @@ export const LastPlayedSongCard: FunctionComponent<{
         <span className={styles.artist} role="presentation" aria-hidden="true">
           ♠
         </span>
-        <span className={styles.artist} data-testid="last-played-artist">
+        <span className={styles.artist} data-testid="currently-listening-artist">
           {song.artist["#text"]}
         </span>
         <span className="sr-only">{PAGE_CONTENT.footer.marquee.artist}</span>
         <span className={styles.artist} role="presentation" aria-hidden="true">
           ♣
         </span>
-        <span className={styles.album} data-testid="last-played-album">
+        <span className={styles.album} data-testid="currently-listening-album">
           {song.album["#text"]}
         </span>
         <span className="sr-only">{PAGE_CONTENT.footer.marquee.album}</span>

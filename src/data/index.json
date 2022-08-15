@@ -539,6 +539,21 @@
       "track": ". This link will open in a new tab",
       "artist": "from the",
       "album": "record"
+    },
+    "social-media": {
+      "title": "Contact",
+      "instagram": {
+        "label": "Check my Instagram profile. This link opens in a new tab",
+        "tooltip": "Check my Instagram profile"
+      },
+      "github": {
+        "label": "Check my projects and source code on Github. This link opens in a new tab",
+        "tooltip": "Projects and Source code on Github"
+      },
+      "twitter": {
+        "label": "Follow me on Twitter. This link opens in a new tab",
+        "tooltip": "Follow me on Twitter"
+      }
     }
   }
 }

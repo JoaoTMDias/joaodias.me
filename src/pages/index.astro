@@ -130,10 +130,12 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`
 			</section>
 		</main>
 		<footer class="footer" id="footer">
-			<div class="currently-listening">
-				<h2 id="current-listening" class="currently-listening__title">
-					{PAGE_CONTENT.footer.title}
-				</h2>
+			<div class="currently-listening" aria-labelledby="currently-listening" data-testid="currently-listening">
+				<h2
+					id="current-listening"
+					class="currently-listening__title"
+					data-testid="currently-listening-main-title"
+				>{PAGE_CONTENT.footer.title}</h2>
 				<div class="currently-listening__container">
 					<CurrentlyListening client:load />
 				</div>

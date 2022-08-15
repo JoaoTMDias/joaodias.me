@@ -1,6 +1,7 @@
 import PAGE_CONTENT from "../../src/data/index.json";
 import { SelectedProjects } from "../../src/data/content-types";
 import setupLayout from "../helpers/setupLayout";
+import LastFMFixture from "../fixtures/last-fm.json";
 
 const PAGE_SELECTORS = {
   logo: "logo",
@@ -27,17 +28,25 @@ const PAGE_SELECTORS = {
     subtitle: "work-item-subtitle",
     skillsList: "work-item-skills",
     skill: "work-item-skill"
+  },
+  currentlyListening: {
+    container: "currently-listening",
+    mainTitle: "currently-listening-main-title",
+    albumCover: "currently-listening-album-cover",
+    song: "currently-listening-song",
+    artist: "currently-listening-artist",
+    album: "currently-listening-album"
   }
 }
 
 const PAGE_DATA: SelectedProjects = PAGE_CONTENT;
 
 beforeEach(() => {
+  cy.intercept("GET", "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=jtmdias&api_key=60caa5e07c4a12ec3d677cf8c2f6f804&format=json", { fixture: "last-fm.json" }).as("getRecentTracks");
   cy.injectAxe();
   setupLayout();
-
-  cy.intercept("GET", "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=jtmdias&api_key=60caa5e07c4a12ec3d677cf8c2f6f804&format=json", { fixture: "last-fm.json" }).as("getRecentTracks");
   cy.wait("@getRecentTracks");
+
 });
 
 describe("Homepage", () => {
@@ -67,12 +76,12 @@ describe("Homepage", () => {
 });
 
 
-describe("Section: Intro", () => {
+describe("Intro", () => {
   it("should be possible to visit the section by clicking on the top nav link", () => {
     cy.findByRole("link", { name: PAGE_DATA.header["main-navigation"][0].label }).realClick();
     cy.get(PAGE_SELECTORS.about).should("be.visible").scrollIntoView();
     cy.findByTestId(PAGE_SELECTORS.introSubtitle).should("have.text", PAGE_DATA.about.intro.subtitle);
-    cy.findByTestId(PAGE_SELECTORS.introTitle).should("have.text", "I'm João Dias, a web developer and accessibility advocate from\n      Coimbra, Portugal");
+    cy.findByTestId(PAGE_SELECTORS.introTitle).should("have.text", "I'm João, a web developer and accessibility advocate from\n      Coimbra, Portugal");
   });
 
   it("The link to the employer is correct", () => {
@@ -82,7 +91,7 @@ describe("Section: Intro", () => {
   });
 });
 
-describe("Section: Skills", () => {
+describe("Skills", () => {
   it("should display all skills on the page", () => {
     cy.findAllByTestId(PAGE_SELECTORS.skill).each(($skill) => {
       expect($skill).not.to.be.hidden;
@@ -90,7 +99,7 @@ describe("Section: Skills", () => {
   });
 });
 
-describe("Section: Bio", () => {
+describe("Bio", () => {
   it("should display all elements", () => {
     cy.findByTestId(PAGE_SELECTORS.bioPicture).should("exist");
     cy.findByTestId(PAGE_SELECTORS.bioIntro).should("exist");
@@ -98,7 +107,7 @@ describe("Section: Bio", () => {
   });
 });
 
-describe("Section: Experience", () => {
+describe("Work Experience", () => {
   it("should display all elements", () => {
     cy.findByTestId(PAGE_SELECTORS.experience).should("exist").scrollIntoView();
 
@@ -117,7 +126,7 @@ describe("Section: Experience", () => {
   });
 });
 
-describe("Section: Work", () => {
+describe("Selected Work", () => {
   it("should display all elements", () => {
     // Section should exist and have an accessible description
     cy.get(PAGE_SELECTORS.work).should("exist").scrollIntoView();
@@ -147,5 +156,28 @@ describe("Section: Work", () => {
     const chosenItemData = PAGE_DATA.work.data[randomIndex];
 
     cy.findAllByTestId(PAGE_SELECTORS.workItems.item).eq(randomIndex).scrollIntoView().should("be.visible").realClick();
+  });
+});
+
+describe("Currently Playing", () => {
+  it("should display the currently playing song", () => {
+    const { container, mainTitle, albumCover, song, album, artist } = PAGE_SELECTORS.currentlyListening;
+    cy.findByTestId(container).scrollIntoView().should("be.visible");
+    cy.findByTestId(mainTitle).should("have.text", PAGE_DATA.footer.title);
+    cy.findByTestId(albumCover).should("be.visible");
+    cy.findByTestId(song).should("have.text", `${LastFMFixture.recenttracks.track[0].name}. This link will open in a new tab`);
+    cy.findByTestId(album).should("have.text", LastFMFixture.recenttracks.track[0].album["#text"]);
+    cy.findByTestId(artist).should("have.text", LastFMFixture.recenttracks.track[0].artist["#text"]);
+  });
+});
+
+describe("Contacts", () => {
+  it("should display the social media links", () => {
+    const { title, instagram, github, twitter } = PAGE_DATA.footer["social-media"];
+
+    cy.findByRole("heading", { level: 3, name: title }).should("be.visible");
+    cy.findByRole("link", { name: instagram.label }).should("be.visible");
+    cy.findByRole("link", { name: github.label }).should("be.visible");
+    cy.findByRole("link", { name: twitter.label }).should("be.visible");
   });
 });

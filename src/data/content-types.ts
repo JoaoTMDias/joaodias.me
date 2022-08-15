@@ -88,6 +88,19 @@ export interface Skills {
 export interface Footer {
   title?: string;
   marquee?: Marquee;
+  "social-media"?: SocialMedia;
+}
+
+export interface SocialMedia {
+  title?: string;
+  instagram?: Channel;
+  github?: Channel;
+  twitter?: Channel;
+}
+
+export interface Channel {
+  label?: string;
+  tooltip?: string;
 }
 
 export interface Marquee {
