@@ -192,7 +192,7 @@
         "skills": ["react", "vitejs", "electron", "fluent-ui", "windows-11"],
         "details": {
           "date": "January 2022",
-          "description": "I created a Fluent UI app for Windows 11 and used React, Electron and its Node API. This litte piece of software enables web developers and designers to pick foreground and background colours and get an instant preview of its contrast ratio",
+          "description": "I created a Fluent UI app for Windows 11 and used React, Electron and its Node API. This little piece of software enables web developers and designers to pick foreground and background colours and get an instant preview of its contrast ratio.",
           "cover": {
             "src": "projects/winpicker/winpicker-cover.jpeg",
             "width": 800,
@@ -201,24 +201,24 @@
           },
           "sourceCode": "https://github.com/JoaoTMDias/winpicker",
           "problem": [
-            "I'm not a Windows or Apple fanboy: I've used all of them operating systems, from MacOS, to several Linux distros, to several Windows versions as well",
-            "I mean, tools are tools, right? At least for me.",
-            "Before my latest switch to Windows 11, I used to extensively work with a little app for MacOS called Pika. It enabled me to quickly pick two colours, get an instant contrast ratio score as well as let me know which WCAG levels it passed and which ones it failed. It was simple, did the job and had a native look-and-feel to it.",
-            "When switching to Windows I went to the Windows Store and looked up for the same type of app. There were some results, sure, but I didn't find any that did the same, with the same ease of use and native look-and-feel.",
-            "There are also dozens of Chrome and Firefox browser extensions, sure, but nothing really 'good' for the desktop and that respects the user interface design guidelines for that specific environment.",
-            "Basically, I was in search for a small and specially dedicated app for doing web accessibility development and design.",
-            "If it's good for me and does the job, maybe it can also be good for others."
+            "I'm not a fanboy of any OS ecosystem. I've used all of them:  from MacOS to several Linux distros, to several Windows versions as well.",
+            "At least for me, these are just tools, right?",
+            "Before my latest switch to Windows 11, I used to work every day with a little app for macOS called Pika. It enabled me to quickly pick two colours, get an instant contrast ratio score and let me know which WCAG levels it passed and which ones it failed. It was simple, did the job and had a native look and feel.",
+            "When switching to Windows, I went to the Microsoft Store and looked up the same type of app. There were some results, sure, but I didn't find any that did the same, with the same ease of use and native look and feel. I felt a little dissapointed.",
+            "On the browser-side, there are dozens of Chrome and Firefox extensions, but nothing really 'good' for the desktop and its user interface design guidelines.",
+            "Basically, I was searching for a small and specially dedicated app for web accessibility development and design.",
+            "If it was a good idea for me and it did the job, maybe it could also be good for others."
           ],
           "solution": [
-            "As usual, if the need exists but there's nothing serving that, I pull up my 'coding sleeves' and do the work myself.",
+            "As usual, if the need exists but nothing is serving that, I pull up my 'coding sleeves' and do the work myself.",
             "I've used React Native in the past, and I thought I could follow the same path and develop a native app for the operating system using React Native for Windows.",
-            "But, at the same time, I know my ways around a web application, I know how to make it accessible and I wanted to prototype fast.",
-            "And, besides, I wanted to try building a native app with Electron JS and use its Node API to communicate between system-level APIs and the user interface (at the time the Eyedropper API isn't correctly supported in Electron for Windows)",
-            "So yeah, I still went with React, but chose the web first and used Vite for bundling everything together. I find Vite to be super-duper easy to configure and freaking-fast!",
-            "I honestly dread everytime I have to touch a webpack config file at work...I mean, I do it, but it's something that doesn't give me as much pleasure as using rollup/Vite/esbuild.",
-            "As for the user interface, besides building my own components, I used the ones made by Microsoft for the @fluentui/react package. It gives me the native look and feel I want for the app, so that users can feel at home with the interface.",
-            "Finally, the features of the app are all built around getting as much relevant information as fast as possible so, when choosing two colours, you have a 5 star rating as well as a check/failed score for AA and AAA levels for large and regular font sizes",
-            "The colour picker is an external .exe file that I load up using Node and Electron's ipcMain process and make its results available to the UI using the ipcRenderer process"
+            "But, at the same time, I know my ways around a web application, how to make it accessible, and I wanted to prototype fast.",
+            "And besides, I've always wanted to try out building a native app with Electron JS and use its Node API to communicate between system-level APIs and the user interface (at the time, the Eyedropper API isn't correctly supported in Electron for Windows)",
+            "So I went with React and used Vite for bundling everything together. I find Vite to be super-duper easy to configure and freaking-fast!",
+            "I honestly dread every time I have to touch a webpack config file at work...All those loaders and plugin configurations. I mean, I still do it at work, but it's something that isn't as pleasurable as simple config files like the ones from Rollup or Vite.",
+            "As for the user interface, I build a couple of my own components, but mainly I used the ones made by Microsoft for the @fluentui/react package. It gives me the native look I want for the application so that users can feel at home with the interface.",
+            "Finally, the features of the app are all built around getting as much relevant information as fast as possible so when choosing two colours, you have a 5-star rating as well as a check/failed score for AA and AAA levels for large and regular font sizes.",
+            "The colour picker is an external .exe file that I load up using Node and Electron's ipcMain process. Once the colour is picked, I then make its results available to the UI using the ipcRenderer process."
           ],
           "photos": [
             {
@@ -259,21 +259,30 @@
         "skills": ["preact", "vitejs", "cypress", "chromium"],
         "details": {
           "date": "January 2022",
-          "description": "A browser extension that helps Google Chat users to create richer text content",
+          "description": "A browser extension that helps Google Chat users to create richer text content. Backed up by Preact, CSS Modules, Vite and Cypress component testing.",
           "cover": {
             "src": "projects/g-chat-format-bar/project-cover.jpg",
             "width": 800,
             "height": 600,
             "alt": ""
           },
-          "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+          "sourceCode": "https://github.com/JoaoTMDias/g-chat-format-bar",
           "problem": [
-            "Google Chat",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+            "I use Google Chat at work. It is our daily tool for communicating between teams and it does its job efficiently.",
+            "Though I still miss some of the features that Slack provided, like having the possibility to style messages.",
+            "That, somehow, was something that lacked for a couple of years on Google's counterpart."
           ],
           "solution": [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+            "Once again, I went into do-it-for-myself mode and began exploring a simple browser extension that would allow me to do just that.",
+            "I wanted to build something with React but always had the curiosity to try out Preact, the 3kb React alternative. It turned out to be a super smooth experience mainly because the package has a compatibility layer with some of React's unique features and even comes already typed.",
+            "So, in my toolbelt, there were Preact, CSS modules and Vite.",
+            "I tried to build somewhat of an inline panel right next to the app's textarea but, as it turned out, that wasn't so simple to do. For starters, Google didn't even use a native textarea, but a div with 'contenteditable' turned on. And then, there was simply no unique identifier on that node to make it easier to inject my extension panel. That would essentially mean that I would locked up to the implementation, and the minute it changed, my app would break.",
+            "Exploring alternatives, I ended up building a popup screen that still allowed me to write my text and style it as I wanted. Just something simple, but with a couple of cool features.",
+            "The interface was simple but supported a toolbar, copy-to-clipboard and even dark and light themes. It was simple, but did the job. It goes without saying, but accessibility was at the top of my priorities.",
+            "I also tried out Cypress component testing, a relatively-new Cypress feature at the time, and I went on board with it.",
+            "And, of course, I learned a lot from it! Especially to appreciate how better it is to write tests that run in the browser rather than using tools like Jest and JSDOM, which are quasi-implementations of a browser but are a pain in the ass to configure, and you don't get to see the tests running in a browser.",
+            "With Cypress, you use the syntax you typically use with integration or end-to-end tests, but instead of rendering a page, you mount a component on the browser. It is way simpler, and actually I caught a couple of bugs that I wouldn't be able to catch if I was using Jest as a test runner.",
+            "Note: At the time of this posting it seems that Google has already built in an inline editor. Nevertheless, this project served me well for several months and taught me a lot about other React alternatives and Vite too."
           ],
           "photos": [
             {
@@ -314,7 +323,7 @@
         "skills": ["nextjs", "cypress", "jest", "testing-library"],
         "details": {
           "date": "January 2021",
-          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+          "description": "At the height of the pandemic lockdown, an online conference focused on the not-so-good stuff that was happening amongst several areas of society. And I build it's website.",
           "cover": {
             "src": "projects/istovaidarmerda.online/project-cover.jpg",
             "width": 800,
@@ -323,12 +332,21 @@
           },
           "sourceCode": "https://github.com/JoaoTMDias/istovaidarmerda.online",
           "problem": [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+            "Picture this: It is January of 2021 and, In Portugal, people are starting to face the reality of having opened stores and relaxed a bit on Christmas and New year's eve. Hospitals are becoming full of patients in serious respiratory conditions, ambulances queuing at the entrances in every health facility, older and younger dropping like flies. The images we've seen before in Italy and Spain, they were now happening here. No place to bury the dead, no one know what was going to happen next.",
+            "A vaccine was yet to be given to the population, so everyone was locked up at home, scared about what turned out to be a violent outbreak of Covid-19 that took almost two months to pass.",
+            "We all knew that this virus was something not be taken lightly. TVs were constantly blasting news about the numbers of infected and the dead. All the time, everytime, everywhere.",
+            "At the same time, on social media, there was also this frustrating vibe of toxic-positivity, with 'everything's going to be allright' and 'we're all in this together'.",
+            "There were a lot of us that knew that this trend was bullshit. We prefer the truth, not some made up falsehoods about the status of the pandemic or, on the other hand, over-exaggerated news coverage.",
+            "Health care professionals were in dire situations, exhausted, scared and not being well taken care of by the government. People in other areas such as arts and culture were out of work since 2020 - no live concerts, no theatre, not cinema, no nothing. Many of them and their families were in very hard situations.",
+            "These people all needed to vent their opinions.",
+            "That's when Sónia Teles had the idea to organize an online conference where people from different areas could gather and voice their opinions about their issues without feeling guilty about speaking out or facing the consequences of the cancel-culture. She reached out to Henrique Macedo (a friend of mine) and me to develop a website for the conference"
           ],
           "solution": [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+            "She asked us for a website where the topic was serious, but the visuals were not. So, something fun. And fun we had, indeed.",
+            "For the tools, we went with Next.js, Styled Components and Cypress. I think we spent like a weekend working on this. Henrique is a friend of mine, we've known each other since our college days, and we work very well together. He developed the visuals for the whole branding/website and I did most of the implementation and testing.",
+            "Given the opportunity, I came up with the idea to add a couple of easter-eggs on the website, something that only developers and curious people would get to, but would help to spread-out the word about the webiste.",
+            "Mainly because I don't take myself very seriously and I was waiting my whole life for the perfect opportunity to add a couple of fart sounds to a side-project. 🤣",
+            "The conference turned out to be a success, with a lot of attendees and good feedback."
           ],
           "photos": [
             {
@@ -373,26 +391,26 @@
           },
           "sourceCode": "https://github.com/joaotmdias/paperboy",
           "problem": [
-            "Most people read their news from one, maybe two sources. Perhaps they get their daily info from Facebook or some other social network. In the realm of these Silicon-Valley types of companies, it's very easy to fall into that cycle of misinformation we all came to know, one or or another. Most times you only read from what you think is the truth. It might be, but you never to seek the real information by comparing it from different sources.",
-            "This movement of false information spreading, fake news and really bad journalism was and is fed by the lack of tools to compare news. In this era of click-bait articles, the newspapers are also to blame.",
-            "People should have access to an easy, free way to read news on their mobile phone, but at the same time, be allowed to choose from a wide variety of news outlets and also search for specific topics in order to see what all parts say about one thing. Sounds democratic, sounds like what the internet was made for.",
-            "Well, it's not that easy. Finding different perspectives on a topic it's a arduous task. We wander from site to site, skipping ads, clicking on cookies acceptance terms and the regular pay-to-access forms.",
-            "And I for one can understand why so many people choose to stay with only one or two sources of information: Because it's easier to manage our lives that way. Not the correct one, but easier.",
-            "How about access on all platforms? Why can't someone start to read something on an iPhone and continue to read that on their Firefox browser on their desktop computer at home."
+            "Most people read their news from one, maybe two sources. Perhaps they get their daily info from Instagram or some other social network. In the realm of these Silicon-Valley types of companies, it's so easy to fall into that cycle of misinformation we all came to know, one way or another. Most times, online users only read what they think is the truth. It might be, but they never seek the 'real information' by comparing it from different sources.",
+            "This movement of false information spreading, fake news and bad journalism was (and still is) being fed by the lack of tools to compare news articles. In this era of click-bait articles, the newspapers are also to blame.",
+            "So I  thought: 'This is so wrong. People should have access to an easy, free way to read news on their mobile phone, but at the same time, be allowed to choose from a wide variety of news outlets and also search for specific topics to see what all parts say about one thing'. To an old-internet-fart like me, that's what real democracy sounds like and the real purpose of the web.",
+            "Turns out that finding different perspectives on a topic it's an arduous task. We wander from site to site, skipping ads, clicking on cookies acceptance terms and the regular pay-to-access forms.",
+            "And I for one can understand why so many people choose to stay with only one or two sources of information: Because it's easier to manage our lives that way. Not the right one, but easier.",
+            "How about access on all platforms? Why can't someone start to read something on an iPhone and continue to read that on their Firefox browser on their desktop computer at home?"
           ],
           "solution": [
-            "The News API is a wonderful, underrated tool. The News APIwebsite is a wonderful, underrated tool. Yes, it has a paid tear for X number of calls, but, for a demo, it suits very well.",
-            "One of the most important goals of the app is to get as quickly as possible to a place where you could read articles from your favourite news sources, without too much messing around with login forms, passwords and all sorts of permissions. Just free information, that's it.",
-            "Apple News, a service launched by the fruit company, is a way for people to read on their fruit devices. Unfortunately, it is curated by Apple and isn't available to Android devices, only on Apple devices, and not even all of them (Although a colleague of mine actually discovered how to open Apple News in Portugal, using MacOS Mojave).",
-            "Google News is another free tool but, as much as I like a few thinks that they create, it still lacks that feeling of open-ness and freedom of choice.",
-            "I want something that I could share with others, so that they could use for themselves, without business boundaries.",
-            "I have tried Swift and Java in the past. I felt like I removed myself from the visual side of things whilst learning the basics of those two.",
-            "I like to write software with good-old web standards: HTML, CSS and Javascript. They are old, they are new. They are powerful, but easy to manage. They are accessible by default and always evolving.",
-            "I went with React Native as it seemed like the best choice for this app. I kew React, and React Native seemed like the perfect way to target two operating systems myself. Plus, all the layout is made with CSS-like syntax, there are a lot of cool features to play with.",
-            "I'm using React Native with Expo, Native Base and Axios.",
-            "One very cool feature of doing layouts React Native, is the ability to think of different screen sizes in the most logical way: using media queries. For that I used a library called react-native-extended-stylesheets, which made the process to build something that looks good on a hand-held device or a tablet, a breeze.",
-            "For navigation i'm using React Navigation 2.0 and for the icons in the bottom bars, I'm using SVG icons instead of PNG's.",
-            "The development is still in progress, but you can check out the source code here."
+            "Once again, I thought to myself: 'I'm going to do something about this. Perhaps a side-project just to showcase that with little effort it is possible'.",
+            "One of the most important goals of the app was to get as quickly as possible to a place where you could read articles from your favourite news sources, without too much messing around with login forms, passwords and all sorts of permissions. Just free information and that's it.",
+            "Apple News, a service launched by the fruit company, is a way for people to read on their devices. Unfortunately, it is curated by Apple and isn't available to Android devices, only on Apple devices, and not even all of them.",
+            "Google News is another free tool but, as much as I like most of the things that the search-giant builds, it still lacks that feeling of open-ness and freedom of choice.",
+            "I wanted something that I could share with others, so that they could use for themselves, without business boundaries.",
+            "In the past, I've messed up a little bit with Swift and Java. I felt like I removed myself from the visual side of things whilst learning the basics of those two. Or maybe I just sucked at it, I don't know.",
+            "I think I like to write software with good-old toolkit of web standards: HTML, CSS and Javascript.",
+            "They are old, they are new. They are powerful, but easy to manage. They are accessible by default and always evolving.",
+            "So I went with the progressive webapp approach. Something that could be accessed in all browsers and could even be loaded up offline.",
+            "I chose Gatsby, styled components, Jest and Cypress. I experimented a bit with Service Workers, with the Vibration API, with - at the time - fresh CSS features, such as scroll snapping",
+            "One cool thing of doing layouts for a progressive Web app is that, while developing, you don't think about mobile Operating Systems, but rather the content presentation and how it looks good on an array of different screen sizes. You can experiment with fluid typography, with media queries, Service Workers, caching stuff for offline usage, etc.",
+            "Looking back, I think this was the side-project that taught more more about progressive web applications."
           ],
           "photos": [
             {
@@ -421,45 +439,88 @@
         "skills": ["react", "node", "cypress-component-testing", "esbuild", "rollup"],
         "details": {
           "date": "September 2020",
-          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic deleniti magni, eveniet praesentium illo eligendi minus ullam officiis, omnis esse suscipit placeat modi autem facilis nesciunt exercitationem ratione, porro non!",
+          "description": "A small component and utility library that eases the process of creating accessible web content. It was made for Feedzai, but it is open-source and available on NPM.",
           "cover": {
-            "src": "https://source.unsplash.com/random/800x600/?cats",
+            "src": "projects/react-a11y-tools/project-cover.jpg",
+            "data-background": "#7e6a5c",
             "width": 800,
             "height": 600,
             "alt": ""
           },
-          "sourceCode": "https://github.com/JoaoTMDias/winpicker",
+          "sourceCode": "https://github.com/feedzai/react-a11y-tools",
           "problem": [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+            "Have you ever tried to build an accessible and complex web pattern, such as a roving tabindex or a focus trap inside a dialog? And have you tried to reuse that implementation logic in different projects without too much of a hassle?",
+            "That's exactly the point where I got. I've been working with web accessibility before React was a thing and each new project brought new challenges. And repeated code for the same patterns.",
+            "Along came React, with this new reactivity paradigm shift, this idea of building components, the 'lego pieces' for the web. But I still had to repeat the same implementations for the same usage patterns over and over again.",
+            "There were already a few libraries in this space that did most of what I wanted, but I didn't need all of it, just a small set of tailored components, for the common accessibility challenges I faced daily as a frontend developer."
           ],
           "solution": [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur optio reprehenderit numquam. Laboriosam accusantium maxime similique aut quis, voluptatem esse id doloribus consequuntur sapiente facilis commodi sunt numquam! Excepturi, voluptatibus."
+            "For starters, I wanted something that would help me announce route changes on a single-page app. At the time, only Gatsby had something like that implemented, so I followed the work that Marcy Sutton had made for the framework and did something similar that could be used with any routing library and even Next.js.",
+            "Then, I also wanted a piece of software that could allow me to easily implement a roving tabindex pattern, very commonly found in navigation components, such as menus and comboboxes.",
+            "Finally, something that could allow me to trap focus within a certain area, such as a modal or a dialog window.",
+            "Of course, I ended up adding a bit more components and helpers for specific uses-cases that I found out that I needed at work, such as a system of rendering out the correct heading order on a page or even allowing traditionally keyboard-excluded components (such as disabled buttons) to be able to receive focus but skill be disabled and announced as such.",
+            "At Feedzai we use React, so the components are written in React and tested with Cypress. I also wrote the documentation using Docusaurus.",
+            "Since version 1.0.0 this little library has been used on all UI projects at Feedzai."
           ],
           "photos": [
             {
-              "src": "https://source.unsplash.com/random/640x480/?cats",
+              "src": "projects/react-a11y-tools/project-1.jpg",
               "width": 640,
-              "height": 480,
+              "height": 400,
               "alt": ""
             },
             {
-              "src": "https://source.unsplash.com/random/640x480/?cats",
+              "src": "projects/react-a11y-tools/project-2.jpg",
               "width": 640,
-              "height": 480,
+              "height": 400,
               "alt": ""
             },
             {
-              "src": "https://source.unsplash.com/random/640x480/?cats",
+              "src": "projects/react-a11y-tools/project-3.jpg",
               "width": 640,
-              "height": 480,
+              "height": 400,
               "alt": ""
             },
             {
-              "src": "https://source.unsplash.com/random/640x480/?cats",
+              "src": "projects/react-a11y-tools/project-4.jpg",
               "width": 640,
-              "height": 480,
+              "height": 400,
+              "alt": ""
+            },
+            {
+              "src": "projects/react-a11y-tools/project-5.jpg",
+              "width": 640,
+              "height": 400,
+              "alt": ""
+            },
+            {
+              "src": "projects/react-a11y-tools/project-6.jpg",
+              "width": 640,
+              "height": 400,
+              "alt": ""
+            },
+            {
+              "src": "projects/react-a11y-tools/project-7.jpg",
+              "width": 640,
+              "height": 400,
+              "alt": ""
+            },
+            {
+              "src": "projects/react-a11y-tools/project-8.jpg",
+              "width": 640,
+              "height": 400,
+              "alt": ""
+            },
+            {
+              "src": "projects/react-a11y-tools/project-9.jpg",
+              "width": 640,
+              "height": 400,
+              "alt": ""
+            },
+            {
+              "src": "projects/react-a11y-tools/project-10.jpg",
+              "width": 640,
+              "height": 400,
               "alt": ""
             }
           ]

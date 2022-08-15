@@ -57,7 +57,7 @@ function Dialog({ data, onClose }: Props): JSX.Element {
     return () => {
       bodyElement.classList.remove("modal--open");
     };
-  });
+  }, []);
   return (
     <div className={styles.container}>
       <FocusManager restoreFocus contain>
@@ -98,14 +98,14 @@ function Dialog({ data, onClose }: Props): JSX.Element {
                 sourceCode={data.details.sourceCode}
               />
               <div className={styles.section}>
-                {data.details.photos.map((photo, index) => {
-                  return <img key={index} className={styles.gallery} loading="lazy" {...photo} />;
-                })}
-              </div>
-              <div className={styles.section}>
                 <h3>The Problem</h3>
                 {data.details.problem.map((item, index) => {
                   return <p key={index}>{item}</p>;
+                })}
+              </div>
+              <div className={styles.section}>
+                {data.details.photos.map((photo, index) => {
+                  return <img key={index} className={styles.gallery} loading="lazy" {...photo} />;
                 })}
               </div>
               <div className={styles.section}>
