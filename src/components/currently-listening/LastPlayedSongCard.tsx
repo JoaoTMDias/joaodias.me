@@ -20,6 +20,7 @@ export const LastPlayedSongCard: FunctionComponent<{
   return (
     <div className={styles.container}>
       <img
+        className={styles.cover}
         src={song.image[2]["#text"]}
         width={PAGE_CONTENT.footer.marquee.card.width}
         height={PAGE_CONTENT.footer.marquee.card.height}

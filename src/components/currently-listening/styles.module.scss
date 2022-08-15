@@ -10,23 +10,49 @@
 .container,
 .info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background-color: var(--background-color);
+
+  @media (min-width: 60rem) {
+    flex-direction: row;
+  }
 }
 
 .container {
+  padding-block: 1rem;
   gap: 2rem;
 }
 
 .info {
-  gap: 1.5rem;
+  gap: 0.5rem;
+
+  @media (min-width: 60rem) {
+    gap: 1.5rem;
+  }
+}
+
+.cover {
+  width: 5rem;
+  height: 5rem;
+
+  @media (min-width: 60rem) {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 .track,
 .artist,
 .album {
+  display: inline-block;
+  max-width: 30ch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  white-space: nowrap;
+  word-wrap: normal;
   font-family: var(--heading-font-family);
   font-style: italic;
   font-weight: 500;
@@ -35,6 +61,14 @@
   text-transform: uppercase;
   color: var(--text-color);
   background-color: var(--background-color);
+}
+
+.artist {
+  text-align: center;
+
+  @media (min-width: 60rem) {
+    text-align: left;
+  }
 }
 
 .track {
