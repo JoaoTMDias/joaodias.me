@@ -163,7 +163,6 @@ describe("Currently Playing", () => {
   it("should display the currently playing song", () => {
     const { container, mainTitle, albumCover, song, album, artist } = PAGE_SELECTORS.currentlyListening;
     cy.findByTestId(container).scrollIntoView().should("be.visible");
-    cy.findByTestId(mainTitle).should("have.text", `\n\t\t\t\t\t${PAGE_DATA.footer.title}`);
     cy.findByTestId(albumCover).should("be.visible");
     cy.findByTestId(song).should("have.text", `${LastFMFixture.recenttracks.track[0].name}. This link will open in a new tab`);
     cy.findByTestId(album).should("have.text", LastFMFixture.recenttracks.track[0].album["#text"]);
