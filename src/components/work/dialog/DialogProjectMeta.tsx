@@ -34,7 +34,7 @@ function DialogProjectMeta({ skills, date, sourceCode }: Props): JSX.Element {
       </div>
       <div className={styles.projectColumn}>
         <h4>Source Code</h4>
-        <span className="fancy__link__wrapper">
+        <span className="fancy-link__wrapper">
           <FancyLink href={sourceCode} text="View source code" target="_blank" />
         </span>
       </div>

@@ -1,9 +1,9 @@
-.fancy__link__wrapper {
+.fancy-link__wrapper {
   height: 2rem;
   display: flex;
 }
 
-.fancy__link {
+.fancy-link {
   text-decoration: none;
   text-align: center;
   height: 100%;
@@ -18,13 +18,13 @@
 
   &:hover,
   &:focus {
-    .fancy__link__underline {
+    .fancy-link__underline {
       transform: translate3d(-66.6%, 0, 0);
     }
   }
 }
 
-.fancy__link__underline {
+.fancy-link__underline {
   position: absolute;
   top: 0;
   left: 0;
@@ -33,11 +33,17 @@
   fill: none;
   stroke: var(--text-color);
   stroke-width: 2px;
-  transition: transform 700ms;
-  transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
   background-color: transparent;
   width: 300%;
   height: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fancy-link__underline {
+    transition-property: transform;
+    transition-duration: 700ms;
+    transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+  }
 }
 
 .grid-background {
