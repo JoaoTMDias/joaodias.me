@@ -5,7 +5,7 @@ import LastFMFixture from "../fixtures/last-fm.json";
 
 const PAGE_SELECTORS = {
   logo: "logo",
-  topNav: "Page Sections",
+  topNav: "Top Navigation",
   topNavLink: "top-nav-link",
   profilePicture: "profile-picture",
   fakeCopyright: "fake-copyright",
