@@ -38,10 +38,11 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 			.container {
 				width: 100%;
 				display: grid;
-				grid-template-rows: var(--hero-height) 1fr;
+				grid-template-rows: var(--header-height) 1fr;
 				grid-gap: 3rem;
 
 				@media (min-width: 60rem) {
+					grid-template-rows: auto 1fr;
 					grid-gap: 0;
 				}
 			}
