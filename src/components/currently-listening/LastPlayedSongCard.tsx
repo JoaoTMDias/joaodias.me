@@ -19,16 +19,17 @@ export const LastPlayedSongCard: FunctionComponent<{
 }> = ({ song }) => {
   return (
     <div className={styles.container}>
-      <img
-        className={styles.cover}
-        src={song.image[2]["#text"]}
-        width={PAGE_CONTENT.footer.marquee.card.width}
-        height={PAGE_CONTENT.footer.marquee.card.height}
-        alt={`${song.album["#text"]} cover`}
-        loading="lazy"
-        data-testid="currently-listening-album-cover"
-      />
-
+      <div className={styles.cover}>
+        <img
+          className={styles.cover__image}
+          src={song.image[2]["#text"]}
+          width={PAGE_CONTENT.footer.marquee.card.width}
+          height={PAGE_CONTENT.footer.marquee.card.height}
+          alt={`${song.album["#text"]} cover`}
+          loading="lazy"
+          data-testid="currently-listening-album-cover"
+        />
+      </div>
       <p className={styles.info}>
         <a
           className={`${styles.track} tooltip`}
@@ -41,15 +42,15 @@ export const LastPlayedSongCard: FunctionComponent<{
           <span className="sr-only">{PAGE_CONTENT.footer.marquee.track}</span>
         </a>
         <span className="sr-only">by</span>
-        <span className={styles.artist} role="presentation" aria-hidden="true">
-          ♠
+        <span className={styles.artist} aria-hidden="true">
+          /
         </span>
         <span className={styles.artist} data-testid="currently-listening-artist">
           {song.artist["#text"]}
         </span>
         <span className="sr-only">{PAGE_CONTENT.footer.marquee.artist}</span>
-        <span className={styles.artist} role="presentation" aria-hidden="true">
-          ♣
+        <span className={styles.artist} aria-hidden="true">
+          /
         </span>
         <span className={styles.album} data-testid="currently-listening-album">
           {song.album["#text"]}

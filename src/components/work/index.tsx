@@ -57,7 +57,7 @@ function Work() {
           {description}
         </span>
         <RoverProvider direction="vertical">
-          <div className={styles.work__list} data-testid="work-list">
+          <ol className={styles.work__list} data-testid="work-list">
             {SelectWorkData.map((work, index) => (
               <Item
                 key={work.id}
@@ -70,7 +70,7 @@ function Work() {
                 onClick={() => handleOnClickOnButton(index)}
               />
             ))}
-          </div>
+          </ol>
         </RoverProvider>
       </div>
       {showDialog && renderDialog()}

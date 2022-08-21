@@ -64,6 +64,7 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   overflow: hidden;
+  list-style-type: none;
 
   @media (min-width: 60rem) {
     gap: 0.5rem;
@@ -96,6 +97,7 @@
     background-color: var(--background-color-hover);
     color: var(--text-color-hover);
     outline-color: transparent;
+    outline-offset: -2px;
 
     .content__toggle__path {
       fill: var(--text-color-hover);

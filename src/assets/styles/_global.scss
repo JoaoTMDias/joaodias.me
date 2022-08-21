@@ -105,4 +105,10 @@ a {
 *::-webkit-scrollbar-thumb {
   background-color: var(--text-color);
   border-radius: 1.25rem;
+
+  @media (forced-colors: active) {
+    border-color: var(--text-color-faded);
+    border-style: solid;
+    border-width: 2px;
+  }
 }

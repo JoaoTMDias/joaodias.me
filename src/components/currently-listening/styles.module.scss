@@ -36,10 +36,59 @@
 .cover {
   width: 5rem;
   height: 5rem;
+  transform: scale(1);
+  z-index: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
 
   @media (min-width: 60rem) {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border-radius: 0.125rem;
+    position: relative;
+  }
+
+  &:before {
+    background-image: url("/record.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    inset: auto;
+    border-radius: 50%;
+    transform: translateX(25%) rotate(0);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover {
+      transform: scale(3.5);
+
+      &:before {
+        transform: translateX(66%) rotate(3turn);
+      }
+    }
+
+    transition-duration: 400ms;
+
+    &,
+    &:before {
+      transition-property: transform;
+      transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    &:before {
+      transition-duration: 6000ms;
+      transition-delay: 500ms;
+    }
   }
 }
 
