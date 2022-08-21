@@ -70,7 +70,7 @@ function Dialog({ data, onClose }: Props): JSX.Element {
           aria-describedby="modal-description"
           className={styles.dialog}
         >
-          <span className="sr-only">
+          <span id="modal-description" className="sr-only">
             Press the Escape key to close this window and go back to the work list
           </span>
           <button className={styles.close} type="button" onClick={onClose}>

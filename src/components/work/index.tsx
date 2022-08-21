@@ -49,7 +49,7 @@ function Work() {
   return (
     <>
       <div className={styles.work}>
-        <h2 id="work" aria-describedby="work-description" className={styles.title}>
+        <h2 id="work" className={styles.title}>
           <TitleArrow />
           <span>{title}</span>
         </h2>
