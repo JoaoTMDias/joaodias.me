@@ -96,6 +96,7 @@ export interface SocialMedia {
   instagram?: Channel;
   github?: Channel;
   twitter?: Channel;
+  linkedin?: Channel;
 }
 
 export interface Channel {

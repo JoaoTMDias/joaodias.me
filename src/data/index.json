@@ -553,6 +553,10 @@
       "twitter": {
         "label": "Follow me on Twitter. This link opens in a new tab",
         "tooltip": "Follow me on Twitter"
+      },
+      "linkedin": {
+        "label": "Add me on LinkedIn. This link opens in a new tab",
+        "tooltip": "Add me on LinkedIn"
       }
     }
   }

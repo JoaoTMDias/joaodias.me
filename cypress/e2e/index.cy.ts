@@ -172,11 +172,13 @@ describe("Currently Playing", () => {
 
 describe("Contacts", () => {
   it("should display the social media links", () => {
-    const { title, instagram, github, twitter } = PAGE_DATA.footer["social-media"];
+    const { title, instagram, github, twitter, linkedin } = PAGE_DATA.footer["social-media"];
 
     cy.findByRole("heading", { level: 3, name: title }).should("be.visible");
     cy.findByRole("link", { name: instagram.label }).should("be.visible");
     cy.findByRole("link", { name: github.label }).should("be.visible");
     cy.findByRole("link", { name: twitter.label }).should("be.visible");
+    cy.findByRole("link", { name: linkedin.label }).should("be.visible");
+
   });
 });

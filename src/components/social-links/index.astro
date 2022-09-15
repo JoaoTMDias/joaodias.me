@@ -1,42 +1,82 @@
 ---
 import PAGE_CONTENT from "../../data/index.json";
 
-const { "social-media": socialMedia } = PAGE_CONTENT.footer
+const { "social-media": socialMedia } = PAGE_CONTENT.footer;
 ---
 
 <nav id="contact" aria-labelledby="contact-title">
   <h3 id="contact-title" class="sr-only">{socialMedia.title}</h3>
   <ul class="list">
     <li class="item">
-      <a class="link tooltip" data-tooltip={socialMedia.instagram.tooltip} href="http://instagram.com/joaotmdias"
-        target="_blank" rel="noopener noreferrer">
+      <a
+        class="link tooltip"
+        data-tooltip={socialMedia.instagram.tooltip}
+        href="http://instagram.com/joaotmdias"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <path fill="var(--text-color)"
-            d="M15.75 2h-7.5A6.25 6.25 0 0 0 2 8.25v7.5A6.25 6.25 0 0 0 8.25 22h7.5A6.25 6.25 0 0 0 22 15.75v-7.5A6.25 6.25 0 0 0 15.75 2Zm4.37 13.75a4.37 4.37 0 0 1-4.37 4.37h-7.5a4.37 4.37 0 0 1-4.37-4.37v-7.5a4.37 4.37 0 0 1 4.37-4.37h7.5a4.37 4.37 0 0 1 4.37 4.37v7.5Z" />
-          <path fill="var(--text-color)"
-            d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.12a3.12 3.12 0 1 1 0-6.24 3.12 3.12 0 0 1 0 6.24Zm5.38-7.83a.67.67 0 1 0 0-1.34.67.67 0 0 0 0 1.34Z" />
+          <path
+            fill="var(--text-color)"
+            d="M15.75 2h-7.5A6.25 6.25 0 0 0 2 8.25v7.5A6.25 6.25 0 0 0 8.25 22h7.5A6.25 6.25 0 0 0 22 15.75v-7.5A6.25 6.25 0 0 0 15.75 2Zm4.37 13.75a4.37 4.37 0 0 1-4.37 4.37h-7.5a4.37 4.37 0 0 1-4.37-4.37v-7.5a4.37 4.37 0 0 1 4.37-4.37h7.5a4.37 4.37 0 0 1 4.37 4.37v7.5Z"
+          ></path>
+          <path
+            fill="var(--text-color)"
+            d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.12a3.12 3.12 0 1 1 0-6.24 3.12 3.12 0 0 1 0 6.24Zm5.38-7.83a.67.67 0 1 0 0-1.34.67.67 0 0 0 0 1.34Z"
+          ></path>
         </svg>
         <span class="sr-only">{socialMedia.instagram.label}</span>
       </a>
     </li>
     <li class="item">
-      <a class="link tooltip" href="http://github.com/joaotmdias" target="_blank"
-        data-tooltip={socialMedia.github.tooltip} rel="noopener noreferrer">
+      <a
+        class="link tooltip"
+        href="http://github.com/joaotmdias"
+        target="_blank"
+        data-tooltip={socialMedia.github.tooltip}
+        rel="noopener noreferrer"
+      >
         <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <path fill="var(--text-color)"
-            d="M12 2.21a10 10 0 0 0-3.16 19.56c.5.1.68-.21.68-.48v-1.71c-2.78.61-3.37-1.34-3.37-1.34A2.64 2.64 0 0 0 5 16.77c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1 2.13 2.13 0 0 0 2.94.84c.048-.51.27-.986.63-1.35-2.22-.25-4.55-1.11-4.55-5A3.89 3.89 0 0 1 6.65 9a3.62 3.62 0 0 1 .1-2.66s.84-.27 2.75 1a9.92 9.92 0 0 1 2.5-.28 10 10 0 0 1 2.51.34c1.9-1.3 2.74-1 2.74-1a3.56 3.56 0 0 1 .1 2.6 3.89 3.89 0 0 1 1 2.69c0 3.86-2.34 4.71-4.57 5a2.39 2.39 0 0 1 .68 1.86v2.75c0 .33.18.58.69.48A10 10 0 0 0 12 2.21Z" />
+          <path
+            fill="var(--text-color)"
+            d="M12 2.21a10 10 0 0 0-3.16 19.56c.5.1.68-.21.68-.48v-1.71c-2.78.61-3.37-1.34-3.37-1.34A2.64 2.64 0 0 0 5 16.77c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1 2.13 2.13 0 0 0 2.94.84c.048-.51.27-.986.63-1.35-2.22-.25-4.55-1.11-4.55-5A3.89 3.89 0 0 1 6.65 9a3.62 3.62 0 0 1 .1-2.66s.84-.27 2.75 1a9.92 9.92 0 0 1 2.5-.28 10 10 0 0 1 2.51.34c1.9-1.3 2.74-1 2.74-1a3.56 3.56 0 0 1 .1 2.6 3.89 3.89 0 0 1 1 2.69c0 3.86-2.34 4.71-4.57 5a2.39 2.39 0 0 1 .68 1.86v2.75c0 .33.18.58.69.48A10 10 0 0 0 12 2.21Z"
+          ></path>
         </svg>
         <span class="sr-only">{socialMedia.github.label}</span>
       </a>
     </li>
     <li class="item">
-      <a class="link tooltip" href="http://twitter.com/joaotmdias" target="_blank" rel="noopener noreferrer"
-        data-tooltip={socialMedia.twitter.tooltip}>
+      <a
+        class="link tooltip"
+        href="http://twitter.com/joaotmdias"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-tooltip={socialMedia.twitter.tooltip}
+      >
         <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <path fill="var(--text-color)"
-            d="M24 4.31c-.892.39-1.843.65-2.835.775a4.893 4.893 0 0 0 2.165-2.719 9.833 9.833 0 0 1-3.12 1.191 4.92 4.92 0 0 0-8.511 3.365c0 .39.033.764.114 1.121-4.091-.199-7.71-2.16-10.142-5.146a4.928 4.928 0 0 0 1.512 6.576A4.859 4.859 0 0 1 .96 8.867v.054a4.943 4.943 0 0 0 3.942 4.835 4.93 4.93 0 0 1-1.29.162 4.352 4.352 0 0 1-.932-.084c.638 1.948 2.447 3.38 4.598 3.427a9.886 9.886 0 0 1-6.1 2.1c-.404 0-.791-.019-1.178-.069A13.853 13.853 0 0 0 7.548 21.5c9.054 0 14.004-7.5 14.004-14 0-.218-.008-.428-.018-.637A9.815 9.815 0 0 0 24 4.31Z" />
+          <path
+            fill="var(--text-color)"
+            d="M24 4.31c-.892.39-1.843.65-2.835.775a4.893 4.893 0 0 0 2.165-2.719 9.833 9.833 0 0 1-3.12 1.191 4.92 4.92 0 0 0-8.511 3.365c0 .39.033.764.114 1.121-4.091-.199-7.71-2.16-10.142-5.146a4.928 4.928 0 0 0 1.512 6.576A4.859 4.859 0 0 1 .96 8.867v.054a4.943 4.943 0 0 0 3.942 4.835 4.93 4.93 0 0 1-1.29.162 4.352 4.352 0 0 1-.932-.084c.638 1.948 2.447 3.38 4.598 3.427a9.886 9.886 0 0 1-6.1 2.1c-.404 0-.791-.019-1.178-.069A13.853 13.853 0 0 0 7.548 21.5c9.054 0 14.004-7.5 14.004-14 0-.218-.008-.428-.018-.637A9.815 9.815 0 0 0 24 4.31Z"
+          ></path>
         </svg>
         <span class="sr-only">{socialMedia.twitter.label}</span>
+      </a>
+    </li>
+    <li class="item">
+      <a
+        class="link tooltip"
+        href="https://www.linkedin.com/in/joaotmdias/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-tooltip={socialMedia.linkedin.tooltip}
+      >
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <path
+            fill="var(--text-color)"
+            d="M6.7 22H2.348V8.98H6.7V22zM4.522 7.067C3.13 7.067 2 5.914 2 4.522a2.521 2.521 0 015.043 0c0 1.392-1.13 2.545-2.522 2.545zM21.995 22h-4.344v-5.825c0-1.627-.033-3.712-2.264-3.712-2.263 0-2.61 1.767-2.61 3.595V22h-4.35V8.98h4.176v1.912h.061c.582-1.101 2.002-2.264 4.12-2.264 4.406 0 5.216 2.902 5.216 6.67V21l-.005 1z"
+          ></path>
+        </svg>
+        <span class="sr-only">{socialMedia.linkedin.label}</span>
       </a>
     </li>
   </ul>
@@ -70,7 +110,7 @@ const { "social-media": socialMedia } = PAGE_CONTENT.footer
 
   @media (min-width: 60rem) {
     .list {
-      max-width: 11rem;
+      max-width: 15rem;
     }
   }
 </style>
