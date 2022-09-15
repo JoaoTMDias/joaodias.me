@@ -31,6 +31,13 @@
     vscode-languageserver-types "^3.17.1"
     vscode-uri "^3.0.3"
 
+"@astrojs/lit@^1.0.1":
+  version "1.0.1"
+  resolved "https://maven.feedzai.com/repository/npm-all/@astrojs/lit/-/lit-1.0.1.tgz#0bb6a5e231ec41a22f42346b5be8ff1ad2d66b1f"
+  integrity sha512-9KPhXzWr8ZQxQ690kiHJV4XgxOf9hjQY+wnfyrajgI3ZqapBtEecoce6jQLFzvi2QC5Rp92v9ntqIFn8qKcILA==
+  dependencies:
+    "@lit-labs/ssr" "^2.2.0"
+
 "@astrojs/markdown-remark@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-1.0.0.tgz#14adf79e02e744ee8a1342fa89aa858ccc6160d2"
@@ -471,6 +478,35 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@lit-labs/ssr-client@^1.0.0":
+  version "1.0.1"
+  resolved "https://maven.feedzai.com/repository/npm-all/@lit-labs/ssr-client/-/ssr-client-1.0.1.tgz#b97e121184aa201bbe6f165f3a7dc919f67129a2"
+  integrity sha512-rr/UVhxbKWNUr+3qRyvZk+glC7v7ph8Gk/W0z96YG64COJKf9ilnWY6JGW77TRqhrRMmS2nsvAXOyQgcF+4jrA==
+  dependencies:
+    "@lit/reactive-element" "^1.0.0"
+    lit "^2.0.0"
+    lit-html "^2.0.0"
+
+"@lit-labs/ssr@^2.2.0":
+  version "2.2.3"
+  resolved "https://maven.feedzai.com/repository/npm-all/@lit-labs/ssr/-/ssr-2.2.3.tgz#8f9cc343ebf531dd670136d342562bee33ce9be0"
+  integrity sha512-QOHZGR5a6znwqa8wM5hpMdlfO/fXUh0LYV39b16TEGtnszhGlKECx4+w9RiBuwOj/Qb5/SHGKpr81APRevWGeg==
+  dependencies:
+    "@lit-labs/ssr-client" "^1.0.0"
+    "@lit/reactive-element" "^1.4.0"
+    "@types/node" "^16.0.0"
+    lit "^2.3.0"
+    lit-element "^3.1.0"
+    lit-html "^2.3.0"
+    node-fetch "^3.2.8"
+    parse5 "^6.0.1"
+    resolve "^1.10.1"
+
+"@lit/reactive-element@^1.0.0", "@lit/reactive-element@^1.3.0", "@lit/reactive-element@^1.4.0":
+  version "1.4.1"
+  resolved "https://maven.feedzai.com/repository/npm-all/@lit/reactive-element/-/reactive-element-1.4.1.tgz#3f587eec5708692135bc9e94cf396130604979f3"
+  integrity sha512-qDv4851VFSaBWzpS02cXHclo40jsbAjRXnebNXpm0uVg32kCneZPo9RYVQtrTNICtZ+1wAYHu1ZtxWSWMbKrBw==
+
 "@ljharb/has-package-exports-patterns@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@ljharb/has-package-exports-patterns/-/has-package-exports-patterns-0.0.2.tgz#c1718939b65efa1f45f53686c2fcfa992b9fb68f"
@@ -623,6 +659,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.23.tgz#70f5f20b0b1b38f696848c1d3647bb95694e615e"
   integrity sha512-MhbCWN18R4GhO8ewQWAFK4TGQdBpXWByukz7cWyJmXhvRuCIaM/oWytGPqVmDzgEnnaIc9ss6HbU5mUi+vyZPA==
 
+"@types/node@^16.0.0":
+  version "16.11.59"
+  resolved "https://maven.feedzai.com/repository/npm-all/@types/node/-/node-16.11.59.tgz#823f238b9063ccc3b3b7f13186f143a57926c4f6"
+  integrity sha512-6u+36Dj3aDzhfBVUf/mfmc92OEdzQ2kx2jcXGdigfl70E/neV21ZHE6UCz4MDzTRcVqGAM27fk+DLXvyDsn3Jw==
+
 "@types/parse5@^6.0.0":
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/@types/parse5/-/parse5-6.0.3.tgz#705bb349e789efa06f43f128cef51240753424cb"
@@ -668,6 +709,11 @@
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.3.tgz#ff5e2f1902969d305225a047c8a0fd5c915cebef"
   integrity sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==
+
+"@types/trusted-types@^2.0.2":
+  version "2.0.2"
+  resolved "https://maven.feedzai.com/repository/npm-all/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
+  integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
 "@types/unist@*", "@types/unist@^2.0.0":
   version "2.0.6"
@@ -2550,6 +2596,30 @@ listr2@^3.8.3:
     through "^2.3.8"
     wrap-ansi "^7.0.0"
 
+lit-element@^3.1.0, lit-element@^3.2.0:
+  version "3.2.2"
+  resolved "https://maven.feedzai.com/repository/npm-all/lit-element/-/lit-element-3.2.2.tgz#d148ab6bf4c53a33f707a5168e087725499e5f2b"
+  integrity sha512-6ZgxBR9KNroqKb6+htkyBwD90XGRiqKDHVrW/Eh0EZ+l+iC+u+v+w3/BA5NGi4nizAVHGYvQBHUDuSmLjPp7NQ==
+  dependencies:
+    "@lit/reactive-element" "^1.3.0"
+    lit-html "^2.2.0"
+
+lit-html@^2.0.0, lit-html@^2.2.0, lit-html@^2.3.0:
+  version "2.3.1"
+  resolved "https://maven.feedzai.com/repository/npm-all/lit-html/-/lit-html-2.3.1.tgz#56f15104ea75c0a702904893e3409d0e89e2a2b9"
+  integrity sha512-FyKH6LTW6aBdkfNhNSHyZTnLgJSTe5hMk7HFtc/+DcN1w74C215q8B+Cfxc2OuIEpBNcEKxgF64qL8as30FDHA==
+  dependencies:
+    "@types/trusted-types" "^2.0.2"
+
+lit@^2.0.0, lit@^2.3.0, lit@^2.3.1:
+  version "2.3.1"
+  resolved "https://maven.feedzai.com/repository/npm-all/lit/-/lit-2.3.1.tgz#2cf1c2042da1e44c7a7cc72dff2d72303fd26f48"
+  integrity sha512-TejktDR4mqG3qB32Y8Lm5Lye3c8SUehqz7qRsxe1PqGYL6me2Ef+jeQAEqh20BnnGncv4Yxy2njEIT0kzK1WCw==
+  dependencies:
+    "@lit/reactive-element" "^1.4.0"
+    lit-element "^3.2.0"
+    lit-html "^2.3.0"
+
 load-yaml-file@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/load-yaml-file/-/load-yaml-file-0.2.0.tgz#af854edaf2bea89346c07549122753c07372f64d"
@@ -3237,7 +3307,7 @@ node-domexception@^1.0.0:
   resolved "https://registry.yarnpkg.com/node-domexception/-/node-domexception-1.0.0.tgz#6888db46a1f71c0b76b3f7555016b63fe64766e5"
   integrity sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==
 
-node-fetch@^3.2.5:
+node-fetch@^3.2.5, node-fetch@^3.2.8:
   version "3.2.10"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-3.2.10.tgz#e8347f94b54ae18b57c9c049ef641cef398a85c8"
   integrity sha512-MhuzNwdURnZ1Cp4XTazr69K0BTizsBroX7Zx3UgDSVcZYKF/6p0CBe4EUb/hLqmzVhl0UpYfgRljQ4yxE+iCxA==
@@ -3431,7 +3501,7 @@ parse-latin@^5.0.0:
     unist-util-modify-children "^2.0.0"
     unist-util-visit-children "^1.0.0"
 
-parse5@^6.0.0:
+parse5@^6.0.0, parse5@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
   integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
@@ -3768,7 +3838,7 @@ resolve-from@^5.0.0:
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-5.0.0.tgz#c35225843df8f776df21c57557bc087e9dfdfc69"
   integrity sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==
 
-resolve@^1.17.0, resolve@^1.22.0, resolve@^1.22.1:
+resolve@^1.10.1, resolve@^1.17.0, resolve@^1.22.0, resolve@^1.22.1:
   version "1.22.1"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.1.tgz#27cb2ebb53f91abb49470a928bba7558066ac177"
   integrity sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==
