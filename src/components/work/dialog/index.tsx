@@ -58,6 +58,24 @@ function Dialog({ data, onClose }: Props): JSX.Element {
       bodyElement.classList.remove("modal--open");
     };
   }, []);
+
+  /**
+   * Handles a click on the back button.
+   * When the modal is opened, closes.
+   */
+  useEffect(() => {
+    function handleOnBackButton() {
+      if (location.hash.length === 0){
+          onClose();
+      }
+    }
+    window.addEventListener('hashchange', handleOnBackButton, false);
+
+
+    return () => {
+      window.removeEventListener("hashchange", handleOnBackButton, false);
+    }
+  })
   return (
     <div className={styles.container}>
       <FocusManager restoreFocus contain>
