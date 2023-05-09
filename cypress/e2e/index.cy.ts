@@ -114,9 +114,9 @@ describe("Work Experience", () => {
     // Should have the current jobs section visible
     cy.findAllByTestId(PAGE_SELECTORS.experienceItem).filter("[data-current]").should("have.length", 1).and("exist");
 
-    // The other jobs should have the length of 4
+    // The other jobs should have the length of 6
     cy.findAllByTestId(PAGE_SELECTORS.experienceItem).filter(":not([data-current])").should("exist").within(() => {
-      cy.get(".item").should("have.length", 4);
+      cy.get(".item").should("have.length", 6);
     });
 
     // The download button should be visible and the PDF should be available

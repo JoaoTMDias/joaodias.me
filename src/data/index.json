@@ -63,8 +63,8 @@
         "title-location": "Coimbra, Portugal"
       },
       "currently-at": {
-        "href": "https://www.feedzai.com",
-        "text": "Feedzai"
+        "href": "https://www.farfetch.com",
+        "text": "Farfetch"
       }
     },
     "skills": {
@@ -93,8 +93,7 @@
       },
       "mainTitle": "I focus on creating great, accessible and rich web experiences for everyone. I’ve been lucky enough to have been doing that since 2011.",
       "description": [
-        "“He’s a pretty chilled dude”, thats what my friends would say. Besides working as a Senior Frontend Engineer, I also teach web development classes at first and second year students on the Polythecnic Institute of Coimbra.",
-        "On my free time I usually go out and explore the fantastic world of craft beers, rock out to some great live music and hit the gym whenever I can."
+        "Besides working as a Senior Frontend Engineer, on my free time I usually go out and explore the fantastic world of craft beers, rock out to some great live music and hit the gym whenever I can."
       ]
     },
     "experience": {
@@ -103,11 +102,25 @@
         "title": "Currently",
         "items": [
           {
+            "title": "Farfetch",
+            "description": "Senior Software Enginner - Frontend",
+            "duration": {
+              "from": "2023",
+              "to": "Present"
+            },
+            "location": "Porto, Portugal"
+          }
+        ]
+      },
+      "past": {
+        "title": "Past Jobs",
+        "items": [
+          {
             "title": "Feedzai",
             "description": "Senior Frontend Engineer and Accessibility advocate",
             "duration": {
               "from": "2019",
-              "to": "Present"
+              "to": "2023"
             },
             "location": "Coimbra, Portugal"
           },
@@ -116,15 +129,10 @@
             "description": "Invited assistant professor",
             "duration": {
               "from": "2022",
-              "to": "Present"
+              "to": "2023"
             },
             "location": "Coimbra, Portugal"
-          }
-        ]
-      },
-      "past": {
-        "title": "Past Jobs",
-        "items": [
+          },
           {
             "title": "WIT Software",
             "description": "UI and Graphic Designer, Frontend Developer",
