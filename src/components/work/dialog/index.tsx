@@ -6,7 +6,7 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import { FocusManager } from "@feedzai/react-a11y-tools";
+import { FocusManager } from "@jtmdias/react-a11y-tools";
 import { useEffect, useRef } from "react";
 import { WorkData } from "../../../data/content-types";
 import DialogCover from "./DialogCover";
@@ -65,17 +65,16 @@ function Dialog({ data, onClose }: Props): JSX.Element {
    */
   useEffect(() => {
     function handleOnBackButton() {
-      if (location.hash.length === 0){
-          onClose();
+      if (location.hash.length === 0) {
+        onClose();
       }
     }
-    window.addEventListener('hashchange', handleOnBackButton, false);
-
+    window.addEventListener("hashchange", handleOnBackButton, false);
 
     return () => {
       window.removeEventListener("hashchange", handleOnBackButton, false);
-    }
-  })
+    };
+  });
   return (
     <div className={styles.container}>
       <FocusManager restoreFocus contain>

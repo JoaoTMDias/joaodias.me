@@ -7,7 +7,7 @@
  * (c) 2022 joaodias.me, Rights Reserved.
  */
 import { useState } from "react";
-import { RoverProvider } from "@feedzai/react-a11y-tools";
+import { RoverProvider } from "@jtmdias/react-a11y-tools";
 import Dialog from "./dialog";
 import Item from "./item";
 import styles from "./index.module.scss";

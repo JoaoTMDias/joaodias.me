@@ -6,9 +6,15 @@ import PAGE_CONTENT from "../../data/index.json";
   <h3 class="sr-only">{PAGE_CONTENT.about.bio.title}</h3>
   <div class="bio">
     <div class="bio__picture">
-      <img class="bio__image" src={PAGE_CONTENT.about.bio["bio-picture"].src}
-        width={PAGE_CONTENT.about.bio["bio-picture"].width} height={PAGE_CONTENT.about.bio["bio-picture"].height}
-        alt={PAGE_CONTENT.about.bio["bio-picture"].alt} data-testid="bio-image">
+      <img
+        class="bio__image"
+        src={PAGE_CONTENT.about.bio["bio-picture"].src}
+        width={PAGE_CONTENT.about.bio["bio-picture"].width}
+        height={PAGE_CONTENT.about.bio["bio-picture"].height}
+        alt={PAGE_CONTENT.about.bio["bio-picture"].alt}
+        loading="lazy"
+        data-testid="bio-image"
+      />
     </div>
     <div class="bio__content">
       <h4 class="bio__title" data-testid="bio-intro">{PAGE_CONTENT.about.bio.mainTitle}</h4>

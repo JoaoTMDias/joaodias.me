@@ -6,7 +6,7 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import { useFocus, useRover } from "@feedzai/react-a11y-tools";
+import { useFocus, useRover } from "@jtmdias/react-a11y-tools";
 import * as React from "react";
 import { HTMLAttributes, useRef } from "react";
 import styles from "./index.module.scss";
@@ -61,7 +61,7 @@ function Item({ id, title, subtitle, skills, thumbnail, theme, onClick }: Props)
         data-testid="work-item"
       >
         <div className={styles.figure}>
-          <img {...thumbnail} />
+          <img {...thumbnail} loading="lazy" />
         </div>
         <div className={styles.content}>
           <h3 className={styles.content__title} data-testid="work-item-title">

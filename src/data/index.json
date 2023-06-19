@@ -432,7 +432,7 @@
       },
       {
         "id": "840682ad-c5a7-49fa-9751-be787ea436ff",
-        "title": "@feedzai/react-a11y-tools",
+        "title": "@jtmdias/react-a11y-tools",
         "shortDescription": "A small component library that eases the process of creating accessible design systems, web apps or websites. Available on npm.",
         "thumbnail": {
           "src": "projects/react-a11y-tools/project-icon.svg",
@@ -447,7 +447,7 @@
         "skills": ["react", "node", "cypress-component-testing", "esbuild", "rollup"],
         "details": {
           "date": "September 2020",
-          "description": "A small component and utility library that eases the process of creating accessible web content. It was made for Feedzai, but it is open-source and available on NPM.",
+          "description": "A small component and utility library that eases the process of creating accessible web content. It is open-source and available on NPM.",
           "cover": {
             "src": "projects/react-a11y-tools/project-cover.jpg",
             "data-background": "#7e6a5c",
@@ -455,7 +455,7 @@
             "height": 600,
             "alt": ""
           },
-          "sourceCode": "https://github.com/feedzai/react-a11y-tools",
+          "sourceCode": "https://github.com/joaotmdias/react-a11y-tools",
           "problem": [
             "Have you ever tried to build an accessible and complex web pattern, such as a roving tabindex or a focus trap inside a dialog? And have you tried to reuse that implementation logic in different projects without too much of a hassle?",
             "That's exactly the point where I got. I've been working with web accessibility before React was a thing and each new project brought new challenges. And repeated code for the same patterns.",
@@ -467,8 +467,8 @@
             "Then, I also wanted a piece of software that could allow me to easily implement a roving tabindex pattern, very commonly found in navigation components, such as menus and comboboxes.",
             "Finally, something that could allow me to trap focus within a certain area, such as a modal or a dialog window.",
             "Of course, I ended up adding a bit more components and helpers for specific uses-cases that I found out that I needed at work, such as a system of rendering out the correct heading order on a page or even allowing traditionally keyboard-excluded components (such as disabled buttons) to be able to receive focus but skill be disabled and announced as such.",
-            "At Feedzai we use React, so the components are written in React and tested with Cypress. I also wrote the documentation using Docusaurus.",
-            "Since version 1.0.0 this little library has been used on all UI projects at Feedzai."
+            "I also wrote the documentation using Docusaurus.",
+            "Since version 1.0.0 this little library has been used on UI projects at Feedzai and Farfetch"
           ],
           "photos": [
             {

@@ -6,8 +6,7 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import { SkipLinks } from "@feedzai/react-a11y-tools";
-import "@feedzai/react-a11y-tools/dist/index.css";
+import { SkipLinks } from "@jtmdias/react-a11y-tools";
 import PAGE_CONTENT from "../../data/index.json";
 import "./index.module.scss";
 
