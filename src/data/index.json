@@ -70,17 +70,20 @@
     "skills": {
       "title": "A list of my skill set",
       "items": [
-        "React",
-        "Web Components",
-        "Vue",
-        "Typescript",
-        "Redux",
+        "Accessibility",
         "Cypress",
-        "Jest",
-        "Testing-Library",
-        "Node",
         "Interface Design",
-        "Accessibility"
+        "Jest",
+        "Lit",
+        "Node",
+        "Playwright",
+        "React",
+        "Redux",
+        "Testing-Library",
+        "Typescript",
+        "Vite",
+        "Vue",
+        "Web Components",
       ]
     },
     "bio": {
