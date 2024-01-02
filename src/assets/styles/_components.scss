@@ -63,6 +63,7 @@
   content: "";
   inset: 0;
   z-index: -2;
+  opacity: 0;
   background:
           linear-gradient(-90deg, var(--grid-line-1) 1px, transparent 1px),
           linear-gradient(var(--grid-line-1) 1px, transparent 1px),
