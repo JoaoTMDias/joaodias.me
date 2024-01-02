@@ -16,6 +16,7 @@
     "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
   --header-height: 3rem;
   --hero-height: auto;
+  --scrollbar-width: 0.75rem;
 
   @media (min-width: 60rem) {
     --hero-height: 3rem;
@@ -91,7 +92,7 @@ a {
 }
 
 *::-webkit-scrollbar {
-  width: 1.25rem;
+  width: var(--scrollbar-width);
 }
 
 *::-webkit-scrollbar-track {
@@ -99,12 +100,12 @@ a {
   border-color: var(--text-color-faded);
   border-style: solid;
   border-width: 2px;
-  border-radius: 1.25rem;
+  border-radius: var(--scrollbar-width);
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--text-color);
-  border-radius: 1.25rem;
+  border-radius: var(--scrollbar-width);
 
   @media (forced-colors: active) {
     border-color: var(--text-color-faded);
