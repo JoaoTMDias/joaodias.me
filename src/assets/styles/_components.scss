@@ -47,24 +47,41 @@
 }
 
 .grid-background {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 1rem;
+  --grid-line-1: hsla(0, 0%, 0%, 0.05);
+  --grid-line-2: hsla(0, 0%, 0%, 0.04);
+  --grid-background: hsl(0, 0%, 95%);
+  --grid-cross: hsla(0, 0%, 0%, 0.1);
+
+  @media (prefers-color-scheme: dark) {
+    --grid-line-1: hsla(0, 0%, 100%, 0.05);
+    --grid-line-2: hsla(0, 0%, 100%, 0.04);
+    --grid-background: hsl(0, 0%, 5%);
+    --grid-cross: hsla(0, 0%, 1000%, 0.1);
+  }
+
   position: fixed;
   content: "";
   inset: 0;
-  opacity: 0;
   z-index: -2;
-
-  > .grid-background__item {
-    border-left-style: dashed;
-    border-right-style: dashed;
-    border-color: var(--text-color);
-    border-width: 1px;
-    opacity: 0.1;
-    width: 100%;
-    height: 100%;
-  }
+  background:
+          linear-gradient(-90deg, var(--grid-line-1) 1px, transparent 1px),
+          linear-gradient(var(--grid-line-1) 1px, transparent 1px),
+          linear-gradient(-90deg, var(--grid-line-2) 1px, transparent 1px),
+          linear-gradient(var(--grid-line-2) 1px, transparent 1px),
+          linear-gradient(transparent 3px, var(--grid-background) 3px, var(--grid-background) 78px, transparent 78px),
+          linear-gradient(-90deg, var(--grid-cross) 1px, transparent 1px),
+          linear-gradient(-90deg, transparent 3px, var(--grid-background) 3px, var(--grid-background) 78px, transparent 78px),
+          linear-gradient(var(--grid-cross) 1px, transparent 1px),
+          var(--grid-background);
+    background-size:
+        4px 4px,
+        4px 4px,
+        80px 80px,
+        80px 80px,
+        80px 80px,
+        80px 80px,
+        80px 80px,
+        80px 80px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
