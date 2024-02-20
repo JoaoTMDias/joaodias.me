@@ -63,8 +63,8 @@
         "title-location": "Coimbra, Portugal"
       },
       "currently-at": {
-        "href": "https://www.farfetch.com",
-        "text": "Farfetch"
+        "href": "https://www.feedzai.com",
+        "text": "Feedzai"
       }
     },
     "skills": {
@@ -105,10 +105,10 @@
         "title": "Currently",
         "items": [
           {
-            "title": "Farfetch",
-            "description": "Senior Software Enginner - Frontend",
+            "title": "Feedzai",
+            "description": "Advanced Frontend Engineer and Accessibility advocate",
             "duration": {
-              "from": "2023",
+              "from": "2024",
               "to": "Present"
             },
             "location": "Porto, Portugal"
@@ -118,6 +118,15 @@
       "past": {
         "title": "Past Jobs",
         "items": [
+          {
+            "title": "Farfetch",
+            "description": "Senior Software Enginner - Frontend",
+            "duration": {
+              "from": "2023",
+              "to": "2024"
+            },
+            "location": "Porto, Portugal"
+          },
           {
             "title": "Feedzai",
             "description": "Senior Frontend Engineer and Accessibility advocate",
@@ -153,15 +162,6 @@
               "to": "2013"
             },
             "location": "Aveiro, Portugal"
-          },
-          {
-            "title": "Design Corner",
-            "description": "Web designer",
-            "duration": {
-              "from": "2011",
-              "to": "2011"
-            },
-            "location": "Coimbra, Portugal"
           },
           {
             "title": "joaodias.me",
