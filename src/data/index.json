@@ -458,7 +458,7 @@
             "height": 600,
             "alt": ""
           },
-          "sourceCode": "https://github.com/joaotmdias/react-a11y-tools",
+          "sourceCode": "https://github.com/JoaoTMDias/frontend/tree/main/packages/react-a11y-tools",
           "problem": [
             "Have you ever tried to build an accessible and complex web pattern, such as a roving tabindex or a focus trap inside a dialog? And have you tried to reuse that implementation logic in different projects without too much of a hassle?",
             "That's exactly the point where I got. I've been working with web accessibility before React was a thing and each new project brought new challenges. And repeated code for the same patterns.",
