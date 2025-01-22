@@ -27,7 +27,7 @@ const PAGE_SELECTORS = {
     title: "work-item-title",
     subtitle: "work-item-subtitle",
     skillsList: "work-item-skills",
-    skill: "work-item-skill"
+    skill: "work-item-skill",
   },
   currentlyListening: {
     container: "currently-listening",
@@ -35,23 +35,26 @@ const PAGE_SELECTORS = {
     albumCover: "currently-listening-album-cover",
     song: "currently-listening-song",
     artist: "currently-listening-artist",
-    album: "currently-listening-album"
-  }
-}
+    album: "currently-listening-album",
+  },
+};
 
 const PAGE_DATA: SelectedProjects = PAGE_CONTENT;
 
 beforeEach(() => {
-  cy.intercept("GET", "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=jtmdias&api_key=60caa5e07c4a12ec3d677cf8c2f6f804&format=json", { fixture: "last-fm.json" }).as("getRecentTracks");
+  cy.intercept(
+    "GET",
+    "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=jtmdias&api_key=60caa5e07c4a12ec3d677cf8c2f6f804&format=json",
+    { fixture: "last-fm.json" }
+  ).as("getRecentTracks");
   cy.injectAxe();
   setupLayout();
   cy.wait("@getRecentTracks");
-
 });
 
 describe("Homepage", () => {
   it("should load the website", () => {
-    cy.url().should("include", "http://localhost:3000/");
+    cy.url().should("include", "http://localhost:4321/");
     cy.title().should("equal", PAGE_DATA.title);
   });
 
@@ -75,19 +78,26 @@ describe("Homepage", () => {
   });
 });
 
-
 describe("Intro", () => {
   it("should be possible to visit the section by clicking on the top nav link", () => {
     cy.findByRole("link", { name: PAGE_DATA.header["main-navigation"][0].label }).realClick();
     cy.get(PAGE_SELECTORS.about).should("be.visible").scrollIntoView();
-    cy.findByTestId(PAGE_SELECTORS.introSubtitle).should("have.text", PAGE_DATA.about.intro.subtitle);
-    cy.findByTestId(PAGE_SELECTORS.introTitle).should("have.text", "I'm João, a web developer and accessibility advocate from\n      Coimbra, Portugal");
+    cy.findByTestId(PAGE_SELECTORS.introSubtitle).should(
+      "have.text",
+      PAGE_DATA.about.intro.subtitle
+    );
+    cy.findByTestId(PAGE_SELECTORS.introTitle).should(
+      "have.text",
+      "I'm João, a web developer and accessibility advocate from Coimbra, Portugal"
+    );
   });
 
   it("The link to the employer is correct", () => {
     const expectedLink = PAGE_DATA.about.intro["currently-at"].href;
 
-    cy.findByTestId(PAGE_SELECTORS.employerLink).scrollIntoView().should("have.attr", "href", expectedLink);
+    cy.findByTestId(PAGE_SELECTORS.employerLink)
+      .scrollIntoView()
+      .should("have.attr", "href", expectedLink);
   });
 });
 
@@ -112,17 +122,25 @@ describe("Work Experience", () => {
     cy.findByTestId(PAGE_SELECTORS.experience).should("exist").scrollIntoView();
 
     // Should have the current jobs section visible
-    cy.findAllByTestId(PAGE_SELECTORS.experienceItem).filter("[data-current]").should("have.length", 1).and("exist");
+    cy.findAllByTestId(PAGE_SELECTORS.experienceItem)
+      .filter("[data-current]")
+      .should("have.length", 1)
+      .and("exist");
 
     // The other jobs should have the length of 6
-    cy.findAllByTestId(PAGE_SELECTORS.experienceItem).filter(":not([data-current])").should("exist").within(() => {
-      cy.get(".item").should("have.length", 6);
-    });
+    cy.findAllByTestId(PAGE_SELECTORS.experienceItem)
+      .filter(":not([data-current])")
+      .should("exist")
+      .within(() => {
+        cy.get(".item").should("have.length", 6);
+      });
 
     // The download button should be visible and the PDF should be available
-    cy.findByLabelText(PAGE_DATA.about.experience.download.label).should("be.visible").then(($link) => {
-      cy.request($link.prop("href")).its("status").should("equal", 200);
-    });
+    cy.findByLabelText(PAGE_DATA.about.experience.download.label)
+      .should("be.visible")
+      .then(($link) => {
+        cy.request($link.prop("href")).its("status").should("equal", 200);
+      });
   });
 });
 
@@ -139,15 +157,25 @@ describe("Selected Work", () => {
     // - the correct title
     // - the corret subtitle
     // - the correct amount of skills
-    cy.findAllByTestId(PAGE_SELECTORS.workItems.item).should("have.length", PAGE_DATA.work.data.length).each(($item, index) => {
-      const item = PAGE_DATA.work.data[index];
-      cy.wrap($item).should("have.attr", "id", item.id).and("have.attr", "aria-label", `${item.title}, ${item.shortDescription}`).within(() => {
-        cy.findByTestId(PAGE_SELECTORS.workItems.title).should("have.text", item.title);
-        cy.findByTestId(PAGE_SELECTORS.workItems.subtitle).should("have.text", item.shortDescription);
+    cy.findAllByTestId(PAGE_SELECTORS.workItems.item)
+      .should("have.length", PAGE_DATA.work.data.length)
+      .each(($item, index) => {
+        const item = PAGE_DATA.work.data[index];
+        cy.wrap($item)
+          .should("have.attr", "id", item.id)
+          .and("have.attr", "aria-label", `${item.title}, ${item.shortDescription}`)
+          .within(() => {
+            cy.findByTestId(PAGE_SELECTORS.workItems.title).should("have.text", item.title);
+            cy.findByTestId(PAGE_SELECTORS.workItems.subtitle).should(
+              "have.text",
+              item.shortDescription
+            );
 
-        cy.findAllByTestId(PAGE_SELECTORS.workItems.skill).each(($skill) => item.skills.includes($skill.text()));
+            cy.findAllByTestId(PAGE_SELECTORS.workItems.skill).each(($skill) =>
+              item.skills.includes($skill.text())
+            );
+          });
       });
-    });
   });
 
   it("should open a project and display its contents", () => {
@@ -155,18 +183,29 @@ describe("Selected Work", () => {
 
     const chosenItemData = PAGE_DATA.work.data[randomIndex];
 
-    cy.findAllByTestId(PAGE_SELECTORS.workItems.item).eq(randomIndex).scrollIntoView().should("be.visible").realClick();
+    cy.findAllByTestId(PAGE_SELECTORS.workItems.item)
+      .eq(randomIndex)
+      .scrollIntoView()
+      .should("be.visible")
+      .realClick();
   });
 });
 
 describe("Currently Playing", () => {
   it("should display the currently playing song", () => {
-    const { container, mainTitle, albumCover, song, album, artist } = PAGE_SELECTORS.currentlyListening;
+    const { container, mainTitle, albumCover, song, album, artist } =
+      PAGE_SELECTORS.currentlyListening;
     cy.findByTestId(container).scrollIntoView().should("be.visible");
     cy.findByTestId(albumCover).should("be.visible");
-    cy.findByTestId(song).should("have.text", `${LastFMFixture.recenttracks.track[0].name}. This link will open in a new tab`);
+    cy.findByTestId(song).should(
+      "have.text",
+      `${LastFMFixture.recenttracks.track[0].name}. This link will open in a new tab`
+    );
     cy.findByTestId(album).should("have.text", LastFMFixture.recenttracks.track[0].album["#text"]);
-    cy.findByTestId(artist).should("have.text", LastFMFixture.recenttracks.track[0].artist["#text"]);
+    cy.findByTestId(artist).should(
+      "have.text",
+      LastFMFixture.recenttracks.track[0].artist["#text"]
+    );
   });
 });
 
@@ -179,6 +218,5 @@ describe("Contacts", () => {
     cy.findByRole("link", { name: github.label }).should("be.visible");
     cy.findByRole("link", { name: twitter.label }).should("be.visible");
     cy.findByRole("link", { name: linkedin.label }).should("be.visible");
-
   });
 });

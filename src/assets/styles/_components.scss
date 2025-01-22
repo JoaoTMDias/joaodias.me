@@ -52,37 +52,39 @@
   --grid-background: hsl(0, 0%, 95%);
   --grid-cross: hsla(0, 0%, 0%, 0.1);
 
+  position: fixed;
+  content: "";
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  background: linear-gradient(-90deg, var(--grid-line-1) 1px, transparent 1px),
+    linear-gradient(var(--grid-line-1) 1px, transparent 1px),
+    linear-gradient(-90deg, var(--grid-line-2) 1px, transparent 1px),
+    linear-gradient(var(--grid-line-2) 1px, transparent 1px),
+    linear-gradient(
+      transparent 3px,
+      var(--grid-background) 3px,
+      var(--grid-background) 78px,
+      transparent 78px
+    ),
+    linear-gradient(-90deg, var(--grid-cross) 1px, transparent 1px),
+    linear-gradient(
+      -90deg,
+      transparent 3px,
+      var(--grid-background) 3px,
+      var(--grid-background) 78px,
+      transparent 78px
+    ),
+    linear-gradient(var(--grid-cross) 1px, transparent 1px), var(--grid-background);
+  background-size: 4px 4px, 4px 4px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px,
+    80px 80px;
+
   @media (prefers-color-scheme: dark) {
     --grid-line-1: hsla(0, 0%, 100%, 0.05);
     --grid-line-2: hsla(0, 0%, 100%, 0.04);
     --grid-background: hsl(0, 0%, 5%);
     --grid-cross: hsla(0, 0%, 1000%, 0.1);
   }
-
-  position: fixed;
-  content: "";
-  inset: 0;
-  z-index: -2;
-  opacity: 0;
-  background:
-          linear-gradient(-90deg, var(--grid-line-1) 1px, transparent 1px),
-          linear-gradient(var(--grid-line-1) 1px, transparent 1px),
-          linear-gradient(-90deg, var(--grid-line-2) 1px, transparent 1px),
-          linear-gradient(var(--grid-line-2) 1px, transparent 1px),
-          linear-gradient(transparent 3px, var(--grid-background) 3px, var(--grid-background) 78px, transparent 78px),
-          linear-gradient(-90deg, var(--grid-cross) 1px, transparent 1px),
-          linear-gradient(-90deg, transparent 3px, var(--grid-background) 3px, var(--grid-background) 78px, transparent 78px),
-          linear-gradient(var(--grid-cross) 1px, transparent 1px),
-          var(--grid-background);
-    background-size:
-        4px 4px,
-        4px 4px,
-        80px 80px,
-        80px 80px,
-        80px 80px,
-        80px 80px,
-        80px 80px,
-        80px 80px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

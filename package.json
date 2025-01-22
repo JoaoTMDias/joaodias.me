@@ -6,25 +6,28 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "start-server-and-test start http://localhost:4321 test:headless",
     "test:open": "cypress open --e2e --browser chrome",
     "test:headless": "cypress run --e2e"
   },
   "devDependencies": {
-    "@astrojs/react": "2.2.1",
-    "@cypress/code-coverage": "3.10.7",
-    "@testing-library/cypress": "9.0.0",
-    "@types/react": "18.2.12",
-    "@types/react-dom": "18.2.5",
-    "astro": "2.6.4",
-    "axe-core": "4.7.2",
-    "cypress": "12.14.0",
-    "cypress-axe": "1.4.0",
-    "cypress-real-events": "1.8.1",
-    "react": "18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "1.63.4"
+    "@astrojs/react": "4.1.6",
+    "@cypress/code-coverage": "3.13.10",
+    "@testing-library/cypress": "10.0.3",
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3",
+    "astro": "5.1.8",
+    "axe-core": "4.10.2",
+    "cypress": "14.0.0",
+    "cypress-axe": "1.5.0",
+    "cypress-real-events": "1.14.0",
+    "react": "19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "1.83.4",
+    "start-server-and-test": "^2.0.10",
+    "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@jtmdias/react-a11y-tools": "1.5.3"
+    "@jtmdias/react-a11y-tools": "1.6.2"
   }
 }

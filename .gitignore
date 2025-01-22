@@ -21,3 +21,8 @@ pnpm-debug.log*
 
 # Code coverage
 coverage
+cypress/screenshots
+cypress/videos
+cypress/reports
+
+.astro
