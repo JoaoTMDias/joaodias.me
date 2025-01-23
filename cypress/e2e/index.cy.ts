@@ -42,12 +42,9 @@ const PAGE_SELECTORS = {
 const PAGE_DATA: SelectedProjects = PAGE_CONTENT;
 
 beforeEach(() => {
-  cy.intercept(
-    "GET",
-    "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=jtmdias&api_key=60caa5e07c4a12ec3d677cf8c2f6f804&format=json",
-    { fixture: "last-fm.json" }
-  ).as("getRecentTracks");
-  cy.injectAxe();
+  cy.intercept("GET", `https://ws.audioscrobbler.com/2.0/**`, { fixture: "last-fm.json" }).as(
+    "getRecentTracks"
+  );
   setupLayout();
   cy.wait("@getRecentTracks");
 });
@@ -218,5 +215,15 @@ describe("Contacts", () => {
     cy.findByRole("link", { name: github.label }).should("be.visible");
     cy.findByRole("link", { name: twitter.label }).should("be.visible");
     cy.findByRole("link", { name: linkedin.label }).should("be.visible");
+  });
+});
+
+describe("Accessibility", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+  });
+
+  it("should have no accessibility violations", () => {
+    cy.checkA11y();
   });
 });
