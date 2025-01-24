@@ -7,6 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "start-server-and-test start http://localhost:4321 test:headless",
+    "test:visual": "start-server-and-test start http://localhost:4321 test:open",
     "test:open": "cypress open --e2e --browser chrome",
     "test:headless": "cypress run --e2e"
   },

@@ -100,6 +100,11 @@ describe("Intro", () => {
 
 describe("Skills", () => {
   it("should display all skills on the page", () => {
+    cy.get(".skills")
+      .scrollIntoView({
+        offset: { top: -100, left: 0 },
+      })
+      .should("be.visible");
     cy.findAllByTestId(PAGE_SELECTORS.skill).each(($skill) => {
       expect($skill).not.to.be.hidden;
     });
