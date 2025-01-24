@@ -1,6 +1,6 @@
 ---
-import Arrow from '../arrow/index.astro';
-import Profile from '../profile/index.astro';
+import Arrow from "../arrow/index.astro";
+import Profile from "../profile/index.astro";
 import PAGE_CONTENT from "../../data/index.json";
 ---
 
@@ -45,6 +45,28 @@ import PAGE_CONTENT from "../../data/index.json";
       line-height: 2rem;
       margin-bottom: 1rem;
       margin-right: 1.25rem;
+
+      @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+        transform: scale(1);
+        opacity: 1;
+        view-timeline-name: --revealing-image;
+        view-timeline-axis: block;
+        animation: linear scaleText both;
+        animation-timeline: --revealing-image;
+        animation-range: entry 50% cover 80%;
+      }
+    }
+  }
+
+  @keyframes scaleText {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1.25);
+      opacity: 0;
     }
   }
 </style>

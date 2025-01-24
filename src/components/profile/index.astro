@@ -1,11 +1,11 @@
 ---
 import PAGE_CONTENT from "../../data/index.json";
-
 ---
 
 <div class="profile__picture">
   <img
-    class="profile__image" src={PAGE_CONTENT.hero["profile-picture"].src}
+    class="profile__image"
+    src={PAGE_CONTENT.hero["profile-picture"].src}
     width={PAGE_CONTENT.hero["profile-picture"].width}
     height={PAGE_CONTENT.hero["profile-picture"].height}
     alt={PAGE_CONTENT.hero["profile-picture"].alt}
@@ -15,7 +15,6 @@ import PAGE_CONTENT from "../../data/index.json";
 
 <style lang="scss">
   .profile {
-
     &__picture,
     &__image {
       width: clamp(13.75rem, calc(50vw), 18.75rem);
@@ -28,7 +27,6 @@ import PAGE_CONTENT from "../../data/index.json";
     }
 
     @media (prefers-reduced-motion: no-preference) {
-
       &__picture,
       &__image {
         transition: all 200ms ease-in-out;
@@ -44,6 +42,16 @@ import PAGE_CONTENT from "../../data/index.json";
       background-color: var(--background-color);
       position: relative;
       border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+
+      @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+        zoom: 1;
+        transform: scale(1);
+        opacity: 1;
+        view-timeline-name: --revealing-image;
+        view-timeline-axis: block;
+        animation: linear scaleOnScroll both;
+        animation-timeline: --revealing-image;
+      }
 
       &:before {
         content: "";
@@ -80,6 +88,18 @@ import PAGE_CONTENT from "../../data/index.json";
       &:hover {
         border-radius: 0;
       }
+    }
+  }
+
+  @keyframes scaleOnScroll {
+    0% {
+      zoom: 1;
+      transform: scale(1);
+    }
+
+    100% {
+      zoom: 1;
+      transform: scale(1.5);
     }
   }
 

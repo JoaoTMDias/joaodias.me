@@ -6,13 +6,13 @@ import PAGE_CONTENT from "../../data/index.json";
 <div class="sub-section">
   <h3 class="sr-only">{PAGE_CONTENT.about.skills.title}</h3>
   <ul class="skills">
-    {PAGE_CONTENT.about.skills.items.map((item, index) => {
-    const type = (index % 2 == 0) ? "even" : "odd";
+    {
+      PAGE_CONTENT.about.skills.items.map((item, index) => {
+        const type = index % 2 == 0 ? "even" : "odd";
 
-    return (
-    <SkillsItem name={item} type={type} />
-    )
-    })}
+        return <SkillsItem name={item} type={type} />;
+      })
+    }
   </ul>
 </div>
 
@@ -28,5 +28,29 @@ import PAGE_CONTENT from "../../data/index.json";
     padding: 0;
     list-style-type: none;
     column-gap: 3.5rem;
+
+    @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+      transform: scale(0.85);
+      opacity: 0;
+      filter: blur(3px);
+      view-timeline-name: --revealing-text;
+      view-timeline-axis: block;
+      animation: linear scaleUpSkills both;
+      animation-timeline: --revealing-text;
+      animation-range: entry 0% cover 50%;
+    }
+
+    @keyframes scaleUpSkills {
+      0% {
+        transform: scale(0.85);
+        opacity: 0;
+        filter: blur(3px);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
   }
 </style>

@@ -6,15 +6,27 @@ import PAGE_CONTENT from "../../data/index.json";
 <div class="intro">
   <h3 class="sr-only">{PAGE_CONTENT.about.intro.title}</h3>
   <h4 class="intro__heading">
-    <span class="intro__subtitle" data-testid="intro-subtitle">{PAGE_CONTENT.about.intro.subtitle}</span>
-    <span class="intro__title" data-testid="intro-title">{PAGE_CONTENT.about.intro.mainTitle["title-first"]} <span
-        lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-name"]}</span>{PAGE_CONTENT.about.intro.mainTitle["title-second"]}
-      <span lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-location"]}</span></span>
+    <span class="intro__subtitle" data-testid="intro-subtitle"
+      >{PAGE_CONTENT.about.intro.subtitle}</span
+    >
+    <span class="intro__title" data-testid="intro-title"
+      >{PAGE_CONTENT.about.intro.mainTitle["title-first"]}
+      <span lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-name"]}</span>{
+        PAGE_CONTENT.about.intro.mainTitle["title-second"]
+      }
+      <span lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-location"]}</span></span
+    >
   </h4>
-  <p>Currently at <span class="link-container">
-      <FancyLink href={PAGE_CONTENT.about.intro["currently-at"].href} target="_blank"
-        text={PAGE_CONTENT.about.intro["currently-at"].text} data-testid="employer-link" />
-    </span></p>
+  <p>
+    Currently at <span class="link-container">
+      <FancyLink
+        href={PAGE_CONTENT.about.intro["currently-at"].href}
+        target="_blank"
+        text={PAGE_CONTENT.about.intro["currently-at"].text}
+        data-testid="employer-link"
+      />
+    </span>
+  </p>
 </div>
 
 <style lang="scss">
@@ -27,6 +39,17 @@ import PAGE_CONTENT from "../../data/index.json";
     text-align: center;
     width: 100%;
     margin: auto;
+
+    @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+      transform: scale(1.5);
+      opacity: 0;
+      filter: blur(3px);
+      view-timeline-name: --revealing-text;
+      view-timeline-axis: block;
+      animation: linear scaleDownIntro both;
+      animation-timeline: --revealing-text;
+      animation-range: entry 10% cover 50%;
+    }
   }
 
   .intro__heading {
@@ -78,12 +101,52 @@ import PAGE_CONTENT from "../../data/index.json";
     @media (min-width: 60rem) {
       font-size: 2rem;
     }
+
+    @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+      transform: translateY(100%);
+      opacity: 0;
+      filter: blur(6px);
+      view-timeline-name: --revealing-text;
+      view-timeline-axis: block;
+      animation: linear slideInCurrentEmployer both;
+      animation-timeline: --revealing-text;
+      animation-range: entry 10% cover 50%;
+    }
   }
 
   p,
-  .link-container {}
+  .link-container {
+  }
 
   .link-container {
     display: inline-flex;
+  }
+
+  @keyframes scaleDownIntro {
+    from {
+      transform: scale(1.5);
+      opacity: 0;
+      filter: blur(3px);
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  @keyframes slideInCurrentEmployer {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+      filter: blur(6px);
+    }
+
+    to {
+      transform: translateY(0%);
+      opacity: 1;
+      filter: blur(0);
+    }
   }
 </style>
