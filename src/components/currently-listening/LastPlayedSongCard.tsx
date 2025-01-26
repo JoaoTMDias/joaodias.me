@@ -15,50 +15,50 @@ import styles from "./styles.module.scss";
  * Last Played Song Card
  */
 export const LastPlayedSongCard: FunctionComponent<{
-  song: Track;
+	song: Track;
 }> = ({ song }) => {
-  return (
-    <div className={styles.container}>
-      <div className={styles.cover}>
-        <img
-          className={styles.cover__image}
-          src={song.image[2]["#text"]}
-          width={PAGE_CONTENT.footer.marquee.card.width}
-          height={PAGE_CONTENT.footer.marquee.card.height}
-          alt={`${song.album["#text"]} cover`}
-          loading="lazy"
-          data-testid="currently-listening-album-cover"
-        />
-      </div>
-      <p className={styles.info}>
-        <a
-          className={`${styles.track} tooltip`}
-          href={song.url}
-          target="_blank"
-          data-tooltip="View song on Last.fm"
-          data-testid="currently-listening-song"
-        >
-          {song.name}
-          <span className="sr-only">{PAGE_CONTENT.footer.marquee.track}</span>
-        </a>
-        <span className="sr-only">by</span>
-        <span className={styles.artist} aria-hidden="true">
-          /
-        </span>
-        <span className={styles.artist} data-testid="currently-listening-artist">
-          {song.artist["#text"]}
-        </span>
-        <span className="sr-only">{PAGE_CONTENT.footer.marquee.artist}</span>
-        <span className={styles.artist} aria-hidden="true">
-          /
-        </span>
-        <span className={styles.album} data-testid="currently-listening-album">
-          {song.album["#text"]}
-        </span>
-        <span className="sr-only">{PAGE_CONTENT.footer.marquee.album}</span>
-      </p>
-    </div>
-  );
+	return (
+		<div className={styles.container}>
+			<div className={styles.cover}>
+				<img
+					className={styles.cover__image}
+					src={song.image[2]["#text"]}
+					width={PAGE_CONTENT.footer.marquee.card.width}
+					height={PAGE_CONTENT.footer.marquee.card.height}
+					alt={`${song.album["#text"]} cover`}
+					loading="lazy"
+					data-testid="currently-listening-album-cover"
+				/>
+			</div>
+			<p className={styles.info}>
+				<a
+					className={`${styles.track} tooltip`}
+					href={song.url}
+					target="_blank"
+					data-tooltip="View song on Last.fm"
+					data-testid="currently-listening-song"
+				>
+					{song.name}
+					<span className="sr-only">{PAGE_CONTENT.footer.marquee.track}</span>
+				</a>
+				<span className="sr-only">by</span>
+				<span className={styles.artist} aria-hidden="true">
+					/
+				</span>
+				<span className={styles.artist} data-testid="currently-listening-artist">
+					{song.artist["#text"]}
+				</span>
+				<span className="sr-only">{PAGE_CONTENT.footer.marquee.artist}</span>
+				<span className={styles.artist} aria-hidden="true">
+					/
+				</span>
+				<span className={styles.album} data-testid="currently-listening-album">
+					{song.album["#text"]}
+				</span>
+				<span className="sr-only">{PAGE_CONTENT.footer.marquee.album}</span>
+			</p>
+		</div>
+	);
 };
 
 export default LastPlayedSongCard;

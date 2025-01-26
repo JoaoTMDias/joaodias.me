@@ -11,15 +11,15 @@ import PAGE_CONTENT from "../../data/index.json";
 import "./index.module.scss";
 
 interface ISkipLink {
-  target: string;
-  text: string;
-  as?: "link" | "button";
+	target: string;
+	text: string;
+	as?: "link" | "button";
 }
 
 const items: ISkipLink[] = PAGE_CONTENT.header["links"];
 
 function SkipLink() {
-  return <SkipLinks items={items} />;
+	return <SkipLinks items={items} />;
 }
 
 export default SkipLink;

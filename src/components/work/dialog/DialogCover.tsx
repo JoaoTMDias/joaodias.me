@@ -10,20 +10,20 @@ import * as React from "react";
 import styles from "./index.module.scss";
 
 interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {
-  "data-background"?: string;
+	"data-background"?: string;
 }
 
 function DialogCover({ "data-background": dataBackground, ...props }: Props) {
-  const fallbackColor = dataBackground
-    ? ({
-        "--cover-background-color": dataBackground,
-      } as React.CSSProperties)
-    : undefined;
-  return (
-    <div className={styles.cover}>
-      <img {...props} loading="lazy" style={fallbackColor} />
-    </div>
-  );
+	const fallbackColor = dataBackground
+		? ({
+				"--cover-background-color": dataBackground,
+			} as React.CSSProperties)
+		: undefined;
+	return (
+		<div className={styles.cover}>
+			<img {...props} loading="lazy" style={fallbackColor} />
+		</div>
+	);
 }
 
 export default DialogCover;

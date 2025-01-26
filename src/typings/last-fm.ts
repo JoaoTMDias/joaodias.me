@@ -5,46 +5,46 @@
  * Please refer to the terms of the license agreement in the root of the project
  *
  * (c) 2022 joaodias.me, Rights Reserved.
-*/
+ */
 export interface ExternalServiceSongs {
-  recenttracks: Recenttracks;
+	recenttracks: Recenttracks;
 }
 
 export interface Recenttracks {
-  "@attr": Attr;
-  track: Track[];
+	"@attr": Attr;
+	track: Track[];
 }
 
 export interface Attr {
-  page: string;
-  perPage: string;
-  user: string;
-  total: string;
-  totalPages: string;
+	page: string;
+	perPage: string;
+	user: string;
+	total: string;
+	totalPages: string;
 }
 
 export interface Track {
-  artist: Album;
-  album: Album;
-  image: Image[];
-  streamable: string;
-  date: DateClass;
-  url: string;
-  name: string;
-  mbid: string;
+	artist: Album;
+	album: Album;
+	image: Image[];
+	streamable: string;
+	date: DateClass;
+	url: string;
+	name: string;
+	mbid: string;
 }
 
 export interface Album {
-  mbid: string;
-  "#text": string;
+	mbid: string;
+	"#text": string;
 }
 
 export interface DateClass {
-  uts: string;
-  "#text": string;
+	uts: string;
+	"#text": string;
 }
 
 export interface Image {
-  size: "extralarge" | "large" | "medium" | "small";
-  "#text": string;
+	size: "extralarge" | "large" | "medium" | "small";
+	"#text": string;
 }

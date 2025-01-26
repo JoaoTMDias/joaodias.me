@@ -43,9 +43,7 @@ npm test:unit:coverage
 - `npm preview` - Preview production build
 - `npm test:e2e` - Run Playwright end-to-end tests
 - `npm test:e2e:ui` - Run Playwright tests with UI
-- `npm lint` - Lint code with ESLint
 - `npm format` - Format code with Prettier
-- `npm typecheck` - Check TypeScript types
 
 ## 🛠️ Tech Stack
 

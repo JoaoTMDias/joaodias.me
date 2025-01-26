@@ -5,5 +5,5 @@
  * Please refer to the terms of the license agreement in the root of the project
  *
  * (c) 2022 joaodias.me, Rights Reserved.
-*/
+ */
 export * from "./last-fm";

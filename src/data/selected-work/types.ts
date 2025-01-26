@@ -5,38 +5,38 @@
  * Please refer to the terms of the license agreement in the root of the project
  *
  * (c) 2022 joaodias.me, Rights Reserved.
-*/
+ */
 
 export interface SelectedProjectsProps {
-  data?: Project[];
+	data?: Project[];
 }
 
 export interface Project {
-  id?: string;
-  title?: string;
-  shortDescription?: string;
-  thumbnail?: Thumbnail;
-  skills?: string[];
-  details?: Details;
+	id?: string;
+	title?: string;
+	shortDescription?: string;
+	thumbnail?: Thumbnail;
+	skills?: string[];
+	details?: Details;
 }
 
 export interface Details {
-  date?: string;
-  description?: string;
-  cover?: Thumbnail;
-  sourceCode?: string;
-  problem?: string[];
-  solution?: string[];
-  photos?: Thumbnail[];
+	date?: string;
+	description?: string;
+	cover?: Thumbnail;
+	sourceCode?: string;
+	problem?: string[];
+	solution?: string[];
+	photos?: Thumbnail[];
 }
 
 export interface Thumbnail {
-  src?: string;
-  width?: number;
-  height?: number;
-  alt?: Alt;
+	src?: string;
+	width?: number;
+	height?: number;
+	alt?: Alt;
 }
 
 export enum Alt {
-  Cenas = "cenas",
+	Cenas = "cenas",
 }

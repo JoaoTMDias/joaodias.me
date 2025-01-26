@@ -7,43 +7,43 @@
  * (c) 2022 joaodias.me, Rights Reserved.
 */
 .item {
-  position: relative;
-  text-transform: uppercase;
-  font-family: var(--text-font-family);
-  font-size: 8vw;
-  line-height: 1.2166666667;
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  overflow-y: hidden;
-  overflow-x: visible;
-  width: 100%;
+	position: relative;
+	text-transform: uppercase;
+	font-family: var(--text-font-family);
+	font-size: 8vw;
+	line-height: 1.2166666667;
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	overflow-y: hidden;
+	overflow-x: visible;
+	width: 100%;
 
-  &[data-type="odd"] {
-    font-family: var(--heading-font-family);
-    font-size: 9vw;
-    line-height: 1.0909090909;
-  }
+	&[data-type="odd"] {
+		font-family: var(--heading-font-family);
+		font-size: 9vw;
+		line-height: 1.0909090909;
+	}
 
-  @media (min-width: 60rem) {
-    font-size: 3.5rem;
-    width: auto;
+	@media (min-width: 60rem) {
+		font-size: 3.5rem;
+		width: auto;
 
-    &[data-type="odd"] {
-      font-family: var(--heading-font-family);
-      font-size: 4.125rem;
-      line-height: 5rem;
-    }
-  }
+		&[data-type="odd"] {
+			font-family: var(--heading-font-family);
+			font-size: 4.125rem;
+			line-height: 5rem;
+		}
+	}
 }
 
 .slash {
-  position: relative;
-  font-family: var(--text-font-family);
-  font-weight: 300;
-  font-size: 8vw;
+	position: relative;
+	font-family: var(--text-font-family);
+	font-weight: 300;
+	font-size: 8vw;
 
-  @media (min-width: 60rem) {
-    font-size: 3.75rem;
-  }
+	@media (min-width: 60rem) {
+		font-size: 3.75rem;
+	}
 }

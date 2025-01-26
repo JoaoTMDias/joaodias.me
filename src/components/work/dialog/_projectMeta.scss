@@ -7,58 +7,58 @@
  * (c) 2022 joaodias.me, Rights Reserved.
 */
 .projectMeta {
-  border-width: 2px;
-  border-color: var(--text-color-faded);
-  border-style: solid;
-  padding: 4rem 3rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 2rem;
-  width: 100%;
+	border-width: 2px;
+	border-color: var(--text-color-faded);
+	border-style: solid;
+	padding: 4rem 3rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 2rem;
+	width: 100%;
 
-  @media (min-width: 40rem) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+	@media (min-width: 40rem) {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 .projectColumn {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 1rem;
 
-  h4 {
-    font-family: var(--text-font-family);
-    font-size: 1.125rem;
-  }
+	h4 {
+		font-family: var(--text-font-family);
+		font-size: 1.125rem;
+	}
 
-  h4,
-  ul li,
-  p {
-    font-size: 1.125rem;
-  }
+	h4,
+	ul li,
+	p {
+		font-size: 1.125rem;
+	}
 
-  ul {
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
+	ul {
+		font-size: 1rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
 
-  li {
-    position: relative;
-  }
+	li {
+		position: relative;
+	}
 
-  .withHashes li:before {
-    content: "#";
-    margin-right: 0.5rem;
-    opacity: 0.5;
-  }
+	.withHashes li:before {
+		content: "#";
+		margin-right: 0.5rem;
+		opacity: 0.5;
+	}
 }

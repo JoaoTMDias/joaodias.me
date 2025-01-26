@@ -13,33 +13,33 @@ import LastPlayedSongCard from "./LastPlayedSongCard";
 import { useEffect, useState } from "react";
 
 async function getSong() {
-  const request = await fetch(LAST_FM_URL);
-  const data: ExternalServiceSongs = await request.json();
-  const { recenttracks } = await data;
+	const request = await fetch(LAST_FM_URL);
+	const data: ExternalServiceSongs = await request.json();
+	const { recenttracks } = await data;
 
-  return recenttracks.track.slice(0, 1)[0];
+	return recenttracks.track.slice(0, 1)[0];
 }
 
 function CurrentlyListening() {
-  const [song, setSong] = useState<Track>(null);
+	const [song, setSong] = useState<Track>(null);
 
-  useEffect(() => {
-    try {
-      getSong().then((result) => {
-        if (result) {
-          setSong(result);
-        }
-      });
-    } catch (error) {
-      console.warn("Problems fetching the current song: ", error);
-    }
-  }, []);
+	useEffect(() => {
+		try {
+			getSong().then((result) => {
+				if (result) {
+					setSong(result);
+				}
+			});
+		} catch (error) {
+			console.warn("Problems fetching the current song: ", error);
+		}
+	}, []);
 
-  if (!song) {
-    return <p>{PAGE_CONTENT.footer.marquee.loading}</p>;
-  }
+	if (!song) {
+		return <p>{PAGE_CONTENT.footer.marquee.loading}</p>;
+	}
 
-  return <LastPlayedSongCard key={song.name} song={song} />;
+	return <LastPlayedSongCard key={song.name} song={song} />;
 }
 
 export default CurrentlyListening;

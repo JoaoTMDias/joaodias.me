@@ -1,10 +1,11 @@
 {
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "module": "esnext",
-    "target": "esnext",
-    "jsx": "react-jsx",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
-  }
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"module": "esnext",
+		"target": "esnext",
+		"jsx": "react-jsx",
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true
+	},
+	"exclude": ["node_modules"]
 }
