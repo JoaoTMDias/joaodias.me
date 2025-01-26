@@ -7,7 +7,6 @@
  * (c) 2022 joaodias.me, Rights Reserved.
  */
 import { useState } from "react";
-import { RoverProvider } from "@jtmdias/react-a11y-tools";
 import Dialog from "./dialog";
 import Item from "./item";
 import styles from "./index.module.scss";
@@ -56,22 +55,29 @@ function Work() {
 				<span id="work-description" className="sr-only">
 					{description}
 				</span>
-				<RoverProvider direction="vertical">
-					<ol className={styles.work__list} data-testid="work-list">
-						{SelectWorkData.map((work, index) => (
-							<Item
-								key={work.id}
-								id={work.id}
-								title={work.title}
-								skills={work.skills}
-								subtitle={work.shortDescription}
-								thumbnail={work.thumbnail}
-								theme={work.theme}
-								onClick={() => handleOnClickOnButton(index)}
-							/>
-						))}
-					</ol>
-				</RoverProvider>
+				<ol
+					className={styles.work__list}
+					data-testid="work-list"
+					style={
+						{
+							"--numcards": SelectWorkData.length,
+						} as React.CSSProperties
+					}
+				>
+					{SelectWorkData.map((work, index) => (
+						<Item
+							key={work.id}
+							index={index}
+							id={work.id}
+							title={work.title}
+							skills={work.skills}
+							subtitle={work.shortDescription}
+							thumbnail={work.thumbnail}
+							theme={work.theme}
+							onClick={() => handleOnClickOnButton(index)}
+						/>
+					))}
+				</ol>
 			</div>
 			{showDialog && renderDialog()}
 		</>

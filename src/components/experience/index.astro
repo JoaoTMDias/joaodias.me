@@ -5,178 +5,223 @@ const { experience } = PAGE_CONTENT.about;
 ---
 
 <div class="sub-section">
-  <h3 id="professional-experience" class="sr-only">{experience.title}</h3>
-  <ul class="experience" aria-labelledby="professional-experience" data-testid="professional-experience">
-    <li class="present">
-      <h4 class="sr-only">{experience.currently.title}</h4>
-      <div class="list" data-testid="experience-item" data-current>
-        {experience.currently.items.map((item, index) => (
-        <div key={index} class="item">
-          <h5 class="title">{item.title}</h5>
-          <p class="description">{item.description}</p>
-          <div class="metadata">
-            <p><span class="sr-only">Duration:</span><span>{item.duration.from}</span><span
-                class="sr-only">until</span><span aria-hidden="true">-</span><span>{item.duration.to}</span></p>
-            <p><span class="sr-only">Location:</span><span lang="pt-PT">{item.location}</span></p>
-          </div>
-        </div>
-        ))}
-      </div>
-    </li>
-    <li class="past">
-      <h4 class="sr-only">{experience.past.title}</h4>
-      <div class="list" data-testid="experience-item">
-        {experience.past.items.map((item, index) => (
-        <div key={index} class="item">
-          <h5 class="title">{item.title}</h5>
-          <p class="description">{item.description}</p>
-          <div class="metadata">
-            <p><span class="sr-only">Duration:</span><span>{item.duration.from}</span><span
-                class="sr-only">until</span><span aria-hidden="true">-</span><span>{item.duration.to}</span></p>
-            <p><span class="sr-only">Location:</span><span lang="pt-PT">{item.location}</span></p>
-          </div>
-        </div>
-        ))}
-      </div>
-    </li>
-  </ul>
-  <div class="footer">
-    <a href={experience.download.href} download={experience.download.download} aria-label={experience.download.label}
-      class="download">{experience.download.text}<span class="extension">(PDF)</span></a>
-  </div>
+	<h3 id="professional-experience" class="sr-only">{experience.title}</h3>
+	<ul
+		class="experience"
+		aria-labelledby="professional-experience"
+		data-testid="professional-experience"
+	>
+		<li class="present">
+			<h4 class="sr-only">{experience.currently.title}</h4>
+			<div class="list" data-testid="experience-item" data-current>
+				{
+					experience.currently.items.map((item, index) => (
+						<div key={index} class="item">
+							<h5 class="title">{item.title}</h5>
+							<p class="description">{item.description}</p>
+							<div class="metadata">
+								<p>
+									<>
+										<span class="sr-only">Duration:</span>
+										<span>{item.duration.from}</span>
+										<span class="sr-only">until</span>
+										<span aria-hidden="true">-</span>
+										<span>{item.duration.to}</span>
+									</>
+								</p>
+								<p>
+									<>
+										<span class="sr-only">Location:</span>
+										<span lang="pt-PT">{item.location}</span>
+									</>
+								</p>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</li>
+		<li class="past">
+			<h4 class="sr-only">{experience.past.title}</h4>
+			<div class="list" data-testid="experience-item">
+				{
+					experience.past.items.map((item, index) => (
+						<div key={index} class="item">
+							<h5 class="title">{item.title}</h5>
+							<p class="description">{item.description}</p>
+							<div class="metadata">
+								<p>
+									<>
+										<span class="sr-only">Duration:</span>
+										<span>{item.duration.from}</span>
+										<span class="sr-only">until</span>
+										<span aria-hidden="true">-</span>
+										<span>{item.duration.to}</span>
+									</>
+								</p>
+								<p>
+									<>
+										<span class="sr-only">Location:</span>
+										<span lang="pt-PT">{item.location}</span>
+									</>
+								</p>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</li>
+	</ul>
+	<div class="footer">
+		<a
+			href={experience.download.href}
+			download={experience.download.download}
+			aria-label={experience.download.label}
+			class="download">{experience.download.text}<span class="extension">(PDF)</span></a
+		>
+	</div>
 </div>
 
 <style lang="scss">
-  .experience {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 1rem;
-    row-gap: 3rem;
-    list-style-type: none;
+	.experience {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		column-gap: 1rem;
+		row-gap: 3rem;
+		list-style-type: none;
 
-    @media (min-width: 60rem) {
-      row-gap: initial;
-    }
-  }
+		@media (min-width: 60rem) {
+			row-gap: initial;
+		}
+	}
 
-  .present {
-    grid-column-start: 1;
-    grid-column-end: 12;
+	.present {
+		grid-column-start: 1;
+		grid-column-end: 12;
 
-    @media (min-width: 60rem) {
-      grid-column-start: 2;
-      grid-column-end: 5;
-    }
-  }
+		@media (min-width: 60rem) {
+			grid-column-start: 2;
+			grid-column-end: 5;
+		}
+	}
 
-  .past {
-    opacity: 0.75;
-    grid-column-start: 1;
-    grid-column-end: 12;
+	.past {
+		opacity: 1;
+		grid-column-start: 1;
+		grid-column-end: 12;
 
-    @media (min-width: 60rem) {
-      grid-column-start: 7;
-      grid-column-end: 12;
-    }
-  }
+		@media (min-width: 60rem) {
+			grid-column-start: 7;
+			grid-column-end: 12;
+		}
+	}
 
-  .list {
-    display: grid;
-    row-gap: 4rem;
-    grid-template-columns: 1fr;
-    column-gap: 1rem;
+	.list {
+		display: grid;
+		row-gap: 4rem;
+		grid-template-columns: 1fr;
+		column-gap: 1rem;
 
-    @media (min-width: 60rem) {
-      grid-template-columns: repeat(2, 1fr);
-    }
+		@media (min-width: 60rem) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 
-    &[data-current] {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 4rem;
+		&[data-current] {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: 4rem;
 
-      .title {
-        position: relative;
+			.title,
+			.description,
+			.metadata p {
+				background-color: var(--text-color);
+				color: var(--background-color);
+				width: fit-content;
+				padding: 0.125rem 0.25rem;
+			}
 
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0.75rem;
-          left: calc(3rem * -1);
-          width: 1rem;
-          height: 1rem;
-          background-image: url("/asterisk.svg");
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-      }
-    }
-  }
+			.title {
+				position: relative;
 
-  .description {
-    font-family: var(--text-font-family);
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1.125rem;
-    line-height: 1.375rem;
-    margin-bottom: 1rem;
-  }
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0.75rem;
+					left: calc(3rem * -1);
+					width: 1rem;
+					height: 1rem;
+					background-image: url("/asterisk.svg");
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+			}
+		}
+	}
 
-  .metadata {
-    font-weight: 500;
-    font-size: 0.875rem;
-    line-height: 1.0625rem;
-  }
+	.description {
+		font-family: var(--text-font-family);
+		font-style: normal;
+		font-weight: 300;
+		font-size: 1.125rem;
+		line-height: 1.375rem;
+		margin-bottom: 1rem;
+	}
 
-  .item {
-    position: relative;
-  }
+	.metadata {
+		font-weight: 500;
+		font-size: 0.875rem;
+		line-height: 1.0625rem;
+	}
 
-  .title {
-    font-family: var(--heading-font-family);
-    font-style: italic;
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
+	.item {
+		position: relative;
+	}
 
-  .footer {
-    padding-block: 5rem;
+	.title {
+		font-family: var(--heading-font-family);
+		font-style: italic;
+		font-weight: 400;
+		font-size: 2rem;
+		line-height: 2.5rem;
+		margin-bottom: 0.5rem;
+	}
 
-    &,
-    a {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
+	.footer {
+		padding-block: 5rem;
 
-    a {
-      padding-block: 1.5rem;
-      padding-inline: 2rem;
-      color: var(--text-color);
-      border: 1px solid currentColor;
-      font-family: var(--text-font-family);
-      font-style: normal;
-      font-weight: 400;
-      font-size: 1rem;
-      line-height: 1;
-      text-decoration: none;
-      border-radius: 3rem;
-      gap: 1rem;
+		&,
+		a {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
 
-      .extension {
-        font-weight: 500;
-      }
+		a {
+			padding-block: 1.5rem;
+			padding-inline: 2rem;
+			color: var(--text-color);
+			border: 1px solid currentColor;
+			font-family: var(--text-font-family);
+			font-style: normal;
+			font-weight: 400;
+			font-size: 1rem;
+			line-height: 1;
+			text-decoration: none;
+			border-radius: 3rem;
+			gap: 1rem;
 
-      &:hover,
-      &:focus {
-        background-color: var(--text-color);
-        color: var(--background-color);
-      }
-    }
-  }
+			.extension {
+				font-weight: 500;
+			}
+
+			&:hover,
+			&:focus {
+				background-color: var(--text-color);
+				color: var(--background-color);
+			}
+		}
+	}
 </style>

@@ -6,17 +6,21 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import { useFocus, useRover } from "@jtmdias/react-a11y-tools";
 import * as React from "react";
-import { HTMLAttributes, useRef } from "react";
 import styles from "./index.module.scss";
 
 interface Props {
+	index: number;
 	id: string;
 	title: string;
 	subtitle: string;
 	skills: string[];
-	thumbnail: HTMLAttributes<HTMLImageElement>;
+	thumbnail: {
+		src: string;
+		width: number;
+		height: number;
+		alt: string;
+	};
 	theme: {
 		foreground: string;
 		background: string;
@@ -24,40 +28,28 @@ interface Props {
 	onClick: () => void;
 }
 
-function Item({ id, title, subtitle, skills, thumbnail, theme, onClick }: Props) {
-	const internalRef = useRef<HTMLButtonElement>(null);
-	const [tabIndex, focused, handleRoverOnKeyUp, handleRoverOnClick] = useRover(
-		internalRef,
-		false,
-		id,
-	);
-
-	useFocus(internalRef, focused);
-
-	function handleOnClick() {
-		handleRoverOnClick();
-		onClick();
-	}
-
+function Item({ id, title, subtitle, skills, thumbnail, theme, index, onClick }: Props) {
 	const ariaLabel = `${title}, ${subtitle}`;
 	const styleProperties = {
-		"--text-color-hover": theme.foreground,
-		"--background-color-hover": theme.background,
-	} as React.CSSProperties;
+		item: {
+			"--index": index + 1,
+		} as React.CSSProperties,
+		button: {
+			"--text-color-hover": theme.foreground,
+			"--background-color-hover": theme.background,
+		} as React.CSSProperties,
+	};
 
 	return (
-		<li>
+		<li className={styles.work__list__item} style={styleProperties.item}>
 			<button
-				ref={internalRef}
 				id={id}
 				type="button"
 				aria-label={ariaLabel}
 				aria-describedby="work-description"
 				className={styles.item}
-				tabIndex={tabIndex}
-				onKeyUp={handleRoverOnKeyUp}
-				onClick={handleOnClick}
-				style={styleProperties}
+				onClick={onClick}
+				style={styleProperties.button}
 				data-testid="work-item"
 			>
 				<div className={styles.figure}>

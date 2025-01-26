@@ -57,17 +57,38 @@
 }
 
 .work__list {
+	--card-height: 20vw;
+	--card-top-offset: 1em;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: stretch;
 	flex-wrap: wrap;
 	gap: 1.5rem;
-	overflow: hidden;
 	list-style-type: none;
 
-	@media (min-width: 60rem) {
-		gap: 0.5rem;
+	@supports (animation-timeline: view()) {
+		@media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(var(--numcards), var(--card-height));
+			view-timeline-name: --cards-element-scrolls-in-body;
+		}
+	}
+}
+
+.work__list__item {
+	@supports (animation-timeline: view()) {
+		@media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+			--index0: calc(var(--index) - 1);
+			--reverse-index: calc(var(--numcards) - var(--index0));
+			--reverse-index0: calc(var(--reverse-index) - 1);
+
+			position: sticky;
+			top: 0;
+			padding-top: calc(var(--index) * var(--card-top-offset, 1em));
+		}
 	}
 }
 
@@ -109,11 +130,20 @@
 	}
 
 	@media (min-width: 60rem) {
-		--item-background-color: transparent;
-		--item-text-color: var(--text-color);
 		--item-padding-inline: 2rem;
+	}
 
-		border-radius: 13.75rem;
+	@supports (animation-timeline: view()) {
+		@media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+			--start-range: calc(var(--index0) / var(--numcards) * 100%);
+			--end-range: calc((var(--index)) / var(--numcards) * 100%);
+
+			transform-origin: 50% 0%;
+			will-change: transform;
+			animation: linear scaleItem forwards;
+			animation-timeline: --cards-element-scrolls-in-body;
+			animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
+		}
 	}
 }
 
@@ -224,7 +254,7 @@
 @media (min-width: 60rem) {
 	.item {
 		flex-direction: row;
-		padding-block: 3rem;
+		padding-block: 6rem;
 	}
 
 	.content {
@@ -244,5 +274,11 @@
 	.skills {
 		flex-direction: row;
 		justify-content: flex-start;
+	}
+}
+
+@keyframes scaleItem {
+	to {
+		transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
 	}
 }

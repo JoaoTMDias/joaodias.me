@@ -5,68 +5,70 @@ import PAGE_CONTENT from "../../data/index.json";
 ---
 
 <section class="hero">
-  <Arrow />
-  <Profile />
-  <div class="fake-copyright">
-    <p class="fake-copyright__text" data-testid="fake-copyright">{PAGE_CONTENT.hero.copyright}</p>
-  </div>
+	<Arrow />
+	<Profile />
+	<div class="fake-copyright">
+		<p class="fake-copyright__text" data-testid="fake-copyright">{PAGE_CONTENT.hero.copyright}</p>
+	</div>
 </section>
 
 <style lang="scss">
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    width: 100%;
-    height: auto;
-    position: relative;
+	.hero {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+		width: 100%;
+		height: auto;
+		position: relative;
 
-    @media (min-width: 60rem) {
-      height: calc(100vh - var(--header-height));
-    }
-  }
+		@media (min-width: 60rem) {
+			height: calc(100vh - var(--header-height));
+		}
+	}
 
-  .fake-copyright {
-    position: relative;
+	.fake-copyright {
+		position: relative;
 
-    @media (min-width: 60rem) {
-      content: "";
-      position: absolute;
-      left: auto;
-      right: auto;
-      bottom: 1rem;
-      right: 1rem;
-    }
+		@media (min-width: 60rem) {
+			content: "";
+			position: absolute;
+			left: auto;
+			right: auto;
+			bottom: 1rem;
+			right: 1rem;
+		}
 
-    &__text {
-      text-align: right;
-      line-height: 2rem;
-      margin-bottom: 1rem;
-      margin-right: 1.25rem;
+		&__text {
+			text-align: right;
+			line-height: 2rem;
+			margin-bottom: 1rem;
+			margin-right: 1.25rem;
 
-      @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
-        transform: scale(1);
-        opacity: 1;
-        view-timeline-name: --revealing-image;
-        view-timeline-axis: block;
-        animation: linear scaleText both;
-        animation-timeline: --revealing-image;
-        animation-range: entry 50% cover 80%;
-      }
-    }
-  }
+			@supports (animation-timeline: view()) {
+				@media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+					transform: scale(1);
+					opacity: 1;
+					view-timeline-name: --revealing-image;
+					view-timeline-axis: block;
+					animation: linear scaleText both;
+					animation-timeline: --revealing-image;
+					animation-range: entry 50% cover 80%;
+				}
+			}
+		}
+	}
 
-  @keyframes scaleText {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
+	@keyframes scaleText {
+		0% {
+			transform: scale(1);
+			opacity: 1;
+		}
 
-    100% {
-      transform: scale(1.25);
-      opacity: 0;
-    }
-  }
+		100% {
+			transform: scale(1.25);
+			opacity: 0;
+		}
+	}
 </style>

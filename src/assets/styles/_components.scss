@@ -97,10 +97,10 @@
 @media (prefers-reduced-motion: no-preference) {
 	.grid-background {
 		animation-name: showGrid;
-		animation-duration: 2000ms;
+		animation-duration: 1000ms;
 		animation-timing-function: ease-in;
 		animation-fill-mode: forwards;
-		animation-delay: 2000ms;
+		animation-delay: 16ms;
 	}
 }
 

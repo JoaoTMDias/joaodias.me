@@ -7,10 +7,10 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"test": "start-server-and-test 'npm run build && npm run preview' http://localhost:4321 test:headless",
+		"test": "npm run test:headless",
 		"test:ui": "playwright test --ui",
 		"test:headless": "playwright test",
-		"test:open": "start-server-and-test dev http://localhost:4321 test:ui",
+		"test:open": "npm run test:ui",
 		"format": "prettier --write .",
 		"typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json"
 	},

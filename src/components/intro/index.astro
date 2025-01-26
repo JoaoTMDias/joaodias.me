@@ -4,149 +4,153 @@ import PAGE_CONTENT from "../../data/index.json";
 ---
 
 <div class="intro">
-  <h3 class="sr-only">{PAGE_CONTENT.about.intro.title}</h3>
-  <h4 class="intro__heading">
-    <span class="intro__subtitle" data-testid="intro-subtitle"
-      >{PAGE_CONTENT.about.intro.subtitle}</span
-    >
-    <span class="intro__title" data-testid="intro-title"
-      >{PAGE_CONTENT.about.intro.mainTitle["title-first"]}
-      <span lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-name"]}</span>{
-        PAGE_CONTENT.about.intro.mainTitle["title-second"]
-      }
-      <span lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-location"]}</span></span
-    >
-  </h4>
-  <p>
-    Currently at <span class="link-container">
-      <FancyLink
-        href={PAGE_CONTENT.about.intro["currently-at"].href}
-        target="_blank"
-        text={PAGE_CONTENT.about.intro["currently-at"].text}
-        data-testid="employer-link"
-      />
-    </span>
-  </p>
+	<h3 class="sr-only">{PAGE_CONTENT.about.intro.title}</h3>
+	<h4 class="intro__heading">
+		<span class="intro__subtitle" data-testid="intro-subtitle"
+			>{PAGE_CONTENT.about.intro.subtitle}</span
+		>
+		<span class="intro__title" data-testid="intro-title"
+			>{PAGE_CONTENT.about.intro.mainTitle["title-first"]}
+			<span lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-name"]}</span>{
+				PAGE_CONTENT.about.intro.mainTitle["title-second"]
+			}
+			<span lang="pt-PT">{PAGE_CONTENT.about.intro.mainTitle["title-location"]}</span></span
+		>
+	</h4>
+	<p>
+		Currently at <span class="link-container">
+			<FancyLink
+				href={PAGE_CONTENT.about.intro["currently-at"].href}
+				target="_blank"
+				text={PAGE_CONTENT.about.intro["currently-at"].text}
+				data-testid="employer-link"
+			/>
+		</span>
+	</p>
 </div>
 
 <style lang="scss">
-  .intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    text-align: center;
-    width: 100%;
-    margin: auto;
+	.intro {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		text-align: center;
+		width: 100%;
+		margin: auto;
 
-    @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
-      transform: scale(1.5);
-      opacity: 0;
-      filter: blur(3px);
-      view-timeline-name: --revealing-text;
-      view-timeline-axis: block;
-      animation: linear scaleDownIntro both;
-      animation-timeline: --revealing-text;
-      animation-range: entry 10% cover 50%;
-    }
-  }
+		@supports (animation-timeline: view()) {
+			@media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+				transform: scale(1.5);
+				opacity: 0;
+				filter: blur(3px);
+				view-timeline-name: --revealing-text;
+				view-timeline-axis: block;
+				animation: linear scaleDownIntro both;
+				animation-timeline: --revealing-text;
+				animation-range: entry 10% cover 50%;
+			}
+		}
+	}
 
-  .intro__heading {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem;
-    max-width: 40rem;
-    margin: 0 auto;
-  }
+	.intro__heading {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 1rem;
+		max-width: 40rem;
+		margin: 0 auto;
+	}
 
-  .intro__title,
-  .intro__subtitle,
-  p {
-    font-style: normal;
-    font-weight: 400;
-    max-width: 51.625rem;
-  }
+	.intro__title,
+	.intro__subtitle,
+	p {
+		font-style: normal;
+		font-weight: 400;
+		max-width: 51.625rem;
+	}
 
-  .intro__title,
-  p {
-    font-family: var(--heading-font-family);
-  }
+	.intro__title,
+	p {
+		font-family: var(--heading-font-family);
+	}
 
-  .intro__subtitle {
-    display: flex;
-    font-family: var(--text-font-family);
-    font-size: 1rem;
-    letter-spacing: 1px;
-    line-height: 1.375rem;
-    text-transform: uppercase;
-  }
+	.intro__subtitle {
+		display: flex;
+		font-family: var(--text-font-family);
+		font-size: 1rem;
+		letter-spacing: 1px;
+		line-height: 1.375rem;
+		text-transform: uppercase;
+	}
 
-  .intro__title {
-    font-size: 2.125rem;
-    line-height: 1.15;
+	.intro__title {
+		font-size: 2.125rem;
+		line-height: 1.15;
 
-    @media (min-width: 60rem) {
-      font-size: 3.5rem;
-    }
-  }
+		@media (min-width: 60rem) {
+			font-size: 3.5rem;
+		}
+	}
 
-  p {
-    font-style: italic;
-    font-size: 1.5rem;
-    line-height: 1.21875;
+	p {
+		font-style: italic;
+		font-size: 1.5rem;
+		line-height: 1.21875;
 
-    @media (min-width: 60rem) {
-      font-size: 2rem;
-    }
+		@media (min-width: 60rem) {
+			font-size: 2rem;
+		}
 
-    @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
-      transform: translateY(100%);
-      opacity: 0;
-      filter: blur(6px);
-      view-timeline-name: --revealing-text;
-      view-timeline-axis: block;
-      animation: linear slideInCurrentEmployer both;
-      animation-timeline: --revealing-text;
-      animation-range: entry 10% cover 50%;
-    }
-  }
+		@supports (animation-timeline: view()) {
+			@media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+				transform: translateY(100%);
+				opacity: 0;
+				filter: blur(6px);
+				view-timeline-name: --revealing-text;
+				view-timeline-axis: block;
+				animation: linear slideInCurrentEmployer both;
+				animation-timeline: --revealing-text;
+				animation-range: entry 10% cover 50%;
+			}
+		}
+	}
 
-  p,
-  .link-container {
-  }
+	p,
+	.link-container {
+	}
 
-  .link-container {
-    display: inline-flex;
-  }
+	.link-container {
+		display: inline-flex;
+	}
 
-  @keyframes scaleDownIntro {
-    from {
-      transform: scale(1.5);
-      opacity: 0;
-      filter: blur(3px);
-    }
+	@keyframes scaleDownIntro {
+		from {
+			transform: scale(1.5);
+			opacity: 0;
+			filter: blur(3px);
+		}
 
-    to {
-      transform: scale(1);
-      opacity: 1;
-      filter: blur(0);
-    }
-  }
+		to {
+			transform: scale(1);
+			opacity: 1;
+			filter: blur(0);
+		}
+	}
 
-  @keyframes slideInCurrentEmployer {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
-      filter: blur(6px);
-    }
+	@keyframes slideInCurrentEmployer {
+		from {
+			transform: translateY(100%);
+			opacity: 0;
+			filter: blur(6px);
+		}
 
-    to {
-      transform: translateY(0%);
-      opacity: 1;
-      filter: blur(0);
-    }
-  }
+		to {
+			transform: translateY(0%);
+			opacity: 1;
+			filter: blur(0);
+		}
+	}
 </style>
