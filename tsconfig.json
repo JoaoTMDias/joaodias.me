@@ -3,6 +3,8 @@
     "moduleResolution": "node",
     "module": "esnext",
     "target": "esnext",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   }
 }
