@@ -19,7 +19,7 @@ interface Props {
 	onClose: () => void;
 }
 
-function Dialog({ data, onClose }: Props): JSX.Element {
+function Dialog({ data, onClose }: Props): React.ReactElement {
 	const modalRef = useRef<HTMLDivElement>(null);
 
 	/**
