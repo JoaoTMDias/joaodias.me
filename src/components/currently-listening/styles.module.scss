@@ -73,7 +73,7 @@
 			transform: scale(3.5);
 
 			&:before {
-				transform: translateX(66%) rotate(3turn);
+				transform: translateX(60%) rotate(10turn);
 			}
 		}
 
@@ -86,8 +86,8 @@
 		}
 
 		&:before {
-			transition-duration: 6000ms;
-			transition-delay: 500ms;
+			transition-duration: 12000ms;
+			transition-delay: 0;
 		}
 	}
 }
