@@ -15,144 +15,147 @@ const currentYear = new Date().getFullYear();
 const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html
-  lang="en"
-  prefix="http://ogp.me/ns#"
-  i18n-values="dir:textdirection"
-  itemtype="http://schema.org/WebPage"
-  dir="ltr"
-  data-testid="html-element"
+	lang="en"
+	prefix="http://ogp.me/ns#"
+	i18n-values="dir:textdirection"
+	itemtype="http://schema.org/WebPage"
+	dir="ltr"
+	data-testid="html-element"
 >
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
-    <title>{PAGE_CONTENT.title}</title>
-    <meta name="description" content="João Dias" />
-    <link rel="icon" type="image/png" href="/favicon_fallback.png" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <style lang="scss">
-      .container {
-        width: 100%;
-        display: grid;
-        grid-template-rows: var(--header-height) 1fr;
-        grid-gap: 3rem;
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
+		<title>{PAGE_CONTENT.title}</title>
+		<meta name="description" content="João Dias" />
+		<link rel="icon" type="image/png" href="/favicon_fallback.png" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<style lang="scss">
+			.container {
+				width: 100%;
+				display: grid;
+				grid-template-rows: var(--header-height) 1fr;
+				grid-gap: 3rem;
 
-        @media (min-width: 60rem) {
-          grid-template-rows: auto 1fr;
-          grid-gap: 0;
-        }
-      }
+				@media (min-width: 60rem) {
+					grid-template-rows: auto 1fr;
+					grid-gap: 0;
+				}
+			}
 
-      .footer {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
-        flex-grow: 1;
+			.footer {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 2rem;
+				width: 100%;
+				flex-grow: 1;
 
-        &__bottom {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: center;
-        }
-      }
+				&__bottom {
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+				}
+			}
 
-      .section,
-      section {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        padding-block: 10vh;
-        padding-inline: 1rem;
-        margin: 0 auto;
-        max-width: 100vw;
+			.section,
+			section {
+				display: flex;
+				flex-direction: column;
+				min-height: 100vh;
+				padding-block: 10vh;
+				padding-inline: 1rem;
+				margin: 0 auto;
+				max-width: 100vw;
 
-        @media (min-width: 60rem) {
-          padding-block: 6rem;
-          padding-inline: 3rem;
-          max-width: 75rem;
-        }
-      }
+				@media (min-width: 60rem) {
+					padding-block: 6rem;
+					padding-inline: 3rem;
+					max-width: 75rem;
+				}
+			}
 
-      .currently-listening {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: stretch;
-        gap: 1rem;
-        width: 100%;
+			.currently-listening {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: stretch;
+				gap: 1rem;
+				width: 100%;
 
-        &__title {
-          font-family: var(--text-font-family);
-          font-style: normal;
-          font-weight: 500;
-          font-size: 0.875rem;
-          line-height: 1.0625rem;
-          text-transform: uppercase;
-          color: var(--text-color);
-          max-width: 80rem;
-          margin: 0 auto;
-          width: 100%;
-          padding-inline: 3rem;
-          text-align: center;
-        }
+				&__title {
+					font-family: var(--text-font-family);
+					font-style: normal;
+					font-weight: 500;
+					font-size: 0.875rem;
+					line-height: 1.0625rem;
+					text-transform: uppercase;
+					color: var(--text-color);
+					max-width: 80rem;
+					margin: 0 auto;
+					width: 100%;
+					padding-inline: 3rem;
+					text-align: center;
+				}
 
-        &__container {
-          display: grid;
-          place-items: center;
-          background-color: var(--background-color);
-          box-shadow: 0 -1px 0 0 var(--text-color), 0 1px 0 0 var(--text-color);
-          position: relative;
+				&__container {
+					display: grid;
+					place-items: center;
+					background-color: var(--background-color);
+					box-shadow:
+						0 -1px 0 0 var(--text-color),
+						0 1px 0 0 var(--text-color);
+					position: relative;
 
-          @media (min-width: 60rem) {
-            height: 5rem;
-          }
-        }
-      }
-    </style>
-  </head>
+					@media (min-width: 60rem) {
+						height: 5rem;
+					}
+				}
+			}
+		</style>
+	</head>
 
-  <body>
-    <div class="container">
-      <Header />
-      <main>
-        <Hero />
-        <section id="content" tabindex={-1} aria-labelledby="about">
-          <h2 id="about" class="sr-only">{PAGE_CONTENT.about.title}</h2>
-          <Intro />
-          <Skills />
-          <Bio />
-          <Experience />
-        </section>
-        <section class="section" aria-labelledby="work">
-          <Work client:load />
-        </section>
-      </main>
-      <footer class="footer" id="footer">
-        <div class="currently-listening" data-testid="currently-listening">
-          <h2
-            id="current-listening"
-            class="currently-listening__title"
-            data-testid="currently-listening-main-title"
-          >
-            {PAGE_CONTENT.footer.title}
-          </h2>
-          <div class="currently-listening__container">
-            <CurrentlyListening client:load />
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <SocialLinks />
-          <p class="footer__others">
-            {footer}
-          </p>
-        </div>
-      </footer>
-    </div>
-    <div class="grid-background" role="presentation"></div>
-  </body>
+	<body>
+		<div class="container">
+			<Header />
+			<main>
+				<Hero />
+				<section id="content" tabindex={-1} aria-labelledby="about">
+					<h2 id="about" class="sr-only">{PAGE_CONTENT.about.title}</h2>
+					<Intro />
+					<Skills />
+					<Bio />
+					<Experience />
+				</section>
+				<section class="section" aria-labelledby="work">
+					<Work client:load />
+				</section>
+			</main>
+			<footer class="footer" id="footer">
+				<div class="currently-listening" data-testid="currently-listening">
+					<h2
+						id="current-listening"
+						class="currently-listening__title"
+						data-testid="currently-listening-main-title"
+					>
+						{PAGE_CONTENT.footer.title}
+					</h2>
+					<div class="currently-listening__container">
+						<CurrentlyListening client:load />
+					</div>
+				</div>
+				<div class="footer__bottom">
+					<SocialLinks />
+					<p class="footer__others">
+						{footer}
+					</p>
+				</div>
+			</footer>
+		</div>
+		<div class="grid-background" role="presentation"></div>
+	</body>
 </html>
