@@ -13,4 +13,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
     site: 'https://joaodias.me',
     integrations: [react(), sitemap()],
+    content: {
+        experimental: {
+            assets: true,
+        },
+    },
 });
