@@ -77,7 +77,7 @@ test.describe("Intro", () => {
 
 			const INTRO_TITLE = page.getByTestId(PAGE_SELECTORS.introTitle);
 			await expect(INTRO_TITLE).toHaveText(
-				"I'm João, a web developer and accessibility advocate from Coimbra, Portugal",
+				"I'm João, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal",
 			);
 		});
 	});

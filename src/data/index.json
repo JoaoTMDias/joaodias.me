@@ -31,9 +31,14 @@
 				"text": "About"
 			},
 			{
-				"href": "#work",
+				"href": "#projects",
 				"label": "Selected Works",
 				"text": "Work"
+			},
+			{
+				"href": "/articles",
+				"label": "Articles about Frontend Engineering and Web Accessibility",
+				"text": "Articles"
 			},
 			{
 				"href": "#contact",
@@ -59,7 +64,7 @@
 			"mainTitle": {
 				"title-first": "I'm",
 				"title-name": "João",
-				"title-second": ", a web developer and accessibility advocate from",
+				"title-second": ", a Frontend Engineer specializing in Web Accessibility from",
 				"title-location": "Coimbra, Portugal"
 			},
 			"currently-at": {
