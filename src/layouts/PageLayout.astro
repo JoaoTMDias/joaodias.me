@@ -1,0 +1,47 @@
+---
+import Header from "../components/header/index.astro";
+import SocialLinks from "../components/social-links/index.astro";
+import CurrentlyListening from "../components/currently-listening/index.tsx";
+import PAGE_CONTENT from "../data/index.json";
+import "../assets/styles/index.scss";
+import BaseLayout from "./BaseLayout.astro";
+
+export interface Props {
+	title: string;
+	description: string;
+	itemtype?: string;
+}
+
+const { title, description, itemtype = "http://schema.org/WebPage" } = Astro.props;
+
+const currentYear = new Date().getFullYear();
+const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
+---
+
+<BaseLayout title={title} description={description} itemtype={itemtype}>
+	<div class="container">
+		<Header />
+		<slot />
+		<footer class="footer" id="footer">
+			<div class="currently-listening" data-testid="currently-listening">
+				<h2
+					id="current-listening"
+					class="currently-listening__title"
+					data-testid="currently-listening-main-title"
+				>
+					{PAGE_CONTENT.footer.title}
+				</h2>
+				<div class="currently-listening__container">
+					<CurrentlyListening client:load />
+				</div>
+			</div>
+			<div class="footer__bottom">
+				<SocialLinks />
+				<p class="footer__others">
+					{footer}
+				</p>
+			</div>
+		</footer>
+	</div>
+	<div class="grid-background" role="presentation"></div>
+</BaseLayout>

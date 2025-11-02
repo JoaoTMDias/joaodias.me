@@ -3,25 +3,37 @@ import PAGE_CONTENT from "../../data/index.json";
 ---
 
 <div class="logo">
-	<h1 data-testid="logo">
-		<span class="sr-only">{PAGE_CONTENT.header.logo["title-first"]}</span><span lang="pt-PT"
-			>{PAGE_CONTENT.header.logo["title-name"]}{PAGE_CONTENT.header.logo["title-second"]}</span
-		>
-	</h1>
+	<a href="/" aria-label="Go to homepage" data-testid="logo">
+		<h1>
+			<span class="sr-only">{PAGE_CONTENT.header.logo["title-first"]}</span><span lang="pt-PT"
+				>{PAGE_CONTENT.header.logo["title-name"]}{PAGE_CONTENT.header.logo["title-second"]}</span
+			>
+		</h1>
+	</a>
 </div>
 <style lang="scss">
 	.logo,
+	.logo a,
 	.logo h1 {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
 	}
+
 	.logo {
 		height: var(--header-height);
 	}
+
+	.logo a {
+		text-decoration: none;
+		color: inherit;
+		height: 100%;
+	}
+
 	.logo h1 {
 		text-transform: lowercase;
 		font-size: 1.5rem;
+		margin: 0;
 	}
 </style>
