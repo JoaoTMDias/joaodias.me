@@ -18,4 +18,5 @@ export default defineConfig({
             assets: true,
         },
     },
+    router: "spa",
 });

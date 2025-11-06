@@ -1,11 +1,13 @@
 ---
+import { ClientRouter } from "astro:transitions";
+import { getCollection } from "astro:content";
 import Header from "../components/header/index.astro";
 import Hero from "../components/hero/index.astro";
 import Intro from "../components/intro/index.astro";
 import Skills from "../components/skills/index.astro";
 import Bio from "../components/bio/index.astro";
 import Experience from "../components/experience/index.astro";
-import Work from "../components/work/index.tsx";
+import Work from "../components/work/index.astro";
 import CurrentlyListening from "../components/currently-listening/index.tsx";
 import SocialLinks from "../components/social-links/index.astro";
 import PAGE_CONTENT from "../data/index.json";
@@ -13,6 +15,38 @@ import "../assets/styles/index.scss";
 
 const currentYear = new Date().getFullYear();
 const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
+
+// Fetch projects from Astro content collections
+const allProjects = await getCollection("projects");
+
+// Transform projects to match Work component's expected format
+// Sort by date (newest first) and take only the ones that should be featured
+const workProjects = allProjects
+	.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+	.map((project) => ({
+		id: project.slug,
+		title: project.data.title,
+		shortDescription: project.data.shortDescription,
+		skills: project.data.skills,
+		thumbnail: {
+			src: project.data.thumbnail.startsWith("/")
+				? project.data.thumbnail
+				: `/${project.data.thumbnail}`,
+			width: 123, // Default width, can be enhanced later
+			height: 123, // Default height, can be enhanced later
+			alt: `${project.data.title} project thumbnail`,
+		},
+		theme: {
+			background: project.data.themeBackground || "#000000",
+			foreground: project.data.themeForeground || "#ffffff",
+		},
+	}));
+
+const workData = {
+	title: PAGE_CONTENT.work.title,
+	description: PAGE_CONTENT.work.description,
+	data: workProjects,
+};
 ---
 
 <!doctype html>
@@ -32,6 +66,7 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 		<link rel="icon" type="image/png" href="/favicon_fallback.png" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
+		<ClientRouter />
 		<style lang="scss">
 			.container {
 				width: 100%;
@@ -132,7 +167,7 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 					<Experience />
 				</section>
 				<section class="section" aria-labelledby="work">
-					<Work client:load />
+					<Work title={workData.title} description={workData.description} data={workData.data} />
 				</section>
 			</main>
 			<footer class="footer" id="footer">

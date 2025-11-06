@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from "astro:transitions";
+
 export interface Props {
 	title: string;
 	description: string;
@@ -26,8 +28,8 @@ const { title, description, itemtype = "http://schema.org/WebPage", lang = "en" 
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<slot name="head" />
+		<ClientRouter />
 	</head>
-
 	<body>
 		<slot />
 	</body>

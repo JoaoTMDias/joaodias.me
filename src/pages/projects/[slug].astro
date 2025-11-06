@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import { getCollection } from "astro:content";
 import Header from "../../components/header/index.astro";
 import SocialLinks from "../../components/social-links/index.astro";
@@ -23,6 +24,7 @@ const { project } = Astro.props;
 const { Content } = await project.render();
 const currentYear = new Date().getFullYear();
 const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
+const transitionName = `project-title-${project.slug}`;
 ---
 
 <!doctype html>
@@ -41,6 +43,7 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 		<link rel="icon" type="image/png" href="/favicon_fallback.png" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
+		<ClientRouter />
 		<style lang="scss">
 			.container {
 				width: 100%;
@@ -219,20 +222,20 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 			<main class="main-content">
 				<article>
 					<header class="project-header">
-						<h1>{project.data.title}</h1>
+						<h1 transition:name={transitionName}>{project.data.title}</h1>
 						<p class="short-description">{project.data.shortDescription}</p>
 						<div class="meta">
 							<time datetime={project.data.date.toISOString()}>
-								{project.data.date.toLocaleDateString("en-US", {
-									year: "numeric",
-									month: "long",
-								})}
+								{
+									project.data.date.toLocaleDateString("en-US", {
+										year: "numeric",
+										month: "long",
+									})
+								}
 							</time>
 						</div>
 						<div class="skills">
-							{project.data.skills.map((skill) => (
-								<span class="skill">#{skill}</span>
-							))}
+							{project.data.skills.map((skill) => <span class="skill">#{skill}</span>)}
 						</div>
 					</header>
 
@@ -244,42 +247,50 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 					<div class="project-section">
 						<h2>Accessibility Considerations</h2>
 						<div class="accessibility-content">
-							{project.data.accessibilityConsiderations.split('\n').map((paragraph) => (
-								paragraph.trim() && <p>{paragraph.trim()}</p>
-							))}
+							{
+								project.data.accessibilityConsiderations
+									.split("\n")
+									.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
+							}
 						</div>
 					</div>
 
 					<div class="project-section">
 						<h2>Technical Approach</h2>
 						<div class="technical-content">
-							{project.data.technicalApproach.split('\n').map((paragraph) => (
-								paragraph.trim() && <p>{paragraph.trim()}</p>
-							))}
+							{
+								project.data.technicalApproach
+									.split("\n")
+									.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
+							}
 						</div>
 					</div>
 
-					{project.data.process && (
-						<div class="project-section">
-							<h2>Process</h2>
-							<div class="process-content">
-								{project.data.process.split('\n').map((paragraph) => (
-									paragraph.trim() && <p>{paragraph.trim()}</p>
-								))}
+					{
+						project.data.process && (
+							<div class="project-section">
+								<h2>Process</h2>
+								<div class="process-content">
+									{project.data.process
+										.split("\n")
+										.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)}
+								</div>
 							</div>
-						</div>
-					)}
+						)
+					}
 
-					{project.data.results && (
-						<div class="project-section">
-							<h2>Results & Impact</h2>
-							<div class="results-content">
-								{project.data.results.split('\n').map((paragraph) => (
-									paragraph.trim() && <p>{paragraph.trim()}</p>
-								))}
+					{
+						project.data.results && (
+							<div class="project-section">
+								<h2>Results & Impact</h2>
+								<div class="results-content">
+									{project.data.results
+										.split("\n")
+										.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)}
+								</div>
 							</div>
-						</div>
-					)}
+						)
+					}
 
 					<div class="project-section">
 						<h2>Full Story</h2>
@@ -289,16 +300,20 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 					</div>
 
 					<div class="project-links">
-						{project.data.sourceCode && (
-							<a href={project.data.sourceCode} target="_blank" rel="noopener noreferrer">
-								View Source Code
-							</a>
-						)}
-						{project.data.liveDemo && (
-							<a href={project.data.liveDemo} target="_blank" rel="noopener noreferrer">
-								Live Demo
-							</a>
-						)}
+						{
+							project.data.sourceCode && (
+								<a href={project.data.sourceCode} target="_blank" rel="noopener noreferrer">
+									View Source Code
+								</a>
+							)
+						}
+						{
+							project.data.liveDemo && (
+								<a href={project.data.liveDemo} target="_blank" rel="noopener noreferrer">
+									Live Demo
+								</a>
+							)
+						}
 						<a href="/projects">← Back to Projects</a>
 					</div>
 				</article>
@@ -327,4 +342,3 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 		<div class="grid-background" role="presentation"></div>
 	</body>
 </html>
-
