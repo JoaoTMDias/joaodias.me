@@ -31,6 +31,7 @@ const { id, title, subtitle, skills, thumbnail, theme, index } = Astro.props;
 
 const ariaLabel = `${title}, ${subtitle}`;
 const transitionName = `project-title-${id}`;
+const imageTransitionName = `project-image-${id}`;
 
 const itemStyle = {
 	"--index": index + 1,
@@ -54,7 +55,14 @@ const buttonStyle = {
 		data-testid="work-item"
 	>
 		<div class={styles.figure}>
-			<img src={thumbnail.src} width={thumbnail.width} height={thumbnail.height} alt={thumbnail.alt} loading="lazy" />
+			<img
+				src={thumbnail.src}
+				width={thumbnail.width}
+				height={thumbnail.height}
+				alt={thumbnail.alt}
+				loading="lazy"
+				transition:name={imageTransitionName}
+			/>
 		</div>
 		<div class={styles.content}>
 			<h3

@@ -1,4 +1,12 @@
 ---
+/**
+ * This file is open-source. This means that it can be reproduced in whole
+ * or in part, stored in a retrieval system transmitted in any form, or by
+ * any means electronic with my prior permission as an author and owner
+ * Please refer to the terms of the license agreement in the root of the project
+ *
+ * (c) 2022 joaodias.me, Rights Reserved.
+ */
 import { ClientRouter } from "astro:transitions";
 import { getCollection } from "astro:content";
 import Header from "../../components/header/index.astro";
@@ -25,6 +33,18 @@ const { Content } = await project.render();
 const currentYear = new Date().getFullYear();
 const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 const transitionName = `project-title-${project.slug}`;
+const imageTransitionName = `project-image-${project.slug}`;
+
+// Format date
+const formattedDate = project.data.date.toLocaleDateString("en-US", {
+	year: "numeric",
+	month: "long",
+});
+
+// Get cover image if available
+const coverImage = project.data.cover
+	? (project.data.cover.startsWith("/") ? project.data.cover : `/${project.data.cover}`)
+	: null;
 ---
 
 <!doctype html>
@@ -57,106 +77,202 @@ const transitionName = `project-title-${project.slug}`;
 				}
 			}
 
-			.main-content {
-				display: flex;
-				flex-direction: column;
-				min-height: 100vh;
-				padding-block: 10vh;
-				padding-inline: 1rem;
-				margin: 0 auto;
-				max-width: 100vw;
+			.project-dialog {
+				background: var(--background-color);
+				color: var(--text-color);
+				padding-block: 2rem;
+				padding-inline: 2rem;
+				width: 100%;
+				overflow-y: auto;
+				overscroll-behavior: contain;
 
 				@media (min-width: 60rem) {
-					padding-block: 6rem;
 					padding-inline: 3rem;
-					max-width: 75rem;
 				}
 			}
 
-			.project-header {
-				margin-bottom: 3rem;
+			.main {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				width: 100%;
+				max-width: 90rem;
+				margin: 2rem auto 0;
+				gap: 3rem;
+			}
 
-				h1 {
-					font-family: var(--heading-font-family);
-					font-size: 2.5rem;
-					line-height: 1.2;
-					margin-bottom: 1rem;
+			.top {
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-rows: auto;
+				grid-gap: 2rem;
+				width: 100%;
 
-					@media (min-width: 60rem) {
-						font-size: 3.5rem;
-					}
+				@media (min-width: 70rem) {
+					grid-template-columns: 0.4fr 0.6fr;
+					grid-gap: 3rem;
+				}
+			}
+
+			.header {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 2rem;
+			}
+
+			.heading {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				gap: 0.5rem;
+			}
+
+			.title {
+				font-family: var(--heading-font-family);
+				font-weight: 300;
+				font-size: 3rem;
+				text-align: left;
+				margin: 0;
+			}
+
+			.date {
+				font-family: var(--text-font-family);
+				font-size: 1.5rem;
+				font-weight: 400;
+				text-align: left;
+				margin: 0;
+			}
+
+			.intro {
+				font-family: var(--text-font-family);
+				font-size: 1.375rem;
+				line-height: 1.5;
+				margin: 0;
+			}
+
+			.cover {
+				--cover-background-color: var(--text-color-faded);
+
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+
+				&,
+				img {
+					width: 100%;
+					height: auto;
+					aspect-ratio: 4/3;
 				}
 
-				.short-description {
+				img {
+					background-color: var(--cover-background-color);
+				}
+			}
+
+			.content {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				width: 100%;
+				gap: 3rem;
+			}
+
+			.projectMeta {
+				border-width: 2px;
+				border-color: var(--text-color-faded);
+				border-style: solid;
+				padding: 4rem 3rem;
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-gap: 2rem;
+				width: 100%;
+
+				@media (min-width: 40rem) {
+					grid-template-columns: repeat(3, 1fr);
+				}
+			}
+
+			.projectColumn {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				gap: 1rem;
+
+				h4 {
 					font-family: var(--text-font-family);
-					font-size: 1.25rem;
-					line-height: 1.5;
-					margin-bottom: 1rem;
+					font-size: 1.125rem;
+					margin: 0;
 				}
 
-				.meta {
-					display: flex;
-					flex-wrap: wrap;
-					gap: 1rem;
-					font-family: var(--text-font-family);
-					font-size: 0.875rem;
-					color: var(--text-color);
-					opacity: 0.8;
+				h4,
+				ul li,
+				p {
+					font-size: 1.125rem;
 				}
 
-				.skills {
+				ul {
+					font-size: 1rem;
+					margin: 0;
+					padding: 0;
+					list-style: none;
+					width: 100%;
 					display: flex;
-					flex-wrap: wrap;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: flex-start;
 					gap: 0.5rem;
-					margin-top: 1rem;
+				}
 
-					.skill {
-						padding: 0.25rem 0.75rem;
-						background-color: var(--text-color);
-						color: var(--background-color);
-						border-radius: 1rem;
-						font-size: 0.875rem;
-					}
+				li {
+					position: relative;
+				}
+
+				.withHashes li:before {
+					content: "#";
+					margin-right: 0.5rem;
+					opacity: 0.5;
 				}
 			}
 
-			.project-section {
-				margin-bottom: 3rem;
+			.section {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				text-align: left;
+				gap: 1rem;
+				width: 100%;
+				max-width: 70ch;
 
-				h2 {
+				h3,
+				p {
+					margin: 0 auto;
+					width: 100%;
+				}
+
+				h3 {
 					font-family: var(--heading-font-family);
+					font-weight: 400;
 					font-size: 2rem;
-					margin-bottom: 1rem;
 				}
 
 				p {
 					font-family: var(--text-font-family);
 					font-size: 1.125rem;
-					line-height: 1.75;
-					margin-bottom: 1rem;
+					line-height: 1.618;
 				}
 			}
 
-			.project-links {
-				display: flex;
-				gap: 1rem;
-				margin-top: 2rem;
-
-				a {
-					padding: 0.75rem 1.5rem;
-					border: 1px solid var(--text-color);
-					color: var(--text-color);
-					text-decoration: none;
-					border-radius: 3rem;
-					font-family: var(--text-font-family);
-					transition: all 0.2s ease;
-
-					&:hover,
-					&:focus {
-						background-color: var(--text-color);
-						color: var(--background-color);
-					}
-				}
+			.gallery {
+				background-color: var(--text-color-faded);
+				width: 100%;
+				height: auto;
 			}
 
 			.footer {
@@ -219,104 +335,108 @@ const transitionName = `project-title-${project.slug}`;
 	<body>
 		<div class="container">
 			<Header />
-			<main class="main-content">
-				<article>
-					<header class="project-header">
-						<h1 transition:name={transitionName}>{project.data.title}</h1>
-						<p class="short-description">{project.data.shortDescription}</p>
-						<div class="meta">
-							<time datetime={project.data.date.toISOString()}>
-								{
-									project.data.date.toLocaleDateString("en-US", {
-										year: "numeric",
-										month: "long",
-									})
-								}
-							</time>
+			<main class="project-dialog">
+				<div class="main">
+					<div class="top">
+						<div class="header">
+							<div class="heading">
+								<h1 class="title" transition:name={transitionName}>
+									{project.data.title}
+								</h1>
+								<p class="date">
+									<time datetime={project.data.date.toISOString()}>
+										{formattedDate}
+									</time>
+								</p>
+							</div>
+							<p class="intro">{project.data.description}</p>
 						</div>
-						<div class="skills">
-							{project.data.skills.map((skill) => <span class="skill">#{skill}</span>)}
-						</div>
-					</header>
-
-					<div class="project-section">
-						<h2>Overview</h2>
-						<p>{project.data.description}</p>
+						{coverImage && (
+							<div class="cover">
+								<img
+									src={coverImage}
+									alt={`${project.data.title} cover image`}
+									loading="lazy"
+									transition:name={imageTransitionName}
+								/>
+							</div>
+						)}
 					</div>
+					<div class="content">
+						<div class="projectMeta">
+							<h3 class="sr-only">Project Information</h3>
+							<div class="projectColumn">
+								<h4>Skills</h4>
+								<ul class="withHashes">
+									{project.data.skills.map((skill) => (
+										<li>{skill}</li>
+									))}
+								</ul>
+							</div>
+							<div class="projectColumn">
+								<h4>Date</h4>
+								<p>{formattedDate}</p>
+							</div>
+							<div class="projectColumn">
+								<h4>Source Code</h4>
+								{project.data.sourceCode ? (
+									<a href={project.data.sourceCode} target="_blank" rel="noopener noreferrer">
+										View source code
+									</a>
+								) : (
+									<p>Not available</p>
+								)}
+							</div>
+						</div>
 
-					<div class="project-section">
-						<h2>Accessibility Considerations</h2>
-						<div class="accessibility-content">
+						<div class="section">
+							<h3>Accessibility Considerations</h3>
 							{
 								project.data.accessibilityConsiderations
 									.split("\n")
 									.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
 							}
 						</div>
-					</div>
 
-					<div class="project-section">
-						<h2>Technical Approach</h2>
-						<div class="technical-content">
+						<div class="section">
+							<h3>Technical Approach</h3>
 							{
 								project.data.technicalApproach
 									.split("\n")
 									.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
 							}
 						</div>
-					</div>
 
-					{
-						project.data.process && (
-							<div class="project-section">
-								<h2>Process</h2>
-								<div class="process-content">
-									{project.data.process
+						{project.data.process && (
+							<div class="section">
+								<h3>Process</h3>
+								{
+									project.data.process
 										.split("\n")
-										.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)}
-								</div>
+										.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
+								}
 							</div>
-						)
-					}
+						)}
 
-					{
-						project.data.results && (
-							<div class="project-section">
-								<h2>Results & Impact</h2>
-								<div class="results-content">
-									{project.data.results
+						{project.data.results && (
+							<div class="section">
+								<h3>Results & Impact</h3>
+								{
+									project.data.results
 										.split("\n")
-										.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)}
-								</div>
+										.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
+								}
 							</div>
-						)
-					}
+						)}
 
-					<div class="project-section">
-						<h2>Full Story</h2>
-						<div class="project-content">
-							<Content />
+						<div class="section">
+							<h3>Full Story</h3>
+							<div class="project-content">
+								<Content />
+							</div>
 						</div>
 					</div>
-
-					<div class="project-links">
-						{
-							project.data.sourceCode && (
-								<a href={project.data.sourceCode} target="_blank" rel="noopener noreferrer">
-									View Source Code
-								</a>
-							)
-						}
-						{
-							project.data.liveDemo && (
-								<a href={project.data.liveDemo} target="_blank" rel="noopener noreferrer">
-									Live Demo
-								</a>
-							)
-						}
-						<a href="/projects">← Back to Projects</a>
-					</div>
-				</article>
+				</div>
 			</main>
 			<footer class="footer" id="footer">
 				<div class="currently-listening" data-testid="currently-listening">
