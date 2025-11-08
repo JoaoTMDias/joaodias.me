@@ -141,6 +141,10 @@ dist
 # TinaCMS generated files
 .tina/__generated__/
 
+# Playwright
+playwright-report/
+test-results/
+
 # Don't allow lock files to be committed (This is for templates only)
 
 # Package Manager Lock Files
