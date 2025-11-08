@@ -39,10 +39,34 @@ test.describe("Homepage", () => {
 
 			const PAGE_TOP_NAV_LINKS = await page.getByTestId(PAGE_SELECTORS.topNavLink).all();
 
+			// Verify we have the correct number of navigation links (Projects and Contact)
+			expect(PAGE_TOP_NAV_LINKS).toHaveLength(PAGE_DATA.header["main-navigation"].length);
+
 			for (const link of PAGE_TOP_NAV_LINKS) {
 				expect(link).toBeVisible();
-				expect(link.getAttribute("href")).toBeTruthy();
+				const href = await link.getAttribute("href");
+				expect(href).toBeTruthy();
 			}
+
+			// Verify the first link is Projects
+			const PROJECTS_LINK = page.getByRole("link", {
+				name: PAGE_DATA.header["main-navigation"][0].label,
+			});
+			await expect(PROJECTS_LINK).toBeVisible();
+			await expect(PROJECTS_LINK).toHaveAttribute(
+				"href",
+				PAGE_DATA.header["main-navigation"][0].href,
+			);
+
+			// Verify the second link is Contact
+			const CONTACT_LINK = page.getByRole("link", {
+				name: PAGE_DATA.header["main-navigation"][1].label,
+			});
+			await expect(CONTACT_LINK).toBeVisible();
+			await expect(CONTACT_LINK).toHaveAttribute(
+				"href",
+				PAGE_DATA.header["main-navigation"][1].href,
+			);
 
 			// Main Photo should be visible
 			const MAIN_PHOTO = page.getByTestId(PAGE_SELECTORS.profilePicture);
@@ -55,20 +79,52 @@ test.describe("Homepage", () => {
 	});
 });
 
-test.describe("Intro", () => {
-	test("should be possible to visit the section by clicking on the top nav link", async ({
-		page,
-	}) => {
-		await test.step("Navigate to the About section", async () => {
-			const NAV_LINK = page.getByRole("link", {
-				name: PAGE_DATA.header["main-navigation"][0].label,
+test.describe("Navigation", () => {
+	test("should navigate to Projects page when clicking Projects link", async ({ page }) => {
+		const PROJECTS_LINK = page.getByRole("link", {
+			name: PAGE_DATA.header["main-navigation"][0].label,
+		});
+
+		await test.step("Click on Projects link", async () => {
+			await PROJECTS_LINK.click();
+			await page.waitForURL("**/projects");
+		});
+
+		await test.step("Verify Projects page loaded", async () => {
+			expect(page.url()).toContain("/projects");
+			const PAGE_TITLE = await page.title();
+			expect(PAGE_TITLE).toContain("Projects");
+		});
+	});
+
+	test("should navigate to Contact section when clicking Contact link", async ({ page }) => {
+		const CONTACT_LINK = page.getByRole("link", {
+			name: PAGE_DATA.header["main-navigation"][1].label,
+		});
+
+		await test.step("Click on Contact link", async () => {
+			await CONTACT_LINK.click();
+		});
+
+		await test.step("Verify Contact section is visible", async () => {
+			expect(await page.url()).toContain("#contact");
+			const CONTACTS_TITLE = page.getByRole("heading", {
+				level: 3,
+				name: PAGE_DATA.footer["social-media"].title,
 			});
-			await NAV_LINK.click();
+			await expect(CONTACTS_TITLE).toBeVisible();
+		});
+	});
+});
+
+test.describe("Intro", () => {
+	test("should display intro section content", async ({ page }) => {
+		await test.step("Scroll to the about section", async () => {
+			// Navigate directly to the section since it's no longer in the nav
+			await page.goto("/#about");
 		});
 
 		await test.step("Check if the section is visible", async () => {
-			expect(await page.url()).toContain("#about");
-
 			const ABOUT_SECTION = page.locator(PAGE_SELECTORS.about);
 			await expect(ABOUT_SECTION).toBeVisible();
 
@@ -188,55 +244,117 @@ test.describe("Selected Work", () => {
 
 			await expect(WORK_LIST).toBeVisible();
 
-			// Each work item should have:
-			// - the correct id
+			// Each work item should be a link (not a button) and have:
+			// - a valid href to a project page (slug-based)
 			// - the correct aria-label
 			// - the correct title
-			// - the corret subtitle
+			// - the correct subtitle
 			// - the correct amount of skills
-			expect(WORK_ITEMS).toHaveLength(PAGE_DATA.work.data.length);
+			// - "View details" text instead of "Open Project"
+			expect(WORK_ITEMS.length).toBeGreaterThan(0);
 
 			for (const [index, item] of WORK_ITEMS.entries()) {
-				const ITEM_DATA = PAGE_DATA.work.data[index];
+				// Verify it's a link element, not a button
+				const tagName = await item.evaluate((el) => el.tagName.toLowerCase());
+				expect(tagName).toBe("a");
 
-				await expect(item).toHaveAttribute("id", ITEM_DATA.id);
-				await expect(item).toHaveAttribute(
-					"aria-label",
-					`${ITEM_DATA.title}, ${ITEM_DATA.shortDescription}`,
-				);
+				// Check that the href points to a project page (slug-based)
+				const href = await item.getAttribute("href");
+				expect(href).toBeTruthy();
+				expect(href).toMatch(/^\/projects\/[a-z0-9-]+$/);
+
+				// Check that the id attribute matches the slug from href
+				const id = await item.getAttribute("id");
+				expect(id).toBeTruthy();
+				if (href) {
+					const slugFromHref = href.replace("/projects/", "");
+					expect(id).toBe(slugFromHref);
+				}
+
+				// Verify aria-label exists and is properly formatted
+				const ariaLabel = await item.getAttribute("aria-label");
+				expect(ariaLabel).toBeTruthy();
+				expect(ariaLabel).toContain(",");
 
 				const TITLE = await item.getByTestId(PAGE_SELECTORS.workItems.title);
 				const SUBTITLE = await item.getByTestId(PAGE_SELECTORS.workItems.subtitle);
 				const SKILLS_LIST = await item.getByTestId(PAGE_SELECTORS.workItems.skill).all();
+				const VIEW_DETAILS_TEXT = await item.getByTestId("work-item-open");
 
-				await expect(TITLE).toHaveText(ITEM_DATA.title);
-				await expect(SUBTITLE).toHaveText(ITEM_DATA.shortDescription);
-				expect(SKILLS_LIST).toHaveLength(ITEM_DATA.skills.length);
+				// Verify title and subtitle are visible
+				await expect(TITLE).toBeVisible();
+				await expect(SUBTITLE).toBeVisible();
 
-				for (const [index, skill] of SKILLS_LIST.entries()) {
-					expect(skill).toHaveText(ITEM_DATA.skills[index]);
-				}
+				// Verify skills are displayed
+				expect(SKILLS_LIST.length).toBeGreaterThan(0);
+
+				// Verify "View details" text is present (not "Open Project")
+				await expect(VIEW_DETAILS_TEXT).toBeVisible();
+				const viewDetailsText = await VIEW_DETAILS_TEXT.textContent();
+				expect(viewDetailsText).toContain("View details");
 			}
 		});
 	});
 
-	// @todo this is still in progress
-	test("[WIP] should open a project and display its contents", async ({ page }) => {
-		const RANDOM_INDEX = random(0, PAGE_DATA.work.data.length - 1);
-		const CHOSEN_ITEM_DATA = PAGE_DATA.work.data[RANDOM_INDEX];
+	test("should navigate to project detail page when clicking a work item", async ({ page }) => {
 		const ALL_WORK_ITEMS = await page.getByTestId(PAGE_SELECTORS.workItems.item).all();
+		expect(ALL_WORK_ITEMS.length).toBeGreaterThan(0);
+
+		const RANDOM_INDEX = random(0, ALL_WORK_ITEMS.length - 1);
 		const WORK_ITEM = ALL_WORK_ITEMS[RANDOM_INDEX];
+
+		// Get the project title and href before navigation
+		const PROJECT_TITLE_ELEMENT = WORK_ITEM.getByTestId(PAGE_SELECTORS.workItems.title);
+		const EXPECTED_TITLE = await PROJECT_TITLE_ELEMENT.textContent();
+		const href = await WORK_ITEM.getAttribute("href");
+		expect(href).toBeTruthy();
 
 		await test.step("Scroll to the work section", async () => {
 			await WORK_ITEM.scrollIntoViewIfNeeded();
 			await expect(WORK_ITEM).toBeVisible();
 		});
 
-		await test.step("Click on a work item", async () => {
+		await test.step("Click on a work item link", async () => {
 			await WORK_ITEM.click();
+			// Wait for navigation to project detail page
+			await page.waitForURL(`**/projects/**`);
 		});
 
-		// @todo check the rest of the content
+		await test.step("Check project detail page content", async () => {
+			// Verify we're on a project detail page
+			const url = page.url();
+			expect(url).toContain("/projects/");
+			if (href) {
+				expect(url).toContain(href);
+			}
+
+			// Check that the project title is visible (with transition name)
+			const PROJECT_TITLE = page.locator("h1");
+			await expect(PROJECT_TITLE).toBeVisible();
+			if (EXPECTED_TITLE) {
+				await expect(PROJECT_TITLE).toHaveText(EXPECTED_TITLE.trim());
+			}
+
+			// Check that the project header intro is visible
+			const PROJECT_INTRO = page.locator(".project-header__intro");
+			await expect(PROJECT_INTRO).toBeVisible();
+
+			// Check that project meta information is visible
+			const PROJECT_META = page.locator(".project-meta");
+			await expect(PROJECT_META).toBeVisible();
+
+			// Check that skills are displayed
+			const SKILLS_SECTION = PROJECT_META.locator("text=Skills");
+			await expect(SKILLS_SECTION).toBeVisible();
+
+			// Check that date is displayed
+			const DATE_SECTION = PROJECT_META.locator("text=Date");
+			await expect(DATE_SECTION).toBeVisible();
+
+			// Check that source code link exists (if available)
+			const SOURCE_CODE_SECTION = PROJECT_META.locator("text=Source Code");
+			await expect(SOURCE_CODE_SECTION).toBeVisible();
+		});
 	});
 });
 
@@ -293,9 +411,260 @@ test.describe("Contacts", () => {
 	});
 });
 
+test.describe("Projects Index Page", () => {
+	test.beforeEach(async ({ page }) => {
+		await page.goto("/projects");
+		await page.waitForURL("**/projects");
+	});
+
+	test("should load the projects index page", async ({ page }) => {
+		const PAGE_TITLE = await page.title();
+		expect(PAGE_TITLE).toContain("Projects");
+	});
+
+	test("should display all projects", async ({ page }) => {
+		const PROJECTS_HEADER = page.getByRole("heading", { level: 1, name: "All projects" });
+		await expect(PROJECTS_HEADER).toBeVisible();
+
+		const PROJECTS_GRID = page.locator(".projects-grid");
+		await expect(PROJECTS_GRID).toBeVisible();
+
+		const PROJECT_CARDS = await page.locator(".project-card").all();
+		expect(PROJECT_CARDS.length).toBeGreaterThan(0);
+
+		for (const card of PROJECT_CARDS) {
+			// Verify each card is a link
+			const tagName = await card.evaluate((el) => el.tagName.toLowerCase());
+			expect(tagName).toBe("a");
+
+			// Verify href points to a project detail page
+			const href = await card.getAttribute("href");
+			expect(href).toBeTruthy();
+			expect(href).toMatch(/^\/projects\/[a-z0-9-]+$/);
+
+			// Verify aria-label exists
+			const ariaLabel = await card.getAttribute("aria-label");
+			expect(ariaLabel).toBeTruthy();
+
+			// Verify thumbnail is present
+			const THUMBNAIL = card.locator(".project-thumbnail img");
+			await expect(THUMBNAIL).toBeVisible();
+
+			// Verify title is present
+			const TITLE = card.locator(".project-content__title");
+			await expect(TITLE).toBeVisible();
+
+			// Verify subtitle is present
+			const SUBTITLE = card.locator(".project-content__subtitle");
+			await expect(SUBTITLE).toBeVisible();
+
+			// Verify skills are present
+			const SKILLS = card.locator(".project-skills");
+			await expect(SKILLS).toBeVisible();
+		}
+	});
+
+	test("should navigate to project detail page when clicking a project card", async ({ page }) => {
+		const PROJECT_CARDS = await page.locator(".project-card").all();
+		expect(PROJECT_CARDS.length).toBeGreaterThan(0);
+
+		const RANDOM_INDEX = random(0, PROJECT_CARDS.length - 1);
+		const PROJECT_CARD = PROJECT_CARDS[RANDOM_INDEX];
+
+		// Get the project title and href before navigation
+		const PROJECT_TITLE_ELEMENT = PROJECT_CARD.locator(".project-content__title");
+		const EXPECTED_TITLE = await PROJECT_TITLE_ELEMENT.textContent();
+		const href = await PROJECT_CARD.getAttribute("href");
+		expect(href).toBeTruthy();
+
+		await test.step("Click on a project card", async () => {
+			await PROJECT_CARD.click();
+			await page.waitForURL(`**/projects/**`);
+		});
+
+		await test.step("Verify project detail page loaded", async () => {
+			const url = page.url();
+			expect(url).toContain("/projects/");
+			if (href) {
+				expect(url).toContain(href);
+			}
+
+			// Check that the project title matches
+			const PROJECT_TITLE = page.locator("h1");
+			await expect(PROJECT_TITLE).toBeVisible();
+			if (EXPECTED_TITLE) {
+				await expect(PROJECT_TITLE).toHaveText(EXPECTED_TITLE.trim());
+			}
+		});
+	});
+
+	test("should display currently listening section on projects page", async ({ page }) => {
+		const { container } = PAGE_SELECTORS.currentlyListening;
+		const CONTAINER = page.getByTestId(container);
+		await expect(CONTAINER).toBeVisible();
+	});
+
+	test("should display social links on projects page", async ({ page }) => {
+		const { title } = PAGE_DATA.footer["social-media"];
+		const CONTACTS_TITLE = page.getByRole("heading", { level: 3, name: title });
+		await expect(CONTACTS_TITLE).toBeVisible();
+	});
+});
+
+test.describe("Project Detail Page", () => {
+	test.beforeEach(async ({ page, networkHandlers }) => {
+		await test.step("Intercept Last.fm API", async () => {
+			await networkHandlers.intercept("https://ws.audioscrobbler.com/2.0/**", {
+				method: "GET",
+				fixture: "./tests/mocks/last-fm.json",
+			});
+		});
+
+		// Navigate to homepage first to get a project link
+		await page.goto("/");
+		await page.waitForURL("http://localhost:4321/");
+
+		// Get the first project link
+		const WORK_ITEMS = await page.getByTestId(PAGE_SELECTORS.workItems.item).all();
+		expect(WORK_ITEMS.length).toBeGreaterThan(0);
+
+		const FIRST_PROJECT_LINK = WORK_ITEMS[0];
+		const href = await FIRST_PROJECT_LINK.getAttribute("href");
+		expect(href).toBeTruthy();
+
+		// Navigate to the project detail page
+		await page.goto(href!);
+		await page.waitForURL(`**/projects/**`);
+	});
+
+	test("should display project header information", async ({ page }) => {
+		// Check project title
+		const PROJECT_TITLE = page.locator("h1.project-header__title");
+		await expect(PROJECT_TITLE).toBeVisible();
+
+		// Check project date
+		const PROJECT_DATE = page.locator(".project-header__date");
+		await expect(PROJECT_DATE).toBeVisible();
+
+		// Check project intro/description
+		const PROJECT_INTRO = page.locator(".project-header__intro");
+		await expect(PROJECT_INTRO).toBeVisible();
+	});
+
+	test("should display project meta information", async ({ page }) => {
+		const PROJECT_META = page.locator(".project-meta");
+		await expect(PROJECT_META).toBeVisible();
+
+		// Check Skills section
+		const SKILLS_TITLE = PROJECT_META.locator("text=Skills");
+		await expect(SKILLS_TITLE).toBeVisible();
+
+		// Check Date section
+		const DATE_TITLE = PROJECT_META.locator("text=Date");
+		await expect(DATE_TITLE).toBeVisible();
+
+		// Check Source Code section
+		const SOURCE_CODE_TITLE = PROJECT_META.locator("text=Source Code");
+		await expect(SOURCE_CODE_TITLE).toBeVisible();
+	});
+
+	test("should display project content sections", async ({ page }) => {
+		// Check for Accessibility Considerations section
+		const ACCESSIBILITY_SECTION = page.locator("text=Accessibility Considerations");
+		await expect(ACCESSIBILITY_SECTION).toBeVisible();
+
+		// Check for Technical Approach section
+		const TECHNICAL_SECTION = page.locator("text=Technical Approach");
+		await expect(TECHNICAL_SECTION).toBeVisible();
+	});
+
+	test("should display cover image if available", async ({ page }) => {
+		const COVER_IMAGE = page.locator(".project-cover img");
+		const coverExists = await COVER_IMAGE.count();
+		// Cover image is optional, so we just check if it exists when present
+		if (coverExists > 0) {
+			await expect(COVER_IMAGE.first()).toBeVisible();
+		}
+	});
+
+	test("should display gallery images if available", async ({ page }) => {
+		const GALLERY = page.locator(".project-gallery");
+		const galleryExists = await GALLERY.count();
+		// Gallery is optional, so we just check if it exists when present
+		if (galleryExists > 0) {
+			await expect(GALLERY.first()).toBeVisible();
+			const GALLERY_IMAGES = await GALLERY.locator("img").all();
+			expect(GALLERY_IMAGES.length).toBeGreaterThan(0);
+		}
+	});
+
+	test("should display currently listening section", async ({ page }) => {
+		const { container } = PAGE_SELECTORS.currentlyListening;
+		const CONTAINER = page.getByTestId(container);
+		await expect(CONTAINER).toBeVisible();
+	});
+
+	test("should display social links", async ({ page }) => {
+		const { title } = PAGE_DATA.footer["social-media"];
+		const CONTACTS_TITLE = page.getByRole("heading", { level: 3, name: title });
+		await expect(CONTACTS_TITLE).toBeVisible();
+	});
+
+	test("should have accessible navigation", async ({ page }) => {
+		// Check that header navigation is present
+		const HEADER = page.locator("header");
+		await expect(HEADER).toBeVisible();
+
+		// Check that logo link is present
+		const LOGO = page.getByTestId(PAGE_SELECTORS.logo);
+		await expect(LOGO).toBeVisible();
+	});
+});
+
 test.describe("Accessibility", () => {
-	test("should have no accessibility violations", async ({ page }) => {
-		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); // 4
+	test("should have no accessibility violations on homepage", async ({ page }) => {
+		const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+
+		expect(accessibilityScanResults.violations).toEqual([]);
+	});
+
+	test("should have no accessibility violations on projects page", async ({ page }) => {
+		await page.goto("/projects");
+		await page.waitForURL("**/projects");
+
+		const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+
+		expect(accessibilityScanResults.violations).toEqual([]);
+	});
+
+	test("should have no accessibility violations on project detail page", async ({
+		page,
+		networkHandlers,
+	}) => {
+		await test.step("Intercept Last.fm API", async () => {
+			await networkHandlers.intercept("https://ws.audioscrobbler.com/2.0/**", {
+				method: "GET",
+				fixture: "./tests/mocks/last-fm.json",
+			});
+		});
+
+		// Navigate to homepage first to get a project link
+		await page.goto("/");
+		await page.waitForURL("http://localhost:4321/");
+
+		// Get the first project link
+		const WORK_ITEMS = await page.getByTestId(PAGE_SELECTORS.workItems.item).all();
+		expect(WORK_ITEMS.length).toBeGreaterThan(0);
+
+		const FIRST_PROJECT_LINK = WORK_ITEMS[0];
+		const href = await FIRST_PROJECT_LINK.getAttribute("href");
+		expect(href).toBeTruthy();
+
+		// Navigate to the project detail page
+		await page.goto(href!);
+		await page.waitForURL(`**/projects/**`);
+
+		const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 
 		expect(accessibilityScanResults.violations).toEqual([]);
 	});

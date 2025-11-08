@@ -191,6 +191,13 @@ export default defineConfig({
 						required: false,
 					},
 					{
+						type: "image",
+						name: "galleryImages",
+						label: "Gallery Images",
+						list: true,
+						required: false,
+					},
+					{
 						type: "string",
 						name: "themeBackground",
 						label: "Theme Background Color",

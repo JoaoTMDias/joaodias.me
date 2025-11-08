@@ -42,12 +42,39 @@ const projectsCollection = defineCollection({
 		skills: z.array(z.string()),
 		thumbnail: z.string(),
 		cover: z.string().optional(),
+		galleryImages: z.array(z.string()).optional(),
 		themeBackground: z.string().optional(),
 		themeForeground: z.string().optional(),
+	}),
+});
+
+const showsCollection = defineCollection({
+	type: "content",
+	schema: z.object({
+		program: z.enum([
+			"mel-e-tal",
+			"bem-fresquinho",
+			"culturama",
+			"discossao",
+			"epica-balnear",
+			"jazzmatazz",
+			"maison",
+			"peta-zetas",
+			"praia-do-cabedelo",
+			"ruccies",
+			"vekta",
+		]),
+		title: z.string(),
+		description: z.string(),
+		date: z.coerce.date(),
+		image: z.string().optional(),
+		externalUrl: z.string().url(),
+		notes: z.string().optional(),
 	}),
 });
 
 export const collections = {
 	articles: articlesCollection,
 	projects: projectsCollection,
+	shows: showsCollection,
 };
