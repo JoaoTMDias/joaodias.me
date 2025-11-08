@@ -9,6 +9,8 @@ import PAGE_CONTENT from "../../data/index.json";
 		width={PAGE_CONTENT.hero["profile-picture"].width}
 		height={PAGE_CONTENT.hero["profile-picture"].height}
 		alt={PAGE_CONTENT.hero["profile-picture"].alt}
+		loading="eager"
+		fetchpriority="high"
 		data-testid="profile-picture"
 	/>
 </div>
@@ -17,7 +19,7 @@ import PAGE_CONTENT from "../../data/index.json";
 	.profile {
 		&__picture,
 		&__image {
-			width: clamp(13.75rem, calc(50vw), 18.75rem);
+			width: clamp(13.75rem, 50vw, 18.75rem);
 			height: auto;
 
 			@media (min-width: 60rem) {
@@ -45,7 +47,6 @@ import PAGE_CONTENT from "../../data/index.json";
 
 			@supports (animation-timeline: view()) {
 				@media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
-					zoom: 1;
 					transform: scale(1);
 					opacity: 1;
 					view-timeline-name: --revealing-image;
@@ -64,28 +65,36 @@ import PAGE_CONTENT from "../../data/index.json";
 				left: 0;
 				z-index: 1;
 				background-color: var(--background-color);
-				transform: translateY(0%);
-				animation-name: slideInFigure;
-				animation-duration: 1500ms;
-				animation-delay: 500ms;
-				animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-				animation-fill-mode: forwards;
+				transform: translateY(-100%);
+
+				@media (prefers-reduced-motion: no-preference) {
+					transform: translateY(0%);
+					animation-name: slideInFigure;
+					animation-duration: 1500ms;
+					animation-delay: 500ms;
+					animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+					animation-fill-mode: forwards;
+				}
 			}
 		}
 
 		&__image {
-			transform: scale(1.5);
 			background-color: var(--text-color);
 			object-fit: cover;
 			object-position: center center;
-			animation-name: scaleDownImage;
-			animation-duration: 2000ms;
-			animation-delay: 250ms;
-			animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-			animation-fill-mode: forwards;
 			position: relative;
 			z-index: 0;
 			border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+			transform: scale(1);
+
+			@media (prefers-reduced-motion: no-preference) {
+				transform: scale(1.5);
+				animation-name: scaleDownImage;
+				animation-duration: 2000ms;
+				animation-delay: 250ms;
+				animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+				animation-fill-mode: forwards;
+			}
 
 			&:hover {
 				border-radius: 0;
@@ -95,13 +104,11 @@ import PAGE_CONTENT from "../../data/index.json";
 
 	@keyframes scaleOnScroll {
 		0% {
-			zoom: 1;
 			transform: scale(1);
 		}
 
 		100% {
-			zoom: 1;
-			transform: scale(1.5);
+			transform: scale(2);
 		}
 	}
 
@@ -110,22 +117,17 @@ import PAGE_CONTENT from "../../data/index.json";
 			transform: translateY(0%);
 		}
 
-		90% {
-			transform: translateY(-100%);
-		}
-
 		100% {
-			overflow: visible;
 			transform: translateY(-100%);
 		}
 	}
 
 	@keyframes scaleDownImage {
-		from {
+		0% {
 			transform: scale(1.5);
 		}
 
-		to {
+		100% {
 			transform: scale(1);
 		}
 	}

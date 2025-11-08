@@ -16,10 +16,8 @@ interface ISkipLink {
 	as?: "link" | "button";
 }
 
-const items: ISkipLink[] = PAGE_CONTENT.header["links"];
-
 function SkipLink() {
-	return <SkipLinks items={items} />;
+	return <SkipLinks items={PAGE_CONTENT.header["links"] as ISkipLink[]} />;
 }
 
 export default SkipLink;
