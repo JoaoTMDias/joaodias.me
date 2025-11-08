@@ -26,19 +26,9 @@
 		},
 		"main-navigation": [
 			{
-				"href": "#about",
-				"label": "About João Dias",
-				"text": "About"
-			},
-			{
-				"href": "#projects",
-				"label": "Selected Works",
-				"text": "Work"
-			},
-			{
-				"href": "/articles",
-				"label": "Articles about Frontend Engineering and Web Accessibility",
-				"text": "Articles"
+				"href": "/projects",
+				"label": "Selected projects",
+				"text": "Projects"
 			},
 			{
 				"href": "#contact",
