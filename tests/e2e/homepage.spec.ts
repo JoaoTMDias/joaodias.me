@@ -1,5 +1,5 @@
-import { test, expect } from "utils";
 import { random } from "@jtmdias/js-utilities";
+import { expect, test } from "utils";
 import { PAGE_DATA, PAGE_SELECTORS } from "./constants";
 
 test.beforeEach(async ({ page, networkHandlers }) => {
@@ -213,7 +213,7 @@ test.describe("Selected Work", () => {
 			// - "View details" text instead of "Open Project"
 			expect(WORK_ITEMS.length).toBeGreaterThan(0);
 
-			for (const [index, item] of WORK_ITEMS.entries()) {
+			for (const [_, item] of WORK_ITEMS.entries()) {
 				// Verify it's a link element, not a button
 				const tagName = await item.evaluate((el) => el.tagName.toLowerCase());
 				expect(tagName).toBe("a");
@@ -323,4 +323,3 @@ test.describe("Selected Work", () => {
 		});
 	});
 });
-

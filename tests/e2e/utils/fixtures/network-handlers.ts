@@ -1,5 +1,5 @@
 import { isNumber, isString, wait } from "@jtmdias/js-utilities";
-import { Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 interface RouteHandler {
 	url: string | RegExp;

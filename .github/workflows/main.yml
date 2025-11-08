@@ -1,9 +1,9 @@
-name: E2E tests
+name: Linting and Testing
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 jobs:
   test:
     timeout-minutes: 60
@@ -15,15 +15,17 @@ jobs:
           node-version: lts/*
       - name: Install dependencies
         run: npm ci
+      - name: Lint code
+        run: npm run lint
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
+        run: npm run test
         env:
           PUBLIC_LAST_FM_API_KEY: ${{ secrets.PUBLIC_LAST_FM_API_KEY }}
           SITE_URL: ${{ secrets.SITE_URL}}
           PUBLIC_TINA_CLIENT_ID: ${{ secrets.PUBLIC_TINA_CLIENT_ID}}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        run: npm run test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

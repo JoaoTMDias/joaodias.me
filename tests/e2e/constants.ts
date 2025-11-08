@@ -1,5 +1,4 @@
 import PAGE_CONTENT from "../../src/data/index.json";
-import { SelectedProjects } from "../../src/data/content-types";
 
 export const PAGE_SELECTORS = {
 	logo: "logo",
@@ -37,4 +36,4 @@ export const PAGE_SELECTORS = {
 	},
 } as const;
 
-export const PAGE_DATA: SelectedProjects = PAGE_CONTENT;
+export const PAGE_DATA = PAGE_CONTENT;

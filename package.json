@@ -1,40 +1,41 @@
 {
-	"name": "joaodias.me",
-	"version": "5.5",
-	"private": false,
-	"scripts": {
-		"dev": "tinacms dev -c \"astro dev\"",
-		"start": "astro dev",
-		"build": "tinacms build && astro build",
-		"preview": "astro preview",
-		"test": "npm run test:headless",
-		"test:ui": "playwright test --ui",
-		"test:headless": "playwright test",
-		"test:open": "npm run test:ui",
-		"format": "prettier --write .",
-		"typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json"
-	},
-	"devDependencies": {
-		"@astrojs/react": "4.4.1",
-		"@axe-core/playwright": "^4.11.0",
-		"@jtmdias/js-utilities": "^3.0.0",
-		"@jtmdias/react-a11y-tools": "3.0.0",
-		"@playwright/test": "^1.56.1",
-		"@types/node": "^22.18.13",
-		"@types/react": "19.0.8",
-		"@types/react-dom": "19.0.3",
-		"astro": "^5.15.3",
-		"axe-core": "4.11.0",
-		"prettier": "3.6.2",
-		"react": "19.2.0",
-		"react-dom": "^19.2.0",
-		"sass": "1.93.3",
-		"start-server-and-test": "^2.1.2",
-		"typescript": "^5.9.3"
-	},
-	"dependencies": {
-		"@astrojs/sitemap": "^3.6.0",
-		"@tinacms/cli": "^1.11.0",
-		"tinacms": "^2.9.0"
-	}
+  "name": "joaodias.me",
+  "version": "5.5",
+  "private": false,
+  "scripts": {
+    "dev": "tinacms dev -c \"astro dev\"",
+    "start": "astro dev",
+    "build": "tinacms build && astro build",
+    "preview": "astro preview",
+    "test": "npm run test:headless",
+    "test:ui": "playwright test --ui",
+    "test:headless": "playwright test",
+    "test:open": "npm run test:ui",
+    "lint": "biome lint --write ./src",
+    "format": "biome format --write ./src",
+    "typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json"
+  },
+  "devDependencies": {
+    "@astrojs/react": "4.4.1",
+    "@axe-core/playwright": "^4.11.0",
+    "@biomejs/biome": "2.3.4",
+    "@jtmdias/js-utilities": "^3.0.0",
+    "@jtmdias/react-a11y-tools": "3.0.0",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^22.18.13",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "astro": "^5.15.3",
+    "axe-core": "4.11.0",
+    "react": "19.2.0",
+    "react-dom": "^19.2.0",
+    "sass": "1.93.3",
+    "start-server-and-test": "^2.1.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
+    "@tinacms/cli": "^1.11.0",
+    "tinacms": "^2.9.0"
+  }
 }

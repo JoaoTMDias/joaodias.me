@@ -6,9 +6,9 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
+import type { FunctionComponent } from "react";
 import PAGE_CONTENT from "../../data/index.json";
-import { FunctionComponent } from "react";
-import { Track } from "../../typings/index";
+import type { Track } from "../../typings/index";
 import styles from "./styles.module.scss";
 
 /**

@@ -6,11 +6,12 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
+
+import { useEffect, useState } from "react";
 import PAGE_CONTENT from "../../data/index.json";
 import { LAST_FM_URL } from "../../data/services/config";
-import { ExternalServiceSongs, Track } from "../../typings/index";
+import type { ExternalServiceSongs, Track } from "../../typings/index";
 import LastPlayedSongCard from "./LastPlayedSongCard";
-import { useEffect, useState } from "react";
 
 async function getSong() {
 	const request = await fetch(LAST_FM_URL);

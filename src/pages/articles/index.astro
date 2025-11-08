@@ -1,13 +1,13 @@
 ---
 import { getCollection } from "astro:content";
+import CurrentlyListening from "../../components/currently-listening/index";
 import Header from "../../components/header/index.astro";
 import SocialLinks from "../../components/social-links/index.astro";
-import CurrentlyListening from "../../components/currently-listening/index.tsx";
 import PAGE_CONTENT from "../../data/index.json";
 import "../../assets/styles/index.scss";
 
 const articles = (await getCollection("articles")).sort(
-	(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+	(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
 
 const currentYear = new Date().getFullYear();
