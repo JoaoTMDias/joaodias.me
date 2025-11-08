@@ -76,16 +76,18 @@ const buttonStyle = {
 				{subtitle}
 			</p>
 			<ul class={styles.skills} data-testid="work-item-skills">
-				{skills.map((skill) => (
-					<li key={skill} data-testid="work-item-skill">
-						{skill}
-					</li>
-				))}
+				{
+					skills.map((skill) => (
+						<li key={skill} data-testid="work-item-skill">
+							{skill}
+						</li>
+					))
+				}
 			</ul>
 		</div>
 		<div class={styles.content__toggle}>
 			<p class={styles.content__toggle__label} data-testid="work-item-open">
-				Open Project
+				View details<span class="sr-only"> of the {title} project</span>
 			</p>
 			<svg
 				class={styles.content__toggle__vector}
@@ -97,9 +99,8 @@ const buttonStyle = {
 					class={styles.content__toggle__path}
 					fill="var(--text-color)"
 					d="M18.857 12h-5.143c-.947 0-1.714.767-1.714 1.714v5.143a1.713 1.713 0 1 0 3.429 0V15.43h3.428c.948 0 1.714-.767 1.714-1.715 0-.947-.766-1.714-1.714-1.714Zm15.429 0h-5.143a1.713 1.713 0 1 0 0 3.429h3.428v3.428c0 .948.767 1.714 1.715 1.714.947 0 1.714-.766 1.714-1.714v-5.143c0-.947-.766-1.714-1.714-1.714ZM18.857 32.571H15.43v-3.428c0-.948-.767-1.714-1.715-1.714-.947 0-1.714.766-1.714 1.714v5.143c0 .947.767 1.714 1.714 1.714h5.143c.948 0 1.714-.767 1.714-1.714 0-.948-.766-1.715-1.714-1.715Zm15.429-5.142c-.948 0-1.715.766-1.715 1.714v3.428h-3.428c-.948 0-1.714.767-1.714 1.715 0 .947.766 1.714 1.714 1.714h5.143c.947 0 1.714-.767 1.714-1.714v-5.143c0-.948-.766-1.714-1.714-1.714Z"
-				/>
+				></path>
 			</svg>
 		</div>
 	</a>
 </li>
-

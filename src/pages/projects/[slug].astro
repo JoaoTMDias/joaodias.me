@@ -11,13 +11,39 @@ import { ClientRouter } from "astro:transitions";
 import { getCollection } from "astro:content";
 import Header from "../../components/header/index.astro";
 import SocialLinks from "../../components/social-links/index.astro";
-import CurrentlyListening from "../../components/currently-listening/index.tsx";
+import CurrentlyListening from "../../components/currently-listening/index";
 import PAGE_CONTENT from "../../data/index.json";
 import "../../assets/styles/index.scss";
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+// Constants
+const DEFAULT_THEME = {
+	background: "#000000",
+	foreground: "#ffffff",
+} as const;
+
+const IMAGE_DIMENSIONS = {
+	width: 640,
+	height: 480,
+} as const;
+
+// Helper functions
+function normalizeImagePath(path: string | undefined): string | null {
+	if (!path) return null;
+	return path.startsWith("/") ? path : `/${path}`;
+}
+
+function formatTextParagraphs(text: string): string[] {
+	return text
+		.split("\n")
+		.map((paragraph) => paragraph.trim())
+		.filter((paragraph) => paragraph.length > 0);
+}
 
 export async function getStaticPaths() {
 	const projects = await getCollection("projects");
+
 	return projects.map((project) => ({
 		params: { slug: project.slug },
 		props: { project },
@@ -30,21 +56,26 @@ type Props = {
 
 const { project } = Astro.props;
 const { Content } = await project.render();
+
+// Computed values
 const currentYear = new Date().getFullYear();
 const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 const transitionName = `project-title-${project.slug}`;
 const imageTransitionName = `project-image-${project.slug}`;
 
-// Format date
 const formattedDate = project.data.date.toLocaleDateString("en-US", {
 	year: "numeric",
 	month: "long",
 });
 
-// Get cover image if available
-const coverImage = project.data.cover
-	? (project.data.cover.startsWith("/") ? project.data.cover : `/${project.data.cover}`)
-	: null;
+const coverImage = normalizeImagePath(project.data.cover);
+
+const theme = {
+	background: project.data.themeBackground || DEFAULT_THEME.background,
+	foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
+};
+
+const hasGalleryImages = project.data.galleryImages && project.data.galleryImages.length > 0;
 ---
 
 <!doctype html>
@@ -65,99 +96,122 @@ const coverImage = project.data.cover
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<ClientRouter />
 		<style lang="scss">
-			.container {
-				width: 100%;
-				display: grid;
-				grid-template-rows: var(--header-height) 1fr;
-				grid-gap: 3rem;
+			// CSS Custom Properties
+			:root {
+				--project-spacing-xs: 0.5rem;
+				--project-spacing-sm: 1rem;
+				--project-spacing-md: 2rem;
+				--project-spacing-lg: 3rem;
+				--project-spacing-xl: 4rem;
+				--project-border-width: 2px;
+				--project-max-width: 90rem;
+				--project-content-max-width: 70ch;
+			}
 
-				@media (min-width: 60rem) {
-					grid-template-rows: auto 1fr;
-					grid-gap: 0;
+			// Breakpoints (cannot use CSS variables in media queries)
+			// sm: 40rem, md: 60rem, lg: 70rem
+
+			// Block: project-page
+			.project-page {
+				&__container {
+					width: 100%;
+					display: grid;
+					grid-template-rows: var(--header-height) 1fr;
+					gap: var(--project-spacing-lg);
+
+					@media (min-width: 60rem) {
+						grid-template-rows: auto 1fr;
+						gap: 0;
+					}
 				}
 			}
 
+			// Block: project-dialog
 			.project-dialog {
-				background: var(--background-color);
-				color: var(--text-color);
-				padding-block: 2rem;
-				padding-inline: 2rem;
+				background: var(--project-background-color);
+				color: var(--project-foreground-color);
+				padding-block: var(--project-spacing-md);
+				padding-inline: var(--project-spacing-md);
 				width: 100%;
 				overflow-y: auto;
 				overscroll-behavior: contain;
 
 				@media (min-width: 60rem) {
-					padding-inline: 3rem;
+					padding-inline: var(--project-spacing-lg);
+				}
+
+				&__main {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					width: 100%;
+					max-width: var(--project-max-width);
+					margin: var(--project-spacing-md) auto 0;
+					gap: var(--project-spacing-lg);
+				}
+
+				&__top {
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: var(--project-spacing-md);
+					width: 100%;
+
+					@media (min-width: 70rem) {
+						grid-template-columns: 0.4fr 0.6fr;
+						gap: var(--project-spacing-lg);
+					}
+				}
+
+				&__content {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					width: 100%;
+					gap: var(--project-spacing-lg);
 				}
 			}
 
-			.main {
+			// Block: project-header
+			.project-header {
 				display: flex;
 				flex-direction: column;
-				justify-content: flex-start;
-				align-items: center;
-				width: 100%;
-				max-width: 90rem;
-				margin: 2rem auto 0;
-				gap: 3rem;
-			}
+				align-items: flex-start;
+				gap: var(--project-spacing-md);
 
-			.top {
-				display: grid;
-				grid-template-columns: 1fr;
-				grid-template-rows: auto;
-				grid-gap: 2rem;
-				width: 100%;
+				&__heading {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					gap: var(--project-spacing-xs);
+				}
 
-				@media (min-width: 70rem) {
-					grid-template-columns: 0.4fr 0.6fr;
-					grid-gap: 3rem;
+				&__title {
+					font-family: var(--heading-font-family);
+					font-weight: 300;
+					font-size: 3rem;
+					margin: 0;
+				}
+
+				&__date {
+					font-family: var(--text-font-family);
+					font-size: 1.5rem;
+					font-weight: 400;
+					margin: 0;
+				}
+
+				&__intro {
+					font-family: var(--text-font-family);
+					font-size: 1.375rem;
+					line-height: 1.5;
+					margin: 0;
 				}
 			}
 
-			.header {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				gap: 2rem;
-			}
-
-			.heading {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-start;
-				align-items: flex-start;
-				gap: 0.5rem;
-			}
-
-			.title {
-				font-family: var(--heading-font-family);
-				font-weight: 300;
-				font-size: 3rem;
-				text-align: left;
-				margin: 0;
-			}
-
-			.date {
-				font-family: var(--text-font-family);
-				font-size: 1.5rem;
-				font-weight: 400;
-				text-align: left;
-				margin: 0;
-			}
-
-			.intro {
-				font-family: var(--text-font-family);
-				font-size: 1.375rem;
-				line-height: 1.5;
-				margin: 0;
-			}
-
-			.cover {
+			// Block: project-cover
+			.project-cover {
 				--cover-background-color: var(--text-color-faded);
 
 				display: flex;
-				flex-direction: row;
 				justify-content: center;
 				align-items: center;
 
@@ -165,7 +219,7 @@ const coverImage = project.data.cover
 				img {
 					width: 100%;
 					height: auto;
-					aspect-ratio: 4/3;
+					aspect-ratio: 4 / 3;
 				}
 
 				img {
@@ -173,50 +227,39 @@ const coverImage = project.data.cover
 				}
 			}
 
-			.content {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-start;
-				align-items: center;
-				width: 100%;
-				gap: 3rem;
-			}
-
-			.projectMeta {
-				border-width: 2px;
-				border-color: var(--text-color-faded);
-				border-style: solid;
-				padding: 4rem 3rem;
+			// Block: project-meta
+			.project-meta {
+				border: var(--project-border-width) solid var(--text-color-faded);
+				padding: var(--project-spacing-xl) var(--project-spacing-lg);
 				display: grid;
 				grid-template-columns: 1fr;
-				grid-gap: 2rem;
+				gap: var(--project-spacing-md);
 				width: 100%;
 
 				@media (min-width: 40rem) {
 					grid-template-columns: repeat(3, 1fr);
 				}
-			}
 
-			.projectColumn {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-start;
-				align-items: flex-start;
-				gap: 1rem;
+				&__column {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					gap: var(--project-spacing-sm);
+				}
 
-				h4 {
+				&__title {
 					font-family: var(--text-font-family);
 					font-size: 1.125rem;
 					margin: 0;
 				}
 
-				h4,
-				ul li,
-				p {
+				&__text {
+					font-family: var(--text-font-family);
 					font-size: 1.125rem;
+					margin: 0;
 				}
 
-				ul {
+				&__list {
 					font-size: 1rem;
 					margin: 0;
 					padding: 0;
@@ -224,85 +267,125 @@ const coverImage = project.data.cover
 					width: 100%;
 					display: flex;
 					flex-direction: column;
-					justify-content: flex-start;
 					align-items: flex-start;
-					gap: 0.5rem;
+					gap: var(--project-spacing-xs);
+
+					&--hashed {
+						li {
+							position: relative;
+
+							&::before {
+								content: "#";
+								margin-right: var(--project-spacing-xs);
+								opacity: 0.5;
+							}
+						}
+					}
 				}
 
-				li {
+				&__list-item {
 					position: relative;
-				}
-
-				.withHashes li:before {
-					content: "#";
-					margin-right: 0.5rem;
-					opacity: 0.5;
 				}
 			}
 
-			.section {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-start;
-				align-items: flex-start;
-				text-align: left;
-				gap: 1rem;
+			// Block: project-gallery
+			.project-gallery {
 				width: 100%;
-				max-width: 70ch;
+				display: grid;
+				gap: var(--project-spacing-md);
+				grid-template-columns: 1fr;
+				background-color: var(--background-color);
 
-				h3,
-				p {
-					margin: 0 auto;
-					width: 100%;
+				@media (min-width: 40rem) {
+					grid-template-columns: repeat(2, 1fr);
 				}
 
-				h3 {
+				@media (min-width: 60rem) {
+					grid-template-columns: repeat(3, 1fr);
+				}
+
+				&:only-child,
+				&:has(> :first-child:last-child) {
+					grid-template-columns: 1fr;
+				}
+
+				&__image {
+					width: 100%;
+					height: auto;
+					object-fit: cover;
+					object-position: center;
+				}
+			}
+
+			// Block: project-section
+			.project-section {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: var(--project-spacing-sm);
+				width: 100%;
+				max-width: var(--project-content-max-width);
+
+				&__title {
 					font-family: var(--heading-font-family);
 					font-weight: 400;
 					font-size: 2rem;
+					margin: 0;
+					width: 100%;
+				}
+
+				&__text {
+					font-family: var(--text-font-family);
+					font-size: 1.125rem;
+					line-height: 1.618;
+					margin: 0;
+					width: 100%;
+				}
+
+				// Style markdown content (h2, p) within project-section
+				h2 {
+					font-family: var(--heading-font-family);
+					font-weight: 400;
+					font-size: 2rem;
+					margin: 0;
+					width: 100%;
 				}
 
 				p {
 					font-family: var(--text-font-family);
 					font-size: 1.125rem;
 					line-height: 1.618;
+					margin: 0;
+					width: 100%;
 				}
 			}
 
-			.gallery {
-				background-color: var(--text-color-faded);
-				width: 100%;
-				height: auto;
-			}
-
-			.footer {
+			// Block: project-footer
+			.project-footer {
 				display: flex;
 				flex-direction: column;
-				justify-content: flex-start;
 				align-items: center;
-				gap: 2rem;
+				gap: var(--project-spacing-md);
 				width: 100%;
 				flex-grow: 1;
 
 				&__bottom {
 					display: flex;
 					flex-direction: column;
-					justify-content: flex-start;
 					align-items: center;
 				}
 			}
 
+			// Block: currently-listening (already BEM compliant)
 			.currently-listening {
 				display: flex;
 				flex-direction: column;
-				justify-content: flex-start;
 				align-items: stretch;
-				gap: 1rem;
+				gap: var(--project-spacing-sm);
 				width: 100%;
 
 				&__title {
 					font-family: var(--text-font-family);
-					font-style: normal;
 					font-weight: 500;
 					font-size: 0.875rem;
 					line-height: 1.0625rem;
@@ -311,7 +394,7 @@ const coverImage = project.data.cover
 					max-width: 80rem;
 					margin: 0 auto;
 					width: 100%;
-					padding-inline: 3rem;
+					padding-inline: var(--project-spacing-lg);
 					text-align: center;
 				}
 
@@ -332,113 +415,140 @@ const coverImage = project.data.cover
 		</style>
 	</head>
 
-	<body>
-		<div class="container">
+	<body style={`--background-color: ${theme.background}; --text-color: ${theme.foreground};`}>
+		<div class="project-page__container">
 			<Header />
 			<main class="project-dialog">
-				<div class="main">
-					<div class="top">
-						<div class="header">
-							<div class="heading">
-								<h1 class="title" transition:name={transitionName}>
+				<div class="project-dialog__main">
+					<div class="project-dialog__top">
+						<div class="project-header">
+							<div class="project-header__heading">
+								<h1 class="project-header__title" transition:name={transitionName}>
 									{project.data.title}
 								</h1>
-								<p class="date">
+								<p class="project-header__date">
 									<time datetime={project.data.date.toISOString()}>
 										{formattedDate}
 									</time>
 								</p>
 							</div>
-							<p class="intro">{project.data.description}</p>
+							<p class="project-header__intro">{project.data.description}</p>
 						</div>
-						{coverImage && (
-							<div class="cover">
-								<img
-									src={coverImage}
-									alt={`${project.data.title} cover image`}
-									loading="lazy"
-									transition:name={imageTransitionName}
-								/>
-							</div>
-						)}
+						{
+							coverImage && (
+								<div class="project-cover">
+									<Image
+										src={coverImage}
+										width={IMAGE_DIMENSIONS.width}
+										height={IMAGE_DIMENSIONS.height}
+										alt={`${project.data.title} cover image`}
+										loading="lazy"
+										transition:name={imageTransitionName}
+									/>
+								</div>
+							)
+						}
 					</div>
-					<div class="content">
-						<div class="projectMeta">
-							<h3 class="sr-only">Project Information</h3>
-							<div class="projectColumn">
-								<h4>Skills</h4>
-								<ul class="withHashes">
-									{project.data.skills.map((skill) => (
-										<li>{skill}</li>
-									))}
+					<div class="project-dialog__content">
+						<div class="project-meta">
+							<h2 class="sr-only">Project Information</h2>
+							<div class="project-meta__column">
+								<h3 class="project-meta__title">Skills</h3>
+								<ul class="project-meta__list project-meta__list--hashed">
+									{
+										project.data.skills.map((skill) => (
+											<li class="project-meta__list-item">{skill}</li>
+										))
+									}
 								</ul>
 							</div>
-							<div class="projectColumn">
-								<h4>Date</h4>
-								<p>{formattedDate}</p>
+							<div class="project-meta__column">
+								<h3 class="project-meta__title">Date</h3>
+								<p class="project-meta__text">{formattedDate}</p>
 							</div>
-							<div class="projectColumn">
-								<h4>Source Code</h4>
-								{project.data.sourceCode ? (
-									<a href={project.data.sourceCode} target="_blank" rel="noopener noreferrer">
-										View source code
-									</a>
-								) : (
-									<p>Not available</p>
-								)}
+							<div class="project-meta__column">
+								<h3 class="project-meta__title">Source Code</h3>
+								{
+									project.data.sourceCode ? (
+										<a
+											href={project.data.sourceCode}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="project-meta__text"
+										>
+											View source code
+										</a>
+									) : (
+										<p class="project-meta__text">Not available</p>
+									)
+								}
 							</div>
 						</div>
 
-						<div class="section">
-							<h3>Accessibility Considerations</h3>
+						{
+							hasGalleryImages && (
+								<div class="project-gallery">
+									{project.data.galleryImages?.map((image, index) => (
+										<Image
+											class="project-gallery__image"
+											src={image}
+											width={IMAGE_DIMENSIONS.width}
+											height={IMAGE_DIMENSIONS.height}
+											alt={`${project.data.title} gallery image ${index + 1}`}
+											loading="lazy"
+										/>
+									))}
+								</div>
+							)
+						}
+
+						<div class="project-section">
+							<Content />
+						</div>
+
+						<div class="project-section">
+							<h2 class="project-section__title">Accessibility Considerations</h2>
 							{
-								project.data.accessibilityConsiderations
-									.split("\n")
-									.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
+								formatTextParagraphs(project.data.accessibilityConsiderations).map((paragraph) => (
+									<p class="project-section__text">{paragraph}</p>
+								))
 							}
 						</div>
 
-						<div class="section">
-							<h3>Technical Approach</h3>
+						<div class="project-section">
+							<h2 class="project-section__title">Technical Approach</h2>
 							{
-								project.data.technicalApproach
-									.split("\n")
-									.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
+								formatTextParagraphs(project.data.technicalApproach).map((paragraph) => (
+									<p class="project-section__text">{paragraph}</p>
+								))
 							}
 						</div>
 
-						{project.data.process && (
-							<div class="section">
-								<h3>Process</h3>
-								{
-									project.data.process
-										.split("\n")
-										.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
-								}
-							</div>
-						)}
+						{
+							project.data.process && (
+								<div class="project-section">
+									<h2 class="project-section__title">Process</h2>
+									{formatTextParagraphs(project.data.process).map((paragraph) => (
+										<p class="project-section__text">{paragraph}</p>
+									))}
+								</div>
+							)
+						}
 
-						{project.data.results && (
-							<div class="section">
-								<h3>Results & Impact</h3>
-								{
-									project.data.results
-										.split("\n")
-										.map((paragraph) => paragraph.trim() && <p>{paragraph.trim()}</p>)
-								}
-							</div>
-						)}
-
-						<div class="section">
-							<h3>Full Story</h3>
-							<div class="project-content">
-								<Content />
-							</div>
-						</div>
+						{
+							project.data.results && (
+								<div class="project-section">
+									<h2 class="project-section__title">Results & Impact</h2>
+									{formatTextParagraphs(project.data.results).map((paragraph) => (
+										<p class="project-section__text">{paragraph}</p>
+									))}
+								</div>
+							)
+						}
 					</div>
 				</div>
 			</main>
-			<footer class="footer" id="footer">
+			<footer class="project-footer" id="footer">
 				<div class="currently-listening" data-testid="currently-listening">
 					<h2
 						id="current-listening"
@@ -451,14 +561,13 @@ const coverImage = project.data.cover
 						<CurrentlyListening client:load />
 					</div>
 				</div>
-				<div class="footer__bottom">
+				<div class="project-footer__bottom">
 					<SocialLinks />
-					<p class="footer__others">
+					<p>
 						{footer}
 					</p>
 				</div>
 			</footer>
 		</div>
-		<div class="grid-background" role="presentation"></div>
 	</body>
 </html>
