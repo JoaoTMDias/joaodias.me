@@ -100,8 +100,8 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 			// Breakpoints (cannot use CSS variables in media queries)
 			// sm: 40rem, md: 60rem
 
-			// Block: projects-page
-			.projects-page {
+			// Block: projects
+			.projects {
 				&__container {
 					width: 100%;
 					display: grid;
@@ -113,30 +113,28 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 						gap: 0;
 					}
 				}
-			}
 
-			// Block: projects-main
-			.projects-main {
-				display: flex;
-				flex-direction: column;
-				min-height: 100vh;
-				padding-block: 10vh;
-				padding-inline: var(--projects-spacing-sm);
-				margin: 0 auto;
-				max-width: 100vw;
+				&__main {
+					display: flex;
+					flex-direction: column;
+					min-height: 100vh;
+					padding-block: 10vh;
+					padding-inline: var(--projects-spacing-sm);
+					margin: 0 auto;
+					max-width: 100vw;
 
-				@media (min-width: 60rem) {
-					padding-block: 6rem;
-					padding-inline: var(--projects-spacing-lg);
-					max-width: 75rem;
+					@media (min-width: 60rem) {
+						padding-block: 6rem;
+						padding-inline: var(--projects-spacing-lg);
+						max-width: 75rem;
+					}
 				}
-			}
 
-			// Block: projects-header
-			.projects-header {
-				margin-bottom: var(--projects-spacing-lg);
+				&__header {
+					margin-bottom: var(--projects-spacing-lg);
+				}
 
-				&__title {
+				&__header-title {
 					font-family: var(--heading-font-family);
 					font-size: 2.5rem;
 					line-height: 1.2;
@@ -146,158 +144,149 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 						font-size: 3.5rem;
 					}
 				}
-			}
 
-			// Block: projects-grid
-			.projects-grid {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: var(--projects-spacing-lg);
-				list-style: none;
-				padding: 0;
-				margin: 0;
+				&__grid {
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: var(--projects-spacing-lg);
+					list-style: none;
+					padding: 0;
+					margin: 0;
 
-				@media (min-width: 40rem) {
-					grid-template-columns: repeat(2, 1fr);
-				}
-			}
-
-			// Block: project-card
-			.project-card {
-				padding-block: var(--projects-spacing-md);
-				padding-inline: var(--projects-spacing-sm);
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-start;
-				align-items: center;
-				gap: var(--projects-spacing-md);
-				background-color: var(--background-color-hover, var(--background-color));
-				color: var(--text-color-hover, var(--text-color));
-				transition: all var(--projects-transition-duration) ease-in-out;
-				border-radius: var(--projects-card-border-radius);
-				width: 100%;
-				text-decoration: none;
-				appearance: none;
-				border: none;
-
-				&:hover,
-				&:focus {
-					cursor: pointer;
-					background-color: var(--background-color-hover);
-					color: var(--text-color-hover);
-					outline-color: transparent;
-					outline-offset: -2px;
+					@media (min-width: 40rem) {
+						grid-template-columns: repeat(2, 1fr);
+					}
 				}
 
-				@media (min-width: 60rem) {
-					padding-inline: var(--projects-spacing-md);
+				&__card {
+					padding-block: var(--projects-spacing-md);
+					padding-inline: var(--projects-spacing-sm);
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+					gap: var(--projects-spacing-md);
+					background-color: var(--background-color-hover, var(--background-color));
+					color: var(--text-color-hover, var(--text-color));
+					transition: all var(--projects-transition-duration) ease-in-out;
+					border-radius: var(--projects-card-border-radius);
+					width: 100%;
+					text-decoration: none;
+					appearance: none;
+					border: none;
+
+					&:hover,
+					&:focus {
+						cursor: pointer;
+						background-color: var(--background-color-hover);
+						color: var(--text-color-hover);
+						outline-color: transparent;
+						outline-offset: -2px;
+					}
+
+					@media (min-width: 60rem) {
+						flex-direction: row;
+						padding-block: 6rem;
+						padding-inline: var(--projects-spacing-md);
+					}
 				}
-			}
 
-			// Block: project-thumbnail
-			.project-thumbnail {
-				width: var(--projects-thumbnail-size);
-				height: var(--projects-thumbnail-size);
-
-				&,
-				img {
+				&__card-thumbnail {
+					width: var(--projects-thumbnail-size);
+					height: var(--projects-thumbnail-size);
 					border-radius: 50%;
 				}
-			}
 
-			// Block: project-content
-			.project-content {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-start;
-				align-items: center;
-				flex-wrap: wrap;
+				&__card-thumbnail-image {
+					width: 100%;
+					height: auto;
+					border-radius: 50%;
+				}
 
-				&__title {
+				&__card-content {
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+					flex-wrap: wrap;
+
+					@media (min-width: 60rem) {
+						justify-content: flex-start;
+						align-items: flex-start;
+					}
+				}
+
+				&__card-content-title {
 					font-family: var(--heading-font-family);
 					font-weight: 400;
 					font-size: clamp(2rem, 8vw, 3rem);
 					line-height: 1.1666666667;
 					margin-bottom: 0.5rem;
 					text-align: center;
+
+					@media (min-width: 60rem) {
+						text-align: left;
+					}
 				}
 
-				&__subtitle {
+				&__card-content-subtitle {
 					font-family: var(--text-font-family);
 					font-weight: 300;
 					font-size: 1.125rem;
 					line-height: 1.375rem;
 					text-align: center;
 					margin-bottom: var(--projects-spacing-sm);
+
+					@media (min-width: 60rem) {
+						text-align: left;
+					}
 				}
 
-				&__meta {
+				&__card-content-meta {
 					font-family: var(--text-font-family);
 					font-size: 0.875rem;
 					opacity: 0.8;
 					margin-bottom: var(--projects-spacing-sm);
 				}
-			}
 
-			// Block: project-skills
-			.project-skills {
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-				flex-wrap: wrap;
-				gap: 0.5rem;
-				font-family: var(--text-font-family);
-				font-weight: 500;
-				font-size: 0.875rem;
-				line-height: 1;
+				&__card-skills {
+					list-style-type: none;
+					margin: 0;
+					padding: 0;
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+					flex-wrap: wrap;
+					gap: 0.5rem;
+					font-family: var(--text-font-family);
+					font-weight: 500;
+					font-size: 0.875rem;
+					line-height: 1;
 
-				&__item {
+					@media (min-width: 60rem) {
+						justify-content: flex-start;
+					}
+				}
+
+				&__card-skills-item {
 					text-transform: lowercase;
 
 					&::before {
 						content: "#";
 					}
 				}
-			}
 
-			@media (min-width: 60rem) {
-				.project-card {
-					flex-direction: row;
-					padding-block: 6rem;
+				&__footer {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: var(--projects-spacing-md);
+					width: 100%;
+					flex-grow: 1;
 				}
 
-				.project-content {
-					justify-content: flex-start;
-					align-items: flex-start;
-
-					&__title {
-						text-align: left;
-					}
-
-					&__subtitle {
-						text-align: left;
-					}
-				}
-
-				.project-skills {
-					justify-content: flex-start;
-				}
-			}
-
-			// Block: projects-footer
-			.projects-footer {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: var(--projects-spacing-md);
-				width: 100%;
-				flex-grow: 1;
-
-				&__bottom {
+				&__footer-bottom {
 					display: flex;
 					flex-direction: column;
 					align-items: center;
@@ -344,13 +333,13 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 	</head>
 
 	<body>
-		<div class="projects-page__container">
+		<div class="projects__container">
 			<Header />
-			<main class="projects-main">
-				<header class="projects-header">
-					<h1 class="projects-header__title">All projects</h1>
+			<main class="projects__main">
+				<header class="projects__header">
+					<h1 class="projects__header-title">All projects</h1>
 				</header>
-				<ul class="projects-grid">
+				<ul class="projects__grid">
 					{
 						projects.map((project) => {
 							const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
@@ -366,12 +355,13 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 								<li>
 									<a
 										href={`/projects/${project.slug}`}
-										class="project-card"
+										class="projects__card"
 										style={cardStyle}
 										aria-label={ariaLabel}
 									>
-										<div class="project-thumbnail">
+										<div class="projects__card-thumbnail">
 											<Image
+												class="projects__card-thumbnail-image"
 												src={thumbnailPath}
 												width={THUMBNAIL_DIMENSIONS.width}
 												height={THUMBNAIL_DIMENSIONS.height}
@@ -380,20 +370,23 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 												transition:name={transitionNames.image}
 											/>
 										</div>
-										<div class="project-content">
-											<h2 class="project-content__title" transition:name={transitionNames.title}>
+										<div class="projects__card-content">
+											<h2
+												class="projects__card-content-title"
+												transition:name={transitionNames.title}
+											>
 												{project.data.title}
 											</h2>
-											<p class="project-content__subtitle">{project.data.shortDescription}</p>
+											<p class="projects__card-content-subtitle">{project.data.shortDescription}</p>
 											<time
-												class="project-content__meta"
+												class="projects__card-content-meta"
 												datetime={project.data.date.toISOString()}
 											>
 												{formatProjectDate(project.data.date)}
 											</time>
-											<ul class="project-skills">
+											<ul class="projects__card-skills">
 												{project.data.skills.map((skill) => (
-													<li class="project-skills__item">{skill}</li>
+													<li class="projects__card-skills-item">{skill}</li>
 												))}
 											</ul>
 										</div>
@@ -404,7 +397,7 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 					}
 				</ul>
 			</main>
-			<footer class="projects-footer" id="footer">
+			<footer class="projects__footer" id="footer">
 				<div class="currently-listening" data-testid="currently-listening">
 					<h2
 						id="current-listening"
@@ -417,7 +410,7 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 						<CurrentlyListening client:load />
 					</div>
 				</div>
-				<div class="projects-footer__bottom">
+				<div class="projects__footer-bottom">
 					<SocialLinks />
 					<p>
 						{footer}

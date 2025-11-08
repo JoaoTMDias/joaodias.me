@@ -111,8 +111,8 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 			// Breakpoints (cannot use CSS variables in media queries)
 			// sm: 40rem, md: 60rem, lg: 70rem
 
-			// Block: project-page
-			.project-page {
+			// Block: project
+			.project {
 				&__container {
 					width: 100%;
 					display: grid;
@@ -124,23 +124,22 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 						gap: 0;
 					}
 				}
-			}
-
-			// Block: project-dialog
-			.project-dialog {
-				background: var(--project-background-color);
-				color: var(--project-foreground-color);
-				padding-block: var(--project-spacing-md);
-				padding-inline: var(--project-spacing-md);
-				width: 100%;
-				overflow-y: auto;
-				overscroll-behavior: contain;
-
-				@media (min-width: 60rem) {
-					padding-inline: var(--project-spacing-lg);
-				}
 
 				&__main {
+					background: var(--project-background-color);
+					color: var(--project-foreground-color);
+					padding-block: var(--project-spacing-md);
+					padding-inline: var(--project-spacing-md);
+					width: 100%;
+					overflow-y: auto;
+					overscroll-behavior: contain;
+
+					@media (min-width: 60rem) {
+						padding-inline: var(--project-spacing-lg);
+					}
+				}
+
+				&__main-wrapper {
 					display: flex;
 					flex-direction: column;
 					align-items: center;
@@ -150,116 +149,130 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 					gap: var(--project-spacing-lg);
 				}
 
-				&__top {
+				&__main-top {
 					display: grid;
 					grid-template-columns: 1fr;
 					gap: var(--project-spacing-md);
 					width: 100%;
 
 					@media (min-width: 70rem) {
-						grid-template-columns: 0.4fr 0.6fr;
+						grid-template-columns: 0.6fr 0.4fr;
 						gap: var(--project-spacing-lg);
 					}
 				}
 
-				&__content {
+				&__main-content {
 					display: flex;
 					flex-direction: column;
 					align-items: center;
 					width: 100%;
 					gap: var(--project-spacing-lg);
 				}
-			}
 
-			// Block: project-header
-			.project-header {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				gap: var(--project-spacing-md);
+				&__header {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					gap: var(--project-spacing-md);
+				}
 
-				&__heading {
+				&__header-heading {
 					display: flex;
 					flex-direction: column;
 					align-items: flex-start;
 					gap: var(--project-spacing-xs);
 				}
 
-				&__title {
+				&__header-title {
 					font-family: var(--heading-font-family);
 					font-weight: 300;
 					font-size: 3rem;
 					margin: 0;
 				}
 
-				&__date {
+				&__header-date {
 					font-family: var(--text-font-family);
 					font-size: 1.5rem;
 					font-weight: 400;
 					margin: 0;
+
+					@media (prefers-reduced-motion: no-preference) {
+						opacity: 0;
+						animation-name: fadeInUp;
+						animation-duration: 500ms;
+						animation-timing-function: ease-in-out;
+						animation-fill-mode: forwards;
+						animation-delay: 150ms;
+					}
 				}
 
-				&__intro {
+				&__header-intro {
 					font-family: var(--text-font-family);
 					font-size: 1.375rem;
 					line-height: 1.5;
 					margin: 0;
+
+					@media (prefers-reduced-motion: no-preference) {
+						opacity: 0;
+						animation-name: fadeInUp;
+						animation-duration: 500ms;
+						animation-timing-function: ease-in-out;
+						animation-fill-mode: forwards;
+						animation-delay: 250ms;
+					}
 				}
-			}
 
-			// Block: project-cover
-			.project-cover {
-				--cover-background-color: var(--text-color-faded);
+				&__cover {
+					--cover-background-color: var(--text-color-faded);
 
-				display: flex;
-				justify-content: center;
-				align-items: center;
-
-				&,
-				img {
+					display: flex;
+					justify-content: center;
+					align-items: center;
 					width: 100%;
 					height: auto;
 					aspect-ratio: 4 / 3;
 				}
 
-				img {
+				&__cover-image {
+					width: 100%;
+					height: auto;
+					aspect-ratio: 4 / 3;
 					background-color: var(--cover-background-color);
 				}
-			}
 
-			// Block: project-meta
-			.project-meta {
-				border: var(--project-border-width) solid var(--text-color-faded);
-				padding: var(--project-spacing-xl) var(--project-spacing-lg);
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: var(--project-spacing-md);
-				width: 100%;
+				&__meta {
+					border: var(--project-border-width) solid var(--text-color-faded);
+					padding: var(--project-spacing-xl) var(--project-spacing-lg);
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: var(--project-spacing-md);
+					width: 100%;
 
-				@media (min-width: 40rem) {
-					grid-template-columns: repeat(3, 1fr);
+					@media (min-width: 40rem) {
+						grid-template-columns: repeat(3, 1fr);
+					}
 				}
 
-				&__column {
+				&__meta-column {
 					display: flex;
 					flex-direction: column;
 					align-items: flex-start;
 					gap: var(--project-spacing-sm);
 				}
 
-				&__title {
+				&__meta-title {
 					font-family: var(--text-font-family);
 					font-size: 1.125rem;
 					margin: 0;
 				}
 
-				&__text {
+				&__meta-text {
 					font-family: var(--text-font-family);
 					font-size: 1.125rem;
 					margin: 0;
 				}
 
-				&__list {
+				&__meta-list {
 					font-size: 1rem;
 					margin: 0;
 					padding: 0;
@@ -271,7 +284,7 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 					gap: var(--project-spacing-xs);
 
 					&--hashed {
-						li {
+						.project__meta-list-item {
 							position: relative;
 
 							&::before {
@@ -283,37 +296,51 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 					}
 				}
 
-				&__list-item {
+				&__meta-list-item {
 					position: relative;
 				}
-			}
 
-			// Block: project-gallery
-			.project-gallery {
-				width: 100%;
-				display: grid;
-				gap: var(--project-spacing-md);
-				grid-template-columns: 1fr;
-				background-color: var(--background-color);
-
-				@media (min-width: 40rem) {
-					grid-template-columns: repeat(2, 1fr);
-				}
-
-				@media (min-width: 60rem) {
-					grid-template-columns: repeat(3, 1fr);
-				}
-
-				&:only-child,
-				&:has(> :first-child:last-child) {
+				&__gallery {
+					width: 100%;
+					display: grid;
+					gap: var(--project-spacing-md);
 					grid-template-columns: 1fr;
+					background-color: var(--background-color);
+
+					@media (min-width: 40rem) {
+						grid-template-columns: repeat(2, 1fr);
+					}
+
+					@media (min-width: 60rem) {
+						grid-template-columns: repeat(3, 1fr);
+					}
+
+					&:only-child,
+					&:has(> :first-child:last-child) {
+						grid-template-columns: 1fr;
+					}
 				}
 
-				&__image {
+				&__gallery-image {
 					width: 100%;
 					height: auto;
 					object-fit: cover;
 					object-position: center;
+				}
+
+				&__footer {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: var(--project-spacing-md);
+					width: 100%;
+					flex-grow: 1;
+				}
+
+				&__footer-bottom {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
 				}
 			}
 
@@ -340,39 +367,6 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 					line-height: 1.618;
 					margin: 0;
 					width: 100%;
-				}
-
-				// Style markdown content (h2, p) within project-section
-				h2 {
-					font-family: var(--heading-font-family);
-					font-weight: 400;
-					font-size: 2rem;
-					margin: 0;
-					width: 100%;
-				}
-
-				p {
-					font-family: var(--text-font-family);
-					font-size: 1.125rem;
-					line-height: 1.618;
-					margin: 0;
-					width: 100%;
-				}
-			}
-
-			// Block: project-footer
-			.project-footer {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: var(--project-spacing-md);
-				width: 100%;
-				flex-grow: 1;
-
-				&__bottom {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
 				}
 			}
 
@@ -412,32 +406,32 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 					}
 				}
 			}
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(100%);
+				}
+
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
 		</style>
 	</head>
 
 	<body style={`--background-color: ${theme.background}; --text-color: ${theme.foreground};`}>
-		<div class="project-page__container">
+		<div class="project__container">
 			<Header />
-			<main class="project-dialog">
-				<div class="project-dialog__main">
-					<div class="project-dialog__top">
-						<div class="project-header">
-							<div class="project-header__heading">
-								<h1 class="project-header__title" transition:name={transitionName}>
-									{project.data.title}
-								</h1>
-								<p class="project-header__date">
-									<time datetime={project.data.date.toISOString()}>
-										{formattedDate}
-									</time>
-								</p>
-							</div>
-							<p class="project-header__intro">{project.data.description}</p>
-						</div>
+			<main class="project__main">
+				<div class="project__main-wrapper">
+					<div class="project__main-top">
 						{
 							coverImage && (
-								<div class="project-cover">
+								<div class="project__cover">
 									<Image
+										class="project__cover-image"
 										src={coverImage}
 										width={IMAGE_DIMENSIONS.width}
 										height={IMAGE_DIMENSIONS.height}
@@ -448,38 +442,51 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 								</div>
 							)
 						}
+						<div class="project__header">
+							<div class="project__header-heading">
+								<h1 class="project__header-title" transition:name={transitionName}>
+									{project.data.title}
+								</h1>
+								<p class="project__header-date">
+									<time datetime={project.data.date.toISOString()}>
+										{formattedDate}
+									</time>
+								</p>
+							</div>
+							<p class="project__header-intro">{project.data.description}</p>
+						</div>
 					</div>
-					<div class="project-dialog__content">
-						<div class="project-meta">
+					<div class="project__main-content">
+						<div class="project__meta">
 							<h2 class="sr-only">Project Information</h2>
-							<div class="project-meta__column">
-								<h3 class="project-meta__title">Skills</h3>
-								<ul class="project-meta__list project-meta__list--hashed">
+							<div class="project__meta-column">
+								<h3 class="project__meta-title">Skills</h3>
+								<ul class="project__meta-list project__meta-list--hashed">
 									{
 										project.data.skills.map((skill) => (
-											<li class="project-meta__list-item">{skill}</li>
+											<li class="project__meta-list-item">{skill}</li>
 										))
 									}
 								</ul>
 							</div>
-							<div class="project-meta__column">
-								<h3 class="project-meta__title">Date</h3>
-								<p class="project-meta__text">{formattedDate}</p>
+							<div class="project__meta-column">
+								<h3 class="project__meta-title">Date</h3>
+								<p class="project__meta-text">{formattedDate}</p>
 							</div>
-							<div class="project-meta__column">
-								<h3 class="project-meta__title">Source Code</h3>
+							<div class="project__meta-column">
+								<h3 class="project__meta-title">Source Code</h3>
 								{
 									project.data.sourceCode ? (
 										<a
 											href={project.data.sourceCode}
 											target="_blank"
 											rel="noopener noreferrer"
-											class="project-meta__text"
+											class="project__meta-text"
 										>
 											View source code
 										</a>
 									) : (
-										<p class="project-meta__text">Not available</p>
+										<p class="project__meta-text">Not available</p>
 									)
 								}
 							</div>
@@ -487,10 +494,10 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 
 						{
 							hasGalleryImages && (
-								<div class="project-gallery">
+								<div class="project__gallery">
 									{project.data.galleryImages?.map((image, index) => (
 										<Image
-											class="project-gallery__image"
+											class="project__gallery-image"
 											src={image}
 											width={IMAGE_DIMENSIONS.width}
 											height={IMAGE_DIMENSIONS.height}
@@ -548,7 +555,7 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 					</div>
 				</div>
 			</main>
-			<footer class="project-footer" id="footer">
+			<footer class="project__footer" id="footer">
 				<div class="currently-listening" data-testid="currently-listening">
 					<h2
 						id="current-listening"
@@ -561,7 +568,7 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 						<CurrentlyListening client:load />
 					</div>
 				</div>
-				<div class="project-footer__bottom">
+				<div class="project__footer-bottom">
 					<SocialLinks />
 					<p>
 						{footer}
