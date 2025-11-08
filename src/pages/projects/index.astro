@@ -337,65 +337,69 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 			<Header />
 			<main class="projects__main">
 				<header class="projects__header">
-					<h1 class="projects__header-title">All projects</h1>
+					<h1 id="projects-header-title" class="projects__header-title">All projects</h1>
 				</header>
-				<ul class="projects__grid">
-					{
-						projects.map((project) => {
-							const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
-							const theme = getProjectTheme(project);
-							const transitionNames = getTransitionNames(project.slug);
-							const cardStyle = {
-								"--background-color-hover": theme.background,
-								"--text-color-hover": theme.foreground,
-							};
-							const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
+				<section id="content" tabindex={-1} aria-labelledby="projects-header-title">
+					<ul class="projects__grid">
+						{
+							projects.map((project) => {
+								const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
+								const theme = getProjectTheme(project);
+								const transitionNames = getTransitionNames(project.slug);
+								const cardStyle = {
+									"--background-color-hover": theme.background,
+									"--text-color-hover": theme.foreground,
+								};
+								const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
 
-							return (
-								<li>
-									<a
-										href={`/projects/${project.slug}`}
-										class="projects__card"
-										style={cardStyle}
-										aria-label={ariaLabel}
-									>
-										<div class="projects__card-thumbnail">
-											<Image
-												class="projects__card-thumbnail-image"
-												src={thumbnailPath}
-												width={THUMBNAIL_DIMENSIONS.width}
-												height={THUMBNAIL_DIMENSIONS.height}
-												alt={`${project.data.title} project thumbnail`}
-												loading="lazy"
-												transition:name={transitionNames.image}
-											/>
-										</div>
-										<div class="projects__card-content">
-											<h2
-												class="projects__card-content-title"
-												transition:name={transitionNames.title}
-											>
-												{project.data.title}
-											</h2>
-											<p class="projects__card-content-subtitle">{project.data.shortDescription}</p>
-											<time
-												class="projects__card-content-meta"
-												datetime={project.data.date.toISOString()}
-											>
-												{formatProjectDate(project.data.date)}
-											</time>
-											<ul class="projects__card-skills">
-												{project.data.skills.map((skill) => (
-													<li class="projects__card-skills-item">{skill}</li>
-												))}
-											</ul>
-										</div>
-									</a>
-								</li>
-							);
-						})
-					}
-				</ul>
+								return (
+									<li>
+										<a
+											href={`/projects/${project.slug}`}
+											class="projects__card"
+											style={cardStyle}
+											aria-label={ariaLabel}
+										>
+											<div class="projects__card-thumbnail">
+												<Image
+													class="projects__card-thumbnail-image"
+													src={thumbnailPath}
+													width={THUMBNAIL_DIMENSIONS.width}
+													height={THUMBNAIL_DIMENSIONS.height}
+													alt={`${project.data.title} project thumbnail`}
+													loading="lazy"
+													transition:name={transitionNames.image}
+												/>
+											</div>
+											<div class="projects__card-content">
+												<h2
+													class="projects__card-content-title"
+													transition:name={transitionNames.title}
+												>
+													{project.data.title}
+												</h2>
+												<p class="projects__card-content-subtitle">
+													{project.data.shortDescription}
+												</p>
+												<time
+													class="projects__card-content-meta"
+													datetime={project.data.date.toISOString()}
+												>
+													{formatProjectDate(project.data.date)}
+												</time>
+												<ul class="projects__card-skills">
+													{project.data.skills.map((skill) => (
+														<li class="projects__card-skills-item">{skill}</li>
+													))}
+												</ul>
+											</div>
+										</a>
+									</li>
+								);
+							})
+						}
+					</ul>
+				</section>
 			</main>
 			<footer class="projects__footer" id="footer">
 				<div class="currently-listening" data-testid="currently-listening">

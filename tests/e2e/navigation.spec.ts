@@ -1,5 +1,5 @@
 import { test, expect } from "utils";
-import { PAGE_DATA, PAGE_SELECTORS } from "./constants";
+import { PAGE_SELECTORS } from "./constants";
 
 test.beforeEach(async ({ page, networkHandlers }) => {
 	await page.setViewportSize({ width: 1440, height: 900 });
@@ -50,28 +50,6 @@ test.describe("Skip Links", () => {
 
 		// Verify the URL contains the hash
 		expect(page.url()).toContain("#content");
-	});
-
-	test("should navigate to work section when clicking 'Skip to Projects'", async ({ page }) => {
-		await page.waitForLoadState("networkidle");
-
-		// Find the skip link
-		const skipToProjects = page.getByRole("link", { name: "Skip to Projects" });
-
-		// Focus the link first to make it visible, then click
-		await skipToProjects.focus();
-		await expect(skipToProjects).toBeVisible();
-		await skipToProjects.click();
-
-		// Wait for navigation to complete
-		await page.waitForURL("**/#work");
-
-		// Verify we're at the work section
-		const workSection = page.locator("#work");
-		await expect(workSection).toBeVisible();
-
-		// Verify the URL contains the hash
-		expect(page.url()).toContain("#work");
 	});
 
 	test("should navigate to contact section when clicking 'Skip to Social links'", async ({

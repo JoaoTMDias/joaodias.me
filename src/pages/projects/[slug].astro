@@ -425,7 +425,12 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 		<div class="project__container">
 			<Header />
 			<main class="project__main">
-				<div class="project__main-wrapper">
+				<div
+					id="content"
+					tabindex={-1}
+					aria-labelledby="project-header-title"
+					class="project__main-wrapper"
+				>
 					<div class="project__main-top">
 						{
 							coverImage && (
@@ -444,7 +449,11 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 						}
 						<div class="project__header">
 							<div class="project__header-heading">
-								<h1 class="project__header-title" transition:name={transitionName}>
+								<h1
+									id="project-header-title"
+									class="project__header-title"
+									transition:name={transitionName}
+								>
 									{project.data.title}
 								</h1>
 								<p class="project__header-date">
