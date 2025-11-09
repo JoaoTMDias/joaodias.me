@@ -208,7 +208,7 @@ test.describe("Project Detail Page", () => {
   });
 
   test("should display social links", async ({ page }) => {
-    const CONTACTS_TITLE = page.getByRole("heading", { level: 3 });
+    const CONTACTS_TITLE = page.getByRole("heading", { level: 3, name: "Social Media Links" });
     await expect(CONTACTS_TITLE).toBeVisible();
   });
 

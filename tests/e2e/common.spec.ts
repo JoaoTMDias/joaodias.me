@@ -49,6 +49,7 @@ test.describe("Navigation", () => {
       expect(await page.url()).toContain("#contact");
       const CONTACTS_TITLE = page.getByRole("heading", {
         level: 3,
+        name: "Social Media Links",
       });
       await expect(CONTACTS_TITLE).toBeVisible();
     });
@@ -86,7 +87,7 @@ test.describe("Currently Playing", () => {
 
 test.describe("Contacts", () => {
   test("should display the social media links", async ({ page }) => {
-    const CONTACTS_TITLE = page.getByRole("heading", { level: 3 });
+    const CONTACTS_TITLE = page.getByRole("heading", { level: 3, name: "Social Media Links" });
 
     await test.step("Scroll to the contacts section", async () => {
       await CONTACTS_TITLE.scrollIntoViewIfNeeded();
