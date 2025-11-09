@@ -28,16 +28,18 @@ themeForeground: "#FFCACA"
 
 ## Accessibility Considerations
 
-Despite being a fun, playful website with easter eggs, accessibility was not compromised. The site was built with:
+WinPicker was built with accessibility as a core requirement from the start. The application uses Microsoft's Fluent UI components which follow WCAG 2.1 AA guidelines and provide built-in keyboard navigation support.
 
-- Semantic HTML structure throughout
-- Proper heading hierarchy
-- Keyboard navigation support for all interactive elements
-- Screen reader compatibility - easter eggs were implemented in a way that doesn't interfere with assistive technologies
-- High contrast text and background colors for readability
-- Accessible forms and navigation
+Key accessibility features implemented:
 
-The easter eggs (fart sounds) were implemented in a way that doesn't break the user experience for those using assistive technologies. The site maintains WCAG 2.1 AA compliance while still delivering an engaging, fun experience.
+- Full keyboard navigation throughout the application
+- High contrast mode support following Windows 11 design guidelines
+- Screen reader compatibility through proper ARIA labels and semantic HTML
+- Focus management with visible focus indicators
+- Color contrast ratio calculations displayed prominently (AA and AAA levels for both large and regular text)
+- The color picker interface itself is accessible, allowing users to select colors using keyboard shortcuts
+
+The app specifically helps developers and designers create accessible color combinations by providing real-time contrast ratio feedback and WCAG compliance indicators.
 
 ## Technical Approach
 
