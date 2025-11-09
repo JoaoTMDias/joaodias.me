@@ -21,6 +21,7 @@ const footer = `© ${currentYear} - ${config.data.copyright}`;
 ---
 
 <BaseLayout title={title} description={description} itemtype={itemtype}>
+	<slot name="head" slot="head" />
 	<div class="container">
 		<Header />
 		<slot />

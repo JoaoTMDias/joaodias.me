@@ -68,7 +68,16 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 	title={`${project.data.title} - João Dias`}
 	description={project.data.shortDescription}
 >
-	<style slot="head" set:html={`body { --project-background-color: ${theme.background}; --project-foreground-color: ${theme.foreground}; }`} />
+	<style slot="head" set:html={`
+		body {
+			--background-color: ${theme.background};
+			--text-color: ${theme.foreground};
+		}
+
+		.grid-background {
+			display: none;
+		}
+	`} />
 	<main class="project__main">
 		<div
 			id="content"
@@ -190,13 +199,9 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 			// Block: project
 			.project {
 				&__main {
-					background: var(--project-background-color);
-					color: var(--project-foreground-color);
 					padding-block: var(--project-spacing-md);
 					padding-inline: var(--project-spacing-md);
 					width: 100%;
-					overflow-y: auto;
-					overscroll-behavior: contain;
 
 					@media (min-width: 60rem) {
 						padding-inline: var(--project-spacing-lg);
