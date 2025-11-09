@@ -6,17 +6,13 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import { defineConfig } from "astro/config";
+
+import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://joaodias.me',
-    integrations: [react(), sitemap()],
-    content: {
-        experimental: {
-            assets: true,
-        },
-    },
-    router: "spa",
+	site: "https://joaodias.me",
+	integrations: [react(), sitemap(), mdx()]
 });

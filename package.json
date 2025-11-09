@@ -31,12 +31,13 @@
     "axe-core": "4.11.0",
     "react": "19.2.0",
     "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0",
     "sass": "1.93.3",
     "start-server-and-test": "^2.1.2",
-    "react-icons": "^5.5.0",
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.10",
     "@astrojs/sitemap": "^3.6.0",
     "@tinacms/cli": "^1.11.0",
     "tinacms": "^2.9.0"
