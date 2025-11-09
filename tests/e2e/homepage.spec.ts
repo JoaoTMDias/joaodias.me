@@ -1,6 +1,6 @@
 import { random } from "@jtmdias/js-utilities";
 import { expect, test } from "utils";
-import { PAGE_DATA, PAGE_SELECTORS } from "./constants";
+import { PAGE_DATA, PAGE_SELECTORS, SITE_CONFIG } from "./constants";
 
 test.beforeEach(async ({ page, networkHandlers }) => {
 	await page.setViewportSize({ width: 1440, height: 900 });
@@ -37,8 +37,8 @@ test.describe("Homepage", () => {
 
 			const PAGE_TOP_NAV_LINKS = await page.getByTestId(PAGE_SELECTORS.topNavLink).all();
 
-			// Verify we have the correct number of navigation links (Projects and Contact)
-			expect(PAGE_TOP_NAV_LINKS).toHaveLength(PAGE_DATA.header["main-navigation"].length);
+			// Verify we have the correct number of navigation links
+			expect(PAGE_TOP_NAV_LINKS).toHaveLength(SITE_CONFIG.nav.length);
 
 			for (const link of PAGE_TOP_NAV_LINKS) {
 				expect(link).toBeVisible();
@@ -48,23 +48,17 @@ test.describe("Homepage", () => {
 
 			// Verify the first link is Projects
 			const PROJECTS_LINK = page.getByRole("link", {
-				name: PAGE_DATA.header["main-navigation"][0].label,
+				name: SITE_CONFIG.nav[0].accessibleLabel,
 			});
 			await expect(PROJECTS_LINK).toBeVisible();
-			await expect(PROJECTS_LINK).toHaveAttribute(
-				"href",
-				PAGE_DATA.header["main-navigation"][0].href,
-			);
+			await expect(PROJECTS_LINK).toHaveAttribute("href", SITE_CONFIG.nav[0].link);
 
 			// Verify the second link is Contact
 			const CONTACT_LINK = page.getByRole("link", {
-				name: PAGE_DATA.header["main-navigation"][1].label,
+				name: SITE_CONFIG.nav[1].accessibleLabel,
 			});
 			await expect(CONTACT_LINK).toBeVisible();
-			await expect(CONTACT_LINK).toHaveAttribute(
-				"href",
-				PAGE_DATA.header["main-navigation"][1].href,
-			);
+			await expect(CONTACT_LINK).toHaveAttribute("href", SITE_CONFIG.nav[1].link);
 
 			// Main Photo should be visible
 			const MAIN_PHOTO = page.getByTestId(PAGE_SELECTORS.profilePicture);
@@ -175,7 +169,7 @@ test.describe("Work Experience", () => {
 		await test.step("Check if the download button works", async () => {
 			// The download button should be visible and the PDF should be available
 			const DOWNLOAD_BUTTON = page.getByRole("link", {
-				name: PAGE_DATA.about.experience.download.label,
+				name: /download my curriculum/i,
 			});
 			await expect(DOWNLOAD_BUTTON).toBeVisible();
 

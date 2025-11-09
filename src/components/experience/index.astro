@@ -1,38 +1,42 @@
 ---
-import PAGE_CONTENT from "../../data/index.json";
+import { getCollection } from "astro:content";
 
-const { experience } = PAGE_CONTENT.about;
+const allExperience = await getCollection("experience");
+const sortedExperience = allExperience.sort((a, b) => a.data.order - b.data.order);
+
+const currentExperience = sortedExperience.filter((exp) => exp.data.isCurrent);
+const pastExperience = sortedExperience.filter((exp) => !exp.data.isCurrent);
 ---
 
 <div class="sub-section">
-	<h3 id="professional-experience" class="sr-only">{experience.title}</h3>
+	<h3 id="professional-experience" class="sr-only">Professional Experience</h3>
 	<ul
 		class="experience"
 		aria-labelledby="professional-experience"
 		data-testid="professional-experience"
 	>
 		<li class="present">
-			<h4 class="sr-only">{experience.currently.title}</h4>
+			<h4 class="sr-only">Currently</h4>
 			<div class="list" data-testid="experience-item" data-current>
 				{
-					experience.currently.items.map((item, index) => (
-						<div key={index} class="item">
-							<h5 class="title">{item.title}</h5>
-							<p class="description">{item.description}</p>
+					currentExperience.map((item) => (
+						<div class="item">
+							<h5 class="title">{item.data.title}</h5>
+							<p class="description">{item.data.description}</p>
 							<div class="metadata">
 								<p>
 									<>
 										<span class="sr-only">Duration:</span>
-										<span>{item.duration.from}</span>
+										<span>{item.data.startDate}</span>
 										<span class="sr-only">until</span>
 										<span aria-hidden="true">-</span>
-										<span>{item.duration.to}</span>
+										<span>{item.data.endDate || "Present"}</span>
 									</>
 								</p>
 								<p>
 									<>
 										<span class="sr-only">Location:</span>
-										<span lang="pt-PT">{item.location}</span>
+										<span lang="pt-PT">{item.data.location}</span>
 									</>
 								</p>
 							</div>
@@ -42,27 +46,27 @@ const { experience } = PAGE_CONTENT.about;
 			</div>
 		</li>
 		<li class="past">
-			<h4 class="sr-only">{experience.past.title}</h4>
+			<h4 class="sr-only">Past Jobs</h4>
 			<div class="list" data-testid="experience-item">
 				{
-					experience.past.items.map((item, index) => (
-						<div key={index} class="item">
-							<h5 class="title">{item.title}</h5>
-							<p class="description">{item.description}</p>
+					pastExperience.map((item) => (
+						<div class="item">
+							<h5 class="title">{item.data.title}</h5>
+							<p class="description">{item.data.description}</p>
 							<div class="metadata">
 								<p>
 									<>
 										<span class="sr-only">Duration:</span>
-										<span>{item.duration.from}</span>
+										<span>{item.data.startDate}</span>
 										<span class="sr-only">until</span>
 										<span aria-hidden="true">-</span>
-										<span>{item.duration.to}</span>
+										<span>{item.data.endDate}</span>
 									</>
 								</p>
 								<p>
 									<>
 										<span class="sr-only">Location:</span>
-										<span lang="pt-PT">{item.location}</span>
+										<span lang="pt-PT">{item.data.location}</span>
 									</>
 								</p>
 							</div>
@@ -74,10 +78,10 @@ const { experience } = PAGE_CONTENT.about;
 	</ul>
 	<div class="footer">
 		<a
-			href={experience.download.href}
-			download={experience.download.download}
-			aria-label={experience.download.label}
-			class="download">{experience.download.text}<span class="extension">(PDF)</span></a
+			href="/resume-joao-dias.pdf"
+			download="resume-joao-dias.pdf"
+			aria-label="Download my curriculum in PDF"
+			class="download">Download my CV<span class="extension">(PDF)</span></a
 		>
 	</div>
 </div>

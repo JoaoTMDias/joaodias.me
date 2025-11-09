@@ -7,7 +7,6 @@
  * (c) 2022 joaodias.me, Rights Reserved.
  */
 import { SkipLinks } from "@jtmdias/react-a11y-tools";
-import PAGE_CONTENT from "../../data/index.json";
 import "./index.module.scss";
 
 interface ISkipLink {
@@ -16,8 +15,12 @@ interface ISkipLink {
 	as?: "link" | "button";
 }
 
-function SkipLink() {
-	return <SkipLinks items={PAGE_CONTENT.header.links as ISkipLink[]} />;
+interface ISkipLinkProps {
+	items: ISkipLink[];
+}
+
+function SkipLink({ items }: ISkipLinkProps) {
+	return <SkipLinks items={items} />;
 }
 
 export default SkipLink;

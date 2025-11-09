@@ -1,0 +1,13 @@
+{
+	"title": "Bio",
+	"mainTitle": "I focus on creating great, accessible and rich web experiences for everyone. I've been lucky enough to have been doing that for the last 14 years.",
+	"description": [
+		"Besides working as a Senior Frontend Engineer, on my free time I usually go out and explore the fantastic world of craft beers, rock out to some great live music and hit the gym whenever I can."
+	],
+	"picture": {
+		"src": "/BioPicture.webp",
+		"width": "300",
+		"height": "554",
+		"alt": "João Dias outside, on a sunny day, wearing a hawaiian shirt and smiling at the camera."
+	}
+}

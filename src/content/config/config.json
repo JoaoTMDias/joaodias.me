@@ -1,0 +1,65 @@
+{
+	"seo": {
+		"title": "You have arrived at a website called joaodias.me: João Dias",
+		"description": "Personal website of João Dias, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal",
+		"siteOwner": "João Dias"
+	},
+	"copyright": "João Dias. All Rights Reserved",
+	"skipLinks": [
+		{
+			"target": "#content",
+			"text": "Skip to content",
+			"as": "link"
+		},
+		{
+			"target": "#contact",
+			"text": "Skip to Social links",
+			"as": "link"
+		}
+	],
+	"nav": [
+		{
+			"title": "Projects",
+			"accessibleLabel": "All projects",
+			"link": "/projects"
+		},
+		{
+			"title": "Contact",
+			"accessibleLabel": "Social media and other contacts",
+			"link": "/#contact"
+		}
+	],
+	"contactLinks": [
+		{
+			"title": "Instagram",
+			"accessibleLabel": "Check my Instagram profile. This link opens in a new tab",
+			"link": "http://instagram.com/joaotmdias",
+			"icon": "TbBrandInstagram"
+		},
+		{
+			"title": "GitHub",
+			"accessibleLabel": "Check my projects and source code on Github. This link opens in a new tab",
+			"link": "http://github.com/joaotmdias",
+			"icon": "TbBrandGithub"
+		},
+		{
+			"title": "LinkedIn",
+			"accessibleLabel": "Add me on LinkedIn. This link opens in a new tab",
+			"link": "http://linkedin.com/in/joaotmdias",
+			"icon": "TbBrandLinkedin"
+		}
+	],
+	"footer": {
+		"currentlyListeningTitle": "Currently Listening To...",
+		"marquee": {
+			"loading": "Loading...",
+			"card": {
+				"width": "48",
+				"height": "48"
+			},
+			"track": ". This link will open in a new tab",
+			"artist": "from the",
+			"album": "record"
+		}
+	}
+}

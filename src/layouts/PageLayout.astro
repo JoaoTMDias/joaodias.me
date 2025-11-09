@@ -1,8 +1,8 @@
 ---
+import { getEntry } from "astro:content";
 import CurrentlyListening from "../components/currently-listening/index";
 import Header from "../components/header/index.astro";
 import SocialLinks from "../components/social-links/index.astro";
-import PAGE_CONTENT from "../data/index.json";
 import "../assets/styles/index.scss";
 import DeployInfo from "../components/deploy-info/index.astro";
 import BaseLayout from "./BaseLayout.astro";
@@ -15,8 +15,9 @@ export interface Props {
 
 const { title, description, itemtype = "http://schema.org/WebPage" } = Astro.props;
 
+const config = await getEntry("config", "config");
 const currentYear = new Date().getFullYear();
-const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
+const footer = `© ${currentYear} - ${config.data.copyright}`;
 ---
 
 <BaseLayout title={title} description={description} itemtype={itemtype}>
@@ -30,10 +31,10 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 					class="currently-listening__title"
 					data-testid="currently-listening-main-title"
 				>
-					{PAGE_CONTENT.footer.title}
+					{config.data.footer.currentlyListeningTitle}
 				</h2>
 				<div class="currently-listening__container">
-					<CurrentlyListening client:load />
+					<CurrentlyListening marqueeConfig={config.data.footer.marquee} client:load />
 				</div>
 			</div>
 			<div class="footer__bottom">

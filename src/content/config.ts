@@ -27,10 +27,6 @@ const projectsCollection = defineCollection({
 		date: z.coerce.date(),
 		shortDescription: z.string(),
 		description: z.string(),
-		accessibilityConsiderations: z.string(),
-		technicalApproach: z.string(),
-		process: z.string().optional(),
-		results: z.string().optional(),
 		sourceCode: z
 			.union([z.string().url(), z.literal(""), z.null()])
 			.optional()
@@ -73,8 +69,86 @@ const showsCollection = defineCollection({
 	}),
 });
 
+const configCollection = defineCollection({
+	type: "data",
+	schema: z.object({
+		seo: z.object({
+			title: z.string(),
+			description: z.string(),
+			siteOwner: z.string(),
+		}),
+		copyright: z.string(),
+		skipLinks: z.array(
+			z.object({
+				target: z.string(),
+				text: z.string(),
+				as: z.enum(["link", "button"]).optional(),
+			}),
+		),
+		nav: z.array(
+			z.object({
+				title: z.string(),
+				accessibleLabel: z.string(),
+				link: z.string(),
+			}),
+		),
+		contactLinks: z.array(
+			z.object({
+				title: z.string(),
+				accessibleLabel: z.string(),
+				link: z.string().url(),
+				icon: z.string(),
+			}),
+		),
+		footer: z.object({
+			currentlyListeningTitle: z.string(),
+			marquee: z.object({
+				loading: z.string(),
+				card: z.object({
+					width: z.string(),
+					height: z.string(),
+				}),
+				track: z.string(),
+				artist: z.string(),
+				album: z.string(),
+			}),
+		}),
+	}),
+});
+
+const bioCollection = defineCollection({
+	type: "data",
+	schema: z.object({
+		title: z.string(),
+		mainTitle: z.string(),
+		description: z.array(z.string()),
+		picture: z.object({
+			src: z.string(),
+			width: z.string(),
+			height: z.string(),
+			alt: z.string(),
+		}),
+	}),
+});
+
+const experienceCollection = defineCollection({
+	type: "data",
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		location: z.string(),
+		startDate: z.string(),
+		endDate: z.string().optional(),
+		isCurrent: z.boolean().default(false),
+		order: z.number(),
+	}),
+});
+
 export const collections = {
 	articles: articlesCollection,
 	projects: projectsCollection,
 	shows: showsCollection,
+	config: configCollection,
+	bio: bioCollection,
+	experience: experienceCollection,
 };

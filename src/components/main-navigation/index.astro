@@ -1,18 +1,20 @@
 ---
+import { getEntry } from "astro:content";
 import FancyLink from "../fancy-link";
-import PAGE_CONTENT from "../../data/index.json";
+
+const config = await getEntry("config", "config");
 ---
 
 <nav aria-label="Top Navigation">
   <ul class="header__list">
     {
-      PAGE_CONTENT.header["main-navigation"].map((item) => {
+      config.data.nav.map((item) => {
         return (
           <li class="header__list__item">
             <FancyLink
-              href={item.href}
-              text={item.text}
-              aria-label={item.label}
+              href={item.link}
+              text={item.title}
+              aria-label={item.accessibleLabel}
               data-testid="top-nav-link"
             />
           </li>

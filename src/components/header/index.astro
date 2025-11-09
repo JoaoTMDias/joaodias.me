@@ -1,11 +1,14 @@
 ---
+import { getEntry } from "astro:content";
 import Logo from "../logo/index.astro";
 import MainNavigation from "../main-navigation/index.astro";
 import SkipLink from "../skip-link";
+
+const config = await getEntry("config", "config");
 ---
 
 <header class="navigation">
-	<SkipLink />
+	<SkipLink items={config.data.skipLinks} client:load />
 	<Logo />
 	<MainNavigation />
 </header>

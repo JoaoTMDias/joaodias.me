@@ -8,10 +8,24 @@
  */
 
 import { useEffect, useState } from "react";
-import PAGE_CONTENT from "../../data/index.json";
 import { LAST_FM_URL } from "../../data/services/config";
 import type { ExternalServiceSongs, Track } from "../../typings/index";
 import LastPlayedSongCard from "./LastPlayedSongCard";
+
+interface IMarqueeConfig {
+	loading: string;
+	card: {
+		width: string;
+		height: string;
+	};
+	track: string;
+	artist: string;
+	album: string;
+}
+
+interface ICurrentlyListeningProps {
+	marqueeConfig: IMarqueeConfig;
+}
 
 async function getSong() {
 	const request = await fetch(LAST_FM_URL);
@@ -21,7 +35,7 @@ async function getSong() {
 	return recenttracks.track.slice(0, 1)[0];
 }
 
-function CurrentlyListening() {
+function CurrentlyListening({ marqueeConfig }: ICurrentlyListeningProps) {
 	const [song, setSong] = useState<Track>(null);
 
 	useEffect(() => {
@@ -37,10 +51,10 @@ function CurrentlyListening() {
 	}, []);
 
 	if (!song) {
-		return <p>{PAGE_CONTENT.footer.marquee.loading}</p>;
+		return <p>{marqueeConfig.loading}</p>;
 	}
 
-	return <LastPlayedSongCard key={song.name} song={song} />;
+	return <LastPlayedSongCard key={song.name} song={song} marqueeConfig={marqueeConfig} />;
 }
 
 export default CurrentlyListening;
