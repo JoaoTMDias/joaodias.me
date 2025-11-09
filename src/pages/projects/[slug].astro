@@ -7,13 +7,8 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import { ClientRouter } from "astro:transitions";
 import { getCollection } from "astro:content";
-import Header from "../../components/header/index.astro";
-import SocialLinks from "../../components/social-links/index.astro";
-import CurrentlyListening from "../../components/currently-listening/index";
-import PAGE_CONTENT from "../../data/index.json";
-import "../../assets/styles/index.scss";
+import PageLayout from "../../layouts/PageLayout.astro";
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 
@@ -58,8 +53,6 @@ const { project } = Astro.props;
 const { Content } = await project.render();
 
 // Computed values
-const currentYear = new Date().getFullYear();
-const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 const transitionName = `project-title-${project.slug}`;
 const imageTransitionName = `project-image-${project.slug}`;
 
@@ -78,24 +71,154 @@ const theme = {
 const hasGalleryImages = project.data.galleryImages && project.data.galleryImages.length > 0;
 ---
 
-<!doctype html>
-<html
-	lang="en"
-	prefix="http://ogp.me/ns#"
-	itemtype="http://schema.org/WebPage"
-	dir="ltr"
-	data-testid="html-element"
+<PageLayout
+	title={`${project.data.title} - João Dias`}
+	description={project.data.shortDescription}
 >
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
-		<title>{project.data.title} - João Dias</title>
-		<meta name="description" content={project.data.shortDescription} />
-		<link rel="icon" type="image/png" href="/favicon_fallback.png" />
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<ClientRouter />
-		<style lang="scss">
+	<style slot="head" set:html={`body { --project-background-color: ${theme.background}; --project-foreground-color: ${theme.foreground}; }`} />
+	<main class="project__main">
+		<div
+			id="content"
+			tabindex={-1}
+			aria-labelledby="project-header-title"
+			class="project__main-wrapper"
+		>
+			<div class="project__main-top">
+				{
+					coverImage && (
+						<div class="project__cover">
+							<Image
+								class="project__cover-image"
+								src={coverImage}
+								width={IMAGE_DIMENSIONS.width}
+								height={IMAGE_DIMENSIONS.height}
+								alt={`${project.data.title} cover image`}
+								loading="lazy"
+								transition:name={imageTransitionName}
+							/>
+						</div>
+					)
+				}
+				<div class="project__header">
+					<div class="project__header-heading">
+						<h1
+							id="project-header-title"
+							class="project__header-title"
+							transition:name={transitionName}
+						>
+							{project.data.title}
+						</h1>
+						<p class="project__header-date">
+							<time datetime={project.data.date.toISOString()}>
+								{formattedDate}
+							</time>
+						</p>
+					</div>
+					<p class="project__header-intro">{project.data.description}</p>
+				</div>
+			</div>
+			<div class="project__main-content">
+				<div class="project__meta">
+					<h2 class="sr-only">Project Information</h2>
+					<div class="project__meta-column">
+						<h3 class="project__meta-title">Skills</h3>
+						<ul class="project__meta-list project__meta-list--hashed">
+							{
+								project.data.skills.map((skill) => (
+									<li class="project__meta-list-item">{skill}</li>
+								))
+							}
+						</ul>
+					</div>
+					<div class="project__meta-column">
+						<h3 class="project__meta-title">Date</h3>
+						<p class="project__meta-text">{formattedDate}</p>
+					</div>
+					<div class="project__meta-column">
+						<h3 class="project__meta-title">Source Code</h3>
+						{
+							project.data.sourceCode ? (
+								<a
+									href={project.data.sourceCode}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="project__meta-text"
+								>
+									View source code
+								</a>
+							) : (
+								<p class="project__meta-text">Not available</p>
+							)
+						}
+					</div>
+				</div>
+
+				{
+					hasGalleryImages && (
+						<div class="project__gallery">
+							{project.data.galleryImages?.map((image, index) => (
+								<Image
+									class="project__gallery-image"
+									src={image}
+									width={IMAGE_DIMENSIONS.width}
+									height={IMAGE_DIMENSIONS.height}
+									alt={`${project.data.title} gallery image ${index + 1}`}
+									loading="lazy"
+								/>
+							))}
+						</div>
+					)
+				}
+
+				<div class="project-section">
+					<Content />
+				</div>
+
+				<div class="project-section">
+					<h2 class="project-section__title">Accessibility Considerations</h2>
+					{
+						formatTextParagraphs(project.data.accessibilityConsiderations).map((paragraph) => (
+							<p class="project-section__text">{paragraph}</p>
+						))
+					}
+				</div>
+
+				<div class="project-section">
+					<h2 class="project-section__title">Technical Approach</h2>
+					{
+						formatTextParagraphs(project.data.technicalApproach).map((paragraph) => (
+							<p class="project-section__text">{paragraph}</p>
+						))
+					}
+				</div>
+
+				{
+					project.data.process && (
+						<div class="project-section">
+							<h2 class="project-section__title">Process</h2>
+							{formatTextParagraphs(project.data.process).map((paragraph) => (
+								<p class="project-section__text">{paragraph}</p>
+							))}
+						</div>
+					)
+				}
+
+				{
+					project.data.results && (
+						<div class="project-section">
+							<h2 class="project-section__title">Results & Impact</h2>
+							{formatTextParagraphs(project.data.results).map((paragraph) => (
+								<p class="project-section__text">{paragraph}</p>
+							))}
+						</div>
+					)
+				}
+			</div>
+		</div>
+	</main>
+</PageLayout>
+
+<style lang="scss">
 			// CSS Custom Properties
 			:root {
 				--project-spacing-xs: 0.5rem;
@@ -113,18 +236,6 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 
 			// Block: project
 			.project {
-				&__container {
-					width: 100%;
-					display: grid;
-					grid-template-rows: var(--header-height) 1fr;
-					gap: var(--project-spacing-lg);
-
-					@media (min-width: 60rem) {
-						grid-template-rows: auto 1fr;
-						gap: 0;
-					}
-				}
-
 				&__main {
 					background: var(--project-background-color);
 					color: var(--project-foreground-color);
@@ -327,21 +438,6 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 					object-fit: cover;
 					object-position: center;
 				}
-
-				&__footer {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					gap: var(--project-spacing-md);
-					width: 100%;
-					flex-grow: 1;
-				}
-
-				&__footer-bottom {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-				}
 			}
 
 			// Block: project-section
@@ -370,43 +466,6 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 				}
 			}
 
-			// Block: currently-listening (already BEM compliant)
-			.currently-listening {
-				display: flex;
-				flex-direction: column;
-				align-items: stretch;
-				gap: var(--project-spacing-sm);
-				width: 100%;
-
-				&__title {
-					font-family: var(--text-font-family);
-					font-weight: 500;
-					font-size: 0.875rem;
-					line-height: 1.0625rem;
-					text-transform: uppercase;
-					color: var(--text-color);
-					max-width: 80rem;
-					margin: 0 auto;
-					width: 100%;
-					padding-inline: var(--project-spacing-lg);
-					text-align: center;
-				}
-
-				&__container {
-					display: grid;
-					place-items: center;
-					background-color: var(--background-color);
-					box-shadow:
-						0 -1px 0 0 var(--text-color),
-						0 1px 0 0 var(--text-color);
-					position: relative;
-
-					@media (min-width: 60rem) {
-						height: 5rem;
-					}
-				}
-			}
-
 			@keyframes fadeInUp {
 				from {
 					opacity: 0;
@@ -419,171 +478,3 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 				}
 			}
 		</style>
-	</head>
-
-	<body style={`--background-color: ${theme.background}; --text-color: ${theme.foreground};`}>
-		<div class="project__container">
-			<Header />
-			<main class="project__main">
-				<div
-					id="content"
-					tabindex={-1}
-					aria-labelledby="project-header-title"
-					class="project__main-wrapper"
-				>
-					<div class="project__main-top">
-						{
-							coverImage && (
-								<div class="project__cover">
-									<Image
-										class="project__cover-image"
-										src={coverImage}
-										width={IMAGE_DIMENSIONS.width}
-										height={IMAGE_DIMENSIONS.height}
-										alt={`${project.data.title} cover image`}
-										loading="lazy"
-										transition:name={imageTransitionName}
-									/>
-								</div>
-							)
-						}
-						<div class="project__header">
-							<div class="project__header-heading">
-								<h1
-									id="project-header-title"
-									class="project__header-title"
-									transition:name={transitionName}
-								>
-									{project.data.title}
-								</h1>
-								<p class="project__header-date">
-									<time datetime={project.data.date.toISOString()}>
-										{formattedDate}
-									</time>
-								</p>
-							</div>
-							<p class="project__header-intro">{project.data.description}</p>
-						</div>
-					</div>
-					<div class="project__main-content">
-						<div class="project__meta">
-							<h2 class="sr-only">Project Information</h2>
-							<div class="project__meta-column">
-								<h3 class="project__meta-title">Skills</h3>
-								<ul class="project__meta-list project__meta-list--hashed">
-									{
-										project.data.skills.map((skill) => (
-											<li class="project__meta-list-item">{skill}</li>
-										))
-									}
-								</ul>
-							</div>
-							<div class="project__meta-column">
-								<h3 class="project__meta-title">Date</h3>
-								<p class="project__meta-text">{formattedDate}</p>
-							</div>
-							<div class="project__meta-column">
-								<h3 class="project__meta-title">Source Code</h3>
-								{
-									project.data.sourceCode ? (
-										<a
-											href={project.data.sourceCode}
-											target="_blank"
-											rel="noopener noreferrer"
-											class="project__meta-text"
-										>
-											View source code
-										</a>
-									) : (
-										<p class="project__meta-text">Not available</p>
-									)
-								}
-							</div>
-						</div>
-
-						{
-							hasGalleryImages && (
-								<div class="project__gallery">
-									{project.data.galleryImages?.map((image, index) => (
-										<Image
-											class="project__gallery-image"
-											src={image}
-											width={IMAGE_DIMENSIONS.width}
-											height={IMAGE_DIMENSIONS.height}
-											alt={`${project.data.title} gallery image ${index + 1}`}
-											loading="lazy"
-										/>
-									))}
-								</div>
-							)
-						}
-
-						<div class="project-section">
-							<Content />
-						</div>
-
-						<div class="project-section">
-							<h2 class="project-section__title">Accessibility Considerations</h2>
-							{
-								formatTextParagraphs(project.data.accessibilityConsiderations).map((paragraph) => (
-									<p class="project-section__text">{paragraph}</p>
-								))
-							}
-						</div>
-
-						<div class="project-section">
-							<h2 class="project-section__title">Technical Approach</h2>
-							{
-								formatTextParagraphs(project.data.technicalApproach).map((paragraph) => (
-									<p class="project-section__text">{paragraph}</p>
-								))
-							}
-						</div>
-
-						{
-							project.data.process && (
-								<div class="project-section">
-									<h2 class="project-section__title">Process</h2>
-									{formatTextParagraphs(project.data.process).map((paragraph) => (
-										<p class="project-section__text">{paragraph}</p>
-									))}
-								</div>
-							)
-						}
-
-						{
-							project.data.results && (
-								<div class="project-section">
-									<h2 class="project-section__title">Results & Impact</h2>
-									{formatTextParagraphs(project.data.results).map((paragraph) => (
-										<p class="project-section__text">{paragraph}</p>
-									))}
-								</div>
-							)
-						}
-					</div>
-				</div>
-			</main>
-			<footer class="project__footer" id="footer">
-				<div class="currently-listening" data-testid="currently-listening">
-					<h2
-						id="current-listening"
-						class="currently-listening__title"
-						data-testid="currently-listening-main-title"
-					>
-						{PAGE_CONTENT.footer.title}
-					</h2>
-					<div class="currently-listening__container">
-						<CurrentlyListening client:load />
-					</div>
-				</div>
-				<div class="project__footer-bottom">
-					<SocialLinks />
-					<p>
-						{footer}
-					</p>
-				</div>
-			</footer>
-		</div>
-	</body>
-</html>

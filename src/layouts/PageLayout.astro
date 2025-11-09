@@ -47,3 +47,73 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 	</div>
 	<div class="grid-background" role="presentation"></div>
 </BaseLayout>
+
+<style lang="scss">
+	.footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 2rem;
+		width: 100%;
+		padding-block-start: 3rem;
+
+		@media (min-width: 60rem) {
+			padding-block-start: 6rem;
+		}
+
+		&__bottom {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		&__others {
+			font-family: var(--text-font-family);
+			font-size: 1rem;
+			line-height: 1.5;
+			color: var(--text-color);
+			margin: 0;
+		}
+	}
+
+	.currently-listening {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch;
+		gap: 1rem;
+		width: 100%;
+
+		&__title {
+			font-family: var(--text-font-family);
+			font-style: normal;
+			font-weight: 500;
+			font-size: 0.875rem;
+			line-height: 1.0625rem;
+			text-transform: uppercase;
+			color: var(--text-color);
+			max-width: 80rem;
+			margin: 0 auto;
+			width: 100%;
+			padding-inline: 3rem;
+			text-align: center;
+		}
+
+		&__container {
+			display: grid;
+			place-items: center;
+			background-color: var(--background-color);
+			box-shadow:
+				0 -1px 0 0 var(--text-color),
+				0 1px 0 0 var(--text-color);
+			position: relative;
+
+			@media (min-width: 60rem) {
+				height: 5rem;
+			}
+		}
+	}
+</style>

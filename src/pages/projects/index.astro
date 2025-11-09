@@ -7,13 +7,9 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import { ClientRouter } from "astro:transitions";
 import { getCollection } from "astro:content";
-import Header from "../../components/header/index.astro";
-import SocialLinks from "../../components/social-links/index.astro";
-import CurrentlyListening from "../../components/currently-listening/index";
 import PAGE_CONTENT from "../../data/index.json";
-import "../../assets/styles/index.scss";
+import PageLayout from "../../layouts/PageLayout.astro";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
@@ -61,32 +57,80 @@ const projects = (await getCollection("projects")).sort(
 	(a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
 
-// Computed values
-const currentYear = new Date().getFullYear();
-const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 ---
-
-<!doctype html>
-<html
-	lang="en"
-	prefix="http://ogp.me/ns#"
-	itemtype="http://schema.org/WebPage"
-	dir="ltr"
-	data-testid="html-element"
+<PageLayout
+	title="Projects - João Dias"
+	description="Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility"
 >
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
-		<title>Projects - João Dias</title>
-		<meta
-			name="description"
-			content="Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility"
-		/>
-		<link rel="icon" type="image/png" href="/favicon_fallback.png" />
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<ClientRouter />
-		<style lang="scss">
+	<main class="projects__main">
+		<header class="projects__header">
+			<h1 id="projects-header-title" class="projects__header-title">All projects</h1>
+		</header>
+		<section id="content" tabindex={-1} aria-labelledby="projects-header-title">
+			<ul class="projects__grid">
+				{
+					projects.map((project) => {
+						const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
+						const theme = getProjectTheme(project);
+						const transitionNames = getTransitionNames(project.slug);
+						const cardStyle = {
+							"--background-color-hover": theme.background,
+							"--text-color-hover": theme.foreground,
+						};
+						const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
+
+						return (
+							<li>
+								<a
+									href={`/projects/${project.slug}`}
+									class="projects__card"
+									style={cardStyle}
+									aria-label={ariaLabel}
+								>
+									<div class="projects__card-thumbnail">
+										<Image
+											class="projects__card-thumbnail-image"
+											src={thumbnailPath}
+											width={THUMBNAIL_DIMENSIONS.width}
+											height={THUMBNAIL_DIMENSIONS.height}
+											alt={`${project.data.title} project thumbnail`}
+											loading="lazy"
+											transition:name={transitionNames.image}
+										/>
+									</div>
+									<div class="projects__card-content">
+										<h2
+											class="projects__card-content-title"
+											transition:name={transitionNames.title}
+										>
+											{project.data.title}
+										</h2>
+										<p class="projects__card-content-subtitle">
+											{project.data.shortDescription}
+										</p>
+										<time
+											class="projects__card-content-meta"
+											datetime={project.data.date.toISOString()}
+										>
+											{formatProjectDate(project.data.date)}
+										</time>
+										<ul class="projects__card-skills">
+											{project.data.skills.map((skill) => (
+												<li class="projects__card-skills-item">{skill}</li>
+											))}
+										</ul>
+									</div>
+								</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</section>
+	</main>
+</PageLayout>
+
+<style lang="scss">
 			// CSS Custom Properties
 			:root {
 				--projects-spacing-sm: 1rem;
@@ -102,18 +146,6 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 
 			// Block: projects
 			.projects {
-				&__container {
-					width: 100%;
-					display: grid;
-					grid-template-rows: var(--header-height) 1fr;
-					gap: var(--projects-spacing-lg);
-
-					@media (min-width: 60rem) {
-						grid-template-rows: auto 1fr;
-						gap: 0;
-					}
-				}
-
 				&__main {
 					display: flex;
 					flex-direction: column;
@@ -277,151 +309,5 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 					}
 				}
 
-				&__footer {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					gap: var(--projects-spacing-md);
-					width: 100%;
-					flex-grow: 1;
-				}
-
-				&__footer-bottom {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-				}
-			}
-
-			// Block: currently-listening (already BEM compliant)
-			.currently-listening {
-				display: flex;
-				flex-direction: column;
-				align-items: stretch;
-				gap: var(--projects-spacing-sm);
-				width: 100%;
-
-				&__title {
-					font-family: var(--text-font-family);
-					font-weight: 500;
-					font-size: 0.875rem;
-					line-height: 1.0625rem;
-					text-transform: uppercase;
-					color: var(--text-color);
-					max-width: 80rem;
-					margin: 0 auto;
-					width: 100%;
-					padding-inline: var(--projects-spacing-lg);
-					text-align: center;
-				}
-
-				&__container {
-					display: grid;
-					place-items: center;
-					background-color: var(--background-color);
-					box-shadow:
-						0 -1px 0 0 var(--text-color),
-						0 1px 0 0 var(--text-color);
-					position: relative;
-
-					@media (min-width: 60rem) {
-						height: 5rem;
-					}
-				}
 			}
 		</style>
-	</head>
-
-	<body>
-		<div class="projects__container">
-			<Header />
-			<main class="projects__main">
-				<header class="projects__header">
-					<h1 id="projects-header-title" class="projects__header-title">All projects</h1>
-				</header>
-				<section id="content" tabindex={-1} aria-labelledby="projects-header-title">
-					<ul class="projects__grid">
-						{
-							projects.map((project) => {
-								const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
-								const theme = getProjectTheme(project);
-								const transitionNames = getTransitionNames(project.slug);
-								const cardStyle = {
-									"--background-color-hover": theme.background,
-									"--text-color-hover": theme.foreground,
-								};
-								const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
-
-								return (
-									<li>
-										<a
-											href={`/projects/${project.slug}`}
-											class="projects__card"
-											style={cardStyle}
-											aria-label={ariaLabel}
-										>
-											<div class="projects__card-thumbnail">
-												<Image
-													class="projects__card-thumbnail-image"
-													src={thumbnailPath}
-													width={THUMBNAIL_DIMENSIONS.width}
-													height={THUMBNAIL_DIMENSIONS.height}
-													alt={`${project.data.title} project thumbnail`}
-													loading="lazy"
-													transition:name={transitionNames.image}
-												/>
-											</div>
-											<div class="projects__card-content">
-												<h2
-													class="projects__card-content-title"
-													transition:name={transitionNames.title}
-												>
-													{project.data.title}
-												</h2>
-												<p class="projects__card-content-subtitle">
-													{project.data.shortDescription}
-												</p>
-												<time
-													class="projects__card-content-meta"
-													datetime={project.data.date.toISOString()}
-												>
-													{formatProjectDate(project.data.date)}
-												</time>
-												<ul class="projects__card-skills">
-													{project.data.skills.map((skill) => (
-														<li class="projects__card-skills-item">{skill}</li>
-													))}
-												</ul>
-											</div>
-										</a>
-									</li>
-								);
-							})
-						}
-					</ul>
-				</section>
-			</main>
-			<footer class="projects__footer" id="footer">
-				<div class="currently-listening" data-testid="currently-listening">
-					<h2
-						id="current-listening"
-						class="currently-listening__title"
-						data-testid="currently-listening-main-title"
-					>
-						{PAGE_CONTENT.footer.title}
-					</h2>
-					<div class="currently-listening__container">
-						<CurrentlyListening client:load />
-					</div>
-				</div>
-				<div class="projects__footer-bottom">
-					<SocialLinks />
-					<p>
-						{footer}
-					</p>
-				</div>
-			</footer>
-		</div>
-		<div class="grid-background" role="presentation"></div>
-	</body>
-</html>
