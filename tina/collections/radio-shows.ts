@@ -1,6 +1,6 @@
 import type { Collection } from "tinacms";
 
-const SHOW_PROGRAMS = [
+export const SHOW_PROGRAMS = [
   { value: "mel-e-tal", label: "Mel & Tal" },
   { value: "bem-fresquinho", label: "Bem Fresquinho" },
   { value: "culturama", label: "Culturama" },
@@ -8,7 +8,7 @@ const SHOW_PROGRAMS = [
   { value: "epica-balnear", label: "Épica Balnear" },
   { value: "jazzmatazz", label: "Jazzmatazz" },
   { value: "maison", label: "Maison" },
-];
+] as const;
 
 export const RadioShowsCollection: Collection = {
   name: "show",
