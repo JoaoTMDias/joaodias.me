@@ -56,7 +56,6 @@ function getTransitionNames(slug: string) {
 const projects = (await getCollection("projects")).sort(
 	(a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
-
 ---
 <PageLayout
 	title="Projects - João Dias"
