@@ -157,3 +157,4 @@ deno.lock
 
 
 node_modules
+src/data/build-info.json

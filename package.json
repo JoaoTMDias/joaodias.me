@@ -3,9 +3,9 @@
   "version": "5.5",
   "private": false,
   "scripts": {
-    "dev": "tinacms dev -c \"astro dev\"",
+    "dev": "npm run generate-build-info && tinacms dev -c \"astro dev\"",
     "start": "astro dev",
-    "build": "tinacms build && astro build",
+    "build": "npm run generate-build-info && tinacms build && astro build",
     "preview": "astro preview",
     "test": "npm run test:headless",
     "test:ui": "playwright test --ui",
@@ -13,7 +13,8 @@
     "test:open": "npm run test:ui",
     "lint": "biome lint --write ./src",
     "format": "biome format --write ./src",
-    "typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json"
+    "typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json",
+    "generate-build-info": "node get-build-info.mjs"
   },
   "devDependencies": {
     "@astrojs/react": "4.4.1",

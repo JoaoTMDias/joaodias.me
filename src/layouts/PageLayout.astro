@@ -1,9 +1,10 @@
 ---
+import CurrentlyListening from "../components/currently-listening/index";
 import Header from "../components/header/index.astro";
 import SocialLinks from "../components/social-links/index.astro";
-import CurrentlyListening from "../components/currently-listening/index.tsx";
 import PAGE_CONTENT from "../data/index.json";
 import "../assets/styles/index.scss";
+import DeployInfo from "../components/deploy-info/index.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
@@ -40,6 +41,7 @@ const footer = `© ${currentYear} - ${PAGE_CONTENT.copyright}`;
 				<p class="footer__others">
 					{footer}
 				</p>
+				<DeployInfo />
 			</div>
 		</footer>
 	</div>

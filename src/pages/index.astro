@@ -1,15 +1,16 @@
 ---
-import { ClientRouter } from "astro:transitions";
 import { getCollection } from "astro:content";
+import { ClientRouter } from "astro:transitions";
+import Bio from "../components/bio/index.astro";
+import CurrentlyListening from "../components/currently-listening/index";
+import DeployInfo from "../components/deploy-info/index.astro";
+import Experience from "../components/experience/index.astro";
 import Header from "../components/header/index.astro";
 import Hero from "../components/hero/index.astro";
 import Intro from "../components/intro/index.astro";
 import Skills from "../components/skills/index.astro";
-import Bio from "../components/bio/index.astro";
-import Experience from "../components/experience/index.astro";
-import Work from "../components/work/index.astro";
-import CurrentlyListening from "../components/currently-listening/index";
 import SocialLinks from "../components/social-links/index.astro";
+import Work from "../components/work/index.astro";
 import PAGE_CONTENT from "../data/index.json";
 import "../assets/styles/index.scss";
 
@@ -188,6 +189,7 @@ const workData = {
 					<p class="footer__others">
 						{footer}
 					</p>
+				<DeployInfo />
 				</div>
 			</footer>
 		</div>
