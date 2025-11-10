@@ -3,9 +3,10 @@
   "version": "5.5",
   "private": false,
   "scripts": {
-    "dev": "npm run generate-build-info && tinacms dev -c \"astro dev\"",
-    "start": "astro dev",
-    "build": "npm run generate-build-info && tinacms build && astro build",
+    "dev": "tinacms dev -c \"npm run start\"",
+    "start": "npm run generate-build-info && astro dev",
+    "build:ci": "tinacms build && npm run build",
+    "build": "npm run generate-build-info && astro build",
     "preview": "astro preview",
     "test": "npm run test:headless",
     "test:ui": "playwright test --ui",
