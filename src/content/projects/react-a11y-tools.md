@@ -19,16 +19,36 @@ skills:
 thumbnail: /projects/react-a11y-tools/project-icon.svg
 cover: /projects/react-a11y-tools/project-cover.jpg
 galleryImages:
-  - /projects/react-a11y-tools/project-1.jpg
-  - /projects/react-a11y-tools/project-2.jpg
-  - /projects/react-a11y-tools/project-3.jpg
-  - /projects/react-a11y-tools/project-4.jpg
-  - /projects/react-a11y-tools/project-5.jpg
-  - /projects/react-a11y-tools/project-6.jpg
-  - /projects/react-a11y-tools/project-7.jpg
-  - /projects/react-a11y-tools/project-8.jpg
-  - /projects/react-a11y-tools/project-9.jpg
-  - /projects/react-a11y-tools/project-10.jpg
+  - image: /projects/react-a11y-tools/project-1.jpg
+    alt: React A11y Tools component library overview
+    caption: ''
+  - image: /projects/react-a11y-tools/project-2.jpg
+    alt: Accessibility testing interface
+    caption: ''
+  - image: /projects/react-a11y-tools/project-3.jpg
+    alt: Component documentation page
+    caption: ''
+  - image: /projects/react-a11y-tools/project-4.jpg
+    alt: Interactive accessibility examples
+    caption: ''
+  - image: /projects/react-a11y-tools/project-5.jpg
+    alt: Code samples and implementation guide
+    caption: ''
+  - image: /projects/react-a11y-tools/project-6.jpg
+    alt: Additional component examples
+    caption: ''
+  - image: /projects/react-a11y-tools/project-7.jpg
+    alt: Accessibility audit results
+    caption: ''
+  - image: /projects/react-a11y-tools/project-8.jpg
+    alt: Testing utilities showcase
+    caption: ''
+  - image: /projects/react-a11y-tools/project-9.jpg
+    alt: Best practices documentation
+    caption: ''
+  - image: /projects/react-a11y-tools/project-10.jpg
+    alt: Component API reference
+    caption: ''
 themeBackground: "#FFC9CB"
 themeForeground: "#1b1d1c"
 ---

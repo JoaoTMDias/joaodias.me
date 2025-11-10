@@ -19,9 +19,15 @@ skills:
 thumbnail: /projects/istovaidarmerda.online/project-icon.png
 cover: /projects/istovaidarmerda.online/project-cover.jpg
 galleryImages:
-  - /projects/istovaidarmerda.online/project-1.jpg
-  - /projects/istovaidarmerda.online/project-2.jpg
-  - /projects/istovaidarmerda.online/project-cover@2x.jpg
+  - image: /projects/istovaidarmerda.online/project-1.jpg
+    alt: Isto Vai Dar Merda website homepage
+    caption: ''
+  - image: /projects/istovaidarmerda.online/project-2.jpg
+    alt: Website content page
+    caption: ''
+  - image: /projects/istovaidarmerda.online/project-cover@2x.jpg
+    alt: Project cover image
+    caption: ''
 themeBackground: "#f5e7ad"
 themeForeground: "#4d352d"
 ---

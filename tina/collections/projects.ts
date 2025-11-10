@@ -67,11 +67,31 @@ export const ProjectsCollection: Collection = {
       required: false,
     },
     {
-      type: "image",
+      type: "object",
       name: "galleryImages",
       label: "Gallery Images",
       list: true,
       required: false,
+      fields: [
+        {
+          type: "image",
+          name: "image",
+          label: "Image",
+          required: true,
+        },
+        {
+          type: "string",
+          name: "alt",
+          label: "Alt Text",
+          required: true,
+        },
+        {
+          type: "string",
+          name: "caption",
+          label: "Caption",
+          required: false,
+        },
+      ],
     },
     {
       type: "string",

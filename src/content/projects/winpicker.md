@@ -19,9 +19,15 @@ skills:
 thumbnail: /projects/winpicker/project-icon.svg
 cover: /projects/winpicker/winpicker-cover.jpeg
 galleryImages:
-  - /projects/winpicker/winpicker-1.png
-  - /projects/winpicker/winpicker-2.png
-  - /projects/winpicker/winpicker-3.jpg
+  - image: /projects/winpicker/winpicker-1.png
+    alt: Winpicker application main interface
+    caption: ""
+  - image: /projects/winpicker/winpicker-2.png
+    alt: Winpicker selection screen
+    caption: ""
+  - image: /projects/winpicker/winpicker-3.jpg
+    alt: Winpicker results view
+    caption: ""
 themeBackground: "#003C6D"
 themeForeground: "#FFCACA"
 ---

@@ -16,9 +16,15 @@ skills:
 thumbnail: /projects/g-chat-format-bar/project-icon.jpg
 cover: /projects/g-chat-format-bar/project-cover.jpg
 galleryImages:
-  - /projects/g-chat-format-bar/project-1.jpg
-  - /projects/g-chat-format-bar/project-2.jpg
-  - /projects/g-chat-format-bar/project-3.jpg
+  - image: /projects/g-chat-format-bar/project-1.jpg
+    alt: Rich Content Editor experience
+    caption: ""
+  - image: /projects/g-chat-format-bar/project-2.jpg
+    alt: Google Chat Formatter extension interface
+    caption: ""
+  - image: /projects/g-chat-format-bar/project-3.jpg
+    alt: Formatting toolbar with text editor
+    caption: ""
 themeBackground: "#0f1729"
 themeForeground: "#69f0ae"
 ---

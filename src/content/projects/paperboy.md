@@ -19,7 +19,9 @@ skills:
 thumbnail: /projects/paperboy/project-icon.jpg
 cover: /projects/paperboy/project-cover.jpg
 galleryImages:
-  - /projects/paperboy/project-1.jpg
+  - image: /projects/paperboy/project-1.jpg
+    alt: Paperboy application interface
+    caption: ''
 themeBackground: "#ffffff"
 themeForeground: "#b12013"
 ---
