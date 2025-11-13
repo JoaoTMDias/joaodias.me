@@ -1,7 +1,7 @@
 ---
+import PAGE_CONTENT from "../../data/index.json";
 import Arrow from "../arrow/index.astro";
 import Profile from "../profile/index.astro";
-import PAGE_CONTENT from "../../data/index.json";
 ---
 
 <section class="hero">
@@ -63,12 +63,11 @@ import PAGE_CONTENT from "../../data/index.json";
 	@keyframes scaleText {
 		0% {
 			transform: scale(1);
-			opacity: 1;
 		}
 
 		100% {
 			transform: scale(1.25);
-			opacity: 0;
+
 		}
 	}
 </style>
