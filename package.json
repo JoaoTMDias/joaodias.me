@@ -28,7 +28,7 @@
     "@types/node": "^22.18.13",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
-    "astro": "^5.15.3",
+    "astro": "^5.16.0",
     "axe-core": "4.11.0",
     "react": "19.2.0",
     "react-dom": "^19.2.0",
