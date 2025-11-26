@@ -1,10 +1,6 @@
 ---
-import { getEntry } from "astro:content";
-import CurrentlyListening from "../components/currently-listening/index";
+import Footer from "../components/footer/index.astro";
 import Header from "../components/header/index.astro";
-import SocialLinks from "../components/social-links/index.astro";
-import "../assets/styles/index.scss";
-import DeployInfo from "../components/deploy-info/index.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
@@ -14,40 +10,14 @@ export interface Props {
 }
 
 const { title, description, itemtype = "http://schema.org/WebPage" } = Astro.props;
-
-const config = await getEntry("config", "config");
-const currentYear = new Date().getFullYear();
-const footer = `© ${currentYear} - ${config.data.copyright}`;
 ---
 
 <BaseLayout title={title} description={description} itemtype={itemtype}>
-	<slot name="head" slot="head" />
 	<div class="container">
 		<Header />
 		<slot />
-		<footer class="footer" id="footer">
-			<div class="currently-listening" data-testid="currently-listening">
-				<h2
-					id="current-listening"
-					class="currently-listening__title"
-					data-testid="currently-listening-main-title"
-				>
-					{config.data.footer.currentlyListeningTitle}
-				</h2>
-				<div class="currently-listening__container">
-					<CurrentlyListening marqueeConfig={config.data.footer.marquee} client:load />
-				</div>
-			</div>
-			<div class="footer__bottom">
-				<SocialLinks />
-				<p class="footer__others">
-					{footer}
-				</p>
-				<DeployInfo />
-			</div>
-		</footer>
+		<Footer />
 	</div>
-	<div class="grid-background" role="presentation"></div>
 </BaseLayout>
 
 <style lang="scss">
