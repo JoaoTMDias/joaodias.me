@@ -1,15 +1,22 @@
 ---
 import PAGE_CONTENT from "../../data/index.json";
-import Arrow from "../arrow/index.astro";
 import Profile from "../profile/index.astro";
 ---
 
 <section class="hero">
-	<Arrow />
-	<Profile />
-	<div class="fake-copyright">
-		<p class="fake-copyright__text" data-testid="fake-copyright">{PAGE_CONTENT.hero.copyright}</p>
+	<div class="hero__greeting">
+		<h2 class="title">
+			<span class="title__hi">Hi, I'm João.<span aria-hidden="true">👋</span></span>
+			<span class="title__main">Bridging UX & Engineering to Build Faster, More Inclusive Digital Products.</span>
+		</h2>
+		<p class="intro">
+			As a Senior Frontend Engineer based in Coimbra, I specialize in scalable Design Systems, performance optimization, and robust frontend architecture—bridging the gap between UX vision and engineering execution.
+		</p>
+		<a href="/contacts" class="button button__hero--secondary">Let's discuss a project or role</a>
+		<a href="/articles" class="button button__hero--primary">Read my insights</a>
 	</div>
+	<div class="hero__picture"></div>
+	<Profile />
 </section>
 
 <style lang="scss">
