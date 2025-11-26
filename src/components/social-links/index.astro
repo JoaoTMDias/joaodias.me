@@ -11,8 +11,8 @@ const iconSVGs = {
 };
 ---
 
-<nav id="contact" aria-labelledby="contact-title">
-  <h3 id="contact-title" class="sr-only">Social Media Links</h3>
+<div id="social-media" aria-labelledby="contact-title">
+  <h2 id="contact-title" class="sr-only">Links to my social media</h2>
   <ul class="list">
     {
       config.data.contactLinks.map((link) => (
@@ -31,7 +31,7 @@ const iconSVGs = {
       ))
     }
   </ul>
-</nav>
+</div>
 
 <style lang="scss">
   .list {
