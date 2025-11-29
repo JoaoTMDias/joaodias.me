@@ -1,0 +1,21 @@
+:root {
+  --background-color: hsl(0, 0%, 77%);
+  --background-color-faded: hsla(0, 0%, 77%, 0.25);
+  --text-color: hsl(0, 0%, 10%);
+  --text-color-faded: hsla(0, 0%, 10%, 0.25);
+  --text-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --heading-font-family: "Cormorant", "Palatino Linotype", Palatino, Palladio, "URW Palladio L",
+    "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L",
+    Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook",
+    "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+  --header-height: 3rem;
+  --scrollbar-width: 0.75rem;
+
+  @media (prefers-color-scheme: dark) {
+    --background-color: hsl(0, 0%, 10%);
+    --background-faded: hsla(0, 0%, 10%, 0.25);
+    --text-color: hsl(0, 0%, 77%);
+    --text-color-faded: hsla(0, 0%, 77%, 0.25);
+  }
+}
