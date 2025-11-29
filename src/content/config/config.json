@@ -19,21 +19,25 @@
   ],
   "nav": [
     {
+      "id": "ba6729ec-08eb-46ad-b4cd-248e3e9cfa54",
       "title": "Home",
       "accessibleLabel": "Homepage",
       "link": "/"
     },
     {
+      "id": "2a8f5aec-9dbe-4fc8-bc26-396da6260a33",
       "title": "Articles",
       "accessibleLabel": "Articles page",
       "link": "/articles"
     },
     {
+      "id": "3d77a05b-f422-44ae-b6a3-5195fda4f78d",
       "title": "Work",
       "accessibleLabel": "Work portfolio page",
       "link": "/work"
     },
     {
+      "id": "178dd373-39f4-40b4-9ef1-6f112cc7007f",
       "title": "Contact",
       "accessibleLabel": "Contact page",
       "link": "/contacts"
