@@ -1,21 +1,19 @@
 :root {
-  --background-color: hsl(0, 0%, 77%);
-  --background-color-faded: hsla(0, 0%, 77%, 0.25);
-  --text-color: hsl(0, 0%, 10%);
-  --text-color-faded: hsla(0, 0%, 10%, 0.25);
-  --text-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI, Helvetica,
-    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  --heading-font-family: "Cormorant", "Palatino Linotype", Palatino, Palladio, "URW Palladio L",
-    "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L",
-    Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook",
-    "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
-  --header-height: 3rem;
+  --background-color: hsla(26, 37%, 96%, 1);
+  --background-color-faded: hsla(26, 37%, 96%, 0.25);
+  --text-color: hsla(245, 39%, 20%, 1);
+  --text-color-faded: hsla(245, 39%, 20%, 0.25);
+  --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --heading-font-family: "Momo Trust Sans", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --header-height: 4rem;
+  --global-padding: 1.5rem;
+  --section-border-radius: 0.25rem;
   --scrollbar-width: 0.75rem;
+  --theme-blue-background: hsla(236, 100%, 94%, 1);
 
-  @media (prefers-color-scheme: dark) {
-    --background-color: hsl(0, 0%, 10%);
-    --background-faded: hsla(0, 0%, 10%, 0.25);
-    --text-color: hsl(0, 0%, 77%);
-    --text-color-faded: hsla(0, 0%, 77%, 0.25);
+  @media (width > 48rem) {
+    --section-border-radius: 0.5rem;
   }
 }
