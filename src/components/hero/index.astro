@@ -3,34 +3,115 @@ import Profile from "../profile/index.astro";
 ---
 
 <section class="hero">
-	<div class="hero__greeting">
-		<h2 class="title">
-			<span class="title__hi">Hi, I'm João.<span aria-hidden="true">👋</span></span>
-			<span class="title__main">Bridging UX & Engineering to Build Faster, More Inclusive Digital Products.</span>
-		</h2>
-		<p class="intro">
-			As a Senior Frontend Engineer based in Coimbra, I specialize in scalable Design Systems, performance optimization, and robust frontend architecture—bridging the gap between UX vision and engineering execution.
-		</p>
-		<a href="/contacts" class="button button__hero--secondary">Let's discuss a project or role</a>
-		<a href="/articles" class="button button__hero--primary">Read my insights</a>
-	</div>
-	<div class="hero__picture"></div>
-	<Profile />
+  <div class="hero__container">
+    <div class="hero__greeting">
+      <h2 class="title">
+        <span class="title__hi">Hi, I'm João.<span aria-hidden="true">👋</span></span>
+        <span class="title__main"
+          >Bridging UX & Engineering to Build Faster, More Inclusive Digital Products.</span
+        >
+      </h2>
+    </div>
+    <div class="hero__picture">
+      <Profile />
+    </div>
+    <p class="hero__intro">
+      As a Senior Frontend Engineer based in Coimbra, I specialize in accessible and scalable Design Systems,
+      performance optimization, and robust frontend architecture.
+    </p>
+    <div class="hero__actions">
+      <a href="#connect" class="button button__hero--secondary">Let's discuss a project or role</a>
+      <a href="/articles" class="button button__hero--primary">Read my insights</a>
+    </div>
+  </div>
 </section>
 
 <style lang="scss">
-	.hero {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 1rem;
-		width: 100%;
-		height: auto;
-		position: relative;
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    width: 100%;
+    height: auto;
+    position: relative;
 
-		@media (min-width: 60rem) {
-			height: calc(100vh - var(--header-height));
-		}
-	}
+    &__container {
+      display: grid;
+      grid-template-areas:
+        "greeting"
+        "picture"
+        "intro"
+        "actions";
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-block: 1.5rem;
+      width: 100%;
+      height: auto;
+      background-color: var(--theme-blue-background);
+      border-radius: var(--section-border-radius);
+    }
+
+    &__greeting,
+    &__intro,
+    &__actions {
+      padding-inline: 1.5rem;
+    }
+
+    &__greeting {
+      grid-area: greeting;
+    }
+
+    &__picture {
+      grid-area: picture;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__intro {
+      grid-area: intro;
+      font-family: var(--text-font-family);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      color: var(--text-color);
+    }
+
+    &__actions {
+      grid-area: actions;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 1rem;
+
+    &__hi {
+      font-family: var(--text-font-family);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      color: var(--text-color);
+    }
+
+    &__main {
+      font-family: var(--heading-font-family);
+      font-style: normal;
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.2;
+      color: var(--text-color);
+    }
+  }
 </style>
