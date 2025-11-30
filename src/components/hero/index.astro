@@ -16,12 +16,12 @@ import Profile from "../profile/index.astro";
       <Profile />
     </div>
     <p class="hero__intro">
-      As a Senior Frontend Engineer based in Coimbra, I specialize in accessible and scalable Design Systems,
-      performance optimization, and robust frontend architecture.
+      As a Senior Frontend Engineer based in Coimbra, I specialize in accessible and scalable Design
+      Systems, performance optimization, and robust frontend architecture.
     </p>
     <div class="hero__actions">
-      <a href="#connect" class="button button__hero--secondary">Let's discuss a project or role</a>
-      <a href="/articles" class="button button__hero--primary">Read my insights</a>
+      <a href="#connect" class="button button--primary">Let's discuss a project or role</a>
+      <a href="/articles" class="button button--secondary">Read my insights</a>
     </div>
   </div>
 </section>
@@ -49,8 +49,22 @@ import Profile from "../profile/index.astro";
       padding-block: 1.5rem;
       width: 100%;
       height: auto;
-      background-color: var(--theme-blue-background);
+      background-color: var(--palette-blue-background);
       border-radius: var(--section-border-radius);
+
+      @media (width > 48rem) {
+        padding-block: 0rem;
+        grid-template-areas:
+          "greeting picture"
+          "intro picture"
+          "actions picture";
+        grid-template-columns: 55% 45%;
+        gap: 0;
+      }
+
+      @media (width > 60rem) {
+        grid-template-columns: 50% 50%;
+      }
     }
 
     &__greeting,
@@ -61,6 +75,10 @@ import Profile from "../profile/index.astro";
 
     &__greeting {
       grid-area: greeting;
+
+      @media (width > 48rem) {
+        padding-block-start: 1.5rem;
+      }
     }
 
     &__picture {
@@ -86,6 +104,10 @@ import Profile from "../profile/index.astro";
       flex-direction: column;
       gap: 1rem;
       width: 100%;
+
+      @media (width > 48rem) {
+        padding-block-end: 1.5rem;
+      }
     }
   }
 
@@ -100,6 +122,7 @@ import Profile from "../profile/index.astro";
       font-family: var(--text-font-family);
       font-style: normal;
       font-weight: 400;
+      font-variation-settings: "wght" 400;
       font-size: 1.5rem;
       line-height: 1.2;
       color: var(--text-color);
@@ -109,9 +132,18 @@ import Profile from "../profile/index.astro";
       font-family: var(--heading-font-family);
       font-style: normal;
       font-weight: 700;
+      font-variation-settings: "wght" 700;
       font-size: 2rem;
       line-height: 1.2;
       color: var(--text-color);
+
+      @media (width > 48rem) {
+        font-size: 2.5rem;
+      }
+
+      @media (width > 60rem) {
+        font-size: 3rem;
+      }
     }
   }
 </style>

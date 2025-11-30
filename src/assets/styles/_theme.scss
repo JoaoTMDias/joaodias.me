@@ -1,8 +1,8 @@
 :root {
   --background-color: hsla(26, 37%, 96%, 1);
-  --background-color-faded: hsla(26, 37%, 96%, 0.25);
-  --text-color: hsla(245, 39%, 20%, 1);
-  --text-color-faded: hsla(245, 39%, 20%, 0.25);
+  --background-color-faded: hsla(26, 37%, 96%, 0.5);
+  --text-color: hsla(244, 83%, 14%, 1);
+  --text-color-faded: hsla(244, 83%, 14%, 0.5);
   --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
     Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   --heading-font-family: "Momo Trust Sans", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
@@ -12,8 +12,79 @@
   --section-border-radius: 0.25rem;
   --scrollbar-width: 0.75rem;
   --theme-blue-background: hsla(236, 100%, 94%, 1);
+  --palette-red-main: hsl(359, 100%, 65%);
+  --palette-red-background: hsl(0, 100%, 94%);
+  --palette-orange-main: hsl(28, 100%, 51%);
+  --palette-orange-background: hsl(33, 100%, 92%);
+  --palette-amber-main: hsl(45, 100%, 50%);
+  --palette-amber-background: hsl(48, 96%, 89%);
+  --palette-yellow-main: hsl(49, 100%, 49%);
+  --palette-yellow-background: hsl(54, 92%, 88%);
+  --palette-lime-main: hsl(84, 100%, 45%);
+  --palette-lime-background: hsl(84, 71%, 89%);
+  --palette-green-main: hsl(152, 96%, 45%);
+  --palette-green-background: hsl(142, 84%, 93%);
+  --palette-emerald-main: hsl(162, 100%, 42%);
+  --palette-emerald-background: hsl(156, 84%, 90%);
+  --palette-teal-main: hsl(173, 100%, 42%);
+  --palette-teal-background: hsl(170, 82%, 89%);
+  --palette-cyan-main: hsl(190, 100%, 47%);
+  --palette-cyan-background: hsl(190, 95%, 90%);
+  --palette-sky-main: hsl(204, 100%, 50%);
+  --palette-sky-background: hsl(207, 89%, 93%);
+  --palette-blue-main: hsl(217, 100%, 66%);
+  --palette-blue-background: hsl(214, 95%, 93%);
+  --palette-indigo-main: hsl(236, 100%, 74%);
+  --palette-indigo-background: hsl(236, 100%, 94%);
+  --palette-violet-main: hsl(258, 100%, 76%);
+  --palette-violet-background: hsl(259, 94%, 95%);
+  --palette-purple-main: hsl(276, 100%, 74%);
+  --palette-purple-background: hsl(270, 100%, 95%);
+  --palette-fuchsia-main: hsl(291, 100%, 71%);
+  --palette-fuchsia-background: hsl(290, 100%, 95%);
+  --palette-pink-main: hsl(332, 96%, 69%);
+  --palette-pink-background: hsl(327, 73%, 95%);
+  --palette-rose-main: hsl(353, 100%, 70%);
+  --palette-rose-background: hsl(355, 100%, 94%);
 
   @media (width > 48rem) {
     --section-border-radius: 0.5rem;
   }
+}
+
+html[data-theme="dark"] {
+  --palette-red-main: hsl(359, 100%, 70%);
+  --palette-red-background: hsl(359, 40%, 15%);
+  --palette-orange-main: hsl(28, 100%, 46%);
+  --palette-orange-background: hsl(27, 40%, 14%);
+  --palette-amber-main: hsl(45, 100%, 45%);
+  --palette-amber-background: hsl(44, 40%, 14%);
+  --palette-yellow-main: hsl(49, 100%, 44%);
+  --palette-yellow-background: hsl(47, 40%, 14%);
+  --palette-lime-main: hsl(84, 100%, 40%);
+  --palette-lime-background: hsl(84, 40%, 9%);
+  --palette-green-main: hsl(152, 96%, 40%);
+  --palette-green-background: hsl(147, 40%, 9%);
+  --palette-emerald-main: hsl(162, 100%, 37%);
+  --palette-emerald-background: hsl(170, 40%, 9%);
+  --palette-teal-main: hsl(173, 100%, 37%);
+  --palette-teal-background: hsl(182, 40%, 9%);
+  --palette-cyan-main: hsl(190, 100%, 37%);
+  --palette-cyan-background: hsl(197, 40%, 14%);
+  --palette-sky-main: hsl(204, 100%, 45%);
+  --palette-sky-background: hsl(205, 40%, 15%);
+  --palette-blue-main: hsl(217, 100%, 66%);
+  --palette-blue-background: hsl(227, 40%, 21%);
+  --palette-indigo-main: hsl(236, 100%, 74%);
+  --palette-indigo-background: hsl(245, 40%, 20%);
+  --palette-violet-main: hsl(258, 100%, 76%);
+  --palette-violet-background: hsl(260, 40%, 23%);
+  --palette-purple-main: hsl(276, 100%, 79%);
+  --palette-purple-background: hsl(283, 40%, 20%);
+  --palette-fuchsia-main: hsl(291, 100%, 46%);
+  --palette-fuchsia-background: hsl(300, 40%, 15%);
+  --palette-pink-main: hsl(332, 96%, 59%);
+  --palette-pink-background: hsl(338, 40%, 16%);
+  --palette-rose-main: hsl(353, 100%, 65%);
+  --palette-rose-background: hsl(347, 40%, 15%);
 }

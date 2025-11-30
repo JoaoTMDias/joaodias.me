@@ -21,11 +21,21 @@ const currentPage = Astro.url.pathname;
               data-testid="top-nav-link"
               aria-current={isCurrentPage ? "page" : undefined}
             >
-              <span class="mobile-navigation__link-text">{item.title}
-                <svg class="mobile-navigation__link-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M28 14L20.4664 16.6775L23.9017 23.9017L16.6775 20.4664L14 28L11.3225 20.4664L4.09833 23.9017L7.5336 16.6775L0 14L7.5336 11.3225L4.09833 4.09833L11.3225 7.53361L14 0L16.6775 7.53361L23.9017 4.09833L20.4664 11.3225L28 14Z" fill="#221F47"/>
-</svg>
-
+              <span class="mobile-navigation__link-text">
+                {item.title}
+                <svg
+                  class="mobile-navigation__link-icon"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M28 14L20.4664 16.6775L23.9017 23.9017L16.6775 20.4664L14 28L11.3225 20.4664L4.09833 23.9017L7.5336 16.6775L0 14L7.5336 11.3225L4.09833 4.09833L11.3225 7.53361L14 0L16.6775 7.53361L23.9017 4.09833L20.4664 11.3225L28 14Z"
+                    fill="#221F47"
+                  />
+                </svg>
               </span>
             </a>
           </li>
@@ -37,8 +47,8 @@ const currentPage = Astro.url.pathname;
 
 <style lang="scss">
   .mobile-navigation {
-    --main-navigation-background: hsla(236, 91%, 75%, 1);
-    --main-navigation-background-hover: hsl(236, 66%, 64%);
+    --main-navigation-background: var(--palette-indigo-background);
+    --main-navigation-background-hover: var(--palette-indigo-main);
 
     position: fixed;
     top: var(--header-height);

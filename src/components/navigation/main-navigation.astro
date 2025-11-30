@@ -82,10 +82,15 @@ const currentPage = Astro.url.pathname;
     width: fit-content;
 
     &[aria-current="page"] {
-      &::after {
-        content: "*";
-        position: relative;
-      }
+      text-decoration: underline;
+      text-decoration-style: wavy;
+      text-underline-offset: 0.5rem;
+    }
+
+    &:hover:not([aria-current="page"]),
+    &:focus:not([aria-current="page"]) {
+      text-decoration: underline;
+      text-underline-offset: 0.5rem;
     }
 
     @media (width > 48rem) {
