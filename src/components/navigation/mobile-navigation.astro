@@ -1,0 +1,127 @@
+---
+import { getEntry } from "astro:content";
+
+const config = await getEntry("config", "config");
+const currentPage = Astro.url.pathname;
+---
+
+<nav aria-label="Pages" class="mobile-navigation" id="mobile-navigation">
+  <ul class="mobile-navigation__list">
+    {
+      config.data.nav.map((item) => {
+        const isCurrentPage = currentPage === item.link;
+
+        return (
+          <li class="mobile-navigation__item">
+            <a
+              class="mobile-navigation__link"
+              id={item.id}
+              href={item.link}
+              aria-label={item.accessibleLabel}
+              data-testid="top-nav-link"
+              aria-current={isCurrentPage ? "page" : undefined}
+            >
+              <span class="mobile-navigation__link-text">{item.title}
+                <svg class="mobile-navigation__link-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M28 14L20.4664 16.6775L23.9017 23.9017L16.6775 20.4664L14 28L11.3225 20.4664L4.09833 23.9017L7.5336 16.6775L0 14L7.5336 11.3225L4.09833 4.09833L11.3225 7.53361L14 0L16.6775 7.53361L23.9017 4.09833L20.4664 11.3225L28 14Z" fill="#221F47"/>
+</svg>
+
+              </span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  .mobile-navigation {
+    --main-navigation-background: hsla(236, 91%, 75%, 1);
+    --main-navigation-background-hover: hsl(236, 66%, 64%);
+
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    height: calc(100vh - var(--header-height));
+    z-index: 50;
+    background-color: var(--main-navigation-background);
+
+    @media (width > 48rem) {
+      display: none !important;
+    }
+  }
+
+  :global(.header:has(.header__toggle[aria-expanded="true"])) .mobile-navigation {
+    display: flex;
+  }
+
+  .mobile-navigation__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mobile-navigation__item {
+    height: 25%;
+  }
+
+  .mobile-navigation__link {
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    gap: 0.5rem;
+    font-size: 10vw;
+
+    &:hover,
+    &:focus {
+      background-color: var(--main-navigation-background-hover);
+    }
+
+    &[aria-current="page"] {
+      .mobile-navigation__link-text {
+        text-decoration-style: wavy;
+      }
+      .mobile-navigation__link-icon {
+        display: inline-flex;
+      }
+    }
+  }
+
+  .mobile-navigation__link-text {
+    font-family: "Momo Trust Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3rem;
+    height: 2.75rem;
+    line-height: 1;
+    text-decoration-line: underline;
+    text-underline-offset: 0.5rem;
+    color: var(--text-color);
+  }
+
+  .mobile-navigation__link-icon {
+    display: none;
+    width: 28px;
+    height: 28px;
+    fill: var(--text-color);
+    margin-left: 2rem;
+  }
+</style>

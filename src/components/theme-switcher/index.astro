@@ -1,0 +1,217 @@
+<label class="theme-switcher">
+  <span class="sr-only" data-theme-label>
+    Light theme. Press to switch to dark theme
+  </span>
+  <input
+    id="theme-switch"
+    name="theme-switch"
+    data-theme-switch
+    class="theme-switcher__input"
+    type="checkbox"
+  />
+  <span class="theme-switcher__track"></span>
+  <span class="theme-switcher__thumb">
+    <svg
+      class="theme-switcher__icon theme-switcher__icon--light"
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 9c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm0-2c-2.762 0-5 2.238-5 5s2.238 5 5 5 5-2.238 5-5-2.238-5-5-5zm-4.184-.599l-3.593-3.594-1.415 1.414 3.595 3.595c.401-.537.876-1.013 1.413-1.415zm4.184-1.401c.34 0 .672.033 1 .08v-5.08h-2v5.08c.328-.047.66-.08 1-.08zm5.598 2.815l3.595-3.595-1.414-1.414-3.595 3.595c.537.402 1.012.878 1.414 1.414zm-12.598 4.185c0-.34.033-.672.08-1h-5.08v2h5.08c-.047-.328-.08-.66-.08-1zm11.185 5.598l3.594 3.593 1.415-1.414-3.594-3.593c-.403.536-.879 1.012-1.415 1.414zm-9.784-1.414l-3.593 3.593 1.414 1.414 3.593-3.593c-.536-.402-1.011-.877-1.414-1.414zm12.519-5.184c.047.328.08.66.08 1s-.033.672-.08 1h5.08v-2h-5.08zm-6.92 8c-.34 0-.672-.033-1-.08v5.08h2v-5.08c-.328.047-.66.08-1 .08z"
+        fill="currentColor"></path>
+    </svg>
+    <svg
+      class="theme-switcher__icon theme-switcher__icon--dark"
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      aria-hidden="true"
+    >
+      <path
+        d="M10.719 2.082c-2.572 2.028-4.719 5.212-4.719 9.918 0 4.569 1.938 7.798 4.548 9.895-4.829-.705-8.548-4.874-8.548-9.895 0-5.08 3.808-9.288 8.719-9.918zm1.281-2.082c-6.617 0-12 5.383-12 12s5.383 12 12 12c1.894 0 3.87-.333 5.37-1.179-3.453-.613-9.37-3.367-9.37-10.821 0-7.555 6.422-10.317 9.37-10.821-1.74-.682-3.476-1.179-5.37-1.179zm0 10.999c1.437.438 2.562 1.564 2.999 3.001.44-1.437 1.565-2.562 3.001-3-1.436-.439-2.561-1.563-3.001-3-.437 1.436-1.562 2.561-2.999 2.999zm8.001.001c.958.293 1.707 1.042 2 2.001.291-.959 1.042-1.709 1.999-2.001-.957-.292-1.707-1.042-2-2-.293.958-1.042 1.708-1.999 2zm-1-9c-.437 1.437-1.563 2.562-2.998 3.001 1.438.44 2.561 1.564 3.001 3.002.437-1.438 1.563-2.563 2.996-3.002-1.433-.437-2.559-1.564-2.999-3.001z"
+        fill="currentColor"></path>
+    </svg>
+  </span>
+</label>
+
+<style>
+  .theme-switcher {
+    --switcher-width: 3.5rem;
+    --switcher-height: 2rem;
+    --switcher-padding: 0.25rem;
+    --icon-size: 1.25rem;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: var(--switcher-width);
+    height: var(--switcher-height);
+    cursor: pointer;
+    border-radius: 9999px;
+    /* Using touch-action to improve mobile feel */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .theme-switcher__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .theme-switcher__track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-color-faded, #e2e8f0);
+    border-radius: 9999px;
+    transition: background-color 0.3s ease;
+  }
+
+  .theme-switcher__input:checked + .theme-switcher__track {
+    background-color: var(--text-color, #2d3748);
+  }
+
+  .theme-switcher__input:focus-visible + .theme-switcher__track {
+    outline: 3px solid var(--text-color);
+    outline-offset: 4px;
+  }
+
+  .theme-switcher__thumb {
+    position: absolute;
+    top: var(--switcher-padding);
+    left: var(--switcher-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--switcher-height) - (var(--switcher-padding) * 2));
+    height: calc(var(--switcher-height) - (var(--switcher-padding) * 2));
+    background-color: var(--background-color, hsla(26, 37%, 96%, 1));
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    z-index: 1;
+  }
+
+  /* Move thumb when checked (Dark Mode) */
+  .theme-switcher__input:checked ~ .theme-switcher__thumb {
+    transform: translateX(calc(var(--switcher-width) - var(--switcher-height)));
+    background-color: var(--text-color);
+  }
+
+  .theme-switcher__icon {
+    position: absolute;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    color: var(--text-color);
+  }
+
+  .theme-switcher__input:checked ~ .theme-switcher__thumb .theme-switcher__icon {
+    color: var(--background-color);
+  }
+
+  .theme-switcher__icon--light {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  .theme-switcher__icon--dark {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+
+  /* Icon states based on checked status */
+  .theme-switcher__input:checked ~ .theme-switcher__thumb .theme-switcher__icon--light {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  .theme-switcher__input:checked ~ .theme-switcher__thumb .theme-switcher__icon--dark {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    function getPreferredTheme() {
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme) {
+        return storedTheme;
+      }
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    const theme = getPreferredTheme();
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+
+<script>
+  const DOMLoaded = (callback: () => void) => {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", callback);
+    } else {
+      callback();
+    }
+  };
+
+  DOMLoaded(() => {
+    const themeSwitches = document.querySelectorAll(
+      "[data-theme-switch]"
+    ) as NodeListOf<HTMLInputElement>;
+
+    const themeLabels = document.querySelectorAll(
+      "[data-theme-label]"
+    ) as NodeListOf<HTMLElement>;
+
+    const updateLabels = (isDark: boolean) => {
+      const labelText = isDark ? "Light theme. Press to switch to dark theme" : "Dark theme. Press to switch to light theme";
+      themeLabels.forEach(label => {
+        label.textContent = labelText;
+      });
+    };
+
+    // Read the theme that was already set by the inline script
+    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+    const isDark = currentTheme === "dark";
+
+    // Initialize labels
+    updateLabels(isDark);
+
+    themeSwitches.forEach((themeSwitch) => {
+      // If it's dark, we want the checkbox to be checked (switched to 'on' position)
+      themeSwitch.checked = isDark;
+      themeSwitch.setAttribute("aria-checked", isDark.toString());
+
+      themeSwitch.addEventListener("change", () => {
+        const isChecked = themeSwitch.checked;
+        const newTheme = isChecked ? "dark" : "light";
+
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        themeSwitch.setAttribute("aria-checked", isChecked.toString());
+        updateLabels(isChecked);
+
+        // Sync other switches if any exist on the page
+        themeSwitches.forEach(otherSwitch => {
+          if (otherSwitch !== themeSwitch) {
+            otherSwitch.checked = isChecked;
+            otherSwitch.setAttribute("aria-checked", isChecked.toString());
+          }
+        });
+      });
+    });
+  });
+</script>

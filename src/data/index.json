@@ -1,52 +1,52 @@
 {
-	"title": "You have arrived at a website called joaodias.me: João Dias",
-	"hero": {
-		"profile-picture": {
-			"src": "/ProfilePicture.jpg",
-			"width": "300",
-			"height": "400",
-			"alt": "João sitting at a bench, similing at the camera"
-		},
-		"copyright": "Since 1987 © Limited Edition"
-	},
-	"about": {
-		"title": "Main Content",
-		"intro": {
-			"title": "Intro",
-			"subtitle": "Hey, what's up?",
-			"mainTitle": {
-				"title-first": "I'm",
-				"title-name": "João",
-				"title-second": ", a Frontend Engineer specializing in Web Accessibility from",
-				"title-location": "Coimbra, Portugal"
-			},
-			"currently-at": {
-				"href": "https://www.feedzai.com",
-				"text": "Feedzai"
-			}
-		},
-		"skills": {
-			"title": "A list of my skill set",
-			"items": [
-				"Accessibility",
-				"Cypress",
-				"Interface Design",
-				"Jest",
-				"Lit",
-				"Node",
-				"Playwright",
-				"React",
-				"Redux",
-				"Testing-Library",
-				"Typescript",
-				"Vite",
-				"Vue",
-				"Web Components"
-			]
-		}
-	},
-	"work": {
-		"title": "Selected work",
-		"description": "Press up and down arrows to navigate between projects"
-	}
+  "title": "You have arrived at a website called joaodias.me: João Dias",
+  "hero": {
+    "profile-picture": {
+      "src": "/photo-profile.webp",
+      "width": 1248,
+      "height": 768,
+      "alt": "João similing at the camera, wearing a funny hawaiian shirt"
+    },
+    "copyright": "Since 1987 © Limited Edition"
+  },
+  "about": {
+    "title": "Main Content",
+    "intro": {
+      "title": "Intro",
+      "subtitle": "Hey, what's up?",
+      "mainTitle": {
+        "title-first": "I'm",
+        "title-name": "João",
+        "title-second": ", a Frontend Engineer specializing in Web Accessibility from",
+        "title-location": "Coimbra, Portugal"
+      },
+      "currently-at": {
+        "href": "https://www.feedzai.com",
+        "text": "Feedzai"
+      }
+    },
+    "skills": {
+      "title": "A list of my skill set",
+      "items": [
+        "Accessibility",
+        "Cypress",
+        "Interface Design",
+        "Jest",
+        "Lit",
+        "Node",
+        "Playwright",
+        "React",
+        "Redux",
+        "Testing-Library",
+        "Typescript",
+        "Vite",
+        "Vue",
+        "Web Components"
+      ]
+    }
+  },
+  "work": {
+    "title": "Selected work",
+    "description": "Press up and down arrows to navigate between projects"
+  }
 }
