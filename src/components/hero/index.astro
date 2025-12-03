@@ -2,13 +2,13 @@
 import Profile from "../profile/index.astro";
 ---
 
-<section class="hero">
+<section class="section">
   <div class="hero__container">
     <div class="hero__greeting">
       <h2 class="title">
         <span class="title__hi">Hi, I'm João.<span aria-hidden="true">👋</span></span>
         <span class="title__main"
-          >Bridging UX & Engineering to Build Faster, More Inclusive Digital Products.</span
+          >Bridging UX & Engineering to build faster, more inclusive digital products.</span
         >
       </h2>
     </div>
@@ -16,8 +16,8 @@ import Profile from "../profile/index.astro";
       <Profile />
     </div>
     <p class="hero__intro">
-      As a Senior Frontend Engineer based in Coimbra, I specialize in accessible and scalable Design
-      Systems, performance optimization, and robust frontend architecture.
+      As a Senior Frontend Engineer based in Coimbra (Portugal), I specialize in accessible and
+      scalable Design Systems, performance optimization, and robust frontend architecture.
     </p>
     <div class="hero__actions">
       <a href="#connect" class="button button--primary">Let's discuss a project or role</a>
@@ -50,7 +50,7 @@ import Profile from "../profile/index.astro";
       width: 100%;
       height: auto;
       background-color: var(--palette-blue-background);
-      border-radius: var(--section-border-radius);
+      border-radius: inherit;
 
       @media (width > 48rem) {
         padding-block: 0rem;
@@ -62,7 +62,7 @@ import Profile from "../profile/index.astro";
         gap: 0;
       }
 
-      @media (width > 60rem) {
+      @media (width > 64rem) {
         grid-template-columns: 50% 50%;
       }
     }
@@ -96,6 +96,7 @@ import Profile from "../profile/index.astro";
       font-size: 1.5rem;
       line-height: 2rem;
       color: var(--text-color);
+      margin-bottom: 2rem;
     }
 
     &__actions {
@@ -133,17 +134,9 @@ import Profile from "../profile/index.astro";
       font-style: normal;
       font-weight: 700;
       font-variation-settings: "wght" 700;
-      font-size: 2rem;
+      font-size: var(--font-size-xxl);
       line-height: 1.2;
       color: var(--text-color);
-
-      @media (width > 48rem) {
-        font-size: 2.5rem;
-      }
-
-      @media (width > 60rem) {
-        font-size: 3rem;
-      }
     }
   }
 </style>
