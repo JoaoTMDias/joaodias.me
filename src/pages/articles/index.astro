@@ -1,157 +1,159 @@
 ---
 import { getCollection } from "astro:content";
-import PageLayout from "../../layouts/PageLayout.astro";
 import PAGE_CONTENT from "../../data/index.json";
+import PageLayout from "../../layouts/PageLayout.astro";
 
 const articles = (await getCollection("articles")).sort(
-	(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 ---
 
 <PageLayout
-	title="Articles - João Dias"
-	description="Articles about Frontend Engineering and Web Accessibility by João Dias"
+  title="Articles - João Dias"
+  description="Articles about Frontend Engineering and Web Accessibility by João Dias"
 >
-	<main class="main-content">
-		<header class="articles-header">
-			<h1>Articles</h1>
-		</header>
-		{articles.length === 0 ? (
-			<div class="empty-state">
-				<p>Articles coming soon! Check back later for insights on Frontend Engineering and Web Accessibility.</p>
-			</div>
-		) : (
-			<ul class="articles-list">
-				{articles.map((article) => (
-					<li class="article-item">
-						<a href={`/articles/${article.slug}`}>
-							<h2>{article.data.title}</h2>
-							<p class="excerpt">{article.data.excerpt}</p>
-							<div class="meta">
-								<time datetime={article.data.pubDate.toISOString()}>
-									{article.data.pubDate.toLocaleDateString("en-US", {
-										year: "numeric",
-										month: "long",
-										day: "numeric",
-									})}
-								</time>
-								<span class="category">{article.data.category.replace("-", " ")}</span>
-								{article.data.readingTime && (
-									<span>{article.data.readingTime} min read</span>
-								)}
-							</div>
-						</a>
-					</li>
-				))}
-			</ul>
-		)}
-	</main>
+  <main class="main-content">
+    <header class="articles-header">
+      <h1>Articles</h1>
+    </header>
+    {
+      articles.length === 0 ? (
+        <div class="empty-state">
+          <p>
+            Articles coming soon! Check back later for insights on Frontend Engineering and Web
+            Accessibility.
+          </p>
+        </div>
+      ) : (
+        <ul class="articles-list">
+          {articles.map((article) => (
+            <li class="article-item">
+              <a href={`/articles/${article.slug}`}>
+                <h2>{article.data.title}</h2>
+                <p class="excerpt">{article.data.excerpt}</p>
+                <div class="meta">
+                  <time datetime={article.data.pubDate.toISOString()}>
+                    {article.data.pubDate.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span class="category">{article.data.category.replace("-", " ")}</span>
+                  {article.data.readingTime && <span>{article.data.readingTime} min read</span>}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </main>
 </PageLayout>
 
 <style lang="scss">
-	.main-content {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		padding-block: 10vh;
-		padding-inline: 1rem;
-		margin: 0 auto;
-		max-width: 100vw;
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-block: 10vh;
+    padding-inline: 1rem;
+    margin: 0 auto;
+    max-width: 100vw;
 
-		@media (min-width: 60rem) {
-			padding-block: 6rem;
-			padding-inline: 3rem;
-			max-width: 75rem;
-		}
-	}
+    @media (min-width: 64rem) {
+      padding-block: 6rem;
+      padding-inline: 3rem;
+      max-width: 75rem;
+    }
+  }
 
-	.articles-header {
-		margin-bottom: 3rem;
+  .articles-header {
+    margin-bottom: 3rem;
 
-		h1 {
-			font-family: var(--heading-font-family);
-			font-size: 2.5rem;
-			line-height: 1.2;
-			margin-bottom: 1rem;
+    h1 {
+      font-family: var(--heading-font-family);
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
 
-			@media (min-width: 60rem) {
-				font-size: 3.5rem;
-			}
-		}
-	}
+      @media (min-width: 64rem) {
+        font-size: 3.5rem;
+      }
+    }
+  }
 
-	.empty-state {
-		text-align: center;
-		padding: 4rem 2rem;
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
 
-		p {
-			font-family: var(--text-font-family);
-			font-size: 1.25rem;
-			line-height: 1.75;
-		}
-	}
+    p {
+      font-family: var(--text-font-family);
+      font-size: 1.25rem;
+      line-height: 1.75;
+    }
+  }
 
-	.articles-list {
-		display: grid;
-		gap: 3rem;
-		list-style: none;
-		padding: 0;
-	}
+  .articles-list {
+    display: grid;
+    gap: 3rem;
+    list-style: none;
+    padding: 0;
+  }
 
-	.article-item {
-		border: 1px solid var(--text-color);
-		padding: 2rem;
-		border-radius: 4px;
-		transition: all 0.2s ease;
+  .article-item {
+    border: 1px solid var(--text-color);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 
-		&:hover,
-		&:focus-within {
-			background-color: var(--text-color);
-			color: var(--background-color);
-		}
+    &:hover,
+    &:focus-within {
+      background-color: var(--text-color);
+      color: var(--background-color);
+    }
 
-		a {
-			text-decoration: none;
-			color: inherit;
-			display: block;
-		}
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
 
-		h2 {
-			font-family: var(--heading-font-family);
-			font-size: 2rem;
-			margin-bottom: 1rem;
-		}
+    h2 {
+      font-family: var(--heading-font-family);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
-		.excerpt {
-			font-family: var(--text-font-family);
-			font-size: 1.125rem;
-			line-height: 1.5;
-			margin-bottom: 1rem;
-		}
+    .excerpt {
+      font-family: var(--text-font-family);
+      font-size: 1.125rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
 
-		.meta {
-			display: flex;
-			gap: 1rem;
-			flex-wrap: wrap;
-			font-family: var(--text-font-family);
-			font-size: 0.875rem;
-			opacity: 0.8;
-		}
+    .meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-family: var(--text-font-family);
+      font-size: 0.875rem;
+      opacity: 0.8;
+    }
 
-		.category {
-			padding: 0.25rem 0.75rem;
-			background-color: currentColor;
-			color: var(--background-color);
-			border-radius: 1rem;
-			font-size: 0.875rem;
-			text-transform: capitalize;
+    .category {
+      padding: 0.25rem 0.75rem;
+      background-color: currentColor;
+      color: var(--background-color);
+      border-radius: 1rem;
+      font-size: 0.875rem;
+      text-transform: capitalize;
 
-			.article-item:hover &,
-			.article-item:focus-within & {
-				background-color: var(--background-color);
-				color: var(--text-color);
-			}
-		}
-	}
+      .article-item:hover &,
+      .article-item:focus-within & {
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+    }
+  }
 </style>
-

@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 /**
  * This file is open-source. This means that it can be reproduced in whole
  * or in part, stored in a retrieval system transmitted in any form, or by
@@ -10,303 +12,299 @@
 import { getCollection } from "astro:content";
 import PAGE_CONTENT from "../../data/index.json";
 import PageLayout from "../../layouts/PageLayout.astro";
-import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
 
 // Constants
 const DEFAULT_THEME = {
-	background: "#000000",
-	foreground: "#ffffff",
+  background: "#000000",
+  foreground: "#ffffff",
 } as const;
 
 const THUMBNAIL_DIMENSIONS = {
-	width: 123,
-	height: 123,
+  width: 123,
+  height: 123,
 } as const;
 
 const DATE_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
-	year: "numeric",
-	month: "long",
+  year: "numeric",
+  month: "long",
 };
 
 // Helper functions
 function normalizeThumbnailPath(path: string): string {
-	return path.startsWith("/") ? path : `/${path}`;
+  return path.startsWith("/") ? path : `/${path}`;
 }
 
 function getProjectTheme(project: CollectionEntry<"projects">) {
-	return {
-		background: project.data.themeBackground || DEFAULT_THEME.background,
-		foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
-	};
+  return {
+    background: project.data.themeBackground || DEFAULT_THEME.background,
+    foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
+  };
 }
 
 function formatProjectDate(date: Date): string {
-	return date.toLocaleDateString("en-US", DATE_FORMAT_OPTIONS);
+  return date.toLocaleDateString("en-US", DATE_FORMAT_OPTIONS);
 }
 
 function getTransitionNames(slug: string) {
-	return {
-		title: `project-title-${slug}`,
-		image: `project-image-${slug}`,
-	};
+  return {
+    title: `project-title-${slug}`,
+    image: `project-image-${slug}`,
+  };
 }
 
 // Data fetching and processing
 const projects = (await getCollection("projects")).sort(
-	(a, b) => b.data.date.getTime() - a.data.date.getTime(),
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
 );
 ---
-<PageLayout
-	title="Projects - João Dias"
-	description="Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility"
->
-	<main class="projects__main">
-		<header class="projects__header">
-			<h1 id="projects-header-title" class="projects__header-title">All projects</h1>
-		</header>
-		<section id="content" tabindex={-1} aria-labelledby="projects-header-title">
-			<ul class="projects__grid">
-				{
-					projects.map((project) => {
-						const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
-						const theme = getProjectTheme(project);
-						const transitionNames = getTransitionNames(project.slug);
-						const cardStyle = {
-							"--background-color-hover": theme.background,
-							"--text-color-hover": theme.foreground,
-						};
-						const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
 
-						return (
-							<li>
-								<a
-									href={`/projects/${project.slug}`}
-									class="projects__card"
-									style={cardStyle}
-									aria-label={ariaLabel}
-								>
-									<div class="projects__card-thumbnail">
-										<Image
-											class="projects__card-thumbnail-image"
-											src={thumbnailPath}
-											width={THUMBNAIL_DIMENSIONS.width}
-											height={THUMBNAIL_DIMENSIONS.height}
-											alt={`${project.data.title} project thumbnail`}
-											loading="lazy"
-											transition:name={transitionNames.image}
-										/>
-									</div>
-									<div class="projects__card-content">
-										<h2
-											class="projects__card-content-title"
-											transition:name={transitionNames.title}
-										>
-											{project.data.title}
-										</h2>
-										<p class="projects__card-content-subtitle">
-											{project.data.shortDescription}
-										</p>
-										<time
-											class="projects__card-content-meta"
-											datetime={project.data.date.toISOString()}
-										>
-											{formatProjectDate(project.data.date)}
-										</time>
-										<ul class="projects__card-skills">
-											{project.data.skills.map((skill) => (
-												<li class="projects__card-skills-item">{skill}</li>
-											))}
-										</ul>
-									</div>
-								</a>
-							</li>
-						);
-					})
-				}
-			</ul>
-		</section>
-	</main>
+<PageLayout
+  title="Projects - João Dias"
+  description="Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility"
+>
+  <main class="projects__main">
+    <header class="projects__header">
+      <h1 id="projects-header-title" class="projects__header-title">All projects</h1>
+    </header>
+    <section id="content" tabindex={-1} aria-labelledby="projects-header-title">
+      <ul class="projects__grid">
+        {
+          projects.map((project) => {
+            const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
+            const theme = getProjectTheme(project);
+            const transitionNames = getTransitionNames(project.slug);
+            const cardStyle = {
+              "--background-color-hover": theme.background,
+              "--text-color-hover": theme.foreground,
+            };
+            const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
+
+            return (
+              <li>
+                <a
+                  href={`/projects/${project.slug}`}
+                  class="projects__card"
+                  style={cardStyle}
+                  aria-label={ariaLabel}
+                >
+                  <div class="projects__card-thumbnail">
+                    <Image
+                      class="projects__card-thumbnail-image"
+                      src={thumbnailPath}
+                      width={THUMBNAIL_DIMENSIONS.width}
+                      height={THUMBNAIL_DIMENSIONS.height}
+                      alt={`${project.data.title} project thumbnail`}
+                      loading="lazy"
+                      transition:name={transitionNames.image}
+                    />
+                  </div>
+                  <div class="projects__card-content">
+                    <h2
+                      class="projects__card-content-title"
+                      transition:name={transitionNames.title}
+                    >
+                      {project.data.title}
+                    </h2>
+                    <p class="projects__card-content-subtitle">{project.data.shortDescription}</p>
+                    <time
+                      class="projects__card-content-meta"
+                      datetime={project.data.date.toISOString()}
+                    >
+                      {formatProjectDate(project.data.date)}
+                    </time>
+                    <ul class="projects__card-skills">
+                      {project.data.skills.map((skill) => (
+                        <li class="projects__card-skills-item">{skill}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </main>
 </PageLayout>
 
 <style lang="scss">
-			// CSS Custom Properties
-			:root {
-				--projects-spacing-sm: 1rem;
-				--projects-spacing-md: 2rem;
-				--projects-spacing-lg: 3rem;
-				--projects-thumbnail-size: 7.6875rem;
-				--projects-card-border-radius: 1.5rem;
-				--projects-transition-duration: 200ms;
-			}
+  // CSS Custom Properties
+  :root {
+    --projects-spacing-sm: 1rem;
+    --projects-spacing-md: 2rem;
+    --projects-spacing-lg: 3rem;
+    --projects-thumbnail-size: 7.6875rem;
+    --projects-card-border-radius: 1.5rem;
+    --projects-transition-duration: 200ms;
+  }
 
-			// Breakpoints (cannot use CSS variables in media queries)
-			// sm: 40rem, md: 60rem
+  // Breakpoints (cannot use CSS variables in media queries)
+  // sm: 40rem, md: 64rem
 
-			// Block: projects
-			.projects {
-				&__main {
-					display: flex;
-					flex-direction: column;
-					min-height: 100vh;
-					padding-block: 10vh;
-					padding-inline: var(--projects-spacing-sm);
-					margin: 0 auto;
-					max-width: 100vw;
+  // Block: projects
+  .projects {
+    &__main {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-block: 10vh;
+      padding-inline: var(--projects-spacing-sm);
+      margin: 0 auto;
+      max-width: 100vw;
 
-					@media (min-width: 60rem) {
-						padding-block: 6rem;
-						padding-inline: var(--projects-spacing-lg);
-						max-width: 75rem;
-					}
-				}
+      @media (min-width: 64rem) {
+        padding-block: 6rem;
+        padding-inline: var(--projects-spacing-lg);
+        max-width: 75rem;
+      }
+    }
 
-				&__header {
-					margin-bottom: var(--projects-spacing-lg);
-				}
+    &__header {
+      margin-bottom: var(--projects-spacing-lg);
+    }
 
-				&__header-title {
-					font-family: var(--heading-font-family);
-					font-size: 2.5rem;
-					line-height: 1.2;
-					margin-bottom: var(--projects-spacing-sm);
+    &__header-title {
+      font-family: var(--heading-font-family);
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: var(--projects-spacing-sm);
 
-					@media (min-width: 60rem) {
-						font-size: 3.5rem;
-					}
-				}
+      @media (min-width: 64rem) {
+        font-size: 3.5rem;
+      }
+    }
 
-				&__grid {
-					display: grid;
-					grid-template-columns: 1fr;
-					gap: var(--projects-spacing-lg);
-					list-style: none;
-					padding: 0;
-					margin: 0;
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--projects-spacing-lg);
+      list-style: none;
+      padding: 0;
+      margin: 0;
 
-					@media (min-width: 40rem) {
-						grid-template-columns: repeat(2, 1fr);
-					}
-				}
+      @media (min-width: 40rem) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-				&__card {
-					padding-block: var(--projects-spacing-md);
-					padding-inline: var(--projects-spacing-sm);
-					display: flex;
-					flex-direction: column;
-					justify-content: flex-start;
-					align-items: center;
-					gap: var(--projects-spacing-md);
-					background-color: var(--background-color-hover, var(--background-color));
-					color: var(--text-color-hover, var(--text-color));
-					transition: all var(--projects-transition-duration) ease-in-out;
-					border-radius: var(--projects-card-border-radius);
-					width: 100%;
-					text-decoration: none;
-					appearance: none;
-					border: none;
+    &__card {
+      padding-block: var(--projects-spacing-md);
+      padding-inline: var(--projects-spacing-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: var(--projects-spacing-md);
+      background-color: var(--background-color-hover, var(--background-color));
+      color: var(--text-color-hover, var(--text-color));
+      transition: all var(--projects-transition-duration) ease-in-out;
+      border-radius: var(--projects-card-border-radius);
+      width: 100%;
+      text-decoration: none;
+      appearance: none;
+      border: none;
 
-					&:hover,
-					&:focus {
-						cursor: pointer;
-						background-color: var(--background-color-hover);
-						color: var(--text-color-hover);
-						outline-color: transparent;
-						outline-offset: -2px;
-					}
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        background-color: var(--background-color-hover);
+        color: var(--text-color-hover);
+        outline-color: transparent;
+        outline-offset: -2px;
+      }
 
-					@media (min-width: 60rem) {
-						flex-direction: row;
-						padding-block: 6rem;
-						padding-inline: var(--projects-spacing-md);
-					}
-				}
+      @media (min-width: 64rem) {
+        flex-direction: row;
+        padding-block: 6rem;
+        padding-inline: var(--projects-spacing-md);
+      }
+    }
 
-				&__card-thumbnail {
-					width: var(--projects-thumbnail-size);
-					height: var(--projects-thumbnail-size);
-					border-radius: 50%;
-				}
+    &__card-thumbnail {
+      width: var(--projects-thumbnail-size);
+      height: var(--projects-thumbnail-size);
+      border-radius: 50%;
+    }
 
-				&__card-thumbnail-image {
-					width: 100%;
-					height: auto;
-					border-radius: 50%;
-				}
+    &__card-thumbnail-image {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
 
-				&__card-content {
-					display: flex;
-					flex-direction: column;
-					justify-content: flex-start;
-					align-items: center;
-					flex-wrap: wrap;
+    &__card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
 
-					@media (min-width: 60rem) {
-						justify-content: flex-start;
-						align-items: flex-start;
-					}
-				}
+      @media (min-width: 64rem) {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
 
-				&__card-content-title {
-					font-family: var(--heading-font-family);
-					font-weight: 400;
-					font-size: clamp(2rem, 8vw, 3rem);
-					line-height: 1.1666666667;
-					margin-bottom: 0.5rem;
-					text-align: center;
+    &__card-content-title {
+      font-family: var(--heading-font-family);
+      font-weight: 400;
+      font-size: clamp(2rem, 8vw, 3rem);
+      line-height: 1.1666666667;
+      margin-bottom: 0.5rem;
+      text-align: center;
 
-					@media (min-width: 60rem) {
-						text-align: left;
-					}
-				}
+      @media (min-width: 64rem) {
+        text-align: left;
+      }
+    }
 
-				&__card-content-subtitle {
-					font-family: var(--text-font-family);
-					font-weight: 300;
-					font-size: 1.125rem;
-					line-height: 1.375rem;
-					text-align: center;
-					margin-bottom: var(--projects-spacing-sm);
+    &__card-content-subtitle {
+      font-family: var(--text-font-family);
+      font-weight: 300;
+      font-size: 1.125rem;
+      line-height: 1.375rem;
+      text-align: center;
+      margin-bottom: var(--projects-spacing-sm);
 
-					@media (min-width: 60rem) {
-						text-align: left;
-					}
-				}
+      @media (min-width: 64rem) {
+        text-align: left;
+      }
+    }
 
-				&__card-content-meta {
-					font-family: var(--text-font-family);
-					font-size: 0.875rem;
-					opacity: 0.8;
-					margin-bottom: var(--projects-spacing-sm);
-				}
+    &__card-content-meta {
+      font-family: var(--text-font-family);
+      font-size: 0.875rem;
+      opacity: 0.8;
+      margin-bottom: var(--projects-spacing-sm);
+    }
 
-				&__card-skills {
-					list-style-type: none;
-					margin: 0;
-					padding: 0;
-					display: flex;
-					flex-direction: row;
-					justify-content: center;
-					align-items: center;
-					flex-wrap: wrap;
-					gap: 0.5rem;
-					font-family: var(--text-font-family);
-					font-weight: 500;
-					font-size: 0.875rem;
-					line-height: 1;
+    &__card-skills {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-family: var(--text-font-family);
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 1;
 
-					@media (min-width: 60rem) {
-						justify-content: flex-start;
-					}
-				}
+      @media (min-width: 64rem) {
+        justify-content: flex-start;
+      }
+    }
 
-				&__card-skills-item {
-					text-transform: lowercase;
+    &__card-skills-item {
+      text-transform: lowercase;
 
-					&::before {
-						content: "#";
-					}
-				}
-
-			}
-		</style>
+      &::before {
+        content: "#";
+      }
+    }
+  }
+</style>

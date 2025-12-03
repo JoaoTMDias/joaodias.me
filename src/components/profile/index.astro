@@ -1,45 +1,47 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import PAGE_CONTENT from "../../data/index.json";
 ---
 
 <div class="profile">
-	<Image
-		class="profile__image"
-		src={PAGE_CONTENT.hero["profile-picture"].src}
-		width={PAGE_CONTENT.hero["profile-picture"].width}
-		height={PAGE_CONTENT.hero["profile-picture"].height}
-		alt={PAGE_CONTENT.hero["profile-picture"].alt}
-		data-testid="profile-picture"
-	/>
+  <Image
+    class="profile__image"
+    src={PAGE_CONTENT.hero["profile-picture"].src}
+    width={PAGE_CONTENT.hero["profile-picture"].width}
+    height={PAGE_CONTENT.hero["profile-picture"].height}
+    alt={PAGE_CONTENT.hero["profile-picture"].alt}
+    data-testid="profile-picture"
+  />
 </div>
 
 <style lang="scss">
-	.profile {
-		overflow: hidden;
-		position: relative;
-		&,
-		&__image {
-			width: 100%;
-			height: auto;
-		}
+  .profile {
+    overflow: hidden;
+    position: relative;
+    &,
+    &__image {
+      width: 100%;
+      height: auto;
+    }
 
-		&__image {
-			background-color: var(--text-color);
-			object-fit: cover;
-			object-position: center center;
-			position: relative;
-			z-index: 0;
-			transform: scale(1);
-			mask-image: url('/photo-profile-mask.svg');
-			mask-size: cover;
-			mask-position: center center;
-			mask-repeat: no-repeat;
-			min-height: 29rem;
+    &__image {
+      background-color: var(--text-color);
+      object-fit: cover;
+      object-position: center center;
+      position: relative;
+      z-index: 0;
+      transform: scale(1);
+      mask-image: url("/photo-profile-mask.svg");
+      mask-size: cover;
+      mask-position: center center;
+      mask-repeat: no-repeat;
+      min-height: 29rem;
 
-			@media (width > 48rem) {
-				height: 100%;
-			}
-		}
-	}
+      @media (width > 48rem) {
+        height: 100%;
+        border-top-right-radius: var(--section-border-radius);
+        border-bottom-right-radius: var(--section-border-radius);
+      }
+    }
+  }
 </style>

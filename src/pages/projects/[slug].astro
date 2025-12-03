@@ -14,32 +14,32 @@ import PageLayout from "../../layouts/PageLayout.astro";
 
 // Constants
 const DEFAULT_THEME = {
-	background: "#000000",
-	foreground: "#ffffff",
+  background: "#000000",
+  foreground: "#ffffff",
 } as const;
 
 const IMAGE_DIMENSIONS = {
-	width: 640,
-	height: 480,
+  width: 640,
+  height: 480,
 } as const;
 
 // Helper functions
 function normalizeImagePath(path: string | undefined): string | null {
-	if (!path) return null;
-	return path.startsWith("/") ? path : `/${path}`;
+  if (!path) return null;
+  return path.startsWith("/") ? path : `/${path}`;
 }
 
 export async function getStaticPaths() {
-	const projects = await getCollection("projects");
+  const projects = await getCollection("projects");
 
-	return projects.map((project) => ({
-		params: { slug: project.slug },
-		props: { project },
-	}));
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
 }
 
 type Props = {
-	project: CollectionEntry<"projects">;
+  project: CollectionEntry<"projects">;
 };
 
 const { project } = Astro.props;
@@ -50,25 +50,24 @@ const transitionName = `project-title-${project.slug}`;
 const imageTransitionName = `project-image-${project.slug}`;
 
 const formattedDate = project.data.date.toLocaleDateString("en-US", {
-	year: "numeric",
-	month: "long",
+  year: "numeric",
+  month: "long",
 });
 
 const coverImage = normalizeImagePath(project.data.cover);
 
 const theme = {
-	background: project.data.themeBackground || DEFAULT_THEME.background,
-	foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
+  background: project.data.themeBackground || DEFAULT_THEME.background,
+  foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
 };
 
 const hasGalleryImages = project.data.galleryImages && project.data.galleryImages.length > 0;
 ---
 
-<PageLayout
-	title={`${project.data.title} - João Dias`}
-	description={project.data.shortDescription}
->
-	<style slot="head" set:html={`
+<PageLayout title={`${project.data.title} - João Dias`} description={project.data.shortDescription}>
+  <style
+    slot="head"
+    set:html={`
 		body {
 			--background-color: ${theme.background};
 			--text-color: ${theme.foreground};
@@ -77,405 +76,400 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
 		.grid-background {
 			display: none;
 		}
-	`} />
-	<main class="project__main">
-		<div
-			id="content"
-			tabindex={-1}
-			aria-labelledby="project-header-title"
-			class="project__main-wrapper"
-		>
-			<div class="project__main-top">
-				{
-					coverImage && (
-						<div class="project__cover">
-							<Image
-								class="project__cover-image"
-								src={coverImage}
-								width={IMAGE_DIMENSIONS.width}
-								height={IMAGE_DIMENSIONS.height}
-								alt={`${project.data.title} cover image`}
-								loading="lazy"
-								transition:name={imageTransitionName}
-							/>
-						</div>
-					)
-				}
-				<div class="project__header">
-					<div class="project__header-heading">
-						<h1
-							id="project-header-title"
-							class="project__header-title"
-							transition:name={transitionName}
-						>
-							{project.data.title}
-						</h1>
-						<p class="project__header-date">
-							<time datetime={project.data.date.toISOString()}>
-								{formattedDate}
-							</time>
-						</p>
-					</div>
-					<p class="project__header-intro">{project.data.description}</p>
-				</div>
-			</div>
-			<div class="project__main-content">
-				<div class="project__meta">
-					<h2 class="sr-only">Project Information</h2>
-					<div class="project__meta-column">
-						<h3 class="project__meta-title">Skills</h3>
-						<ul class="project__meta-list project__meta-list--hashed">
-							{
-								project.data.skills.map((skill) => (
-									<li class="project__meta-list-item">{skill}</li>
-								))
-							}
-						</ul>
-					</div>
-					<div class="project__meta-column">
-						<h3 class="project__meta-title">Date</h3>
-						<p class="project__meta-text">{formattedDate}</p>
-					</div>
-					<div class="project__meta-column">
-						<h3 class="project__meta-title">Source Code</h3>
-						{
-							project.data.sourceCode ? (
-								<a
-									href={project.data.sourceCode}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="project__meta-text"
-								>
-									View source code
-								</a>
-							) : (
-								<p class="project__meta-text">Not available</p>
-							)
-						}
-					</div>
-				</div>
+	`}
+  ></style>
+  <main class="project__main">
+    <div
+      id="content"
+      tabindex={-1}
+      aria-labelledby="project-header-title"
+      class="project__main-wrapper"
+    >
+      <div class="project__main-top">
+        {
+          coverImage && (
+            <div class="project__cover">
+              <Image
+                class="project__cover-image"
+                src={coverImage}
+                width={IMAGE_DIMENSIONS.width}
+                height={IMAGE_DIMENSIONS.height}
+                alt={`${project.data.title} cover image`}
+                loading="lazy"
+                transition:name={imageTransitionName}
+              />
+            </div>
+          )
+        }
+        <div class="project__header">
+          <div class="project__header-heading">
+            <h1
+              id="project-header-title"
+              class="project__header-title"
+              transition:name={transitionName}
+            >
+              {project.data.title}
+            </h1>
+            <p class="project__header-date">
+              <time datetime={project.data.date.toISOString()}>
+                {formattedDate}
+              </time>
+            </p>
+          </div>
+          <p class="project__header-intro">{project.data.description}</p>
+        </div>
+      </div>
+      <div class="project__main-content">
+        <div class="project__meta">
+          <h2 class="sr-only">Project Information</h2>
+          <div class="project__meta-column">
+            <h3 class="project__meta-title">Skills</h3>
+            <ul class="project__meta-list project__meta-list--hashed">
+              {project.data.skills.map((skill) => <li class="project__meta-list-item">{skill}</li>)}
+            </ul>
+          </div>
+          <div class="project__meta-column">
+            <h3 class="project__meta-title">Date</h3>
+            <p class="project__meta-text">{formattedDate}</p>
+          </div>
+          <div class="project__meta-column">
+            <h3 class="project__meta-title">Source Code</h3>
+            {
+              project.data.sourceCode ? (
+                <a
+                  href={project.data.sourceCode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project__meta-text"
+                >
+                  View source code
+                </a>
+              ) : (
+                <p class="project__meta-text">Not available</p>
+              )
+            }
+          </div>
+        </div>
 
-				{
-					hasGalleryImages && (
-						<div class="project__gallery">
-							{project.data.galleryImages?.map((item) => (
-								<figure class="project__gallery-item">
-									<Image
-										class="project__gallery-image"
-										src={item.image}
-										width={IMAGE_DIMENSIONS.width}
-										height={IMAGE_DIMENSIONS.height}
-										alt={item.alt}
-										loading="lazy"
-									/>
-									{item.caption && (
-										<figcaption class="project__gallery-caption">
-											{item.caption}
-										</figcaption>
-									)}
-								</figure>
-							))}
-						</div>
-					)
-				}
+        {
+          hasGalleryImages && (
+            <div class="project__gallery">
+              {project.data.galleryImages?.map((item) => (
+                <figure class="project__gallery-item">
+                  <Image
+                    class="project__gallery-image"
+                    src={item.image}
+                    width={IMAGE_DIMENSIONS.width}
+                    height={IMAGE_DIMENSIONS.height}
+                    alt={item.alt}
+                    loading="lazy"
+                  />
+                  {item.caption && (
+                    <figcaption class="project__gallery-caption">{item.caption}</figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          )
+        }
 
-				<div class="project-section project-content">
-					<Content />
-				</div>
-			</div>
-		</div>
-	</main>
+        <div class="project-section project-content">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </main>
 </PageLayout>
 
 <style lang="scss">
-			// CSS Custom Properties
-			:root {
-				--project-spacing-xs: 0.5rem;
-				--project-spacing-sm: 1rem;
-				--project-spacing-md: 2rem;
-				--project-spacing-lg: 3rem;
-				--project-spacing-xl: 4rem;
-				--project-border-width: 2px;
-				--project-max-width: 90rem;
-				--project-content-max-width: 70ch;
-			}
+  // CSS Custom Properties
+  :root {
+    --project-spacing-xs: 0.5rem;
+    --project-spacing-sm: 1rem;
+    --project-spacing-md: 2rem;
+    --project-spacing-lg: 3rem;
+    --project-spacing-xl: 4rem;
+    --project-border-width: 2px;
+    --project-max-width: 90rem;
+    --project-content-max-width: 70ch;
+  }
 
-			// Breakpoints (cannot use CSS variables in media queries)
-			// sm: 40rem, md: 60rem, lg: 70rem
+  // Breakpoints (cannot use CSS variables in media queries)
+  // sm: 40rem, md: 64rem, lg: 70rem
 
-			// Block: project
-			.project {
-				&__main {
-					padding-block: var(--project-spacing-md);
-					padding-inline: var(--project-spacing-md);
-					width: 100%;
+  // Block: project
+  .project {
+    &__main {
+      padding-block: var(--project-spacing-md);
+      padding-inline: var(--project-spacing-md);
+      width: 100%;
 
-					@media (min-width: 60rem) {
-						padding-inline: var(--project-spacing-lg);
-					}
-				}
+      @media (min-width: 64rem) {
+        padding-inline: var(--project-spacing-lg);
+      }
+    }
 
-				&__main-wrapper {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					width: 100%;
-					max-width: var(--project-max-width);
-					margin: var(--project-spacing-md) auto 0;
-					gap: var(--project-spacing-lg);
-				}
+    &__main-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: var(--project-max-width);
+      margin: var(--project-spacing-md) auto 0;
+      gap: var(--project-spacing-lg);
+    }
 
-				&__main-top {
-					display: grid;
-					grid-template-columns: 1fr;
-					gap: var(--project-spacing-md);
-					width: 100%;
+    &__main-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--project-spacing-md);
+      width: 100%;
 
-					@media (min-width: 70rem) {
-						grid-template-columns: 0.6fr 0.4fr;
-						gap: var(--project-spacing-lg);
-					}
-				}
+      @media (min-width: 70rem) {
+        grid-template-columns: 0.6fr 0.4fr;
+        gap: var(--project-spacing-lg);
+      }
+    }
 
-				&__main-content {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					width: 100%;
-					gap: var(--project-spacing-lg);
-				}
+    &__main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: var(--project-spacing-lg);
+    }
 
-				&__header {
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					gap: var(--project-spacing-md);
-				}
+    &__header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--project-spacing-md);
+    }
 
-				&__header-heading {
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					gap: var(--project-spacing-xs);
-				}
+    &__header-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--project-spacing-xs);
+    }
 
-				&__header-title {
-					font-family: var(--heading-font-family);
-					font-weight: 300;
-					font-size: 3rem;
-					margin: 0;
-				}
+    &__header-title {
+      font-family: var(--heading-font-family);
+      font-weight: 300;
+      font-size: 3rem;
+      margin: 0;
+    }
 
-				&__header-date {
-					font-family: var(--text-font-family);
-					font-size: 1.5rem;
-					font-weight: 400;
-					margin: 0;
+    &__header-date {
+      font-family: var(--text-font-family);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0;
 
-					@media (prefers-reduced-motion: no-preference) {
-						opacity: 0;
-						animation-name: fadeInUp;
-						animation-duration: 500ms;
-						animation-timing-function: ease-in-out;
-						animation-fill-mode: forwards;
-						animation-delay: 150ms;
-					}
-				}
+      @media (prefers-reduced-motion: no-preference) {
+        opacity: 0;
+        animation-name: fadeInUp;
+        animation-duration: 500ms;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-delay: 150ms;
+      }
+    }
 
-				&__header-intro {
-					font-family: var(--text-font-family);
-					font-size: 1.375rem;
-					line-height: 1.5;
-					margin: 0;
+    &__header-intro {
+      font-family: var(--text-font-family);
+      font-size: 1.375rem;
+      line-height: 1.5;
+      margin: 0;
 
-					@media (prefers-reduced-motion: no-preference) {
-						opacity: 0;
-						animation-name: fadeInUp;
-						animation-duration: 500ms;
-						animation-timing-function: ease-in-out;
-						animation-fill-mode: forwards;
-						animation-delay: 250ms;
-					}
-				}
+      @media (prefers-reduced-motion: no-preference) {
+        opacity: 0;
+        animation-name: fadeInUp;
+        animation-duration: 500ms;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-delay: 250ms;
+      }
+    }
 
-				&__cover {
-					--cover-background-color: var(--text-color-faded);
+    &__cover {
+      --cover-background-color: var(--text-color-faded);
 
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					width: 100%;
-					height: auto;
-					aspect-ratio: 4 / 3;
-				}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+    }
 
-				&__cover-image {
-					width: 100%;
-					height: auto;
-					aspect-ratio: 4 / 3;
-					background-color: var(--cover-background-color);
-				}
+    &__cover-image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      background-color: var(--cover-background-color);
+    }
 
-				&__meta {
-					border: var(--project-border-width) solid var(--text-color-faded);
-					padding: var(--project-spacing-xl) var(--project-spacing-lg);
-					display: grid;
-					grid-template-columns: 1fr;
-					gap: var(--project-spacing-md);
-					width: 100%;
+    &__meta {
+      border: var(--project-border-width) solid var(--text-color-faded);
+      padding: var(--project-spacing-xl) var(--project-spacing-lg);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--project-spacing-md);
+      width: 100%;
 
-					@media (min-width: 40rem) {
-						grid-template-columns: repeat(3, 1fr);
-					}
-				}
+      @media (min-width: 40rem) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
-				&__meta-column {
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					gap: var(--project-spacing-sm);
-				}
+    &__meta-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--project-spacing-sm);
+    }
 
-				&__meta-title {
-					font-family: var(--text-font-family);
-					font-size: 1.125rem;
-					margin: 0;
-				}
+    &__meta-title {
+      font-family: var(--text-font-family);
+      font-size: 1.125rem;
+      margin: 0;
+    }
 
-				&__meta-text {
-					font-family: var(--text-font-family);
-					font-size: 1.125rem;
-					margin: 0;
-				}
+    &__meta-text {
+      font-family: var(--text-font-family);
+      font-size: 1.125rem;
+      margin: 0;
+    }
 
-				&__meta-list {
-					font-size: 1rem;
-					margin: 0;
-					padding: 0;
-					list-style: none;
-					width: 100%;
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					gap: var(--project-spacing-xs);
+    &__meta-list {
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--project-spacing-xs);
 
-					&--hashed {
-						.project__meta-list-item {
-							position: relative;
+      &--hashed {
+        .project__meta-list-item {
+          position: relative;
 
-							&::before {
-								content: "#";
-								margin-right: var(--project-spacing-xs);
-								opacity: 0.5;
-							}
-						}
-					}
-				}
+          &::before {
+            content: "#";
+            margin-right: var(--project-spacing-xs);
+            opacity: 0.5;
+          }
+        }
+      }
+    }
 
-				&__meta-list-item {
-					position: relative;
-				}
+    &__meta-list-item {
+      position: relative;
+    }
 
-				&__gallery {
-					width: 100%;
-					display: grid;
-					gap: var(--project-spacing-md);
-					grid-template-columns: 1fr;
-					background-color: var(--background-color);
+    &__gallery {
+      width: 100%;
+      display: grid;
+      gap: var(--project-spacing-md);
+      grid-template-columns: 1fr;
+      background-color: var(--background-color);
 
-					@media (min-width: 40rem) {
-						grid-template-columns: repeat(2, 1fr);
-					}
+      @media (min-width: 40rem) {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-					@media (min-width: 60rem) {
-						grid-template-columns: repeat(3, 1fr);
-					}
+      @media (min-width: 64rem) {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
-					&:only-child,
-					&:has(> :first-child:last-child) {
-						grid-template-columns: 1fr;
-					}
-				}
+      &:only-child,
+      &:has(> :first-child:last-child) {
+        grid-template-columns: 1fr;
+      }
+    }
 
-				&__gallery-item {
-					margin: 0;
-					display: flex;
-					flex-direction: column;
-					gap: var(--project-spacing-xs);
-				}
+    &__gallery-item {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--project-spacing-xs);
+    }
 
-				&__gallery-image {
-					width: 100%;
-					height: auto;
-					object-fit: cover;
-					object-position: center;
-				}
+    &__gallery-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+    }
 
-				&__gallery-caption {
-					font-size: 0.875rem;
-					color: var(--text-color);
-					opacity: 0.8;
-					padding: 0 var(--project-spacing-xs);
-					text-align: center;
-				}
-			}
+    &__gallery-caption {
+      font-size: 0.875rem;
+      color: var(--text-color);
+      opacity: 0.8;
+      padding: 0 var(--project-spacing-xs);
+      text-align: center;
+    }
+  }
 
-			// Block: project-section
-			.project-section {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				gap: var(--project-spacing-sm);
-				width: 100%;
-				max-width: var(--project-content-max-width);
+  // Block: project-section
+  .project-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--project-spacing-sm);
+    width: 100%;
+    max-width: var(--project-content-max-width);
 
-				:global(h2),
-				&__title {
-					font-family: var(--heading-font-family);
-					font-weight: 400;
-					font-size: 2rem;
-					margin: 0;
-					width: 100%;
-				}
+    :global(h2),
+    &__title {
+      font-family: var(--heading-font-family);
+      font-weight: 400;
+      font-size: 2rem;
+      margin: 0;
+      width: 100%;
+    }
 
-				:global(p),
-				&__text {
-					font-family: var(--text-font-family);
-					font-size: 1.125rem;
-					line-height: 1.618;
-					margin: 0;
-					width: 100%;
-				}
+    :global(p),
+    &__text {
+      font-family: var(--text-font-family);
+      font-size: 1.125rem;
+      line-height: 1.618;
+      margin: 0;
+      width: 100%;
+    }
 
-				:global(ul),
-				:global(ol) {
-					margin: 0;
-					padding: 0;
-					list-style: disc;
-					padding-left: var(--project-spacing-md);
-				}
+    :global(ul),
+    :global(ol) {
+      margin: 0;
+      padding: 0;
+      list-style: disc;
+      padding-left: var(--project-spacing-md);
+    }
 
-				:global(li) {
-					margin-block-end: var(--project-spacing-xs);
-					padding: 0;
-					list-style: disc;
-					padding-left: var(--project-spacing-xs);
-				}
+    :global(li) {
+      margin-block-end: var(--project-spacing-xs);
+      padding: 0;
+      list-style: disc;
+      padding-left: var(--project-spacing-xs);
+    }
 
-				:global(strong) {
-					font-weight: 600;
-				}
-			}
+    :global(strong) {
+      font-weight: 600;
+    }
+  }
 
-			@keyframes fadeInUp {
-				from {
-					opacity: 0;
-					transform: translateY(100%);
-				}
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
 
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-		</style>
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
