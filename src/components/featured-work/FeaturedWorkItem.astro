@@ -1,0 +1,70 @@
+---
+import type { CollectionEntry } from "astro:content";
+import clsx from "clsx";
+import styles from "./index.module.scss";
+
+interface FeaturedWorkItemProps {
+  project: CollectionEntry<"projects">;
+}
+
+// Constants
+const DEFAULT_THEME = {
+  background: "#000000",
+  foreground: "#ffffff",
+} as const;
+
+// Helper functions
+function normalizeThumbnailPath(path: string): string {
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
+function getProjectTheme(project: CollectionEntry<"projects">) {
+  return {
+    background: project.data.themeBackground || DEFAULT_THEME.background,
+    foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
+  };
+}
+
+function getTransitionNames(slug: string) {
+  return {
+    title: `project-title-${slug}`,
+    image: `project-image-${slug}`,
+  };
+}
+
+const { project } = Astro.props;
+
+const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
+const theme = getProjectTheme(project);
+const transitionNames = getTransitionNames(project.slug);
+const cardStyle = {
+  "--work-background-color": theme.background,
+  "--work-text-color": theme.foreground,
+} as React.CSSProperties;
+const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
+---
+
+<article aria-label={ariaLabel} class={styles.work}>
+  <a href={`/projects/${project.slug}`} class={styles.work__link} style={cardStyle}>
+    <div class={styles.work__content}>
+      <h3 class={styles.work__title} transition:name={transitionNames.title}>
+        Google Chat Formatter
+      </h3>
+      <p class={clsx(styles.work__description, "as-h5")}>
+        A browser extension that helps Google Chat users to create richer text content. Backed up by
+        Preact, CSS Modules, Vite and Cypress component testing.
+      </p>
+    </div>
+    <div class={styles["work__image-container"]}>
+      <img
+        class={styles.work__image}
+        src={thumbnailPath}
+        width="960"
+        height="480"
+        loading="lazy"
+        alt=""
+        transition:name={transitionNames.image}
+      />
+    </div>
+  </a>
+</article>
