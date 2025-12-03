@@ -1,10 +1,16 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+* {
   margin: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   html {
+    interpolate-size: allow-keywords;
     scroll-behavior: smooth;
   }
 }
@@ -22,6 +28,33 @@ body {
   align-items: stretch;
   background: var(--background-color);
   color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
 a {
@@ -33,12 +66,98 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a,
+button {
   font-family: var(--heading-font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+h1,
+.as-h1,
+h2,
+.as-h2 {
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+  margin-bottom: 1.5rem;
+
+  @media (width > 64rem) {
+    margin-bottom: 2rem;
+  }
+}
+
+h3,
+.as-h3 {
+  font-weight: 600;
+  font-variation-settings: "wght" 600;
+  margin-bottom: 1rem;
+
+  @media (width > 48rem) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+h4,
+.as-h4,
+h5,
+.as-h5,
+h6,
+.as-h6 {
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+}
+
+h1,
+.as-h1 {
+  font-size: var(--font-size-xxxl);
+}
+
+h2,
+.as-h2 {
+  font-size: var(--font-size-xxl);
+}
+
+h3,
+.as-h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4,
+.as-h4 {
+  font-size: var(--font-size-lg);
+}
+
+h5,
+.as-h5 {
+  font-size: var(--font-size-md);
+}
+
+h6,
+.as-h6 {
+  font-size: var(--font-size-sm);
+}
+
+p,
+.as-p,
+a,
+button {
+  font-size: var(--font-size-base);
 }
 
 p {
   font-family: var(--text-font-family);
+  margin-bottom: 1rem;
+  text-wrap: pretty;
 }
 
 .sr-only {
