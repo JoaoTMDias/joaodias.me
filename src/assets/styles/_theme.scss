@@ -47,8 +47,20 @@
   --palette-rose-main: hsl(353, 100%, 70%);
   --palette-rose-background: hsl(355, 100%, 94%);
 
+  --font-size-sm: clamp(0.8rem, 1.15vi + 0.25rem, 0.94rem);
+  --font-size-base: clamp(1rem, 2.08vi + 0rem, 1.25rem);
+  --font-size-md: clamp(1.25rem, 3.47vi + -0.42rem, 1.67rem);
+  --font-size-lg: clamp(1.56rem, 5.49vi + -1.07rem, 2.22rem);
+  --font-size-xl: clamp(1.95rem, 8.4vi + -2.08rem, 2.96rem);
+  --font-size-xxl: clamp(2.44rem, 12.54vi + -3.58rem, 3.95rem);
+  --font-size-xxxl: clamp(3.05rem, 18.41vi + -5.78rem, 5.26rem);
+
   @media (width > 48rem) {
     --section-border-radius: 0.5rem;
+  }
+
+  @media (width > 64rem) {
+    --section-border-radius: 1rem;
   }
 }
 
