@@ -48,11 +48,10 @@ const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
   <a href={`/projects/${project.slug}`} class={styles.work__link} style={cardStyle}>
     <div class={styles.work__content}>
       <h3 class={styles.work__title} transition:name={transitionNames.title}>
-        Google Chat Formatter
+        {project.data.title}
       </h3>
       <p class={clsx(styles.work__description, "as-h5")}>
-        A browser extension that helps Google Chat users to create richer text content. Backed up by
-        Preact, CSS Modules, Vite and Cypress component testing.
+        {project.data.shortDescription}
       </p>
     </div>
     <div class={styles["work__image-container"]}>
