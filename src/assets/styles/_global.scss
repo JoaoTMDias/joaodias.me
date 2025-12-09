@@ -189,5 +189,6 @@ p {
 *:focus {
   outline-offset: 4px;
   outline-color: var(--text-color);
-  outline-width: 2px;
+  outline-width: 4px;
+  outline-style: dashed;
 }
