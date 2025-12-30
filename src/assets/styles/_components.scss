@@ -1,6 +1,8 @@
 .button {
   --button-background-color: var(--background-color);
   --button-color: var(--text-color);
+  --button-border-color: var(--palette-border);
+  --button-shadow: var(--palette-shadow);
   --button-shadow-spread: 0.25rem;
 
   display: flex;
@@ -10,11 +12,11 @@
   padding: 0.5rem 2rem;
   gap: 0.5rem;
   background-color: var(--button-background-color);
-  border: 0.125rem solid var(--text-color);
-  box-shadow: var(--button-shadow-spread) var(--button-shadow-spread) 0 var(--text-color);
+  border: 0.125rem solid var(--button-border-color);
+  box-shadow: var(--button-shadow-spread) var(--button-shadow-spread) 0 var(--button-shadow);
   border-radius: 0.25rem;
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--button-color);
   font-family: var(--heading-font-family);
   font-size: 1rem;
   line-height: 1.25;
@@ -43,6 +45,6 @@
 
   &--primary {
     --button-background-color: var(--palette-orange-main);
-    --button-color: var(--text-color);
+    --button-color: var(--palette-main-foreground);
   }
 }
