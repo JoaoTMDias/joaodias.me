@@ -1,6 +1,7 @@
 ---
 import FeaturedWork from "../components/featured-work/index.astro";
 import Hero from "../components/hero/index.astro";
+import LatestArticles from "../components/latest-articles/index.astro";
 import PAGE_CONTENT from "../data/index.json";
 import PageLayout from "../layouts/PageLayout.astro";
 ---
@@ -9,58 +10,9 @@ import PageLayout from "../layouts/PageLayout.astro";
   <main>
     <h1 class="sr-only">Home page</h1>
     <Hero />
+    <LatestArticles />
     <FeaturedWork />
-    <section id="latest-articles">
-      <div class="section__container">
-        <h2>Latest Insights</h2>
-        <p>
-          Here are my latest 3 articles on accessibility automation, testing strategies, and
-          compliance requirements.
-        </p>
-        <div class="articles">
-          <article class="article">
-            <img class="article__cover" src="" width="100" height="100" alt="" />
-            <h3 class="article__title">Screen Reader Testing: A Developer's Perspective</h3>
-            <time datetime="26/11/2025" class="article__date"
-              ><span class="sr-only">Published on</span>&nbsp;Nov 26th, 2025</time
-            >
-            <p class="article__summary">
-              Learn practical, hands-on strategies and common pitfalls for developers conducting <strong
-                >effective screen reader testing</strong
-              >, ensuring a truly inclusive user experience.
-            </p>
-            <a href="/articles/1" class="article__link"> Read this article </a>
-          </article>
-          <article class="article">
-            <img class="article__cover" src="" width="100" height="100" alt="" />
-            <h3 class="article__title">Automated Accessibility Testing with Playwright and Axe</h3>
-            <time datetime="26/10/2025" class="article__date"
-              ><span class="sr-only">Published on</span>&nbsp;Oct 26th, 2025</time
-            >
-            <p class="article__summary">
-              A step-by-step guide to integrating <strong>Axe into Playwright pipelines</strong>.
-              Discover how to shift accessibility validation left and implement robust, repeatable
-              testing at scale.
-            </p>
-            <a href="/articles/1" class="article__link"> Read this article </a>
-          </article>
-          <article class="article">
-            <img class="article__cover" src="" width="100" height="100" alt="" />
-            <h3 class="article__title">A Primer on the European Accessibility Act</h3>
-            <time datetime="26/09/2025" class="article__date"
-              ><span class="sr-only">Published on</span>&nbsp;Set 26th, 2025</time
-            >
-            <p class="article__summary">
-              Understanding the <strong>EAA's requirements, timelines, and business impact</strong>.
-              Get clarity on compliance strategies and how this legislation affects your product
-              roadmap.
-            </p>
-            <a href="/articles/1" class="article__link"> Read this article </a>
-          </article>
-        </div>
-      </div>
-      <a href="/article">Visit all articles page</a>
-    </section>
+
     <section id="services">
       <h2>Expertise & Services</h2>
       <p>
