@@ -1,0 +1,98 @@
+<article class="featured-article">
+  <img
+    class="featured-article__cover"
+    src="/open-graph-picture.jpg"
+    width="960"
+    height="480"
+    alt=""
+  />
+  <div class="featured-article__content">
+    <time datetime="26/11/2025" class="featured-article__date"
+      ><span class="sr-only">Published on</span>&nbsp;Nov 26th, 2025</time
+    >
+    <h3 class="featured-article__title">Screen Reader Testing: A Developer's Perspective</h3>
+    <p class="featured-article__summary">
+      Learn practical, hands-on strategies and common pitfalls for developers conducting <strong
+        >effective screen reader testing</strong
+      >, ensuring a truly inclusive user experience.
+    </p>
+    <a href="/articles/1" class="button featured-article__link"> Read this article </a>
+  </div>
+</article>
+
+<style lang="scss">
+  .featured-article {
+    --feature-article-height: 70cqw;
+    --feature-article-date-size: var(--font-size-sm);
+    --feature-article-title-size: var(--font-size-lg);
+    --feature-article-summary-size: var(--font-size-md);
+
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 0.25rem solid var(--palette-border);
+    text-decoration: none;
+    transition: all 200ms ease-in-out;
+
+    &__content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+    }
+
+    &__date {
+      font-size: var(--feature-article-date-size);
+      margin-bottom: 0.5rem;
+    }
+
+    &__title {
+      font-size: var(--feature-article-title-size);
+    }
+
+    &__summary {
+      font-size: var(--feature-article-summary-size);
+      margin-bottom: 1.5rem;
+    }
+
+    &__title,
+    &__summary {
+      position: relative;
+      width: 100%;
+      color: inherit;
+    }
+
+    &__cover {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      min-width: 0;
+    }
+
+    &__link {
+      max-width: max-content;
+    }
+
+    @media (width > 48rem) {
+      --feature-article-height: 50cqw;
+      --feature-article-date-size: var(--font-size-md);
+      --feature-article-title-size: var(--font-size-lg);
+      --feature-article-summary-size: var(--font-size-md);
+    }
+
+    @media (width > 64rem) {
+      --feature-article-height: 40cqw;
+      --feature-article-title-size: var(--font-size-xl);
+    }
+  }
+</style>

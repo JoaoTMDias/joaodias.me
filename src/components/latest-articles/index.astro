@@ -1,0 +1,56 @@
+---
+import LatestArticle from "./LatestArticle.astro";
+---
+
+<section id="latest-articles">
+  <div class="articles latest__articles section__container">
+    <h2>Latest Insights</h2>
+    <p>Here are my latest articles on web development.</p>
+    <div class="articles__list">
+      <LatestArticle />
+      <LatestArticle />
+      <LatestArticle />
+      <LatestArticle />
+    </div>
+  </div>
+  <a class="button articles__cta" href="/article">Visit all articles page</a>
+</section>
+
+<style lang="scss">
+  .articles {
+    border: 2px solid var(--palette-yellow-main);
+    background-color: var(--palette-yellow-background);
+    background-image: url(/grid-yellow.svg), url(/white-texture.png);
+    background-position:
+      0 0,
+      0 0;
+    background-size: auto, auto;
+    border-radius: var(--section-border-radius);
+
+    p {
+      font-size: var(--font-size-md);
+      margin-bottom: 2rem;
+    }
+  }
+
+  .articles__list {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-auto-columns: 1fr;
+    align-items: stretch;
+    width: 100%;
+
+    @media (width > 68.75rem) {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2.5rem;
+    }
+  }
+
+  .articles__cta {
+    width: max-content;
+    align-self: center;
+    margin-top: 2rem;
+  }
+</style>
