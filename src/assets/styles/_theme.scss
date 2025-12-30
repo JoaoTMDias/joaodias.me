@@ -1,17 +1,11 @@
 :root {
-  --background-color: hsla(26, 37%, 96%, 1);
-  --background-color-faded: hsla(26, 37%, 96%, 0.5);
-  --text-color: hsla(244, 83%, 14%, 1);
-  --text-color-faded: hsla(244, 83%, 14%, 0.5);
-  --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
-    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  --heading-font-family: "Momo Trust Sans", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
-    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  --header-height: 4rem;
-  --global-padding: 1.5rem;
-  --section-border-radius: 0.25rem;
-  --scrollbar-width: 0.75rem;
-  --theme-blue-background: hsla(236, 100%, 94%, 1);
+  --palette-black: hsl(0, 0%, 0%);
+  --palette-white: hsl(0, 0%, 100%);
+  --palette-foreground: var(--palette-black);
+  --palette-main-foreground: var(--palette-black);
+  --palette-border: var(--palette-black);
+  --palette-shadow: var(--palette-black);
+  --palette-secondary-background: hsl(0, 0%, 100%);
   --palette-red-main: hsl(359, 100%, 65%);
   --palette-red-background: hsl(0, 100%, 94%);
   --palette-orange-main: hsl(28, 100%, 51%);
@@ -55,6 +49,20 @@
   --font-size-xxl: clamp(2.44rem, 12.54vi + -3.58rem, 3.95rem);
   --font-size-xxxl: clamp(3.05rem, 18.41vi + -5.78rem, 5.26rem);
 
+  --background-color: hsla(26, 37%, 96%, 1);
+  --background-color-faded: hsla(26, 37%, 96%, 0.5);
+  --text-color: var(--palette-foreground);
+  --text-color-faded: var(--palette-main-foreground);
+  --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --heading-font-family: "Momo Trust Sans", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --header-height: 4rem;
+  --global-padding: 1.5rem;
+  --section-border-radius: 0.25rem;
+  --scrollbar-width: 0.75rem;
+  --theme-blue-background: hsla(236, 100%, 94%, 1);
+
   @media (width > 48rem) {
     --section-border-radius: 0.5rem;
   }
@@ -65,6 +73,10 @@
 }
 
 html[data-theme="dark"] {
+  --palette-foreground: hsl(223.81, 0%, 90%);
+  --palette-main-foreground: var(--palette-black);
+  --palette-border: var(--palette-white);
+  --palette-secondary-background: hsl(223.81, 0%, 12%);
   --palette-red-main: hsl(359, 100%, 70%);
   --palette-red-background: hsl(359, 40%, 15%);
   --palette-orange-main: hsl(28, 100%, 46%);
@@ -99,4 +111,8 @@ html[data-theme="dark"] {
   --palette-pink-background: hsl(338, 40%, 16%);
   --palette-rose-main: hsl(353, 100%, 65%);
   --palette-rose-background: hsl(347, 40%, 15%);
+  --text-color: hsla(26, 37%, 96%, 1);
+  --text-color-faded: hsla(26, 37%, 96%, 0.5);
+  --background-color: hsla(244, 83%, 14%, 1);
+  --background-color-faded: hsla(244, 83%, 14%, 0.5);
 }
