@@ -1,11 +1,27 @@
+/* -------------------------------------------
+   Theme variables — organized & documented
+   Sections: Palette · Semantic · Typography · Sizes · Spacing · Layout
+   ------------------------------------------- */
+
 :root {
+  /* --------------------
+     Base palette
+     -------------------- */
   --palette-black: hsl(0, 0%, 0%);
   --palette-white: hsl(0, 0%, 100%);
+
+  /* --------------------
+     Semantic tokens (refer to palette values)
+     -------------------- */
   --palette-foreground: var(--palette-black);
   --palette-main-foreground: var(--palette-black);
   --palette-border: var(--palette-black);
   --palette-shadow: var(--palette-black);
   --palette-secondary-background: hsl(0, 0%, 100%);
+
+  /* --------------------
+     Accent color scale
+     -------------------- */
   --palette-red-main: hsl(359, 100%, 65%);
   --palette-red-background: hsl(0, 100%, 94%);
   --palette-orange-main: hsl(28, 100%, 51%);
@@ -41,6 +57,14 @@
   --palette-rose-main: hsl(353, 100%, 70%);
   --palette-rose-background: hsl(355, 100%, 94%);
 
+  /* --------------------
+     Typography
+     -------------------- */
+  --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --heading-font-family: "Momo Trust Sans", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+
   --font-size-sm: clamp(0.8rem, 1.15vi + 0.25rem, 0.94rem);
   --font-size-base: clamp(1rem, 2.08vi + 0rem, 1.25rem);
   --font-size-md: clamp(1.25rem, 3.47vi + -0.42rem, 1.67rem);
@@ -49,16 +73,25 @@
   --font-size-xxl: clamp(2.44rem, 12.54vi + -3.58rem, 3.95rem);
   --font-size-xxxl: clamp(3.05rem, 18.41vi + -5.78rem, 5.26rem);
 
-  --background-color: hsla(26, 37%, 96%, 1);
-  --background-color-faded: hsla(26, 37%, 96%, 0.5);
   --text-color: var(--palette-foreground);
   --text-color-faded: var(--palette-main-foreground);
-  --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
-    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  --heading-font-family: "Momo Trust Sans", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
-    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+
+  /* --------------------
+     Spacing scale (use for margin/padding, etc.)
+     -------------------- */
+  --space-xxs: 0.25rem; /* 4px */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 0.75rem; /* 12px */
+  --space-md: 1.5rem; /* 24px (used as global padding) */
+  --space-lg: 2rem; /* 32px */
+  --space-xl: 3rem; /* 48px */
+  --space-xxl: 4.5rem; /* 72px */
+
+  /* --------------------
+     Layout / Sizes / Misc
+     -------------------- */
   --header-height: 4rem;
-  --global-padding: 1.5rem;
+  --global-padding: var(--space-md);
   --section-border-radius: 0.25rem;
   --scrollbar-width: 0.75rem;
   --theme-blue-background: hsla(236, 100%, 94%, 1);
