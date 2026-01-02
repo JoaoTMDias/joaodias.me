@@ -16,7 +16,7 @@ const projects = (await getCollection("projects"))
       {projects.map((project) => <FeaturedWorkItem key={project.slug} project={project} />)}
     </div>
   </div>
-  <a href="/projects" class="button featured-work__cta">Visit all projects page</a>
+  <a href="/projects" class="button button--primary featured-work__cta">Visit all projects page</a>
 </section>
 
 <style lang="scss">
