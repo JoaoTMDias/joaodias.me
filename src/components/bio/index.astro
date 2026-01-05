@@ -34,6 +34,7 @@ const bio = await getEntry("bio", "bio");
 </div>
 
 <style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
   .bio {
     display: flex;
     flex-direction: column;
@@ -42,14 +43,14 @@ const bio = await getEntry("bio", "bio");
     gap: 2rem;
     width: 100%;
 
-    @media (min-width: 64rem) {
+    @media (--large-viewport) {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 1rem;
     }
 
     @supports (animation-timeline: view()) {
-      @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+      @media (--large-viewport) and (--no-motion) {
         &__picture,
         &__content {
           transform: translateX(0);
@@ -64,7 +65,7 @@ const bio = await getEntry("bio", "bio");
       width: fit-content;
 
       @supports (animation-timeline: view()) {
-        @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+        @media (--large-viewport) and (--no-motion) {
           view-timeline-name: --slide-in-image;
           animation: linear slideInImage both;
           animation-timeline: --slide-in-image;
@@ -87,7 +88,7 @@ const bio = await getEntry("bio", "bio");
         border-radius: 4px;
         filter: invert(1);
 
-        @media (min-width: 64rem) {
+        @media (--large-viewport) {
           transform: translate3d(1rem, 1.5rem, 0) scale(1.025);
         }
 
@@ -100,15 +101,15 @@ const bio = await getEntry("bio", "bio");
         }
       }
 
-      @media (prefers-reduced-motion: no-preference) {
+      @media (--no-motion) {
         &:hover:after {
-          @media (min-width: 64rem) {
+          @media (--large-viewport) {
             transform: translate3d(2rem, 1rem, 0) scale(1.025);
           }
         }
       }
 
-      @media (min-width: 64rem) {
+      @media (--large-viewport) {
         grid-column-start: 2;
         grid-column-end: 5;
       }
@@ -119,13 +120,13 @@ const bio = await getEntry("bio", "bio");
     }
 
     &__content {
-      @media (min-width: 64rem) {
+      @media (--large-viewport) {
         grid-column-start: 7;
         grid-column-end: 12;
       }
 
       @supports (animation-timeline: view()) {
-        @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+        @media (--large-viewport) and (--no-motion) {
           view-timeline-name: --slide-in-text;
           animation: linear slideInText both;
           animation-timeline: --slide-in-text;

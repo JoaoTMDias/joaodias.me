@@ -1,0 +1,49 @@
+---
+import Show from "./Show";
+---
+
+<section id="radio-brodcasts">
+  <div class="section__container broadcasts">
+    <h2 class="brodcasts__title">Radio Broadcasts</h2>
+    <p class="brodcasts__intro">
+      I am also a <strong
+        >Radio Host at <a href="https://www.ruc.pt" target="_blank" rel="noreferrer" lang="pt-PT"
+          >Rádio Universidade de Coimbra (RUC)</a
+        ></strong
+      >, where I regularly broadcast shows that range from Jazz, Blues, Rock, Punk and Heavy Metal.
+    </p>
+    <div class="broadcasts__shows">
+      <Show client:visible />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
+
+  .broadcasts {
+    width: 100%;
+    background-color: var(--palette-teal-main);
+    background-image: url(/white-texture.png);
+    background-position: 0 0;
+    background-size: auto;
+    margin-top: 1.5rem;
+    position: relative;
+    border-radius: var(--section-border-radius);
+
+    &__shows {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .show {
+    width: 100%;
+    background-color: var(--palette-teal-background);
+    background-image: url(/white-texture.png);
+    background-position: 0 0;
+    background-size: auto;
+    padding: var(--space-lg);
+  }
+</style>

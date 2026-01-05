@@ -15,6 +15,8 @@ import PAGE_CONTENT from "../../data/index.json";
 </div>
 
 <style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
+
   .profile {
     overflow: hidden;
     position: relative;
@@ -37,7 +39,7 @@ import PAGE_CONTENT from "../../data/index.json";
       mask-repeat: no-repeat;
       min-height: 29rem;
 
-      @media (width > 48rem) {
+      @media (--medium-viewport) {
         height: 100%;
         border-top-right-radius: var(--section-border-radius);
         border-bottom-right-radius: var(--section-border-radius);

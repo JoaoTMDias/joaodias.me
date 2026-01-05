@@ -21,6 +21,8 @@ const { title, description, itemtype = "http://schema.org/WebPage" } = Astro.pro
 </BaseLayout>
 
 <style lang="scss">
+  @use "../assets/styles/custom-media.scss";
+
   .footer {
     display: flex;
     flex-direction: column;
@@ -30,7 +32,7 @@ const { title, description, itemtype = "http://schema.org/WebPage" } = Astro.pro
     width: 100%;
     padding-block-start: 3rem;
 
-    @media (min-width: 64rem) {
+    @media (--large-viewport) {
       padding-block-start: 6rem;
     }
 
@@ -83,7 +85,7 @@ const { title, description, itemtype = "http://schema.org/WebPage" } = Astro.pro
         0 1px 0 0 var(--text-color);
       position: relative;
 
-      @media (min-width: 64rem) {
+      @media (--large-viewport) {
         height: 5rem;
       }
     }

@@ -27,11 +27,11 @@ section,
   height: 100%;
   min-height: 50vh;
 
-  @media (width > 48rem) {
+  @media (--medium-viewport) {
     padding: 3rem;
   }
 
-  @media (width > 64rem) {
+  @media (--large-viewport) {
     padding: 4rem;
   }
 }

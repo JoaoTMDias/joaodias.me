@@ -53,6 +53,8 @@ const { Content } = await article.render();
 </PageLayout>
 
 <style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
+
   .article-header {
     margin-bottom: 3rem;
 
@@ -62,7 +64,7 @@ const { Content } = await article.render();
       line-height: 1.2;
       margin-bottom: 1rem;
 
-      @media (min-width: 64rem) {
+      @media (--large-viewport) {
         font-size: 3.5rem;
       }
     }

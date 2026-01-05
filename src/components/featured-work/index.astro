@@ -20,6 +20,7 @@ const projects = (await getCollection("projects"))
 </section>
 
 <style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
   .featured-work {
     width: 100%;
   }
@@ -33,7 +34,7 @@ const projects = (await getCollection("projects"))
     align-items: stretch;
     width: 100%;
 
-    @media (width > 68.75rem) {
+    @media (--laptop-viewport) {
       grid-template-columns: 1fr 1fr;
       grid-gap: 2.5rem;
     }

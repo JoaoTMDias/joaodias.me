@@ -17,6 +17,7 @@ import LatestArticle from "./LatestArticle.astro";
 </section>
 
 <style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
   .articles {
     border: 2px solid var(--palette-yellow-main);
     background-color: var(--palette-yellow-background);
@@ -42,7 +43,7 @@ import LatestArticle from "./LatestArticle.astro";
     align-items: stretch;
     width: 100%;
 
-    @media (width > 68.75rem) {
+    @media (--laptop-viewport) {
       grid-template-columns: 1fr 1fr;
       grid-gap: 2.5rem;
     }

@@ -27,6 +27,8 @@ import Profile from "../profile/index.astro";
 </section>
 
 <style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
+
   .hero {
     display: flex;
     flex-direction: column;
@@ -52,7 +54,7 @@ import Profile from "../profile/index.astro";
       background-color: var(--palette-blue-background);
       border-radius: inherit;
 
-      @media (width > 48rem) {
+      @media (--medium-viewport) {
         padding-block: 0rem;
         grid-template-areas:
           "greeting picture"
@@ -62,7 +64,7 @@ import Profile from "../profile/index.astro";
         gap: 0;
       }
 
-      @media (width > 64rem) {
+      @media (--large-viewport) {
         grid-template-columns: 50% 50%;
       }
     }
@@ -76,7 +78,7 @@ import Profile from "../profile/index.astro";
     &__greeting {
       grid-area: greeting;
 
-      @media (width > 48rem) {
+      @media (--medium-viewport) {
         padding-block-start: 1.5rem;
       }
     }
@@ -106,7 +108,7 @@ import Profile from "../profile/index.astro";
       gap: 1rem;
       width: 100%;
 
-      @media (width > 48rem) {
+      @media (--medium-viewport) {
         padding-block-end: 1.5rem;
       }
     }

@@ -31,6 +31,8 @@ const currentPage = Astro.url.pathname;
 </nav>
 
 <style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
+
   .main-navigation {
     --main-navigation-background: transparent;
 
@@ -47,7 +49,7 @@ const currentPage = Astro.url.pathname;
     width: fit-content;
     z-index: inherit;
 
-    @media (width > 48rem) {
+    @media (--medium-viewport) {
       display: flex;
     }
   }
@@ -63,7 +65,7 @@ const currentPage = Astro.url.pathname;
     margin: 0;
     padding: 0;
 
-    @media (width > 48rem) {
+    @media (--medium-viewport) {
       display: flex;
     }
   }
@@ -93,7 +95,7 @@ const currentPage = Astro.url.pathname;
       text-underline-offset: 0.5rem;
     }
 
-    @media (width > 48rem) {
+    @media (--medium-viewport) {
       display: flex;
     }
   }

@@ -21,6 +21,8 @@
 </article>
 
 <style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
+
   .featured-article {
     --feature-article-height: 70cqw;
     --feature-article-date-size: var(--font-size-sm);
@@ -83,14 +85,14 @@
       max-width: max-content;
     }
 
-    @media (width > 48rem) {
+    @media (--medium-viewport) {
       --feature-article-height: 50cqw;
       --feature-article-date-size: var(--font-size-md);
       --feature-article-title-size: var(--font-size-lg);
       --feature-article-summary-size: var(--font-size-md);
     }
 
-    @media (width > 64rem) {
+    @media (--large-viewport) {
       --feature-article-height: 40cqw;
       --feature-article-title-size: var(--font-size-xl);
     }

@@ -6,6 +6,7 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
 */
+@use "../../assets/styles/custom-media.scss";
 
 .container,
 .info {
@@ -15,7 +16,7 @@
   align-items: center;
   background-color: var(--background-color);
 
-  @media (min-width: 64rem) {
+  @media (--large-viewport) {
     flex-direction: row;
   }
 }
@@ -28,7 +29,7 @@
 .info {
   gap: 0.5rem;
 
-  @media (min-width: 64rem) {
+  @media (--large-viewport) {
     gap: 1.5rem;
   }
 }
@@ -42,7 +43,7 @@
   display: grid;
   place-items: center;
 
-  @media (min-width: 64rem) {
+  @media (--large-viewport) {
     width: 3rem;
     height: 3rem;
   }
@@ -68,7 +69,7 @@
     transform: translateX(25%) rotate(0);
   }
 
-  @media (prefers-reduced-motion: no-preference) {
+  @media (--no-motion) {
     &:hover {
       transform: scale(3.5);
 
@@ -115,7 +116,7 @@
 .artist {
   text-align: center;
 
-  @media (min-width: 64rem) {
+  @media (--large-viewport) {
     text-align: left;
   }
 }

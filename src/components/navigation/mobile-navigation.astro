@@ -46,6 +46,8 @@ const currentPage = Astro.url.pathname;
 </nav>
 
 <style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
+
   .mobile-navigation {
     --main-navigation-background: var(--palette-indigo-background);
     --main-navigation-background-hover: var(--palette-indigo-main);
@@ -62,7 +64,7 @@ const currentPage = Astro.url.pathname;
     z-index: 50;
     background-color: var(--main-navigation-background);
 
-    @media (width > 48rem) {
+    @media (--medium-viewport) {
       display: none !important;
     }
   }
