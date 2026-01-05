@@ -1,0 +1,123 @@
+@use "../../assets/styles/custom-media.scss";
+
+.show {
+  --image-size: 4rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  gap: 0;
+  width: 100%;
+  background-color: var(--palette-teal-background);
+  background-image: url(/white-texture.png);
+  background-position: 0 0;
+  background-size: auto;
+  padding: 0;
+  border-radius: var(--space-base);
+
+  @media (--medium-viewport) {
+    --image-size: 15rem;
+  }
+
+  &__cover {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: var(--image-size);
+    aspect-ratio: 1;
+
+    @media (--medium-viewport) {
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1;
+    z-index: 0;
+    border-top-left-radius: var(--space-base);
+    border-top-right-radius: var(--space-base);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: inherit;
+
+    @media (--medium-viewport) {
+      height: 100%;
+      border-top-left-radius: var(--space-base);
+      border-top-right-radius: 0;
+      border-bottom-left-radius: var(--space-base);
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  &__content {
+    padding: var(--space-lg);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--space-xs);
+    height: 100%;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  &__name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    background-color: var(--palette-teal-main);
+    padding-block: var(--space-xxs);
+    padding-inline: var(--space-xs);
+    border-radius: var(--space-sm);
+  }
+
+  &__title {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  &__metadata {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  &__head,
+  &__title,
+  &__description {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__date {
+    font-size: var(--font-size-sm);
+    color: var(--text-color-faded);
+  }
+
+  &__bar {
+    width: 100%;
+  }
+}
