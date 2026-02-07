@@ -43,9 +43,13 @@ import LatestArticle from "./LatestArticle.astro";
     align-items: stretch;
     width: 100%;
 
-    @media (--laptop-viewport) {
-      grid-template-columns: 1fr 1fr;
+    @media (--medium-viewport) {
+      grid-template-columns: repeat(2, 1fr);
       grid-gap: 2.5rem;
+    }
+
+    @media (--full-hd-viewport) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
