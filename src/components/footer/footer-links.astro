@@ -1,0 +1,44 @@
+---
+import styles from "./footer-links.module.scss";
+
+const config = [
+  {
+    link: "#",
+    title: "About me",
+  },
+  {
+    link: "#",
+    title: "Articles",
+  },
+  {
+    link: "#",
+    title: "Work",
+  },
+  {
+    link: "#",
+    title: "Uses",
+  },
+];
+---
+
+<div id="footer-links" class={styles["footer-links"]} aria-labelledby="footer-title">
+  <h2 id="footer-title" class={styles["footer-links__title"]}>
+    General <span class="sr-only">Links</span>
+  </h2>
+  <ul class={styles["footer-links__list"]}>
+    {
+      config.map((link) => (
+        <li class={styles["footer-links__item"]}>
+          <a
+            href={link.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={styles["footer-links__link"]}
+          >
+            {link.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

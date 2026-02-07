@@ -2,15 +2,19 @@
 import { getEntry } from "astro:content";
 import CurrentlyListening from "../currently-listening/index";
 import DeployInfo from "../deploy-info/index.astro";
-import SocialLinks from "../social-links/index.astro";
+import SocialLinks from "../footer/social-links.astro";
+import FooterLinks from "../footer/footer-links.astro";
+import SitemapLinks from "../footer/sitemap-links.astro";
+import styles from "./footer.module.scss";
+import { classNames } from "@jtmdias/js-utilities";
 
 const config = await getEntry("config", "config");
 const currentYear = new Date().getFullYear();
 const copyright = `© ${currentYear} - ${config.data.copyright}`;
 ---
 
-<footer class="footer section" id="footer">
-  <div class="footer__container section__container">
+<footer class={classNames(styles.footer, "section")} id="footer">
+  <div class={classNames(styles.footer__container, "section__container")}>
     <div class="currently-listening" data-testid="currently-listening">
       <h2
         id="current-listening"
@@ -23,47 +27,18 @@ const copyright = `© ${currentYear} - ${config.data.copyright}`;
         <CurrentlyListening marqueeConfig={config.data.footer.marquee} client:load />
       </div>
     </div>
-    <div class="footer__bottom">
+    <div class={styles.footer__bottom}>
       <SocialLinks />
-      <div id="footer-links" class="footer__others">
-        <h2>Useful Links</h2>
+      <FooterLinks />
+      <SitemapLinks />
+      <div class={styles.footer__meta}>
+        <p class={styles.footer__copyright}>{copyright}</p>
+        <DeployInfo />
       </div>
-      <p class="footer__copyright">{copyright}</p>
-      <DeployInfo />
     </div>
 
-    <div class="footer__name">
+    <div class={styles.footer__name}>
       <img src="footer-name.svg" width="208" height="36" alt="" />
     </div>
   </div>
 </footer>
-
-<style lang="scss">
-  .footer {
-    &__bottom {
-      outline: 1px solid red;
-    }
-
-    &__name {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-content: baseline;
-      width: 100%;
-      height: auto;
-      font-size: 100%;
-
-      img {
-        width: 100%;
-        height: auto;
-        opacity: 6.25%;
-      }
-    }
-  }
-
-  .footer,
-  .footer__container {
-    padding-block-end: 0;
-  }
-</style>
