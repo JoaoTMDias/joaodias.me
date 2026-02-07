@@ -1,7 +1,7 @@
-@custom-media --small-viewport (width > 30rem);
-@custom-media --medium-viewport (width > 48rem);
-@custom-media --large-viewport (width > 64rem);
-@custom-media --laptop-viewport (width > 68.75rem);
-@custom-media --laptop-hd-viewport (width > 90rem);
-@custom-media --full-hd-viewport (width > 120rem);
+@custom-media --small-viewport (width >= 30rem);
+@custom-media --medium-viewport (width >= 48rem);
+@custom-media --large-viewport (width >= 64rem);
+@custom-media --laptop-viewport (width >= 68.75rem);
+@custom-media --laptop-hd-viewport (width >= 90rem);
+@custom-media --full-hd-viewport (width >= 120rem);
 @custom-media --no-motion (prefers-reduced-motion: no-preference);
