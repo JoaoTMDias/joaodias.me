@@ -44,7 +44,9 @@
   }
 
   &--primary {
-    --button-background-color: var(--palette-orange-main);
-    --button-color: var(--palette-main-foreground);
+    --button-background-color: var(--palette-black);
+    --button-color: var(--palette-white);
+    --font-weight: 500;
+    font-variation-settings: "wght" 500;
   }
 }
