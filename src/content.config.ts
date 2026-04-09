@@ -1,8 +1,9 @@
-import { defineCollection, z } from "astro:content";
-import { SHOW_PROGRAMS } from "../../tina/collections/radio-shows";
+import { glob } from "astro/loaders";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 
 const articlesCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
   schema: z.object({
     title: z.string(),
     pubDate: z.coerce.date(),
@@ -22,48 +23,39 @@ const articlesCollection = defineCollection({
 });
 
 const projectsCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
     shortDescription: z.string(),
     description: z.string(),
     sourceCode: z
-      .union([z.string().url(), z.literal(""), z.null()])
+      .union([z.string(), z.null()])
       .optional()
       .transform((val) => (!val || val === "" ? undefined : val)),
     liveDemo: z
-      .union([z.string().url(), z.literal(""), z.null()])
+      .union([z.string(), z.null()])
       .optional()
       .transform((val) => (!val || val === "" ? undefined : val)),
     skills: z.array(z.string()),
     thumbnail: z.string(),
     cover: z.string().optional(),
-    galleryImages: z.array(z.object({
-      image: z.string(),
-      alt: z.string(),
-      caption: z.string().optional(),
-    })).optional(),
+    galleryImages: z
+      .array(
+        z.object({
+          image: z.string(),
+          alt: z.string(),
+          caption: z.string().optional(),
+        })
+      )
+      .optional(),
     themeBackground: z.string().optional(),
     themeForeground: z.string().optional(),
   }),
 });
 
-const showsCollection = defineCollection({
-  type: "content",
-  schema: z.object({
-    program: z.enum(SHOW_PROGRAMS.map((program) => program.value)),
-    title: z.string(),
-    description: z.string(),
-    date: z.coerce.date(),
-    image: z.string().optional(),
-    externalUrl: z.string().url(),
-    notes: z.string().optional(),
-  }),
-});
-
 const configCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.json", base: "./src/content/config" }),
   schema: z.object({
     seo: z.object({
       title: z.string(),
@@ -89,7 +81,7 @@ const configCollection = defineCollection({
       z.object({
         title: z.string(),
         accessibleLabel: z.string(),
-        link: z.string().url(),
+        link: z.string(),
         icon: z.string(),
       })
     ),
@@ -110,7 +102,7 @@ const configCollection = defineCollection({
 });
 
 const bioCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.json", base: "./src/content/bio" }),
   schema: z.object({
     title: z.string(),
     mainTitle: z.string(),
@@ -125,7 +117,7 @@ const bioCollection = defineCollection({
 });
 
 const experienceCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.json", base: "./src/content/experience" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -134,6 +126,31 @@ const experienceCollection = defineCollection({
     endDate: z.string().optional(),
     isCurrent: z.boolean().default(false),
     order: z.number(),
+  }),
+});
+
+const showsCollection = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/shows",
+    generateId: ({ entry }) => entry.replace(/\.md$/, ""),
+  }),
+  schema: z.object({
+    show: z.string(),
+    slug: z.string(),
+    title: z.string(),
+    summary: z.string(),
+    published: z.coerce.date(),
+    coverURL: z.string(),
+    coverWidth: z
+      .union([z.number(), z.string(), z.null()])
+      .optional()
+      .transform((v) => (typeof v === "number" ? v : v ? parseInt(v, 10) : null)),
+    coverHeight: z
+      .union([z.number(), z.string(), z.null()])
+      .optional()
+      .transform((v) => (typeof v === "number" ? v : v ? parseInt(v, 10) : null)),
+    coverAlt: z.string(),
   }),
 });
 

@@ -13,6 +13,19 @@ const RUC_URL = 'https://ruc.pt/autor/joaotmdias';
 const CACHE_DURATION = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
 
 /**
+ * Wrap a YAML string value in double quotes if it contains characters that
+ * would otherwise break YAML parsing (e.g. ": " mapping indicators).
+ */
+function yamlString(value) {
+  if (value === null || value === undefined || value === '') return "''";
+  const str = String(value);
+  if (/: |^[&*!|>{'"#%@`]|[\n\r]/.test(str)) {
+    return `"${str.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
+  }
+  return str;
+}
+
+/**
  * Convert a string to a URL-friendly slug
  */
 function createSlug(str) {
@@ -213,14 +226,14 @@ async function generateMarkdownFiles(showsData) {
     const frontmatter = `---
 show: ${showSlug}
 slug: ${episode.slug}
-title: ${episode.title}
+title: ${yamlString(episode.title)}
 summary: >-
   ${episode.summary.split('\n').join('\n  ')}
 published: ${episode.published}
 coverURL: ${episode.cover.url}
 coverWidth: ${episode.cover.width || ''}
 coverHeight: ${episode.cover.height || ''}
-coverAlt: ${episode.cover.alt}
+coverAlt: ${yamlString(episode.cover.alt)}
 ---
 `;
 

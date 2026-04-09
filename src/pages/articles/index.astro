@@ -27,7 +27,7 @@ const articles = (await getCollection("articles")).sort(
         <ul class="articles-list">
           {articles.map((article) => (
             <li class="article-item">
-              <a href={`/articles/${article.slug}`}>
+              <a href={`/articles/${article.id}`}>
                 <h2>{article.data.title}</h2>
                 <p class="excerpt">{article.data.excerpt}</p>
                 <div class="meta">

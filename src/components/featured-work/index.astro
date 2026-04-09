@@ -13,7 +13,7 @@ const projects = (await getCollection("projects"))
   <div class="section__container featured-work">
     <h2>Featured Work</h2>
     <div class="featured-work__list">
-      {projects.map((project) => <FeaturedWorkItem key={project.slug} project={project} />)}
+      {projects.map((project) => <FeaturedWorkItem key={project.id} project={project} />)}
     </div>
   </div>
   <a href="/projects" class="button button--primary featured-work__cta">Visit all projects page</a>

@@ -9,7 +9,7 @@ import type { CollectionEntry } from "astro:content";
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import PageLayout from "../../layouts/PageLayout.astro";
 
 // Constants
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
   const projects = await getCollection("projects");
 
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: { slug: project.id },
     props: { project },
   }));
 }
@@ -43,11 +43,11 @@ type Props = {
 };
 
 const { project } = Astro.props;
-const { Content } = await project.render();
+const { Content } = await render(project);
 
 // Computed values
-const transitionName = `project-title-${project.slug}`;
-const imageTransitionName = `project-image-${project.slug}`;
+const transitionName = `project-title-${project.id}`;
+const imageTransitionName = `project-image-${project.id}`;
 
 const formattedDate = project.data.date.toLocaleDateString("en-US", {
   year: "numeric",

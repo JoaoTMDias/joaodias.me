@@ -36,7 +36,7 @@ const { project } = Astro.props;
 
 const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
 const theme = getProjectTheme(project);
-const transitionNames = getTransitionNames(project.slug);
+const transitionNames = getTransitionNames(project.id);
 const cardStyle = {
   "--work-background-color": theme.background,
   "--work-text-color": theme.foreground,
@@ -45,7 +45,7 @@ const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
 ---
 
 <article aria-label={ariaLabel} class={styles.work}>
-  <a href={`/projects/${project.slug}`} class={styles.work__link} style={cardStyle}>
+  <a href={`/projects/${project.id}`} class={styles.work__link} style={cardStyle}>
     <div class={styles.work__content}>
       <h3 class={styles.work__title} transition:name={transitionNames.title}>
         {project.data.title}

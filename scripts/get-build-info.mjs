@@ -48,7 +48,7 @@ try {
 	};
 
 	// Write to a JSON file to use in your Astro project
-	const outputPath = path.join(__dirname, "src", "data", "build-info.json");
+	const outputPath = path.join(__dirname, "..", "src", "data", "build-info.json");
 	ensureDirectoryExists(outputPath);
 	fs.writeFileSync(outputPath, JSON.stringify(buildInfo, null, 2), "utf-8");
 
