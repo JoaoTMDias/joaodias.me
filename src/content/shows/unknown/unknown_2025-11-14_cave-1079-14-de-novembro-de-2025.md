@@ -1,0 +1,12 @@
+---
+show: unknown
+slug: https://ruc.pt/cave-107-9-14-de-novembro-de-2025
+title: Cave 107.9, 14 de Novembro de 2025
+summary: >-
+  Episódio de Cave 107.9
+published: 2025-11-14T15:00:37
+coverURL: https://bucket.ruc.pt/wp-content/uploads/2025/11/16125406/cave107.9-post.jpg
+coverWidth: 
+coverHeight: 
+coverAlt: A banda "Baleia Baleia Baleia", com o logo da RUC ao centro
+---

@@ -15,7 +15,8 @@
     "lint": "biome lint --write ./src",
     "format": "biome format --write ./src",
     "typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json",
-    "generate-build-info": "node get-build-info.mjs"
+    "generate-build-info": "node ./scripts/get-build-info.mjs",
+    "get-latest-shows": "node ./scripts/get-latest-shows.mjs"
   },
   "devDependencies": {
     "@astrojs/react": "4.4.2",

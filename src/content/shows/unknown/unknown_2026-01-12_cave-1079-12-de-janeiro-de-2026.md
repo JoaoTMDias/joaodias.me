@@ -1,0 +1,12 @@
+---
+show: unknown
+slug: https://ruc.pt/cave-107-9-12-de-janeiro-de-2026
+title: Cave 107.9, 12 de Janeiro de 2026
+summary: >-
+  Episódio de Cave 107.9
+published: 2026-01-12T15:00:48
+coverURL: https://bucket.ruc.pt/wp-content/uploads/2026/01/13125801/cave-107.9-12-janeiro-2026-post.png
+coverWidth: 
+coverHeight: 
+coverAlt: A banda Hallas e o logo da RUC no topo
+---
