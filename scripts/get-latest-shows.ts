@@ -12,11 +12,57 @@ const dataDir = path.dirname(showsJsonPath);
 const RUC_URL = 'https://ruc.pt/autor/joaotmdias';
 const CACHE_DURATION = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
 
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface RawEpisodeCover {
+  url: string;
+  width: string;
+  height: string;
+  alt: string;
+}
+
+interface RawEpisode {
+  show: string;
+  title: string;
+  slug: string;
+  published: string;
+  summary: string;
+  cover: RawEpisodeCover;
+}
+
+interface EpisodeCover {
+  url: string;
+  width: number | null;
+  height: number | null;
+  alt: string;
+}
+
+interface Episode {
+  show: string;
+  title: string;
+  slug: string;
+  published: string;
+  summary: string;
+  cover: EpisodeCover;
+}
+
+interface ShowsData {
+  latestUpdate: string;
+  count: number;
+  items: Episode[];
+}
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
 /**
  * Wrap a YAML string value in double quotes if it contains characters that
  * would otherwise break YAML parsing (e.g. ": " mapping indicators).
  */
-function yamlString(value) {
+function yamlString(value: string | null | undefined): string {
   if (value === null || value === undefined || value === '') return "''";
   const str = String(value);
   const YAML_SCALARS = /^(true|false|yes|no|on|off|null|~)$/i;
@@ -29,7 +75,7 @@ function yamlString(value) {
 /**
  * Convert a string to a URL-friendly slug
  */
-function createSlug(str) {
+function createSlug(str: string): string {
   return str
     .toLowerCase()
     .normalize('NFD') // Decompose accents
@@ -44,12 +90,12 @@ function createSlug(str) {
 /**
  * Check if directory is empty
  */
-async function isDirectoryEmpty(dirPath) {
+async function isDirectoryEmpty(dirPath: string): Promise<boolean> {
   try {
     const files = await fs.readdir(dirPath);
     return files.length === 0;
   } catch (err) {
-    if (err.code === 'ENOENT') return true; // Directory doesn't exist
+    if ((err as NodeJS.ErrnoException).code === 'ENOENT') return true;
     throw err;
   }
 }
@@ -57,7 +103,7 @@ async function isDirectoryEmpty(dirPath) {
 /**
  * Check if cache is still fresh
  */
-function isCacheFresh(timestamp) {
+function isCacheFresh(timestamp: string): boolean {
   const age = Date.now() - new Date(timestamp).getTime();
   return age < CACHE_DURATION;
 }
@@ -65,7 +111,7 @@ function isCacheFresh(timestamp) {
 /**
  * Verify network connectivity
  */
-async function verifyConnectivity() {
+async function verifyConnectivity(): Promise<boolean> {
   try {
     await fetch(RUC_URL, { method: 'HEAD', signal: AbortSignal.timeout(5000) });
     return true;
@@ -75,10 +121,14 @@ async function verifyConnectivity() {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Core logic
+// ---------------------------------------------------------------------------
+
 /**
  * Crawl the RUC website to extract episode data
  */
-async function crawlEpisodes() {
+async function crawlEpisodes(): Promise<RawEpisode[]> {
   console.log(`Crawling ${RUC_URL}...`);
 
   const browser = await chromium.launch();
@@ -88,26 +138,28 @@ async function crawlEpisodes() {
     await page.goto(RUC_URL, { waitUntil: 'networkidle', timeout: 20000 });
 
     // Extract JSON data embedded in the Next.js page
-    const episodes = await page.evaluate(() => {
-      // Find the Next.js __NEXT_DATA__ script tag
-      const script = document.querySelector('script[id="__NEXT_DATA__"]');
+    const episodes = await page.evaluate((): RawEpisode[] => {
+      const script = document.querySelector<HTMLScriptElement>('script[id="__NEXT_DATA__"]');
       if (!script) return [];
 
       try {
-        const data = JSON.parse(script.textContent);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const data = JSON.parse(script.textContent ?? '') as any;
         const props = data.props?.pageProps;
 
         if (!props || !props.results) return [];
 
         // Flatten the results array (it contains nested arrays for each day)
-        const allResults = Array.isArray(props.results)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const allResults: any[] = Array.isArray(props.results)
           ? props.results.flat()
           : [];
 
         // Extract episodes from results
-        const episodes = allResults.map((item) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return (allResults.map((item: any) => {
           const show = item.podcastFields?.programasDePodcast?.[0];
-          const showSlug = show?.slug || 'unknown';
+          const showSlug: string = show?.slug || 'unknown';
 
           return {
             show: showSlug,
@@ -124,11 +176,9 @@ async function crawlEpisodes() {
               alt: item.featuredImage?.node?.altText || ''
             }
           };
-        }).filter(ep => ep.title && ep.slug); // Only include items with title and slug
-
-        return episodes;
+        }) as RawEpisode[]).filter((ep) => ep.title && ep.slug);
       } catch (err) {
-        console.error('Error parsing Next.js data:', err.message);
+        console.error('Error parsing Next.js data:', (err as Error).message);
         return [];
       }
     });
@@ -141,9 +191,9 @@ async function crawlEpisodes() {
 }
 
 /**
- * Parse episode data and organize by show
+ * Parse raw episode data, normalising cover dimensions to numbers
  */
-function parseEpisodes(episodes) {
+function parseEpisodes(episodes: RawEpisode[]): Episode[] {
   return episodes.map((episode) => ({
     show: episode.show,
     slug: episode.slug,
@@ -162,21 +212,17 @@ function parseEpisodes(episodes) {
 /**
  * Generate shows.json file
  */
-async function generateShowsJson(episodes) {
-  const showsData = {
+async function generateShowsJson(episodes: Episode[]): Promise<ShowsData> {
+  const showsData: ShowsData = {
     latestUpdate: new Date().toISOString(),
     count: episodes.length,
-    items: episodes.slice().sort((a, b) => new Date(b.published) - new Date(a.published))
+    items: episodes
+      .slice()
+      .sort((a, b) => new Date(b.published).getTime() - new Date(a.published).getTime())
   };
 
-  // Ensure data directory exists
   await fs.mkdir(dataDir, { recursive: true });
-
-  // Write shows.json
-  await fs.writeFile(
-    showsJsonPath,
-    JSON.stringify(showsData, null, 2)
-  );
+  await fs.writeFile(showsJsonPath, JSON.stringify(showsData, null, 2));
 
   console.log(`Generated shows.json with ${episodes.length} episodes`);
   return showsData;
@@ -185,10 +231,10 @@ async function generateShowsJson(episodes) {
 /**
  * Generate markdown files for each episode
  */
-async function generateMarkdownFiles(showsData) {
+async function generateMarkdownFiles(showsData: ShowsData): Promise<void> {
   const CONCURRENCY = 10;
 
-  const writeEpisode = async (episode) => {
+  const writeEpisode = async (episode: Episode): Promise<boolean> => {
     const showSlug = episode.show;
 
     if (!/^[\w-]+$/.test(showSlug)) {
@@ -220,8 +266,8 @@ summary: >-
   ${episode.summary.split('\n').join('\n  ')}
 published: ${episode.published}
 coverURL: ${episode.cover.url}
-coverWidth: ${episode.cover.width || ''}
-coverHeight: ${episode.cover.height || ''}
+coverWidth: ${episode.cover.width ?? ''}
+coverHeight: ${episode.cover.height ?? ''}
 coverAlt: ${yamlString(episode.cover.alt)}
 ---
 `;
@@ -244,19 +290,20 @@ coverAlt: ${yamlString(episode.cover.alt)}
 /**
  * Load existing shows.json
  */
-async function loadExistingShows() {
+async function loadExistingShows(): Promise<ShowsData | null> {
   try {
     const data = await fs.readFile(showsJsonPath, 'utf-8');
-    return JSON.parse(data);
+    return JSON.parse(data) as ShowsData;
   } catch {
     return null;
   }
 }
 
-/**
- * Main execution
- */
-async function main() {
+// ---------------------------------------------------------------------------
+// Entry point
+// ---------------------------------------------------------------------------
+
+async function main(): Promise<void> {
   try {
     console.log('Get Latest Shows - Starting...\n');
 
@@ -272,7 +319,8 @@ async function main() {
       const existingShows = await loadExistingShows();
 
       if (existingShows && isCacheFresh(existingShows.latestUpdate)) {
-        const ageHours = (Date.now() - new Date(existingShows.latestUpdate).getTime()) / (60 * 60 * 1000);
+        const ageHours =
+          (Date.now() - new Date(existingShows.latestUpdate).getTime()) / (60 * 60 * 1000);
         console.log(`✓ Cache is fresh (${ageHours.toFixed(1)} hours old). Skipping update.\n`);
         return;
       }

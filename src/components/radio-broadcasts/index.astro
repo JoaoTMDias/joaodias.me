@@ -1,6 +1,13 @@
 ---
+import { getCollection } from "astro:content";
 import WavyLines from "../squiggle/waves.astro";
 import Show from "./Show";
+
+const shows = (await getCollection("shows"))
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
+  .slice(0, 4);
+
+console.log(shows);
 ---
 
 <section id="radio-broadcasts">
@@ -16,38 +23,22 @@ import Show from "./Show";
       >, where I regularly broadcast shows that range from Jazz, Blues, Rock, Punk and Heavy Metal.
     </p>
     <div class="broadcasts__shows">
-      <Show
-        href="https://ruc.pt/podcast/mel-e-tal/05-de-janeiro-de-2026-os-melhores-do-ano-parte-1-de-2"
-        cover="https://ruc.pt/_next/image?url=https%3A%2F%2Fbucket.ruc.pt%2Fwp-content%2Fuploads%2F2025%2F12%2F29171613%2Fcave-107-9-post.jpg&w=3840&q=75"
-        name="Cave 107.9"
-        date="29/11/2025"
-        title="Cave 107.9, 29 de Dezembro de 2025"
-        description="Das luzes de Baltimore à sujidade do UK, resumimos o ano do Punk e Hardcore em 21 faixas essenciais. Uma hora de rádio em alta voltagem com Turnstile, Scowl, Biohazard e muito mais. Se o mosh não parou em 2025, o Cave também não. Ouve agora o balanço final!"
-      />
-      <Show
-        href="https://ruc.pt/podcast/mel-e-tal/05-de-janeiro-de-2026-os-melhores-do-ano-parte-1-de-2"
-        cover="https://ruc.pt/_next/image?url=https%3A%2F%2Fbucket.ruc.pt%2Fwp-content%2Fuploads%2F2026%2F01%2F05091026%2Fcover.jpeg&w=3840&q=75"
-        name="Mel e Tal"
-        date="26/11/2025"
-        title="05 de Janeiro de 2026, os melhores do ano (parte 1 de 2)"
-        description="Do peso esmagador à melodia mais refinada, nesta primeira parte dos álbuns do ano de 2025, o Mel Tal separa o mel da cera. Uma hora de excelência metálica que coloca à prova os discos que resistiram ao teste do tempo e do basqueiro!"
-      />
-      <Show
-        href="https://ruc.pt/podcast/mel-e-tal/05-de-janeiro-de-2026-os-melhores-do-ano-parte-1-de-2"
-        cover="https://ruc.pt/_next/image?url=https%3A%2F%2Fbucket.ruc.pt%2Fwp-content%2Fuploads%2F2025%2F12%2F29171613%2Fcave-107-9-post.jpg&w=3840&q=75"
-        name="Cave 107.9"
-        date="29/11/2025"
-        title="Cave 107.9, 29 de Dezembro de 2025"
-        description="Das luzes de Baltimore à sujidade do UK, resumimos o ano do Punk e Hardcore em 21 faixas essenciais. Uma hora de rádio em alta voltagem com Turnstile, Scowl, Biohazard e muito mais. Se o mosh não parou em 2025, o Cave também não. Ouve agora o balanço final!"
-      />
-      <Show
-        href="https://ruc.pt/podcast/mel-e-tal/05-de-janeiro-de-2026-os-melhores-do-ano-parte-1-de-2"
-        cover="https://ruc.pt/_next/image?url=https%3A%2F%2Fbucket.ruc.pt%2Fwp-content%2Fuploads%2F2026%2F01%2F05091026%2Fcover.jpeg&w=3840&q=75"
-        name="Mel e Tal"
-        date="26/11/2025"
-        title="05 de Janeiro de 2026, os melhores do ano (parte 1 de 2)"
-        description="Do peso esmagador à melodia mais refinada, nesta primeira parte dos álbuns do ano de 2025, o Mel Tal separa o mel da cera. Uma hora de excelência metálica que coloca à prova os discos que resistiram ao teste do tempo e do basqueiro!"
-      />
+      {
+        shows.map((show) => (
+          <Show
+            href={show.data.slug}
+            cover={show.data.coverURL}
+            name={show.data.show}
+            date={show.data.published.toLocaleDateString("pt-PT", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
+            title={show.data.title}
+            description={show.data.summary}
+          />
+        ))
+      }
     </div>
     <WavyLines />
   </div>

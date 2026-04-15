@@ -20,8 +20,8 @@ import Profile from "../profile/index.astro";
       scalable Design Systems, performance optimization, and robust frontend architecture.
     </p>
     <div class="hero__actions">
-      <a href="#connect" class="button button--primary">Let's discuss a role or project</a>
-      <a href="/articles" class="button button--secondary">Read my insights</a>
+      <a href="#connect" class="button button--secondary">Let's discuss a role or project</a>
+      <a href="/articles" class="button button--primary">Read my insights</a>
     </div>
   </div>
 </section>
@@ -51,7 +51,7 @@ import Profile from "../profile/index.astro";
       padding-block: 1.5rem;
       width: 100%;
       height: auto;
-      background-color: var(--palette-pink-main);
+      background-color: var(--palette-black);
       border-radius: inherit;
 
       @media (--medium-viewport) {
@@ -87,8 +87,14 @@ import Profile from "../profile/index.astro";
       grid-area: picture;
       width: 100%;
       display: flex;
+      align-items: center;
       justify-content: center;
-      background-color: var(--palette-amber-main);
+      background-color: var(--palette-amber-active);
+      @media (--medium-viewport) {
+        height: 100%;
+        border-top-right-radius: var(--section-border-radius);
+        border-bottom-right-radius: var(--section-border-radius);
+      }
     }
 
     &__intro {
@@ -97,9 +103,13 @@ import Profile from "../profile/index.astro";
       font-style: normal;
       font-weight: 400;
       font-size: 1.5rem;
-      line-height: 2rem;
-      color: var(--text-color);
+      line-height: 1.333;
+      color: var(--background-color);
       margin-bottom: 2rem;
+
+      @media (--laptop-hd-viewport) {
+        font-size: var(--font-size-lg);
+      }
     }
 
     &__actions {
@@ -121,15 +131,24 @@ import Profile from "../profile/index.astro";
     justify-content: start;
     align-items: start;
     gap: 1rem;
+    font-size: var(--font-size-xxl);
+    color: var(--background-color);
+    line-height: 1.2;
+
+    @media (--laptop-hd-viewport) {
+      font-size: var(--font-size-xxxl);
+    }
 
     &__hi {
       font-family: var(--text-font-family);
       font-style: normal;
       font-weight: 400;
       font-variation-settings: "wght" 400;
-      font-size: 1.5rem;
-      line-height: 1.2;
-      color: var(--text-color);
+      font-size: var(--font-size-md);
+
+      @media (--laptop-hd-viewport) {
+        font-size: var(--font-size-lg);
+      }
     }
 
     &__main {
@@ -137,9 +156,8 @@ import Profile from "../profile/index.astro";
       font-style: normal;
       font-weight: 700;
       font-variation-settings: "wght" 700;
-      font-size: var(--font-size-xxl);
-      line-height: 1.2;
-      color: var(--text-color);
+      font-size: inherit;
+      color: var(--palette-amber-main);
     }
   }
 </style>

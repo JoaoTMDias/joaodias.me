@@ -23,27 +23,54 @@ import PAGE_CONTENT from "../../data/index.json";
     &,
     &__image {
       width: 100%;
-      height: auto;
+      height: 100%;
     }
 
     &__image {
-      background-color: var(--text-color);
       object-fit: cover;
       object-position: center center;
       position: relative;
       z-index: 0;
-      transform: scale(1);
+      transform: scale(1.2);
       mask-image: url("/photo-profile-mask.svg");
-      mask-size: cover;
+      mask-size: 0%;
       mask-position: center center;
       mask-repeat: no-repeat;
       min-height: 29rem;
+      animation-name: animateMask, zoomOutImage;
+
+      @media (--no-motion) {
+        animation-delay: 500ms;
+        animation-duration: 2000ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+      }
 
       @media (--medium-viewport) {
         height: 100%;
         border-top-right-radius: var(--section-border-radius);
         border-bottom-right-radius: var(--section-border-radius);
       }
+    }
+  }
+
+  @keyframes zoomOutImage {
+    from {
+      transform: scale(1.2);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes animateMask {
+    from {
+      mask-size: 0%;
+    }
+
+    to {
+      mask-size: 220%;
     }
   }
 </style>
