@@ -137,53 +137,90 @@ async function crawlEpisodes(): Promise<RawEpisode[]> {
   try {
     await page.goto(RUC_URL, { waitUntil: 'networkidle', timeout: 20000 });
 
-    // Extract JSON data embedded in the Next.js page
-    const episodes = await page.evaluate((): RawEpisode[] => {
+    // Step 1: extract episode URLs from __NEXT_DATA__ on the author page
+    const episodeUrls = await page.evaluate((): string[] => {
       const script = document.querySelector<HTMLScriptElement>('script[id="__NEXT_DATA__"]');
       if (!script) return [];
-
       try {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const data = JSON.parse(script.textContent ?? '') as any;
-        const props = data.props?.pageProps;
-
-        if (!props || !props.results) return [];
-
-        // Flatten the results array (it contains nested arrays for each day)
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const allResults: any[] = Array.isArray(props.results)
-          ? props.results.flat()
+        const allResults: any[] = Array.isArray(data.props?.pageProps?.results)
+          ? data.props.pageProps.results.flat()
           : [];
-
-        // Extract episodes from results
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return (allResults.map((item: any) => {
-          const show = item.podcastFields?.programasDePodcast?.[0];
-          const showSlug: string = show?.slug || 'unknown';
-
-          return {
-            show: showSlug,
-            title: item.title || '',
-            slug: item.slug ? `https://ruc.pt/${item.slug}` : '',
-            published: item.date || new Date().toISOString(),
-            summary: item.contentType?.node?.name === 'podcast'
-              ? `Episódio de ${show?.title || 'podcast'}`
-              : '',
-            cover: {
-              url: item.featuredImage?.node?.sourceUrl || '',
-              width: item.featuredImage?.node?.width || '',
-              height: item.featuredImage?.node?.height || '',
-              alt: item.featuredImage?.node?.altText || ''
-            }
-          };
-        }) as RawEpisode[]).filter((ep) => ep.title && ep.slug);
-      } catch (err) {
-        console.error('Error parsing Next.js data:', (err as Error).message);
+        return allResults
+          .filter((item) => item.slug && item.podcastFields?.programasDePodcast?.[0]?.slug)
+          .map((item) => {
+            const showSlug: string = item.podcastFields.programasDePodcast[0].slug;
+            return `https://ruc.pt/podcast/${showSlug}/${item.slug}`;
+          });
+      } catch {
         return [];
       }
     });
 
-    console.log(`Found ${episodes.length} episodes`);
+    console.log(`Found ${episodeUrls.length} episode URLs`);
+
+    // Step 2: visit each episode page in isolated contexts and extract all data from __NEXT_DATA__
+    const CONCURRENCY = 5;
+    const workerContexts = await Promise.all(
+      Array.from({ length: CONCURRENCY }, () => browser.newContext())
+    );
+    const workerPages = await Promise.all(workerContexts.map((ctx) => ctx.newPage()));
+
+    const fetchEpisode = async (url: string, workerPage: Awaited<ReturnType<typeof browser.newPage>>): Promise<RawEpisode | null> => {
+      try {
+        await workerPage.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        return await workerPage.evaluate((episodeUrl): RawEpisode | null => {
+          const script = document.querySelector<HTMLScriptElement>('script[id="__NEXT_DATA__"]');
+          if (!script) return null;
+          try {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const data = JSON.parse(script.textContent ?? '') as any;
+            const podcast = data.props?.pageProps?.podcast;
+            if (!podcast) return null;
+            const showSlug: string = data.props?.pageProps?.programSlug || 'unknown';
+            const rawExcerpt: string = podcast.excerpt ?? '';
+            const rawText = rawExcerpt.replace(/<[^>]*>/gm, '').trim();
+            const div = document.createElement('div');
+            div.innerHTML = rawText;
+            const decoded = div.textContent ?? rawText;
+            return {
+              show: showSlug,
+              title: podcast.title || '',
+              slug: podcast.slug || '',
+              published: podcast.date || new Date().toISOString(),
+              summary: decoded.trim(),
+              cover: {
+                url: podcast.featuredImage?.node?.sourceUrl || '',
+                width: podcast.featuredImage?.node?.width || '',
+                height: podcast.featuredImage?.node?.height || '',
+                alt: podcast.featuredImage?.node?.altText || '',
+              },
+            };
+          } catch {
+            return null;
+          }
+        }, url);
+      } catch {
+        console.warn(`Could not fetch episode: ${url}`);
+        return null;
+      }
+    };
+
+    const episodes: RawEpisode[] = [];
+    for (let i = 0; i < episodeUrls.length; i += CONCURRENCY) {
+      const batch = episodeUrls.slice(i, i + CONCURRENCY);
+      const results = await Promise.all(
+        batch.map((url, idx) => fetchEpisode(url, workerPages[idx]))
+      );
+      episodes.push(...results.filter((ep): ep is RawEpisode => ep !== null));
+      console.log(`Fetched episodes ${Math.min(i + CONCURRENCY, episodeUrls.length)}/${episodeUrls.length}`);
+    }
+
+    await Promise.all(workerContexts.map((ctx) => ctx.close()));
+
+    console.log(`Successfully fetched ${episodes.length} episodes`);
     return episodes;
   } finally {
     await browser.close();
@@ -198,7 +235,7 @@ function parseEpisodes(episodes: RawEpisode[]): Episode[] {
     show: episode.show,
     slug: episode.slug,
     title: episode.title,
-    summary: episode.summary,
+    summary: episode.summary || 'Sem descrição disponível.', // Simple fallback
     published: episode.published,
     cover: {
       url: episode.cover.url,

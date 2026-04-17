@@ -1,9 +1,9 @@
 ---
 show: mel-e-tal
-slug: https://ruc.pt/mel-e-tal-03-nov-2025-melhores-lancamentos-de-outubro
+slug: mel-e-tal-03-nov-2025-melhores-lancamentos-de-outubro
 title: 03 de Novembro, melhores lançamentos de Outubro de 2025
 summary: >-
-  Episódio de Mel e Tal
+  Os melhores lançamentos do mês de outubro de 2025
 published: 2025-11-03T01:00:48
 coverURL: https://bucket.ruc.pt/wp-content/uploads/2025/11/14101608/post.jpg
 coverWidth: 
