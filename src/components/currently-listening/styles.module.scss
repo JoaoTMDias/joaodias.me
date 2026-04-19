@@ -69,7 +69,7 @@
     transform: translateX(25%) rotate(0);
   }
 
-  @media (--no-motion) {
+  @media (--with-motion) {
     &:hover {
       transform: scale(3.5);
 

@@ -4,25 +4,25 @@ import Profile from "../profile/index.astro";
 
 <section class="section">
   <div class="hero__container">
-    <div class="hero__greeting">
-      <h2 class="title">
-        <span class="title__hi">Hi, I'm João.<span aria-hidden="true">👋</span></span>
-        <span class="title__main"
-          >Bridging UX & Engineering to build better, more inclusive digital products.</span
-        >
-      </h2>
-    </div>
+    <h2 class="hero__title">I bridge UX and Engineering</h2>
     <div class="hero__picture">
       <Profile />
     </div>
+    <p class="hero__name">João Dias</p>
     <p class="hero__intro">
-      As a Senior Frontend Engineer based in Coimbra (Portugal), I specialize in accessible and
-      scalable Design Systems, performance optimization, and robust frontend architecture.
+      I'm a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal.
     </p>
-    <div class="hero__actions">
-      <a href="#connect" class="button button--secondary">Let's discuss a role or project</a>
-      <a href="/articles" class="button button--primary">Read my insights</a>
-    </div>
+    <svg class="hero__arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 261">
+      <path stroke="var(--text-color)" d="M12.66.178V163"></path>
+      <path
+        fill="var(--text-color)"
+        d="M12.762 163.25c2.916 0 5.105.42 6.714 1.271 1.6.846 2.644 2.126 3.258 3.889.618 1.773.802 4.04.661 6.849-.14 2.807-.605 6.137-1.272 10.026-2.665 15.553-8.538 39.952-9.605 75.202l.49.016c1.065-35.203 6.928-59.552 9.598-75.132.667-3.894 1.136-7.248 1.278-10.086.143-2.837-.04-5.18-.689-7.043-.652-1.873-1.776-3.256-3.494-4.165-1.707-.903-3.986-1.327-6.939-1.327v.5Z"
+      ></path>
+      <path
+        fill="var(--text-color)"
+        d="M12.762 163.25c-3.328 0-5.833.421-7.678 1.277-1.835.851-3.024 2.136-3.721 3.893-.702 1.768-.913 4.03-.752 6.837.16 2.805.69 6.133 1.449 10.022 3.036 15.552 9.73 39.954 10.947 75.207l-.49.018c-1.214-35.2-7.895-59.545-10.937-75.128-.76-3.894-1.296-7.249-1.458-10.09-.162-2.839.045-5.186.787-7.054.746-1.879 2.027-3.257 3.972-4.16 1.936-.898 4.522-1.322 7.881-1.322v.5Z"
+      ></path>
+    </svg>
   </div>
 </section>
 
@@ -41,70 +41,81 @@ import Profile from "../profile/index.astro";
 
     &__container {
       display: grid;
-      grid-template-areas:
-        "greeting"
-        "picture"
-        "intro"
-        "actions";
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      padding-block: 1.5rem;
+      grid-template-columns: repeat(6, 1fr);
+      grid-column-gap: 1rem;
+      grid-row-gap: 1.5rem;
+      align-content: start;
       width: 100%;
       height: auto;
-      background-color: var(--palette-black);
-      border-radius: inherit;
+      color: var(--text-color);
 
-      @media (--medium-viewport) {
-        padding-block: 0rem;
-        grid-template-areas:
-          "greeting picture"
-          "intro picture"
-          "actions picture";
-        grid-template-columns: 55% 45%;
-        gap: 0;
+      @media (--large-viewport) {
+        grid-template-columns: repeat(12, 1fr);
+      }
+    }
+
+    &__title,
+    &__name {
+      padding-block-start: var(--space-lg);
+      display: flex;
+      align-items: start;
+      gap: 1rem;
+      font-size: var(--font-size-lg);
+      font-family: var(--heading-font-family);
+      font-style: normal;
+      font-weight: 700;
+      font-variation-settings: "wght" 700;
+      line-height: 1.2;
+
+      @media (--laptop) {
+        font-size: var(--font-size-xxl);
+      }
+
+      @media (--laptop-hd-viewport) {
+        font-size: var(--font-size-xxxl);
       }
 
       @media (--large-viewport) {
-        grid-template-columns: 50% 50%;
+        padding-block-start: var(--space-xl);
       }
     }
 
-    &__greeting,
-    &__intro,
-    &__actions {
-      padding-inline: 1.5rem;
+    &__title {
+      grid-column-start: 1;
+      grid-column-end: 9;
+      grid-row-start: 1;
+      justify-content: start;
     }
 
-    &__greeting {
-      grid-area: greeting;
-
-      @media (--medium-viewport) {
-        padding-block-start: 1.5rem;
-      }
+    &__name {
+      grid-column-start: 8;
+      grid-column-end: 12;
+      grid-row-start: 3;
+      align-self: end;
+      justify-content: end;
     }
 
     &__picture {
-      grid-area: picture;
+      grid-column-start: 1;
+      grid-column-end: 13;
+      grid-row-start: 2;
       width: 100%;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--palette-amber-active);
-      @media (--medium-viewport) {
-        height: 100%;
-        border-top-right-radius: var(--section-border-radius);
-        border-bottom-right-radius: var(--section-border-radius);
-      }
+      align-items: start;
+      justify-content: start;
     }
 
     &__intro {
-      grid-area: intro;
+      grid-column-start: 2;
+      grid-column-end: 7;
+      grid-row-start: 3;
+      align-self: end;
       font-family: var(--text-font-family);
       font-style: normal;
       font-weight: 400;
       font-size: 1.5rem;
       line-height: 1.333;
-      color: var(--background-color);
+      color: var(--text-color);
       margin-bottom: 2rem;
 
       @media (--laptop-hd-viewport) {
@@ -112,52 +123,15 @@ import Profile from "../profile/index.astro";
       }
     }
 
-    &__actions {
-      grid-area: actions;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-
-      @media (--medium-viewport) {
-        padding-block-end: 1.5rem;
-      }
-    }
-  }
-
-  .title {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    gap: 1rem;
-    font-size: var(--font-size-xxl);
-    color: var(--background-color);
-    line-height: 1.2;
-
-    @media (--laptop-hd-viewport) {
-      font-size: var(--font-size-xxxl);
-    }
-
-    &__hi {
-      font-family: var(--text-font-family);
-      font-style: normal;
-      font-weight: 400;
-      font-variation-settings: "wght" 400;
-      font-size: var(--font-size-md);
-
-      @media (--laptop-hd-viewport) {
-        font-size: var(--font-size-lg);
-      }
-    }
-
-    &__main {
-      font-family: var(--heading-font-family);
-      font-style: normal;
-      font-weight: 700;
-      font-variation-settings: "wght" 700;
-      font-size: inherit;
-      color: var(--palette-amber-main);
+    &__arrow {
+      grid-column-start: 12;
+      grid-column-end: 13;
+      grid-row-start: 2;
+      height: 5rem;
+      align-self: end;
+      justify-content: center;
+      width: 24px;
+      height: auto;
     }
   }
 </style>

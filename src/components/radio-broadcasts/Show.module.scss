@@ -31,7 +31,7 @@
   background-size: auto;
   padding: var(--show-padding);
   border-radius: var(--space-base);
-  outline: 2px solid var(--palette-black);
+  outline: 0.125rem solid var(--palette-black);
 }
 
 .cover {
@@ -122,7 +122,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 

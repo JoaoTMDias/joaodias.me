@@ -1,7 +1,7 @@
 @custom-media --small-viewport (width >= 30rem);
-@custom-media --medium-viewport (width >= 48rem);
-@custom-media --large-viewport (width >= 64rem);
-@custom-media --laptop-viewport (width >= 68.75rem);
-@custom-media --laptop-hd-viewport (width >= 90rem);
-@custom-media --full-hd-viewport (width >= 120rem);
-@custom-media --no-motion (prefers-reduced-motion: no-preference);
+@custom-media --medium-viewport (width >= 48rem); // 768px
+@custom-media --large-viewport (width >= 64rem); // 1024px
+@custom-media --laptop-viewport (width >= 68.75rem); // 1100px
+@custom-media --laptop-hd-viewport (width >= 90rem);  // 1440px
+@custom-media --full-hd-viewport (width >= 120rem); // 1920px
+@custom-media --with-motion (prefers-reduced-motion: no-preference);

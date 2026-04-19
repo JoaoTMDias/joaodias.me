@@ -1,7 +1,5 @@
 <label class="theme-switcher">
-  <span class="sr-only" data-theme-label>
-    Light theme. Press to switch to dark theme
-  </span>
+  <span class="sr-only" data-theme-label> Light theme. Press to switch to dark theme </span>
   <input
     id="theme-switch"
     name="theme-switch"
@@ -83,7 +81,7 @@
   }
 
   .theme-switcher__input:focus-visible + .theme-switcher__track {
-    outline: 3px solid var(--text-color);
+    outline: 0.125rem solid var(--text-color);
     outline-offset: 4px;
   }
 
@@ -99,7 +97,7 @@
     background-color: var(--background-color, hsla(26, 37%, 96%, 1));
     border-radius: 50%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
   }
 
@@ -113,7 +111,9 @@
     position: absolute;
     width: var(--icon-size);
     height: var(--icon-size);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
     color: var(--text-color);
   }
 
@@ -172,13 +172,13 @@
       "[data-theme-switch]"
     ) as NodeListOf<HTMLInputElement>;
 
-    const themeLabels = document.querySelectorAll(
-      "[data-theme-label]"
-    ) as NodeListOf<HTMLElement>;
+    const themeLabels = document.querySelectorAll("[data-theme-label]") as NodeListOf<HTMLElement>;
 
     const updateLabels = (isDark: boolean) => {
-      const labelText = isDark ? "Light theme. Press to switch to dark theme" : "Dark theme. Press to switch to light theme";
-      themeLabels.forEach(label => {
+      const labelText = isDark
+        ? "Light theme. Press to switch to dark theme"
+        : "Dark theme. Press to switch to light theme";
+      themeLabels.forEach((label) => {
         label.textContent = labelText;
       });
     };
@@ -205,7 +205,7 @@
         updateLabels(isChecked);
 
         // Sync other switches if any exist on the page
-        themeSwitches.forEach(otherSwitch => {
+        themeSwitches.forEach((otherSwitch) => {
           if (otherSwitch !== themeSwitch) {
             otherSwitch.checked = isChecked;
             otherSwitch.setAttribute("aria-checked", isChecked.toString());

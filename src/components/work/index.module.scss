@@ -71,7 +71,7 @@
   list-style-type: none;
 
   @supports (animation-timeline: view()) {
-    @media (--large-viewport) and (--no-motion) {
+    @media (--large-viewport) and (--with-motion) {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(var(--numcards), var(--card-height));
@@ -82,7 +82,7 @@
 
 .work__list__item {
   @supports (animation-timeline: view()) {
-    @media (--large-viewport) and (--no-motion) {
+    @media (--large-viewport) and (--with-motion) {
       --index0: calc(var(--index) - 1);
       --reverse-index: calc(var(--numcards) - var(--index0));
       --reverse-index0: calc(var(--reverse-index) - 1);
@@ -136,7 +136,7 @@
   }
 
   @supports (animation-timeline: view()) {
-    @media (--large-viewport) and (--no-motion) {
+    @media (--large-viewport) and (--with-motion) {
       --start-range: calc(var(--index0) / var(--numcards) * 100%);
       --end-range: calc((var(--index)) / var(--numcards) * 100%);
 

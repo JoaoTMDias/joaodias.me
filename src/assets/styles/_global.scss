@@ -8,7 +8,7 @@
   margin: 0;
 }
 
-@media (--no-motion) {
+@media (--with-motion) {
   html {
     interpolate-size: allow-keywords;
     scroll-behavior: smooth;
