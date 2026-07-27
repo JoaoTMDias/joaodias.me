@@ -79,20 +79,20 @@ const currentPage = Astro.url.pathname;
       list-style-type: none;
       height: auto;
       width: 100%;
-      margin: 0 0 3rem 0;
+      margin: 0 0 var(--space-xl) 0;
       padding: 0;
-      gap: 1.5rem;
+      gap: var(--space-md);
     }
 
     &__item {
       @media (--with-motion) {
-        animation: fadeInUp 0.4s ease-out both;
+        animation: fadeInUp 0.6s ease-out both;
         animation-delay: var(--delay, 0ms);
       }
     }
 
     &__link {
-      padding-inline: 2rem;
+      padding-inline: var(--space-lg);
       display: flex;
       flex-direction: row;
       justify-content: start;
@@ -101,7 +101,7 @@ const currentPage = Astro.url.pathname;
       height: 100%;
       width: 100%;
       text-decoration: none;
-      gap: 0.5rem;
+      gap: var(--space-xs);
 
       &:hover,
       &:focus {
@@ -122,21 +122,21 @@ const currentPage = Astro.url.pathname;
       font-family: "Playfair Display";
       font-style: italic;
       font-weight: 400;
-      font-size: 3rem;
-      height: 3rem;
+      font-size: var(--font-size-xxl);
+      height: var(--space-xl);
       line-height: 1;
       text-decoration-line: underline;
-      text-decoration-thickness: 0.125rem;
-      text-underline-offset: 0.5rem;
+      text-decoration-thickness: var(--space-xxs);
+      text-underline-offset: var(--space-xs);
       color: var(--text-color);
     }
 
     &__link-icon {
       display: none;
-      width: 28px;
-      height: 28px;
+      width: var(--space-md);
+      height: var(--space-md);
       fill: var(--text-color);
-      margin-left: 2rem;
+      margin-left: var(--space-lg);
     }
   }
 
