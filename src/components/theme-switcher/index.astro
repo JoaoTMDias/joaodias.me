@@ -6,6 +6,8 @@
     data-theme-switch
     class="theme-switcher__input"
     type="checkbox"
+    role="switch"
+    aria-checked="false"
   />
   <span class="theme-switcher__track"></span>
   <span class="theme-switcher__thumb">
@@ -159,59 +161,47 @@
 </script>
 
 <script>
-  const DOMLoaded = (callback: () => void) => {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", callback);
-    } else {
-      callback();
-    }
-  };
+  const themeSwitches = document.querySelectorAll(
+    "[data-theme-switch]"
+  ) as NodeListOf<HTMLInputElement>;
 
-  DOMLoaded(() => {
-    const themeSwitches = document.querySelectorAll(
-      "[data-theme-switch]"
-    ) as NodeListOf<HTMLInputElement>;
+  const themeLabels = document.querySelectorAll("[data-theme-label]") as NodeListOf<HTMLElement>;
 
-    const themeLabels = document.querySelectorAll("[data-theme-label]") as NodeListOf<HTMLElement>;
+  function updateUI(isDark: boolean) {
+    const labelText = isDark
+      ? "Dark theme. Press to switch to light theme"
+      : "Light theme. Press to switch to dark theme";
 
-    const updateLabels = (isDark: boolean) => {
-      const labelText = isDark
-        ? "Light theme. Press to switch to dark theme"
-        : "Dark theme. Press to switch to light theme";
-      themeLabels.forEach((label) => {
-        label.textContent = labelText;
-      });
-    };
-
-    // Read the theme that was already set by the inline script
-    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-    const isDark = currentTheme === "dark";
-
-    // Initialize labels
-    updateLabels(isDark);
+    themeLabels.forEach((label) => {
+      label.textContent = labelText;
+    });
 
     themeSwitches.forEach((themeSwitch) => {
-      // If it's dark, we want the checkbox to be checked (switched to 'on' position)
       themeSwitch.checked = isDark;
-      themeSwitch.setAttribute("aria-checked", isDark.toString());
-
-      themeSwitch.addEventListener("change", () => {
-        const isChecked = themeSwitch.checked;
-        const newTheme = isChecked ? "dark" : "light";
-
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-        themeSwitch.setAttribute("aria-checked", isChecked.toString());
-        updateLabels(isChecked);
-
-        // Sync other switches if any exist on the page
-        themeSwitches.forEach((otherSwitch) => {
-          if (otherSwitch !== themeSwitch) {
-            otherSwitch.checked = isChecked;
-            otherSwitch.setAttribute("aria-checked", isChecked.toString());
-          }
-        });
-      });
+      themeSwitch.setAttribute("aria-checked", String(isDark));
     });
+  }
+
+  function applyTheme(theme: string) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    updateUI(theme === "dark");
+  }
+
+  // Initialize from the theme already applied by the inline script
+  const currentTheme = document.documentElement.getAttribute("data-theme") ?? "light";
+  updateUI(currentTheme === "dark");
+
+  themeSwitches.forEach((themeSwitch) => {
+    themeSwitch.addEventListener("change", () => {
+      applyTheme(themeSwitch.checked ? "dark" : "light");
+    });
+  });
+
+  // Sync with OS preference changes, but only when no manual override is stored
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme")) {
+      applyTheme(e.matches ? "dark" : "light");
+    }
   });
 </script>
