@@ -7,6 +7,7 @@
   type="button"
   class="mobile-navigation-toggle"
   popovertarget="mobile-navigation"
+  popovertargetaction="toggle"
 >
   <span class="mobile-navigation-toggle__open">Menu</span>
   <span class="mobile-navigation-toggle__close">Close</span>
@@ -21,7 +22,7 @@
   });
 
   document.addEventListener("astro:before-swap", () => {
-    (document.getElementById("mobile-navigation") as any)?.hidePopover();
+    (document.getElementById("mobile-navigation") as HTMLButtonElement)?.hidePopover();
     document.body.style.overflow = "";
   });
 </script>
@@ -35,12 +36,12 @@
     justify-content: center;
     align-items: center;
     width: auto;
-    height: 1.5rem;
+    height: var(--space-md);
     background-color: transparent;
     border: none;
     cursor: pointer;
-    padding-inline: 1rem;
-    padding-block: 0.75rem;
+    padding-inline: var(--space-base);
+    padding-block: var(--space-sm);
 
     @media (--medium-viewport) {
       display: none;
@@ -49,9 +50,10 @@
     &__open,
     &__close {
       font-family: var(--text-font-family);
-      font-size: 1.25rem;
+      font-size: var(--font-size-base);
       font-weight: 600;
-      line-height: 1.5rem;
+      line-height: var(--space-md);
+      letter-spacing: 0.05rem;
     }
   }
 
