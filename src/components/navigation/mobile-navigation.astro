@@ -5,14 +5,14 @@ const config = await getEntry("config", "config");
 const currentPage = Astro.url.pathname;
 ---
 
-<nav aria-label="Pages" class="mobile-navigation" id="mobile-navigation">
+<nav aria-label="Pages" class="mobile-navigation" id="mobile-navigation" popover="auto">
   <ul class="mobile-navigation__list">
     {
-      config.data.nav.map((item) => {
+      config.data.nav.map((item, index) => {
         const isCurrentPage = currentPage === item.link;
 
         return (
-          <li class="mobile-navigation__item">
+          <li class="mobile-navigation__item" style={`--delay: ${index * 100}ms`}>
             <a
               class="mobile-navigation__link"
               id={item.id}
@@ -49,91 +49,105 @@ const currentPage = Astro.url.pathname;
   @use "../../assets/styles/custom-media.scss";
 
   .mobile-navigation {
-    --main-navigation-background: var(--palette-indigo-background);
+    --main-navigation-background: var(--background-color);
     --main-navigation-background-hover: var(--palette-indigo-main);
 
-    position: fixed;
     top: var(--header-height);
     left: 0;
     width: 100%;
-    display: none;
     flex-direction: column;
-    justify-content: start;
+    justify-content: end;
     align-items: stretch;
     height: calc(100vh - var(--header-height));
-    z-index: 50;
     background-color: var(--main-navigation-background);
+    border: none;
+    overflow: hidden;
 
     @media (--medium-viewport) {
       display: none !important;
     }
-  }
 
-  :global(.header:has(.header__toggle[aria-expanded="true"])) .mobile-navigation {
-    display: flex;
-  }
-
-  .mobile-navigation__list {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: stretch;
-    list-style-type: none;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .mobile-navigation__item {
-    height: 25%;
-  }
-
-  .mobile-navigation__link {
-    padding-inline: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    gap: 0.5rem;
-    font-size: 10vw;
-
-    &:hover,
-    &:focus {
-      background-color: var(--main-navigation-background-hover);
+    &:popover-open {
+      display: flex;
     }
 
-    &[aria-current="page"] {
-      .mobile-navigation__link-text {
-        text-decoration-style: wavy;
+    &__list {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: normal;
+      list-style-type: none;
+      height: auto;
+      width: 100%;
+      margin: 0 0 3rem 0;
+      padding: 0;
+      gap: 1.5rem;
+    }
+
+    &__item {
+      @media (--with-motion) {
+        animation: fadeInUp 0.4s ease-out both;
+        animation-delay: var(--delay, 0ms);
       }
-      .mobile-navigation__link-icon {
-        display: inline-flex;
+    }
+
+    &__link {
+      padding-inline: 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      text-decoration: none;
+      gap: 0.5rem;
+
+      &:hover,
+      &:focus {
+        background-color: var(--main-navigation-background-hover);
       }
+
+      &[aria-current="page"] {
+        .mobile-navigation__link-text {
+          font-weight: 600;
+        }
+        .mobile-navigation__link-icon {
+          display: inline-flex;
+        }
+      }
+    }
+
+    &__link-text {
+      font-family: "Playfair Display";
+      font-style: italic;
+      font-weight: 400;
+      font-size: 3rem;
+      height: 3rem;
+      line-height: 1;
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.125rem;
+      text-underline-offset: 0.5rem;
+      color: var(--text-color);
+    }
+
+    &__link-icon {
+      display: none;
+      width: 28px;
+      height: 28px;
+      fill: var(--text-color);
+      margin-left: 2rem;
     }
   }
 
-  .mobile-navigation__link-text {
-    font-family: "Momo Trust Sans";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 3rem;
-    height: 2.75rem;
-    line-height: 1;
-    text-decoration-line: underline;
-    text-underline-offset: 0.5rem;
-    color: var(--text-color);
-  }
-
-  .mobile-navigation__link-icon {
-    display: none;
-    width: 28px;
-    height: 28px;
-    fill: var(--text-color);
-    margin-left: 2rem;
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(25%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>

@@ -1,0 +1,71 @@
+---
+
+---
+
+<button
+  id="mobile-navigation-toggle"
+  type="button"
+  class="mobile-navigation-toggle"
+  popovertarget="mobile-navigation"
+>
+  <span class="mobile-navigation-toggle__open">Menu</span>
+  <span class="mobile-navigation-toggle__close">Close</span>
+</button>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const navigation = document.getElementById("mobile-navigation");
+    navigation?.addEventListener("toggle", (e) => {
+      document.body.style.overflow = (e as ToggleEvent).newState === "open" ? "hidden" : "";
+    });
+  });
+
+  document.addEventListener("astro:before-swap", () => {
+    (document.getElementById("mobile-navigation") as any)?.hidePopover();
+    document.body.style.overflow = "";
+  });
+</script>
+
+<style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
+
+  .mobile-navigation-toggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 1.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding-inline: 1rem;
+    padding-block: 0.75rem;
+
+    @media (--medium-viewport) {
+      display: none;
+    }
+
+    &__open,
+    &__close {
+      font-family: var(--text-font-family);
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.5rem;
+    }
+  }
+
+  .mobile-navigation-toggle__close {
+    display: none;
+  }
+
+  :global(.header:has(#mobile-navigation:popover-open)) {
+    .mobile-navigation-toggle__open {
+      display: none;
+    }
+
+    .mobile-navigation-toggle__close {
+      display: inline;
+    }
+  }
+</style>

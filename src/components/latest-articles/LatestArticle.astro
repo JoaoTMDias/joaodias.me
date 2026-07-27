@@ -1,22 +1,36 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  pubDate: Date;
+  excerpt: string;
+  featuredImage?: string;
+  readingTime?: number;
+}
+
+const { id, title, pubDate, excerpt, featuredImage, readingTime } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+---
+
 <article class="featured-article">
-  <img
-    class="featured-article__cover"
-    src="/open-graph-picture.jpg"
-    width="960"
-    height="480"
-    alt=""
-  />
+  {
+    featuredImage && (
+      <img class="featured-article__cover" src={featuredImage} width="960" height="480" alt="" />
+    )
+  }
   <div class="featured-article__content">
-    <time datetime="26/11/2025" class="featured-article__date"
-      ><span class="sr-only">Published on</span>&nbsp;Nov 26th, 2025</time
+    <time datetime={pubDate.toISOString()} class="featured-article__date"
+      ><span class="sr-only">Published on</span>&nbsp;{formattedDate}</time
     >
-    <h3 class="featured-article__title">Screen Reader Testing: A Developer's Perspective</h3>
-    <p class="featured-article__summary">
-      Learn practical, hands-on strategies and common pitfalls for developers conducting <strong
-        >effective screen reader testing</strong
-      >, ensuring a truly inclusive user experience.
-    </p>
-    <a href="/articles/1" class="button featured-article__link"> Read this article </a>
+    <h3 class="featured-article__title">{title}</h3>
+    <p class="featured-article__summary">{excerpt}</p>
+    {readingTime && <span class="featured-article__reading-time">{readingTime} min read</span>}
+    <a href={`/articles/${id}`} class="button featured-article__link"> Read this article </a>
   </div>
 </article>
 
