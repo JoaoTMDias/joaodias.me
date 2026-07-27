@@ -15,6 +15,10 @@
   }
 }
 
+html {
+    color-scheme: light dark;
+}
+
 body {
   font-family: var(--text-font-family);
   font-size: var(--font-size-base);

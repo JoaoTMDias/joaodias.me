@@ -145,7 +145,7 @@
      Layout / Sizes / Misc
      -------------------- */
   --header-height: 4rem;
-  --global-padding: var(--space-md);
+  --global-padding: var(--space-base);
   --section-border-radius: 0.25rem;
   --scrollbar-width: 0.75rem;
   --theme-blue-background: hsla(236, 100%, 94%, 1);
@@ -159,7 +159,6 @@
   --text-muted-strong: rgba(0, 0, 0, 0.4);
   --scrollbar-track: rgba(0, 0, 0, 0.04);
   --scrollbar-thumb: rgba(0, 0, 0, 0.16);
-  color-scheme: light;
 
   @media (--medium-viewport) {
     --section-border-radius: 0.5rem;
