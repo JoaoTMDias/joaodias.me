@@ -3,14 +3,14 @@
   "hero": {
     "profile-picture": {
       "src": "/photo-profile.webp",
-      "width": 1248,
-      "height": 768,
-      "alt": "João similing at the camera, wearing a funny hawaiian shirt"
+      "width": 560,
+      "height": 560,
+      "alt": "Headshot portrait of João Dias seated on a brown leather armchair. He has long wavy hair, glasses, a mustache, and visible forearm tattoos, wearing a short-sleeved black polo shirt against a warm, neutral backdrop."
     },
     "copyright": "Since 1987 © Limited Edition"
   },
   "about": {
-    "title": "Main Content",
+    "title": "About me",
     "intro": {
       "title": "Intro",
       "subtitle": "Hey, what's up?",
