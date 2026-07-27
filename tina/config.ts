@@ -1,6 +1,6 @@
 import { defineConfig } from "tinacms";
 import {
-  ArticlesCollection,
+  BlogCollection,
   BioCollection,
   ExperienceCollection,
   GlobalConfigCollection,
@@ -29,7 +29,7 @@ export default defineConfig({
   schema: {
     collections: [
       GlobalConfigCollection,
-      ArticlesCollection,
+      BlogCollection,
       BioCollection,
       ExperienceCollection,
       ProjectsCollection,

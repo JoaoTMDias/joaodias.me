@@ -1,9 +1,9 @@
 import type { Collection } from "tinacms";
 
-export const ArticlesCollection: Collection = {
+export const BlogCollection: Collection = {
   name: "article",
-  label: "Articles",
-  path: "src/content/articles",
+  label: "Blog",
+  path: "src/content/blog",
   fields: [
     {
       type: "string",

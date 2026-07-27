@@ -1,5 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import LatestArticle from "./LatestArticle.astro";
+
+const articles = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 4);
 ---
 
 <section id="latest-articles">
@@ -7,13 +12,21 @@ import LatestArticle from "./LatestArticle.astro";
     <h2>Latest Insights</h2>
     <p>Here are my latest articles on web development.</p>
     <div class="articles__list">
-      <LatestArticle />
-      <LatestArticle />
-      <LatestArticle />
-      <LatestArticle />
+      {
+        articles.map((article) => (
+          <LatestArticle
+            id={article.id}
+            title={article.data.title}
+            pubDate={article.data.pubDate}
+            excerpt={article.data.excerpt}
+            featuredImage={article.data.featuredImage}
+            readingTime={article.data.readingTime}
+          />
+        ))
+      }
     </div>
   </div>
-  <a class="button button--primary articles__cta" href="/article">Visit all articles page</a>
+  <a class="button button--primary articles__cta" href="/articles">Visit all articles page</a>
 </section>
 
 <style lang="scss">
