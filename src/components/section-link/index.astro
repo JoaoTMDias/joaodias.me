@@ -1,0 +1,46 @@
+---
+interface Props {
+  text: string;
+  href: string;
+}
+
+const { text, href } = Astro.props;
+---
+
+<a class="link section__link" href={href}>
+  <span class="section__link__text">{text}</span>
+  <span class="section__link__arrow" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28"
+      ><path fill="currentColor" d="M15.513 14 10 8.488 11.488 7l7 7-7 7L10 19.512z"></path></svg
+    >
+  </span>
+</a>
+
+<style lang="scss">
+  .section__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--link-color);
+
+    &__arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background-color: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--link-active-color);
+      text-underline-offset: 0.5rem;
+
+      .section__link__arrow {
+        background-color: light-dark(var(--color-B00), var(--color-N90));
+      }
+    }
+  }
+</style>
