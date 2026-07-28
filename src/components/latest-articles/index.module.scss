@@ -1,0 +1,107 @@
+@use "../../assets/styles/custom-media.scss";
+
+.latest-articles {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--space-lg);
+
+  &__list,
+  &__container {
+      grid-column: 1 / -1
+  }
+
+  &__list {
+    --articles-per-row: 1;
+    --articles-gap: var(--space-lg);
+
+    display: grid;
+    grid-gap: var(--articles-gap);
+    grid-template-rows: auto;
+    grid-template-columns: repeat(var(--articles-per-row), 1fr);
+    grid-auto-columns: 1fr;
+    align-items: stretch;
+    width: 100%;
+
+    @media (--medium-viewport) {
+      --articles-per-row: 2;
+      --articles-gap: var(--space-xl);
+    }
+
+    @media (--full-hd-viewport) {
+      --articles-per-row: 3;
+    }
+  }
+}
+
+.featured-article {
+  --feature-article-height: 70cqw;
+  --feature-article-date-size: var(--font-size-base);
+  --feature-article-title-size: var(--font-size-lg);
+  --feature-article-summary-size: var(--font-size-md);
+
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--space-base);
+  color: var(--text-color);
+  transition: all 200ms ease-in-out;
+
+  &__link {
+    text-decoration: none;
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: var(--space-base);
+  }
+
+  &__content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxs);
+    width: 100%;
+  }
+
+  &__cover {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    min-width: 0;
+  }
+
+  &__date,
+  &__reading-time {
+    font-size: var(--feature-article-date-size);
+    font-family: var(--text-font-family);
+    color: var(--text-color-faded);
+    margin: 0;
+  }
+
+  &__title{
+    font-size: var(--feature-article-title-size);
+    position: relative;
+    width: 100%;
+    color: inherit;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  @media (--medium-viewport) {
+    --feature-article-date-size: var(--font-size-md);
+    --feature-article-title-size: var(--font-size-lg);
+  }
+
+  @media (--large-viewport) {
+    --feature-article-title-size: var(--font-size-xl);
+  }
+}

@@ -36,10 +36,12 @@
   </span>
 </label>
 
-<style>
+<style lang="scss">
+  @use "../../assets/styles/custom-media.scss";
+
   .theme-switcher {
-    --switcher-width: 3.5rem;
-    --switcher-height: 2rem;
+    --switcher-width: 4.5rem;
+    --switcher-height: var(--space-xl);
     --switcher-padding: 0.25rem;
     --icon-size: 1.25rem;
 
@@ -53,6 +55,11 @@
     /* Using touch-action to improve mobile feel */
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+
+    @media (--medium-viewport) {
+      --switcher-width: var(--space-xl);
+      --switcher-height: var(--space-lg);
+    }
   }
 
   .theme-switcher__input {
@@ -73,7 +80,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--text-color-faded, #e2e8f0);
+    background-color: var(--text-color, #e2e8f0);
     border-radius: 9999px;
     transition: background-color 0.3s ease;
   }

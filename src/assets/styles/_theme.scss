@@ -4,116 +4,48 @@
    ------------------------------------------- */
 
 :root {
-  /* --------------------
-     Base palette
-     -------------------- */
-  --palette-black: hsl(0, 0%, 0%);
-  --palette-white: hsl(0, 0%, 100%);
+  color-scheme: light dark;
 
   /* --------------------
-     Semantic tokens (refer to palette values)
+     Base colors
      -------------------- */
-  --palette-foreground: var(--palette-black);
-  --palette-main-foreground: var(--palette-black);
-  --palette-border: var(--palette-black);
-  --palette-shadow: var(--palette-black);
-  --palette-secondary-background: hsl(0, 0%, 100%);
+  --color-B00: #e7effd;
+  --color-B10: #9cbef8;
+  --color-B20: #73a3f5;
+  --color-B30: #377cf1;
+  --color-B40: #0e61ee;
+  --color-B50: #0a44a7;
+  --color-B60: #093b91;
+
+  --color-N00: #fafafb;
+  --color-N10: #f5f5f7;
+  --color-N20: #ebecef;
+  --color-N30: #dee0e5;
+  --color-N40: #bfc3ce;
+  --color-N50: #858ca0;
+  --color-N60: #6d7692;
+  --color-N70: #4e5979;
+  --color-N80: #2e3a5d;
+  --color-N90: #1c2950;
+  --color-N100: #0d1b44;
+  --color-N200: #000f3a;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
 
   /* --------------------
-     Accent color scale
+     Semantic tokens
      -------------------- */
+  --palette-black: var(--color-black);
+  --palette-white: var(--color-white);
 
-  /* Red */
-  --palette-red-main: hsl(359, 100%, 65%);
-  --palette-red-active: hsl(359, 100%, 59%);
-  --palette-red-background: hsl(0, 100%, 94%);
-
-  /* Orange */
-  --palette-orange-main: hsl(28, 100%, 51%);
-  --palette-orange-active: hsl(28, 100%, 45%);
-  --palette-orange-background: hsl(33, 100%, 92%);
-
-  /* Amber */
-  --palette-amber-main: hsl(45, 100%, 50%);
-  --palette-amber-active: hsl(45, 100%, 44%);
-  --palette-amber-background: hsl(48, 96%, 89%);
-
-  /* Yellow */
-  --palette-yellow-main: hsl(49, 100%, 49%);
-  --palette-yellow-active: hsl(49, 100%, 43%);
-  --palette-yellow-background: hsl(54, 92%, 88%);
-
-  /* Lime */
-  --palette-lime-main: hsl(84, 100%, 45%);
-  --palette-lime-active: hsl(84, 100%, 39%);
-  --palette-lime-background: hsl(84, 71%, 89%);
-
-  /* Green */
-  --palette-green-main: hsl(152, 96%, 45%);
-  --palette-green-active: hsl(152, 96%, 39%);
-  --palette-green-background: hsl(142, 84%, 93%);
-
-  /* Emerald */
-  --palette-emerald-main: hsl(162, 100%, 42%);
-  --palette-emerald-active: hsl(162, 100%, 36%);
-  --palette-emerald-background: hsl(156, 84%, 90%);
-
-  /* Teal (Já fornecido) */
-  --palette-teal-main: hsl(173, 100%, 42%);
-  --palette-teal-active: hsl(173, 100%, 36%);
-  --palette-teal-background: hsl(170, 82%, 89%);
-
-  /* Cyan */
-  --palette-cyan-main: hsl(190, 100%, 47%);
-  --palette-cyan-active: hsl(190, 100%, 41%);
-  --palette-cyan-background: hsl(190, 95%, 90%);
-
-  /* Sky */
-  --palette-sky-main: hsl(204, 100%, 50%);
-  --palette-sky-active: hsl(204, 100%, 44%);
-  --palette-sky-background: hsl(207, 89%, 93%);
-
-  /* Blue */
-  --palette-blue-main: hsl(217, 100%, 66%);
-  --palette-blue-active: hsl(217, 100%, 60%);
-  --palette-blue-background: hsl(214, 95%, 93%);
-
-  /* Indigo */
-  --palette-indigo-main: hsl(236, 100%, 74%);
-  --palette-indigo-active: hsl(236, 100%, 68%);
-  --palette-indigo-background: hsl(236, 100%, 94%);
-
-  /* Violet */
-  --palette-violet-main: hsl(258, 100%, 76%);
-  --palette-violet-active: hsl(258, 100%, 70%);
-  --palette-violet-background: hsl(259, 94%, 95%);
-
-  /* Purple */
-  --palette-purple-main: hsl(276, 100%, 74%);
-  --palette-purple-active: hsl(276, 100%, 68%);
-  --palette-purple-background: hsl(270, 100%, 95%);
-
-  /* Fuchsia */
-  --palette-fuchsia-main: hsl(291, 100%, 71%);
-  --palette-fuchsia-active: hsl(291, 100%, 65%);
-  --palette-fuchsia-background: hsl(290, 100%, 95%);
-
-  /* Pink */
-  --palette-pink-main: hsl(332, 96%, 69%);
-  --palette-pink-active: hsl(332, 96%, 63%);
-  --palette-pink-background: hsl(327, 73%, 95%);
-
-  /* Rose */
-  --palette-rose-main: hsl(353, 100%, 70%);
-  --palette-rose-active: hsl(353, 100%, 64%);
-  --palette-rose-background: hsl(355, 100%, 94%);
-
-  /* --------------------
-     Typography
-     -------------------- */
+  --palette-foreground: light-dark(var(--color-N90), var(--color-N10));
+  --palette-main-foreground: light-dark(var(--color-N70), var(--color-N40));
+  --palette-border: light-dark(var(--color-N30), var(--color-N70));
+  --palette-shadow: light-dark(var(--color-N200), var(--color-B20));
+  --palette-secondary-background: light-dark(var(--color-N10), var(--color-N100));
+  --heading-font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
   --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
-    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  --heading-font-family: "Playfair Display", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
     Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 
   --font-size-xxs: clamp(0.51rem, 0.45vi + 0.35rem, 0.6rem);
@@ -128,6 +60,9 @@
 
   --text-color: var(--palette-foreground);
   --text-color-faded: var(--palette-main-foreground);
+   --heading-color: light-dark(var(--color-N100), var(--color-N00));
+   --link-active-color: light-dark(var(--color-B40), var(--color-B10));
+   --tag-background-color: light-dark(var(--color-B00), var(--color-N80));
 
   /* --------------------
      Spacing scale (use for margin/padding, etc.)
@@ -148,17 +83,17 @@
   --global-padding: var(--space-base);
   --section-border-radius: 0.25rem;
   --scrollbar-width: 0.75rem;
-  --theme-blue-background: hsla(236, 100%, 94%, 1);
+   --theme-blue-background: light-dark(var(--color-B00), var(--color-N80));
 
   /* --------------------
      Accessibility & utilities
      -------------------- */
   --background-color: var(--palette-secondary-background);
-  --background-color-faded: rgba(255, 255, 255, 0.5);
-  --text-muted: rgba(0, 0, 0, 0.6);
-  --text-muted-strong: rgba(0, 0, 0, 0.4);
-  --scrollbar-track: rgba(0, 0, 0, 0.04);
-  --scrollbar-thumb: rgba(0, 0, 0, 0.16);
+   --background-color-faded: light-dark(
+      rgba(245, 245, 247, 0.5),
+      rgba(13, 27, 68, 0.55)
+   );
+   --scrollbar-thumb: light-dark(rgba(0, 15, 58, 0.16), rgba(245, 245, 247, 0.32));
 
   @media (--medium-viewport) {
     --section-border-radius: 0.5rem;
@@ -169,56 +104,11 @@
   }
 }
 
-html[data-theme="dark"] {
-  --palette-foreground: hsl(223.81, 0%, 90%);
-  --palette-main-foreground: var(--palette-black);
-  --palette-border: var(--palette-white);
-  --palette-secondary-background: hsl(223.81, 0%, 12%);
-  --palette-red-main: hsl(359, 100%, 70%);
-  --palette-red-background: hsl(359, 40%, 15%);
-  --palette-orange-main: hsl(28, 100%, 46%);
-  --palette-orange-background: hsl(27, 40%, 14%);
-  --palette-amber-main: hsl(45, 100%, 45%);
-  --palette-amber-background: hsl(44, 40%, 14%);
-  --palette-yellow-main: hsl(49, 100%, 44%);
-  --palette-yellow-background: hsl(47, 40%, 14%);
-  --palette-lime-main: hsl(84, 100%, 40%);
-  --palette-lime-background: hsl(84, 40%, 9%);
-  --palette-green-main: hsl(152, 96%, 40%);
-  --palette-green-background: hsl(147, 40%, 9%);
-  --palette-emerald-main: hsl(162, 100%, 37%);
-  --palette-emerald-background: hsl(170, 40%, 9%);
-  --palette-teal-main: hsl(173, 100%, 37%);
-  --palette-teal-background: hsl(182, 40%, 9%);
-  --palette-cyan-main: hsl(190, 100%, 37%);
-  --palette-cyan-background: hsl(197, 40%, 14%);
-  --palette-sky-main: hsl(204, 100%, 45%);
-  --palette-sky-background: hsl(205, 40%, 15%);
-  --palette-blue-main: hsl(217, 100%, 66%);
-  --palette-blue-background: hsl(227, 40%, 21%);
-  --palette-indigo-main: hsl(236, 100%, 74%);
-  --palette-indigo-background: hsl(245, 40%, 20%);
-  --palette-violet-main: hsl(258, 100%, 76%);
-  --palette-violet-background: hsl(260, 40%, 23%);
-  --palette-purple-main: hsl(276, 100%, 79%);
-  --palette-purple-background: hsl(283, 40%, 20%);
-  --palette-fuchsia-main: hsl(291, 100%, 46%);
-  --palette-fuchsia-background: hsl(300, 40%, 15%);
-  --palette-pink-main: hsl(332, 96%, 59%);
-  --palette-pink-background: hsl(338, 40%, 16%);
-  --palette-rose-main: hsl(353, 100%, 65%);
-  --palette-rose-background: hsl(347, 40%, 15%);
-  --text-color: hsla(26, 37%, 96%, 1);
-  --text-color-faded: hsla(26, 37%, 96%, 0.5);
-  --background-color: hsla(244, 83%, 14%, 1);
-  --background-color-faded: hsla(244, 83%, 14%, 0.5);
-  --text-muted: rgba(255, 255, 255, 0.75);
-  --text-muted-strong: rgba(255, 255, 255, 0.5);
-  --scrollbar-track: rgba(255, 255, 255, 0.03);
-  --scrollbar-thumb: rgba(255, 255, 255, 0.12);
-  color-scheme: dark;
-
-  body {
-   background-image: none;
-  }
+html[data-theme="light"] {
+  color-scheme: light;
 }
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+

@@ -31,20 +31,29 @@
   @use "../../assets/styles/custom-media.scss";
 
   .mobile-navigation-toggle {
+    --toggle-background-color: var(--background-color);
+    --toggle-color: var(--text-color);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: auto;
-    height: var(--space-md);
+    height: var(--space-xl);
+    border-radius: var(--space-xl);
     background-color: transparent;
     border: none;
     cursor: pointer;
-    padding-inline: var(--space-base);
-    padding-block: var(--space-sm);
+    background-color: var(--toggle-background-color);
+    color: var(--toggle-color);
 
     @media (--medium-viewport) {
       display: none;
+    }
+
+    @media (--with-motion) {
+      transition:
+        background-color 200ms ease,
+        color 300ms ease;
     }
 
     &__open,
@@ -54,6 +63,14 @@
       font-weight: 600;
       line-height: var(--space-md);
       letter-spacing: 0.05rem;
+      padding-inline: var(--space-base);
+      padding-block: var(--space-sm);
+    }
+
+    &:hover,
+    &:focus {
+      --toggle-background-color: light-dark(var(--color-N90), var(--color-N90));
+      --toggle-color: light-dark(var(--color-N10), var(--color-N90));
     }
   }
 

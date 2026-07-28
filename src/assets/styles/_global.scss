@@ -31,10 +31,13 @@ body {
   justify-content: flex-start;
   align-items: stretch;
   background-color: var(--background-color);
-  background-image: url(/white-texture.png);
   background-position: 0 0;
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
+
+  html[data-theme="light"] & {
+    background-image: url(/white-texture.png);
+  }
 }
 
 img,
@@ -64,7 +67,7 @@ h6 {
 }
 
 a {
-  color: inherit;
+  color: var(--link-color);
 }
 
 h1,
@@ -86,7 +89,7 @@ h5,
 h6 {
   font-style: normal;
   line-height: 1.2;
-  color: var(--text-color);
+  color: var(--heading-color);
 }
 
 h1,
@@ -104,8 +107,8 @@ h2,
 
 h3,
 .as-h3 {
-  font-weight: 600;
-  font-variation-settings: "wght" 600;
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
   margin-bottom: 1rem;
 
   @media (--medium-viewport) {

@@ -1,47 +1,24 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import clsx from "clsx";
+import SectionLink from "../section-link/index.astro";
+import SectionTitle from "../section-title/index.astro";
 import FeaturedWorkItem from "./FeaturedWorkItem.astro";
+import styles from "./index.module.scss";
 
 // Data fetching and processing
-const projects = (await getCollection("projects"))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 4);
+const projects: CollectionEntry<"projects">[] = (await getCollection("projects"))
+	.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+	.slice(0, 4);
 ---
 
-<section id="featured-work">
-  <div class="section__container featured-work">
-    <h2>Featured Work</h2>
-    <div class="featured-work__list">
+<section id="featured-work" class={styles["featured-work"]}>
+  <div class={clsx("section__container", styles["featured-work__content"])}>
+    <SectionTitle text="Featured Work" number={2} />
+    <div class={styles["featured-work__list"]}>
       {projects.map((project) => <FeaturedWorkItem key={project.id} project={project} />)}
     </div>
   </div>
-  <a href="/projects" class="button button--primary featured-work__cta">Visit all projects page</a>
+  <SectionLink href="/projects" text="Visit all featured projects" />
 </section>
-
-<style lang="scss">
-  @use "../../assets/styles/custom-media.scss";
-  .featured-work {
-    width: 100%;
-  }
-
-  .featured-work__list {
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr;
-    grid-auto-columns: 1fr;
-    align-items: stretch;
-    width: 100%;
-
-    @media (--laptop-viewport) {
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 2.5rem;
-    }
-  }
-
-  .featured-work__cta {
-    width: max-content;
-    align-self: center;
-  }
-</style>

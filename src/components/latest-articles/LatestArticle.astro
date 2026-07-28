@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import styles from "./index.module.scss";
+
 interface Props {
   id: string;
   title: string;
@@ -8,107 +11,46 @@ interface Props {
   readingTime?: number;
 }
 
-const { id, title, pubDate, excerpt, featuredImage, readingTime } = Astro.props;
+const { id, title, pubDate, featuredImage, readingTime } = Astro.props;
+
+function getTransitionNames(slug: string) {
+	return {
+		title: `article-title-${slug}`,
+		image: `article-image-${slug}`,
+	};
+}
+
 
 const formattedDate = pubDate.toLocaleDateString("en-US", {
   year: "numeric",
   month: "short",
   day: "numeric",
 });
+const transitionNames = getTransitionNames(id);
+
 ---
 
-<article class="featured-article">
-  {
-    featuredImage && (
-      <img class="featured-article__cover" src={featuredImage} width="960" height="480" alt="" />
-    )
-  }
-  <div class="featured-article__content">
-    <time datetime={pubDate.toISOString()} class="featured-article__date"
-      ><span class="sr-only">Published on</span>&nbsp;{formattedDate}</time
-    >
-    <h3 class="featured-article__title">{title}</h3>
-    <p class="featured-article__summary">{excerpt}</p>
-    {readingTime && <span class="featured-article__reading-time">{readingTime} min read</span>}
-    <a href={`/articles/${id}`} class="button featured-article__link"> Read this article </a>
-  </div>
+<article class={styles["featured-article"]}>
+  <a href={`/blog/${id}`} class={styles["featured-article__link"]} aria-hidden="true" tabindex="-1">
+    {
+      featuredImage && (
+        <Image
+          class={styles["featured-article__cover"]}
+          src={featuredImage}
+          width="960"
+          height="480"
+          loading="lazy"
+          alt=""
+          transition:name={transitionNames.image}
+        />
+      )
+    }
+    <div class={styles["featured-article__content"]}>
+      <time datetime={pubDate.toISOString()} class={styles["featured-article__date"]}
+        ><span class="sr-only">Published on</span>&nbsp;{formattedDate}</time
+      >
+      <h3 class={styles["featured-article__title"]} transition:name={transitionNames.title}>{title}</h3>
+      {readingTime && <p class={styles["featured-article__reading-time"]}>{readingTime} min read</p>}
+    </div>
+  </a>
 </article>
-
-<style lang="scss">
-  @use "../../assets/styles/custom-media.scss";
-
-  .featured-article {
-    --feature-article-height: 70cqw;
-    --feature-article-date-size: var(--font-size-sm);
-    --feature-article-title-size: var(--font-size-lg);
-    --feature-article-summary-size: var(--font-size-md);
-
-    position: relative;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    border-radius: 1rem;
-    background-color: var(--palette-white);
-    color: var(--text-color);
-    border: 0.125rem solid var(--palette-border);
-    text-decoration: none;
-    transition: all 200ms ease-in-out;
-
-    &__content {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      width: 100%;
-    }
-
-    &__date {
-      font-size: var(--feature-article-date-size);
-      margin-bottom: 0.5rem;
-    }
-
-    &__title {
-      font-size: var(--feature-article-title-size);
-    }
-
-    &__summary {
-      font-size: var(--feature-article-summary-size);
-      margin-bottom: 1.5rem;
-    }
-
-    &__title,
-    &__summary {
-      position: relative;
-      width: 100%;
-      color: inherit;
-    }
-
-    &__cover {
-      position: relative;
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      min-width: 0;
-    }
-
-    &__link {
-      max-width: max-content;
-    }
-
-    @media (--medium-viewport) {
-      --feature-article-height: 50cqw;
-      --feature-article-date-size: var(--font-size-md);
-      --feature-article-title-size: var(--font-size-lg);
-      --feature-article-summary-size: var(--font-size-md);
-    }
-
-    @media (--large-viewport) {
-      --feature-article-height: 40cqw;
-      --feature-article-title-size: var(--font-size-xl);
-    }
-  }
-</style>

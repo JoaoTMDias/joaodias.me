@@ -1,0 +1,15 @@
+---
+interface Props {
+  text: string;
+  number: number;
+}
+
+const { text, number } = Astro.props;
+
+const formattedNumber = number < 10 ? `0${number}` : number;
+---
+
+<h2 class="section__title">
+  <span class="section__title--number">{formattedNumber} /</span>
+  <span class="section__title--text">{text}</span>
+</h2>
