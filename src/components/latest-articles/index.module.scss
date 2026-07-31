@@ -29,8 +29,8 @@
       --articles-gap: var(--space-xl);
     }
 
-    @media (--full-hd-viewport) {
-      --articles-per-row: 3;
+    @media (--large-viewport) {
+      --articles-per-row: 4;
     }
   }
 }
@@ -39,7 +39,6 @@
   --feature-article-height: 70cqw;
   --feature-article-date-size: var(--font-size-base);
   --feature-article-title-size: var(--font-size-lg);
-  --feature-article-summary-size: var(--font-size-md);
 
   position: relative;
   width: 100%;
@@ -102,6 +101,7 @@
   }
 
   @media (--large-viewport) {
-    --feature-article-title-size: var(--font-size-xl);
+    --feature-article-date-size: var(--font-size-base);
+    --feature-article-title-size: var(--font-size-md);
   }
 }
