@@ -183,7 +183,7 @@ p {
   white-space: nowrap !important;
 }
 
-.sr-only-focusable:focus,
+.sr-only-focusable:focus-visible,
 .sr-only-focusable:active {
   clip: auto !important;
   -webkit-clip-path: none !important;
@@ -195,9 +195,9 @@ p {
   white-space: normal !important;
 }
 
-*:focus {
-  outline-offset: 4px;
+*:focus-visible {
+  outline-offset: 2px;
   outline-color: var(--text-color);
-  outline-width: 4px;
+  outline-width: 2px;
   outline-style: dashed;
 }

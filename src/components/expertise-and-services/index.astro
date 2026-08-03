@@ -1,162 +1,73 @@
 ---
-import Squiggle from "../squiggle/index.astro";
+import clsx from "clsx";
+import SectionTitle from "../section-title/index.astro";
+import styles from "./index.module.scss";
 ---
 
-<section id="expertise-and-services" class="services">
-  <Squiggle />
-  <div class="section__container services__container">
-    <div class="services__head">
-      <h2 class="services__title">Expertise & Services</h2>
-      <p class="services__intro">
-        I help organizations build accessible, high-performing digital experiences that don't just
-        meet EAA, ADA, and WCAG standards - they exceed them, creating sustainable compliance
-        frameworks that scale with regulatory evolution.
-      </p>
-    </div>
-    <ul class="services__list">
-      <li class="services__item" style="--index: 1">
-        <div class="services__item__content">
-          <p class="service__category">Consulting & Education</p>
-          <h3 class="service__name">Custom Accessibility & Design System Workshops</h3>
-          <p class="service__description">
+<script>
+  import "../jd-accordion/index";
+</script>
+
+<section id="expertise-and-services" class={styles.services}>
+  <div class={clsx("section__container", styles.services__container)}>
+    <SectionTitle text="Expertise & Services" number={3} />
+
+    <p class={styles.services__intro}>
+      I help organizations build accessible, high-performing digital experiences that don't just
+      meet EAA, ADA, and WCAG standards - they exceed them, creating sustainable compliance
+      frameworks that scale with regulatory evolution.
+    </p>
+
+    <div class={styles.services__list}>
+      <jd-accordion>
+        <jd-accordion-item
+          category="Consulting & Education"
+          label="Custom Accessibility & Design System Workshops"
+          open
+        >
+          <p>
             Hands-on, tailored training that aligns corporate and academic teams on accessibility
             best practices. I translate complex standards into actionable workflows that ensure
             WCAG, EAA, and ADA compliance while establishing scalable, inclusive Design System
             foundations.
           </p>
-        </div>
-      </li>
-      <li class="services__item" style="--index: 2">
-        <div class="services__item__content">
-          <p class="service__category">Consulting & Education</p>
-          <h3 class="service__name">Thought Leadership & Public Speaking</h3>
-          <p class="service__description">
+        </jd-accordion-item>
+
+        <jd-accordion-item
+          category="Consulting & Education"
+          label="Thought Leadership & Public Speaking"
+        >
+          <p>
             Engaging presentations and keynotes for conferences, companies, and
             universities—exploring the intersection of UX excellence, frontend performance, and
             strategic accessibility planning. Each session connects technical precision with
             human-centered design outcomes.
           </p>
-        </div>
-      </li>
-      <li class="services__item" style="--index: 3">
-        <div class="services__item__content">
-          <p class="service__category">Engineering & Systems</p>
-          <h3 class="service__name">Accessible Frontend Development</h3>
-          <p class="service__description">
-            Building high-quality, high-performance web applications with an unwavering focus on <strong
-              >global accessibility compliance and governance</strong
-            >. My engineering approach delivers maintainable, standards-based code that's both fast
-            and inclusive by design.
+        </jd-accordion-item>
+
+        <jd-accordion-item
+          category="Engineering & Systems"
+          label="Accessible Frontend Development"
+        >
+          <p>
+            Building high-quality, high-performance web applications with an unwavering focus on{" "}
+            <strong>global accessibility compliance and governance</strong>. My engineering approach
+            delivers maintainable, standards-based code that's both fast and inclusive by design.
           </p>
-        </div>
-      </li>
-      <li class="services__item" style="--index: 4">
-        <div class="services__item__content">
-          <p class="service__category">Auditing & Strategy</p>
-          <h3 class="service__name">Performance & Quality Audits</h3>
-          <p class="service__description">
+        </jd-accordion-item>
+
+        <jd-accordion-item
+          category="Auditing & Strategy"
+          label="Performance & Quality Audits"
+        >
+          <p>
             Strategic, in-depth analysis of existing codebases—delivering clear, actionable roadmaps
             to achieve international legal compliance (WCAG, EAA, ADA), optimize performance, and
             elevate overall product quality and sustainability.
           </p>
-        </div>
-      </li>
-    </ul>
+        </jd-accordion-item>
+      </jd-accordion>
+    </div>
+
   </div>
 </section>
-
-<style lang="scss">
-  @use "../../assets/styles/custom-media.scss";
-
-  .services {
-    width: 100%;
-    background-color: var(--palette-indigo-main);
-    background-image: url(/white-texture.png);
-    background-position: 0 0;
-    background-size: auto;
-    margin-top: 1.5rem;
-    position: relative;
-    border-radius: 0;
-  }
-
-  .services__container {
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr;
-    grid-auto-columns: 1fr;
-    align-items: stretch;
-    width: 100%;
-    grid-template-areas:
-      "head head"
-      "head head"
-      "list list";
-
-    @media (--laptop-viewport) {
-      grid-template-areas:
-        "head list"
-        "head list";
-    }
-  }
-
-  .services__head {
-    grid-area: head;
-    text-align: center;
-
-    @media (--laptop-viewport) {
-      text-align: left;
-    }
-  }
-
-  .services__intro {
-    font-size: var(--font-size-md);
-
-    @media (--laptop-viewport) {
-      font-size: var(--font-size-lg);
-    }
-  }
-
-  .services__list {
-    --numcards: 4;
-    --card-height: 23rem;
-    --card-margin: 2rem;
-    --card-top-offset: 1rem;
-
-    grid-area: list;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(var(--numcards), 1fr);
-    gap: var(--card-margin);
-  }
-
-  .services__item {
-    position: sticky;
-    top: 0;
-    padding-top: calc(var(--index) * calc(var(--card-top-offset) * 2));
-  }
-
-  .services__item__content {
-    padding: 2rem;
-    background-color: var(--palette-indigo-background);
-    background-image: url(/white-texture.png);
-    background-position: 0 0;
-    background-size: auto;
-    border-radius: var(--section-border-radius);
-    outline: 0.125rem solid var(--palette-black);
-    height: max-content;
-    height: stretch;
-
-    h3 {
-      font-size: var(--font-size-lg);
-    }
-  }
-
-  .service__category {
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--palette-black);
-    margin-bottom: 0.5rem;
-    font-size: var(--font-size-sm);
-  }
-</style>

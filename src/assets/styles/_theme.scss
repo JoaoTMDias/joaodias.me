@@ -4,62 +4,62 @@
    ------------------------------------------- */
 
 :root {
-  color-scheme: light dark;
+   color-scheme: light dark;
 
-  /* --------------------
-     Base colors
-     -------------------- */
-  --color-B00: #e7effd;
-  --color-B10: #9cbef8;
-  --color-B20: #73a3f5;
-  --color-B30: #377cf1;
-  --color-B40: #0e61ee;
-  --color-B50: #0a44a7;
-  --color-B60: #093b91;
+   /* --------------------
+      Base colors
+      -------------------- */
+   --color-B00: #e7effd;
+   --color-B10: #9cbef8;
+   --color-B20: #73a3f5;
+   --color-B30: #377cf1;
+   --color-B40: #0e61ee;
+   --color-B50: #0a44a7;
+   --color-B60: #093b91;
 
-  --color-N00: #fafafb;
-  --color-N10: #f5f5f7;
-  --color-N20: #ebecef;
-  --color-N30: #dee0e5;
-  --color-N40: #bfc3ce;
-  --color-N50: #858ca0;
-  --color-N60: #6d7692;
-  --color-N70: #4e5979;
-  --color-N80: #2e3a5d;
-  --color-N90: #1c2950;
-  --color-N100: #0d1b44;
-  --color-N200: #000f3a;
+   --color-N00: #fafafb;
+   --color-N10: #f5f5f7;
+   --color-N20: #ebecef;
+   --color-N30: #dee0e5;
+   --color-N40: #bfc3ce;
+   --color-N50: #858ca0;
+   --color-N60: #6d7692;
+   --color-N70: #4e5979;
+   --color-N80: #2e3a5d;
+   --color-N90: #1c2950;
+   --color-N100: #0d1b44;
+   --color-N200: #000f3a;
 
-  --color-white: #ffffff;
-  --color-black: #000000;
+   --color-white: #ffffff;
+   --color-black: #000000;
 
-  /* --------------------
-     Semantic tokens
-     -------------------- */
-  --palette-black: var(--color-black);
-  --palette-white: var(--color-white);
+   /* --------------------
+      Semantic tokens
+      -------------------- */
+   --palette-black: var(--color-black);
+   --palette-white: var(--color-white);
 
-  --palette-foreground: light-dark(var(--color-N90), var(--color-N10));
-  --palette-main-foreground: light-dark(var(--color-N70), var(--color-N40));
-  --palette-border: light-dark(var(--color-N30), var(--color-N70));
-  --palette-shadow: light-dark(var(--color-N200), var(--color-B20));
-  --palette-secondary-background: light-dark(var(--color-N10), var(--color-N100));
-  --heading-font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
-  --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
-    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+   --palette-foreground: light-dark(var(--color-N90), var(--color-N10));
+   --palette-main-foreground: light-dark(var(--color-N70), var(--color-N40));
+   --palette-border: light-dark(var(--color-N30), var(--color-N70));
+   --palette-shadow: light-dark(var(--color-N200), var(--color-B20));
+   --palette-secondary-background: light-dark(var(--color-N10), var(--color-N100));
+   --heading-font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+   --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
+      Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 
-  --font-size-xxs: clamp(0.51rem, 0.45vi + 0.35rem, 0.6rem);
-  --font-size-xs: clamp(0.64rem, 0.75vi + 0.3rem, 0.75rem);
-  --font-size-sm: clamp(0.8rem, 1.15vi + 0.25rem, 0.94rem);
-  --font-size-base: clamp(1rem, 2.08vi + 0rem, 1.25rem);
-  --font-size-md: clamp(1.25rem, 3.47vi + -0.42rem, 1.56rem);
-  --font-size-lg: clamp(1.875rem, 5.49vi + -1.07rem, 2.75rem);
-  --font-size-xl: clamp(2.75rem, 8.4vi + -2.08rem, 3.75rem);
-  --font-size-xxl: clamp(3.75rem, 12.54vi + -3.58rem, 4.5rem);
-  --font-size-xxxl: clamp(4.5rem, 18.41vi + -5.78rem, 6rem);
+   --font-size-xxs: clamp(0.51rem, 0.45vi + 0.35rem, 0.6rem);
+   --font-size-xs: clamp(0.64rem, 0.75vi + 0.3rem, 0.75rem);
+   --font-size-sm: clamp(0.8rem, 1.15vi + 0.25rem, 0.94rem);
+   --font-size-base: clamp(1rem, 2.08vi + 0rem, 1.25rem);
+   --font-size-md: clamp(1.25rem, 3.47vi + -0.42rem, 1.56rem);
+   --font-size-lg: clamp(1.875rem, 5.49vi + -1.07rem, 2.75rem);
+   --font-size-xl: clamp(2.75rem, 8.4vi + -2.08rem, 3.75rem);
+   --font-size-xxl: clamp(3.75rem, 12.54vi + -3.58rem, 4.5rem);
+   --font-size-xxxl: clamp(4.5rem, 18.41vi + -5.78rem, 6rem);
 
-  --text-color: var(--palette-foreground);
-  --text-color-faded: var(--palette-main-foreground);
+   --text-color: var(--palette-foreground);
+   --text-color-faded: var(--palette-main-foreground);
    --heading-color: light-dark(var(--color-N100), var(--color-N00));
    --link-active-color: light-dark(var(--color-B40), var(--color-B10));
    --tag-background-color: light-dark(var(--color-B00), var(--color-N80));
@@ -84,6 +84,17 @@
   --section-border-radius: 0.25rem;
   --scrollbar-width: 0.75rem;
    --theme-blue-background: light-dark(var(--color-B00), var(--color-N80));
+
+  /* --------------------
+     Motion & Transitions
+     -------------------- */
+  --motion-duration-fast: 150ms;
+  --motion-duration-base: 250ms;
+  --motion-duration-slow: 350ms;
+  --motion-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --motion-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* --------------------
      Accessibility & utilities

@@ -1,0 +1,42 @@
+@use "../../assets/styles/custom-media.scss";
+
+.services {
+  width: 100%;
+  position: relative;
+}
+
+.services__intro {
+  font-size: var(--font-size-md);
+}
+
+.services__intro,
+.services__list {
+  grid-column: 1 / -1;
+}
+
+.services__list {
+  --services-border-color: var(--text-color-faded);
+  --services-focus-ring: var(--link-active-color);
+  --services-text-color: var(--text-color);
+  --services-heading-color: var(--heading-color);
+  --services-category-color: var(--text-color-faded);
+  --services-bg-hover: var(--background-color-faded);
+  --services-category-size: var(--font-size-sm);
+  --services-label-size: var(--font-size-md);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  gap: var(--space-md);
+
+  @media (--medium-viewport) {
+    --services-category-size: var(--font-size-base);
+    --services-label-size: var(--font-size-md);
+  }
+
+  @media (--large-viewport) {
+    --services-category-size: var(--font-size-base);
+    --services-label-size: var(--font-size-lg);
+  }
+}
