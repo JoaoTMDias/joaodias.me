@@ -1,94 +1,46 @@
 ---
 import { getCollection } from "astro:content";
-import WavyLines from "../squiggle/waves.astro";
-import Show from "./Show";
+import clsx from "clsx";
+import SectionLink from "../section-link/index.astro";
+import SectionTitle from "../section-title/index.astro";
+import styles from "./index.module.scss";
+import Show from "./Show.astro";
 
 const shows = (await getCollection("shows"))
 	.sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
-	.slice(0, 4);
+	.slice(0, 6);
 ---
 
-<section id="radio-broadcasts">
-  <div class="section__container broadcasts">
-    <h2 class="broadcasts__title">
-      Over-the-air <span aria-hidden="true">📻🎙️</span>
-    </h2>
-    <p class="broadcasts__intro">
+<section id="radio-broadcasts" class={styles["radio-broadcasts"]}>
+  <div class={clsx("section__container", styles.broadcasts)}>
+    <SectionTitle text="Over the air" number={4} />
+    <p class={styles.broadcasts__intro}>
       I am also a <strong
         ><a href="https://ruc.pt/autor/joaotmdias" target="_blank" rel="noreferrer" lang="pt-PT"
           >radio host at Rádio Universidade de Coimbra (RUC)</a
         ></strong
       >, where I regularly broadcast shows that range from Jazz, Blues, Rock, Punk and Heavy Metal.
     </p>
-    <div class="broadcasts__shows">
-      {
-        shows.map((show) => (
-          <Show
-            href={show.data.slug}
-            cover={show.data.coverURL}
-            name={show.data.show}
-            date={show.data.published.toLocaleDateString("pt-PT", {
-              day: "2-digit",
-              month: "2-digit",
-              year: "numeric",
-            })}
-            title={show.data.title}
-            description={show.data.summary}
-          />
-        ))
-      }
+    <div class={styles.broadcasts__shows}>
+      <div class={styles.broadcasts__list}>
+        {
+          shows.map((show) => (
+            <Show
+              href={show.data.slug}
+              cover={show.data.coverURL}
+              name={show.data.show}
+              date={show.data.published.toLocaleDateString("pt-PT", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              })}
+              title={show.data.title}
+              description={show.data.summary}
+            />
+          ))
+        }
+      </div>
     </div>
-    <WavyLines />
   </div>
-  <a class="button button--primary broadcasts__cta" href="https://ruc.pt/autor/joaotmdias"
-    >All my shows on RUC</a
-  >
+  <SectionLink href="https://ruc.pt/autor/joaotmdias" text="All my shows on RUC" />
 </section>
-
-<style lang="scss">
-  @use "../../assets/styles/custom-media.scss";
-
-  .broadcasts {
-    width: 100%;
-    background-color: var(--palette-green-background);
-    background-image: url(/white-texture.png);
-    background-position: 0 0;
-    background-size: auto;
-    margin-top: 1.5rem;
-    position: relative;
-    border-radius: var(--section-border-radius);
-    overflow: visible;
-
-    &__intro {
-      margin-bottom: var(--space-lg);
-
-      @media (--laptop-viewport) {
-        margin-bottom: var(--space-xl);
-      }
-    }
-
-    &__shows {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-      gap: var(--space-base);
-      position: relative;
-      z-index: 1;
-
-      @media (--large-viewport) {
-        grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
-        gap: var(--space-lg);
-      }
-
-      @media (--laptop-hd-viewport) {
-        grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
-        gap: var(--space-lg);
-      }
-    }
-
-    &__cta {
-      width: max-content;
-      align-self: center;
-      margin-top: var(--space-lg);
-    }
-  }
-</style>

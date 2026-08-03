@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import styles from "./Show.module.scss";
+
+interface Props {
+	href: string;
+	cover?: string;
+	name: string;
+	date?: string;
+	title: string;
+	description?: string;
+}
+
+const DEFAULT_COVER =
+	"https://ruc.pt/_next/image?url=https%3A%2F%2Fbucket.ruc.pt%2Fwp-content%2Fuploads%2F2026%2F01%2F05091026%2Fcover.jpeg&w=3840&q=75";
+
+const { href, cover = DEFAULT_COVER, name, date, title, description } = Astro.props;
+---
+
+<div class={styles.show}>
+	<article class={styles.card} lang="pt-PT">
+		<Image
+			class={styles.cover}
+			src={cover}
+			width={200}
+			height={200}
+			alt={`${name} - ${title}`}
+			loading="lazy"
+			decoding="async"
+		/>
+		<div class={styles.header}>
+			{date && (
+				<time datetime={date} class={styles.date}>
+					<span class="sr-only">Aired on</span>&nbsp;{date}
+				</time>
+			)}
+			<h3 class={styles.title}>{title}</h3>
+			<span class={styles.name}>{name}</span>
+		</div>
+		<div class={styles.content}>
+			{description && <p class={styles.description}>{description}</p>}
+			<a class={styles.link} href={href} target="_blank" rel="noreferrer">
+				Listen to this show
+			</a>
+		</div>
+	</article>
+</div>

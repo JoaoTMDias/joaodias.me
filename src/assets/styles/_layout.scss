@@ -21,6 +21,10 @@ section,
 .section__container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "title"
+    "intro"
+    "content";
   grid-column-gap: var(--space-xs);
   grid-row-gap: var(--space-md);
   align-content: start;
@@ -31,11 +35,11 @@ section,
 
 .section__title,
 .section__intro {
-  grid-column: 1 / -1;
   text-align: left;
 }
 
 .section__title {
+  grid-area: title;
   grid-column: 1 / -1;
   font-family: var(--heading-font-family);
   font-size: var(--font-size-md);
@@ -61,6 +65,7 @@ section,
 }
 
 .section__intro {
+  grid-area: intro;
   font-family: var(--text-font-family);
   font-size: var(--font-size-md);
   font-weight: 400;
