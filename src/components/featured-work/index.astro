@@ -8,8 +8,10 @@ import FeaturedWorkItem from "./FeaturedWorkItem.astro";
 import styles from "./index.module.scss";
 
 // Data fetching and processing
-const projects: CollectionEntry<"projects">[] = (await getCollection("projects"))
-	.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+type ProjectItem = CollectionEntry<"projects">;
+
+const projects: ProjectItem[] = (await getCollection("projects"))
+	.sort((a: ProjectItem, b: ProjectItem) => b.data.date.getTime() - a.data.date.getTime())
 	.slice(0, 4);
 ---
 
