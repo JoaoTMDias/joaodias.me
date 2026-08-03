@@ -47,7 +47,7 @@ export const LastPlayedSongCard: FunctionComponent<{
 					href={song.url}
 					target="_blank"
 					data-tooltip="View song on Last.fm"
-					data-testid="currently-listening-song"
+					data-testid="currently-listening-song" rel="noopener"
 				>
 					{song.name}
 					<span className="sr-only">{marqueeConfig.track}</span>
