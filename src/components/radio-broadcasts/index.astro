@@ -4,8 +4,8 @@ import WavyLines from "../squiggle/waves.astro";
 import Show from "./Show";
 
 const shows = (await getCollection("shows"))
-  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
-  .slice(0, 4);
+	.sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
+	.slice(0, 4);
 ---
 
 <section id="radio-broadcasts">

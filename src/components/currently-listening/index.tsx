@@ -13,48 +13,48 @@ import type { ExternalServiceSongs, Track } from "../../typings/index";
 import LastPlayedSongCard from "./LastPlayedSongCard";
 
 interface IMarqueeConfig {
-  loading: string;
-  card: {
-    width: string;
-    height: string;
-  };
-  track: string;
-  artist: string;
-  album: string;
+	loading: string;
+	card: {
+		width: string;
+		height: string;
+	};
+	track: string;
+	artist: string;
+	album: string;
 }
 
 interface ICurrentlyListeningProps {
-  marqueeConfig: IMarqueeConfig;
+	marqueeConfig: IMarqueeConfig;
 }
 
 async function getSong() {
-  const request = await fetch(LAST_FM_URL);
-  const data: ExternalServiceSongs = await request.json();
-  const { recenttracks } = await data;
+	const request = await fetch(LAST_FM_URL);
+	const data: ExternalServiceSongs = await request.json();
+	const { recenttracks } = await data;
 
-  return recenttracks.track.slice(0, 1)[0];
+	return recenttracks.track.slice(0, 1)[0];
 }
 
 function CurrentlyListening({ marqueeConfig }: ICurrentlyListeningProps) {
-  const [song, setSong] = useState<Track>(null);
+	const [song, setSong] = useState<Track>(null);
 
-  useEffect(() => {
-    try {
-      getSong().then((result) => {
-        if (result) {
-          setSong(result);
-        }
-      });
-    } catch (error) {
-      console.warn("Problems fetching the current song: ", error);
-    }
-  }, []);
+	useEffect(() => {
+		try {
+			getSong().then((result) => {
+				if (result) {
+					setSong(result);
+				}
+			});
+		} catch (error) {
+			console.warn("Problems fetching the current song: ", error);
+		}
+	}, []);
 
-  if (!song) {
-    return <p aria-busy="true">{marqueeConfig.loading}</p>;
-  }
+	if (!song) {
+		return <p aria-busy="true">{marqueeConfig.loading}</p>;
+	}
 
-  return <LastPlayedSongCard key={song.name} song={song} marqueeConfig={marqueeConfig} />;
+	return <LastPlayedSongCard key={song.name} song={song} marqueeConfig={marqueeConfig} />;
 }
 
 export default CurrentlyListening;

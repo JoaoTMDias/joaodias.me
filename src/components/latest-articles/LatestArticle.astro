@@ -3,12 +3,12 @@ import { Image } from "astro:assets";
 import styles from "./index.module.scss";
 
 interface Props {
-  id: string;
-  title: string;
-  pubDate: Date;
-  excerpt: string;
-  featuredImage?: string;
-  readingTime?: number;
+	id: string;
+	title: string;
+	pubDate: Date;
+	excerpt: string;
+	featuredImage?: string;
+	readingTime?: number;
 }
 
 const { id, title, pubDate, featuredImage, readingTime } = Astro.props;
@@ -20,14 +20,12 @@ function getTransitionNames(slug: string) {
 	};
 }
 
-
 const formattedDate = pubDate.toLocaleDateString("en-US", {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
+	year: "numeric",
+	month: "short",
+	day: "numeric",
 });
 const transitionNames = getTransitionNames(id);
-
 ---
 
 <article class={styles["featured-article"]}>

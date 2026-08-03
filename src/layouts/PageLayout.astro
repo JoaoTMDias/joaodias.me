@@ -4,9 +4,9 @@ import Header from "../components/header/index.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
-  title: string;
-  description: string;
-  itemtype?: string;
+	title: string;
+	description: string;
+	itemtype?: string;
 }
 
 const { title, description, itemtype = "http://schema.org/WebPage" } = Astro.props;

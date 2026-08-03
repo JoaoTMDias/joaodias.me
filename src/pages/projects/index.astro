@@ -14,46 +14,46 @@ import PageLayout from "../../layouts/PageLayout.astro";
 
 // Constants
 const DEFAULT_THEME = {
-  background: "#000000",
-  foreground: "#ffffff",
+	background: "#000000",
+	foreground: "#ffffff",
 } as const;
 
 const THUMBNAIL_DIMENSIONS = {
-  width: 123,
-  height: 123,
+	width: 123,
+	height: 123,
 } as const;
 
 const DATE_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
-  year: "numeric",
-  month: "long",
+	year: "numeric",
+	month: "long",
 };
 
 // Helper functions
 function normalizeThumbnailPath(path: string): string {
-  return path.startsWith("/") ? path : `/${path}`;
+	return path.startsWith("/") ? path : `/${path}`;
 }
 
 function getProjectTheme(project: CollectionEntry<"projects">) {
-  return {
-    background: project.data.themeBackground || DEFAULT_THEME.background,
-    foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
-  };
+	return {
+		background: project.data.themeBackground || DEFAULT_THEME.background,
+		foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
+	};
 }
 
 function formatProjectDate(date: Date): string {
-  return date.toLocaleDateString("en-US", DATE_FORMAT_OPTIONS);
+	return date.toLocaleDateString("en-US", DATE_FORMAT_OPTIONS);
 }
 
 function getTransitionNames(slug: string) {
-  return {
-    title: `project-title-${slug}`,
-    image: `project-image-${slug}`,
-  };
+	return {
+		title: `project-title-${slug}`,
+		image: `project-image-${slug}`,
+	};
 }
 
 // Data fetching and processing
 const projects = (await getCollection("projects")).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+	(a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
 ---
 

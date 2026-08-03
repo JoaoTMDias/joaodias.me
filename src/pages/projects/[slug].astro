@@ -14,32 +14,32 @@ import PageLayout from "../../layouts/PageLayout.astro";
 
 // Constants
 const DEFAULT_THEME = {
-  background: "#000000",
-  foreground: "#ffffff",
+	background: "#000000",
+	foreground: "#ffffff",
 } as const;
 
 const IMAGE_DIMENSIONS = {
-  width: 640,
-  height: 480,
+	width: 640,
+	height: 480,
 } as const;
 
 // Helper functions
 function normalizeImagePath(path: string | undefined): string | null {
-  if (!path) return null;
-  return path.startsWith("/") ? path : `/${path}`;
+	if (!path) return null;
+	return path.startsWith("/") ? path : `/${path}`;
 }
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
+	const projects = await getCollection("projects");
 
-  return projects.map((project) => ({
-    params: { slug: project.id },
-    props: { project },
-  }));
+	return projects.map((project) => ({
+		params: { slug: project.id },
+		props: { project },
+	}));
 }
 
 type Props = {
-  project: CollectionEntry<"projects">;
+	project: CollectionEntry<"projects">;
 };
 
 const { project } = Astro.props;
@@ -50,15 +50,15 @@ const transitionName = `project-title-${project.id}`;
 const imageTransitionName = `project-image-${project.id}`;
 
 const formattedDate = project.data.date.toLocaleDateString("en-US", {
-  year: "numeric",
-  month: "long",
+	year: "numeric",
+	month: "long",
 });
 
 const coverImage = normalizeImagePath(project.data.cover);
 
 const theme = {
-  background: project.data.themeBackground || DEFAULT_THEME.background,
-  foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
+	background: project.data.themeBackground || DEFAULT_THEME.background,
+	foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
 };
 
 const hasGalleryImages = project.data.galleryImages && project.data.galleryImages.length > 0;
