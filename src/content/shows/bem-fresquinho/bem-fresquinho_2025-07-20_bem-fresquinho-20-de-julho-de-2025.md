@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2025/11/12173545/bem-fresquin
 coverWidth: 
 coverHeight: 
 coverAlt: Ilustração de um esqueleto, deitado na praia, com um flamingo e palmeiras ao lado
+coverColors:
+  - "#000020"
+  - "#e04060"
+  - "#e00080"
 ---

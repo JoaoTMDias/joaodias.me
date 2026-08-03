@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2026/04/11155138/roque-de-pai
 coverWidth: 
 coverHeight: 
 coverAlt: A banda probot. Lemmy, Dave e Wino
+coverColors:
+  - "#000000"
+  - "#202020"
+  - "#402020"
 ---

@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2026/02/27221933/roque-de-pai
 coverWidth: 
 coverHeight: 
 coverAlt: Capa do primeiro episódio do Roque de Pai, com Bruce Springsteen em 1982
+coverColors:
+  - "#606060"
+  - "#808080"
+  - "#404040"
 ---

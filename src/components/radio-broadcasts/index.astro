@@ -24,10 +24,13 @@ const shows = (await getCollection("shows"))
     <div class={styles.broadcasts__shows}>
       <div class={styles.broadcasts__list}>
         {
-          shows.map((show) => (
+          shows.map((show) => {
+            const href = `https://ruc.pt/podcast/${show.data.show}/${show.data.slug}`;
+            return (
             <Show
-              href={show.data.slug}
+              href={href}
               cover={show.data.coverURL}
+              colors={show.data.coverColors}
               name={show.data.show}
               date={show.data.published.toLocaleDateString("pt-PT", {
                 day: "2-digit",
@@ -37,7 +40,8 @@ const shows = (await getCollection("shows"))
               title={show.data.title}
               description={show.data.summary}
             />
-          ))
+          )
+          })
         }
       </div>
     </div>

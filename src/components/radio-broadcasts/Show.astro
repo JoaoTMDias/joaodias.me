@@ -5,6 +5,7 @@ import styles from "./Show.module.scss";
 interface Props {
 	href: string;
 	cover?: string;
+	colors?: string[];
 	name: string;
 	date?: string;
 	title: string;
@@ -14,11 +15,20 @@ interface Props {
 const DEFAULT_COVER =
 	"https://ruc.pt/_next/image?url=https%3A%2F%2Fbucket.ruc.pt%2Fwp-content%2Fuploads%2F2026%2F01%2F05091026%2Fcover.jpeg&w=3840&q=75";
 
-const { href, cover = DEFAULT_COVER, name, date, title, description } = Astro.props;
+const { href, cover = DEFAULT_COVER, colors = [], name, date, title, description } = Astro.props;
+
+const [c1, c2, c3] = colors;
+const cardStyle: Record<string, string> = {};
+if (c1) {
+	cardStyle["--show-c1"] = c1;
+	cardStyle["--card-bg"] = c1;
+}
+if (c2) cardStyle["--show-c2"] = c2;
+if (c3) cardStyle["--show-c3"] = c3;
 ---
 
-<div class={styles.show}>
-	<article class={styles.card} lang="pt-PT">
+<article class={styles.show} lang="pt-PT">
+	<a href={href} class={styles.card} target="_blank" rel="noreferrer"  style={cardStyle}>
 		<Image
 			class={styles.cover}
 			src={cover}
@@ -39,9 +49,9 @@ const { href, cover = DEFAULT_COVER, name, date, title, description } = Astro.pr
 		</div>
 		<div class={styles.content}>
 			{description && <p class={styles.description}>{description}</p>}
-			<a class={styles.link} href={href} target="_blank" rel="noreferrer">
+			<span class={styles.link}>
 				Listen to this show
-			</a>
+			</span>
 		</div>
-	</article>
-</div>
+	</a>
+</article>

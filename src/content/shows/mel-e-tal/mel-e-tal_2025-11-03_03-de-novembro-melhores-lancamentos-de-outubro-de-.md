@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2025/11/14101608/post.jpg
 coverWidth: 
 coverHeight: 
 coverAlt: Uma abelha, numa loja de discos
+coverColors:
+  - "#000000"
+  - "#202000"
+  - "#402000"
 ---

@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2026/02/02093415/mel-e-tal-02
 coverWidth: 
 coverHeight: 
 coverAlt: Um locutor de barba e cabelo comprido no seu estúdio de rádio, a fazer a emissão do Mel e Tal
+coverColors:
+  - "#200000"
+  - "#000000"
+  - "#402000"
 ---

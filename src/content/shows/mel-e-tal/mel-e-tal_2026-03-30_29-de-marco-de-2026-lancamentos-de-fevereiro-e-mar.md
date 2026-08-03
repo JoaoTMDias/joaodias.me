@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2026/03/30091447/IMG_20260328
 coverWidth: 
 coverHeight: 
 coverAlt: ''
+coverColors:
+  - "#000000"
+  - "#200000"
+  - "#202020"
 ---

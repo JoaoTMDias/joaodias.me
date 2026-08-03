@@ -1,8 +1,46 @@
 @use "../../assets/styles/custom-media.scss";
 
+@property --contrast-color {
+  syntax: "<color>";
+  initial-value: #ffffff;
+  inherits: true;
+}
+
+@property --blob1-x {
+  syntax: "<percentage>";
+  initial-value: 10%;
+  inherits: false;
+}
+
+@property --blob1-y {
+  syntax: "<percentage>";
+  initial-value: 20%;
+  inherits: false;
+}
+
+@property --blob2-x {
+  syntax: "<percentage>";
+  initial-value: 90%;
+  inherits: false;
+}
+
+@property --blob2-y {
+  syntax: "<percentage>";
+  initial-value: 80%;
+  inherits: false;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 135deg;
+  inherits: false;
+}
+
 .show {
   container-name: show-card;
   container-type: inline-size;
+  height: 100%;
+  display: flex;
 }
 
 .card {
@@ -13,27 +51,72 @@
   --show-name-font-size: var(--font-size-sm);
   --show-date-font-size: var(--font-size-xs);
   --show-description-font-size: var(--font-size-sm);
-  --show-text-color: var(--background-color);
-  --show-text-color-faded: var(--background-color-faded);
-  --show-background-color: var(--text-color);
-  --show-background-color-faded: var(--text-color-faded);
+
+  /* Fallback design system colors when no cover colors are extracted */
+  --c1: var(--show-c1, var(--text-color));
+  --c2: var(--show-c2, var(--text-color-faded));
+  --c3: var(--show-c3, var(--background-color-faded));
+  --card-bg: var(--c1);
+
+  --contrast-color: contrast-color(var(--card-bg));
 
   display: grid;
   grid-template-areas:
     "cover header"
     "content content";
   grid-template-columns: var(--show-image-size) 1fr;
+  grid-template-rows: auto 1fr;
   align-items: start;
   gap: var(--show-gap);
   width: 100%;
-  background-color: var(--show-background-color);
-  background-image: radial-gradient(circle,var(--show-background-color-faded) 0%, var(--show-background-color) 100%);
+  height: 100%;
   padding: var(--show-padding);
   border-radius: var(--space-base);
-  outline: 0.125rem solid var(--palette-black);
+  border: 0.125rem solid transparent;
+  background-color: var(--c1);
+  background-image:
+    linear-gradient(var(--gradient-angle), var(--c1), var(--c2), var(--c3)),
+    radial-gradient(circle at var(--blob1-x) var(--blob1-y), var(--c2) 0%, transparent 65%),
+    radial-gradient(circle at var(--blob2-x) var(--blob2-y), var(--c3) 0%, transparent 65%),
+    radial-gradient(circle at 50% 50%, var(--c1) 0%, transparent 80%);
+  background-origin: border-box;
+  background-clip: border-box, padding-box, padding-box, padding-box;
   box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.5);
-
+  text-decoration: none;
+  transition:
+    --blob1-x var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
+    --blob1-y var(--motion-duration-background-animation) var(--motion-ease-standard),
+    --blob2-x var(--motion-duration-background-animation) var(--motion-ease-standard),
+    --blob2-y var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
+    --gradient-angle var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
+    box-shadow var(--motion-duration-background-animation) var(--motion-ease-out),
+    transform var(--motion-duration-background-animation) var(--motion-ease-out);
 }
+
+@media (--with-motion) {
+  .card {
+    transition:
+      --blob1-x var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
+      --blob1-y var(--motion-duration-background-animation) var(--motion-ease-standard),
+      --blob2-x var(--motion-duration-background-animation) var(--motion-ease-standard),
+      --blob2-y var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
+      --gradient-angle var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-background-animation) var(--motion-ease-out),
+      transform var(--motion-duration-background-animation) var(--motion-ease-out);
+  }
+
+  .card:hover,
+  .card:focus-visible {
+    --blob1-x: 85%;
+    --blob1-y: 80%;
+    --blob2-x: 15%;
+    --blob2-y: 20%;
+    --gradient-angle: 315deg;
+    transform: translateY(-0.25rem);
+    box-shadow: 0 8px 20px 4px rgba(0, 0, 0, 0.6);
+  }
+}
+
 
 .cover {
   grid-area: cover;
@@ -59,41 +142,39 @@
   padding: 0;
   font-size: var(--show-title-font-size);
   font-weight: 600;
-  color: var(--show-text-color);
+  color: var(--show-text-color, var(--background-color));
   line-height: 1.3;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
 
 .name {
   font-size: var(--show-name-font-size);
-  color: var(--show-text-color-faded);
+  color: var(--show-text-color-faded, var(--background-color-faded));
   margin: 0;
 }
 
 .date {
   font-size: var(--show-date-font-size);
-  color: var(--show-text-color-faded);
+  color: var(--show-text-color-faded, var(--background-color-faded));
 }
 
 .content {
   grid-area: content;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: var(--space-xs);
   margin: 0;
+  height: 100%;
 }
 
 .description {
   margin: 0;
-  color: var(--show-text-color);
+  color: var(--show-text-color, var(--background-color));
   font-size: var(--show-description-font-size);
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
@@ -103,7 +184,28 @@
   width: 100%;
   font-size: var(--font-size-sm);
   font-family: var(--text-font-family);
-  color: var(--show-text-color);
+  color: var(--show-text-color, var(--background-color));
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.25rem;
+}
+
+@supports (color: contrast-color(white)) {
+  .card {
+    --show-text-color: contrast-color(var(--card-bg));
+    --show-text-color-faded: color-mix(in oklch, var(--card-bg) 25%, contrast-color(var(--card-bg)));
+  }
+
+  .title,
+  .description,
+  .link {
+    color: var(--show-text-color);
+  }
+
+  .name,
+  .date {
+    color: var(--show-text-color-faded);
+  }
 }
 
 @container show-card (min-width: 16rem) {

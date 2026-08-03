@@ -1,5 +1,5 @@
-import { glob } from "astro/loaders";
 import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const blogCollection = defineCollection({
@@ -151,6 +151,18 @@ const showsCollection = defineCollection({
 			.optional()
 			.transform((v) => (typeof v === "number" ? v : v ? parseInt(v, 10) : null)),
 		coverAlt: z.string(),
+		coverColors: z
+			.union([z.array(z.string()), z.string()])
+			.optional()
+			.transform((val) => {
+				if (!val) return undefined;
+				if (Array.isArray(val)) return val;
+				try {
+					return JSON.parse(val) as string[];
+				} catch {
+					return undefined;
+				}
+			}),
 	}),
 });
 

@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2026/03/02104135/Mel_Tal_Inst
 coverWidth: 
 coverHeight: 
 coverAlt: ''
+coverColors:
+  - "#000000"
+  - "#202020"
+  - "#404040"
 ---

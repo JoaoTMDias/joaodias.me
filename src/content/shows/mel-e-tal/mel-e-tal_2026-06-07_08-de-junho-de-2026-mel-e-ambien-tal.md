@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2026/06/05090744/mel-e-tal-08
 coverWidth: 
 coverHeight: 
 coverAlt: ''
+coverColors:
+  - "#000000"
+  - "#200000"
+  - "#402000"
 ---

@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2021/02/15233926/Logo-RUC-202
 coverWidth: 
 coverHeight: 
 coverAlt: Logo RUC
+coverColors:
+  - "#000000"
+  - "#606060"
+  - "#202020"
 ---

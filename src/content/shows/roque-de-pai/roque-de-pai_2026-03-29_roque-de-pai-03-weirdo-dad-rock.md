@@ -9,4 +9,8 @@ coverURL: https://bucket.ruc.pt/wp-content/uploads/2026/03/28103707/roque-de-pai
 coverWidth: 
 coverHeight: 
 coverAlt: ''
+coverColors:
+  - "#000000"
+  - "#202020"
+  - "#404020"
 ---
