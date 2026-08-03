@@ -12,6 +12,7 @@ export const accordionStyles = css`
     --jd-accordion-transition-ease: var(--motion-ease-standard, cubic-bezier(0.4, 0, 0.2, 1));
     --jd-accordion-category-size: var(--services-category-size, var(--font-size-sm, 0.75rem));
     --jd-accordion-label-size: var(--services-label-size, var(--font-size-base, 1rem));
+    --jd-according-padding: var(--services-padding, var(--space-base, 1rem));
 
     display: block;
     width: 100%;
@@ -28,7 +29,7 @@ export const accordionStyles = css`
   /* jd-accordion-item */
   :host(jd-accordion-item) {
     display: block;
-    border-bottom: 2px solid var(--jd-accordion-border-color);
+    border-bottom: 1px solid var(--jd-accordion-border-color);
   }
 
   :host(jd-accordion-item:last-of-type) {
@@ -55,7 +56,7 @@ export const accordionStyles = css`
     justify-content: space-between;
     width: 100%;
     min-height: var(--space-xl);
-    padding: var(--space-base, 1rem) 0;
+    padding: var(--jd-according-padding) 0;
     background: transparent;
     border: none;
     color: var(--jd-accordion-text-color);

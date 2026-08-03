@@ -35,8 +35,17 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
 
-  html[data-theme="light"] & {
-    background-image: url(/white-texture.png);
+  @media (prefers-contrast: no-preference) {
+    html[data-theme="dark"] & {
+      background-image: radial-gradient(circle, var(--color-N80) 1px, transparent 1px);
+      background-size: var(--space-lg) var(--space-lg);
+      background-repeat: repeat;
+      background-position: 0 0;
+    }
+
+    html[data-theme="light"] & {
+      background-image: url(/white-texture.png);
+    }
   }
 }
 

@@ -19,18 +19,28 @@ section,
 }
 
 .section__container {
+  --columns-per-section: 6;
+  --section-column-gap: var(--space-xs);
+  --section-row-gap: var(--space-md);
+
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(var(--columns-per-section), 1fr);
   grid-template-areas:
     "title"
     "intro"
     "content";
-  grid-column-gap: var(--space-xs);
-  grid-row-gap: var(--space-md);
+  grid-column-gap: var(--section-column-gap);
+  grid-row-gap: var(--section-row-gap);
   align-content: start;
   width: 100%;
   height: auto;
   color: var(--text-color);
+
+  @media (--large-viewport) {
+    --columns-per-section: 12;
+    --section-column-gap: var(--space-md);
+    --section-row-gap: var(--space-lg);
+  }
 }
 
 .section__title,

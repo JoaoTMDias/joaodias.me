@@ -5,16 +5,17 @@ import MainNavigation from "../navigation/main-navigation.astro";
 import MobileNavigation from "../navigation/mobile-navigation.astro";
 import SkipLink from "../skip-link";
 import ThemeSwitcher from "../theme-switcher/index.astro";
+import styles from "./index.module.scss";
 import MobileNavigationToggle from "./MobileNavigationToggle.astro";
 
 const config = await getEntry("config", "config");
 ---
 
-<header class="header">
+<header class={styles.header}>
   <SkipLink items={config.data.skipLinks} client:load />
-  <div class="header__container">
+  <div class={styles.header__container}>
     <Logo />
-    <div class="header__nav">
+    <div class={styles.header__nav}>
       <MainNavigation />
       <ThemeSwitcher />
       <MobileNavigationToggle />
@@ -22,34 +23,3 @@ const config = await getEntry("config", "config");
   </div>
   <MobileNavigation />
 </header>
-
-<style lang="scss">
-  @use "../../assets/styles/custom-media.scss";
-
-  .header {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    min-height: var(--header-height);
-
-    &__container {
-      display: flex;
-      flex-direction: row;
-      justify-content: start;
-      align-items: center;
-      width: 100%;
-      max-width: 100%;
-      gap: var(--global-padding);
-      padding-inline: var(--global-padding);
-    }
-
-    &__nav {
-      display: flex;
-      flex-direction: row;
-      justify-content: end;
-      align-items: center;
-      gap: 1rem;
-      margin-left: auto;
-    }
-  }
-</style>

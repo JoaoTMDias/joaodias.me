@@ -1,4 +1,6 @@
 ---
+import styles from "./index.module.scss";
+
 interface Props {
 	color?: string;
 }
@@ -6,7 +8,7 @@ interface Props {
 const { color = "var(--palette-foreground)" } = Astro.props;
 ---
 
-<div class="wavy-lines">
+<div class={styles["wavy-lines"]}>
   <svg width="484" height="24" viewBox="0 0 484 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M122 12C128.667 -1.33333 135.333 -1.33333 142 12C148.667 25.3333 155.333 25.3333 162 12C168.667 -1.33333 175.333 -1.33333 182 12C188.667 25.3333 195.333 25.3333 202 12C208.667 -1.33333 215.333 -1.33333 222 12C228.667 25.3333 235.333 25.3333 242 12"
@@ -30,10 +32,3 @@ const { color = "var(--palette-foreground)" } = Astro.props;
       stroke-linecap="round"></path>
   </svg>
 </div>
-
-<style lang="scss">
-  .wavy-lines {
-    position: absolute;
-    inset: -0.5% 7% auto auto;
-  }
-</style>

@@ -1,0 +1,84 @@
+@use "../../assets/styles/custom-media.scss";
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  width: 100%;
+  height: auto;
+  position: relative;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: var(--space-xs);
+    grid-row-gap: var(--space-lg);
+    align-content: start;
+    width: 100%;
+    height: auto;
+    color: var(--text-color);
+
+    @media (--large-viewport) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__title,
+  &__name {
+    padding-block-start: var(--space-lg);
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    font-size: var(--font-size-xl);
+    font-family: var(--heading-font-family);
+    font-style: normal;
+    font-weight: 700;
+    font-variation-settings: "wght" 700;
+    line-height: 1.2;
+  }
+
+  &__title,
+  &__name {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    justify-content: start;
+  }
+
+  &__picture {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    aspect-ratio: 1/1;
+  }
+
+  &__intro {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    align-self: start;
+    font-family: var(--text-font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.333;
+    color: var(--text-color);
+  }
+
+  &__arrow {
+    grid-column-start: 6;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    height: 5rem;
+    align-self: end;
+    justify-content: end;
+    width: 24px;
+    height: auto;
+  }
+}

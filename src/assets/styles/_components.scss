@@ -1,6 +1,7 @@
 .link {
   --link-background-color: transparent;
   --link-color: var(--text-color);
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,7 +20,10 @@
   text-decoration-line: underline;
   text-decoration-thickness: 0.125rem;
   text-underline-offset: 0.25rem;
-  transition: all 200ms ease-in-out;
+
+  @media (--with-motion) {
+    transition: all 200ms ease-in-out;
+  }
 }
 
 

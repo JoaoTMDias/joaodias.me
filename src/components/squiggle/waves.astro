@@ -1,5 +1,9 @@
+---
+import styles from "./waves.module.scss";
+---
+
 <svg
-  class="squiggly-waves"
+  class={styles["squiggly-waves"]}
   width="606"
   height="132"
   viewBox="0 0 606 132"
@@ -37,12 +41,3 @@
     stroke-width="3"
     stroke-linecap="round"></path>
 </svg>
-
-<style lang="scss">
-  .squiggly-waves {
-    position: absolute;
-    bottom: 8%;
-    left: -11%;
-    z-index: 0;
-  }
-</style>

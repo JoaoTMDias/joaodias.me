@@ -1,7 +1,11 @@
-<div class="logo">
-  <a href="/" class="logo__link" data-testid="logo">
+---
+import styles from "./index.module.scss";
+---
+
+<div class={styles.logo}>
+  <a href="/" class={styles.logo__link} data-testid="logo">
     <svg
-      class="logo__image"
+      class={styles.logo__image}
       xmlns="http://www.w3.org/2000/svg"
       width="256"
       height="256"
@@ -19,32 +23,3 @@
     <span class="sr-only">Go to homepage</span>
   </a>
 </div>
-<style lang="scss">
-  .logo,
-  .logo__link {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo {
-    height: var(--header-height);
-
-    &__image {
-      --logo-color: light-dark(var(--color-N90), var(--color-N10));
-
-      width: auto;
-      height: 3rem;
-    }
-  }
-
-  .logo__link {
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-    text-transform: lowercase;
-    font-size: 1.5rem;
-    margin: 0;
-  }
-</style>

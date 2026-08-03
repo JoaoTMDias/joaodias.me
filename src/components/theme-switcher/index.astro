@@ -1,18 +1,22 @@
-<label class="theme-switcher">
+---
+import styles from "./index.module.scss";
+---
+
+<label class={styles["theme-switcher"]}>
   <span class="sr-only" data-theme-label> Light theme. Press to switch to dark theme </span>
   <input
     id="theme-switch"
     name="theme-switch"
     data-theme-switch
-    class="theme-switcher__input"
+    class={styles["theme-switcher__input"]}
     type="checkbox"
     role="switch"
     aria-checked="false"
   />
-  <span class="theme-switcher__track"></span>
-  <span class="theme-switcher__thumb">
+  <span class={styles["theme-switcher__track"]}></span>
+  <span class={styles["theme-switcher__thumb"]}>
     <svg
-      class="theme-switcher__icon theme-switcher__icon--light"
+      class={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--light"]}`}
       viewBox="0 0 24 24"
       width="16"
       height="16"
@@ -23,7 +27,7 @@
         fill="currentColor"></path>
     </svg>
     <svg
-      class="theme-switcher__icon theme-switcher__icon--dark"
+      class={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--dark"]}`}
       viewBox="0 0 24 24"
       width="16"
       height="16"
@@ -36,179 +40,81 @@
   </span>
 </label>
 
-<style lang="scss">
-  @use "../../assets/styles/custom-media.scss";
-
-  .theme-switcher {
-    --switcher-width: 4.5rem;
-    --switcher-height: var(--space-xl);
-    --switcher-padding: 0.25rem;
-    --icon-size: 1.25rem;
-
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    width: var(--switcher-width);
-    height: var(--switcher-height);
-    cursor: pointer;
-    border-radius: 9999px;
-    /* Using touch-action to improve mobile feel */
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-
-    @media (--medium-viewport) {
-      --switcher-width: var(--space-xl);
-      --switcher-height: var(--space-lg);
-    }
-  }
-
-  .theme-switcher__input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  .theme-switcher__track {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--text-color, #e2e8f0);
-    border-radius: 9999px;
-    transition: background-color 0.3s ease;
-  }
-
-  .theme-switcher__input:checked + .theme-switcher__track {
-    background-color: var(--text-color, #2d3748);
-  }
-
-  .theme-switcher__input:focus-visible + .theme-switcher__track {
-    outline: 0.125rem solid var(--text-color);
-    outline-offset: 4px;
-  }
-
-  .theme-switcher__thumb {
-    position: absolute;
-    top: var(--switcher-padding);
-    left: var(--switcher-padding);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: calc(var(--switcher-height) - (var(--switcher-padding) * 2));
-    height: calc(var(--switcher-height) - (var(--switcher-padding) * 2));
-    background-color: var(--background-color, hsla(26, 37%, 96%, 1));
-    border-radius: 50%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1;
-  }
-
-  /* Move thumb when checked (Dark Mode) */
-  .theme-switcher__input:checked ~ .theme-switcher__thumb {
-    transform: translateX(calc(var(--switcher-width) - var(--switcher-height)));
-    background-color: var(--text-color);
-  }
-
-  .theme-switcher__icon {
-    position: absolute;
-    width: var(--icon-size);
-    height: var(--icon-size);
-    transition:
-      opacity 0.2s ease,
-      transform 0.2s ease;
-    color: var(--text-color);
-  }
-
-  .theme-switcher__input:checked ~ .theme-switcher__thumb .theme-switcher__icon {
-    color: var(--background-color);
-  }
-
-  .theme-switcher__icon--light {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-
-  .theme-switcher__icon--dark {
-    opacity: 0;
-    transform: rotate(-90deg);
-  }
-
-  /* Icon states based on checked status */
-  .theme-switcher__input:checked ~ .theme-switcher__thumb .theme-switcher__icon--light {
-    opacity: 0;
-    transform: rotate(90deg);
-  }
-
-  .theme-switcher__input:checked ~ .theme-switcher__thumb .theme-switcher__icon--dark {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-</style>
-
 <script is:inline>
   (() => {
-    function getPreferredTheme() {
+    function applyTheme() {
       const storedTheme = localStorage.getItem("theme");
-      if (storedTheme) {
-        return storedTheme;
-      }
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      const theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
     }
 
-    const theme = getPreferredTheme();
-    document.documentElement.setAttribute("data-theme", theme);
+    applyTheme();
+    document.addEventListener("astro:after-swap", applyTheme);
   })();
 </script>
 
 <script>
-  const themeSwitches = document.querySelectorAll(
-    "[data-theme-switch]"
-  ) as NodeListOf<HTMLInputElement>;
+  function setupThemeSwitcher() {
+    const themeSwitches = document.querySelectorAll(
+      "[data-theme-switch]"
+    ) as NodeListOf<HTMLInputElement>;
 
-  const themeLabels = document.querySelectorAll("[data-theme-label]") as NodeListOf<HTMLElement>;
+    const themeLabels = document.querySelectorAll("[data-theme-label]") as NodeListOf<HTMLElement>;
 
-  function updateUI(isDark: boolean) {
-    const labelText = isDark
-      ? "Dark theme. Press to switch to light theme"
-      : "Light theme. Press to switch to dark theme";
+    function updateUI(isDark: boolean) {
+      const labelText = isDark
+        ? "Dark theme. Press to switch to light theme"
+        : "Light theme. Press to switch to dark theme";
 
-    themeLabels.forEach((label) => {
-      label.textContent = labelText;
-    });
+      themeLabels.forEach((label) => {
+        label.textContent = labelText;
+      });
+
+      themeSwitches.forEach((themeSwitch) => {
+        themeSwitch.checked = isDark;
+        themeSwitch.setAttribute("aria-checked", String(isDark));
+      });
+    }
+
+    function applyTheme(theme: string) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+      updateUI(theme === "dark");
+    }
+
+    // Initialize from the theme already applied by the inline script
+    const currentTheme = document.documentElement.getAttribute("data-theme") ?? "light";
+    updateUI(currentTheme === "dark");
 
     themeSwitches.forEach((themeSwitch) => {
-      themeSwitch.checked = isDark;
-      themeSwitch.setAttribute("aria-checked", String(isDark));
+      themeSwitch.addEventListener("change", () => {
+        applyTheme(themeSwitch.checked ? "dark" : "light");
+      });
     });
   }
 
-  function applyTheme(theme: string) {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-    updateUI(theme === "dark");
-  }
-
-  // Initialize from the theme already applied by the inline script
-  const currentTheme = document.documentElement.getAttribute("data-theme") ?? "light";
-  updateUI(currentTheme === "dark");
-
-  themeSwitches.forEach((themeSwitch) => {
-    themeSwitch.addEventListener("change", () => {
-      applyTheme(themeSwitch.checked ? "dark" : "light");
-    });
-  });
+  setupThemeSwitcher();
+  document.addEventListener("astro:page-load", setupThemeSwitcher);
 
   // Sync with OS preference changes, but only when no manual override is stored
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
     if (!localStorage.getItem("theme")) {
-      applyTheme(e.matches ? "dark" : "light");
+      const theme = e.matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+      const themeSwitches = document.querySelectorAll(
+        "[data-theme-switch]"
+      ) as NodeListOf<HTMLInputElement>;
+      const themeLabels = document.querySelectorAll("[data-theme-label]") as NodeListOf<HTMLElement>;
+      const isDark = theme === "dark";
+      themeLabels.forEach((label) => {
+        label.textContent = isDark
+          ? "Dark theme. Press to switch to light theme"
+          : "Light theme. Press to switch to dark theme";
+      });
+      themeSwitches.forEach((themeSwitch) => {
+        themeSwitch.checked = isDark;
+        themeSwitch.setAttribute("aria-checked", String(isDark));
+      });
     }
   });
 </script>

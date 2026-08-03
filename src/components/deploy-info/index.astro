@@ -1,14 +1,15 @@
 ---
 import buildInfo from "../../data/build-info.json";
+import styles from "./index.module.scss";
 
 const deployDate = new Date(buildInfo.deployTime).toLocaleString();
 const deployInfo = `${deployDate}`;
 const deployUrl = `https://github.com/JoaoTMDias/joaodias.me/commit/${buildInfo.commitHash}`;
 ---
 
-<p class="footer__deploy">
+<p class={styles.footer__deploy}>
   Last deploy:
-  <a href={deployUrl} target="_blank" class="footer__deploy__link">
+  <a href={deployUrl} target="_blank" class={styles.footer__deploy__link}>
     <span class="sr-only">Commit with hash</span>
     <span>
       <span>{buildInfo.commitHash}</span>
@@ -17,25 +18,3 @@ const deployUrl = `https://github.com/JoaoTMDias/joaodias.me/commit/${buildInfo.
     </span>
   </a>
 </p>
-
-<style lang="scss">
-  .footer__deploy {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    font-size: var(--font-size-base);
-    line-height: 1.5;
-    color: var(--text-color);
-
-    &__link {
-      cursor: pointer;
-    }
-  }
-
-  .footer__deploy__hash {
-    font-size: var(--font-size-base);
-    line-height: 1.5;
-    text-decoration: dotted;
-  }
-</style>

@@ -1,20 +1,21 @@
 ---
 import { getEntry } from "astro:content";
+import styles from "./main-navigation.module.scss";
 
 const config = await getEntry("config", "config");
 const currentPage = Astro.url.pathname;
 ---
 
-<nav aria-label="Pages" class="main-navigation">
-  <ul class="main-navigation__list">
+<nav aria-label="Pages" class={styles["main-navigation"]}>
+  <ul class={styles["main-navigation__list"]}>
     {
       config.data.nav.map((item) => {
         const isCurrentPage = currentPage === item.link;
 
         return (
-          <li class="main-navigation__item">
+          <li class={styles["main-navigation__item"]}>
             <a
-              class="main-navigation__link"
+              class={styles["main-navigation__link"]}
               id={item.id}
               href={item.link}
               aria-label={item.accessibleLabel}
@@ -29,73 +30,4 @@ const currentPage = Astro.url.pathname;
     }
   </ul>
 </nav>
-
-<style lang="scss">
-  @use "../../assets/styles/custom-media.scss";
-
-  .main-navigation {
-    --main-navigation-background: transparent;
-
-    font-family: var(--text-font-family);
-    display: none;
-    align-items: stretch;
-    background-color: inherit;
-    display: flex;
-    flex-direction: row;
-    height: calc(var(--header-height) - 1rem);
-    justify-content: start;
-    margin-left: auto;
-    position: relative;
-    top: 0;
-    width: fit-content;
-    z-index: inherit;
-
-    @media (--medium-viewport) {
-      display: flex;
-    }
-  }
-
-  .main-navigation__list {
-    display: none;
-    flex-direction: row;
-    justify-content: start;
-    align-items: stretch;
-    list-style: none;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-
-    @media (--medium-viewport) {
-      display: flex;
-    }
-  }
-
-  .main-navigation__link {
-    font-size: 1.25rem;
-    height: 100%;
-    align-items: center;
-    display: none;
-    flex-direction: row;
-    gap: 0.5rem;
-    justify-content: start;
-    padding-inline: 1rem;
-    position: relative;
-    text-decoration: underline;
-    width: fit-content;
-    font-family: inherit;
-
-    &[aria-current="page"] {
-      text-underline-thickness: 0.125rem;
-    }
-
-    &:hover:not([aria-current="page"]),
-    &:focus:not([aria-current="page"]) {
-      text-decoration: underline;
-    }
-
-    @media (--medium-viewport) {
-      display: flex;
-    }
-  }
 </style>

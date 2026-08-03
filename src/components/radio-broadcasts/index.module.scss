@@ -19,11 +19,11 @@
     font-size: var(--font-size-md);
 
     @media (--medium-viewport) {
-      grid-column-end: 4;
+      grid-column-end: 6;
     }
 
     @media (--large-viewport) {
-      grid-column-end: 3;
+      grid-column-end: 8;
     }
   }
 

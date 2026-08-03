@@ -1,15 +1,16 @@
 ---
 import { getEntry } from "astro:content";
+import styles from "./index.module.scss";
 
 const bio = await getEntry("bio", "bio");
 ---
 
 <div class="sub-section">
   <h3 class="sr-only">{bio.data.title}</h3>
-  <div class="bio">
-    <div class="bio__picture">
+  <div class={styles.bio}>
+    <div class={styles.bio__picture}>
       <img
-        class="bio__image"
+        class={styles.bio__image}
         src={bio.data.picture.src}
         width={bio.data.picture.width}
         height={bio.data.picture.height}
@@ -18,12 +19,12 @@ const bio = await getEntry("bio", "bio");
         data-testid="bio-image"
       />
     </div>
-    <div class="bio__content">
-      <h4 class="bio__title" data-testid="bio-intro">{bio.data.mainTitle}</h4>
+    <div class={styles.bio__content}>
+      <h4 class={styles.bio__title} data-testid="bio-intro">{bio.data.mainTitle}</h4>
       {
         bio.data.description.map((paragraph, index) => {
           return (
-            <p key={index} class="bio__paragraph" data-testid="bio-description">
+            <p key={index} class={styles.bio__paragraph} data-testid="bio-description">
               {paragraph}
             </p>
           );
@@ -32,147 +33,3 @@ const bio = await getEntry("bio", "bio");
     </div>
   </div>
 </div>
-
-<style lang="scss">
-  @use "../../assets/styles/custom-media.scss";
-  .bio {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
-
-    @media (--large-viewport) {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1rem;
-    }
-
-    @supports (animation-timeline: view()) {
-      @media (--large-viewport) and (--with-motion) {
-        &__picture,
-        &__content {
-          transform: translateX(0);
-          opacity: 1;
-          view-timeline-axis: block;
-        }
-      }
-    }
-
-    &__picture {
-      position: relative;
-      width: fit-content;
-
-      @supports (animation-timeline: view()) {
-        @media (--large-viewport) and (--with-motion) {
-          view-timeline-name: --slide-in-image;
-          animation: linear slideInImage both;
-          animation-timeline: --slide-in-image;
-          animation-range: entry -25% cover 80%;
-        }
-      }
-
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: transparent;
-        border: 2px solid var(--text-color);
-        transform: translate3d(6vw, 4vh, 0) scale(1);
-        pointer-events: none;
-        transition: transform 200ms ease-in-out;
-        border-radius: 4px;
-        filter: invert(1);
-
-        @media (--large-viewport) {
-          transform: translate3d(1rem, 1.5rem, 0) scale(1.025);
-        }
-
-        @media (min-width: 70rem) {
-          transform: translate3d(3rem, 1.5rem, 0) scale(1.025);
-        }
-
-        @media (forced-colors: active) {
-          display: none;
-        }
-      }
-
-      @media (--with-motion) {
-        &:hover:after {
-          @media (--large-viewport) {
-            transform: translate3d(2rem, 1rem, 0) scale(1.025);
-          }
-        }
-      }
-
-      @media (--large-viewport) {
-        grid-column-start: 2;
-        grid-column-end: 5;
-      }
-    }
-
-    &__image {
-      border-radius: 2px;
-    }
-
-    &__content {
-      @media (--large-viewport) {
-        grid-column-start: 7;
-        grid-column-end: 12;
-      }
-
-      @supports (animation-timeline: view()) {
-        @media (--large-viewport) and (--with-motion) {
-          view-timeline-name: --slide-in-text;
-          animation: linear slideInText both;
-          animation-timeline: --slide-in-text;
-        }
-      }
-    }
-
-    &__title {
-      font-family: var(--heading-font-family);
-      font-style: normal;
-      font-weight: 500;
-      font-size: 2rem;
-      line-height: 112%;
-      margin-block: 3rem;
-    }
-
-    &__paragraph {
-      font-family: var(--text-font-family);
-      font-style: normal;
-      font-weight: 300;
-      font-size: clamp(1.2rem, 6vw, 1.375rem);
-      line-height: 1.2727272727;
-
-      + .bio__paragraph {
-        margin-top: 1.5rem;
-      }
-    }
-  }
-
-  @keyframes slideInImage {
-    from {
-      transform: translateX(-40%);
-    }
-
-    to {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideInText {
-    from {
-      transform: translateX(25%);
-    }
-
-    to {
-      transform: translateX(0);
-    }
-  }
-</style>
