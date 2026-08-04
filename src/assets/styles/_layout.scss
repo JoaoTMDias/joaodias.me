@@ -1,8 +1,18 @@
 .container {
+  --container-max-width: 100%;
+
   width: 100%;
-  max-width: 120rem;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   overflow-x: clip;
+
+  @media (--laptop-viewport) {
+    --container-max-width: 68.75rem;
+  }
+
+  @media (--laptop-hd-viewport) {
+    --container-max-width: 90rem;
+  }
 }
 
 section,

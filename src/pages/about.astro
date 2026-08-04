@@ -10,10 +10,13 @@ import PageLayout from "../layouts/PageLayout.astro";
 	description="Learn about João Dias, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal. Currently at Feedzai."
 >
 	<main>
-		<section id="content" tabindex={-1} aria-labelledby="about">
-			<h1 id="about">{PAGE_CONTENT.about.title}</h1>
-			<Bio />
-			<Experience />
-		</section>
+		<h1 class="sr-only">About page</h1>
+		<div class="content">
+			<section id="content" tabindex={-1} aria-labelledby="about">
+				<h1 id="about">{PAGE_CONTENT.about.title}</h1>
+				<Bio />
+				<Experience />
+			</section>
+		</div>
 	</main>
 </PageLayout>

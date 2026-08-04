@@ -58,6 +58,10 @@
       justify-content: end;
       grid-row-start: 3;
     }
+
+    @media (--large-viewport) {
+      grid-column-end: 10;
+    }
   }
 
   @media (--with-motion) {
