@@ -8,121 +8,122 @@
 */
 @use "../../assets/styles/custom-media.scss";
 
-.container,
-.info {
+.container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background-color: var(--background-color);
-
-  @media (--large-viewport) {
-    flex-direction: row;
-  }
 }
 
 .container {
-  padding-block: 1rem;
-  gap: 2rem;
+  padding-block: var(--space-base);
+  gap: var(--space-md);
 }
 
 .info {
-  gap: 0.5rem;
-
-  @media (--large-viewport) {
-    gap: 1.5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  margin: 0;
+  transition: all var(--motion-duration-background-animation) var(--motion-ease-bounce);
+  transform: translate(0, 0);
 }
 
 .cover {
-  width: 5rem;
-  height: 5rem;
-  transform: scale(1);
+  --cover-size: var(--cover-width, 4.5rem);
+
   z-index: 1;
   position: relative;
-  display: grid;
-  place-items: center;
-
-  @media (--large-viewport) {
-    width: 3rem;
-    height: 3rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--cover-size);
+  height: var(--cover-size);
+  overflow: visible;
+  isolation: isolate;
+  transform-origin: left center;
+  transform: scale(1);
 
   &__image {
     width: 100%;
     height: 100%;
-    z-index: 0;
-    border-radius: 0.125rem;
+    z-index: 1;
     position: relative;
+    aspect-ratio: 1 / 1;
+    display: block;
+    flex-shrink: 0;
+    object-fit: contain;
+    object-position: center;
+    background-color: #111;
   }
 
-  &:before {
-    background-image: url("/record.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    content: "";
-    position: absolute;
-    width: 90%;
-    height: 90%;
-    inset: auto;
-    border-radius: 50%;
-    transform: translateX(25%) rotate(0);
+  @media (--medium-viewport) {
+    --cover-size: 6.375rem;
   }
 
   @media (--with-motion) {
     &:hover {
-      transform: scale(3.5);
+      transform: scale(1.5);
 
-      &:before {
-        transform: translateX(60%) rotate(10turn);
+      ~ .info {
+        translate: 20% 0;
       }
     }
 
-    transition-duration: 400ms;
-
-    &,
-    &:before {
-      transition-property: transform;
-      transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-    }
-
-    &:before {
-      transition-duration: 12000ms;
-      transition-delay: 0;
-    }
+    transition-duration: var(--motion-duration-background-animation);
+    transition-property: transform;
+    transition-timing-function: var(--motion-ease-bounce);
   }
 }
 
 .track,
 .artist,
 .album {
+  text-align: left;
   display: inline-block;
   max-width: 30ch;
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   white-space: nowrap;
   word-wrap: normal;
-  font-family: var(--heading-font-family);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 1.8125rem;
-  text-transform: uppercase;
   color: var(--text-color);
-  background-color: var(--background-color);
-}
-
-.artist {
-  text-align: center;
-
-  @media (--large-viewport) {
-    text-align: left;
-  }
+  font-family: var(--heading-font-family);
 }
 
 .track {
   font-weight: 700;
+  font-size: var(--font-size-base);
   text-decoration: none;
   border-bottom: 1px dotted currentColor;
+
+  @media (--medium-viewport) {
+    font-size: var(--font-size-md);
+  }
 }
+
+.artist {
+  font-weight: 400;
+  font-size: var(--font-size-base);
+
+  @media (--medium-viewport) {
+    font-size: var(--font-size-md);
+  }
+}
+
+.album {
+  font-weight: 400;
+  font-style: italic;
+  font-size: var(--font-size-sm);
+  color: var(--text-color-faded);
+
+  @media (--medium-viewport) {
+    font-size: var(--font-size-base);
+  }
+}
+

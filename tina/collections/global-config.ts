@@ -165,8 +165,8 @@ export const GlobalConfigCollection: Collection = {
           required: true,
         },
         {
-          name: "marquee",
-          label: "Marquee Settings",
+          name: "player",
+          label: "Player Settings",
           type: "object",
           fields: [
             {

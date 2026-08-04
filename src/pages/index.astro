@@ -3,6 +3,8 @@ import ExpertiseAndServices from "../components/expertise-and-services/index.ast
 import FeaturedWork from "../components/featured-work/index.astro";
 import Hero from "../components/hero/index.astro";
 import LatestArticles from "../components/latest-articles/index.astro";
+import LetsConnect from "../components/lets-connect/index.astro";
+import PeerFeedback from "../components/peer-feedback/index.astro";
 import RadioBroadcasts from "../components/radio-broadcasts/index.astro";
 import PAGE_CONTENT from "../data/index.json";
 import PageLayout from "../layouts/PageLayout.astro";
@@ -17,99 +19,8 @@ import PageLayout from "../layouts/PageLayout.astro";
       <FeaturedWork />
       <ExpertiseAndServices />
       <RadioBroadcasts />
-      <section id="peer-feedback">
-        <h2>What Peers and Leaders Say</h2>
-        <p>Here's what engineering leaders and design partners say about working with me</p>
-        <div class="feedback-grid">
-          <article class="testimonial">
-            <img class="testimonial__avatar" width="64" height="64" alt="" />
-            <h3 class="testimonial__title">A high-valuable asset</h3>
-            <p class="testimonial__sentence">
-              João is the engineer who guarantees quality. His focus on sustainable architecture,
-              performance, and accessibility ensures we deliver high-impact products—not just
-              features. He's an essential asset to any senior engineering team.
-            </p>
-            <p class="testimonial__name">
-              <span class="sr-only">Testimonial from&nbsp;</span>Henrique Macedo, <span
-                class="sr-only"
-                >who is a
-              </span>VP of Engineering at LayerX
-            </p>
-          </article>
-          <article class="testimonial">
-            <img class="testimonial__avatar" width="64" height="64" alt="" />
-            <h3 class="testimonial__title">A high-valuable asset</h3>
-            <p class="testimonial__sentence">
-              João is the engineer who guarantees quality. His focus on sustainable architecture,
-              performance, and accessibility ensures we deliver high-impact products—not just
-              features. He's an essential asset to any senior engineering team.
-            </p>
-            <p class="testimonial__name">
-              <span class="sr-only">Testimonial from&nbsp;</span>Henrique Macedo, <span
-                class="sr-only"
-                >who is a
-              </span>VP of Engineering at LayerX
-            </p>
-          </article>
-          <article class="testimonial">
-            <img class="testimonial__avatar" width="64" height="64" alt="" />
-            <h3 class="testimonial__title">A high-valuable asset</h3>
-            <p class="testimonial__sentence">
-              João is the engineer who guarantees quality. His focus on sustainable architecture,
-              performance, and accessibility ensures we deliver high-impact products—not just
-              features. He's an essential asset to any senior engineering team.
-            </p>
-            <p class="testimonial__name">
-              <span class="sr-only">Testimonial from&nbsp;</span>Henrique Macedo, <span
-                class="sr-only"
-                >who is a
-              </span>VP of Engineering at LayerX
-            </p>
-          </article>
-          <article class="testimonial">
-            <img class="testimonial__avatar" width="64" height="64" alt="" />
-            <h3 class="testimonial__title">A high-valuable asset</h3>
-            <p class="testimonial__sentence">
-              João is the engineer who guarantees quality. His focus on sustainable architecture,
-              performance, and accessibility ensures we deliver high-impact products—not just
-              features. He's an essential asset to any senior engineering team.
-            </p>
-            <p class="testimonial__name">
-              <span class="sr-only">Testimonial from&nbsp;</span>Henrique Macedo, <span
-                class="sr-only"
-                >who is a
-              </span>VP of Engineering at LayerX
-            </p>
-          </article>
-        </div>
-      </section>
-      <section id="connect">
-        <h2>Let's connect!</h2>
-        <p>
-          I'm currently available for <strong>Senior Frontend Engineering</strong> and <strong
-            >Accessibility Consulting</strong
-          > roles across Europe and globally.
-        </p>
-        <p>
-          My expertise is uniquely positioned to help organizations <strong
-            >build accessible Design Systems</strong
-          >, <strong>achieve EAA or ADA compliance</strong>, or <strong
-            >elevate a team's accessibility maturity</strong
-          >. I bring the technical depth and strategic insight to deliver results.
-        </p>
-        <p>
-          Let's build digital products that meet the moment: fast, inclusive, and compliant with
-          global accessibility standards—because accessibility isn't a checkbox, it's a competitive
-          advantage.
-        </p>
-        <div class="connect__links">
-          <a href="/about">Know more about me</a>
-          <a href="/resume-joao-dias.pdf" download="resume-joao-dias.pdf"
-            >Download my resumé (<span class="sr-only">file format is in</span>PDF)</a
-          >
-          <a href="/contacts">Reach out and contact me</a>
-        </div>
-      </section>
+      <PeerFeedback />
+      <LetsConnect />
     </div>
   </main>
 </PageLayout>

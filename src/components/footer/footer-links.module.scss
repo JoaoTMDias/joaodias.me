@@ -1,3 +1,4 @@
+@use "../../assets/styles/custom-media.scss";
 @use "./_footer-links.scss" as links;
 
 .footer-links {
@@ -15,6 +16,12 @@
 
   &__list {
     @include links.list-flex();
+
+    gap: var(--space-sm);
+
+    @media (--medium-viewport) {
+      gap: var(--space-base);
+    }
   }
 
   &__item,
@@ -24,5 +31,15 @@
 
   &__link {
     @include links.link-flex();
+  }
+
+  @media (--medium-viewport) {
+    grid-column-start: 10;
+    grid-column-end: -1;
+  }
+
+  @media (--large-viewport) {
+    grid-column-start: 7;
+    grid-column-end: 9;
   }
 }

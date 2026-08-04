@@ -8,35 +8,54 @@
  */
 import type { FunctionComponent } from "react";
 import type { Track } from "../../typings/index";
+import Record from "./Record";
 import styles from "./styles.module.scss";
 
-interface IMarqueeConfig {
-	loading: string;
-	card: {
-		width: string;
-		height: string;
+interface PlayerConfig {
+	loading?: string;
+	card?: {
+		width?: string;
+		height?: string;
 	};
-	track: string;
-	artist: string;
-	album: string;
+	track?: string;
+	artist?: string;
+	album?: string;
 }
+
+const RECORD_SIZE_FACTOR = 0.875; // 87.5% of the cover size
+const RECORD_DISTANCE_RIGHT_SHIFT = 0.22
 
 /**
  * Last Played Song Card
  */
 export const LastPlayedSongCard: FunctionComponent<{
 	song: Track;
-	marqueeConfig: IMarqueeConfig;
-}> = ({ song, marqueeConfig }) => {
+	playerConfig?: PlayerConfig;
+}> = ({ song, playerConfig }) => {
+	const { card = {}, track = "", artist = "", album = "" } = playerConfig ?? {};
+	const width = Number.parseInt(card.width ?? "72", 10);
+	const height = Number.parseInt(card.height ?? "72", 10);
+	const coverImage = [...song.image].reverse().find((entry) => entry["#text"]?.trim())?.["#text"];
+	const alt = `${song.name} by ${song.artist["#text"]} from the album ${song.album["#text"]}`;
+
+	const coverStyles = {
+		"--cover-width": `${width}px`,
+		"--record-size-factor": `${RECORD_SIZE_FACTOR}`,
+		"--record-distance-right-shift": `${RECORD_DISTANCE_RIGHT_SHIFT}`,
+	} as React.CSSProperties;
+
 	return (
 		<div className={styles.container}>
-			<div className={styles.cover}>
+			<div
+				className={styles.cover}
+				style={coverStyles}
+			>
 				<img
 					className={styles.cover__image}
-					src={song.image[2]["#text"]}
-					width={marqueeConfig.card.width}
-					height={marqueeConfig.card.height}
-					alt=""
+					src={coverImage}
+					width={width}
+					height={height}
+					alt={alt}
 					loading="lazy"
 					data-testid="currently-listening-album-cover"
 				/>
@@ -47,26 +66,21 @@ export const LastPlayedSongCard: FunctionComponent<{
 					href={song.url}
 					target="_blank"
 					data-tooltip="View song on Last.fm"
-					data-testid="currently-listening-song" rel="noopener"
+					data-testid="currently-listening-song"
+					rel="noopener noreferrer"
 				>
 					{song.name}
-					<span className="sr-only">{marqueeConfig.track}</span>
+					<span className="sr-only">{track}</span>
 				</a>
 				<span className="sr-only">by</span>
-				<span className={styles.artist} aria-hidden="true">
-					/
-				</span>
 				<span className={styles.artist} data-testid="currently-listening-artist">
 					{song.artist["#text"]}
 				</span>
-				<span className="sr-only">{marqueeConfig.artist}</span>
-				<span className={styles.artist} aria-hidden="true">
-					/
-				</span>
+				<span className="sr-only">{artist}</span>
 				<span className={styles.album} data-testid="currently-listening-album">
 					{song.album["#text"]}
 				</span>
-				<span className="sr-only">{marqueeConfig.album}</span>
+				<span className="sr-only">{album}</span>
 			</p>
 		</div>
 	);

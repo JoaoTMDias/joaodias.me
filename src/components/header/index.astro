@@ -12,7 +12,7 @@ const config = await getEntry("config", "config");
 ---
 
 <header class={styles.header}>
-  <SkipLink items={config.data.skipLinks} client:load />
+  <SkipLink items={config?.data.skipLinks ?? []} client:load />
   <div class={styles.header__container}>
     <Logo />
     <div class={styles.header__nav}>

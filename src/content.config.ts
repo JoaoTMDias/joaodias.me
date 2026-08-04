@@ -87,7 +87,7 @@ const configCollection = defineCollection({
 		),
 		footer: z.object({
 			currentlyListeningTitle: z.string(),
-			marquee: z.object({
+			player: z.object({
 				loading: z.string(),
 				card: z.object({
 					width: z.string(),
@@ -166,6 +166,29 @@ const showsCollection = defineCollection({
 	}),
 });
 
+const testimonialsCollection = defineCollection({
+	loader: glob({ pattern: "**/*.md", base: "./src/content/testimonials" }),
+	schema: z.object({
+		name: z.string(),
+		role: z.string(),
+		avatarUrl: z.string(),
+		testimonial: z.string(),
+		order: z.number().optional().default(99),
+		avatarColors: z
+			.union([z.array(z.string()), z.string()])
+			.optional()
+			.transform((val) => {
+				if (!val) return undefined;
+				if (Array.isArray(val)) return val;
+				try {
+					return JSON.parse(val) as string[];
+				} catch {
+					return undefined;
+				}
+			}),
+	}),
+});
+
 export const collections = {
 	blog: blogCollection,
 	projects: projectsCollection,
@@ -173,4 +196,5 @@ export const collections = {
 	config: configCollection,
 	bio: bioCollection,
 	experience: experienceCollection,
+	testimonials: testimonialsCollection,
 };

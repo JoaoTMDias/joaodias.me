@@ -28,10 +28,6 @@
       animation-fill-mode: forwards;
     }
   }
-
-  @media (--laptop-viewport) {
-    max-width: 30vw;
-  }
 }
 
 @keyframes clipPathAnimation {

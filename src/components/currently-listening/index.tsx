@@ -7,54 +7,78 @@
  * (c) 2022 joaodias.me, Rights Reserved.
  */
 
-import { useEffect, useState } from "react";
+import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { LAST_FM_URL } from "../../data/services/config";
 import type { ExternalServiceSongs, Track } from "../../typings/index";
 import LastPlayedSongCard from "./LastPlayedSongCard";
 
-interface IMarqueeConfig {
-	loading: string;
-	card: {
-		width: string;
-		height: string;
+interface PlayerConfig {
+	loading?: string;
+	card?: {
+		width?: string;
+		height?: string;
 	};
-	track: string;
-	artist: string;
-	album: string;
+	track?: string;
+	artist?: string;
+	album?: string;
 }
 
 interface ICurrentlyListeningProps {
-	marqueeConfig: IMarqueeConfig;
+	playerConfig?: PlayerConfig;
 }
 
 async function getSong() {
 	const request = await fetch(LAST_FM_URL);
 	const data: ExternalServiceSongs = await request.json();
-	const { recenttracks } = await data;
+	const { recenttracks } = data;
 
 	return recenttracks.track.slice(0, 1)[0];
 }
 
-function CurrentlyListening({ marqueeConfig }: ICurrentlyListeningProps) {
-	const [song, setSong] = useState<Track>(null);
+const FALLBACK_CONFIG: PlayerConfig = {
+	loading: "Loading...",
+	card: {
+		width: "72",
+		height: "72",
+	},
+	track: "",
+	artist: "",
+	album: "",
+};
 
-	useEffect(() => {
-		try {
-			getSong().then((result) => {
-				if (result) {
-					setSong(result);
-				}
-			});
-		} catch (error) {
-			console.warn("Problems fetching the current song: ", error);
-		}
-	}, []);
+function CurrentlyListeningContent({ playerConfig }: ICurrentlyListeningProps) {
+	const resolvedConfig = playerConfig ?? FALLBACK_CONFIG;
+	const {
+		data: song,
+		isError,
+		isLoading,
+	} = useQuery<Track | undefined>({
+		queryKey: ["current-song"],
+		queryFn: getSong,
+		retry: false,
+		refetchOnWindowFocus: false,
+	});
 
-	if (!song) {
-		return <p aria-busy="true">{marqueeConfig.loading}</p>;
+	if (isLoading) {
+		return <p aria-busy="true">{resolvedConfig.loading}</p>;
 	}
 
-	return <LastPlayedSongCard key={song.name} song={song} marqueeConfig={marqueeConfig} />;
+	if (isError || !song) {
+		return <p aria-busy="true">{resolvedConfig.loading}</p>;
+	}
+
+	return <LastPlayedSongCard key={song.name} song={song} playerConfig={resolvedConfig} />;
+}
+
+function CurrentlyListening({ playerConfig }: ICurrentlyListeningProps) {
+	const [queryClient] = useState(() => new QueryClient());
+
+	return (
+		<QueryClientProvider client={queryClient}>
+			<CurrentlyListeningContent playerConfig={playerConfig} />
+		</QueryClientProvider>
+	);
 }
 
 export default CurrentlyListening;

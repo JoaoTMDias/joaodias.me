@@ -1,0 +1,27 @@
+@use "../../assets/styles/custom-media.scss";
+
+.footer-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    font-size: var(--font-size-sm);
+    gap: var(--space-xs);
+
+    p, a {
+      font-size: inherit;
+      font-family: var(--text-font-family);
+      margin: 0;
+    }
+
+    @media (--medium-viewport) {
+      grid-column-start: 1;
+      grid-column-end: -1;
+    }
+
+    @media (--large-viewport) {
+      grid-column-start: 10;
+      grid-column-end: -1;
+    }
+  }

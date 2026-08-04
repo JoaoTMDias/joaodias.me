@@ -29,18 +29,18 @@ export const SkipLinkSchema = z.object({
 });
 export type SkipLink = z.infer<typeof SkipLinkSchema>;
 
-export const MarqueeSchema = z.object({
+export const PlayerSchema = z.object({
 	loading: z.string(),
 	card: CardSchema,
 	track: z.string(),
 	artist: z.string(),
 	album: z.string(),
 });
-export type Marquee = z.infer<typeof MarqueeSchema>;
+export type Player = z.infer<typeof PlayerSchema>;
 
 export const FooterSchema = z.object({
 	currentlyListeningTitle: z.string(),
-	marquee: MarqueeSchema,
+	player: PlayerSchema,
 });
 export type Footer = z.infer<typeof FooterSchema>;
 

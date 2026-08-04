@@ -95,6 +95,8 @@
 
 @media (--with-motion) {
   .card {
+    animation-name: fadeInCard;
+    animation-timeline: view();
     transition:
       --blob1-x var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
       --blob1-y var(--motion-duration-background-animation) var(--motion-ease-standard),
@@ -190,6 +192,15 @@
   text-underline-offset: 0.25rem;
 }
 
+@keyframes fadeInCard {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @supports (color: contrast-color(white)) {
   .card {
     --show-text-color: contrast-color(var(--card-bg));
@@ -210,9 +221,9 @@
 
 @container show-card (min-width: 16rem) {
   .card {
-    --show-gap: var(--space-md);
-    --show-padding: var(--space-md);
-    --show-image-size: 6rem;
+    --show-gap: var(--space-base);
+    --show-padding: var(--space-base);
+    --show-image-size: 4rem;
     --show-title-font-size: var(--font-size-md);
     --show-name-font-size: var(--font-size-base);
     --show-date-font-size: var(--font-size-sm);

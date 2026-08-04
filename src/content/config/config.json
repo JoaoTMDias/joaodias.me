@@ -1,81 +1,81 @@
 {
-	"seo": {
-		"title": "You have arrived at a website called joaodias.me: João Dias",
-		"description": "Personal website of João Dias, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal",
-		"siteOwner": "João Dias"
-	},
-	"copyright": "João Dias. All Rights Reserved",
-	"skipLinks": [
-		{
-			"target": "#content",
-			"text": "Skip to main content of the page",
-			"as": "link"
-		},
-		{
-			"target": "#links-to-my-social-media",
-			"text": "Skip to my Social media links",
-			"as": "link"
-		}
-	],
-	"nav": [
-		{
-			"title": "Home",
-			"accessibleLabel": "Homepage",
-			"link": "/"
-		},
-		{
-			"title": "About me",
-			"accessibleLabel": "About me page",
-			"link": "/about"
-		},
-		{
-			"title": "Blog",
-			"accessibleLabel": "Blog page",
-			"link": "/blog"
-		},
-		{
-			"title": "Work",
-			"accessibleLabel": "Work portfolio page",
-			"link": "/work"
-		}
-	],
-	"contactLinks": [
-		{
-			"title": "Instagram",
-			"accessibleLabel": "Check my Instagram profile. This link opens in a new tab",
-			"link": "http://instagram.com/joaotmdias",
-			"icon": "TbBrandInstagram"
-		},
-		{
-			"title": "GitHub",
-			"accessibleLabel": "Check my projects and source code on Github. This link opens in a new tab",
-			"link": "http://github.com/joaotmdias",
-			"icon": "TbBrandGithub"
-		},
-		{
-			"title": "LinkedIn",
-			"accessibleLabel": "Add me on LinkedIn. This link opens in a new tab",
-			"link": "http://linkedin.com/in/joaotmdias",
-			"icon": "TbBrandLinkedin"
-		},
-		{
-			"title": "RUC Shows",
-			"accessibleLabel": "My Radio shows on RUC",
-			"link": "https://ruc.pt/autor/joaotmdias",
-			"icon": "TbRadio"
-		}
-	],
-	"footer": {
-		"currentlyListeningTitle": "Currently listening to",
-		"marquee": {
-			"loading": "Loading...",
-			"card": {
-				"width": "48",
-				"height": "48"
-			},
-			"track": ". This link will open in a new tab",
-			"artist": "from the",
-			"album": "record"
-		}
-	}
+  "seo": {
+    "title": "You have arrived at a website called joaodias.me: João Dias",
+    "description": "Personal website of João Dias, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal",
+    "siteOwner": "João Dias"
+  },
+  "copyright": "João Dias. All Rights Reserved",
+  "skipLinks": [
+    {
+      "target": "#content",
+      "text": "Skip to main content of the page",
+      "as": "link"
+    },
+    {
+      "target": "#links-to-my-social-media",
+      "text": "Skip to my Social media links",
+      "as": "link"
+    }
+  ],
+  "nav": [
+    {
+      "title": "Home",
+      "accessibleLabel": "Homepage",
+      "link": "/"
+    },
+    {
+      "title": "About me",
+      "accessibleLabel": "About me page",
+      "link": "/about"
+    },
+    {
+      "title": "Blog",
+      "accessibleLabel": "Blog page",
+      "link": "/blog"
+    },
+    {
+      "title": "Work",
+      "accessibleLabel": "Work portfolio page",
+      "link": "/work"
+    }
+  ],
+  "contactLinks": [
+    {
+      "title": "Instagram",
+      "accessibleLabel": "Check my Instagram profile. This link opens in a new tab",
+      "link": "http://instagram.com/joaotmdias",
+      "icon": "TbBrandInstagram"
+    },
+    {
+      "title": "GitHub",
+      "accessibleLabel": "Check my projects and source code on Github. This link opens in a new tab",
+      "link": "http://github.com/joaotmdias",
+      "icon": "TbBrandGithub"
+    },
+    {
+      "title": "LinkedIn",
+      "accessibleLabel": "Add me on LinkedIn. This link opens in a new tab",
+      "link": "http://linkedin.com/in/joaotmdias",
+      "icon": "TbBrandLinkedin"
+    },
+    {
+      "title": "RUC Shows",
+      "accessibleLabel": "My Radio shows on RUC",
+      "link": "https://ruc.pt/autor/joaotmdias",
+      "icon": "TbRadio"
+    }
+  ],
+  "footer": {
+    "currentlyListeningTitle": "Currently listening to",
+    "player": {
+      "loading": "Loading...",
+      "card": {
+        "width": "72",
+        "height": "72"
+      },
+      "track": ". This link will open in a new tab",
+      "artist": "from the",
+      "album": "record"
+    }
+  }
 }

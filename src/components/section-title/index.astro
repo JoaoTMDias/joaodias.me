@@ -1,15 +1,20 @@
 ---
+import clsx from "clsx";
+
 interface Props {
 	text: string;
 	number: number;
+  hidden?: boolean;
 }
 
-const { text, number } = Astro.props;
+const { text, number, hidden } = Astro.props;
 
 const formattedNumber = number < 10 ? `0${number}` : number;
 ---
 
-<h2 class="section__title">
+<h2 class={clsx("section__title", {
+  "sr-only": hidden
+})}>
   <span class="section__title--number">{formattedNumber} /</span>
   <span class="section__title--text">{text}</span>
 </h2>

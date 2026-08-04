@@ -43,7 +43,34 @@
   &__name {
     grid-column-start: 1;
     grid-column-end: 6;
+
+    @media (--large-viewport) {
+      grid-column-start: 1;
+      grid-column-end: 8;
+    }
+  }
+
+  &__name {
     justify-content: start;
+
+    @media (--large-viewport) {
+      padding: 0;
+      justify-content: end;
+      grid-row-start: 3;
+    }
+  }
+
+  @media (--with-motion) {
+    &__title,
+    &__name,
+    &__intro {
+      opacity: 0;
+      animation-name: hero-title-fade-in;
+      animation-duration: 650ms;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
+      will-change: opacity;
+    }
   }
 
   &__picture {
@@ -56,6 +83,11 @@
     align-items: start;
     justify-content: start;
     aspect-ratio: 1/1;
+
+    @media (--large-viewport) {
+      grid-column-start: 1;
+      grid-column-end: 6;
+    }
   }
 
   &__intro {
@@ -69,6 +101,12 @@
     font-size: 1.5rem;
     line-height: 1.333;
     color: var(--text-color);
+
+    @media (--large-viewport) {
+      grid-column-start: 1;
+      grid-column-end: 6;
+      grid-row-start: 3;
+    }
   }
 
   &__arrow {
@@ -80,5 +118,44 @@
     justify-content: end;
     width: 24px;
     height: auto;
+    justify-self: anchor-center;
+
+    @media (--with-motion) {
+      opacity: 0;
+      animation-name: hero-arrow-fade-in-down;
+      animation-duration: 650ms;
+      animation-delay: 650ms;
+      animation-fill-mode: forwards;
+      animation-timing-function: var(--motion-ease-bounce);
+      will-change: opacity, transform;
+    }
+
+    @media (--large-viewport) {
+      align-self: anchor-center;
+      grid-column-start: 9;
+      grid-column-end: 10;
+    }
+  }
+}
+
+@keyframes hero-title-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-arrow-fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

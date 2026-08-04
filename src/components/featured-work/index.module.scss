@@ -51,7 +51,7 @@
 
     &:hover,
     &:focus {
-      translate: 0.25rem 0.25rem;
+      translate: 0 -0.25rem;
       box-shadow: none;
     }
   }
@@ -125,7 +125,7 @@
   }
 
   @media (--large-viewport) {
-    --work-title-size: var(--font-size-md);
+    --work-title-size: var(--font-size-lg);
     --work-description-size: var(--font-size-base);
   }
 }

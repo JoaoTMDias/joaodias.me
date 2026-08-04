@@ -1,3 +1,4 @@
+@use "../../assets/styles/custom-media.scss";
 @use "./_footer-links.scss" as links;
 
 .social-links {
@@ -32,5 +33,15 @@
 
   &__name {
     @include links.name();
+  }
+
+  @media (--medium-viewport) {
+    grid-column-start: 7;
+    grid-column-end: 10;
+  }
+
+  @media (--large-viewport) {
+    grid-column-start: 5;
+    grid-column-end: 7;
   }
 }
