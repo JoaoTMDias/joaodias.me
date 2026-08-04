@@ -1,19 +1,6 @@
 @use "../../assets/styles/custom-media.scss";
 
 .bio {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
-
-  @media (--large-viewport) {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1rem;
-  }
-
   @supports (animation-timeline: view()) {
     @media (--large-viewport) and (--with-motion) {
       &__picture,
@@ -25,87 +12,66 @@
     }
   }
 
+  &__content {
+    grid-column-start: 1;
+    grid-column-end: -1;
+
+    @media (--medium-viewport) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    @media (--large-viewport) {
+      grid-column-start: 1;
+      grid-column-end: 6;
+    }
+  }
   &__picture {
-    position: relative;
-    width: fit-content;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    aspect-ratio: 1/1;
+    width: 100%;
 
     @supports (animation-timeline: view()) {
       @media (--large-viewport) and (--with-motion) {
         view-timeline-name: --slide-in-image;
         animation: linear slideInImage both;
         animation-timeline: --slide-in-image;
-        animation-range: entry -25% cover 80%;
+        animation-range: entry 50% cover 50%;
       }
     }
 
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: transparent;
-      border: 2px solid var(--text-color);
-      transform: translate3d(6vw, 4vh, 0) scale(1);
-      pointer-events: none;
-      transition: transform 200ms ease-in-out;
-      border-radius: 4px;
-      filter: invert(1);
-
-      @media (--large-viewport) {
-        transform: translate3d(1rem, 1.5rem, 0) scale(1.025);
-      }
-
-      @media (min-width: 70rem) {
-        transform: translate3d(3rem, 1.5rem, 0) scale(1.025);
-      }
-
-      @media (forced-colors: active) {
-        display: none;
-      }
-    }
-
-    @media (--with-motion) {
-      &:hover:after {
-        @media (--large-viewport) {
-          transform: translate3d(2rem, 1rem, 0) scale(1.025);
-        }
-      }
+    @media (--medium-viewport) {
+      grid-column-start: 4;
+      grid-column-end: 7;
     }
 
     @media (--large-viewport) {
-      grid-column-start: 2;
-      grid-column-end: 5;
+      grid-column-start: 8;
+      grid-column-end: -1;
     }
   }
 
   &__image {
-    border-radius: 2px;
-  }
-
-  &__content {
-    @media (--large-viewport) {
-      grid-column-start: 7;
-      grid-column-end: 12;
-    }
-
-    @supports (animation-timeline: view()) {
-      @media (--large-viewport) and (--with-motion) {
-        view-timeline-name: --slide-in-text;
-        animation: linear slideInText both;
-        animation-timeline: --slide-in-text;
-      }
-    }
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
   }
 
   &__title {
     font-family: var(--heading-font-family);
     font-style: normal;
     font-weight: 500;
-    font-size: 2rem;
+    font-size: var(--font-size-md);
     line-height: 112%;
-    margin-block: 3rem;
+    margin-block-end: var(--space-lg);
+
+    @media (--large-viewport) {
+      font-size: var(--font-size-lg);
+      margin-block-end: var(--space-xl);
+    }
   }
 
   &__paragraph {
@@ -123,20 +89,12 @@
 
 @keyframes slideInImage {
   from {
-    transform: translateX(-40%);
+    opacity: 0;
+    transform: translateX(50%);
   }
 
   to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInText {
-  from {
-    transform: translateX(25%);
-  }
-
-  to {
-    transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0%);
   }
 }

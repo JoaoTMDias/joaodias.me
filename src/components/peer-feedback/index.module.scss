@@ -31,12 +31,6 @@
 }
 
 .peer-feedback {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: var(--space-lg);
-
   &__intro {
     grid-area: intro;
     grid-column: 1 / -1;

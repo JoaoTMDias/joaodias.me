@@ -1,6 +1,8 @@
 ---
 import Bio from "../components/bio/index.astro";
 import Experience from "../components/experience/index.astro";
+import Hero from "../components/hero/index.astro";
+import LetsConnect from "../components/lets-connect/index.astro";
 import PAGE_CONTENT from "../data/index.json";
 import PageLayout from "../layouts/PageLayout.astro";
 ---
@@ -12,11 +14,18 @@ import PageLayout from "../layouts/PageLayout.astro";
 	<main>
 		<h1 class="sr-only">About page</h1>
 		<div class="content">
-			<section id="content" tabindex={-1} aria-labelledby="about">
-				<h1 id="about">{PAGE_CONTENT.about.title}</h1>
-				<Bio />
-				<Experience />
-			</section>
+      <Hero
+        title={PAGE_CONTENT.about.title}
+        profilePicture={{
+          src: PAGE_CONTENT.about["profile-picture"].src,
+          width: PAGE_CONTENT.about["profile-picture"].width,
+          height: PAGE_CONTENT.about["profile-picture"].height,
+          alt: PAGE_CONTENT.about["profile-picture"].alt,
+        }}
+      />
+			<Bio />
+			<Experience />
+      <LetsConnect />
 		</div>
 	</main>
 </PageLayout>

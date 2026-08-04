@@ -11,7 +11,7 @@ const shows = (await getCollection("shows"))
 	.slice(0, 6);
 ---
 
-<section id="radio-broadcasts" class={styles["radio-broadcasts"]}>
+<section id="radio-broadcasts" class="section section__stack">
   <div class={clsx("section__container", styles.broadcasts)}>
     <SectionTitle text="Over the air" number={4} />
     <p class={styles.broadcasts__intro}>

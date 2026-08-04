@@ -1,13 +1,5 @@
 @use "../../assets/styles/custom-media.scss";
 
-.radio-broadcasts {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: var(--space-lg);
-}
-
 .broadcasts {
   width: 100%;
   position: relative;

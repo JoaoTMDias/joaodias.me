@@ -15,7 +15,7 @@ const projects: ProjectItem[] = (await getCollection("projects"))
 	.slice(0, 4);
 ---
 
-<section id="featured-work" class={styles["featured-work"]}>
+<section id="featured-work" class={clsx("section", "section__stack", styles["featured-work"])}>
   <div class={clsx("section__container", styles["featured-work__content"])}>
     <SectionTitle text="Featured Work" number={2} />
     <div class={styles["featured-work__list"]}>

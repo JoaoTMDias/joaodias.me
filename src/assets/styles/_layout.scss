@@ -28,6 +28,18 @@ section,
   margin: 0 auto;
 }
 
+.section__stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--space-md);
+
+  @media (--large-viewport) {
+  gap: var(--space-lg);
+  }
+}
+
 .section__container {
   --columns-per-section: 6;
   --section-column-gap: var(--space-xs);

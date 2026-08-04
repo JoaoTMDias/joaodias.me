@@ -1,12 +1,6 @@
 @use "../../assets/styles/custom-media.scss";
 
 .latest-articles {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: var(--space-lg);
-
   &__list,
   &__container {
       grid-column: 1 / -1

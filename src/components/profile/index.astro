@@ -2,15 +2,24 @@
 import { Image } from "astro:assets";
 import PAGE_CONTENT from "../../data/index.json";
 import styles from "./index.module.scss";
+
+interface Props   {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+const { src, width, height, alt } = Astro.props as Props;
 ---
 
 <div class={styles.profile}>
   <Image
     class={styles.profile__image}
-    src={PAGE_CONTENT.hero["profile-picture"].src}
-    width={PAGE_CONTENT.hero["profile-picture"].width}
-    height={PAGE_CONTENT.hero["profile-picture"].height}
-    alt={PAGE_CONTENT.hero["profile-picture"].alt}
+    src={src}
+    width={width}
+    height={height}
+    alt={alt}
     data-testid="profile-picture"
   />
 </div>

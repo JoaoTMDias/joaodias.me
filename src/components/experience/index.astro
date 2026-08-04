@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import SectionTitle from "../section-title/index.astro";
 import styles from "./index.module.scss";
 
 const allExperience = await getCollection("experience");
@@ -9,80 +10,82 @@ const currentExperience = sortedExperience.filter((exp) => exp.data.isCurrent);
 const pastExperience = sortedExperience.filter((exp) => !exp.data.isCurrent);
 ---
 
-<div class="sub-section">
-  <h3 id="professional-experience" class="sr-only">Professional Experience</h3>
-  <ul
-    class={styles.experience}
-    aria-labelledby="professional-experience"
-    data-testid="professional-experience"
-  >
-    <li class={styles.present}>
-      <h4 class="sr-only">Currently</h4>
-      <div class={styles.list} data-testid="experience-item" data-current>
-        {
-          currentExperience.map((item) => (
-            <div class={styles.item}>
-              <h5 class={styles.title}>{item.data.title}</h5>
-              <p class={styles.description}>{item.data.description}</p>
-              <div class={styles.metadata}>
-                <p>
-                  <>
-                    <span class="sr-only">Duration:</span>
-                    <span>{item.data.startDate}</span>
-                    <span class="sr-only">until</span>
-                    <span aria-hidden="true">-</span>
-                    <span>{item.data.endDate || "Present"}</span>
-                  </>
-                </p>
-                <p>
-                  <>
-                    <span class="sr-only">Location:</span>
-                    <span lang="pt-PT">{item.data.location}</span>
-                  </>
-                </p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </li>
-    <li class={styles.past}>
-      <h4 class="sr-only">Past Jobs</h4>
-      <div class={styles.list} data-testid="experience-item">
-        {
-          pastExperience.map((item) => (
-            <div class={styles.item}>
-              <h5 class={styles.title}>{item.data.title}</h5>
-              <p class={styles.description}>{item.data.description}</p>
-              <div class={styles.metadata}>
-                <p>
-                  <>
-                    <span class="sr-only">Duration:</span>
-                    <span>{item.data.startDate}</span>
-                    <span class="sr-only">until</span>
-                    <span aria-hidden="true">-</span>
-                    <span>{item.data.endDate}</span>
-                  </>
-                </p>
-                <p>
-                  <>
-                    <span class="sr-only">Location:</span>
-                    <span lang="pt-PT">{item.data.location}</span>
-                  </>
-                </p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </li>
-  </ul>
-  <div class={styles.footer}>
-    <a
-      href="/resume-joao-dias.pdf"
-      download="resume-joao-dias.pdf"
-      aria-label="Download my curriculum in PDF"
-      class={styles.download}>Download my CV<span class={styles.extension}>(PDF)</span></a
+<div class="section">
+  <SectionTitle text="Professional Experience" number={2} />
+  <div class="section__container">
+    <ul
+      class={styles.experience}
+      aria-labelledby="professional-experience"
+      data-testid="professional-experience"
     >
+      <li class={styles.present}>
+        <h4 class="sr-only">Currently</h4>
+        <div class={styles.list} data-testid="experience-item" data-current>
+          {
+            currentExperience.map((item) => (
+              <div class={styles.item}>
+                <h5 class={styles.title}>{item.data.title}</h5>
+                <p class={styles.description}>{item.data.description}</p>
+                <div class={styles.metadata}>
+                  <p>
+                    <>
+                      <span class="sr-only">Duration:</span>
+                      <span>{item.data.startDate}</span>
+                      <span class="sr-only">until</span>
+                      <span aria-hidden="true">-</span>
+                      <span>{item.data.endDate || "Present"}</span>
+                    </>
+                  </p>
+                  <p>
+                    <>
+                      <span class="sr-only">Location:</span>
+                      <span lang="pt-PT">{item.data.location}</span>
+                    </>
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </li>
+      <li class={styles.past}>
+        <h4 class="sr-only">Past Jobs</h4>
+        <div class={styles.list} data-testid="experience-item">
+          {
+            pastExperience.map((item) => (
+              <div class={styles.item}>
+                <h5 class={styles.title}>{item.data.title}</h5>
+                <p class={styles.description}>{item.data.description}</p>
+                <div class={styles.metadata}>
+                  <p>
+                    <>
+                      <span class="sr-only">Duration:</span>
+                      <span>{item.data.startDate}</span>
+                      <span class="sr-only">until</span>
+                      <span aria-hidden="true">-</span>
+                      <span>{item.data.endDate}</span>
+                    </>
+                  </p>
+                  <p>
+                    <>
+                      <span class="sr-only">Location:</span>
+                      <span lang="pt-PT">{item.data.location}</span>
+                    </>
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </li>
+    </ul>
+    <div class={styles.footer}>
+      <a
+        href="/resume-joao-dias.pdf"
+        download="resume-joao-dias.pdf"
+        aria-label="Download my curriculum in PDF"
+        class={styles.download}>Download my CV<span class={styles.extension}>(PDF)</span></a
+      >
+    </div>
   </div>
 </div>

@@ -1,8 +1,9 @@
 {
-	"title": "Revolut",
-	"description": "Frontend Engineer",
-	"location": "Coimbra, Portugal (Remote)",
-	"startDate": "2026",
-	"isCurrent": true,
-	"order": 1
+  "title": "Revolut",
+  "description": "Frontend Engineer",
+  "location": "Coimbra, Portugal (Remote)",
+  "startDate": "2026",
+  "endDate": "2026",
+  "isCurrent": false,
+  "order": 1
 }
