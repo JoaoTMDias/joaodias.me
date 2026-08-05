@@ -117,15 +117,18 @@ const bioCollection = defineCollection({
 });
 
 const experienceCollection = defineCollection({
-	loader: glob({ pattern: "*.json", base: "./src/content/experience" }),
+	loader: glob({ pattern: "index.json", base: "./src/content/experience" }),
 	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		location: z.string(),
-		startDate: z.string(),
-		endDate: z.string().optional(),
-		isCurrent: z.boolean().default(false),
-		order: z.number(),
+		entries: z.array(
+			z.object({
+				title: z.string(),
+				description: z.string(),
+				location: z.string(),
+				startDate: z.string(),
+				endDate: z.string().optional(),
+				isCurrent: z.boolean().default(false),
+			}),
+		),
 	}),
 });
 
