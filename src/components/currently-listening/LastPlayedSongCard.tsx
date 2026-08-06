@@ -6,9 +6,7 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
-import type { FunctionComponent } from "react";
 import type { Track } from "../../typings/index";
-import Record from "./Record";
 import styles from "./styles.module.scss";
 
 interface PlayerConfig {
@@ -28,10 +26,10 @@ const RECORD_DISTANCE_RIGHT_SHIFT = 0.22
 /**
  * Last Played Song Card
  */
-export const LastPlayedSongCard: FunctionComponent<{
+export const LastPlayedSongCard = ({ song, playerConfig }: {
 	song: Track;
 	playerConfig?: PlayerConfig;
-}> = ({ song, playerConfig }) => {
+}) => {
 	const { card = {}, track = "", artist = "", album = "" } = playerConfig ?? {};
 	const width = Number.parseInt(card.width ?? "72", 10);
 	const height = Number.parseInt(card.height ?? "72", 10);
