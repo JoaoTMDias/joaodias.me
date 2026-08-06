@@ -132,6 +132,18 @@ const experienceCollection = defineCollection({
 	}),
 });
 
+const skillCollection = defineCollection({
+	loader: glob({ pattern: "index.json", base: "./src/content/skills" }),
+	schema: z.object({
+		entries: z.array(
+			z.object({
+				skill: z.string(),
+				url: z.string().optional(),
+			}),
+		),
+	}),
+});
+
 const showsCollection = defineCollection({
 	loader: glob({
 		pattern: "**/*.md",
@@ -199,5 +211,6 @@ export const collections = {
 	config: configCollection,
 	bio: bioCollection,
 	experience: experienceCollection,
+	skills: skillCollection,
 	testimonials: testimonialsCollection,
 };

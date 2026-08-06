@@ -5,6 +5,7 @@ import {
 	ExperienceCollection,
 	GlobalConfigCollection,
 	ProjectsCollection,
+	SkillsCollection,
 	TestimonialsCollection,
 } from "./collections";
 
@@ -33,6 +34,7 @@ export default defineConfig({
 			BioCollection,
 			ExperienceCollection,
 			ProjectsCollection,
+			SkillsCollection,
 			TestimonialsCollection,
 		],
 	},
