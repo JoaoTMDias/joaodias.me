@@ -10,8 +10,8 @@ const experienceEntries = experienceDocument?.data.entries ?? [];
 const hasCurrentExperience = experienceEntries.some((entry) => entry.isCurrent);
 ---
 
-<div class="section">
-  <SectionTitle text="Professional Experience" number={2} />
+<div class="section section__stack" id="experience">
+  <SectionTitle text="Professional Experience" />
   <ul
     class={clsx("section__container", styles["experience"])}
     data-testid="professional-experience"
@@ -38,14 +38,13 @@ const hasCurrentExperience = experienceEntries.some((entry) => entry.isCurrent);
               <p>
                 <>
                   <span class="sr-only">Location:</span>
-                  <span lang="pt-PT">{item.location}</span>
+                  <span>{item.location}</span>
                 </>
               </p>
             </div>
           </li>
         ))
       }
-    </ul>
-  </div>
-  <SectionLink href="/resume-joao-dias.pdf" text="Download my CV (PDF)" isExternal={true} />
+  </ul>
+  <SectionLink href="/resume-joao-dias.pdf" text="Download my Resume (PDF)" isExternal={true} />
 </div>

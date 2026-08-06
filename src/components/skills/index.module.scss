@@ -1,0 +1,110 @@
+@use "../../assets/styles/custom-media.scss";
+
+.skills {
+  list-style-type: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: var(--space-sm);
+
+  @media (--medium-viewport) {
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-base);
+  }
+
+  @media (--large-viewport) {
+    font-size: var(--font-size-lg);
+    gap: var(--space-lg);
+  }
+}
+
+.item.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: baseline;
+  gap: var(--space-md);
+  font-family: var(--text-font-family);
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+
+  &:nth-child(even) {
+    font-family: var(--heading-font-family);
+    font-weight: 700;
+    font-variation-settings: "wght" 700;
+  }
+
+  &:last-child {
+    .slash {
+      display: none;
+    }
+  }
+
+  @media (--medium-viewport) {
+    gap: var(--space-lg);
+  }
+
+  @media (--medium-viewport) and (--with-motion) {
+    opacity: 0;
+    transform: translateY(10px);
+    animation-name: fadeInSkill;
+    animation-timing-function: linear;
+    animation-timeline: view();
+    animation-range: entry 0% exit 25%;
+  }
+}
+
+.title,
+.link {
+  font-variation-settings: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  margin: inherit;
+}
+
+.link {
+  text-decoration-style: dotted;
+  text-decoration-thickness: 2px;
+  text-underline-offset: var(--space-xs);
+
+  @media (--medium-viewport) {
+    text-underline-offset: var(--space-sm);
+  }
+
+  @media (--large-viewport) {
+    text-underline-offset: var(--space-base);
+  }
+}
+
+.slash {
+  display: none;
+  color: var(--text-color-faded);
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+  font-family: var(--text-font-family);
+  font-size: inherit;
+  margin: inherit;
+
+  @media (--medium-viewport) {
+    display: inline;
+  }
+}
+
+@keyframes fadeInSkill {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

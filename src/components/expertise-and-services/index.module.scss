@@ -53,7 +53,9 @@
   @media (--with-motion) {
     :global(jd-accordion-item) {
       animation-name: fadeInService;
+      animation-timing-function: linear;
       animation-timeline: view();
+      animation-range: entry;
     }
   }
 }

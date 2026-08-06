@@ -9,7 +9,7 @@ const bio = await getEntry("bio", "bio");
 
 {bio && (
   <section class="section section__stack" id="bio">
-    <SectionTitle text={bio.data.title} number={1} />
+    <SectionTitle text={bio.data.title} />
     <div class="section__container">
         <div class={styles.bio__content}>
           <h4 class={styles.bio__title} data-testid="bio-intro">{bio.data.mainTitle}</h4>

@@ -20,7 +20,7 @@ const playerConfig = footerConfig?.player;
 <footer class={classNames("section", styles.footer)} id="footer">
   <div class={classNames("section__container", styles.footer__container)}>
     <div class={classNames("section__stack", styles.footer__currentlyListening)} data-testid="currently-listening">
-      <SectionTitle text="Currently Listening" number={7}/>
+      <SectionTitle text="Currently Listening" />
       <CurrentlyListening playerConfig={playerConfig} client:load />
     </div>
     <div class={styles.footer__bottom}>

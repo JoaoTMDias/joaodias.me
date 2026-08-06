@@ -96,7 +96,9 @@
 @media (--with-motion) {
   .card {
     animation-name: fadeInCard;
+    animation-timing-function: linear;
     animation-timeline: view();
+    animation-range: entry;
     transition:
       --blob1-x var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
       --blob1-y var(--motion-duration-background-animation) var(--motion-ease-standard),
