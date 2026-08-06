@@ -16,7 +16,7 @@ const articles = (await getCollection("blog"))
 {articles.length > 0 && (
   <section id="latest-articles" class="section section__stack">
     <div class={clsx("section__container", styles["latest-articles__container"])}>
-      <SectionTitle text="Latest Insights" />
+      <SectionTitle text="On the Blog" />
       <div class={styles["latest-articles__list"]}>
         {
           articles.map((article: BlogEntry) => (
