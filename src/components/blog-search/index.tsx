@@ -125,6 +125,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 											src={article.featuredImage}
 											alt=""
 											loading="lazy"
+											style={{ viewTransitionName: `article-image-${article.id}` }}
 										/>
 									) : null}
 									<div className={articleStyles["featured-article__content"]}>
@@ -135,7 +136,12 @@ function BlogSearch({ articles }: BlogSearchProps) {
 											<span className="sr-only">Published on</span>&nbsp;
 											{article.pubDateLabel}
 										</time>
-										<h3 className={articleStyles["featured-article__title"]}>{article.title}</h3>
+										<h3
+											className={articleStyles["featured-article__title"]}
+											style={{ viewTransitionName: `article-title-${article.id}` }}
+										>
+											{article.title}
+										</h3>
 										{article.readingTime ? (
 											<p className={articleStyles["featured-article__reading-time"]}>
 												{article.readingTime} min read

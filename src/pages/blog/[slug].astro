@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
 import PageLayout from "../../layouts/PageLayout.astro";
@@ -15,8 +16,16 @@ type Props = {
 	article: CollectionEntry<"blog">;
 };
 
+function getTransitionNames(slug: string) {
+  return {
+    title: `article-title-${slug}`,
+    image: `article-image-${slug}`,
+  };
+}
+
 const { article } = Astro.props;
 const { Content } = await render(article);
+const transitionNames = getTransitionNames(article.id);
 ---
 
 <PageLayout
@@ -24,11 +33,20 @@ const { Content } = await render(article);
   description={article.data.excerpt}
   itemtype="http://schema.org/Article"
 >
-  <main class="main-content">
-    <article>
-      <header class="article-header">
-        <h1>{article.data.title}</h1>
-        <div class="meta">
+  <main>
+    <article class="section blog-article" itemprop="articleBody">
+      <div class="blog-article__header">
+        <Image
+          class="blog-article__image"
+          src={article.data.featuredImage}
+          width={960}
+          height={480}
+          alt={article.data.title}
+          loading="lazy"
+          transition:name={transitionNames.image}
+        />
+        <h1 class="blog-article__title" transition:name={transitionNames.title}>{article.data.title}</h1>
+        <div class="blog-article__meta">
           <time datetime={article.data.pubDate.toISOString()}>
             {
               article.data.pubDate.toLocaleDateString("en-US", {
@@ -38,109 +56,16 @@ const { Content } = await render(article);
               })
             }
           </time>
-          <span class="category">{article.data.category.replace("-", " ")}</span>
+          <span class="blog-article__category">{article.data.category.replace("-", " ")}</span>
           {article.data.readingTime && <span>{article.data.readingTime} min read</span>}
         </div>
-      </header>
-      <div class="article-content">
+      </div>
+      <div class="blog-article__content">
         <Content />
       </div>
-      <div class="back-link">
-        <a href="/articles">← Back to Articles</a>
+      <div class="blog-article__back-link">
+        <a href="/blog">← Back to Articles</a>
       </div>
     </article>
   </main>
 </PageLayout>
-
-<style lang="scss">
-  @use "../../assets/styles/custom-media.scss";
-
-  .article-header {
-    margin-bottom: 3rem;
-
-    h1 {
-      font-family: var(--heading-font-family);
-      font-size: 2.5rem;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-
-      @media (--large-viewport) {
-        font-size: 3.5rem;
-      }
-    }
-
-    .meta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      font-family: var(--text-font-family);
-      font-size: 0.875rem;
-      opacity: 0.8;
-      margin-bottom: 1rem;
-    }
-
-    .category {
-      padding: 0.25rem 0.75rem;
-      background-color: var(--text-color);
-      color: var(--background-color);
-      border-radius: 1rem;
-      font-size: 0.875rem;
-      text-transform: capitalize;
-    }
-  }
-
-  .article-content {
-    font-family: var(--text-font-family);
-    font-size: 1.125rem;
-    line-height: 1.75;
-
-    h2 {
-      font-family: var(--heading-font-family);
-      font-size: 2rem;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      font-family: var(--heading-font-family);
-      font-size: 1.5rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      margin-bottom: 1.5rem;
-    }
-
-    a {
-      color: var(--text-color);
-      text-decoration: underline;
-
-      &:hover,
-      &:focus {
-        text-decoration: none;
-      }
-    }
-  }
-
-  .back-link {
-    margin-top: 3rem;
-
-    a {
-      padding: 0.75rem 1.5rem;
-      border: 1px solid var(--text-color);
-      color: var(--text-color);
-      text-decoration: none;
-      border-radius: 3rem;
-      font-family: var(--text-font-family);
-      display: inline-block;
-      transition: all 0.2s ease;
-
-      &:hover,
-      &:focus {
-        background-color: var(--text-color);
-        color: var(--background-color);
-      }
-    }
-  }
-</style>
