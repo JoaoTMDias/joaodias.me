@@ -4,18 +4,28 @@ export const BlogCollection: Collection = {
   name: "article",
   label: "Blog",
   path: "src/content/blog",
+  ui: {
+    filename: {
+      readonly: true,
+      slugify: (values) => {
+        return (
+          values.title
+            ?.toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9\s-]/g, "")
+            .replace(/\s+/g, "-")
+            .replace(/-+/g, "-") || "untitled"
+        );
+      },
+    },
+  },
   fields: [
     {
       type: "string",
       name: "title",
       label: "Title",
       required: true,
-    },
-    {
-      type: "string",
-      name: "slug",
-      label: "Slug",
-      required: true,
+      isTitle: true,
     },
     {
       type: "datetime",

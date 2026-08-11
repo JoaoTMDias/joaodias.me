@@ -28,6 +28,9 @@
 
 	&__meta {
 		display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: baseline;
 		gap: var(--space-base);
 		flex-wrap: wrap;
 		font-family: var(--text-font-family);
@@ -36,11 +39,19 @@
 		margin-bottom: var(--space-base);
 	}
 
+  &__date,
+  &__reading-time {
+    font-family: var(--text-font-family);
+    font-size: var(--font-size-sm);
+    color: var(--text-color-faded);
+    font-style: italic;
+  }
+
 	&__category {
-		padding: 0.25rem 0.75rem;
+		padding: var(--space-xs) var(--space-sm);
 		background-color: var(--text-color);
 		color: var(--background-color);
-		border-radius: 1rem;
+		border-radius: var(--space-lg);
 		font-size: var(--font-size-sm);
 		text-transform: capitalize;
 	}

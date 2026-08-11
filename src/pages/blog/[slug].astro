@@ -36,7 +36,7 @@ const transitionNames = getTransitionNames(article.id);
   <main>
     <article class="section blog-article" itemprop="articleBody">
       <div class="blog-article__header">
-        <Image
+        {article.data.featuredImage && <Image
           class="blog-article__image"
           src={article.data.featuredImage}
           width={960}
@@ -44,10 +44,10 @@ const transitionNames = getTransitionNames(article.id);
           alt={article.data.title}
           loading="lazy"
           transition:name={transitionNames.image}
-        />
+        />}
         <h1 class="blog-article__title" transition:name={transitionNames.title}>{article.data.title}</h1>
         <div class="blog-article__meta">
-          <time datetime={article.data.pubDate.toISOString()}>
+          <time class="blog-article__date" datetime={article.data.pubDate.toISOString()}>
             {
               article.data.pubDate.toLocaleDateString("en-US", {
                 year: "numeric",
@@ -56,8 +56,8 @@ const transitionNames = getTransitionNames(article.id);
               })
             }
           </time>
-          <span class="blog-article__category">{article.data.category.replace("-", " ")}</span>
-          {article.data.readingTime && <span>{article.data.readingTime} min read</span>}
+          <p class="blog-article__category">{article.data.category.replace("-", " ")}</p>
+          {article.data.readingTime && <p class="blog-article__reading-time">{article.data.readingTime} min read</p>}
         </div>
       </div>
       <div class="blog-article__content">
