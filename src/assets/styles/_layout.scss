@@ -4,7 +4,6 @@
   width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  overflow-x: clip;
 
   @media (--laptop-viewport) {
     --container-max-width: 68.75rem;

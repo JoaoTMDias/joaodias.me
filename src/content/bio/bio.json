@@ -1,9 +1,7 @@
 {
   "title": "Bio",
-  "mainTitle": "I focus on creating great, accessible and rich web experiences for everyone. I've been lucky enough to have been doing that for the last 15 years.",
-  "description": [
-    "When I’m not working, I’m a radio host who loves heading to festivals and gigs, diving into the amazing world of craft beers, and getting in a workout at the gym whenever possible. I also cherish spending quality time with my wife and son."
-  ],
+  "mainTitle": "My focus is on creating great, accessible and rich web experiences for everyone. I've been lucky enough to have been doing that for the last 15 years.",
+  "description": "I’m a Design Engineer, which means I handle both sides of the digital product process, from original UI design and wireframes all the way into production code. Instead of handing off mockups and hoping for the best, I design with technical realities in mind and code with an eye for detail.\n\nWhen I’m not behind a screen, you can find me behind a mic as a radio host, catching live gigs, or diving into the world of craft beer. I also stay active at the gym and prioritize quality time with my wife and son\n",
   "picture": {
     "src": "/about-grid.jpg",
     "width": "640",

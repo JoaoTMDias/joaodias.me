@@ -29,13 +29,9 @@ export const BioCollection: Collection = {
 		},
 		{
 			name: "description",
-			label: "Description Paragraphs",
-			type: "string",
+			label: "Description",
+			type: "rich-text",
 			required: true,
-			list: true,
-			ui: {
-				component: "textarea",
-			},
 		},
 		{
 			name: "picture",

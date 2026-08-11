@@ -31,6 +31,7 @@
     grid-column-end: -1;
     aspect-ratio: 1/1;
     width: 100%;
+    overflow: visible;
 
     @supports (animation-timeline: view()) {
       @media (--large-viewport) and (--with-motion) {
@@ -38,6 +39,8 @@
         animation: linear slideInImage both;
         animation-timeline: --slide-in-image;
         animation-range: entry 50% cover 50%;
+        transform: translateX(50%);
+        opacity: 0;
       }
     }
 
@@ -50,12 +53,14 @@
       grid-column-start: 8;
       grid-column-end: -1;
     }
+
+    clip-path: shape(from 20% 0%,hline to 70%,arc to 80% 10% of 10% 10% cw small rotate 0deg,vline to 12%,arc to 90% 22% of 10% 10% ccw small rotate 0deg,hline to 90%,arc to 100% 32% of 10% 10% cw small rotate 0deg,vline to 80.87%,arc to 80.87% 100% of 19.13% 19.13% cw small rotate 0deg,hline to 30%,arc to 20% 90% of 10% 10% cw small rotate 0deg,vline to 90%,arc to 10% 80% of 10% 10% ccw small rotate 0deg,hline to 10%,arc to 0% 70% of 10% 10% cw small rotate 0deg,vline to 27%,arc to 7% 20% of 7% 7% cw small rotate 0deg,hline to 13%,arc to 20% 13% of 7% 7% ccw small rotate 0deg,vline to 7%,arc to 27% 0% of 7% 7% cw small rotate 0deg);
   }
 
   &__image {
     width: 100%;
     height: auto;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
   }
@@ -98,3 +103,4 @@
     transform: translateX(0%);
   }
 }
+

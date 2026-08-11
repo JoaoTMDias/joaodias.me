@@ -2,6 +2,33 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
+const richTextNodeSchema: z.ZodType<{
+	type?: string;
+	text?: string;
+	url?: string;
+	bold?: boolean;
+	italic?: boolean;
+	underline?: boolean;
+	strike?: boolean;
+	children?: Array<unknown>;
+}> = z.lazy(() =>
+	z.object({
+		type: z.string().optional(),
+		text: z.string().optional(),
+		url: z.string().optional(),
+		bold: z.boolean().optional(),
+		italic: z.boolean().optional(),
+		underline: z.boolean().optional(),
+		strike: z.boolean().optional(),
+		children: z.array(richTextNodeSchema).optional(),
+	}),
+);
+
+const richTextRootSchema = z.object({
+	type: z.literal("root"),
+	children: z.array(richTextNodeSchema),
+});
+
 const blogCollection = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
 	schema: z.object({
@@ -106,7 +133,7 @@ const bioCollection = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		mainTitle: z.string(),
-		description: z.array(z.string()),
+		description: z.union([z.string(), richTextRootSchema]),
 		picture: z.object({
 			src: z.string(),
 			width: z.string(),

@@ -5,6 +5,82 @@ import SectionTitle from "../section-title/index.astro";
 import styles from "./index.module.scss";
 
 const bio = await getEntry("bio", "bio");
+
+type RichTextNode = {
+  type?: string;
+  text?: string;
+  url?: string;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  strike?: boolean;
+  children?: RichTextNode[];
+};
+
+type RichTextDocument = {
+  type: "root";
+  children: unknown[];
+};
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function escapeAttribute(value: string) {
+  return escapeHtml(value);
+}
+
+function renderInlineNode(node: RichTextNode): string {
+  if (typeof node.text === "string") {
+    let content = escapeHtml(node.text);
+
+    if (node.bold) content = `<strong>${content}</strong>`;
+    if (node.italic) content = `<em>${content}</em>`;
+    if (node.underline) content = `<u>${content}</u>`;
+    if (node.strike) content = `<s>${content}</s>`;
+
+    return content;
+  }
+
+  const content = (node.children ?? []).map(renderInlineNode).join("");
+
+  if (node.type === "a" && node.url) {
+    return `<a href="${escapeAttribute(node.url)}">${content}</a>`;
+  }
+
+  return content;
+}
+
+function renderParagraphs(nodes: RichTextNode[]) {
+  return nodes
+    .filter((node) => node.type === "p")
+    .map((node) => ({
+      html: (node.children ?? []).map(renderInlineNode).join(""),
+    }))
+    .filter((node) => node.html.trim().length > 0);
+}
+
+function renderStringParagraphs(value: string) {
+  return value
+    .split(/\n\s*\n/g)
+    .map((paragraph) => ({ html: escapeHtml(paragraph.trim()) }))
+    .filter((paragraph) => paragraph.html.length > 0);
+}
+
+function renderDescription(value: string | RichTextDocument) {
+  if (typeof value === "string") {
+    return renderStringParagraphs(value);
+  }
+
+  return renderParagraphs(value.children as RichTextNode[]);
+}
+
+const bioParagraphs = bio ? renderDescription(bio.data.description) : [];
 ---
 
 {bio && (
@@ -12,13 +88,15 @@ const bio = await getEntry("bio", "bio");
     <SectionTitle text={bio.data.title} />
     <div class="section__container">
         <div class={styles.bio__content}>
-          <h4 class={styles.bio__title} data-testid="bio-intro">{bio.data.mainTitle}</h4>
+          <p class={styles.bio__title} data-testid="bio-intro">{bio.data.mainTitle}</p>
           {
-            bio.data.description.map((paragraph, index) => {
+            bioParagraphs.map((paragraph) => {
               return (
-                <p key={index} class={styles.bio__paragraph} data-testid="bio-description">
-                  {paragraph}
-                </p>
+                <p
+                  class={styles.bio__paragraph}
+                  data-testid="bio-description"
+                  set:html={paragraph.html}
+                />
               );
             })
           }
