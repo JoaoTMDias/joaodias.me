@@ -158,6 +158,7 @@ deno.lock
 
 node_modules
 src/data/build-info.json
+public/llms.txt
 .DS_Store
 
 # Shows script cache (regenerated on each CI run)

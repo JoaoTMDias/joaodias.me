@@ -4,9 +4,9 @@
   "private": false,
   "scripts": {
     "dev": "tinacms dev -c \"pnpm start\"",
-    "start": "pnpm generate-build-info && astro dev",
+    "start": "pnpm generate-build-info && pnpm generate-llms-txt && astro dev",
     "build:ci": "tinacms build && pnpm build",
-    "build": "pnpm generate-build-info && astro build",
+    "build": "pnpm generate-build-info && pnpm generate-llms-txt && astro build",
     "preview": "astro preview",
     "test": "pnpm test:headless",
     "test:ui": "playwright test --ui",
@@ -16,6 +16,7 @@
     "format": "biome format --write ./src",
     "typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json",
     "generate-build-info": "node ./scripts/get-build-info.mjs",
+    "generate-llms-txt": "tsx ./scripts/generate-llms-txt.ts",
     "get-latest-shows": "tsx ./scripts/get-latest-shows.ts"
   },
   "devDependencies": {
