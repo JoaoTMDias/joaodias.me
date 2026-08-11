@@ -165,3 +165,5 @@ scripts/src/data/shows.json
 
 # Debug/inspection scripts
 scripts/inspect-episode.mjs
+
+*:Zone.Identifier
