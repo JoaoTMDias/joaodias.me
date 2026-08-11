@@ -47,6 +47,7 @@
   isolation: isolate;
   transform-origin: left center;
   transform: scale(1);
+	clip-path: shape(from 15.69% 0%,hline to 70.59%,arc to 80.39% 9.8% of 9.8% 9.8% cw small rotate 0deg,vline to 9.8%,arc to 90.2% 19.61% of 9.8% 9.8% ccw small rotate 0deg,hline to 90.2%,arc to 100% 29.41% of 9.8% 9.8% cw small rotate 0deg,vline to 84.31%,arc to 84.31% 100% of 15.69% 15.69% cw small rotate 0deg,hline to 27.45%,arc to 19.61% 92.16% of 7.84% 7.84% cw small rotate 0deg,vline to 88.24%,arc to 11.76% 80.39% of 7.84% 7.84% ccw small rotate 0deg,hline to 7.84%,arc to 0% 72.55% of 7.84% 7.84% cw small rotate 0deg,vline to 15.69%,arc to 15.69% 0% of 15.69% 15.69% cw small rotate 0deg,close);
 
   &__image {
     width: 100%;
@@ -67,7 +68,8 @@
 
   @media (--with-motion) {
     &:hover {
-      transform: scale(1.5);
+      transform: scale(1.75);
+	    clip-path: shape(from 0% 0%,hline to 100%,arc to 100% 0% of 0% 0% cw small rotate 0deg,vline to 19.61%,arc to 100% 19.61% of 0% 0% ccw small rotate 0deg,hline to 100%,arc to 100% 19.61% of 0% 0% cw small rotate 0deg,vline to 100%,arc to 100% 100% of 0% 0% cw small rotate 0deg,hline to 15.69%,arc to 15.69% 100% of 0% 0% cw small rotate 0deg,vline to 100%,arc to 15.69% 100% of 0% 0% ccw small rotate 0deg,hline to 0%,arc to 0% 100% of 0% 0% cw small rotate 0deg,vline to 0%,arc to 0% 0% of 0% 0% cw small rotate 0deg,close);
 
       ~ .info {
         translate: 20% 0;
@@ -75,7 +77,7 @@
     }
 
     transition-duration: var(--motion-duration-background-animation);
-    transition-property: transform;
+    transition-property: transform, clip-path;
     transition-timing-function: var(--motion-ease-bounce);
   }
 }

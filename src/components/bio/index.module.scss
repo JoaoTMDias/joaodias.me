@@ -38,7 +38,7 @@
         view-timeline-name: --slide-in-image;
         animation: linear slideInImage both;
         animation-timeline: --slide-in-image;
-        animation-range: entry 50% cover 50%;
+        animation-range: entry -15% cover 50%;
         transform: translateX(50%);
         opacity: 0;
       }

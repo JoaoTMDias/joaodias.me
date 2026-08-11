@@ -29,6 +29,7 @@
     position: relative;
     z-index: 0;
     transform: scale(1);
+    clip-path: var(--profile-shape-end);
 
     @media (--with-motion) {
       @supports (clip-path: shape(from 0% 0%, line to 100% 0%, line to 100% 100%, line to 0% 100%, close)) {

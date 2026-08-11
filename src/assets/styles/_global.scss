@@ -47,6 +47,14 @@ body {
       background-image: url(/white-texture.png);
     }
   }
+
+  @media (forced-colors: active) {
+    html &,
+    html[data-theme="dark"] &,
+    html[data-theme="light"] & {
+      background-image: none;
+    }
+  }
 }
 
 img,
