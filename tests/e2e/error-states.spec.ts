@@ -1,4 +1,4 @@
-import { test, expect } from "utils";
+import { expect, test } from "utils";
 import { PAGE_SELECTORS } from "./constants";
 
 test.beforeEach(async ({ page }) => {
@@ -7,11 +7,11 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("Error States", () => {
 	test("should handle 404 for non-existent project", async ({ page }) => {
-		await page.goto("/projects/non-existent-project-slug");
+		await page.goto("/work/non-existent-project-slug");
 		await page.waitForLoadState("networkidle");
 
 		// Astro should return a 404 status
-		const response = await page.goto("/projects/non-existent-project-slug");
+		const response = await page.goto("/work/non-existent-project-slug");
 		expect(response?.status()).toBe(404);
 	});
 
@@ -70,11 +70,7 @@ test.describe("Error States", () => {
 	});
 
 	test("should handle invalid URL paths", async ({ page }) => {
-		const invalidPaths = [
-			"/invalid-path",
-			"/projects/invalid/project",
-			"/articles/invalid/article",
-		];
+		const invalidPaths = ["/invalid-path", "/work/invalid/project", "/articles/invalid/article"];
 
 		for (const path of invalidPaths) {
 			const response = await page.goto(path);

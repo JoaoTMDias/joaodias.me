@@ -215,13 +215,13 @@ test.describe("Selected Work", () => {
 				// Check that the href points to a project page (slug-based)
 				const href = await item.getAttribute("href");
 				expect(href).toBeTruthy();
-				expect(href).toMatch(/^\/projects\/[a-z0-9-]+$/);
+				expect(href).toMatch(/^\/work\/[a-z0-9-]+$/);
 
 				// Check that the id attribute matches the slug from href
 				const id = await item.getAttribute("id");
 				expect(id).toBeTruthy();
 				if (href) {
-					const slugFromHref = href.replace("/projects/", "");
+					const slugFromHref = href.replace("/work/", "");
 					expect(id).toBe(slugFromHref);
 				}
 
@@ -271,13 +271,13 @@ test.describe("Selected Work", () => {
 		await test.step("Click on a work item link", async () => {
 			await WORK_ITEM.click();
 			// Wait for navigation to project detail page
-			await page.waitForURL(`**/projects/**`);
+			await page.waitForURL(`**/work/**`);
 		});
 
 		await test.step("Check project detail page content", async () => {
 			// Verify we're on a project detail page
 			const url = page.url();
-			expect(url).toContain("/projects/");
+			expect(url).toContain("/work/");
 			if (href) {
 				expect(url).toContain(href);
 			}

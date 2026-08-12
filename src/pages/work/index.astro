@@ -1,0 +1,130 @@
+---
+/**
+ * This file is open-source. This means that it can be reproduced in whole
+ * or in part, stored in a retrieval system transmitted in any form, or by
+ * any means electronic with my prior permission as an author and owner
+ * Please refer to the terms of the license agreement in the root of the project
+ *
+ * (c) 2022 joaodias.me, Rights Reserved.
+ */
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import styles from "./index.module.scss";
+
+// Constants
+const DEFAULT_THEME = {
+	background: "#000000",
+	foreground: "#ffffff",
+} as const;
+
+const THUMBNAIL_DIMENSIONS = {
+	width: 123,
+	height: 123,
+} as const;
+
+const DATE_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
+	year: "numeric",
+	month: "long",
+};
+
+// Helper functions
+function normalizeThumbnailPath(path: string): string {
+	return path.startsWith("/") ? path : `/${path}`;
+}
+
+function getProjectTheme(project: CollectionEntry<"projects">) {
+	return {
+		background: project.data.themeBackground || DEFAULT_THEME.background,
+		foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
+	};
+}
+
+function formatProjectDate(date: Date): string {
+	return date.toLocaleDateString("en-US", DATE_FORMAT_OPTIONS);
+}
+
+function getTransitionNames(slug: string) {
+	return {
+		title: `project-title-${slug}`,
+		image: `project-image-${slug}`,
+	};
+}
+
+// Data fetching and processing
+const projects: CollectionEntry<"projects">[] = (await getCollection("projects")).sort(
+  (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+    b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<PageLayout
+  title="Projects - João Dias"
+  description="Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility"
+>
+  <main>
+    <div class="section">
+      <h1 class={styles.projects__title}>Selected Work</h1>
+    </div>
+    <section id="content" tabindex={-1} aria-labelledby="projects-header-title">
+      <ul class={styles.projects__grid}>
+        {
+          projects.map((project) => {
+            const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
+            const theme = getProjectTheme(project);
+            const transitionNames = getTransitionNames(project.id);
+            const cardStyle = {
+              "--background-color-hover": theme.background,
+              "--text-color-hover": theme.foreground,
+            };
+            const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
+
+            return (
+              <li>
+                <a
+                  href={`/work/${project.id}`}
+                  class={styles.projects__card}
+                  style={cardStyle}
+                  aria-label={ariaLabel}
+                >
+                  <div class={styles["projects__card-thumbnail"]}>
+                    <Image
+                      class={styles["projects__card-thumbnail-image"]}
+                      src={thumbnailPath}
+                      width={THUMBNAIL_DIMENSIONS.width}
+                      height={THUMBNAIL_DIMENSIONS.height}
+                      alt={`${project.data.title} project thumbnail`}
+                      loading="lazy"
+                      transition:name={transitionNames.image}
+                    />
+                  </div>
+                  <div class={styles["projects__card-content"]}>
+                    <h2
+                      class={styles["projects__card-content-title"]}
+                      transition:name={transitionNames.title}
+                    >
+                      {project.data.title}
+                    </h2>
+                    <p class={styles["projects__card-content-subtitle"]}>{project.data.shortDescription}</p>
+                    <time
+                      class={styles["projects__card-content-meta"]}
+                      datetime={project.data.date.toISOString()}
+                    >
+                      {formatProjectDate(project.data.date)}
+                    </time>
+                    <ul class={styles["projects__card-skills"]}>
+                      {project.data.skills.map((skill: string) => (
+                        <li class={styles["projects__card-skills-item"]}>{skill}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </main>
+</PageLayout>

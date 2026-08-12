@@ -1,4 +1,4 @@
-import { test, expect } from "utils";
+import { expect, test } from "utils";
 import { PAGE_SELECTORS } from "./constants";
 
 test.beforeEach(async ({ page, networkHandlers }) => {
@@ -79,8 +79,8 @@ test.describe("Skip Links", () => {
 
 test.describe("Logo Navigation", () => {
 	test("should navigate to homepage when clicking logo from projects page", async ({ page }) => {
-		await page.goto("/projects");
-		await page.waitForURL("**/projects");
+		await page.goto("/work");
+		await page.waitForURL("**/work");
 
 		const LOGO = page.getByTestId(PAGE_SELECTORS.logo);
 		await expect(LOGO).toBeVisible();
@@ -114,7 +114,7 @@ test.describe("Logo Navigation", () => {
 		expect(href).toBeTruthy();
 
 		await page.goto(href!);
-		await page.waitForURL(`**/projects/**`);
+		await page.waitForURL(`**/work/**`);
 
 		// Click logo
 		const LOGO = page.getByTestId(PAGE_SELECTORS.logo);

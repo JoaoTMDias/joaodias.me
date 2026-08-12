@@ -2,7 +2,7 @@ import { random } from "@jtmdias/js-utilities";
 import { expect, test } from "utils";
 import { PAGE_SELECTORS } from "./constants";
 
-test.describe("Projects Index Page", () => {
+test.describe("Work projects Index Page", () => {
   test.beforeEach(async ({ page, networkHandlers }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
 
@@ -13,17 +13,17 @@ test.describe("Projects Index Page", () => {
       });
     });
 
-    await page.goto("/projects");
-    await page.waitForURL("**/projects");
+    await page.goto("/work");
+    await page.waitForURL("**/work");
   });
 
   test("should load the projects index page", async ({ page }) => {
     const PAGE_TITLE = await page.title();
-    expect(PAGE_TITLE).toContain("Projects");
+    expect(PAGE_TITLE).toContain("Work projects");
   });
 
   test("should display all projects", async ({ page }) => {
-    const PROJECTS_HEADER = page.getByRole("heading", { level: 1, name: "All projects" });
+    const PROJECTS_HEADER = page.getByRole("heading", { level: 1, name: "All Work projects" });
     await expect(PROJECTS_HEADER).toBeVisible();
 
     const PROJECTS_GRID = page.locator(".projects__grid");
@@ -40,7 +40,7 @@ test.describe("Projects Index Page", () => {
       // Verify href points to a project detail page
       const href = await card.getAttribute("href");
       expect(href).toBeTruthy();
-      expect(href).toMatch(/^\/projects\/[a-z0-9-]+$/);
+      expect(href).toMatch(/^\/work\/[a-z0-9-]+$/);
 
       // Verify aria-label exists
       const ariaLabel = await card.getAttribute("aria-label");
@@ -79,12 +79,12 @@ test.describe("Projects Index Page", () => {
 
     await test.step("Click on a project card", async () => {
       await PROJECT_CARD.click();
-      await page.waitForURL(`**/projects/**`);
+      await page.waitForURL(`**/work/**`);
     });
 
     await test.step("Verify project detail page loaded", async () => {
       const url = page.url();
-      expect(url).toContain("/projects/");
+      expect(url).toContain("/work/");
       if (href) {
         expect(url).toContain(href);
       }
@@ -135,7 +135,7 @@ test.describe("Project Detail Page", () => {
 
     // Navigate to the project detail page
     await page.goto(href!);
-    await page.waitForURL(`**/projects/**`);
+    await page.waitForURL(`**/work/**`);
   });
 
   test("should display project header information", async ({ page }) => {

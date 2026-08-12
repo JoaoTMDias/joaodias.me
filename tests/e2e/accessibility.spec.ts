@@ -1,5 +1,5 @@
-import { test, expect } from "utils";
 import AxeBuilder from "@axe-core/playwright";
+import { expect, test } from "utils";
 import { PAGE_SELECTORS } from "./constants";
 
 test.beforeEach(async ({ page, networkHandlers }) => {
@@ -24,8 +24,8 @@ test.describe("Accessibility", () => {
 	});
 
 	test("should have no accessibility violations on projects page", async ({ page }) => {
-		await page.goto("/projects");
-		await page.waitForURL("**/projects");
+		await page.goto("/work");
+		await page.waitForURL("**/work");
 
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 
@@ -57,7 +57,7 @@ test.describe("Accessibility", () => {
 
 		// Navigate to the project detail page
 		await page.goto(href!);
-		await page.waitForURL(`**/projects/**`);
+		await page.waitForURL(`**/work/**`);
 
 		// Wait for the page to be fully loaded, including client-side components
 		await page.waitForLoadState("networkidle");
@@ -71,4 +71,3 @@ test.describe("Accessibility", () => {
 		expect(accessibilityScanResults.violations).toEqual([]);
 	});
 });
-

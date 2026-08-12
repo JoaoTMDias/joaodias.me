@@ -4,9 +4,9 @@ import {
 	BlogCollection,
 	ExperienceCollection,
 	GlobalConfigCollection,
-	ProjectsCollection,
 	SkillsCollection,
 	TestimonialsCollection,
+	WorkCollection,
 } from "./collections";
 
 const branch =
@@ -33,7 +33,7 @@ export default defineConfig({
 			BlogCollection,
 			BioCollection,
 			ExperienceCollection,
-			ProjectsCollection,
+			WorkCollection,
 			SkillsCollection,
 			TestimonialsCollection,
 		],

@@ -46,7 +46,7 @@ const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
 ---
 
 <article aria-label={ariaLabel} class={styles.work}>
-  <a href={`/projects/${project.id}`} class={styles.work__link}>
+  <a href={`/work/${project.id}`} class={styles.work__link}>
     <div class={styles.work__content}>
       <h3 class={styles.work__title} transition:name={transitionNames.title}>
         {project.data.title}

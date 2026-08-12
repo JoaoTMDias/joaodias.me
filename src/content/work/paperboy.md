@@ -16,10 +16,10 @@ skills:
   - cypress
   - service-workers
   - styled-components
-thumbnail: /projects/paperboy/project-icon.jpg
-cover: /projects/paperboy/project-cover.jpg
+thumbnail: /work/paperboy/project-icon.jpg
+cover: /work/paperboy/project-cover.jpg
 galleryImages:
-  - image: /projects/paperboy/project-1.jpg
+  - image: /work/paperboy/project-1.jpg
     alt: Paperboy application interface
     caption: ''
 themeBackground: "#ffffff"

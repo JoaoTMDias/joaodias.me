@@ -242,7 +242,7 @@ function buildLlmsContent(): string {
 		path.join(projectRoot, "src", "content", "skills", "index.json"),
 	);
 
-	const projects = collectFilesRecursively(path.join(projectRoot, "src", "content", "projects"))
+	const projects = collectFilesRecursively(path.join(projectRoot, "src", "content", "work"))
 		.map((filePath) => parseFrontmatter(fs.readFileSync(filePath, "utf-8")))
 		.filter((entry) => typeof entry.title === "string" && typeof entry.slug === "string")
 		.sort(
@@ -310,7 +310,7 @@ function buildLlmsContent(): string {
 				: [];
 			const source = typeof project.sourceCode === "string" ? project.sourceCode : "n/a";
 			const liveDemo = typeof project.liveDemo === "string" ? project.liveDemo : "n/a";
-			const projectUrl = toUrl(`/projects/${slug}`);
+			const projectUrl = toUrl(`/work/${slug}`);
 			const description = safeOneLine(shortDescription || descriptionRaw);
 			const skillsList = skillsRaw.length > 0 ? skillsRaw.join(", ") : "n/a";
 
@@ -349,7 +349,7 @@ function buildLlmsContent(): string {
 		`- About: ${toUrl("/about")}`,
 		`- Blog: ${toUrl("/blog")}`,
 		`- Work (navigation): ${toUrl("/work")}`,
-		`- Projects: ${toUrl("/projects")}`,
+		`- Work projects: ${toUrl("/work")}`,
 		`- Resume: ${toUrl("/resume-joao-dias.pdf")}`,
 		`- llms.txt: ${toUrl("/llms.txt")}`,
 		"",

@@ -13,16 +13,16 @@ skills:
   - vitejs
   - cypress
   - chromium
-thumbnail: /projects/g-chat-format-bar/project-icon.jpg
-cover: /projects/g-chat-format-bar/project-cover.jpg
+thumbnail: /work/g-chat-format-bar/project-icon.jpg
+cover: /work/g-chat-format-bar/project-cover.jpg
 galleryImages:
-  - image: /projects/g-chat-format-bar/project-1.jpg
+  - image: /work/g-chat-format-bar/project-1.jpg
     alt: Rich Content Editor experience
     caption: ""
-  - image: /projects/g-chat-format-bar/project-2.jpg
+  - image: /work/g-chat-format-bar/project-2.jpg
     alt: Google Chat Formatter extension interface
     caption: ""
-  - image: /projects/g-chat-format-bar/project-3.jpg
+  - image: /work/g-chat-format-bar/project-3.jpg
     alt: Formatting toolbar with text editor
     caption: ""
 themeBackground: "#0f1729"

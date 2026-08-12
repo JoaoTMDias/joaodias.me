@@ -16,16 +16,16 @@ skills:
   - electron
   - fluent-ui
   - windows-11
-thumbnail: /projects/winpicker/project-icon.svg
-cover: /projects/winpicker/winpicker-cover.jpeg
+thumbnail: /work/winpicker/project-icon.svg
+cover: /work/winpicker/winpicker-cover.jpeg
 galleryImages:
-  - image: /projects/winpicker/winpicker-1.png
+  - image: /work/winpicker/winpicker-1.png
     alt: Winpicker application main interface
     caption: ""
-  - image: /projects/winpicker/winpicker-2.png
+  - image: /work/winpicker/winpicker-2.png
     alt: Winpicker selection screen
     caption: ""
-  - image: /projects/winpicker/winpicker-3.jpg
+  - image: /work/winpicker/winpicker-3.jpg
     alt: Winpicker results view
     caption: ""
 themeBackground: "#003C6D"

@@ -78,7 +78,7 @@ test.describe("External Links", () => {
     expect(href).toBeTruthy();
 
     await page.goto(href!);
-    await page.waitForURL(`**/projects/**`);
+    await page.waitForURL(`**/work/**`);
 
     // Check for source code link
     const SOURCE_CODE_SECTION = page.locator(".project__meta-title", {

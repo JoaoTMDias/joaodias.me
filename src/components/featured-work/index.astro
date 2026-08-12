@@ -22,5 +22,5 @@ const projects: ProjectItem[] = (await getCollection("projects"))
       {projects.map((project) => <FeaturedWorkItem key={project.id} project={project} />)}
     </div>
   </div>
-  <SectionLink href="/projects" text="Visit all featured projects" />
+  <SectionLink href="/work" text="Visit all featured projects" />
 </section>

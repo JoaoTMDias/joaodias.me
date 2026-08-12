@@ -1,9 +1,9 @@
 import type { Collection } from "tinacms";
 
-export const ProjectsCollection: Collection = {
-  name: "project",
-  label: "Projects",
-  path: "src/content/projects",
+export const WorkCollection: Collection = {
+  name: "work",
+  label: "Work projects",
+  path: "src/content/work",
   fields: [
     {
       type: "string",

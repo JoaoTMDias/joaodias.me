@@ -16,16 +16,16 @@ skills:
   - cypress
   - jest
   - testing-library
-thumbnail: /projects/istovaidarmerda.online/project-icon.png
-cover: /projects/istovaidarmerda.online/project-cover.jpg
+thumbnail: /work/istovaidarmerda.online/project-icon.png
+cover: /work/istovaidarmerda.online/project-cover.jpg
 galleryImages:
-  - image: /projects/istovaidarmerda.online/project-1.jpg
+  - image: /work/istovaidarmerda.online/project-1.jpg
     alt: Isto Vai Dar Merda website homepage
     caption: ''
-  - image: /projects/istovaidarmerda.online/project-2.jpg
+  - image: /work/istovaidarmerda.online/project-2.jpg
     alt: Website content page
     caption: ''
-  - image: /projects/istovaidarmerda.online/project-cover@2x.jpg
+  - image: /work/istovaidarmerda.online/project-cover@2x.jpg
     alt: Project cover image
     caption: ''
 themeBackground: "#f5e7ad"

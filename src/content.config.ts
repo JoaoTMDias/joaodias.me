@@ -50,7 +50,7 @@ const blogCollection = defineCollection({
 });
 
 const projectsCollection = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
+	loader: glob({ pattern: "**/*.md", base: "./src/content/work" }),
 	schema: z.object({
 		title: z.string(),
 		date: z.coerce.date(),

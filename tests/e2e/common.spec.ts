@@ -26,11 +26,11 @@ test.describe("Navigation", () => {
 
     await test.step("Click on Projects link", async () => {
       await PROJECTS_LINK.click();
-      await page.waitForURL("**/projects");
+      await page.waitForURL("**/work");
     });
 
     await test.step("Verify Projects page loaded", async () => {
-      expect(page.url()).toContain("/projects");
+      expect(page.url()).toContain("/work");
       const PAGE_TITLE = await page.title();
       expect(PAGE_TITLE).toContain("Projects");
     });
