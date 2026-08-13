@@ -3,10 +3,10 @@ import { getEntry } from "astro:content";
 import Logo from "../logo/index.astro";
 import MainNavigation from "../navigation/main-navigation.astro";
 import MobileNavigation from "../navigation/mobile-navigation.astro";
+import MobileNavigationToggle from "../navigation/mobile-navigation-toggle.astro";
 import SkipLink from "../skip-link";
 import ThemeSwitcher from "../theme-switcher/index.astro";
 import styles from "./index.module.scss";
-import MobileNavigationToggle from "./MobileNavigationToggle.astro";
 
 const config = await getEntry("config", "config");
 ---
