@@ -3,3 +3,6 @@ allowBuilds:
   better-sqlite3: true
   core-js: true
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@jtmdias/js-utilities@3.1.0'
+  - '@jtmdias/react-a11y-tools@3.1.1'

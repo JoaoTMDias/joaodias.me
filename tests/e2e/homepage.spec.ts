@@ -1,6 +1,6 @@
 import { random } from "@jtmdias/js-utilities";
-import { expect, test } from "utils";
 import { PAGE_DATA, PAGE_SELECTORS, SITE_CONFIG } from "./constants";
+import { expect, test } from "./utils";
 
 test.beforeEach(async ({ page, networkHandlers }) => {
 	await page.setViewportSize({ width: 1440, height: 900 });
@@ -71,38 +71,12 @@ test.describe("Homepage", () => {
 	});
 });
 
-test.describe("Intro", () => {
-	test("should display intro section content", async ({ page }) => {
-		await test.step("Scroll to the about section", async () => {
-			// Navigate directly to the section since it's no longer in the nav
-			await page.goto("/#about");
-		});
-
-		await test.step("Check if the section is visible", async () => {
-			const ABOUT_SECTION = page.locator(PAGE_SELECTORS.about);
-			await expect(ABOUT_SECTION).toBeVisible();
-
-			const INTRO_SUBTITLE = page.getByTestId(PAGE_SELECTORS.introSubtitle);
-			await expect(INTRO_SUBTITLE).toHaveText(PAGE_DATA.about.intro.subtitle);
-
-			const INTRO_TITLE = page.getByTestId(PAGE_SELECTORS.introTitle);
-			await expect(INTRO_TITLE).toHaveText(
-				"I'm João, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal",
-			);
-		});
-	});
-
-	test("The link to the employer is correct", async ({ page }) => {
-		const EXPECTED_LINK = PAGE_DATA.about.intro["currently-at"].href;
-		const EMPLOYER_LINK = page.getByTestId(PAGE_SELECTORS.employerLink);
-
-		await test.step("Scroll to the employer link", async () => {
-			await EMPLOYER_LINK.scrollIntoViewIfNeeded();
-		});
-
-		await test.step("Check if the link is correct", async () => {
-			await expect(EMPLOYER_LINK).toHaveAttribute("href", EXPECTED_LINK);
-		});
+test.describe("Hero", () => {
+	test("should display the hero copy and profile content", async ({ page }) => {
+		await expect(page.getByRole("heading", { name: PAGE_DATA.hero.title })).toBeVisible();
+		await expect(page.getByText(PAGE_DATA.hero.subtitle)).toBeVisible();
+		await expect(page.getByText(PAGE_DATA.hero.intro)).toBeVisible();
+		await expect(page.getByTestId(PAGE_SELECTORS.profilePicture)).toBeVisible();
 	});
 });
 

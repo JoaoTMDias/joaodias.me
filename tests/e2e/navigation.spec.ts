@@ -1,5 +1,5 @@
-import { expect, test } from "utils";
 import { PAGE_SELECTORS } from "./constants";
+import { expect, test } from "./utils";
 
 test.beforeEach(async ({ page, networkHandlers }) => {
 	await page.setViewportSize({ width: 1440, height: 900 });
@@ -74,6 +74,45 @@ test.describe("Skip Links", () => {
 
 		// Verify the URL contains the hash
 		expect(page.url()).toContain("#contact");
+	});
+});
+
+test.describe("Responsive Navigation and Theme", () => {
+	test("should open the mobile navigation menu on small screens", async ({ page }) => {
+		await page.setViewportSize({ width: 390, height: 844 });
+		await page.goto("/");
+		await page.waitForURL("http://localhost:4321/");
+
+		const MOBILE_TOGGLE = page.locator("#mobile-navigation-toggle");
+		const MOBILE_NAV = page.locator("#mobile-navigation");
+
+		await expect(MOBILE_TOGGLE).toBeVisible();
+		await expect(MOBILE_NAV).toBeHidden();
+
+		await MOBILE_TOGGLE.click();
+		await expect(MOBILE_NAV).toBeVisible();
+
+		const MOBILE_LINKS = MOBILE_NAV.getByRole("link");
+		await expect(MOBILE_LINKS.first()).toBeVisible();
+		expect(await MOBILE_LINKS.count()).toBeGreaterThan(0);
+	});
+
+	test("should toggle the theme switch and persist the preference", async ({ page }) => {
+		await page.goto("/");
+		await page.waitForURL("http://localhost:4321/");
+
+		const THEME_SWITCH = page.getByRole("switch");
+		await expect(THEME_SWITCH).toBeVisible();
+
+		const initialTheme = await page.evaluate(() =>
+			document.documentElement.getAttribute("data-theme"),
+		);
+		const nextTheme = initialTheme === "dark" ? "light" : "dark";
+
+		await THEME_SWITCH.click();
+
+		await expect(page.locator("html")).toHaveAttribute("data-theme", nextTheme);
+		expect(await page.evaluate(() => localStorage.getItem("theme"))).toBe(nextTheme);
 	});
 });
 

@@ -147,8 +147,7 @@ export const GlobalConfigCollection: Collection = {
           label: "Icon",
           type: "string",
           ui: {
-            //@ts-expect-error
-            component: IconComponent,
+            component: IconComponent as any,
           },
         },
       ],

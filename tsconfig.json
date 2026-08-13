@@ -9,7 +9,10 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "utils": ["./tests/e2e/utils/index.ts"]
+    }
   },
   "exclude": ["node_modules"]
 }
