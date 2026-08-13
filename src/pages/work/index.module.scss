@@ -1,15 +1,14 @@
 @use "../../assets/styles/custom-media.scss";
 
 :global(:root) {
-  --projects-spacing-sm: var(--space-base);
-  --projects-spacing-md: var(--space-lg);
-  --projects-spacing-lg: var(--space-xl);
-  --projects-thumbnail-size: 5rem;
-  --projects-card-border-radius: var(--space-base);
-  --projects-transition-duration: var(--motion-duration-base);
+  --work-spacing-sm: var(--space-base);
+  --work-spacing-md: var(--space-lg);
+  --work-spacing-lg: var(--space-xl);
+  --work-card-border-radius: var(--section-border-radius);
+  --work-transition-duration: var(--motion-duration-base);
 }
 
-.projects {
+.work {
   &__title {
     padding-block-start: var(--space-lg);
     display: flex;
@@ -31,87 +30,112 @@
   }
 
   &__grid {
-    --projects-per-row: 1;
-    --projects-spacing: var(--projects-spacing-sm);
+    --work-per-row: 1;
+    --work-spacing: var(--work-spacing-sm);
 
     display: grid;
-    grid-template-columns: repeat(var(--projects-per-row), minmax(0, 1fr));
-    gap: var(--projects-spacing);
+    grid-template-columns: repeat(var(--work-per-row), minmax(0, 1fr));
+    gap: var(--work-spacing);
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
 
+    @media (--medium-viewport) {
+      --work-per-row: 2;
+      --work-spacing: var(--work-spacing-md);
+    }
+
     @media (--large-viewport) {
-      --projects-per-row: 2;
-      --projects-spacing: var(--projects-spacing-md);
+      --work-per-row: 3;
     }
   }
 
   &__card {
-    --project-gap: var(--space-sm);
-    --project-padding: var(--space-base);
-    --project-image-size: var(--projects-thumbnail-size);
-    --project-title-font-size: var(--font-size-base);
-    --project-subtitle-font-size: var(--font-size-sm);
-    --project-date-font-size: var(--font-size-xs);
-    --project-skills-font-size: var(--font-size-sm);
+    --work-gap: var(--space-sm);
+    --work-padding: var(--space-base);
+    --work-image-size: var(--work-thumbnail-size);
+    --work-title-font-size: var(--font-size-base);
+    --work-subtitle-font-size: var(--font-size-base);
+    --work-date-font-size: var(--font-size-sm);
+    --work-skills-font-size: var(--font-size-sm);
 
+    position: relative;
     container-name: project-card;
     container-type: inline-size;
     display: grid;
     grid-template-areas:
-      "cover content"
-      "cover content";
-    grid-template-columns: var(--project-image-size) 1fr;
-    grid-template-rows: auto 1fr;
+      "cover"
+      "content";
+    grid-template-columns: 1fr 1fr;
     align-items: start;
-    gap: var(--project-gap);
-    padding: var(--project-padding);
-    background-color: var(--background-color-hover, var(--background-color));
-    color: var(--text-color-hover, var(--text-color));
+    padding: 0;
+    background-color: light-dark(var(--work-foreground), var(--work-background));
+    color: light-dark(var(--work-background), var(--work-foreground));
     transition:
-      box-shadow var(--projects-transition-duration) var(--motion-ease-out),
-      transform var(--projects-transition-duration) var(--motion-ease-out),
-      background-color var(--projects-transition-duration) var(--motion-ease-standard),
-      color var(--projects-transition-duration) var(--motion-ease-standard);
-    border-radius: var(--projects-card-border-radius);
+      box-shadow var(--work-transition-duration) var(--motion-ease-out),
+      transform var(--work-transition-duration) var(--motion-ease-out),
+      background-color var(--work-transition-duration) var(--motion-ease-standard),
+      color var(--work-transition-duration) var(--motion-ease-standard);
     width: 100%;
-    height: 100%;
+    height: fit-content;
     text-decoration: none;
     appearance: none;
     border: none;
-    box-shadow: 0 4px 10px 2px rgb(0 0 0 / 0.25);
+    border-radius: var(--work-card-border-radius);
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 4px 40px 8px rgba(0, 0, 0, 0.2);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity var(--motion-duration-background-animation) var(--motion-ease-out);
+    }
 
     &:hover,
     &:focus {
       cursor: pointer;
-      background-color: var(--background-color-hover);
-      color: var(--text-color-hover);
       transform: translateY(-0.25rem);
-      box-shadow: 0 8px 20px 4px rgb(0 0 0 / 0.3);
+
+      &:before {
+        opacity: 1;
+      }
     }
 
     @media (--large-viewport) {
-      --project-gap: var(--space-base);
-      --project-padding: var(--space-lg);
-      --project-image-size: 6.25rem;
-      --project-title-font-size: var(--font-size-md);
-      --project-subtitle-font-size: var(--font-size-base);
-      --project-date-font-size: var(--font-size-sm);
+      --work-padding: var(--space-lg);
+      --work-title-font-size: var(--font-size-md);
+      --work-subtitle-font-size: var(--font-size-base);
+      --work-date-font-size: var(--font-size-sm);
+    }
+
+    @media (--laptop-viewport) {
+      --work-title-font-size: var(--font-size-lg);
     }
   }
 
   &__card-thumbnail {
     grid-area: cover;
-    width: var(--project-image-size);
-    height: var(--project-image-size);
-    clip-path: shape(from 15.69% 0%,hline to 70.59%,arc to 80.39% 9.8% of 9.8% 9.8% cw small rotate 0deg,vline to 9.8%,arc to 90.2% 19.61% of 9.8% 9.8% ccw small rotate 0deg,hline to 90.2%,arc to 100% 29.41% of 9.8% 9.8% cw small rotate 0deg,vline to 84.31%,arc to 84.31% 100% of 15.69% 15.69% cw small rotate 0deg,hline to 27.45%,arc to 19.61% 92.16% of 7.84% 7.84% cw small rotate 0deg,vline to 88.24%,arc to 11.76% 80.39% of 7.84% 7.84% ccw small rotate 0deg,hline to 7.84%,arc to 0% 72.55% of 7.84% 7.84% cw small rotate 0deg,vline to 15.69%,arc to 15.69% 0% of 15.69% 15.69% cw small rotate 0deg,close);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    grid-column: 1 / -1;
+    border-top-left-radius: var(--work-card-border-radius);
+    border-top-right-radius: var(--work-card-border-radius);
   }
 
   &__card-thumbnail-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: var(--work-card-border-radius);
+    border-top-right-radius: var(--work-card-border-radius);
   }
 
   &__card-content {
@@ -122,7 +146,10 @@
     align-items: flex-start;
     gap: var(--space-xs);
     margin: 0;
-    height: 100%;
+    grid-column: 1 / -1;
+    padding: var(--work-padding);
+    border-bottom-left-radius: var(--work-card-border-radius);
+    border-bottom-right-radius: var(--work-card-border-radius);
 
     @media (--large-viewport) {
       justify-content: flex-start;
@@ -133,7 +160,7 @@
   &__card-content-title {
     font-family: var(--heading-font-family);
     font-weight: 600;
-    font-size: var(--project-title-font-size);
+    font-size: var(--work-title-font-size);
     line-height: 1.3;
     margin: 0;
     text-align: left;
@@ -143,7 +170,7 @@
   &__card-content-subtitle {
     font-family: var(--text-font-family);
     font-weight: 300;
-    font-size: var(--project-subtitle-font-size);
+    font-size: var(--work-subtitle-font-size);
     line-height: 1.4;
     text-align: left;
     margin: 0;
@@ -151,46 +178,17 @@
 
   &__card-content-meta {
     font-family: var(--text-font-family);
-    font-size: var(--project-date-font-size);
-    opacity: 0.8;
+    font-size: var(--work-date-font-size);
     margin: 0;
-  }
-
-  &__card-skills {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    font-family: var(--text-font-family);
-    font-weight: 500;
-    font-size: var(--project-skills-font-size);
-    line-height: 1;
-    margin-top: auto;
-
-    @media (--large-viewport) {
-      justify-content: flex-start;
-    }
-  }
-
-  &__card-skills-item {
-    text-transform: lowercase;
-
-    &::before {
-      content: "#";
-    }
   }
 }
 
 @container project-card (min-width: 28rem) {
-  .projects__card {
-    --project-gap: var(--space-lg);
-    --project-padding: var(--space-lg);
-    --project-image-size: 7.5rem;
-    --project-title-font-size: var(--font-size-lg);
+  .work__card {
+    --work-padding: var(--space-lg);
+    --work-title-font-size: var(--font-size-lg);
+
+    grid-template-areas:
+      "cover content";
   }
 }
