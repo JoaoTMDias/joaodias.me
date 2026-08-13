@@ -1,16 +1,16 @@
 ---
-import styles from "./MobileNavigationToggle.module.scss";
+import styles from "./mobile-navigation.module.scss";
 ---
 
 <button
   id="mobile-navigation-toggle"
   type="button"
-  class={styles["mobile-navigation-toggle"]}
+  class={styles["mobile-navigation__toggle"]}
   popovertarget="mobile-navigation"
   popovertargetaction="toggle"
 >
-  <span class={styles["mobile-navigation-toggle__open"]}>Menu</span>
-  <span class={styles["mobile-navigation-toggle__close"]}>Close</span>
+  <span class={styles["mobile-navigation__toggle__open"]}>Menu</span>
+  <span class={styles["mobile-navigation__toggle__close"]}>Close</span>
 </button>
 
 <script>
