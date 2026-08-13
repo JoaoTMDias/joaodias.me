@@ -69,7 +69,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 	const hasResults = resultCount > 0;
 
 	return (
-		<div className={clsx("section", styles["blog-search"])}>
+		<section className={clsx("section", styles["blog-search"])}>
 			<form className={styles["search-form"]} action="/blog" method="get" onSubmit={handleSubmit}>
 				<label htmlFor="search" className="sr-only">
 					Search articles
@@ -158,7 +158,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 					<p>No articles match your search. Try a different term.</p>
 				</div>
 			)}
-		</div>
+		</section>
 	);
 }
 
