@@ -30,13 +30,11 @@ const searchableArticles = articles.map((article) => ({
   title="Articles - João Dias"
   description="Articles about Frontend Engineering and Web Accessibility by João Dias"
 >
-  <main>
-    <div class="content">
-      <div class={clsx("section", styles.header)}>
-        <h1 class={styles.header__title}>Blog</h1>
-        <p>Find a topic of your choice</p>
-      </div>
-      <BlogSearch articles={searchableArticles} client:load />
-    </div>
-  </main>
+	<div class="content">
+		<section class={clsx("section", styles.header)}>
+			<h1 class={styles.header__title}>Blog</h1>
+			<p>Find a topic of your choice</p>
+		</section>
+		<BlogSearch articles={searchableArticles} client:load />
+	</div>
 </PageLayout>

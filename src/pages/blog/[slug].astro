@@ -33,20 +33,11 @@ const transitionNames = getTransitionNames(article.id);
   description={article.data.excerpt}
   itemtype="http://schema.org/Article"
 >
-  <main>
-    <article class="section blog-article" itemprop="articleBody">
-      <div class="blog-article__header">
-        {article.data.featuredImage && <Image
-          class="blog-article__image"
-          src={article.data.featuredImage}
-          width={960}
-          height={480}
-          alt={article.data.title}
-          loading="lazy"
-          transition:name={transitionNames.image}
-        />}
-        <h1 class="blog-article__title" transition:name={transitionNames.title}>{article.data.title}</h1>
-        <div class="blog-article__meta">
+  <article class="section blog-article" itemprop="articleBody">
+    <section class="blog-article__header">
+      <div class="blog-article__header__lead">
+        <h1 class="blog-article__header__title" transition:name={transitionNames.title}>{article.data.title}</h1>
+        <div class="blog-article__header__meta">
           <time class="blog-article__date" datetime={article.data.pubDate.toISOString()}>
             {
               article.data.pubDate.toLocaleDateString("en-US", {
@@ -60,12 +51,21 @@ const transitionNames = getTransitionNames(article.id);
           {article.data.readingTime && <p class="blog-article__reading-time">{article.data.readingTime} min read</p>}
         </div>
       </div>
-      <div class="blog-article__content">
-        <Content />
-      </div>
+      {article.data.featuredImage && <Image
+        class="blog-article__header__image"
+        src={article.data.featuredImage}
+        width={960}
+        height={480}
+        alt={article.data.title}
+        loading="lazy"
+        transition:name={transitionNames.image}
+      />}
+    </section>
+    <section class="blog-article__content">
+      <Content />
       <div class="blog-article__back-link">
         <a href="/blog">← Back to Articles</a>
       </div>
-    </article>
-  </main>
+    </section>
+  </article>
 </PageLayout>

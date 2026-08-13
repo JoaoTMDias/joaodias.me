@@ -63,68 +63,64 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
   title="Projects - João Dias"
   description="Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility"
 >
-  <main>
-    <div class="section">
-      <h1 class={styles.projects__title}>Selected Work</h1>
-    </div>
-    <section id="content" tabindex={-1} aria-labelledby="projects-header-title">
-      <ul class={styles.projects__grid}>
-        {
-          projects.map((project) => {
-            const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
-            const theme = getProjectTheme(project);
-            const transitionNames = getTransitionNames(project.id);
-            const cardStyle = {
-              "--background-color-hover": theme.background,
-              "--text-color-hover": theme.foreground,
-            };
-            const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
+  <div class="section">
+    <h1 class={styles.work__title}>Featured case studies</h1>
+    <p class={styles.work__description}>
+      A showcase of some of my open-source projects.
+    </p>
+  </div>
+  <section>
+    <ul class={styles.work__grid}>
+      {
+        projects.map((project) => {
+          const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
+          const theme = getProjectTheme(project);
+          const transitionNames = getTransitionNames(project.id);
+          const cardStyle = {
+            "--work-background": theme.background,
+            "--work-foreground": theme.foreground,
+          };
+          const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
 
-            return (
-              <li>
-                <a
-                  href={`/work/${project.id}`}
-                  class={styles.projects__card}
-                  style={cardStyle}
-                  aria-label={ariaLabel}
-                >
-                  <div class={styles["projects__card-thumbnail"]}>
-                    <Image
-                      class={styles["projects__card-thumbnail-image"]}
-                      src={thumbnailPath}
-                      width={THUMBNAIL_DIMENSIONS.width}
-                      height={THUMBNAIL_DIMENSIONS.height}
-                      alt={`${project.data.title} project thumbnail`}
-                      loading="lazy"
-                      transition:name={transitionNames.image}
-                    />
-                  </div>
-                  <div class={styles["projects__card-content"]}>
-                    <h2
-                      class={styles["projects__card-content-title"]}
-                      transition:name={transitionNames.title}
-                    >
-                      {project.data.title}
-                    </h2>
-                    <p class={styles["projects__card-content-subtitle"]}>{project.data.shortDescription}</p>
-                    <time
-                      class={styles["projects__card-content-meta"]}
-                      datetime={project.data.date.toISOString()}
-                    >
-                      {formatProjectDate(project.data.date)}
-                    </time>
-                    <ul class={styles["projects__card-skills"]}>
-                      {project.data.skills.map((skill: string) => (
-                        <li class={styles["projects__card-skills-item"]}>{skill}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </section>
-  </main>
+          return (
+            <li>
+              <a
+                href={`/work/${project.id}`}
+                class={styles.work__card}
+                style={cardStyle}
+                aria-label={ariaLabel}
+              >
+                <div class={styles["work__card-thumbnail"]}>
+                  <Image
+                    class={styles["work__card-thumbnail-image"]}
+                    src={thumbnailPath}
+                    width={THUMBNAIL_DIMENSIONS.width}
+                    height={THUMBNAIL_DIMENSIONS.height}
+                    alt={`${project.data.title} project thumbnail`}
+                    loading="lazy"
+                    transition:name={transitionNames.image}
+                  />
+                </div>
+                <div class={styles["work__card-content"]}>
+                  <h2
+                    class={styles["work__card-content-title"]}
+                    transition:name={transitionNames.title}
+                  >
+                    {project.data.title}
+                  </h2>
+                  <p class={styles["work__card-content-subtitle"]}>{project.data.shortDescription}</p>
+                  <time
+                    class={styles["work__card-content-meta"]}
+                    datetime={project.data.date.toISOString()}
+                  >
+                    {formatProjectDate(project.data.date)}
+                  </time>
+                </div>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
 </PageLayout>

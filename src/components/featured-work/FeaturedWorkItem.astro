@@ -1,12 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import clsx from "clsx";
 import styles from "./index.module.scss";
-
-interface FeaturedWorkItemProps {
-	project: CollectionEntry<"projects">;
-}
 
 // Constants
 const DEFAULT_THEME = {
@@ -47,14 +42,6 @@ const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
 
 <article aria-label={ariaLabel} class={styles.work}>
   <a href={`/work/${project.id}`} class={styles.work__link}>
-    <div class={styles.work__content}>
-      <h3 class={styles.work__title} transition:name={transitionNames.title}>
-        {project.data.title}
-      </h3>
-      <p class={styles.work__description}>
-        {project.data.shortDescription}
-      </p>
-    </div>
     <div class={styles["work__image"]}>
       <Image
         class={styles.work__image__img}
@@ -66,6 +53,14 @@ const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
         transition:name={transitionNames.image}
       />
       <span class={styles["work__image__cta"]} style={cardStyle}>View project</span>
+    </div>
+    <div class={styles.work__content}>
+      <h3 class={styles.work__title} transition:name={transitionNames.title}>
+        {project.data.title}
+      </h3>
+      <p class={styles.work__description}>
+        {project.data.shortDescription}
+      </p>
     </div>
   </a>
 </article>

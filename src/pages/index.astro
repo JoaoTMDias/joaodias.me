@@ -11,26 +11,24 @@ import PageLayout from "../layouts/PageLayout.astro";
 ---
 
 <PageLayout title={PAGE_CONTENT.title} description="João Dias">
-  <main>
-    <h1 class="sr-only">Home page</h1>
-    <div class="content">
-      <Hero
-        title={PAGE_CONTENT.hero.title}
-        subtitle={PAGE_CONTENT.hero.subtitle}
-        intro={PAGE_CONTENT.hero.intro}
-        profilePicture={{
-          src: PAGE_CONTENT.hero["profile-picture"].src,
-          width: PAGE_CONTENT.hero["profile-picture"].width,
-          height: PAGE_CONTENT.hero["profile-picture"].height,
-          alt: PAGE_CONTENT.hero["profile-picture"].alt,
-        }}
-      />
-      <LatestArticles />
-      <FeaturedWork />
-      <ExpertiseAndServices />
-      <RadioBroadcasts />
-      <PeerFeedback />
-      <LetsConnect />
-    </div>
-  </main>
+  <h1 class="sr-only">Home page</h1>
+  <div class="content">
+    <Hero
+      title={PAGE_CONTENT.hero.title}
+      subtitle={PAGE_CONTENT.hero.subtitle}
+      intro={PAGE_CONTENT.hero.intro}
+      profilePicture={{
+        src: PAGE_CONTENT.hero["profile-picture"].src,
+        width: PAGE_CONTENT.hero["profile-picture"].width,
+        height: PAGE_CONTENT.hero["profile-picture"].height,
+        alt: PAGE_CONTENT.hero["profile-picture"].alt,
+      }}
+    />
+    <LatestArticles />
+    <FeaturedWork />
+    <ExpertiseAndServices />
+    <RadioBroadcasts />
+    <PeerFeedback />
+    <LetsConnect />
+  </div>
 </PageLayout>
