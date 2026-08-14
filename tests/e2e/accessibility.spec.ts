@@ -17,6 +17,8 @@ test.describe("Accessibility", () => {
 	test("should have no accessibility violations on homepage", async ({ page }) => {
 		await page.goto("/");
 		await page.waitForURL("http://localhost:4321/");
+		await page.waitForLoadState("networkidle");
+		await expect(page.getByRole("main")).toBeVisible();
 
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 
@@ -26,6 +28,8 @@ test.describe("Accessibility", () => {
 	test("should have no accessibility violations on projects page", async ({ page }) => {
 		await page.goto("/work");
 		await page.waitForURL("**/work");
+		await page.waitForLoadState("networkidle");
+		await expect(page.getByRole("main")).toBeVisible();
 
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 

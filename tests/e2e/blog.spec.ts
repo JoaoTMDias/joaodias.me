@@ -85,13 +85,13 @@ test.describe("Article Detail Page", () => {
 	});
 
 	test("should display back to articles link", async ({ page }) => {
-		const BACK_LINK = page.getByRole("link", { name: /Back to Articles/i });
+		const BACK_LINK = page.getByTestId("blog-back-link");
 		await expect(BACK_LINK).toBeVisible();
 		await expect(BACK_LINK).toHaveAttribute("href", "/blog");
 	});
 
 	test("should navigate back to articles index when clicking back link", async ({ page }) => {
-		const BACK_LINK = page.getByRole("link", { name: /Back to Articles/i });
+		const BACK_LINK = page.getByTestId("blog-back-link");
 		await BACK_LINK.click();
 		await page.waitForURL("**/blog");
 
