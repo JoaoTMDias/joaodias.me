@@ -18,7 +18,14 @@
 		"typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json",
 		"generate-build-info": "node ./scripts/get-build-info.mjs",
 		"generate-llms-txt": "tsx ./scripts/generate-llms-txt.ts",
-		"get-latest-shows": "tsx ./scripts/get-latest-shows.ts"
+		"get-latest-shows": "tsx ./scripts/get-latest-shows.ts",
+		"prepare": "husky",
+		"check:staged": "lint-staged"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,astro,json,css,md}": [
+			"biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+		]
 	},
 	"devDependencies": {
 		"@astrojs/react": "6.0.1",
@@ -39,7 +46,9 @@
 		"autoprefixer": "^10.5.4",
 		"axe-core": "4.12.1",
 		"colorthief": "^3.4.0",
+		"husky": "^9.1.7",
 		"jsdom": "^30.0.1",
+		"lint-staged": "^17.3.0",
 		"playwright": "^1.62.1",
 		"postcss-custom-media": "^12.0.1",
 		"react": "19.2.8",
