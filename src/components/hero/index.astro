@@ -3,20 +3,18 @@ import Profile from "../profile/index.astro";
 import styles from "./index.module.scss";
 
 interface HeroProps {
-  title: string;
-  subtitle: string;
-  intro: string;
-  profilePicture: {
-    src: string;
-    width: number;
-    height: number;
-    alt: string;
-  };
+	title: string;
+	subtitle: string;
+	intro: string;
+	profilePicture: {
+		src: string;
+		width: number;
+		height: number;
+		alt: string;
+	};
 }
 
 const { title, subtitle, intro, profilePicture } = Astro.props as HeroProps;
-
-
 ---
 
 <section class="section">

@@ -1,11 +1,11 @@
 {
-  "title": "Bio",
-  "mainTitle": "My focus is on creating great, accessible and rich web experiences for everyone. I've been lucky enough to have been doing that for the last 15 years.",
-  "description": "I’m a Design Engineer, which means I handle both sides of the digital product process, from original UI design and wireframes all the way into production code. Instead of handing off mockups and hoping for the best, I design with technical realities in mind and code with an eye for detail.\n\nWhen I’m not behind a screen, you can find me behind a mic as a radio host, catching live gigs, or diving into the world of craft beer. I also stay active at the gym and prioritize quality time with my wife and son\n",
-  "picture": {
-    "src": "/about-grid.jpg",
-    "width": "640",
-    "height": "640",
-    "alt": "A grid collage featuring João Dias in a delightful series of escapades: beaming beside his wife like they’ve just won a lifetime supply of coffee, looking dramatically intense in the studio as if recording the next big hit, clutching a leather jacket like it’s the crown jewel of his wardrobe, basking in the countryside with the air of a man who just befriended a sheep, and broadcasting a radio show with the unmistakable confidence of someone who believes every listener is hanging on his every word."
-  }
+	"title": "Bio",
+	"mainTitle": "My focus is on creating great, accessible and rich web experiences for everyone. I've been lucky enough to have been doing that for the last 15 years.",
+	"description": "I’m a Design Engineer, which means I handle both sides of the digital product process, from original UI design and wireframes all the way into production code. Instead of handing off mockups and hoping for the best, I design with technical realities in mind and code with an eye for detail.\n\nWhen I’m not behind a screen, you can find me behind a mic as a radio host, catching live gigs, or diving into the world of craft beer. I also stay active at the gym and prioritize quality time with my wife and son\n",
+	"picture": {
+		"src": "/about-grid.jpg",
+		"width": "640",
+		"height": "640",
+		"alt": "A grid collage featuring João Dias in a delightful series of escapades: beaming beside his wife like they’ve just won a lifetime supply of coffee, looking dramatically intense in the studio as if recording the next big hit, clutching a leather jacket like it’s the crown jewel of his wardrobe, basking in the countryside with the air of a man who just befriended a sheep, and broadcasting a radio show with the unmistakable confidence of someone who believes every listener is hanging on his every word."
+	}
 }

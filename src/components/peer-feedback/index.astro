@@ -6,7 +6,7 @@ import styles from "./index.module.scss";
 import Testimonial from "./testimonial.astro";
 
 const testimonials = (await getCollection("testimonials")).sort(
-  (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99)
+	(a, b) => (a.data.order ?? 99) - (b.data.order ?? 99),
 );
 ---
 

@@ -3,11 +3,11 @@ import { Image } from "astro:assets";
 import PAGE_CONTENT from "../../data/index.json";
 import styles from "./index.module.scss";
 
-interface Props   {
-  src: string;
-  width: number;
-  height: number;
-  alt: string;
+interface Props {
+	src: string;
+	width: number;
+	height: number;
+	alt: string;
 }
 
 const { src, width, height, alt } = Astro.props as Props;

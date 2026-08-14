@@ -3,16 +3,19 @@ import { extractImagePalette } from "../../utils/extract-palette";
 import styles from "./index.module.scss";
 
 interface Props {
-  name: string;
-  role: string;
-  avatarUrl: string;
-  testimonial: string;
-  avatarColors?: string[];
+	name: string;
+	role: string;
+	avatarUrl: string;
+	testimonial: string;
+	avatarColors?: string[];
 }
 
 const { name, role, avatarUrl, testimonial, avatarColors } = Astro.props;
 
-const colors = avatarColors && avatarColors.length > 0 ? avatarColors : (await extractImagePalette(avatarUrl)) ?? [];
+const colors =
+	avatarColors && avatarColors.length > 0
+		? avatarColors
+		: ((await extractImagePalette(avatarUrl)) ?? []);
 const [c1, c2, c3] = colors;
 
 const cardStyle: Record<string, string> = {};

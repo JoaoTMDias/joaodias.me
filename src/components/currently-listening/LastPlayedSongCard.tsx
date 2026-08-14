@@ -21,12 +21,15 @@ interface PlayerConfig {
 }
 
 const RECORD_SIZE_FACTOR = 0.875; // 87.5% of the cover size
-const RECORD_DISTANCE_RIGHT_SHIFT = 0.22
+const RECORD_DISTANCE_RIGHT_SHIFT = 0.22;
 
 /**
  * Last Played Song Card
  */
-export const LastPlayedSongCard = ({ song, playerConfig }: {
+export const LastPlayedSongCard = ({
+	song,
+	playerConfig,
+}: {
 	song: Track;
 	playerConfig?: PlayerConfig;
 }) => {
@@ -44,10 +47,7 @@ export const LastPlayedSongCard = ({ song, playerConfig }: {
 
 	return (
 		<div className={styles.container}>
-			<div
-				className={styles.cover}
-				style={coverStyles}
-			>
+			<div className={styles.cover} style={coverStyles}>
 				<img
 					className={styles.cover__image}
 					src={coverImage}

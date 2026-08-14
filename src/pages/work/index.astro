@@ -54,8 +54,8 @@ function getTransitionNames(slug: string) {
 
 // Data fetching and processing
 const projects: CollectionEntry<"projects">[] = (await getCollection("projects")).sort(
-  (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
-    b.data.date.getTime() - a.data.date.getTime(),
+	(a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+		b.data.date.getTime() - a.data.date.getTime(),
 );
 ---
 
