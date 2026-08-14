@@ -40,7 +40,12 @@ const cardStyle = {
 const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
 ---
 
-<article aria-label={ariaLabel} class={styles.work}>
+<article
+  aria-label={ariaLabel}
+  class={styles.work}
+  data-testid="work-item"
+  style={cardStyle}
+>
   <a href={`/work/${project.id}`} class={styles.work__link}>
     <div class={styles["work__image"]}>
       <Image
