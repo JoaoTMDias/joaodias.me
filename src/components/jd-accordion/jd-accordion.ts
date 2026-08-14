@@ -57,14 +57,16 @@ export class JdAccordion extends LitElement {
 		const items = this.items;
 		if (items.length === 0) return;
 
-		const activeElement = (this.shadowRoot?.activeElement || document.activeElement) as HTMLElement;
-		// Find index of item currently focused
-		const currentIndex = items.findIndex(
-			(item) =>
+		const activeElement = document.activeElement as HTMLElement | null;
+		const currentIndex = items.findIndex((item) => {
+			const itemActiveElement = item.shadowRoot?.activeElement as HTMLElement | null;
+			return (
 				item === activeElement ||
-				item.contains(activeElement) ||
-				item.shadowRoot?.contains(activeElement),
-		);
+				itemActiveElement === activeElement ||
+				(itemActiveElement && item.shadowRoot?.contains(activeElement as Node)) ||
+				item.contains(activeElement as Node)
+			);
+		});
 
 		if (currentIndex === -1) return;
 

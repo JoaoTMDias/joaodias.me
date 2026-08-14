@@ -1,8 +1,9 @@
-import fs from "fs/promises";
-import path from "path";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import sharp from "sharp";
-import { fileURLToPath } from "url";
+import { createSlug, isCacheFresh as isScriptCacheFresh, yamlString } from "./src/logic";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.join(__dirname, "..");
@@ -61,35 +62,6 @@ interface ShowsData {
 // ---------------------------------------------------------------------------
 
 /**
- * Wrap a YAML string value in double quotes if it contains characters that
- * would otherwise break YAML parsing (e.g. ": " mapping indicators).
- */
-function yamlString(value: string | null | undefined): string {
-	if (value === null || value === undefined || value === "") return "''";
-	const str = String(value);
-	const YAML_SCALARS = /^(true|false|yes|no|on|off|null|~)$/i;
-	if (YAML_SCALARS.test(str) || /: |^[&*!|>{'"#%@`]|[\n\r]/.test(str)) {
-		return `"${str.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
-	}
-	return str;
-}
-
-/**
- * Convert a string to a URL-friendly slug
- */
-function createSlug(str: string): string {
-	return str
-		.toLowerCase()
-		.normalize("NFD") // Decompose accents
-		.replace(/[\u0300-\u036f]/g, "") // Remove accent marks
-		.replace(/[^\w\s-]/g, "") // Remove special chars
-		.replace(/\s+/g, "-") // Replace spaces with hyphens
-		.replace(/-+/g, "-") // Replace multiple hyphens with single
-		.trim()
-		.replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
-}
-
-/**
  * Check if directory is empty
  */
 async function isDirectoryEmpty(dirPath: string): Promise<boolean> {
@@ -100,14 +72,6 @@ async function isDirectoryEmpty(dirPath: string): Promise<boolean> {
 		if ((err as NodeJS.ErrnoException).code === "ENOENT") return true;
 		throw err;
 	}
-}
-
-/**
- * Check if cache is still fresh
- */
-function isCacheFresh(timestamp: string): boolean {
-	const age = Date.now() - new Date(timestamp).getTime();
-	return age < CACHE_DURATION;
 }
 
 /**
@@ -176,7 +140,7 @@ async function crawlEpisodes(): Promise<RawEpisode[]> {
 		): Promise<RawEpisode | null> => {
 			try {
 				await workerPage.goto(url, { waitUntil: "domcontentloaded", timeout: 15000 });
-				return await workerPage.evaluate((episodeUrl): RawEpisode | null => {
+				return await workerPage.evaluate((_episodeUrl): RawEpisode | null => {
 					const script = document.querySelector<HTMLScriptElement>('script[id="__NEXT_DATA__"]');
 					if (!script) return null;
 					try {
@@ -418,7 +382,7 @@ async function main(): Promise<void> {
 
 			const existingShows = await loadExistingShows();
 
-			if (existingShows && isCacheFresh(existingShows.latestUpdate)) {
+			if (existingShows && isScriptCacheFresh(existingShows.latestUpdate)) {
 				const ageHours =
 					(Date.now() - new Date(existingShows.latestUpdate).getTime()) / (60 * 60 * 1000);
 				console.log(`✓ Cache is fresh (${ageHours.toFixed(1)} hours old). Skipping update.\n`);

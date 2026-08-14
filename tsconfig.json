@@ -1,15 +1,15 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "bundler",
-    "module": "esnext",
-    "target": "esnext",
-    "jsx": "react-jsx",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-  },
-  "exclude": ["node_modules"]
+	"compilerOptions": {
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "bundler",
+		"module": "esnext",
+		"target": "esnext",
+		"jsx": "react-jsx",
+		"experimentalDecorators": true,
+		"useDefineForClassFields": false,
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true
+	},
+	"exclude": ["node_modules"]
 }
