@@ -214,10 +214,6 @@
     @media (--large-viewport) {
       gap: var(--space-xl);
     }
-
-    :global(.blog-article__content) {
-      max-width: 66ch;
-    }
   }
 
   &__gallery {

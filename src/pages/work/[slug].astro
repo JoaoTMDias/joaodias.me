@@ -10,6 +10,7 @@ import type { CollectionEntry } from "astro:content";
  * (c) 2022 joaodias.me, Rights Reserved.
  */
 import { getCollection, render } from "astro:content";
+import TableOfContents from "../../components/table-of-contents/index.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
 import styles from "./work.module.scss";
 
@@ -44,7 +45,7 @@ type Props = {
 };
 
 const { project } = Astro.props;
-const { Content } = await render(project);
+const { Content, headings } = await render(project);
 
 // Computed values
 const transitionName = `project-title-${project.id}`;
@@ -157,7 +158,10 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
       }
 
       <div class="blog-article__content">
-        <Content />
+        <TableOfContents headings={headings} />
+        <div class="blog-article__content__inner">
+          <Content />
+        </div>
       </div>
       <div class="blog-article__back-link">
         <a href="/work">← Back to Projects</a>

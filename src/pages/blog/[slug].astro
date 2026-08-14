@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
+import TableOfContents from "../../components/table-of-contents/index.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
 
 export async function getStaticPaths() {
@@ -24,7 +25,7 @@ function getTransitionNames(slug: string) {
 }
 
 const { article } = Astro.props;
-const { Content } = await render(article);
+const { Content, headings } = await render(article);
 const transitionNames = getTransitionNames(article.id);
 ---
 
@@ -62,7 +63,10 @@ const transitionNames = getTransitionNames(article.id);
       />}
     </section>
     <section class="blog-article__content" data-testid="blog-article-content">
-      <Content />
+      <TableOfContents headings={headings} />
+      <div class="blog-article__content__inner">
+        <Content />
+      </div>
       <div class="blog-article__back-link">
         <a href="/blog">← Back to Articles</a>
       </div>
