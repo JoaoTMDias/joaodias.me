@@ -1,5 +1,5 @@
-import { expect, test } from "utils";
 import { PAGE_SELECTORS } from "./constants";
+import { expect, test } from "./utils";
 
 test.beforeEach(async ({ page }) => {
 	await page.setViewportSize({ width: 1440, height: 900 });

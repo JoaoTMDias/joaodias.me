@@ -1,6 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "utils";
 import { PAGE_SELECTORS } from "./constants";
+import { expect, test } from "./utils";
 
 test.beforeEach(async ({ page, networkHandlers }) => {
 	await page.setViewportSize({ width: 1440, height: 900 });
@@ -50,7 +50,7 @@ test.describe("Accessibility", () => {
 		const WORK_ITEMS = await page.getByTestId(PAGE_SELECTORS.workItems.item).all();
 		expect(WORK_ITEMS.length).toBeGreaterThan(0);
 
-		const FIRST_PROJECT_LINK = WORK_ITEMS[0].getByRole("link");;
+		const FIRST_PROJECT_LINK = WORK_ITEMS[0].getByRole("link");
 		const href = await FIRST_PROJECT_LINK.getAttribute("href");
 		expect(href).toBeTruthy();
 
