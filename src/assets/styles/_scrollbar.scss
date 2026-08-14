@@ -1,8 +1,8 @@
-*::scrollbar {
+*:scrollbar {
   width: var(--scrollbar-width);
 }
 
-*::scrollbar-track {
+*:scrollbar-track {
   background-color: var(--background-color-faded);
   border-color: var(--text-color-faded);
   border-style: solid;
@@ -10,7 +10,7 @@
   border-radius: var(--scrollbar-width);
 }
 
-*::scrollbar-thumb {
+*:scrollbar-thumb {
   background-color: var(--text-color);
   border-radius: var(--scrollbar-width);
 
