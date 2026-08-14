@@ -29,51 +29,38 @@ test.describe("Skip Links", () => {
 		expect(skipLinksCount).toBeGreaterThan(0);
 	});
 
-	test("should navigate to content section when clicking 'Skip to content'", async ({ page }) => {
-		// Wait for page to load and React component to hydrate
+	test("should navigate to content section when clicking the main skip link", async ({ page }) => {
 		await page.waitForLoadState("networkidle");
 
-		// Find the skip link (it may be hidden, so we use a selector that works even when hidden)
-		const skipToContent = page.getByRole("link", { name: "Skip to content" });
+		const skipToContent = page.getByRole("link", {
+			name: "Skip to main content of the page",
+		});
 
-		// Focus the link first to make it visible, then click
 		await skipToContent.focus();
 		await expect(skipToContent).toBeVisible();
 		await skipToContent.click();
 
-		// Wait for navigation to complete
 		await page.waitForURL("**/#content");
-
-		// Verify we're at the content section
-		const contentSection = page.locator("#content");
-		await expect(contentSection).toBeVisible();
-
-		// Verify the URL contains the hash
+		await expect(page.locator("#content")).toBeVisible();
 		expect(page.url()).toContain("#content");
 	});
 
-	test("should navigate to contact section when clicking 'Skip to Social links'", async ({
+	test("should navigate to contact section when clicking the social skip link", async ({
 		page,
 	}) => {
 		await page.waitForLoadState("networkidle");
 
-		// Find the skip link
-		const skipToContact = page.getByRole("link", { name: "Skip to Social links" });
+		const skipToContact = page.getByRole("link", {
+			name: "Skip to my Social media links",
+		});
 
-		// Focus the link first to make it visible, then click
 		await skipToContact.focus();
 		await expect(skipToContact).toBeVisible();
 		await skipToContact.click();
 
-		// Wait for navigation to complete
-		await page.waitForURL("**/#contact");
-
-		// Verify we're at the contact section
-		const contactSection = page.locator("#contact");
-		await expect(contactSection).toBeVisible();
-
-		// Verify the URL contains the hash
-		expect(page.url()).toContain("#contact");
+		await page.waitForURL("**/#links-to-my-social-media");
+		await expect(page.locator("#links-to-my-social-media")).toBeVisible();
+		expect(page.url()).toContain("#links-to-my-social-media");
 	});
 });
 
@@ -101,6 +88,7 @@ test.describe("Responsive Navigation and Theme", () => {
 		await page.goto("/");
 		await page.waitForURL("http://localhost:4321/");
 
+		const themeLabel = page.locator("label:has(#theme-switch)");
 		const THEME_SWITCH = page.getByRole("switch");
 		await expect(THEME_SWITCH).toBeVisible();
 
@@ -109,7 +97,7 @@ test.describe("Responsive Navigation and Theme", () => {
 		);
 		const nextTheme = initialTheme === "dark" ? "light" : "dark";
 
-		await THEME_SWITCH.click();
+		await themeLabel.click();
 
 		await expect(page.locator("html")).toHaveAttribute("data-theme", nextTheme);
 		expect(await page.evaluate(() => localStorage.getItem("theme"))).toBe(nextTheme);
@@ -141,14 +129,14 @@ test.describe("Logo Navigation", () => {
 			});
 		});
 
-		// Navigate to a project detail page
-		await page.goto("/");
-		await page.waitForURL("http://localhost:4321/");
+		await page.goto("/work");
+		await page.waitForURL("**/work");
 
-		const WORK_ITEMS = await page.getByTestId(PAGE_SELECTORS.workItems.item).all();
-		expect(WORK_ITEMS.length).toBeGreaterThan(0);
+		const WORK_ITEMS = page.locator('a[href^="/work/"]');
+		const WORK_ITEMS_COUNT = await WORK_ITEMS.count();
+		expect(WORK_ITEMS_COUNT).toBeGreaterThan(0);
 
-		const FIRST_PROJECT_LINK = WORK_ITEMS[0];
+		const FIRST_PROJECT_LINK = WORK_ITEMS.first();
 		const href = await FIRST_PROJECT_LINK.getAttribute("href");
 		expect(href).toBeTruthy();
 

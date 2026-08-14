@@ -2,7 +2,9 @@
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
 		"types": ["node"],
-		"baseUrl": ".",
+    "paths": {
+      "utils": ["./utils/index.ts"]
+    },
 		"resolveJsonModule": true,
 		"allowSyntheticDefaultImports": true,
 		"module": "ESNext"

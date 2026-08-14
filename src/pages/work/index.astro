@@ -60,7 +60,7 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
 ---
 
 <PageLayout
-  title="Projects - João Dias"
+  title="Work Projects - João Dias"
   description="Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility"
 >
   <div class="section">
@@ -70,7 +70,7 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
     </p>
   </div>
   <section>
-    <ul class={styles.work__grid}>
+    <ul class={styles.work__grid} data-testid="work-grid">
       {
         projects.map((project) => {
           const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
@@ -89,6 +89,7 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
                 class={styles.work__card}
                 style={cardStyle}
                 aria-label={ariaLabel}
+                data-testid="work-card"
               >
                 <div class={styles["work__card-thumbnail"]}>
                   <Image
@@ -105,13 +106,15 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
                   <h2
                     class={styles["work__card-content-title"]}
                     transition:name={transitionNames.title}
+                    data-testid="work-card-title"
                   >
                     {project.data.title}
                   </h2>
-                  <p class={styles["work__card-content-subtitle"]}>{project.data.shortDescription}</p>
+                  <p class={styles["work__card-content-subtitle"]} data-testid="work-card-subtitle">{project.data.shortDescription}</p>
                   <time
                     class={styles["work__card-content-meta"]}
                     datetime={project.data.date.toISOString()}
+                    data-testid="work-card-meta"
                   >
                     {formatProjectDate(project.data.date)}
                   </time>

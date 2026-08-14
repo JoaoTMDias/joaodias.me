@@ -3,7 +3,7 @@ import PAGE_CONTENT from "../../src/data/index.json";
 
 export const PAGE_SELECTORS = {
   logo: "logo",
-  topNav: "Top Navigation",
+  topNav: "Pages",
   topNavLink: "top-nav-link",
   profilePicture: "profile-picture",
   fakeCopyright: "fake-copyright",

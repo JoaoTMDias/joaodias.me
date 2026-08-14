@@ -33,7 +33,6 @@ test.describe("Error States", () => {
 		});
 
 		await page.goto("/");
-		await page.waitForURL("http://localhost:4321/");
 
 		// Wait for the page to load
 		await page.waitForLoadState("networkidle");
@@ -59,7 +58,6 @@ test.describe("Error States", () => {
 		});
 
 		await page.goto("/");
-		await page.waitForURL("http://localhost:4321/");
 
 		// Wait for page load (but not for the API)
 		await page.waitForLoadState("domcontentloaded");

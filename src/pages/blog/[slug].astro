@@ -36,8 +36,8 @@ const transitionNames = getTransitionNames(article.id);
   <article class="section blog-article" itemprop="articleBody">
     <section class="blog-article__header">
       <div class="blog-article__header__lead">
-        <h1 class="blog-article__header__title" transition:name={transitionNames.title}>{article.data.title}</h1>
-        <div class="blog-article__header__meta">
+        <h1 class="blog-article__header__title" data-testid="blog-article-title" transition:name={transitionNames.title}>{article.data.title}</h1>
+        <div class="blog-article__header__meta" data-testid="blog-article-meta">
           <time class="blog-article__date" datetime={article.data.pubDate.toISOString()}>
             {
               article.data.pubDate.toLocaleDateString("en-US", {
@@ -61,7 +61,7 @@ const transitionNames = getTransitionNames(article.id);
         transition:name={transitionNames.image}
       />}
     </section>
-    <section class="blog-article__content">
+    <section class="blog-article__content" data-testid="blog-article-content">
       <Content />
       <div class="blog-article__back-link">
         <a href="/blog">← Back to Articles</a>

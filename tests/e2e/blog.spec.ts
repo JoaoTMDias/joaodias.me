@@ -12,43 +12,32 @@ test.beforeEach(async ({ page, networkHandlers }) => {
   });
 });
 
-test.describe("Articles Index Page", () => {
+test.describe("Blog Index Page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/articles");
-    await page.waitForURL("**/articles");
+    await page.goto("/blog");
+    await page.waitForURL("**/blog");
   });
 
-  test("should load the articles index page", async ({ page }) => {
+  test("should load the blog index page", async ({ page }) => {
     const PAGE_TITLE = await page.title();
-    expect(PAGE_TITLE).toContain("Articles");
+    expect(PAGE_TITLE).toContain("Blog");
   });
 
-  test("should display articles header", async ({ page }) => {
-    const ARTICLES_HEADER = page.getByRole("heading", { level: 1, name: "Articles" });
+  test("should display the blog header", async ({ page }) => {
+    const ARTICLES_HEADER = page.getByRole("heading", { level: 1, name: "Blog" });
     await expect(ARTICLES_HEADER).toBeVisible();
   });
 
-  test("should display empty state when no articles exist", async ({ page }) => {
-    // Check if empty state is displayed (articles collection might be empty)
-    const EMPTY_STATE = page.locator(".empty-state");
-    const emptyStateExists = await EMPTY_STATE.count();
-
-    if (emptyStateExists > 0) {
-      await expect(EMPTY_STATE).toBeVisible();
-      const emptyStateText = await EMPTY_STATE.textContent();
-      expect(emptyStateText).toContain("coming soon");
-    }
-  });
-
-  test("should display currently listening section", async ({ page }) => {
+  test("should display the currently listening section", async ({ page }) => {
     const { container } = PAGE_SELECTORS.currentlyListening;
     const CONTAINER = page.getByTestId(container);
     await expect(CONTAINER).toBeVisible();
   });
 
   test("should display social links", async ({ page }) => {
-    const CONTACTS_TITLE = page.getByRole("heading", { level: 3, name: "Social Media Links" });
-    await expect(CONTACTS_TITLE).toBeVisible();
+    const SOCIAL_LINKS = page.locator("#links-to-my-social-media");
+    await expect(SOCIAL_LINKS).toBeVisible();
+    expect(await SOCIAL_LINKS.locator("a").count()).toBeGreaterThan(0);
   });
 });
 
@@ -61,54 +50,52 @@ test.describe("Article Detail Page", () => {
       });
     });
 
-    // First check if there are any articles
-    await page.goto("/articles");
-    await page.waitForURL("**/articles");
+    await page.goto("/blog");
+    await page.waitForURL("**/blog");
 
-    // Check if articles exist
-    const ARTICLE_LINKS = await page.locator(".article-item a").all();
+    const ARTICLE_LINKS = page.locator('a[href^="/blog/"]');
+    const articleCount = await ARTICLE_LINKS.count();
 
-    if (ARTICLE_LINKS.length === 0) {
+    if (articleCount === 0) {
       test.skip();
       return;
     }
 
-    // Navigate to first article
-    const FIRST_ARTICLE = ARTICLE_LINKS[0];
+    const FIRST_ARTICLE = ARTICLE_LINKS.first();
     const href = await FIRST_ARTICLE.getAttribute("href");
     expect(href).toBeTruthy();
 
     await page.goto(href!);
-    await page.waitForURL(`**/articles/**`);
+    await page.waitForURL(`**/blog/**`);
   });
 
   test("should display article header information", async ({ page }) => {
-    const ARTICLE_TITLE = page.locator("article h1");
+    const ARTICLE_TITLE = page.getByTestId("blog-article-title");
     await expect(ARTICLE_TITLE).toBeVisible();
   });
 
   test("should display article meta information", async ({ page }) => {
-    const ARTICLE_META = page.locator(".article-header .meta");
+    const ARTICLE_META = page.getByTestId("blog-article-meta");
     await expect(ARTICLE_META).toBeVisible();
   });
 
   test("should display article content", async ({ page }) => {
-    const ARTICLE_CONTENT = page.locator(".article-content");
+    const ARTICLE_CONTENT = page.getByTestId("blog-article-content");
     await expect(ARTICLE_CONTENT).toBeVisible();
   });
 
   test("should display back to articles link", async ({ page }) => {
     const BACK_LINK = page.getByRole("link", { name: /Back to Articles/i });
     await expect(BACK_LINK).toBeVisible();
-    await expect(BACK_LINK).toHaveAttribute("href", "/articles");
+    await expect(BACK_LINK).toHaveAttribute("href", "/blog");
   });
 
   test("should navigate back to articles index when clicking back link", async ({ page }) => {
     const BACK_LINK = page.getByRole("link", { name: /Back to Articles/i });
     await BACK_LINK.click();
-    await page.waitForURL("**/articles");
+    await page.waitForURL("**/blog");
 
-    expect(page.url()).toContain("/articles");
+    expect(page.url()).toContain("/blog");
   });
 
   test("should display currently listening section", async ({ page }) => {
@@ -117,7 +104,8 @@ test.describe("Article Detail Page", () => {
   });
 
   test("should display social links", async ({ page }) => {
-    const CONTACTS_TITLE = page.getByRole("heading", { level: 3, name: "Social Media Links" });
-    await expect(CONTACTS_TITLE).toBeVisible();
+    const SOCIAL_LINKS = page.locator("#links-to-my-social-media");
+    await expect(SOCIAL_LINKS).toBeVisible();
+    expect(await SOCIAL_LINKS.locator("a").count()).toBeGreaterThan(0);
   });
 });

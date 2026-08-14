@@ -69,7 +69,7 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
   <div
     class="content"
   >
-    <section class={styles["work__top"]} style={`--work-background: ${theme.background}; --work-foreground: ${theme.foreground};`}>
+    <section class={styles["work__top"]} data-testid="work-detail" style={`--work-background: ${theme.background}; --work-foreground: ${theme.foreground};`}>
       {
         coverImage && (
           <div class={styles.work__cover}>
@@ -91,16 +91,17 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
             id="project-header-title"
             class={styles["work__header-title"]}
             transition:name={transitionName}
+            data-testid="work-detail-title"
           >
             {project.data.title}
           </h1>
-          <p class={styles["work__header-date"]}>
+          <p class={styles["work__header-date"]} data-testid="work-detail-date">
             <time datetime={project.data.date.toISOString()}>
               {formattedDate}
             </time>
           </p>
         </div>
-        <p class={styles["work__header-intro"]}>{project.data.description}</p>
+        <p class={styles["work__header-intro"]} data-testid="work-detail-intro">{project.data.description}</p>
       </div>
       <div class={styles.work__meta} >
         <h2 class="sr-only">Project Information</h2>
@@ -121,11 +122,12 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
                 target="_blank"
                 rel="noopener noreferrer"
                 class={styles["work__meta-text"]}
+                data-testid="work-source-code-link"
               >
                 View source code
               </a>
             ) : (
-              <p class={styles["work__meta-text"]}>Not available</p>
+              <p class={styles["work__meta-text"]} data-testid="work-source-code-link">Not available</p>
             )
           }
         </div>

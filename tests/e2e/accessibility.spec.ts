@@ -45,13 +45,12 @@ test.describe("Accessibility", () => {
 
 		// Navigate to homepage first to get a project link
 		await page.goto("/");
-		await page.waitForURL("http://localhost:4321/");
 
 		// Get the first project link
 		const WORK_ITEMS = await page.getByTestId(PAGE_SELECTORS.workItems.item).all();
 		expect(WORK_ITEMS.length).toBeGreaterThan(0);
 
-		const FIRST_PROJECT_LINK = WORK_ITEMS[0];
+		const FIRST_PROJECT_LINK = WORK_ITEMS[0].getByRole("link");;
 		const href = await FIRST_PROJECT_LINK.getAttribute("href");
 		expect(href).toBeTruthy();
 

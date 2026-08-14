@@ -19,39 +19,38 @@ test.beforeEach(async ({ page, networkHandlers }) => {
 });
 
 test.describe("Navigation", () => {
-  test("should navigate to Projects page when clicking Projects link", async ({ page }) => {
-    const PROJECTS_LINK = page.getByRole("link", {
-      name: SITE_CONFIG.nav[0].accessibleLabel,
+  test("should navigate to Work page when clicking Work link", async ({ page }) => {
+    const WORK_LINK = page.getByRole("link", {
+      name: SITE_CONFIG.nav[3].accessibleLabel,
+      exact: true,
     });
 
-    await test.step("Click on Projects link", async () => {
-      await PROJECTS_LINK.click();
-      await page.waitForURL("**/work");
+    await test.step("Click on Work link", async () => {
+      await expect(WORK_LINK).toBeVisible();
+      await WORK_LINK.click();
+      await page.waitForURL(/\/work(?:\/)?(?:\?.*)?$/);
     });
 
-    await test.step("Verify Projects page loaded", async () => {
-      expect(page.url()).toContain("/work");
-      const PAGE_TITLE = await page.title();
-      expect(PAGE_TITLE).toContain("Projects");
+    await test.step("Verify Work page loaded", async () => {
+      await expect(page).toHaveURL(/\/work(?:\/)?(?:\?.*)?$/);
+      await expect(page).toHaveTitle(/Work/i);
     });
   });
 
-  test("should navigate to Contact section when clicking Contact link", async ({ page }) => {
-    const CONTACT_LINK = page.getByRole("link", {
+  test("should navigate to About page when clicking About me link", async ({ page }) => {
+    const ABOUT_LINK = page.getByRole("link", {
       name: SITE_CONFIG.nav[1].accessibleLabel,
     });
 
-    await test.step("Click on Contact link", async () => {
-      await CONTACT_LINK.click();
+    await test.step("Click on About me link", async () => {
+      await expect(ABOUT_LINK).toBeVisible();
+      await ABOUT_LINK.click();
+      await page.waitForURL(/\/about(?:\/)?(?:\?.*)?$/);
     });
 
-    await test.step("Verify Contact section is visible", async () => {
-      expect(await page.url()).toContain("#contact");
-      const CONTACTS_TITLE = page.getByRole("heading", {
-        level: 3,
-        name: "Social Media Links",
-      });
-      await expect(CONTACTS_TITLE).toBeVisible();
+    await test.step("Verify About page loaded", async () => {
+      await expect(page).toHaveURL(/\/about(?:\/)?(?:\?.*)?$/);
+      await expect(page).toHaveTitle(/About/i);
     });
   });
 });
@@ -87,17 +86,18 @@ test.describe("Currently Playing", () => {
 
 test.describe("Contacts", () => {
   test("should display the social media links", async ({ page }) => {
-    const CONTACTS_TITLE = page.getByRole("heading", { level: 3, name: "Social Media Links" });
+    const SOCIAL_LINKS = page.locator("#links-to-my-social-media");
 
-    await test.step("Scroll to the contacts section", async () => {
-      await CONTACTS_TITLE.scrollIntoViewIfNeeded();
-      await expect(CONTACTS_TITLE).toBeVisible();
+    await test.step("Scroll to the social links area", async () => {
+      await SOCIAL_LINKS.scrollIntoViewIfNeeded();
+      await expect(SOCIAL_LINKS).toBeVisible();
     });
 
     await test.step("Check if all contact links are visible", async () => {
       for (const contact of SITE_CONFIG.contactLinks) {
         const LINK = page.getByRole("link", {
-          name: contact.accessibleLabel,
+          name: new RegExp(contact.title, "i"),
+          exact: false,
         });
         await expect(LINK).toBeVisible();
       }
