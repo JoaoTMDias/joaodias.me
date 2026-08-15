@@ -31,13 +31,14 @@ try {
 	// Get the last Git commit hash and message
 	const commitHash = execGitCommand("git rev-parse --short HEAD", "unknown");
 	const commitMessage = execGitCommand("git log -1 --pretty=%B", "No commit message");
-	const commitDate = execGitCommand("git log -1 --format=%cd --date=short", new Date().toISOString().split("T")[0]);
+	const commitDate = execGitCommand(
+		"git log -1 --format=%cd --date=short",
+		new Date().toISOString().split("T")[0],
+	);
 
 	// Get the deploy time (prefer Netlify environment variable, fallback to current time)
 	const deployTime =
-		process.env.NETLIFY_DEPLOY_TIME ||
-		process.env.DEPLOY_TIME ||
-		new Date().toISOString();
+		process.env.NETLIFY_DEPLOY_TIME || process.env.DEPLOY_TIME || new Date().toISOString();
 
 	// Prepare build info object
 	const buildInfo = {

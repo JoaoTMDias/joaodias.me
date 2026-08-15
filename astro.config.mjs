@@ -14,5 +14,5 @@ import { defineConfig } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://joaodias.me",
-	integrations: [react(), sitemap(), mdx()]
+	integrations: [react(), sitemap(), mdx()],
 });
