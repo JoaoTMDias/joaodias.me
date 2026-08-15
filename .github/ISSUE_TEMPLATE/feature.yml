@@ -1,0 +1,43 @@
+name: Feature request
+description: Suggest a focused improvement to the website.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the problem before proposing a solution. Personal content, editorial,
+        and unsolicited redesign requests are generally outside the contribution scope.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: Who would benefit, and what is difficult today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Describe the smallest useful change.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility considerations
+      description: Explain expected keyboard, screen-reader, motion, contrast, or cognitive impact.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues for this suggestion.
+          required: true
+        - label: I will wait for agreement before opening a substantial pull request.
+          required: true

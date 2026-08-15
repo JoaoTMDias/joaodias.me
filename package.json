@@ -1,6 +1,11 @@
 {
 	"name": "joaodias.me",
-	"version": "5.5",
+	"version": "6.0.0",
+	"packageManager": "pnpm@11.21.0",
+	"engines": {
+		"node": ">=24 <25",
+		"pnpm": ">=11 <12"
+	},
 	"private": false,
 	"scripts": {
 		"dev": "tinacms dev -c \"pnpm start\"",
@@ -13,8 +18,10 @@
 		"test:ui": "playwright test --ui",
 		"test:headless": "playwright test",
 		"test:open": "pnpm test:ui",
-		"lint": "biome lint --write ./src",
+		"lint": "biome lint ./src",
+		"lint:fix": "biome lint --write ./src",
 		"format": "biome format --write ./src",
+		"format:check": "biome format ./src",
 		"typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json",
 		"generate-build-info": "node ./scripts/get-build-info.mjs",
 		"generate-llms-txt": "tsx ./scripts/generate-llms-txt.ts",
