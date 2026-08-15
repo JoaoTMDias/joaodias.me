@@ -13,6 +13,7 @@
 		"build:ci": "tinacms build && pnpm build",
 		"build": "pnpm generate-build-info && pnpm generate-llms-txt && astro build",
 		"preview": "astro preview",
+		"serve": "pnpm build && pnpm preview",
 		"test": "pnpm test:unit && pnpm test:headless",
 		"test:unit": "vitest run",
 		"test:ui": "playwright test --ui",
