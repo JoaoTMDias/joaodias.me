@@ -7,7 +7,7 @@
  * (c) 2022 joaodias.me, Rights Reserved.
  */
 import { SkipLinks } from "@jtmdias/react-a11y-tools";
-import "./index.module.scss";
+import "./index.scss";
 
 interface ISkipLink {
 	target: string;
