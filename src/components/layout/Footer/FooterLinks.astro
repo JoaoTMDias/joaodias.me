@@ -1,0 +1,43 @@
+---
+import clsx from "clsx";
+import SectionLink from "../../ui/SectionLink/SectionLink.astro";
+import styles from "./FooterLinks.module.scss";
+
+const config = [
+	{
+		link: "/about",
+		title: "About me",
+	},
+	{
+		link: "/blog",
+		title: "Blog",
+	},
+	{
+		link: "/work",
+		title: "Work",
+	},
+	{
+		link: "/rss.xml",
+		title: "RSS feed",
+	},
+	{
+		link: "/llms.txt",
+		title: "llms.txt",
+	},
+];
+---
+
+<div id="footer-links" class={styles["footer-links"]} aria-labelledby="footer-title">
+  <h2 id="footer-title" class={clsx(styles["footer-links__title"], "sr-only")}>
+    General <span class="sr-only">Links</span>
+  </h2>
+  <ul class={styles["footer-links__list"]}>
+    {
+      config.map((link) => (
+        <li class={styles["footer-links__item"]}>
+          <SectionLink href={link.link} text={link.title} />
+        </li>
+      ))
+    }
+  </ul>
+</div>

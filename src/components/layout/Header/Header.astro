@@ -1,0 +1,25 @@
+---
+import { getEntry } from "astro:content";
+import Logo from "../../ui/Logo/Logo.astro";
+import SkipLink from "../../ui/SkipLink/SkipLink";
+import ThemeSwitcher from "../../ui/ThemeSwitcher/ThemeSwitcher.astro";
+import styles from "./Header.module.scss";
+import MainNavigation from "./MainNavigation.astro";
+import MobileNavigation from "./MobileNavigation.astro";
+import MobileNavigationToggle from "./MobileNavigationToggle.astro";
+
+const config = await getEntry("config", "config");
+---
+
+<header class={styles.header}>
+  <SkipLink items={config?.data.skipLinks ?? []} />
+  <div class={styles.header__container}>
+    <Logo />
+    <div class={styles.header__nav}>
+      <MainNavigation />
+      <ThemeSwitcher />
+      <MobileNavigationToggle />
+    </div>
+  </div>
+  <MobileNavigation />
+</header>

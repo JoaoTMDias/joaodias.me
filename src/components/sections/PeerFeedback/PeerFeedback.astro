@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import clsx from "clsx";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import styles from "./PeerFeedback.module.scss";
+import Testimonial from "./Testimonial.astro";
+
+const testimonials = (await getCollection("testimonials")).sort(
+	(a, b) => (a.data.order ?? 99) - (b.data.order ?? 99),
+);
+---
+
+<section id="peer-feedback" class="section section__stack">
+  <div class={clsx("section__container", styles["peer-feedback__content"])}>
+    <SectionTitle text="Peer Feedback" />
+    <p class={styles["peer-feedback__intro"]}>
+      Here's what engineering leaders and design partners say about working with me
+    </p>
+    <div class={styles["peer-feedback__list"]}>
+      {
+        testimonials.map((item) => (
+          <Testimonial
+            avatarUrl={item.data.avatarUrl}
+            testimonial={item.data.testimonial}
+            name={item.data.name}
+            role={item.data.role}
+            avatarColors={item.data.avatarColors}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

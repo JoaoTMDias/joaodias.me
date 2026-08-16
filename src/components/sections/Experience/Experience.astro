@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import clsx from "clsx";
+import SectionLink from "../../ui/SectionLink/SectionLink.astro";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import styles from "./Experience.module.scss";
+
+const [experienceDocument] = await getCollection("experience");
+const experienceEntries = experienceDocument?.data.entries ?? [];
+const hasCurrentExperience = experienceEntries.some((entry) => entry.isCurrent);
+---
+
+<div class="section section__stack" id="experience">
+  <SectionTitle text="Professional Experience" />
+  <ul
+    class={clsx("section__container", styles["experience"])}
+    data-testid="professional-experience"
+  >
+      {
+        experienceEntries.map((item) => (
+          <li
+            class={styles.item}
+            data-testid="experience-item"
+            data-current={item.isCurrent ? true : undefined}
+          >
+            <h3 class={styles.title}>{item.title}</h3>
+            <p class={styles.description}>{item.description}</p>
+            <div class={styles.metadata}>
+              <p>
+                <>
+                  <span class="sr-only">Duration:</span>
+                  <span>{item.startDate}</span>
+                  <span class="sr-only">until</span>
+                  <span aria-hidden="true">-</span>
+                  <span>{item.endDate || "Present"}</span>
+                </>
+              </p>
+              <p>
+                <>
+                  <span class="sr-only">Location:</span>
+                  <span>{item.location}</span>
+                </>
+              </p>
+            </div>
+          </li>
+        ))
+      }
+  </ul>
+  <SectionLink href="/resume-joao-dias.pdf" text="Download my Resume (PDF)" isExternal={true} />
+</div>

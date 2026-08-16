@@ -1,0 +1,15 @@
+---
+import DeployInfo from "./DeployInfo.astro";
+import styles from "./FooterMeta.module.scss";
+
+interface Props {
+	copyright: string;
+}
+
+const { copyright } = Astro.props;
+---
+
+<div class={styles["footer-meta"]}>
+  <p class={styles["footer-meta__copyright"]}>{copyright}</p>
+  <DeployInfo />
+</div>

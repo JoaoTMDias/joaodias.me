@@ -1,0 +1,286 @@
+/**
+ * This file is open-source. This means that it can be reproduced in whole
+ * or in part, stored in a retrieval system transmitted in any form, or by
+ * any means electronic with my prior permission as an author and owner
+ * Please refer to the terms of the license agreement in the root of the project
+ *
+ * (c) 2022 joaodias.me, Rights Reserved.
+*/
+@use "../../../assets/styles/custom-media.scss";
+
+.work {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 2rem;
+
+  @media (--large-viewport) {
+    gap: 2rem;
+  }
+}
+
+.title {
+  font-family: var(--heading-font-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(2.125rem, 10vw, 4rem);
+  line-height: 1.2;
+  text-transform: capitalize;
+  position: relative;
+  text-align: center;
+
+  @media (--large-viewport) {
+    text-align: left;
+  }
+
+  @media (min-width: 75rem) {
+    font-size: clamp(2.125rem, 10vw, 5.125rem);
+  }
+}
+
+.arrow {
+  content: "";
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-items: center;
+  top: 0.75rem;
+  left: -2rem;
+
+  @media (min-width: 75rem) {
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 2rem;
+    left: -4rem;
+  }
+}
+
+.work__list {
+  --card-height: 20vw;
+  --card-top-offset: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style-type: none;
+
+  @supports (animation-timeline: view()) {
+    @media (--large-viewport) and (--with-motion) {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(var(--numcards), var(--card-height));
+      view-timeline-name: --cards-element-scrolls-in-body;
+    }
+  }
+}
+
+.work__list__item {
+  @supports (animation-timeline: view()) {
+    @media (--large-viewport) and (--with-motion) {
+      --index0: calc(var(--index) - 1);
+      --reverse-index: calc(var(--numcards) - var(--index0));
+      --reverse-index0: calc(var(--reverse-index) - 1);
+
+      position: sticky;
+      top: 0;
+      padding-top: calc(var(--index) * var(--card-top-offset, 1em));
+    }
+  }
+}
+
+.item {
+  --item-background-color: var(--background-color-hover);
+  --item-text-color: var(--text-color-hover);
+  --item-padding-inline: 1rem;
+
+  padding-block: 2rem;
+  padding-inline: var(--item-padding-inline);
+  appearance: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--item-background-color);
+  color: var(--item-text-color);
+  transition: all 200ms ease-in-out;
+  border-radius: 1.5rem;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: var(--background-color-hover);
+    color: var(--text-color-hover);
+    outline-color: transparent;
+    outline-offset: -2px;
+
+    .content__toggle__path {
+      fill: var(--text-color-hover);
+    }
+
+    .content__toggle__label {
+      opacity: 1;
+    }
+  }
+
+  @media (--large-viewport) {
+    --item-padding-inline: 2rem;
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (--large-viewport) and (--with-motion) {
+      --start-range: calc(var(--index0) / var(--numcards) * 100%);
+      --end-range: calc((var(--index)) / var(--numcards) * 100%);
+
+      transform-origin: 50% 0%;
+      will-change: transform;
+      animation: linear scaleItem forwards;
+      animation-timeline: --cards-element-scrolls-in-body;
+      animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
+    }
+  }
+}
+
+.figure {
+  width: 7.6875rem;
+  height: 7.6875rem;
+}
+
+.figure,
+.figure :global(img) {
+  border-radius: 50%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.content__title {
+  font-family: var(--heading-font-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 1.1666666667;
+  margin-bottom: 0.5rem;
+  text-transform: initial;
+}
+
+.content__subtitle {
+  font-family: var(--text-font-family);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  text-align: center;
+}
+
+.content__toggle {
+  display: none;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+
+  &__label,
+  &__vector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 3rem;
+  }
+
+  &__label {
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    opacity: 0;
+  }
+
+  &__vector {
+    width: 3rem;
+    fill: none;
+  }
+
+  &__path {
+    fill: var(--text-color);
+  }
+
+  @media (--large-viewport) {
+    display: flex;
+  }
+}
+
+.skills {
+  list-style-type: none;
+  margin-block-start: 1rem;
+  margin-block-end: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: var(--text-font-family);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1;
+
+  li::before {
+    content: "#";
+  }
+
+  li {
+    text-transform: lowercase;
+  }
+}
+
+@media (--large-viewport) {
+  .item {
+    flex-direction: row;
+    padding-block: 6rem;
+  }
+
+  .content {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .content__subtitle {
+    text-align: left;
+  }
+
+  .content__toggle {
+    margin-inline-start: initial;
+    margin-left: auto;
+  }
+
+  .skills {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+@keyframes scaleItem {
+  to {
+    transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+  }
+}

@@ -1,0 +1,33 @@
+---
+import { getEntry } from "astro:content";
+import styles from "./MainNavigation.module.scss";
+
+const config = await getEntry("config", "config");
+const currentPage = Astro.url.pathname;
+---
+
+<nav aria-label="Pages" class={styles["main-navigation"]}>
+  <ul class={styles["main-navigation__list"]}>
+    {
+      config.data.nav.map((item) => {
+        const isCurrentPage = currentPage === item.link;
+
+        return (
+          <li class={styles["main-navigation__item"]}>
+            <a
+              class={styles["main-navigation__link"]}
+              id={item.id}
+              href={item.link}
+              aria-label={item.accessibleLabel}
+              data-testid="top-nav-link"
+              aria-current={isCurrentPage ? "page" : undefined}
+            >
+              {item.title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+</style>

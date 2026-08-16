@@ -1,0 +1,31 @@
+---
+import clsx from "clsx";
+import styles from "./SectionLink.module.scss";
+
+interface Props {
+	text: string;
+	href: string;
+	isExternal?: boolean;
+}
+
+const { text, href, isExternal } = Astro.props;
+---
+
+<a
+  class={clsx("link", styles.section__link)}
+  href={href} target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined  }
+>
+  <span class={styles.section__link__text}>{text}</span>
+  <span class={styles.section__link__arrow} aria-hidden="true">
+    {isExternal ? (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28">
+        <path fill="currentColor" d="M7 23q-.824 0-1.412-.587A1.93 1.93 0 0 1 5 21V7q0-.824.588-1.412A1.93 1.93 0 0 1 7 5h7v2H7v14h14v-7h2v7q0 .824-.587 1.413A1.93 1.93 0 0 1 21 23zm4.7-5.3-1.4-1.4L19.6 7H16V5h7v7h-2V8.4z"/>
+      </svg>
+    ) : (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28"
+    ><path fill="currentColor" d="M15.513 14 10 8.488 11.488 7l7 7-7 7L10 19.512z"></path>
+    </svg>
+    ) }
+  </span>
+</a>

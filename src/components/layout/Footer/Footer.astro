@@ -1,0 +1,32 @@
+---
+import { getEntry } from "astro:content";
+import classNames from "clsx";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import CurrentlyListening from "../../widgets/CurrentlyListening/CurrentlyListening";
+import styles from "./Footer.module.scss";
+import FooterBio from "./FooterBio.astro";
+import FooterLinks from "./FooterLinks.astro";
+import FooterMeta from "./FooterMeta.astro";
+import SocialLinks from "./SocialLinks.astro";
+
+const config = await getEntry("config", "config");
+const currentYear = new Date().getFullYear();
+const copyright = `© ${currentYear} - ${config?.data.copyright}`;
+const footerConfig = config?.data.footer as { player?: Record<string, unknown> } | undefined;
+const playerConfig = footerConfig?.player;
+---
+
+<footer class={classNames("section", styles.footer)} id="footer">
+  <div class={classNames("section__container", styles.footer__container)}>
+    <div class={classNames("section__stack", styles.footer__currentlyListening)} data-testid="currently-listening">
+      <SectionTitle text="Currently Listening" />
+      <CurrentlyListening playerConfig={playerConfig} client:load />
+    </div>
+    <div class={styles.footer__bottom}>
+      <FooterBio />
+      <SocialLinks />
+      <FooterLinks />
+      <FooterMeta copyright={copyright} />
+    </div>
+  </div>
+</footer>

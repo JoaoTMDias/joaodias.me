@@ -1,0 +1,28 @@
+@use "../../../assets/styles/custom-media.scss";
+
+.header {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: var(--header-height);
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    gap: var(--global-padding);
+    padding-inline: var(--global-padding);
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+  }
+}

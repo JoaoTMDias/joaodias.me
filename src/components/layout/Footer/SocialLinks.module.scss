@@ -1,0 +1,47 @@
+@use "../../../assets/styles/custom-media.scss";
+@use "./_footerLinks.scss" as links;
+
+.social-links {
+  @include links.container();
+
+  &,
+  &__list,
+  &__title {
+    width: 100%;
+  }
+
+  &__title {
+    @include links.title();
+  }
+
+  &__list {
+    @include links.list-grid();
+  }
+
+  &__item,
+  &__link {
+    @include links.item-height();
+  }
+
+  &__link {
+    @include links.link-grid();
+  }
+
+  &__icon {
+    @include links.icon();
+  }
+
+  &__name {
+    @include links.name();
+  }
+
+  @media (--medium-viewport) {
+    grid-column-start: 7;
+    grid-column-end: 10;
+  }
+
+  @media (--large-viewport) {
+    grid-column-start: 5;
+    grid-column-end: 7;
+  }
+}

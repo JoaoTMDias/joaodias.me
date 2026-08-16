@@ -1,0 +1,48 @@
+---
+import { extractImagePalette } from "../../../utils/extract-palette";
+import styles from "./PeerFeedback.module.scss";
+
+interface Props {
+	name: string;
+	role: string;
+	avatarUrl: string;
+	testimonial: string;
+	avatarColors?: string[];
+}
+
+const { name, role, avatarUrl, testimonial, avatarColors } = Astro.props;
+
+const colors =
+	avatarColors && avatarColors.length > 0
+		? avatarColors
+		: ((await extractImagePalette(avatarUrl)) ?? []);
+const [c1, c2, c3] = colors;
+
+const cardStyle: Record<string, string> = {};
+if (c1) cardStyle["--avatar-c1"] = c1;
+if (c2) cardStyle["--avatar-c2"] = c2;
+if (c3) cardStyle["--avatar-c3"] = c3;
+
+const alt = `Avatar of ${name}`;
+---
+<div class={styles.feedback}>
+  <article class={styles.testimonial} style={cardStyle}>
+    <div class={styles.testimonial__content}>
+      <p class={styles.testimonial__sentence}>
+        {testimonial}
+      </p>
+      <span aria-hidden="true" class={styles.testimonial__mark}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="58" height="47" fill="none" viewBox="0 0 58 47"><path fill="currentColor" d="M14.136 46.872q-4.092 0-6.696-1.674a14.1 14.1 0 0 1-4.278-4.278q-1.86-3.162-2.604-6.51Q0 30.876 0 28.644 0 19.53 4.65 12.09T19.158 0l1.674 3.348q-5.766 2.418-10.044 7.626-4.092 5.208-4.092 10.602 0 2.232.558 3.906 2.976-2.418 6.882-2.418 4.836 0 8.37 3.162t3.534 8.742q0 5.208-3.534 8.556t-8.37 3.348m31.62 0q-4.092 0-6.696-1.674a14.1 14.1 0 0 1-4.278-4.278q-1.86-3.162-2.604-6.51-.558-3.534-.558-5.766 0-9.114 4.65-16.554T50.778 0l1.674 3.348q-5.766 2.418-10.044 7.626-4.092 5.208-4.092 10.602 0 2.232.558 3.906 2.976-2.418 6.882-2.418 4.836 0 8.37 3.162t3.534 8.742q0 5.208-3.534 8.556t-8.37 3.348"/></svg>
+      </span>
+    </div>
+    <div class={styles.testimonial__meta}>
+      <div class={styles.testimonial__meta__content}>
+        <p class={styles.testimonial__name}>
+          <span class="sr-only">Testimonial from&nbsp;</span>{name}
+        </p>
+        <p class={styles.testimonial__role}>{role}</p>
+      </div>
+      <img class={styles.testimonial__avatar} width="64" height="64" alt={alt} src={avatarUrl} />
+    </div>
+  </article>
+</div>

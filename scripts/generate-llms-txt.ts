@@ -111,8 +111,9 @@ function getServices(): ServiceEntry[] {
 		projectRoot,
 		"src",
 		"components",
-		"expertise-and-services",
-		"index.astro",
+		"sections",
+		"ExpertiseAndServices",
+		"ExpertiseAndServices.astro",
 	);
 	const content = fs.readFileSync(servicesFile, "utf-8");
 	const matches = [
