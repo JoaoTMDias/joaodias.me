@@ -48,15 +48,15 @@
    --text-font-family: "Cabin", "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI,
       Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 
-   --font-size-xxs: clamp(0.51rem, 0.45vi + 0.35rem, 0.6rem);
-   --font-size-xs: clamp(0.64rem, 0.75vi + 0.3rem, 0.75rem);
-   --font-size-sm: clamp(0.8rem, 1.15vi + 0.25rem, 0.94rem);
-   --font-size-base: clamp(1rem, 2.08vi + 0rem, 1.25rem);
-   --font-size-md: clamp(1.25rem, 3.47vi + -0.42rem, 1.56rem);
-   --font-size-lg: clamp(1.875rem, 5.49vi + -1.07rem, 2.75rem);
-   --font-size-xl: clamp(2.75rem, 8.4vi + -2.08rem, 3.75rem);
-   --font-size-xxl: clamp(3.75rem, 12.54vi + -3.58rem, 4.5rem);
-   --font-size-xxxl: clamp(4.5rem, 18.41vi + -5.78rem, 6rem);
+   --font-size-xxs: round(nearest, clamp(0.51rem, 0.45vi + 0.35rem, 0.6rem), 2px);
+   --font-size-xs: round(nearest, clamp(0.64rem, 0.75vi + 0.3rem, 0.75rem), 2px);
+   --font-size-sm: round(nearest, clamp(0.8rem, 1.15vi + 0.25rem, 0.94rem), 2px);
+   --font-size-base: round(nearest, clamp(1rem, 2.08vi + 0rem, 1.25rem), 2px);
+   --font-size-md: round(nearest, clamp(1.25rem, 3.47vi + -0.42rem, 1.56rem), 2px);
+   --font-size-lg: round(nearest, clamp(1.875rem, 5.49vi + -1.07rem, 2.75rem), 2px);
+   --font-size-xl: round(nearest, clamp(2.75rem, 8.4vi + -2.08rem, 3.75rem), 2px);
+   --font-size-xxl: round(nearest, clamp(3.75rem, 12.54vi + -3.58rem, 4.5rem), 2px);
+   --font-size-xxxl: round(nearest, clamp(4.5rem, 18.41vi + -5.78rem, 6rem), 2px);
 
    --text-color: var(--palette-foreground);
    --text-color-faded: var(--palette-main-foreground);
