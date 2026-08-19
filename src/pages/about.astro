@@ -5,7 +5,11 @@ import ExpertiseAndServices from "../components/sections/ExpertiseAndServices/Ex
 import Hero from "../components/sections/Hero/Hero.astro";
 import LetsConnect from "../components/sections/LetsConnect/LetsConnect.astro";
 import Skills from "../components/sections/Skills/Skills.astro";
-import PAGE_CONTENT from "../data/index.json";
+import EN_CONTENT from "../data/index.json";
+import PT_CONTENT from "../data/index.pt.json";
+
+const PAGE_CONTENT = Astro.currentLocale === "pt" ? PT_CONTENT : EN_CONTENT;
+
 import PageLayout from "../layouts/PageLayout.astro";
 ---
 

@@ -1,4 +1,6 @@
 ---
+locale: en
+translationKey: paperboy
 title: Paperboy
 slug: paperboy
 date: 2020-09-01T00:00:00.000Z

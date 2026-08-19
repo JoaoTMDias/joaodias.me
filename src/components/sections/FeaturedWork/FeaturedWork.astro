@@ -11,16 +11,18 @@ import FeaturedWorkItem from "./FeaturedWorkItem.astro";
 type ProjectItem = CollectionEntry<"projects">;
 
 const projects: ProjectItem[] = (await getCollection("projects"))
+	.filter((entry) => entry.data.locale === (Astro.currentLocale === "pt" ? "pt" : "en"))
 	.sort((a: ProjectItem, b: ProjectItem) => b.data.date.getTime() - a.data.date.getTime())
 	.slice(0, 4);
+const isPt = Astro.currentLocale === "pt";
 ---
 
 <section id="featured-work" class={clsx("section", "section__stack", styles["featured-work"])}>
   <div class={clsx("section__container", styles["featured-work__content"])}>
-    <SectionTitle text="Featured Work" />
+    <SectionTitle text={isPt ? "Trabalho em destaque" : "Featured Work"} />
     <div class={styles["featured-work__list"]}>
       {projects.map((project) => <FeaturedWorkItem key={project.id} project={project} />)}
     </div>
   </div>
-  <SectionLink href="/work" text="Visit all featured projects" />
+  <SectionLink href={isPt ? "/pt/work" : "/work"} text={isPt ? "Ver todos os projetos" : "Visit all featured projects"} />
 </section>

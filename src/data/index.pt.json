@@ -1,0 +1,49 @@
+{
+	"title": "Chegou a um site chamado joaodias.me: João Dias",
+	"hero": {
+		"title": "Uno UX e Engenharia",
+		"subtitle": "João Dias",
+		"intro": "Sou Engenheiro Frontend sénior, especializado em Acessibilidade Web, em Portugal.",
+		"profile-picture": {
+			"src": "/photo-profile.webp",
+			"width": 560,
+			"height": 560,
+			"alt": "Headshot portrait of João Dias seated on a brown leather armchair. He has long wavy hair, glasses, a mustache, and visible forearm tattoos, wearing a short-sleeved black polo shirt against a warm, neutral backdrop."
+		},
+		"copyright": "Since 1987 © Limited Edition"
+	},
+	"about": {
+		"title": "Olá, sou o João",
+		"subtitle": "Desenvolvimento web e Acessibilidade",
+		"intro": "Crio experiências web ricas e acessíveis para todas as pessoas. Tenho a sorte de o fazer há 15 anos.",
+		"profile-picture": {
+			"src": "/about-profile.webp",
+			"width": 560,
+			"height": 560,
+			"alt": "Headshot portrait of João Dias seated on a brown leather armchair. He has long wavy hair, glasses, a mustache, and visible forearm tattoos, wearing a short-sleeved black polo shirt against a warm, neutral backdrop."
+		},
+		"skills": {
+			"title": "A list of my skill set",
+			"items": [
+				"Accessibility",
+				"Cypress",
+				"Interface Design",
+				"Jest",
+				"Lit",
+				"Node",
+				"Playwright",
+				"React",
+				"Redux",
+				"Testing-Library",
+				"Typescript",
+				"Vite",
+				"Vue",
+				"Web Components"
+			]
+		}
+	},
+	"work": {
+		"title": "Trabalho selecionado",
+		"description": "Use as setas para navegar entre projetos"
+	}
+}

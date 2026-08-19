@@ -1,4 +1,6 @@
 ---
+locale: en
+translationKey: henrique-macedo
 name: "Henrique Macedo"
 role: "VP of Engineering at LayerX"
 avatarUrl: "/henrique-macedo.jpg"

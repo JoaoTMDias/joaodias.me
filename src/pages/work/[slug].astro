@@ -11,6 +11,7 @@ import type { CollectionEntry } from "astro:content";
  */
 import { getCollection, render } from "astro:content";
 import TableOfContents from "../../components/ui/TableOfContents/TableOfContents.astro";
+import { contentSlug, formatDate } from "../../i18n";
 import PageLayout from "../../layouts/PageLayout.astro";
 import styles from "./work.module.scss";
 
@@ -32,10 +33,10 @@ function normalizeImagePath(path: string | undefined): string | null {
 }
 
 export async function getStaticPaths() {
-	const projects = await getCollection("projects");
+	const projects = (await getCollection("projects")).filter((entry) => entry.data.locale === "en");
 
 	return projects.map((project) => ({
-		params: { slug: project.id },
+		params: { slug: contentSlug(project.id) },
 		props: { project },
 	}));
 }
@@ -51,7 +52,7 @@ const { Content, headings } = await render(project);
 const transitionName = `project-title-${project.id}`;
 const imageTransitionName = `project-image-${project.id}`;
 
-const formattedDate = project.data.date.toLocaleDateString("en-US", {
+const formattedDate = formatDate(project.data.date, "en", {
 	year: "numeric",
 	month: "long",
 });
@@ -66,7 +67,7 @@ const theme = {
 const hasGalleryImages = project.data.galleryImages && project.data.galleryImages.length > 0;
 ---
 
-<PageLayout title={`${project.data.title} - João Dias`} description={project.data.shortDescription}>
+<PageLayout title={`${project.data.title} - João Dias`} description={project.data.shortDescription} languageUrl="/pt/work">
   <div
     class="content"
   >

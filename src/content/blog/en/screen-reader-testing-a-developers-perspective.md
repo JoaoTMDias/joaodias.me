@@ -1,4 +1,6 @@
 ---
+locale: en
+translationKey: screen-reader-testing-a-developers-perspective
 title: 'Screen Reader Testing: A Developer''s Perspective'
 slug: screen-reader-testing-a-developers-perspective
 pubDate: 2025-07-28T17:40:11.883Z

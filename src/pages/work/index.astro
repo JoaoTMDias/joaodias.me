@@ -10,8 +10,13 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import { contentUrl, formatDate, getLocale } from "../../i18n";
+import { getMessages } from "../../i18n/messages";
 import PageLayout from "../../layouts/PageLayout.astro";
 import styles from "./index.module.scss";
+
+const locale = getLocale(Astro.currentLocale);
+const t = getMessages(locale);
 
 // Constants
 const DEFAULT_THEME = {
@@ -42,7 +47,7 @@ function getProjectTheme(project: CollectionEntry<"projects">) {
 }
 
 function formatProjectDate(date: Date): string {
-	return date.toLocaleDateString("en-US", DATE_FORMAT_OPTIONS);
+	return formatDate(date, locale, DATE_FORMAT_OPTIONS);
 }
 
 function getTransitionNames(slug: string) {
@@ -53,10 +58,12 @@ function getTransitionNames(slug: string) {
 }
 
 // Data fetching and processing
-const projects: CollectionEntry<"projects">[] = (await getCollection("projects")).sort(
-	(a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
-		b.data.date.getTime() - a.data.date.getTime(),
-);
+const projects: CollectionEntry<"projects">[] = (await getCollection("projects"))
+	.filter((entry) => entry.data.locale === locale)
+	.sort(
+		(a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+			b.data.date.getTime() - a.data.date.getTime(),
+	);
 ---
 
 <PageLayout
@@ -64,9 +71,9 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
   description="Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility"
 >
   <div class="section">
-    <h1 class={styles.work__title}>Featured case studies</h1>
+    <h1 class={styles.work__title}>{t.work.title}</h1>
     <p class={styles.work__description}>
-      A showcase of some of my open-source projects.
+      {t.work.description}
     </p>
   </div>
   <section>
@@ -84,7 +91,7 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
           return (
             <li>
               <a
-                href={`/work/${project.id}`}
+                href={contentUrl(locale, "work", project.id)}
                 class={styles.work__card}
                 style={cardStyle}
                 data-testid="work-card"
@@ -95,7 +102,7 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
                     src={thumbnailPath}
                     width={THUMBNAIL_DIMENSIONS.width}
                     height={THUMBNAIL_DIMENSIONS.height}
-                    alt={`${project.data.title} project thumbnail`}
+                    alt={project.data.title + " " + t.work.thumbnail}
                     loading="lazy"
                     transition:name={transitionNames.image}
                   />

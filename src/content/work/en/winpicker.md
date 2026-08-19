@@ -1,4 +1,6 @@
 ---
+locale: en
+translationKey: winpicker
 title: WinPicker
 slug: winpicker
 date: 2022-01-01T00:00:00.000Z

@@ -3,22 +3,28 @@ import clsx from "clsx";
 import SectionLink from "../../ui/SectionLink/SectionLink.astro";
 import styles from "./FooterLinks.module.scss";
 
+interface Props {
+	locale?: "en" | "pt";
+}
+const { locale = "en" } = Astro.props;
+const prefix = locale === "pt" ? "/pt" : "";
+
 const config = [
 	{
-		link: "/about",
-		title: "About me",
+		link: prefix + "/about",
+		title: locale === "pt" ? "Sobre mim" : "About me",
 	},
 	{
-		link: "/blog",
+		link: prefix + "/blog",
 		title: "Blog",
 	},
 	{
-		link: "/work",
-		title: "Work",
+		link: prefix + "/work",
+		title: locale === "pt" ? "Trabalho" : "Work",
 	},
 	{
-		link: "/rss.xml",
-		title: "RSS feed",
+		link: prefix + "/rss.xml",
+		title: locale === "pt" ? "Feed RSS" : "RSS feed",
 	},
 	{
 		link: "/llms.txt",

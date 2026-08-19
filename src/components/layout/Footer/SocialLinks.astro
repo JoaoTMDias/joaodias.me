@@ -1,11 +1,15 @@
 ---
 import { getEntry } from "astro:content";
 import clsx from "clsx";
+import { getLocale } from "../../../i18n";
 import type { SiteConfig } from "../../../typings";
 import SectionLink from "../../ui/SectionLink/SectionLink.astro";
 import styles from "./SocialLinks.module.scss";
 
-const config: Record<"data", SiteConfig> = await getEntry("config", "config");
+const config: Record<"data", SiteConfig> = await getEntry(
+	"config",
+	getLocale(Astro.currentLocale) + "/config",
+);
 ---
 
 <nav id="links-to-my-social-media" class={styles["social-links"]} aria-labelledby="contact-title">

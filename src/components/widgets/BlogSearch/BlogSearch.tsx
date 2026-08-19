@@ -4,6 +4,7 @@ import styles from "./BlogSearch.module.scss";
 
 type BlogArticle = {
 	id: string;
+	url?: string;
 	title: string;
 	excerpt: string;
 	category: string;
@@ -16,6 +17,8 @@ type BlogArticle = {
 
 type BlogSearchProps = {
 	articles: BlogArticle[];
+	locale?: "en" | "pt";
+	messages?: Record<string, string>;
 };
 
 function normalize(value: string) {
@@ -28,7 +31,7 @@ function articleSearchText(article: BlogArticle) {
 	);
 }
 
-function BlogSearch({ articles }: BlogSearchProps) {
+function BlogSearch({ articles, locale = "en", messages = {} }: BlogSearchProps) {
 	const [inputValue, setInputValue] = useState("");
 	const [query, setQuery] = useState("");
 	const searchInputRef = useRef<HTMLInputElement>(null);
@@ -88,7 +91,12 @@ function BlogSearch({ articles }: BlogSearchProps) {
 	return (
 		<section className={clsx("section", styles["blog-search"])}>
 			<search>
-				<form className={styles["search-form"]} action="/blog" method="get" onSubmit={handleSubmit}>
+				<form
+					className={styles["search-form"]}
+					action={locale === "pt" ? "/pt/blog" : "/blog"}
+					method="get"
+					onSubmit={handleSubmit}
+				>
 					<label htmlFor="search" className="sr-only">
 						Search articles
 					</label>
@@ -98,7 +106,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 						type="search"
 						id="search"
 						name="q"
-						placeholder="Search articles..."
+						placeholder={messages.placeholder}
 						value={inputValue}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
 							setInputValue(event.target.value)
@@ -136,7 +144,10 @@ function BlogSearch({ articles }: BlogSearchProps) {
 					{filteredArticles.map((article) => (
 						<li key={article.id} className={styles["result-item"]}>
 							<article className={styles["featured-article"]}>
-								<a href={`/blog/${article.id}`} className={styles["featured-article__link"]}>
+								<a
+									href={article.url ?? `/blog/${article.id}`}
+									className={styles["featured-article__link"]}
+								>
 									{article.featuredImage ? (
 										<img
 											className={styles["featured-article__cover"]}
@@ -153,7 +164,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 											dateTime={article.pubDateISO}
 											className={styles["featured-article__date"]}
 										>
-											<span className="sr-only">Published on</span>&nbsp;
+											<span className="sr-only">{messages.published}</span>&nbsp;
 											{article.pubDateLabel}
 										</time>
 										<h3

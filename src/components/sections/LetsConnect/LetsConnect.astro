@@ -1,11 +1,12 @@
 ---
 import { getEntry } from "astro:content";
+import { getLocale } from "../../../i18n";
 import SectionLink from "../../ui/SectionLink/SectionLink.astro";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
 import styles from "./LetsConnect.module.scss";
 import Waves from "./Waves.astro";
 
-const config = await getEntry("config", "config");
+const config = await getEntry("config", getLocale(Astro.currentLocale) + "/config");
 const linkedin = config.data.contactLinks.find((link) => link.title === "LinkedIn");
 ---
 

@@ -1,0 +1,16 @@
+---
+import type { Locale } from "../../../i18n";
+import { getMessages } from "../../../i18n/messages";
+import styles from "./MainNavigation.module.scss";
+
+interface Props {
+	locale: Locale;
+	href: string;
+}
+const { locale, href } = Astro.props;
+const t = getMessages(locale);
+const target = locale === "en" ? "pt" : "en";
+---
+<a class={styles["main-navigation__link"]} href={href} hreflang={target==="pt"?"pt-PT":"en"} lang={target==="pt"?"pt-PT":"en"} aria-label={t.nav.language}>
+  {target==="pt"?"PT":"EN"}
+</a>

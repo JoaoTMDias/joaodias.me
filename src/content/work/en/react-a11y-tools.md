@@ -1,4 +1,6 @@
 ---
+locale: en
+translationKey: react-a11y-tools
 title: "@jtmdias/react-a11y-tools"
 slug: react-a11y-tools
 date: 2020-09-01T00:00:00.000Z

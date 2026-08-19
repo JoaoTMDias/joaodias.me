@@ -3,16 +3,25 @@
 // all pages through the use of the <BaseHead /> component.
 import "../../../assets/styles/index.scss";
 import { ClientRouter } from "astro:transitions";
+import type { Locale } from "../../../i18n";
 
 export interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	locale: Locale;
+	alternateUrls?: Partial<Record<Locale, string>>;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/open-graph-picture.jpg" } = Astro.props;
+const {
+	title,
+	description,
+	image = "/open-graph-picture.jpg",
+	locale,
+	alternateUrls,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -28,6 +37,10 @@ const { title, description, image = "/open-graph-picture.jpg" } = Astro.props;
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+
+{alternateUrls?.en && <link rel="alternate" hreflang="en" href={new URL(alternateUrls.en, Astro.site)} />}
+{alternateUrls?.pt && <link rel="alternate" hreflang="pt-PT" href={new URL(alternateUrls.pt, Astro.site)} />}
+{alternateUrls?.en && <link rel="alternate" hreflang="x-default" href={new URL(alternateUrls.en, Astro.site)} />}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

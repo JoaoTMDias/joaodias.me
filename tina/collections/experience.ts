@@ -11,11 +11,19 @@ export const ExperienceCollection: Collection = {
 			delete: false,
 		},
 		filename: {
-			readonly: true,
+			readonly: false,
 			slugify: () => "index",
 		},
 	},
 	fields: [
+		{ type: "string", name: "locale", label: "Locale", required: true, options: ["en", "pt"] },
+		{
+			type: "string",
+			name: "translationKey",
+			label: "Translation key",
+			required: true,
+			description: "Stable identifier shared by translations",
+		},
 		{
 			name: "entries",
 			label: "Experience Entries",
@@ -69,4 +77,3 @@ export const ExperienceCollection: Collection = {
 		},
 	],
 };
-

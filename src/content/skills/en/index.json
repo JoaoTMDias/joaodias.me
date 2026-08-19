@@ -78,5 +78,7 @@
 			"skill": "Webpack",
 			"url": "https://webpack.js.org/"
 		}
-	]
+	],
+	"locale": "en",
+	"translationKey": "skills"
 }

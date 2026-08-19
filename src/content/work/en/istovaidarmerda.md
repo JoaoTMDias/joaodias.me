@@ -1,4 +1,6 @@
 ---
+locale: en
+translationKey: istovaidarmerda
 title: istovaidarmerda
 slug: istovaidarmerda
 date: 2021-01-01T00:00:00.000Z

@@ -3,12 +3,15 @@ import { getCollection } from "astro:content";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
 import styles from "./Skills.module.scss";
 
-const [collection] = await getCollection("skills");
+const [collection] = (await getCollection("skills")).filter(
+	(entry) => entry.data.locale === (Astro.currentLocale === "pt" ? "pt" : "en"),
+);
 const skills = collection.data.entries;
+const isPt = Astro.currentLocale === "pt";
 ---
 
 <section class="section section__stack">
-  <SectionTitle text="Tech Skills" />
+  <SectionTitle text={isPt ? "Compet\u00eancias t\u00e9cnicas" : "Tech Skills"} />
   <ul class={styles["skills"]}>
     {
       skills.map((item) => (
