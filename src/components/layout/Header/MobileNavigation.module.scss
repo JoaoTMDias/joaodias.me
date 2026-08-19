@@ -139,7 +139,8 @@
     display: none;
     width: var(--space-md);
     height: var(--space-md);
-    fill: var(--text-color);
+    color: var(--text-color);
+    fill: currentColor;
     margin-left: var(--space-lg);
   }
 

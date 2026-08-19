@@ -82,6 +82,18 @@ test.describe("Responsive Navigation and Theme", () => {
 		const MOBILE_LINKS = MOBILE_NAV.getByRole("link");
 		await expect(MOBILE_LINKS.first()).toBeVisible();
 		expect(await MOBILE_LINKS.count()).toBeGreaterThan(0);
+
+		const currentPageLink = MOBILE_NAV.locator('a[aria-current="page"]');
+		const currentPageIcon = currentPageLink.locator("svg");
+		const linkColor = await currentPageIcon.evaluate(
+			(element) => getComputedStyle(element.parentElement as HTMLElement).color,
+		);
+
+		expect(await currentPageIcon.evaluate((element) => element.namespaceURI)).toBe(
+			"http://www.w3.org/2000/svg",
+		);
+		await expect(currentPageIcon).toHaveCSS("fill", linkColor);
+		await expect(currentPageIcon.locator("path")).not.toHaveAttribute("fill");
 	});
 
 	test("should keep every mobile navigation link reachable in a short viewport", async ({
