@@ -60,6 +60,7 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.join(__dirname, "..");
 
 const SITE_URL = "https://joaodias.me";
+const UTF8_BOM = "\uFEFF";
 
 function readJson<T>(filePath: string): T {
 	return JSON.parse(fs.readFileSync(filePath, "utf-8")) as T;
@@ -269,7 +270,7 @@ try {
 	const content = buildLlmsContent();
 	const outputPath = path.join(projectRoot, "public", "llms.txt");
 	ensureDirectoryExists(outputPath);
-	fs.writeFileSync(outputPath, content, "utf-8");
+	fs.writeFileSync(outputPath, UTF8_BOM + content, "utf-8");
 
 	console.log("✓ llms.txt generated successfully");
 	console.log(`  Output: ${outputPath}`);
