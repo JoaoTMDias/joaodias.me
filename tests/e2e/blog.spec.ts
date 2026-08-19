@@ -45,6 +45,7 @@ test.describe("Blog Index Page", () => {
 
 		await searchInput.fill("no matching article");
 		await expect(page.getByText("2 articles", { exact: true })).toBeVisible();
+		await expect(page.getByRole("button", { name: "Clear search" })).toBeVisible();
 		await page.getByRole("button", { name: "Search", exact: true }).click();
 
 		await expect(page).toHaveURL("/blog?q=no+matching+article");
