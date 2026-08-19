@@ -56,6 +56,19 @@ test.describe("External Links", () => {
 		}
 	});
 
+	test("should protect every link that opens a new tab", async ({ page }) => {
+		const externalLinks = await page.locator('a[target="_blank"]').all();
+
+		expect(externalLinks.length).toBeGreaterThan(0);
+
+		for (const link of externalLinks) {
+			const relTokens = (await link.getAttribute("rel"))?.split(/\s+/) ?? [];
+
+			expect(relTokens).toContain("noopener");
+			expect(relTokens).toContain("noreferrer");
+		}
+	});
+
 	test("should validate source code links on project detail pages when present", async ({
 		page,
 		networkHandlers,

@@ -16,7 +16,7 @@ const shows = (await getCollection("shows"))
     <SectionTitle text="Over the air" />
     <p class={styles.broadcasts__intro}>
       I am also a <strong
-        ><a href="https://ruc.pt/autor/joaotmdias" target="_blank" rel="noreferrer" lang="pt-PT"
+        ><a href="https://ruc.pt/autor/joaotmdias" target="_blank" rel="noopener noreferrer" lang="pt-PT"
           >radio host at Rádio Universidade de Coimbra (RUC)</a
         ></strong
       >, where I regularly broadcast shows that range from Jazz, Blues, Rock, Punk and Heavy Metal.
@@ -32,11 +32,7 @@ const shows = (await getCollection("shows"))
               cover={show.data.coverURL}
               colors={show.data.coverColors}
               name={show.data.show}
-              date={show.data.published.toLocaleDateString("pt-PT", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-              })}
+              published={show.data.published}
               title={show.data.title}
               description={show.data.summary}
             />

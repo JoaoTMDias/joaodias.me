@@ -54,6 +54,19 @@ test.describe("Homepage", () => {
 		await expect(page.locator("#featured-work")).toBeVisible();
 	});
 
+	test("should expose machine-readable broadcast dates", async ({ page }) => {
+		const dates = await page.locator("#radio-broadcasts time").all();
+
+		expect(dates.length).toBeGreaterThan(0);
+
+		for (const date of dates) {
+			await expect(date).toHaveAttribute(
+				"datetime",
+				/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/,
+			);
+		}
+	});
+
 	test("should provide a clear contact action", async ({ page }) => {
 		const contactLink = page.getByRole("link", { name: "Let's connect on LinkedIn" });
 

@@ -7,7 +7,7 @@ interface Props {
 	cover?: string;
 	colors?: string[];
 	name: string;
-	date?: string;
+	published: Date;
 	title: string;
 	description?: string;
 }
@@ -15,7 +15,21 @@ interface Props {
 const DEFAULT_COVER =
 	"https://ruc.pt/_next/image?url=https%3A%2F%2Fbucket.ruc.pt%2Fwp-content%2Fuploads%2F2026%2F01%2F05091026%2Fcover.jpeg&w=3840&q=75";
 
-const { href, cover = DEFAULT_COVER, colors = [], name, date, title, description } = Astro.props;
+const {
+	href,
+	cover = DEFAULT_COVER,
+	colors = [],
+	name,
+	published,
+	title,
+	description,
+} = Astro.props;
+
+const formattedPublishedDate = published.toLocaleDateString("pt-PT", {
+	day: "2-digit",
+	month: "2-digit",
+	year: "numeric",
+});
 
 const [c1, c2, c3] = colors;
 const cardStyle: Record<string, string> = {};
@@ -28,7 +42,7 @@ if (c3) cardStyle["--show-c3"] = c3;
 ---
 
 <article class={styles.show} lang="pt-PT">
-	<a href={href} class={styles.card} target="_blank" rel="noreferrer"  style={cardStyle}>
+	<a href={href} class={styles.card} target="_blank" rel="noopener noreferrer" style={cardStyle}>
 		<Image
 			class={styles.cover}
 			src={cover}
@@ -39,11 +53,9 @@ if (c3) cardStyle["--show-c3"] = c3;
 			decoding="async"
 		/>
 		<div class={styles.header}>
-			{date && (
-				<time datetime={date} class={styles.date}>
-					<span class="sr-only">Aired on</span>&nbsp;{date}
-				</time>
-			)}
+			<time datetime={published.toISOString()} class={styles.date}>
+				<span class="sr-only">Aired on</span>&nbsp;{formattedPublishedDate}
+			</time>
 			<h3 class={styles.title}>{title}</h3>
 			<span class={styles.name}>{name}</span>
 		</div>

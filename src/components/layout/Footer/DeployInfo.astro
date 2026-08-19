@@ -9,7 +9,12 @@ const deployUrl = `https://github.com/JoaoTMDias/joaodias.me/commit/${buildInfo.
 
 <p class={styles.footer__deploy}>
   Last deploy:
-  <a href={deployUrl} target="_blank" class={styles.footer__deploy__link}>
+  <a
+    href={deployUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={styles.footer__deploy__link}
+  >
     <span class="sr-only">Commit with hash</span>
     <span>
       <span>{buildInfo.commitHash}</span>
