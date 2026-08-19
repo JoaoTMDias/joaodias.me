@@ -139,6 +139,8 @@ function BlogSearch({ articles }: BlogSearchProps) {
 										<img
 											className={styles["featured-article__cover"]}
 											src={article.featuredImage}
+											width="960"
+											height="480"
 											alt=""
 											loading="lazy"
 											style={{ viewTransitionName: `article-image-${article.id}` }}

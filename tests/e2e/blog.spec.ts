@@ -28,6 +28,18 @@ test.describe("Blog Index Page", () => {
 		await expect(ARTICLES_HEADER).toBeVisible();
 	});
 
+	test("should reserve space for article cover images", async ({ page }) => {
+		const covers = page.locator('img[class*="featured-article__cover"]');
+		const count = await covers.count();
+
+		expect(count).toBeGreaterThan(0);
+
+		for (const cover of await covers.all()) {
+			await expect(cover).toHaveAttribute("width", "960");
+			await expect(cover).toHaveAttribute("height", "480");
+		}
+	});
+
 	test("should search and clear articles", async ({ page }) => {
 		const searchInput = page.getByRole("textbox", { name: "Search articles" });
 
