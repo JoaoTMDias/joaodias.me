@@ -1,44 +1,36 @@
 ---
 import { getEntry } from "astro:content";
+import type { Locale } from "../../../i18n";
+import { getMessages } from "../../../i18n/messages";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 import styles from "./MobileNavigation.module.scss";
 
-const config = await getEntry("config", "config");
+interface Props {
+	locale: Locale;
+	languageUrl: string;
+}
+const { locale, languageUrl } = Astro.props;
+const t = getMessages(locale);
+const config = await getEntry("config", locale + "/config");
 const currentPage = Astro.url.pathname;
 ---
-
-<nav aria-label="Pages" class={styles["mobile-navigation"]} id="mobile-navigation" popover="auto">
+<nav aria-label={t.nav.label} class={styles["mobile-navigation"]} id="mobile-navigation" popover="auto">
   <ul class={styles["mobile-navigation__list"]}>
-    {
-      config.data.nav.map((item, index) => {
-        const isCurrentPage = currentPage === item.link;
-
-        return (
-          <li class={styles["mobile-navigation__item"]} style={`--delay: ${index * 100}ms`}>
-            <a
-              class={styles["mobile-navigation__link"]}
-              href={item.link}
-              data-testid="top-nav-link"
-              aria-current={isCurrentPage ? "page" : undefined}
-            >
-              <span class={styles["mobile-navigation__link-text"]}>
-                {item.title}
-                <svg
-                  class={styles["mobile-navigation__link-icon"]}
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M28 14L20.4664 16.6775L23.9017 23.9017L16.6775 20.4664L14 28L11.3225 20.4664L4.09833 23.9017L7.5336 16.6775L0 14L7.5336 11.3225L4.09833 4.09833L11.3225 7.53361L14 0L16.6775 7.53361L23.9017 4.09833L20.4664 11.3225L28 14Z"
-                  />
-                </svg>
-              </span>
-            </a>
-          </li>
-        );
-      })
-    }
+    {config?.data.nav.map((item, index) => {
+      const isCurrentPage = currentPage === item.link;
+      return (
+        <li class={styles["mobile-navigation__item"]} style={"--delay: " + index * 100 + "ms"}>
+          <a class={styles["mobile-navigation__link"]} href={item.link} data-testid="top-nav-link" aria-current={isCurrentPage ? "page" : undefined}>
+            <span class={styles["mobile-navigation__link-text"]}>
+              {item.title}
+              <svg class={styles["mobile-navigation__link-icon"]} width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M28 14L20.4664 16.6775L23.9017 23.9017L16.6775 20.4664L14 28L11.3225 20.4664L4.09833 23.9017L7.5336 16.6775L0 14L7.5336 11.3225L4.09833 4.09833L11.3225 7.53361L14 0L16.6775 7.53361L23.9017 4.09833L20.4664 11.3225L28 14Z" />
+              </svg>
+            </span>
+          </a>
+        </li>
+      );
+    })}
+    <li class={styles["mobile-navigation__item"]}><LanguageSwitcher locale={locale} href={languageUrl} /></li>
   </ul>
 </nav>

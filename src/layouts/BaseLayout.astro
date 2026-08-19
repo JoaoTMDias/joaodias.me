@@ -1,14 +1,24 @@
 ---
 import BaseHead from "../components/layout/BaseHead/BaseHead.astro";
+import { getLocale, htmlLang, type Locale } from "../i18n";
 
 export interface Props {
 	title: string;
 	description: string;
 	itemtype?: string;
 	lang?: string;
+	locale?: Locale;
+	alternateUrls?: Partial<Record<Locale, string>>;
 }
 
-const { title, description, itemtype = "http://schema.org/WebPage", lang = "en" } = Astro.props;
+const {
+	title,
+	description,
+	itemtype = "http://schema.org/WebPage",
+	locale = getLocale(Astro.currentLocale),
+	lang = htmlLang[locale],
+	alternateUrls,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +30,7 @@ const { title, description, itemtype = "http://schema.org/WebPage", lang = "en" 
   data-testid="html-element"
 >
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} locale={locale} alternateUrls={alternateUrls} />
   </head>
   <body>
     <slot />

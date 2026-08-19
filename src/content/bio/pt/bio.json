@@ -1,0 +1,13 @@
+{
+	"title": "Biografia",
+	"mainTitle": "Crio experiências web acessíveis e inclusivas",
+	"description": "Sou Engenheiro Frontend sénior, especializado em acessibilidade web e sistemas de design.",
+	"picture": {
+		"src": "/about-grid.jpg",
+		"width": "640",
+		"height": "640",
+		"alt": "Retrato de João Dias sentado numa poltrona de couro castanha."
+	},
+	"locale": "pt",
+	"translationKey": "bio"
+}

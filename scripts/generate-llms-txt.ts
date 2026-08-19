@@ -133,14 +133,14 @@ function buildLlmsContent(): string {
 	const commitHash = getGitCommitHash();
 
 	const siteConfig = readJson<SiteConfig>(
-		path.join(projectRoot, "src", "content", "config", "config.json"),
+		path.join(projectRoot, "src", "content", "config", "en", "config.json"),
 	);
 	const homepageData = readJson<HomepageData>(path.join(projectRoot, "src", "data", "index.json"));
 	const experience = readJson<ExperienceData>(
-		path.join(projectRoot, "src", "content", "experience", "index.json"),
+		path.join(projectRoot, "src", "content", "experience", "en", "index.json"),
 	);
 	const skills = readJson<SkillsData>(
-		path.join(projectRoot, "src", "content", "skills", "index.json"),
+		path.join(projectRoot, "src", "content", "skills", "en", "index.json"),
 	);
 
 	const projects = collectFilesRecursively(path.join(projectRoot, "src", "content", "work"))

@@ -1,23 +1,46 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Footer from "../components/layout/Footer/Footer.astro";
 import Header from "../components/layout/Header/Header.astro";
+import { getLocale, type Locale } from "../i18n";
+import { getMessages } from "../i18n/messages";
 import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
 	title: string;
 	description: string;
 	itemtype?: string;
+	locale?: Locale;
+	alternateUrls?: Partial<Record<Locale, string>>;
+	languageUrl?: string;
 }
 
-const { title, description, itemtype = "http://schema.org/WebPage" } = Astro.props;
+const {
+	title,
+	description,
+	itemtype = "http://schema.org/WebPage",
+	locale = getLocale(Astro.currentLocale),
+	alternateUrls,
+	languageUrl,
+} = Astro.props;
+const t = getMessages(locale);
+const otherLocale = locale === "en" ? "pt" : "en";
+const unprefixedPath = Astro.url.pathname.replace(/^\/pt(?=\/|$)/, "") || "/";
+const localeRoute = unprefixedPath.replace(/^\/+|\/+$/g, "") || undefined;
+const defaultLanguageUrl = getRelativeLocaleUrl(otherLocale, localeRoute);
+const effectiveAlternates =
+	alternateUrls ??
+	(languageUrl
+		? undefined
+		: { en: getRelativeLocaleUrl("en", localeRoute), pt: getRelativeLocaleUrl("pt", localeRoute) });
 ---
 
-<BaseLayout title={title} description={description} itemtype={itemtype}>
+<BaseLayout title={title} description={description} itemtype={itemtype} locale={locale} alternateUrls={effectiveAlternates}>
   <div class="container">
-    <Header />
-    <main id="content" tabindex={-1} aria-label="Main content">
+    <Header locale={locale} languageUrl={languageUrl ?? defaultLanguageUrl} />
+    <main id="content" tabindex={-1} aria-label={t.common.main}>
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
   </div>
 </BaseLayout>

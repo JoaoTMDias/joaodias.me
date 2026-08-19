@@ -1,4 +1,6 @@
 ---
+locale: en
+translationKey: google-chat-formatter
 title: Google Chat Formatter
 slug: google-chat-formatter
 date: 2022-01-01T00:00:00.000Z

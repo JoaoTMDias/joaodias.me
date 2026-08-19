@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: mel-e-tal_2026-06-07_08-de-junho-de-2026-mel-e-ambien-tal
 show: mel-e-tal
 slug: 08-de-junho-de-2026-mel-e-ambien-tal
 title: 08 de Junho de 2026, mel e ambien-tal

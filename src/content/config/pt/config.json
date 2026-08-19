@@ -1,0 +1,79 @@
+{
+	"seo": {
+		"title": "Chegou a um site chamado joaodias.me: João Dias",
+		"description": "Site pessoal de João Dias, Engenheiro Frontend especializado em Acessibilidade Web, de Coimbra, Portugal",
+		"siteOwner": "João Dias"
+	},
+	"copyright": "João Dias. Todos os direitos reservados",
+	"skipLinks": [
+		{
+			"target": "#content",
+			"text": "Saltar para o conteúdo principal",
+			"as": "link"
+		},
+		{
+			"target": "#links-to-my-social-media",
+			"text": "Saltar para as ligações de redes sociais",
+			"as": "link"
+		}
+	],
+	"nav": [
+		{
+			"title": "Início",
+			"link": "/pt/"
+		},
+		{
+			"title": "Sobre mim",
+			"link": "/pt/about"
+		},
+		{
+			"title": "Blogue",
+			"link": "/pt/blog"
+		},
+		{
+			"title": "Trabalho",
+			"link": "/pt/work"
+		}
+	],
+	"contactLinks": [
+		{
+			"title": "Instagram",
+			"accessibleLabel": "Ver o meu perfil no Instagram. Esta ligação abre num novo separador",
+			"link": "https://instagram.com/joaotmdias",
+			"icon": "TbBrandInstagram"
+		},
+		{
+			"title": "GitHub",
+			"accessibleLabel": "Ver os meus projetos e código-fonte no GitHub. Esta ligação abre num novo separador",
+			"link": "https://github.com/joaotmdias",
+			"icon": "TbBrandGithub"
+		},
+		{
+			"title": "LinkedIn",
+			"accessibleLabel": "Adicionar-me no LinkedIn. Esta ligação abre num novo separador",
+			"link": "https://linkedin.com/in/joaotmdias",
+			"icon": "TbBrandLinkedin"
+		},
+		{
+			"title": "Programas na RUC",
+			"accessibleLabel": "Os meus programas de rádio na RUC",
+			"link": "https://ruc.pt/autor/joaotmdias",
+			"icon": "TbRadio"
+		}
+	],
+	"footer": {
+		"currentlyListeningTitle": "A ouvir agora",
+		"player": {
+			"loading": "A carregar...",
+			"card": {
+				"width": "72",
+				"height": "72"
+			},
+			"track": ". Esta ligação abre num novo separador",
+			"artist": "de",
+			"album": "álbum"
+		}
+	},
+	"locale": "pt",
+	"translationKey": "config"
+}

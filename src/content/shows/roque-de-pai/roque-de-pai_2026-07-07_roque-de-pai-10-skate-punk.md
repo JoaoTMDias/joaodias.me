@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: roque-de-pai_2026-07-07_roque-de-pai-10-skate-punk
 show: roque-de-pai
 slug: roque-de-pai-10-skate-punk
 title: "Roque de Pai 10: Skate punk"

@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: roque-de-pai_2026-04-12_roque-de-pai-04-a-arte-de-ser-fa
 show: roque-de-pai
 slug: roque-de-pai-04-a-arte-de-ser-fa
 title: "Roque de Pai 04: A arte de ser fã"

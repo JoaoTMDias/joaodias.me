@@ -1,9 +1,17 @@
 ---
+import type { Locale } from "../../../i18n";
+import { getMessages } from "../../../i18n/messages";
 import styles from "./ThemeSwitcher.module.scss";
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getMessages(locale);
 ---
 
-<label class={styles["theme-switcher"]}>
-  <span class="sr-only" data-theme-label> Light theme. Press to switch to dark theme </span>
+<label class={styles["theme-switcher"]} data-light-label={t.theme.light} data-dark-label={t.theme.dark}>
+  <span class="sr-only" data-theme-label> {t.theme.light} </span>
   <input
     id="theme-switch"
     name="theme-switch"
@@ -57,9 +65,8 @@ import styles from "./ThemeSwitcher.module.scss";
 
   function updateThemeControls(theme: Theme) {
     const isDark = theme === "dark";
-    const labelText = isDark
-      ? "Dark theme. Press to switch to light theme"
-      : "Light theme. Press to switch to dark theme";
+    const root = document.querySelector<HTMLElement>("[data-light-label]");
+    const labelText = isDark ? root?.dataset.darkLabel ?? "Dark theme" : root?.dataset.lightLabel ?? "Light theme";
 
     document.querySelectorAll<HTMLElement>("[data-theme-label]").forEach((label) => {
       label.textContent = labelText;

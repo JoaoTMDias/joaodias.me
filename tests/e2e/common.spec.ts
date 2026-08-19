@@ -20,7 +20,7 @@ test.beforeEach(async ({ page, networkHandlers }) => {
 
 test.describe("Navigation", () => {
 	test("should navigate to Work page when clicking Work link", async ({ page }) => {
-		const WORK_LINK = page.getByRole("link", {
+		const WORK_LINK = page.getByRole("banner").getByRole("link", {
 			name: SITE_CONFIG.nav[3].title,
 			exact: true,
 		});
@@ -38,7 +38,7 @@ test.describe("Navigation", () => {
 	});
 
 	test("should navigate to About page when clicking About me link", async ({ page }) => {
-		const ABOUT_LINK = page.getByRole("link", {
+		const ABOUT_LINK = page.getByRole("banner").getByRole("link", {
 			name: SITE_CONFIG.nav[1].title,
 			exact: true,
 		});
@@ -96,7 +96,7 @@ test.describe("Contacts", () => {
 
 		await test.step("Check if all contact links are visible", async () => {
 			for (const contact of SITE_CONFIG.contactLinks) {
-				const LINK = page.getByRole("link", {
+				const LINK = SOCIAL_LINKS.getByRole("link", {
 					name: new RegExp(contact.title, "i"),
 					exact: false,
 				});

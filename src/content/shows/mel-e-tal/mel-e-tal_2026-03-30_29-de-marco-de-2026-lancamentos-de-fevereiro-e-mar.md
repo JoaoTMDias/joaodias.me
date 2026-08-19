@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: mel-e-tal_2026-03-30_29-de-marco-de-2026-lancamentos-de-fevereiro-e-mar
 show: mel-e-tal
 slug: 29-de-marco-de-2026-lancamentos-de-fevereiro-e-marco
 title: 29 de Março de 2026, lançamentos de Fevereiro e Março

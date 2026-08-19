@@ -1,33 +1,42 @@
 ---
 import { getEntry } from "astro:content";
+import { getLocale } from "../../../i18n";
 import SectionLink from "../../ui/SectionLink/SectionLink.astro";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
 import styles from "./LetsConnect.module.scss";
 import Waves from "./Waves.astro";
 
-const config = await getEntry("config", "config");
-const linkedin = config.data.contactLinks.find((link) => link.title === "LinkedIn");
+const locale = getLocale(Astro.currentLocale);
+const isPt = locale === "pt";
+const config = await getEntry("config", locale + "/config");
+const linkedin = config?.data.contactLinks.find((link) => link.title === "LinkedIn");
+const copy = isPt
+	? {
+			title: "Vamos conversar!",
+			paragraphs: [
+				"Estou disponível para funções de Engenharia Frontend sénior e Consultoria de Acessibilidade na Europa e a nível global.",
+				"A minha experiência ajuda organizações a criar sistemas de design acessíveis, cumprir a EAA ou a ADA e elevar a maturidade das equipas em acessibilidade.",
+				"Vamos criar produtos digitais preparados para o presente.",
+			],
+			cta: "Vamos conversar no LinkedIn",
+		}
+	: {
+			title: "Let's Connect!",
+			paragraphs: [
+				"I'm currently available for Senior Frontend Engineering and Accessibility Consulting roles across Europe and globally.",
+				"My expertise helps organizations build accessible Design Systems, achieve EAA or ADA compliance, and elevate a team's accessibility maturity.",
+				"Let's build digital products that meet the moment.",
+			],
+			cta: "Let's connect on LinkedIn",
+		};
 ---
-
 <section id="lets-connect" class={styles["lets-connect"]}>
-  <SectionTitle text="Let's Connect!" />
+  <SectionTitle text={copy.title} />
   <div class={styles["lets-connect__content"]}>
     <Waves />
     <div class={styles["lets-connect__intro"]}>
-      <p>
-        I'm currently available for Senior Frontend Engineering and Accessibility Consulting roles across Europe and globally.
-      </p>
-      <p>
-        My expertise is uniquely positioned to help organizations build accessible Design Systems, achieve EAA or ADA compliance, or elevate a team's accessibility maturity. I bring the technical depth and strategic insight to deliver results.
-      </p>
-      <p>
-        Let's build digital products that meet the moment.
-      </p>
-      {linkedin && (
-        <div class={styles["lets-connect__cta"]}>
-          <SectionLink href={linkedin.link} text="Let's connect on LinkedIn" isExternal={true} />
-        </div>
-      )}
+      {copy.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      {linkedin && <div class={styles["lets-connect__cta"]}><SectionLink href={linkedin.link} text={copy.cta} isExternal={true} /></div>}
     </div>
   </div>
 </section>

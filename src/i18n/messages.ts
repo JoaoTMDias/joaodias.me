@@ -1,0 +1,123 @@
+import type { Locale } from ".";
+
+const en = {
+	nav: {
+		label: "Pages",
+		menu: "Menu",
+		close: "Close",
+		language: "Language",
+		english: "English",
+		portuguese: "Português",
+	},
+	theme: {
+		light: "Light theme. Press to switch to dark theme",
+		dark: "Dark theme. Press to switch to light theme",
+	},
+	blog: {
+		title: "Blog",
+		intro: "Find a topic of your choice",
+		description: "Articles about Frontend Engineering and Web Accessibility by João Dias",
+		back: "Back to Articles",
+		minutes: "min read",
+		toc: "Table of Contents",
+	},
+	work: {
+		title: "Featured case studies",
+		description: "A showcase of some of my open-source projects.",
+		pageTitle: "Work Projects - João Dias",
+		seoDescription:
+			"Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility",
+		back: "Back to Projects",
+		thumbnail: "project thumbnail",
+		cover: "cover image",
+		information: "Project Information",
+		stack: "Tech stack",
+		source: "Source Code",
+		viewSource: "View source code",
+		unavailable: "Not available",
+	},
+	search: {
+		label: "Search articles",
+		placeholder: "Search articles...",
+		submit: "Search",
+		clear: "Clear search",
+		article: "article",
+		articles: "articles",
+		resultsFor: "Search results for",
+		all: "All articles",
+		empty: "Articles coming soon! Check back later.",
+		none: "No articles match your search. Try a different term.",
+		published: "Published on",
+	},
+	notFound: {
+		title: "Page not found",
+		seoTitle: "Page not found - João Dias",
+		description: "The page you were looking for may have moved or no longer exists.",
+		home: "Go to the homepage",
+		work: "Explore my work",
+		blog: "Read the blog",
+	},
+	common: { main: "Main content", home: "Home page", about: "About me" },
+} as const;
+const pt = {
+	nav: {
+		label: "Páginas",
+		menu: "Menu",
+		close: "Fechar",
+		language: "Idioma",
+		english: "English",
+		portuguese: "Português",
+	},
+	theme: {
+		light: "Tema claro. Prima para mudar para o tema escuro",
+		dark: "Tema escuro. Prima para mudar para o tema claro",
+	},
+	blog: {
+		title: "Blogue",
+		intro: "Encontre um tema à sua escolha",
+		description: "Artigos sobre Engenharia Frontend e Acessibilidade Web por João Dias",
+		back: "Voltar aos artigos",
+		minutes: "min de leitura",
+		toc: "Índice",
+	},
+	work: {
+		title: "Casos de estudo em destaque",
+		description: "Uma seleção de alguns dos meus projetos de código aberto.",
+		pageTitle: "Projetos - João Dias",
+		seoDescription:
+			"Projetos selecionados de João Dias, Engenheiro Frontend especializado em Acessibilidade Web",
+		back: "Voltar aos projetos",
+		thumbnail: "miniatura do projeto",
+		cover: "imagem de capa",
+		information: "Informação do projeto",
+		stack: "Tecnologias",
+		source: "Código-fonte",
+		viewSource: "Ver código-fonte",
+		unavailable: "Não disponível",
+	},
+	search: {
+		label: "Pesquisar artigos",
+		placeholder: "Pesquisar artigos...",
+		submit: "Pesquisar",
+		clear: "Limpar pesquisa",
+		article: "artigo",
+		articles: "artigos",
+		resultsFor: "Resultados da pesquisa por",
+		all: "Todos os artigos",
+		empty: "Os artigos estarão disponíveis em breve.",
+		none: "Nenhum artigo corresponde à pesquisa. Experimente outro termo.",
+		published: "Publicado em",
+	},
+	notFound: {
+		title: "Página não encontrada",
+		seoTitle: "Página não encontrada - João Dias",
+		description: "A página que procurava pode ter mudado ou já não existir.",
+		home: "Ir para a página inicial",
+		work: "Explorar o meu trabalho",
+		blog: "Ler o blogue",
+	},
+	common: { main: "Conteúdo principal", home: "Página inicial", about: "Sobre mim" },
+};
+export type Messages = { [K in keyof typeof en]: Record<string, string> };
+export const messages: Record<Locale, Messages> = { en, pt };
+export const getMessages = (locale: Locale) => messages[locale];

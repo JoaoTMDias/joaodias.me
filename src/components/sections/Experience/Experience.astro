@@ -5,13 +5,16 @@ import SectionLink from "../../ui/SectionLink/SectionLink.astro";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
 import styles from "./Experience.module.scss";
 
-const [experienceDocument] = await getCollection("experience");
+const [experienceDocument] = (await getCollection("experience")).filter(
+	(entry) => entry.data.locale === (Astro.currentLocale === "pt" ? "pt" : "en"),
+);
 const experienceEntries = experienceDocument?.data.entries ?? [];
 const hasCurrentExperience = experienceEntries.some((entry) => entry.isCurrent);
+const isPt = Astro.currentLocale === "pt";
 ---
 
 <div class="section section__stack" id="experience">
-  <SectionTitle text="Professional Experience" />
+  <SectionTitle text={isPt ? "Experiência profissional" : "Professional Experience"} />
   <ul
     class={clsx("section__container", styles["experience"])}
     data-testid="professional-experience"
@@ -32,7 +35,7 @@ const hasCurrentExperience = experienceEntries.some((entry) => entry.isCurrent);
                   <span>{item.startDate}</span>
                   <span class="sr-only">until</span>
                   <span aria-hidden="true">-</span>
-                  <span>{item.endDate || "Present"}</span>
+                  <span>{item.endDate || (isPt ? "Presente" : "Present")}</span>
                 </>
               </p>
               <p>
@@ -46,5 +49,5 @@ const hasCurrentExperience = experienceEntries.some((entry) => entry.isCurrent);
         ))
       }
   </ul>
-  <SectionLink href="/resume-joao-dias.pdf" text="Download my Resume (PDF)" isExternal={true} />
+  <SectionLink href="/resume-joao-dias.pdf" text={isPt ? "Descarregar o meu currículo (PDF)" : "Download my Resume (PDF)"} isExternal={true} />
 </div>

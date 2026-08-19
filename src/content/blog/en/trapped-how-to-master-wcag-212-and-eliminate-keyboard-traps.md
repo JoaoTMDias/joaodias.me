@@ -1,4 +1,6 @@
 ---
+locale: en
+translationKey: trapped-how-to-master-wcag-212-and-eliminate-keyboard-traps
 title: Trapped! How to Master WCAG 2.1.2 and Eliminate Keyboard Traps
 pubDate: 2026-08-10T02:37:07.191Z
 updatedDate: 2026-08-09T23:00:00.000Z

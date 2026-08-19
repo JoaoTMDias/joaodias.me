@@ -10,6 +10,7 @@ interface Props {
 	published: Date;
 	title: string;
 	description?: string;
+	locale?: "en" | "pt";
 }
 
 const DEFAULT_COVER =
@@ -23,6 +24,7 @@ const {
 	published,
 	title,
 	description,
+	locale = "en",
 } = Astro.props;
 
 const formattedPublishedDate = published.toLocaleDateString("pt-PT", {
@@ -59,7 +61,7 @@ if (primaryColor) {
 		<div class={styles.content}>
 			{description && <p class={styles.description}>{description}</p>}
 			<span class={styles.link}>
-				Listen to this show
+				{locale === "pt" ? "Ouvir este programa" : "Listen to this show"}
 			</span>
 		</div>
 	</a>

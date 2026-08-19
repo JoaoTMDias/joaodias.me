@@ -4,6 +4,7 @@ import styles from "./BlogSearch.module.scss";
 
 type BlogArticle = {
 	id: string;
+	url?: string;
 	title: string;
 	excerpt: string;
 	category: string;
@@ -16,6 +17,8 @@ type BlogArticle = {
 
 type BlogSearchProps = {
 	articles: BlogArticle[];
+	locale?: "en" | "pt";
+	messages?: Record<string, string>;
 };
 
 function normalize(value: string) {
@@ -28,7 +31,23 @@ function articleSearchText(article: BlogArticle) {
 	);
 }
 
-function BlogSearch({ articles }: BlogSearchProps) {
+const defaultMessages = {
+	label: "Search articles",
+	placeholder: "Search articles...",
+	submit: "Search",
+	clear: "Clear search",
+	article: "article",
+	articles: "articles",
+	resultsFor: "Search results for",
+	all: "All articles",
+	empty:
+		"Articles coming soon! Check back later for insights on Frontend Engineering and Web Accessibility.",
+	none: "No articles match your search. Try a different term.",
+	published: "Published on",
+};
+
+function BlogSearch({ articles, locale = "en", messages: messageOverrides = {} }: BlogSearchProps) {
+	const messages = { ...defaultMessages, ...messageOverrides };
 	const [inputValue, setInputValue] = useState("");
 	const [query, setQuery] = useState("");
 	const searchInputRef = useRef<HTMLInputElement>(null);
@@ -88,9 +107,14 @@ function BlogSearch({ articles }: BlogSearchProps) {
 	return (
 		<section className={clsx("section", styles["blog-search"])}>
 			<search>
-				<form className={styles["search-form"]} action="/blog" method="get" onSubmit={handleSubmit}>
+				<form
+					className={styles["search-form"]}
+					action={locale === "pt" ? "/pt/blog" : "/blog"}
+					method="get"
+					onSubmit={handleSubmit}
+				>
 					<label htmlFor="search" className="sr-only">
-						Search articles
+						{messages.label}
 					</label>
 					<input
 						ref={searchInputRef}
@@ -98,18 +122,18 @@ function BlogSearch({ articles }: BlogSearchProps) {
 						type="search"
 						id="search"
 						name="q"
-						placeholder="Search articles..."
+						placeholder={messages.placeholder}
 						value={inputValue}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
 							setInputValue(event.target.value)
 						}
 					/>
 					<button className={styles["search-button"]} type="submit">
-						Search
+						{messages.submit}
 					</button>
 					{hasSearchValue && (!hasArticles || hasResults) ? (
 						<button className={styles["clear-button"]} type="button" onClick={handleClear}>
-							Clear search
+							{messages.clear}
 						</button>
 					) : null}
 				</form>
@@ -117,26 +141,26 @@ function BlogSearch({ articles }: BlogSearchProps) {
 
 			<div id="blog-results-summary" className={styles["results-top"]} role="status">
 				<p id="blog-results-count" className={styles["results-total"]}>
-					{resultCount} {resultCount === 1 ? "article" : "articles"}
+					{resultCount} {resultCount === 1 ? messages.article : messages.articles}
 				</p>
 				<p id="blog-results-term" className={styles["results-term"]}>
-					{normalizedQuery ? `Search results for "${query}"` : "All articles"}
+					{normalizedQuery ? `${messages.resultsFor} "${query}"` : messages.all}
 				</p>
 			</div>
 
 			{!hasArticles ? (
 				<div className="empty-state">
-					<p>
-						Articles coming soon! Check back later for insights on Frontend Engineering and Web
-						Accessibility.
-					</p>
+					<p>{messages.empty}</p>
 				</div>
 			) : hasResults ? (
 				<ol className={styles["results-list"]}>
 					{filteredArticles.map((article) => (
 						<li key={article.id} className={styles["result-item"]}>
 							<article className={styles["featured-article"]}>
-								<a href={`/blog/${article.id}`} className={styles["featured-article__link"]}>
+								<a
+									href={article.url ?? `/blog/${article.id}`}
+									className={styles["featured-article__link"]}
+								>
 									{article.featuredImage ? (
 										<img
 											className={styles["featured-article__cover"]}
@@ -153,7 +177,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 											dateTime={article.pubDateISO}
 											className={styles["featured-article__date"]}
 										>
-											<span className="sr-only">Published on</span>&nbsp;
+											<span className="sr-only">{messages.published}</span>&nbsp;
 											{article.pubDateLabel}
 										</time>
 										<h3
@@ -164,7 +188,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 										</h3>
 										{article.readingTime ? (
 											<p className={styles["featured-article__reading-time"]}>
-												{article.readingTime} min read
+												{article.readingTime} {locale === "pt" ? "min de leitura" : "min read"}
 											</p>
 										) : null}
 									</div>
@@ -175,9 +199,9 @@ function BlogSearch({ articles }: BlogSearchProps) {
 				</ol>
 			) : (
 				<div className="empty-state">
-					<p>No articles match your search. Try a different term.</p>
+					<p>{messages.none}</p>
 					<button className={styles["clear-button"]} type="button" onClick={handleClear}>
-						Clear search
+						{messages.clear}
 					</button>
 				</div>
 			)}

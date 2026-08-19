@@ -1,5 +1,6 @@
 ---
 import clsx from "clsx";
+import { getLocale } from "../../../i18n";
 import styles from "./SectionLink.module.scss";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const { text, href, isExternal } = Astro.props;
+const locale = getLocale(Astro.currentLocale);
 ---
 
 <a
@@ -17,6 +19,7 @@ const { text, href, isExternal } = Astro.props;
   rel={isExternal ? "noopener noreferrer" : undefined  }
 >
   <span class={styles.section__link__text}>{text}</span>
+  {isExternal && <span class="sr-only">{locale === "pt" ? ". Esta liga��o abre num novo separador" : ". This link opens in a new tab"}</span>}
   <span class={styles.section__link__arrow} aria-hidden="true">
     {isExternal ? (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28">

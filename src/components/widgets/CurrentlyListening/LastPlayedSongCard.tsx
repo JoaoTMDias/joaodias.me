@@ -29,15 +29,20 @@ const RECORD_DISTANCE_RIGHT_SHIFT = 0.22;
 export const LastPlayedSongCard = ({
 	song,
 	playerConfig,
+	locale = "en",
 }: {
 	song: Track;
 	playerConfig?: PlayerConfig;
+	locale?: "en" | "pt";
 }) => {
 	const { card = {}, track = "", artist = "", album = "" } = playerConfig ?? {};
 	const width = Number.parseInt(card.width ?? "72", 10);
 	const height = Number.parseInt(card.height ?? "72", 10);
 	const coverImage = [...song.image].reverse().find((entry) => entry["#text"]?.trim())?.["#text"];
-	const alt = `${song.name} by ${song.artist["#text"]} from the album ${song.album["#text"]}`;
+	const alt =
+		locale === "pt"
+			? `${song.name}, de ${song.artist["#text"]}, do �lbum ${song.album["#text"]}`
+			: `${song.name} by ${song.artist["#text"]} from the album ${song.album["#text"]}`;
 
 	const coverStyles = {
 		"--cover-width": `${width}px`,
@@ -63,14 +68,14 @@ export const LastPlayedSongCard = ({
 					className={`${styles.track} tooltip`}
 					href={song.url}
 					target="_blank"
-					data-tooltip="View song on Last.fm"
+					data-tooltip={locale === "pt" ? "Ver m�sica no Last.fm" : "View song on Last.fm"}
 					data-testid="currently-listening-song"
 					rel="noopener noreferrer"
 				>
 					{song.name}
 					<span className="sr-only">{track}</span>
 				</a>
-				<span className="sr-only">by</span>
+				<span className="sr-only">{locale === "pt" ? "de" : "by"}</span>
 				<span className={styles.artist} data-testid="currently-listening-artist">
 					{song.artist["#text"]}
 				</span>

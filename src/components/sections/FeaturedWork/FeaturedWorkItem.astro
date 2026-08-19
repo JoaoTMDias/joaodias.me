@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { contentUrl, type Locale } from "../../../i18n";
 import styles from "./FeaturedWork.module.scss";
 
 // Constants
@@ -28,7 +29,11 @@ function getTransitionNames(slug: string) {
 	};
 }
 
-const { project } = Astro.props;
+interface Props {
+	project: CollectionEntry<"projects">;
+	locale: Locale;
+}
+const { project, locale } = Astro.props;
 
 const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
 const theme = getProjectTheme(project);
@@ -44,7 +49,7 @@ const cardStyle = {
   data-testid="work-item"
   style={cardStyle}
 >
-  <a href={`/work/${project.id}`} class={styles.work__link}>
+  <a href={contentUrl(locale, "work", project.id)} class={styles.work__link}>
     <div class={styles["work__image"]}>
       <Image
         class={styles.work__image__img}
@@ -55,7 +60,7 @@ const cardStyle = {
         alt=""
         transition:name={transitionNames.image}
       />
-      <span class={styles["work__image__cta"]} style={cardStyle}>View project</span>
+      <span class={styles["work__image__cta"]} style={cardStyle}>{locale === "pt" ? "Ver projeto" : "View project"}</span>
     </div>
     <div class={styles.work__content}>
       <h3 class={styles.work__title} transition:name={transitionNames.title}>

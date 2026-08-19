@@ -1,4 +1,6 @@
 ---
+locale: en
+translationKey: natalie-maclees
 name: "Natalie MacLees"
 role: "Principal Accessibility Consultant & Engineer"
 avatarUrl: "/natalie-maclees.jpg"

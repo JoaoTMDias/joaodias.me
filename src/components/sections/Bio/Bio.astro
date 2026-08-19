@@ -4,7 +4,7 @@ import clsx from "clsx";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
 import styles from "./Bio.module.scss";
 
-const bio = await getEntry("bio", "bio");
+const bio = await getEntry("bio", (Astro.currentLocale === "pt" ? "pt" : "en") + "/bio");
 
 type RichTextNode = {
 	type?: string;

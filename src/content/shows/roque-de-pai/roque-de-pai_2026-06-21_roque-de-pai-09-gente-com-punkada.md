@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: roque-de-pai_2026-06-21_roque-de-pai-09-gente-com-punkada
 show: roque-de-pai
 slug: roque-de-pai-09-gente-com-punkada
 title: "Roque de Pai 09: Gente com Punkada"

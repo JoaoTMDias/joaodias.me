@@ -32,6 +32,8 @@ const richTextRootSchema = z.object({
 const blogCollection = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
 	schema: z.object({
+		locale: z.enum(["en", "pt"]),
+		translationKey: z.string(),
 		title: z.string(),
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
@@ -52,6 +54,8 @@ const blogCollection = defineCollection({
 const projectsCollection = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/content/work" }),
 	schema: z.object({
+		locale: z.enum(["en", "pt"]),
+		translationKey: z.string(),
 		title: z.string(),
 		date: z.coerce.date(),
 		shortDescription: z.string(),
@@ -82,8 +86,10 @@ const projectsCollection = defineCollection({
 });
 
 const configCollection = defineCollection({
-	loader: glob({ pattern: "*.json", base: "./src/content/config" }),
+	loader: glob({ pattern: "**/*.json", base: "./src/content/config" }),
 	schema: z.object({
+		locale: z.enum(["en", "pt"]),
+		translationKey: z.string(),
 		seo: z.object({
 			title: z.string(),
 			description: z.string(),
@@ -128,8 +134,10 @@ const configCollection = defineCollection({
 });
 
 const bioCollection = defineCollection({
-	loader: glob({ pattern: "*.json", base: "./src/content/bio" }),
+	loader: glob({ pattern: "**/*.json", base: "./src/content/bio" }),
 	schema: z.object({
+		locale: z.enum(["en", "pt"]),
+		translationKey: z.string(),
 		title: z.string(),
 		mainTitle: z.string(),
 		description: z.union([z.string(), richTextRootSchema]),
@@ -143,8 +151,10 @@ const bioCollection = defineCollection({
 });
 
 const experienceCollection = defineCollection({
-	loader: glob({ pattern: "index.json", base: "./src/content/experience" }),
+	loader: glob({ pattern: "**/index.json", base: "./src/content/experience" }),
 	schema: z.object({
+		locale: z.enum(["en", "pt"]),
+		translationKey: z.string(),
 		entries: z.array(
 			z.object({
 				title: z.string(),
@@ -159,8 +169,10 @@ const experienceCollection = defineCollection({
 });
 
 const skillCollection = defineCollection({
-	loader: glob({ pattern: "index.json", base: "./src/content/skills" }),
+	loader: glob({ pattern: "**/index.json", base: "./src/content/skills" }),
 	schema: z.object({
+		locale: z.enum(["en", "pt"]),
+		translationKey: z.string(),
 		entries: z.array(
 			z.object({
 				skill: z.string(),
@@ -177,6 +189,8 @@ const showsCollection = defineCollection({
 		generateId: ({ entry }) => entry.replace(/\.md$/, ""),
 	}),
 	schema: z.object({
+		locale: z.enum(["en", "pt"]),
+		translationKey: z.string(),
 		show: z.string(),
 		slug: z.string(),
 		title: z.string(),
@@ -210,6 +224,8 @@ const showsCollection = defineCollection({
 const testimonialsCollection = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/content/testimonials" }),
 	schema: z.object({
+		locale: z.enum(["en", "pt"]),
+		translationKey: z.string(),
 		name: z.string(),
 		role: z.string(),
 		avatarUrl: z.string(),

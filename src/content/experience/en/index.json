@@ -64,5 +64,7 @@
 			"endDate": "2012",
 			"isCurrent": false
 		}
-	]
+	],
+	"locale": "en",
+	"translationKey": "experience"
 }

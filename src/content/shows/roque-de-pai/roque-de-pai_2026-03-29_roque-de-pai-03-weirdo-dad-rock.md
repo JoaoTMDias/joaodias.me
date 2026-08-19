@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: roque-de-pai_2026-03-29_roque-de-pai-03-weirdo-dad-rock
 show: roque-de-pai
 slug: roque-de-pai-03-weirdo-dad-rock
 title: "Roque de Pai 03: Weirdo Dad Rock"

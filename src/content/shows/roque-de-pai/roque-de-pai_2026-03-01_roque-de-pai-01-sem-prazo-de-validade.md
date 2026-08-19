@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: roque-de-pai_2026-03-01_roque-de-pai-01-sem-prazo-de-validade
 show: roque-de-pai
 slug: roque-de-pai-01-sem-prazo-de-validade
 title: "Roque de Pai 01: Sem Prazo de Validade"

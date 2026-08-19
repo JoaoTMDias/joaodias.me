@@ -3,18 +3,24 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
 import TableOfContents from "../../components/ui/TableOfContents/TableOfContents.astro";
+import { contentSlug, contentUrl, findCounterpart, formatDate } from "../../i18n";
 import PageLayout from "../../layouts/PageLayout.astro";
 
 export async function getStaticPaths() {
-	const articles = await getCollection("blog");
+	const allEntries = await getCollection("blog");
+	const articles = allEntries.filter((entry) => entry.data.locale === "en");
 	return articles.map((article) => ({
-		params: { slug: article.id },
-		props: { article },
+		params: { slug: contentSlug(article.id) },
+		props: {
+			article,
+			counterpart: findCounterpart(allEntries, article, "pt"),
+		},
 	}));
 }
 
 type Props = {
 	article: CollectionEntry<"blog">;
+	counterpart?: CollectionEntry<"blog">;
 };
 
 function getTransitionNames(slug: string) {
@@ -24,7 +30,10 @@ function getTransitionNames(slug: string) {
 	};
 }
 
-const { article } = Astro.props;
+const { article, counterpart } = Astro.props;
+const currentUrl = contentUrl("en", "blog", article.id);
+const counterpartUrl = counterpart ? contentUrl("pt", "blog", counterpart.id) : "/pt/blog";
+const alternateUrls = counterpart ? { en: currentUrl, pt: counterpartUrl } : undefined;
 const { Content, headings } = await render(article);
 const transitionNames = getTransitionNames(article.id);
 ---
@@ -32,7 +41,7 @@ const transitionNames = getTransitionNames(article.id);
 <PageLayout
   title={`${article.data.title} - João Dias`}
   description={article.data.excerpt}
-  itemtype="http://schema.org/Article"
+  itemtype="http://schema.org/Article" languageUrl={counterpartUrl} alternateUrls={alternateUrls}
 >
   <article class="section blog-article" itemprop="articleBody">
     <section class="blog-article__header">
@@ -41,7 +50,7 @@ const transitionNames = getTransitionNames(article.id);
         <div class="blog-article__header__meta" data-testid="blog-article-meta">
           <time class="blog-article__date" datetime={article.data.pubDate.toISOString()}>
             {
-              article.data.pubDate.toLocaleDateString("en-US", {
+              formatDate(article.data.pubDate, "en", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",

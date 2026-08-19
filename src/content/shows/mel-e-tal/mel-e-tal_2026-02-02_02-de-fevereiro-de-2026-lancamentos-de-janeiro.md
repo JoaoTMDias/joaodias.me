@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: mel-e-tal_2026-02-02_02-de-fevereiro-de-2026-lancamentos-de-janeiro
 show: mel-e-tal
 slug: 02-de-fevereiro-de-2026-lancamentos-de-janeiro
 title: 02 de Fevereiro de 2026, lançamentos de Janeiro

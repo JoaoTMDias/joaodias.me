@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: mel-e-tal_2026-04-13_13-abril-2026-entrevista-flood-in-belief
 show: mel-e-tal
 slug: 13-abril-2026-entrevista-flood-in-belief
 title: 13 Abril 2026, Entrevista Flood in Belief

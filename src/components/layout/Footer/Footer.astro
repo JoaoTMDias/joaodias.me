@@ -1,6 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import classNames from "clsx";
+import { getLocale } from "../../../i18n";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
 import CurrentlyListening from "../../widgets/CurrentlyListening/CurrentlyListening";
 import styles from "./Footer.module.scss";
@@ -9,23 +10,24 @@ import FooterLinks from "./FooterLinks.astro";
 import FooterMeta from "./FooterMeta.astro";
 import SocialLinks from "./SocialLinks.astro";
 
-const config = await getEntry("config", "config");
+const config = await getEntry("config", getLocale(Astro.currentLocale) + "/config");
 const currentYear = new Date().getFullYear();
 const copyright = `© ${currentYear} - ${config?.data.copyright}`;
 const footerConfig = config?.data.footer as { player?: Record<string, unknown> } | undefined;
 const playerConfig = footerConfig?.player;
+const isPt = Astro.currentLocale === "pt";
 ---
 
 <footer class={classNames("section", styles.footer)} id="footer">
   <div class={classNames("section__container", styles.footer__container)}>
     <div class={classNames("section__stack", styles.footer__currentlyListening)} data-testid="currently-listening">
-      <SectionTitle text="Currently Listening" />
-      <CurrentlyListening playerConfig={playerConfig} client:load />
+      <SectionTitle text={isPt ? "A ouvir agora" : "Currently Listening"} />
+      <CurrentlyListening playerConfig={playerConfig} locale={isPt ? "pt" : "en"} client:load />
     </div>
     <div class={styles.footer__bottom}>
-      <FooterBio />
+      <FooterBio locale={isPt ? "pt" : "en"} />
       <SocialLinks />
-      <FooterLinks />
+      <FooterLinks locale={isPt ? "pt" : "en"} />
       <FooterMeta copyright={copyright} />
     </div>
   </div>

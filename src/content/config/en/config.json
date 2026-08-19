@@ -73,5 +73,7 @@
 			"artist": "from the",
 			"album": "record"
 		}
-	}
+	},
+	"locale": "en",
+	"translationKey": "config"
 }
