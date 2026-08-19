@@ -33,7 +33,7 @@
   height: 100%;
   padding: var(--show-padding);
   border-radius: var(--space-base);
-  border: 0.125rem solid transparent;
+  border: 0.125rem solid var(--show-text-color);
   background-color: var(--card-bg);
   box-shadow: none;
   text-decoration: none;
