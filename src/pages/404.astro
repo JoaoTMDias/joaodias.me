@@ -1,0 +1,23 @@
+---
+import SectionLink from "../components/ui/SectionLink/SectionLink.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import styles from "./404.module.scss";
+---
+
+<PageLayout
+  title="Page not found - João Dias"
+  description="The page you were looking for could not be found."
+>
+  <section class={styles["not-found"]}>
+    <p class={styles["not-found__code"]}>404</p>
+    <h1 class={styles["not-found__title"]}>Page not found</h1>
+    <p class={styles["not-found__description"]}>
+      The page you were looking for may have moved or no longer exists.
+    </p>
+    <ul class={styles["not-found__links"]}>
+      <li><SectionLink href="/" text="Go to the homepage" /></li>
+      <li><SectionLink href="/work" text="Explore my work" /></li>
+      <li><SectionLink href="/blog" text="Read the blog" /></li>
+    </ul>
+  </section>
+</PageLayout>

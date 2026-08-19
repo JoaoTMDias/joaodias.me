@@ -7,20 +7,28 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("Error States", () => {
 	test("should handle 404 for non-existent project", async ({ page }) => {
-		await page.goto("/work/non-existent-project-slug");
-		await page.waitForLoadState("networkidle");
-
-		// Astro should return a 404 status
 		const response = await page.goto("/work/non-existent-project-slug");
+
 		expect(response?.status()).toBe(404);
+		await expect(page.getByRole("heading", { level: 1, name: "Page not found" })).toBeVisible();
+		await expect(page.getByRole("link", { name: "Go to the homepage" })).toHaveAttribute(
+			"href",
+			"/",
+		);
 	});
 
 	test("should handle 404 for non-existent article", async ({ page }) => {
-		await page.goto("/articles/non-existent-article-slug");
-		await page.waitForLoadState("networkidle");
-
 		const response = await page.goto("/articles/non-existent-article-slug");
+
 		expect(response?.status()).toBe(404);
+		await expect(page.getByRole("link", { name: "Explore my work" })).toHaveAttribute(
+			"href",
+			"/work",
+		);
+		await expect(page.getByRole("link", { name: "Read the blog" })).toHaveAttribute(
+			"href",
+			"/blog",
+		);
 	});
 
 	test("should handle Currently Listening API failure gracefully", async ({ page }) => {
