@@ -6,6 +6,11 @@
   gap: var(--space-md);
 }
 
+.blog-search search {
+  display: block;
+  width: 100%;
+}
+
 .search-form {
   --form-height: var(--space-xl);
 
@@ -46,6 +51,8 @@
   border-radius: var(--form-height);
   cursor: pointer;
   border: none;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .clear-button {
@@ -60,6 +67,8 @@
   border: 1px solid var(--text-color-faded);
   border-radius: var(--form-height);
   cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .results-top,
