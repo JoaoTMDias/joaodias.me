@@ -37,14 +37,14 @@ test.describe("Blog Index Page", () => {
 
 		await expect(page).toHaveURL("/blog?q=no+matching+article");
 		await expect(page.getByText("0 articles", { exact: true })).toBeVisible();
-		await expect(
-			page.getByText("No articles match your search. Try a different term."),
-		).toBeVisible();
+		const emptyState = page.locator(".empty-state");
+		await expect(emptyState).toContainText("No articles match your search. Try a different term.");
 
-		await page.getByRole("button", { name: "Clear search" }).click();
+		await emptyState.getByRole("button", { name: "Clear search" }).click();
 
 		await expect(page).toHaveURL("/blog");
 		await expect(searchInput).toHaveValue("");
+		await expect(searchInput).toBeFocused();
 		await expect(page.getByText("2 articles", { exact: true })).toBeVisible();
 		await expect(page.getByText("All articles", { exact: true })).toBeVisible();
 	});

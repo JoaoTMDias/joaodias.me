@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./BlogSearch.module.scss";
 
 type BlogArticle = {
@@ -31,6 +31,7 @@ function articleSearchText(article: BlogArticle) {
 function BlogSearch({ articles }: BlogSearchProps) {
 	const [inputValue, setInputValue] = useState("");
 	const [query, setQuery] = useState("");
+	const searchInputRef = useRef<HTMLInputElement>(null);
 
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
@@ -60,6 +61,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 		setInputValue("");
 		setQuery("");
 		updateUrl("");
+		searchInputRef.current?.focus();
 	}
 
 	function updateUrl(value: string) {
@@ -90,6 +92,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 					Search articles
 				</label>
 				<input
+					ref={searchInputRef}
 					className={styles["search-input"]}
 					type="text"
 					id="search"
@@ -103,7 +106,7 @@ function BlogSearch({ articles }: BlogSearchProps) {
 				<button className={styles["search-button"]} type="submit">
 					Search
 				</button>
-				{hasSearchValue ? (
+				{hasSearchValue && (!hasArticles || hasResults) ? (
 					<button className={styles["clear-button"]} type="button" onClick={handleClear}>
 						Clear search
 					</button>
@@ -169,6 +172,9 @@ function BlogSearch({ articles }: BlogSearchProps) {
 			) : (
 				<div className="empty-state">
 					<p>No articles match your search. Try a different term.</p>
+					<button className={styles["clear-button"]} type="button" onClick={handleClear}>
+						Clear search
+					</button>
 				</div>
 			)}
 		</section>
