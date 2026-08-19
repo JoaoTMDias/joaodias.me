@@ -37,11 +37,9 @@ const cardStyle = {
 	"--work-background-color": theme.background,
 	"--work-text-color": theme.foreground,
 } as React.CSSProperties;
-const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
 ---
 
 <article
-  aria-label={ariaLabel}
   class={styles.work}
   data-testid="work-item"
   style={cardStyle}

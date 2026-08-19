@@ -42,7 +42,8 @@ test.describe("Work projects Index Page", () => {
 
 			const title = card.getByRole("heading");
 			await expect(title).toBeVisible();
-			await expect(card).toHaveAttribute("aria-label", /, /);
+			await expect(card).not.toHaveAttribute("aria-label");
+			await expect(card).toHaveAccessibleName(/.+/);
 		}
 	});
 

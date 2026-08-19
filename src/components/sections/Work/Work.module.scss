@@ -118,12 +118,10 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     cursor: pointer;
     background-color: var(--background-color-hover);
     color: var(--text-color-hover);
-    outline-color: transparent;
-    outline-offset: -2px;
 
     .content__toggle__path {
       fill: var(--text-color-hover);

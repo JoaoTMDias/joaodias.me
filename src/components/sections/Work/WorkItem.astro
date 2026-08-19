@@ -29,7 +29,6 @@ interface Props {
 
 const { id, title, subtitle, skills, thumbnail, theme, index } = Astro.props;
 
-const ariaLabel = `${title}, ${subtitle}`;
 const transitionName = `project-title-${id}`;
 const imageTransitionName = `project-image-${id}`;
 
@@ -47,9 +46,6 @@ const buttonStyle = {
 	<a
 		href={`/work/${id}`}
 		id={id}
-		type="button"
-		aria-label={ariaLabel}
-		aria-describedby="work-description"
 		class={styles.item}
 		style={buttonStyle}
 		data-testid="work-item"

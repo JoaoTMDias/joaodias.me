@@ -80,7 +80,6 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
             "--work-background": theme.background,
             "--work-foreground": theme.foreground,
           };
-          const ariaLabel = `${project.data.title}, ${project.data.shortDescription}`;
 
           return (
             <li>
@@ -88,7 +87,6 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
                 href={`/work/${project.id}`}
                 class={styles.work__card}
                 style={cardStyle}
-                aria-label={ariaLabel}
                 data-testid="work-card"
               >
                 <div class={styles["work__card-thumbnail"]}>
