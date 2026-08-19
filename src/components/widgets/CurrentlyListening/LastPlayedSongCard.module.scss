@@ -27,8 +27,11 @@
   align-items: flex-start;
   gap: var(--space-xs);
   margin: 0;
-  transition: all var(--motion-duration-background-animation) var(--motion-ease-bounce);
   transform: translate(0, 0);
+
+  @media (--with-motion) {
+    transition: all var(--motion-duration-background-animation) var(--motion-ease-bounce);
+  }
 }
 
 .cover {

@@ -42,7 +42,10 @@
   height: 100%;
   background-color: var(--text-color);
   border-radius: 9999px;
-  transition: background-color 0.3s ease;
+
+  @media (--with-motion) {
+    transition: background-color 0.3s ease;
+  }
 }
 
 .theme-switcher__input:focus-visible + .theme-switcher__track {
@@ -62,8 +65,11 @@
   background-color: var(--background-color, hsla(26, 37%, 96%, 1));
   border-radius: 50%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
+
+  @media (--with-motion) {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
 .theme-switcher__input:checked ~ .theme-switcher__thumb {
@@ -75,10 +81,13 @@
   position: absolute;
   width: var(--icon-size);
   height: var(--icon-size);
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
   color: var(--text-color);
+
+  @media (--with-motion) {
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
 
   &--light {
     opacity: 1;

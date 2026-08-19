@@ -110,9 +110,12 @@
   gap: 2rem;
   background-color: var(--item-background-color);
   color: var(--item-text-color);
-  transition: all 200ms ease-in-out;
   border-radius: 1.5rem;
   width: 100%;
+
+  @media (--with-motion) {
+    transition: all 200ms ease-in-out;
+  }
 
   &:hover,
   &:focus {

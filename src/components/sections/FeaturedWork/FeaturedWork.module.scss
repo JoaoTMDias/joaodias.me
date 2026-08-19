@@ -40,14 +40,17 @@
     border-radius: var(--section-border-radius);
     gap: var(--space-sm);
     text-decoration: none;
-    transition: all 200ms ease-in-out;
     background-color: light-dark(var(--work-text-color), var(--work-background-color));
     color: light-dark(var(--work-background-color), var(--work-text-color));
 
-    &:hover,
-    &:focus {
-      translate: 0 -0.25rem;
-      box-shadow: none;
+    @media (--with-motion) {
+      transition: all 200ms ease-in-out;
+
+      &:hover,
+      &:focus {
+        translate: 0 -0.25rem;
+        box-shadow: none;
+      }
     }
   }
 
@@ -127,7 +130,10 @@
       font-family: var(--text-font-family);
       font-size: var(--font-size-base);
       font-weight: 700;
-      transition: all 200ms ease-in-out;
+
+      @media (--with-motion) {
+        transition: all 200ms ease-in-out;
+      }
     }
   }
 

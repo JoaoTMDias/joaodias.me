@@ -129,7 +129,10 @@
   align-items: flex-start;
   gap: var(--space-base);
   color: var(--text-color);
-  transition: all 200ms ease-in-out;
+
+  @media (--with-motion) {
+    transition: all 200ms ease-in-out;
+  }
 
   &__link {
     text-decoration: none;

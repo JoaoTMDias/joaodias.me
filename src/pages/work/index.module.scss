@@ -72,17 +72,20 @@
     padding: 0;
     background-color: light-dark(var(--work-foreground), var(--work-background));
     color: light-dark(var(--work-background), var(--work-foreground));
-    transition:
-      box-shadow var(--work-transition-duration) var(--motion-ease-out),
-      transform var(--work-transition-duration) var(--motion-ease-out),
-      background-color var(--work-transition-duration) var(--motion-ease-standard),
-      color var(--work-transition-duration) var(--motion-ease-standard);
     width: 100%;
     height: fit-content;
     text-decoration: none;
     appearance: none;
     border: none;
     border-radius: var(--work-card-border-radius);
+
+    @media (--with-motion) {
+      transition:
+        box-shadow var(--work-transition-duration) var(--motion-ease-out),
+        transform var(--work-transition-duration) var(--motion-ease-out),
+        background-color var(--work-transition-duration) var(--motion-ease-standard),
+        color var(--work-transition-duration) var(--motion-ease-standard);
+    }
 
     &:before {
       content: "";
@@ -94,16 +97,25 @@
       box-shadow: 0 4px 40px 8px rgba(0, 0, 0, 0.2);
       pointer-events: none;
       opacity: 0;
-      transition: opacity var(--motion-duration-background-animation) var(--motion-ease-out);
+
+      @media (--with-motion) {
+        transition: opacity var(--motion-duration-background-animation) var(--motion-ease-out);
+      }
     }
 
     &:hover,
     &:focus {
       cursor: pointer;
-      transform: translateY(-0.25rem);
+    }
 
-      &:before {
-        opacity: 1;
+    @media (--with-motion) {
+      &:hover,
+      &:focus {
+        transform: translateY(-0.25rem);
+
+        &:before {
+          opacity: 1;
+        }
       }
     }
 

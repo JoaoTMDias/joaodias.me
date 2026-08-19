@@ -84,13 +84,6 @@
   background-clip: border-box, padding-box, padding-box, padding-box;
   box-shadow: none;
   text-decoration: none;
-  transition:
-    --blob1-x var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
-    --blob1-y var(--motion-duration-background-animation) var(--motion-ease-standard),
-    --blob2-x var(--motion-duration-background-animation) var(--motion-ease-standard),
-    --blob2-y var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
-    --gradient-angle var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
-    transform var(--motion-duration-background-animation) var(--motion-ease-out);
 
   &:before {
     content: "";
@@ -103,7 +96,6 @@
     box-shadow: 0 4px 40px 8px rgba(0, 0, 0, 0.4);
     pointer-events: none;
     opacity: 0;
-    transition: opacity var(--motion-duration-background-animation) var(--motion-ease-out);
   }
 }
 
@@ -120,6 +112,10 @@
       --blob2-y var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
       --gradient-angle var(--motion-duration-background-animation-slow) var(--motion-ease-standard),
       transform var(--motion-duration-background-animation) var(--motion-ease-out);
+  }
+
+  .card:before {
+    transition: opacity var(--motion-duration-background-animation) var(--motion-ease-out);
   }
 
   .card:hover,

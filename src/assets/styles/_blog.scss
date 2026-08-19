@@ -263,7 +263,10 @@
 			border-radius: 3rem;
 			font-family: var(--text-font-family);
 			display: inline-block;
-			transition: all 0.2s ease;
+
+			@media (--with-motion) {
+				transition: all 0.2s ease;
+			}
 
 			&:hover,
 			&:focus {
