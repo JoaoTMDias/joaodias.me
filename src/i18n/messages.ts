@@ -7,7 +7,7 @@ const en = {
 		close: "Close",
 		language: "Language",
 		english: "English",
-		portuguese: "Portugu\u00eas",
+		portuguese: "Português",
 	},
 	theme: {
 		light: "Light theme. Press to switch to dark theme",
@@ -16,7 +16,7 @@ const en = {
 	blog: {
 		title: "Blog",
 		intro: "Find a topic of your choice",
-		description: "Articles about Frontend Engineering and Web Accessibility by Jo\u00e3o Dias",
+		description: "Articles about Frontend Engineering and Web Accessibility by João Dias",
 		back: "Back to Articles",
 		minutes: "min read",
 		toc: "Table of Contents",
@@ -24,9 +24,9 @@ const en = {
 	work: {
 		title: "Featured case studies",
 		description: "A showcase of some of my open-source projects.",
-		pageTitle: "Work Projects - Jo\u00e3o Dias",
+		pageTitle: "Work Projects - João Dias",
 		seoDescription:
-			"Selected projects by Jo\u00e3o Dias, Frontend Engineer specializing in Web Accessibility",
+			"Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility",
 		back: "Back to Projects",
 		thumbnail: "project thumbnail",
 		cover: "cover image",
@@ -51,7 +51,7 @@ const en = {
 	},
 	notFound: {
 		title: "Page not found",
-		seoTitle: "Page not found - Jo\u00e3o Dias",
+		seoTitle: "Page not found - João Dias",
 		description: "The page you were looking for may have moved or no longer exists.",
 		home: "Go to the homepage",
 		work: "Explore my work",
@@ -61,12 +61,12 @@ const en = {
 } as const;
 const pt = {
 	nav: {
-		label: "P\u00e1ginas",
+		label: "Páginas",
 		menu: "Menu",
 		close: "Fechar",
 		language: "Idioma",
 		english: "English",
-		portuguese: "Portugu\u00eas",
+		portuguese: "Português",
 	},
 	theme: {
 		light: "Tema claro. Prima para mudar para o tema escuro",
@@ -74,26 +74,26 @@ const pt = {
 	},
 	blog: {
 		title: "Blogue",
-		intro: "Encontre um tema \u00e0 sua escolha",
-		description: "Artigos sobre Engenharia Frontend e Acessibilidade Web por Jo\u00e3o Dias",
+		intro: "Encontre um tema à sua escolha",
+		description: "Artigos sobre Engenharia Frontend e Acessibilidade Web por João Dias",
 		back: "Voltar aos artigos",
 		minutes: "min de leitura",
-		toc: "\u00cdndice",
+		toc: "Índice",
 	},
 	work: {
 		title: "Casos de estudo em destaque",
-		description: "Uma sele\u00e7\u00e3o de alguns dos meus projetos de c\u00f3digo aberto.",
-		pageTitle: "Projetos - Jo\u00e3o Dias",
+		description: "Uma seleção de alguns dos meus projetos de código aberto.",
+		pageTitle: "Projetos - João Dias",
 		seoDescription:
-			"Projetos selecionados de Jo\u00e3o Dias, Engenheiro Frontend especializado em Acessibilidade Web",
+			"Projetos selecionados de João Dias, Engenheiro Frontend especializado em Acessibilidade Web",
 		back: "Voltar aos projetos",
 		thumbnail: "miniatura do projeto",
 		cover: "imagem de capa",
-		information: "Informa\u00e7\u00e3o do projeto",
+		information: "Informação do projeto",
 		stack: "Tecnologias",
-		source: "C\u00f3digo-fonte",
-		viewSource: "Ver c\u00f3digo-fonte",
-		unavailable: "N\u00e3o dispon\u00edvel",
+		source: "Código-fonte",
+		viewSource: "Ver código-fonte",
+		unavailable: "Não disponível",
 	},
 	search: {
 		label: "Pesquisar artigos",
@@ -104,19 +104,19 @@ const pt = {
 		articles: "artigos",
 		resultsFor: "Resultados da pesquisa por",
 		all: "Todos os artigos",
-		empty: "Os artigos estar\u00e3o dispon\u00edveis em breve.",
-		none: "Nenhum artigo corresponde \u00e0 pesquisa. Experimente outro termo.",
+		empty: "Os artigos estarão disponíveis em breve.",
+		none: "Nenhum artigo corresponde à pesquisa. Experimente outro termo.",
 		published: "Publicado em",
 	},
 	notFound: {
-		title: "P\u00e1gina n\u00e3o encontrada",
-		seoTitle: "P\u00e1gina n\u00e3o encontrada - Jo\u00e3o Dias",
-		description: "A p\u00e1gina que procurava pode ter mudado ou j\u00e1 n\u00e3o existir.",
-		home: "Ir para a p\u00e1gina inicial",
+		title: "Página não encontrada",
+		seoTitle: "Página não encontrada - João Dias",
+		description: "A página que procurava pode ter mudado ou já não existir.",
+		home: "Ir para a página inicial",
 		work: "Explorar o meu trabalho",
 		blog: "Ler o blogue",
 	},
-	common: { main: "Conte\u00fado principal", home: "P\u00e1gina inicial", about: "Sobre mim" },
+	common: { main: "Conteúdo principal", home: "Página inicial", about: "Sobre mim" },
 };
 export type Messages = { [K in keyof typeof en]: Record<string, string> };
 export const messages: Record<Locale, Messages> = { en, pt };

@@ -21,7 +21,7 @@ const isPt = Astro.currentLocale === "pt";
   <div class={clsx("section__container", styles["featured-work__content"])}>
     <SectionTitle text={isPt ? "Trabalho em destaque" : "Featured Work"} />
     <div class={styles["featured-work__list"]}>
-      {projects.map((project) => <FeaturedWorkItem key={project.id} project={project} />)}
+      {projects.map((project) => <FeaturedWorkItem key={project.id} project={project} locale={isPt ? "pt" : "en"} />)}
     </div>
   </div>
   <SectionLink href={isPt ? "/pt/work" : "/work"} text={isPt ? "Ver todos os projetos" : "Visit all featured projects"} />

@@ -38,25 +38,25 @@
 	"contactLinks": [
 		{
 			"title": "Instagram",
-			"accessibleLabel": "Check my Instagram profile. This link opens in a new tab",
+			"accessibleLabel": "Ver o meu perfil no Instagram. Esta ligação abre num novo separador",
 			"link": "https://instagram.com/joaotmdias",
 			"icon": "TbBrandInstagram"
 		},
 		{
 			"title": "GitHub",
-			"accessibleLabel": "Check my projects and source code on Github. This link opens in a new tab",
+			"accessibleLabel": "Ver os meus projetos e código-fonte no GitHub. Esta ligação abre num novo separador",
 			"link": "https://github.com/joaotmdias",
 			"icon": "TbBrandGithub"
 		},
 		{
 			"title": "LinkedIn",
-			"accessibleLabel": "Add me on LinkedIn. This link opens in a new tab",
+			"accessibleLabel": "Adicionar-me no LinkedIn. Esta ligação abre num novo separador",
 			"link": "https://linkedin.com/in/joaotmdias",
 			"icon": "TbBrandLinkedin"
 		},
 		{
-			"title": "RUC Shows",
-			"accessibleLabel": "My Radio shows on RUC",
+			"title": "Programas na RUC",
+			"accessibleLabel": "Os meus programas de rádio na RUC",
 			"link": "https://ruc.pt/autor/joaotmdias",
 			"icon": "TbRadio"
 		}
@@ -69,9 +69,9 @@
 				"width": "72",
 				"height": "72"
 			},
-			"track": ". This link will open in a new tab",
-			"artist": "from the",
-			"album": "record"
+			"track": ". Esta ligação abre num novo separador",
+			"artist": "de",
+			"album": "álbum"
 		}
 	},
 	"locale": "pt",

@@ -8,7 +8,8 @@ import Skills from "../components/sections/Skills/Skills.astro";
 import EN_CONTENT from "../data/index.json";
 import PT_CONTENT from "../data/index.pt.json";
 
-const PAGE_CONTENT = Astro.currentLocale === "pt" ? PT_CONTENT : EN_CONTENT;
+const isPt = Astro.currentLocale === "pt";
+const PAGE_CONTENT = isPt ? PT_CONTENT : EN_CONTENT;
 
 import PageLayout from "../layouts/PageLayout.astro";
 ---
@@ -17,7 +18,7 @@ import PageLayout from "../layouts/PageLayout.astro";
 	title="About João Dias - Frontend Engineer specializing in Web Accessibility"
 	description="Learn about João Dias, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal."
 >
-  <h1 class="sr-only">About me</h1>
+  <h1 class="sr-only">{isPt ? "Sobre mim" : "About me"}</h1>
   <div class="content">
     <Hero
       title={PAGE_CONTENT.about.title}

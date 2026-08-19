@@ -31,7 +31,23 @@ function articleSearchText(article: BlogArticle) {
 	);
 }
 
-function BlogSearch({ articles, locale = "en", messages = {} }: BlogSearchProps) {
+const defaultMessages = {
+	label: "Search articles",
+	placeholder: "Search articles...",
+	submit: "Search",
+	clear: "Clear search",
+	article: "article",
+	articles: "articles",
+	resultsFor: "Search results for",
+	all: "All articles",
+	empty:
+		"Articles coming soon! Check back later for insights on Frontend Engineering and Web Accessibility.",
+	none: "No articles match your search. Try a different term.",
+	published: "Published on",
+};
+
+function BlogSearch({ articles, locale = "en", messages: messageOverrides = {} }: BlogSearchProps) {
+	const messages = { ...defaultMessages, ...messageOverrides };
 	const [inputValue, setInputValue] = useState("");
 	const [query, setQuery] = useState("");
 	const searchInputRef = useRef<HTMLInputElement>(null);
@@ -98,7 +114,7 @@ function BlogSearch({ articles, locale = "en", messages = {} }: BlogSearchProps)
 					onSubmit={handleSubmit}
 				>
 					<label htmlFor="search" className="sr-only">
-						Search articles
+						{messages.label}
 					</label>
 					<input
 						ref={searchInputRef}
@@ -113,11 +129,11 @@ function BlogSearch({ articles, locale = "en", messages = {} }: BlogSearchProps)
 						}
 					/>
 					<button className={styles["search-button"]} type="submit">
-						Search
+						{messages.submit}
 					</button>
 					{hasSearchValue && (!hasArticles || hasResults) ? (
 						<button className={styles["clear-button"]} type="button" onClick={handleClear}>
-							Clear search
+							{messages.clear}
 						</button>
 					) : null}
 				</form>
@@ -125,19 +141,16 @@ function BlogSearch({ articles, locale = "en", messages = {} }: BlogSearchProps)
 
 			<div id="blog-results-summary" className={styles["results-top"]} role="status">
 				<p id="blog-results-count" className={styles["results-total"]}>
-					{resultCount} {resultCount === 1 ? "article" : "articles"}
+					{resultCount} {resultCount === 1 ? messages.article : messages.articles}
 				</p>
 				<p id="blog-results-term" className={styles["results-term"]}>
-					{normalizedQuery ? `Search results for "${query}"` : "All articles"}
+					{normalizedQuery ? `${messages.resultsFor} "${query}"` : messages.all}
 				</p>
 			</div>
 
 			{!hasArticles ? (
 				<div className="empty-state">
-					<p>
-						Articles coming soon! Check back later for insights on Frontend Engineering and Web
-						Accessibility.
-					</p>
+					<p>{messages.empty}</p>
 				</div>
 			) : hasResults ? (
 				<ol className={styles["results-list"]}>
@@ -175,7 +188,7 @@ function BlogSearch({ articles, locale = "en", messages = {} }: BlogSearchProps)
 										</h3>
 										{article.readingTime ? (
 											<p className={styles["featured-article__reading-time"]}>
-												{article.readingTime} min read
+												{article.readingTime} {locale === "pt" ? "min de leitura" : "min read"}
 											</p>
 										) : null}
 									</div>
@@ -186,9 +199,9 @@ function BlogSearch({ articles, locale = "en", messages = {} }: BlogSearchProps)
 				</ol>
 			) : (
 				<div className="empty-state">
-					<p>No articles match your search. Try a different term.</p>
+					<p>{messages.none}</p>
 					<button className={styles["clear-button"]} type="button" onClick={handleClear}>
-						Clear search
+						{messages.clear}
 					</button>
 				</div>
 			)}

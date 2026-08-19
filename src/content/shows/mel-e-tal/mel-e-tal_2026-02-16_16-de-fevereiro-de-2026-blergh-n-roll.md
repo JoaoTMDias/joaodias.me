@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: mel-e-tal_2026-02-16_16-de-fevereiro-de-2026-blergh-n-roll
 show: mel-e-tal
 slug: 16-de-fevereiro-de-2026-blergh-n-roll
 title: 16 de Fevereiro de 2026, Blergh n’ Roll

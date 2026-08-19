@@ -189,6 +189,8 @@ const showsCollection = defineCollection({
 		generateId: ({ entry }) => entry.replace(/\.md$/, ""),
 	}),
 	schema: z.object({
+		locale: z.enum(["en", "pt"]),
+		translationKey: z.string(),
 		show: z.string(),
 		slug: z.string(),
 		title: z.string(),

@@ -1,3 +1,5 @@
+import { contentSlug } from "../i18n";
+
 export type FeedEntry = {
 	title: string;
 	description: string;
@@ -37,7 +39,7 @@ export function buildRssItems(
 			title: `[Article] ${post.data.title}`,
 			description: post.data.excerpt,
 			pubDate: post.data.pubDate,
-			link: `/blog/${post.id}/`,
+			link: `/blog/${contentSlug(post.id)}/`,
 		}));
 
 	const latestShows = shows

@@ -22,7 +22,7 @@ const isPt = Astro.currentLocale === "pt";
   <div class={classNames("section__container", styles.footer__container)}>
     <div class={classNames("section__stack", styles.footer__currentlyListening)} data-testid="currently-listening">
       <SectionTitle text={isPt ? "A ouvir agora" : "Currently Listening"} />
-      <CurrentlyListening playerConfig={playerConfig} client:load />
+      <CurrentlyListening playerConfig={playerConfig} locale={isPt ? "pt" : "en"} client:load />
     </div>
     <div class={styles.footer__bottom}>
       <FooterBio locale={isPt ? "pt" : "en"} />

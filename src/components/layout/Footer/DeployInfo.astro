@@ -1,25 +1,28 @@
 ---
 import buildInfo from "../../../data/build-info.json";
+import { getLocale, htmlLang } from "../../../i18n";
 import styles from "./DeployInfo.module.scss";
 
-const deployDate = new Date(buildInfo.deployTime).toLocaleString();
+const locale = getLocale(Astro.currentLocale);
+
+const deployDate = new Date(buildInfo.deployTime).toLocaleString(htmlLang[locale]);
 const deployInfo = `${deployDate}`;
 const deployUrl = `https://github.com/JoaoTMDias/joaodias.me/commit/${buildInfo.commitHash}`;
 ---
 
 <p class={styles.footer__deploy}>
-  Last deploy:
+  {locale === "pt" ? "�ltima publica��o:" : "Last deploy:"}
   <a
     href={deployUrl}
     target="_blank"
     rel="noopener noreferrer"
     class={styles.footer__deploy__link}
   >
-    <span class="sr-only">Commit with hash</span>
+    <span class="sr-only">{locale === "pt" ? "Commit com o identificador" : "Commit with hash"}</span>
     <span>
       <span>{buildInfo.commitHash}</span>
-      <span class="sr-only">was deployed on {deployInfo}.</span>
-      <span class="sr-only">This link opens in a new tab</span>
+      <span class="sr-only">{locale === "pt" ? "foi publicado em" : "was deployed on"} {deployInfo}.</span>
+      <span class="sr-only">{locale === "pt" ? "Esta liga��o abre num novo separador" : "This link opens in a new tab"}</span>
     </span>
   </a>
 </p>

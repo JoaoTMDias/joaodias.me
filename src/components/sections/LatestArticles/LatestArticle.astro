@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { contentUrl, formatDate, type Locale } from "../../../i18n";
 import styles from "./LatestArticles.module.scss";
 
 interface Props {
@@ -9,9 +10,10 @@ interface Props {
 	excerpt: string;
 	featuredImage?: string;
 	readingTime?: number;
+	locale: Locale;
 }
 
-const { id, title, pubDate, featuredImage, readingTime } = Astro.props;
+const { id, title, pubDate, featuredImage, readingTime, locale } = Astro.props;
 
 function getTransitionNames(slug: string) {
 	return {
@@ -20,7 +22,7 @@ function getTransitionNames(slug: string) {
 	};
 }
 
-const formattedDate = pubDate.toLocaleDateString("en-US", {
+const formattedDate = formatDate(pubDate, locale, {
 	year: "numeric",
 	month: "short",
 	day: "numeric",
@@ -29,7 +31,7 @@ const transitionNames = getTransitionNames(id);
 ---
 
 <article class={styles["featured-article"]}>
-  <a href={`/blog/${id}`} class={styles["featured-article__link"]}>
+  <a href={contentUrl(locale, "blog", id)} class={styles["featured-article__link"]}>
     {
       featuredImage && (
         <Image
@@ -45,10 +47,10 @@ const transitionNames = getTransitionNames(id);
     }
     <div class={styles["featured-article__content"]}>
       <time datetime={pubDate.toISOString()} class={styles["featured-article__date"]}
-        ><span class="sr-only">Published on</span>&nbsp;{formattedDate}</time
+        ><span class="sr-only">{locale === "pt" ? "Publicado em" : "Published on"}</span>&nbsp;{formattedDate}</time
       >
       <h3 class={styles["featured-article__title"]} transition:name={transitionNames.title}>{title}</h3>
-      {readingTime && <p class={styles["featured-article__reading-time"]}>{readingTime} min read</p>}
+      {readingTime && <p class={styles["featured-article__reading-time"]}>{readingTime} {locale === "pt" ? "min de leitura" : "min read"}</p>}
     </div>
   </a>
 </article>

@@ -11,11 +11,11 @@ const testimonials = (await getCollection("testimonials"))
 const isPt = Astro.currentLocale === "pt";
 ---
 
-<section id="peer-feedback" class="section section__stack">
+{testimonials.length > 0 && <section id="peer-feedback" class="section section__stack">
   <div class={clsx("section__container", styles["peer-feedback__content"])}>
-    <SectionTitle text={isPt ? "Opini\u00f5es de colegas" : "Peer Feedback"} />
+    <SectionTitle text={isPt ? "Opiniões de colegas" : "Peer Feedback"} />
     <p class={styles["peer-feedback__intro"]}>
-      Here's what engineering leaders and design partners say about working with me
+      {isPt ? "O que líderes de engenharia e parceiros de design dizem sobre trabalhar comigo" : "Here's what engineering leaders and design partners say about working with me"}
     </p>
     <div class={styles["peer-feedback__list"]}>
       {
@@ -31,4 +31,4 @@ const isPt = Astro.currentLocale === "pt";
       }
     </div>
   </div>
-</section>
+</section>}

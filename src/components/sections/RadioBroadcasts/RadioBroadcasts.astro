@@ -16,11 +16,11 @@ const isPt = Astro.currentLocale === "pt";
   <div class={clsx("section__container", styles.broadcasts)}>
     <SectionTitle text={isPt ? "Nas ondas" : "Over the air"} />
     <p class={styles.broadcasts__intro}>
-      I am also a radio host at <strong
+      {isPt ? "Sou também locutor na " : "I am also a radio host at "}<strong
         ><a href="https://ruc.pt/autor/joaotmdias" target="_blank" rel="noopener noreferrer" lang="pt-PT"
           >Rádio Universidade de Coimbra</a
         ></strong
-      > (RUC), where I regularly broadcast shows that range from Jazz, Blues, Rock, Punk and Heavy Metal.
+      >{isPt ? " (RUC), onde apresento programas de Jazz, Blues, Rock, Punk e Heavy Metal." : " (RUC), where I regularly broadcast shows that range from Jazz, Blues, Rock, Punk and Heavy Metal."}
     </p>
     <div class={styles.broadcasts__shows}>
       <div class={styles.broadcasts__list}>
@@ -36,6 +36,7 @@ const isPt = Astro.currentLocale === "pt";
               published={show.data.published}
               title={show.data.title}
               description={show.data.summary}
+              locale={isPt ? "pt" : "en"}
             />
           )
           })

@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: mel-e-tal_2026-03-02_meltal-especial-dos-40-anos-da-ruc
 show: mel-e-tal
 slug: meltal-especial-dos-40-anos-da-ruc
 title: Mel&Tal especial dos 40 anos da RUC

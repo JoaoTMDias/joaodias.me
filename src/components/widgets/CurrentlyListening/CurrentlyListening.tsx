@@ -26,6 +26,7 @@ interface PlayerConfig {
 
 interface ICurrentlyListeningProps {
 	playerConfig?: PlayerConfig;
+	locale?: "en" | "pt";
 }
 
 async function getSong() {
@@ -55,7 +56,7 @@ const FALLBACK_CONFIG: PlayerConfig = {
 	album: "",
 };
 
-function CurrentlyListeningContent({ playerConfig }: ICurrentlyListeningProps) {
+function CurrentlyListeningContent({ playerConfig, locale = "en" }: ICurrentlyListeningProps) {
 	const resolvedConfig = playerConfig ?? FALLBACK_CONFIG;
 	const {
 		data: song,
@@ -73,22 +74,30 @@ function CurrentlyListeningContent({ playerConfig }: ICurrentlyListeningProps) {
 	}
 
 	if (isError) {
-		return <p>{ERROR_MESSAGE}</p>;
+		return (
+			<p>
+				{locale === "pt"
+					? "A atividade de audi��o est� temporariamente indispon�vel."
+					: ERROR_MESSAGE}
+			</p>
+		);
 	}
 
 	if (!song) {
-		return <p>{EMPTY_MESSAGE}</p>;
+		return <p>{locale === "pt" ? "Sem atividade de audi��o recente." : EMPTY_MESSAGE}</p>;
 	}
 
-	return <LastPlayedSongCard key={song.name} song={song} playerConfig={resolvedConfig} />;
+	return (
+		<LastPlayedSongCard key={song.name} song={song} playerConfig={resolvedConfig} locale={locale} />
+	);
 }
 
-function CurrentlyListening({ playerConfig }: ICurrentlyListeningProps) {
+function CurrentlyListening({ playerConfig, locale = "en" }: ICurrentlyListeningProps) {
 	const [queryClient] = useState(() => new QueryClient());
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<CurrentlyListeningContent playerConfig={playerConfig} />
+			<CurrentlyListeningContent playerConfig={playerConfig} locale={locale} />
 		</QueryClientProvider>
 	);
 }

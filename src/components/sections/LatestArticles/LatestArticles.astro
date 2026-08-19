@@ -29,6 +29,7 @@ const isPt = Astro.currentLocale === "pt";
               excerpt={article.data.excerpt}
               featuredImage={article.data.featuredImage}
               readingTime={article.data.readingTime}
+              locale={isPt ? "pt" : "en"}
             />
           ))
         }

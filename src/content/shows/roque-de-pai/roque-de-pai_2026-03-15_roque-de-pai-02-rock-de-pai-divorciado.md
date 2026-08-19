@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: roque-de-pai_2026-03-15_roque-de-pai-02-rock-de-pai-divorciado
 show: roque-de-pai
 slug: roque-de-pai-02-rock-de-pai-divorciado
 title: "Roque de Pai 02: Rock de Pai Divorciado"

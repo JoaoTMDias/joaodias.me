@@ -8,9 +8,9 @@
 			"src": "/photo-profile.webp",
 			"width": 560,
 			"height": 560,
-			"alt": "Headshot portrait of João Dias seated on a brown leather armchair. He has long wavy hair, glasses, a mustache, and visible forearm tattoos, wearing a short-sleeved black polo shirt against a warm, neutral backdrop."
+			"alt": "Retrato de João Dias sentado numa poltrona de couro castanha. Tem cabelo comprido e ondulado, óculos, bigode e tatuagens visíveis nos antebraços, e veste um polo preto de manga curta."
 		},
-		"copyright": "Since 1987 © Limited Edition"
+		"copyright": "Desde 1987 © Edição limitada"
 	},
 	"about": {
 		"title": "Olá, sou o João",
@@ -20,14 +20,14 @@
 			"src": "/about-profile.webp",
 			"width": 560,
 			"height": 560,
-			"alt": "Headshot portrait of João Dias seated on a brown leather armchair. He has long wavy hair, glasses, a mustache, and visible forearm tattoos, wearing a short-sleeved black polo shirt against a warm, neutral backdrop."
+			"alt": "Retrato de João Dias sentado numa poltrona de couro castanha. Tem cabelo comprido e ondulado, óculos, bigode e tatuagens visíveis nos antebraços, e veste um polo preto de manga curta."
 		},
 		"skills": {
-			"title": "A list of my skill set",
+			"title": "Lista das minhas competências",
 			"items": [
-				"Accessibility",
+				"Acessibilidade",
 				"Cypress",
-				"Interface Design",
+				"Design de interfaces",
 				"Jest",
 				"Lit",
 				"Node",

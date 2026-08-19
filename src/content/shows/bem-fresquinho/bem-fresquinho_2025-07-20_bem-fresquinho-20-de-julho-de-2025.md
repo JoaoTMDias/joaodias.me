@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: bem-fresquinho_2025-07-20_bem-fresquinho-20-de-julho-de-2025
 show: bem-fresquinho
 slug: bem-fresquinho-20-de-julho-de-2025
 title: Bem Fresquinho, 20 de Julho de 2025

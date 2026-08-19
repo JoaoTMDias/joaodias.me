@@ -35,7 +35,7 @@ const config = [
 
 <nav id="footer-links" class={styles["footer-links"]} aria-labelledby="footer-title">
   <h2 id="footer-title" class={clsx(styles["footer-links__title"], "sr-only")}>
-    General <span class="sr-only">Links</span>
+    {locale === "pt" ? "Ligações gerais" : "General Links"}
   </h2>
   <ul class={styles["footer-links__list"]}>
     {

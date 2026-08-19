@@ -1,7 +1,8 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Footer from "../components/layout/Footer/Footer.astro";
 import Header from "../components/layout/Header/Header.astro";
-import { getLocale, type Locale, localePath } from "../i18n";
+import { getLocale, type Locale } from "../i18n";
 import { getMessages } from "../i18n/messages";
 import BaseLayout from "./BaseLayout.astro";
 
@@ -25,12 +26,13 @@ const {
 const t = getMessages(locale);
 const otherLocale = locale === "en" ? "pt" : "en";
 const unprefixedPath = Astro.url.pathname.replace(/^\/pt(?=\/|$)/, "") || "/";
-const defaultLanguageUrl = localePath(otherLocale, unprefixedPath);
+const localeRoute = unprefixedPath.replace(/^\/+|\/+$/g, "") || undefined;
+const defaultLanguageUrl = getRelativeLocaleUrl(otherLocale, localeRoute);
 const effectiveAlternates =
 	alternateUrls ??
 	(languageUrl
 		? undefined
-		: { en: localePath("en", unprefixedPath), pt: localePath("pt", unprefixedPath) });
+		: { en: getRelativeLocaleUrl("en", localeRoute), pt: getRelativeLocaleUrl("pt", localeRoute) });
 ---
 
 <BaseLayout title={title} description={description} itemtype={itemtype} locale={locale} alternateUrls={effectiveAlternates}>

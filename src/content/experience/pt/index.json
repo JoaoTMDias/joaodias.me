@@ -2,15 +2,15 @@
 	"entries": [
 		{
 			"title": "Revolut",
-			"description": "Frontend Engineer",
-			"location": "Remote",
+			"description": "Engenheiro Frontend",
+			"location": "Remoto",
 			"startDate": "January 2026",
 			"endDate": "July 2026",
 			"isCurrent": true
 		},
 		{
 			"title": "Feedzai",
-			"description": "Advanced Frontend Engineer and Accessibility advocate",
+			"description": "Engenheiro Frontend avan\\u00e7ado e defensor de acessibilidade",
 			"location": "Coimbra, Portugal",
 			"startDate": "2024",
 			"endDate": "2026",
@@ -18,7 +18,7 @@
 		},
 		{
 			"title": "Farfetch",
-			"description": "Senior Software Enginner - Frontend",
+			"description": "Engenheiro de software s\\u00e9nior - Frontend",
 			"location": "Porto, Portugal",
 			"startDate": "2023",
 			"endDate": "2024",
@@ -26,7 +26,7 @@
 		},
 		{
 			"title": "Feedzai",
-			"description": "Senior Frontend Engineer and Accessibility advocate",
+			"description": "Engenheiro Frontend s\\u00e9nior e defensor de acessibilidade",
 			"location": "Coimbra, Portugal",
 			"startDate": "2019",
 			"endDate": "2023",
@@ -34,7 +34,7 @@
 		},
 		{
 			"title": "ISEC",
-			"description": "Invited assistant professor",
+			"description": "Professor adjunto convidado",
 			"location": "Coimbra, Portugal",
 			"startDate": "2022",
 			"endDate": "2023",
@@ -42,7 +42,7 @@
 		},
 		{
 			"title": "WIT Software",
-			"description": "UI and Graphic Designer, Frontend Developer",
+			"description": "Designer de UI e gr\\u00e1fico, programador Frontend",
 			"location": "Coimbra, Portugal",
 			"startDate": "2013",
 			"endDate": "2019",
@@ -50,7 +50,7 @@
 		},
 		{
 			"title": "Load Interactive",
-			"description": "Web, Mobile and Graphic Designer",
+			"description": "Designer web, mobile e gr\\u00e1fico",
 			"location": "Aveiro, Portugal",
 			"startDate": "2012",
 			"endDate": "2013",
@@ -58,7 +58,7 @@
 		},
 		{
 			"title": "joaodias.me",
-			"description": "Web and Graphic designer (freelance)",
+			"description": "Designer web e gr\\u00e1fico (freelancer)",
 			"location": "Figueira da Foz, Portugal",
 			"startDate": "2008",
 			"endDate": "2012",

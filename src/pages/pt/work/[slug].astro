@@ -11,7 +11,7 @@ import type { CollectionEntry } from "astro:content";
  */
 import { getCollection, render } from "astro:content";
 import TableOfContents from "../../../components/ui/TableOfContents/TableOfContents.astro";
-import { contentSlug, formatDate } from "../../../i18n";
+import { contentSlug, contentUrl, findCounterpart, formatDate } from "../../../i18n";
 import PageLayout from "../../../layouts/PageLayout.astro";
 import styles from "../../work/work.module.scss";
 
@@ -33,19 +33,27 @@ function normalizeImagePath(path: string | undefined): string | null {
 }
 
 export async function getStaticPaths() {
-	const projects = (await getCollection("projects")).filter((entry) => entry.data.locale === "pt");
+	const allEntries = await getCollection("projects");
+	const projects = allEntries.filter((entry) => entry.data.locale === "pt");
 
 	return projects.map((project) => ({
 		params: { slug: contentSlug(project.id) },
-		props: { project },
+		props: {
+			project,
+			counterpart: findCounterpart(allEntries, project, "en"),
+		},
 	}));
 }
 
 type Props = {
 	project: CollectionEntry<"projects">;
+	counterpart?: CollectionEntry<"projects">;
 };
 
-const { project } = Astro.props;
+const { project, counterpart } = Astro.props;
+const currentUrl = contentUrl("pt", "work", project.id);
+const counterpartUrl = counterpart ? contentUrl("en", "work", counterpart.id) : "/work";
+const alternateUrls = counterpart ? { pt: currentUrl, en: counterpartUrl } : undefined;
 const { Content, headings } = await render(project);
 
 // Computed values
@@ -67,7 +75,7 @@ const theme = {
 const hasGalleryImages = project.data.galleryImages && project.data.galleryImages.length > 0;
 ---
 
-<PageLayout title={`${project.data.title} - João Dias`} description={project.data.shortDescription} languageUrl="/work">
+<PageLayout title={`${project.data.title} - João Dias`} description={project.data.shortDescription} languageUrl={counterpartUrl} alternateUrls={alternateUrls}>
   <div
     class="content"
   >
@@ -80,7 +88,7 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
               src={coverImage}
               width={IMAGE_DIMENSIONS.width}
               height={IMAGE_DIMENSIONS.height}
-              alt={`${project.data.title} cover image`}
+              alt={project.data.title + " imagem de capa"}
               loading="lazy"
               transition:name={imageTransitionName}
             />
@@ -106,9 +114,9 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
         <p class={styles["work__header-intro"]} data-testid="work-detail-intro">{project.data.description}</p>
       </div>
       <div class={styles.work__meta} >
-        <h2 class="sr-only">Project Information</h2>
+        <h2 class="sr-only">Informação do projeto</h2>
         <div class={styles["work__meta-column"]}>
-          <h3 class={styles["work__meta-title"]}>Tech stack</h3>
+          <h3 class={styles["work__meta-title"]}>Tecnologias</h3>
           <ul class:list={[styles["work__meta-list"], styles["work__meta-list--hashed"]]}>
             {project.data.skills.map((skill) => (
               <li class={styles["work__meta-list-item"]}>{skill}</li>
@@ -116,7 +124,7 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
           </ul>
         </div>
         <div class={styles["work__meta-column"]}>
-          <h3 class={styles["work__meta-title"]}>Source Code</h3>
+          <h3 class={styles["work__meta-title"]}>Código-fonte</h3>
           {
             project.data.sourceCode ? (
               <a
@@ -126,10 +134,10 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
                 class={styles["work__meta-text"]}
                 data-testid="work-source-code-link"
               >
-                View source code
+                Ver código-fonte
               </a>
             ) : (
-              <p class={styles["work__meta-text"]} data-testid="work-source-code-link">Not available</p>
+              <p class={styles["work__meta-text"]} data-testid="work-source-code-link">Não disponível</p>
             )
           }
         </div>
@@ -159,7 +167,7 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
       }
 
       <div class="blog-article__content">
-        <TableOfContents headings={headings} />
+        <TableOfContents headings={headings} title="Índice" />
         <div class="blog-article__content__inner">
           <Content />
         </div>

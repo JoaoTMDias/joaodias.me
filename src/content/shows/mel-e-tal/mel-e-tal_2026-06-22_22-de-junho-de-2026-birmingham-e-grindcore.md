@@ -1,4 +1,6 @@
 ---
+locale: pt
+translationKey: mel-e-tal_2026-06-22_22-de-junho-de-2026-birmingham-e-grindcore
 show: mel-e-tal
 slug: 22-de-junho-de-2026-birmingham-e-grindcore
 title: 22 de Junho de 2026, Birmingham e Grindcore
