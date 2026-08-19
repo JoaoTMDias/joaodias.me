@@ -4,8 +4,8 @@ import Profile from "./Profile.astro";
 
 interface HeroProps {
 	title: string;
-	subtitle: string;
-	intro: string;
+	subtitle?: string;
+	intro?: string;
 	profilePicture: {
 		src: string;
 		width: number;
@@ -28,10 +28,10 @@ const { title, subtitle, intro, profilePicture } = Astro.props as HeroProps;
         alt={profilePicture.alt}
       />
     </div>
-    <p class={styles.hero__name}>{subtitle}</p>
-    <p class={styles.hero__intro}>
+    {subtitle && <p class={styles.hero__name}>{subtitle}</p>}
+    {intro && <p class={styles.hero__intro}>
       {intro}
-    </p>
+    </p>}
     <svg class={styles.hero__arrow} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 261">
       <path stroke="var(--arrow-color)" d="M12.66.178V163"></path>
       <path

@@ -46,6 +46,7 @@ test.describe("Homepage", () => {
 		await expect(page.getByRole("heading", { name: PAGE_DATA.hero.title })).toBeVisible();
 		await expect(MAIN_CONTENT.getByText(PAGE_DATA.hero.subtitle, { exact: true })).toBeVisible();
 		await expect(MAIN_CONTENT.getByText(PAGE_DATA.hero.intro, { exact: true })).toBeVisible();
+		await expect(page.locator("main section").first().locator("p")).toHaveCount(2);
 	});
 
 	test("should display the featured work section", async ({ page }) => {

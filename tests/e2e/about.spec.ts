@@ -24,6 +24,7 @@ test.describe("About Page", () => {
 	test("should display the hero content", async ({ page }) => {
 		await expect(page.getByRole("heading", { name: /hello, i'm joão/i })).toBeVisible();
 		await expect(page.getByRole("img", { name: /headshot portrait of joão dias/i })).toBeVisible();
+		await expect(page.locator("main section").first().locator("p")).toHaveCount(0);
 	});
 
 	test("should display bio section", async ({ page }) => {
