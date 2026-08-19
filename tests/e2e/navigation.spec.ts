@@ -84,6 +84,34 @@ test.describe("Responsive Navigation and Theme", () => {
 		expect(await MOBILE_LINKS.count()).toBeGreaterThan(0);
 	});
 
+	test("should keep every mobile navigation link reachable in a short viewport", async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width: 390, height: 220 });
+		await page.goto("/");
+
+		const mobileToggle = page.locator("#mobile-navigation-toggle");
+		const mobileNavigation = page.locator("#mobile-navigation");
+
+		await mobileToggle.click();
+		await expect(mobileNavigation).toBeVisible();
+
+		const navigationMetrics = await mobileNavigation.evaluate((element) => ({
+			overflowY: getComputedStyle(element).overflowY,
+			clientHeight: element.clientHeight,
+			scrollHeight: element.scrollHeight,
+		}));
+
+		expect(navigationMetrics.overflowY).toBe("auto");
+		expect(navigationMetrics.scrollHeight).toBeGreaterThan(navigationMetrics.clientHeight);
+
+		const lastLink = mobileNavigation.getByRole("link").last();
+		await lastLink.focus();
+
+		await expect(lastLink).toBeFocused();
+		await expect(lastLink).toBeInViewport();
+	});
+
 	test("should toggle the theme switch and persist the preference", async ({ page }) => {
 		await page.goto("/");
 		await page.waitForURL("http://localhost:4321/");

@@ -8,12 +8,14 @@
   left: 0;
   width: 100%;
   flex-direction: column;
-  justify-content: end;
+  justify-content: start;
   align-items: stretch;
   height: calc(100vh - var(--header-height));
+  height: calc(100dvh - var(--header-height));
   background-color: var(--main-navigation-background);
   border: none;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   @media (--medium-viewport) {
     display: none !important;
@@ -80,8 +82,9 @@
     align-items: normal;
     list-style-type: none;
     height: auto;
+    flex-shrink: 0;
     width: 100%;
-    margin: 0 0 var(--space-xl) 0;
+    margin: auto 0 var(--space-xl);
     padding: 0;
     gap: var(--space-md);
   }
