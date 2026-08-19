@@ -48,6 +48,20 @@
   border: none;
 }
 
+.clear-button {
+  font-family: var(--text-font-family);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: transparent;
+  min-height: var(--form-height);
+  padding-inline: var(--space-md);
+  padding-block: var(--space-xs);
+  border: 1px solid var(--text-color-faded);
+  border-radius: var(--form-height);
+  cursor: pointer;
+}
+
 .results-top,
 .results-list {
   width: 100%;

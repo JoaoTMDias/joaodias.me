@@ -28,6 +28,27 @@ test.describe("Blog Index Page", () => {
 		await expect(ARTICLES_HEADER).toBeVisible();
 	});
 
+	test("should search and clear articles", async ({ page }) => {
+		const searchInput = page.getByRole("textbox", { name: "Search articles" });
+
+		await searchInput.fill("no matching article");
+		await expect(page.getByText("2 articles", { exact: true })).toBeVisible();
+		await page.getByRole("button", { name: "Search", exact: true }).click();
+
+		await expect(page).toHaveURL("/blog?q=no+matching+article");
+		await expect(page.getByText("0 articles", { exact: true })).toBeVisible();
+		await expect(
+			page.getByText("No articles match your search. Try a different term."),
+		).toBeVisible();
+
+		await page.getByRole("button", { name: "Clear search" }).click();
+
+		await expect(page).toHaveURL("/blog");
+		await expect(searchInput).toHaveValue("");
+		await expect(page.getByText("2 articles", { exact: true })).toBeVisible();
+		await expect(page.getByText("All articles", { exact: true })).toBeVisible();
+	});
+
 	test("should display the currently listening section", async ({ page }) => {
 		const { container } = PAGE_SELECTORS.currentlyListening;
 		const CONTAINER = page.getByTestId(container);

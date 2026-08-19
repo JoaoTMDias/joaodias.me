@@ -54,7 +54,10 @@ describe("BlogSearch", () => {
 		render(<BlogSearch articles={articles} />);
 
 		await user.type(screen.getByRole("textbox", { name: /search articles/i }), "react");
-		await user.click(screen.getByRole("button", { name: /search/i }));
+
+		expect(screen.getByText("2 articles")).toBeInTheDocument();
+
+		await user.click(screen.getByRole("button", { name: "Search" }));
 
 		expect(screen.getByText("1 article")).toBeInTheDocument();
 		expect(
@@ -71,10 +74,26 @@ describe("BlogSearch", () => {
 		render(<BlogSearch articles={articles} />);
 
 		await user.type(screen.getByRole("textbox", { name: /search articles/i }), "zzzz");
-		await user.click(screen.getByRole("button", { name: /search/i }));
+		await user.click(screen.getByRole("button", { name: "Search" }));
 
 		expect(screen.getByText("0 articles")).toBeInTheDocument();
 		expect(screen.getByText(/No articles match your search/i)).toBeInTheDocument();
+		expect(screen.getAllByRole("status")).toHaveLength(1);
+	});
+
+	it("clears the active search and removes it from the URL", async () => {
+		const user = userEvent.setup();
+		render(<BlogSearch articles={articles} />);
+
+		await user.type(screen.getByRole("textbox", { name: /search articles/i }), "react");
+		await user.click(screen.getByRole("button", { name: "Search" }));
+		await user.click(screen.getByRole("button", { name: "Clear search" }));
+
+		expect(screen.getByRole("textbox", { name: /search articles/i })).toHaveValue("");
+		expect(screen.getByText("2 articles")).toBeInTheDocument();
+		expect(screen.getByText("All articles")).toBeInTheDocument();
+		expect(window.location.search).toBe("");
+		expect(screen.queryByRole("button", { name: "Clear search" })).not.toBeInTheDocument();
 	});
 
 	it("hydrates the search query from the URL", () => {
