@@ -37,13 +37,10 @@ test.describe("Error States", () => {
 		// Wait for the page to load
 		await page.waitForLoadState("networkidle");
 
-		// The currently listening component should still be present
-		// but might show an error state or be hidden
 		const CONTAINER = page.getByTestId(PAGE_SELECTORS.currentlyListening.container);
-		const containerExists = await CONTAINER.count();
-
-		// Component should exist even if API fails
-		expect(containerExists).toBeGreaterThan(0);
+		await expect(CONTAINER).toBeVisible();
+		await expect(CONTAINER).toContainText("Listening activity is currently unavailable.");
+		await expect(CONTAINER).not.toContainText("Loading...");
 	});
 
 	test("should handle Currently Listening API timeout gracefully", async ({ page }) => {

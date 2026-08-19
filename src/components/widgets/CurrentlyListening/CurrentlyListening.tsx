@@ -30,11 +30,19 @@ interface ICurrentlyListeningProps {
 
 async function getSong() {
 	const request = await fetch(LAST_FM_URL);
+
+	if (!request.ok) {
+		throw new Error(`Last.fm request failed with status ${request.status}`);
+	}
+
 	const data: ExternalServiceSongs = await request.json();
 	const { recenttracks } = data;
 
-	return recenttracks.track.slice(0, 1)[0];
+	return recenttracks.track[0] ?? null;
 }
+
+const ERROR_MESSAGE = "Listening activity is currently unavailable.";
+const EMPTY_MESSAGE = "No recent listening activity.";
 
 const FALLBACK_CONFIG: PlayerConfig = {
 	loading: "Loading...",
@@ -53,7 +61,7 @@ function CurrentlyListeningContent({ playerConfig }: ICurrentlyListeningProps) {
 		data: song,
 		isError,
 		isLoading,
-	} = useQuery<Track | undefined>({
+	} = useQuery<Track | null>({
 		queryKey: ["current-song"],
 		queryFn: getSong,
 		retry: false,
@@ -61,11 +69,15 @@ function CurrentlyListeningContent({ playerConfig }: ICurrentlyListeningProps) {
 	});
 
 	if (isLoading) {
-		return <p aria-busy="true">{resolvedConfig.loading}</p>;
+		return <p>{resolvedConfig.loading}</p>;
 	}
 
-	if (isError || !song) {
-		return <p aria-busy="true">{resolvedConfig.loading}</p>;
+	if (isError) {
+		return <p>{ERROR_MESSAGE}</p>;
+	}
+
+	if (!song) {
+		return <p>{EMPTY_MESSAGE}</p>;
 	}
 
 	return <LastPlayedSongCard key={song.name} song={song} playerConfig={resolvedConfig} />;

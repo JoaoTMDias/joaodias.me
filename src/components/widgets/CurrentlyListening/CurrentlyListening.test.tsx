@@ -27,6 +27,7 @@ describe("CurrentlyListening", () => {
 			vi.fn(
 				() =>
 					Promise.resolve({
+						ok: true,
 						json: () => Promise.resolve({ recenttracks: { track: [mockSong] } }),
 					}) as Promise<Response>,
 			),
@@ -47,7 +48,7 @@ describe("CurrentlyListening", () => {
 		render(<CurrentlyListening />);
 
 		expect(screen.getByText("Loading...")).toBeInTheDocument();
-		expect(screen.getByText("Loading...")).toHaveAttribute("aria-busy", "true");
+		expect(screen.getByText("Loading...")).not.toHaveAttribute("aria-busy");
 	});
 
 	it("renders the latest song after the fetch resolves", async () => {
@@ -65,7 +66,7 @@ describe("CurrentlyListening", () => {
 		);
 	});
 
-	it("falls back to the loading state when the fetch fails", async () => {
+	it("shows an unavailable message when the fetch fails", async () => {
 		vi.stubGlobal(
 			"fetch",
 			vi.fn(() => Promise.reject(new Error("Network failure"))),
@@ -74,8 +75,45 @@ describe("CurrentlyListening", () => {
 		render(<CurrentlyListening />);
 
 		await waitFor(() => {
-			expect(screen.getByText("Loading...")).toBeInTheDocument();
+			expect(screen.getByText("Listening activity is currently unavailable.")).toBeInTheDocument();
 		});
+		expect(screen.queryByText("Loading...")).not.toBeInTheDocument();
+	});
+
+	it("shows an unavailable message when Last.fm returns an error response", async () => {
+		vi.stubGlobal(
+			"fetch",
+			vi.fn(
+				() =>
+					Promise.resolve({
+						ok: false,
+						status: 500,
+					}) as Promise<Response>,
+			),
+		);
+
+		render(<CurrentlyListening />);
+
+		expect(
+			await screen.findByText("Listening activity is currently unavailable."),
+		).toBeInTheDocument();
+	});
+
+	it("shows an empty message when there is no recent listening activity", async () => {
+		vi.stubGlobal(
+			"fetch",
+			vi.fn(
+				() =>
+					Promise.resolve({
+						ok: true,
+						json: () => Promise.resolve({ recenttracks: { track: [] } }),
+					}) as Promise<Response>,
+			),
+		);
+
+		render(<CurrentlyListening />);
+
+		expect(await screen.findByText("No recent listening activity.")).toBeInTheDocument();
 	});
 });
 
