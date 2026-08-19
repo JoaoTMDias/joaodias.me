@@ -31,14 +31,11 @@ const formattedPublishedDate = published.toLocaleDateString("pt-PT", {
 	year: "numeric",
 });
 
-const [c1, c2, c3] = colors;
+const [primaryColor] = colors;
 const cardStyle: Record<string, string> = {};
-if (c1) {
-	cardStyle["--show-c1"] = c1;
-	cardStyle["--card-bg"] = c1;
+if (primaryColor) {
+	cardStyle["--show-c1"] = primaryColor;
 }
-if (c2) cardStyle["--show-c2"] = c2;
-if (c3) cardStyle["--show-c3"] = c3;
 ---
 
 <article class={styles.show} lang="pt-PT">
