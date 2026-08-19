@@ -87,31 +87,33 @@ function BlogSearch({ articles }: BlogSearchProps) {
 
 	return (
 		<section className={clsx("section", styles["blog-search"])}>
-			<form className={styles["search-form"]} action="/blog" method="get" onSubmit={handleSubmit}>
-				<label htmlFor="search" className="sr-only">
-					Search articles
-				</label>
-				<input
-					ref={searchInputRef}
-					className={styles["search-input"]}
-					type="text"
-					id="search"
-					name="q"
-					placeholder="Search articles..."
-					value={inputValue}
-					onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-						setInputValue(event.target.value)
-					}
-				/>
-				<button className={styles["search-button"]} type="submit">
-					Search
-				</button>
-				{hasSearchValue && (!hasArticles || hasResults) ? (
-					<button className={styles["clear-button"]} type="button" onClick={handleClear}>
-						Clear search
+			<search>
+				<form className={styles["search-form"]} action="/blog" method="get" onSubmit={handleSubmit}>
+					<label htmlFor="search" className="sr-only">
+						Search articles
+					</label>
+					<input
+						ref={searchInputRef}
+						className={styles["search-input"]}
+						type="search"
+						id="search"
+						name="q"
+						placeholder="Search articles..."
+						value={inputValue}
+						onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+							setInputValue(event.target.value)
+						}
+					/>
+					<button className={styles["search-button"]} type="submit">
+						Search
 					</button>
-				) : null}
-			</form>
+					{hasSearchValue && (!hasArticles || hasResults) ? (
+						<button className={styles["clear-button"]} type="button" onClick={handleClear}>
+							Clear search
+						</button>
+					) : null}
+				</form>
+			</search>
 
 			<div id="blog-results-summary" className={styles["results-top"]} role="status">
 				<p id="blog-results-count" className={styles["results-total"]}>

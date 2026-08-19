@@ -28,6 +28,15 @@ test.describe("Blog Index Page", () => {
 		await expect(ARTICLES_HEADER).toBeVisible();
 	});
 
+	test("should expose native search semantics", async ({ page }) => {
+		const search = page.getByRole("search");
+		const searchInput = search.getByRole("searchbox", { name: "Search articles" });
+
+		await expect(search).toBeVisible();
+		await expect(search.locator("form")).toHaveAttribute("method", "get");
+		await expect(searchInput).toHaveAttribute("type", "search");
+	});
+
 	test("should reserve space for article cover images", async ({ page }) => {
 		const covers = page.locator('img[class*="featured-article__cover"]');
 		const count = await covers.count();
@@ -41,7 +50,7 @@ test.describe("Blog Index Page", () => {
 	});
 
 	test("should search and clear articles", async ({ page }) => {
-		const searchInput = page.getByRole("textbox", { name: "Search articles" });
+		const searchInput = page.getByRole("searchbox", { name: "Search articles" });
 
 		await searchInput.fill("no matching article");
 		await expect(page.getByText("2 articles", { exact: true })).toBeVisible();
