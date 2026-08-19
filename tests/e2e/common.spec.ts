@@ -21,7 +21,7 @@ test.beforeEach(async ({ page, networkHandlers }) => {
 test.describe("Navigation", () => {
 	test("should navigate to Work page when clicking Work link", async ({ page }) => {
 		const WORK_LINK = page.getByRole("link", {
-			name: SITE_CONFIG.nav[3].accessibleLabel,
+			name: SITE_CONFIG.nav[3].title,
 			exact: true,
 		});
 
@@ -39,7 +39,8 @@ test.describe("Navigation", () => {
 
 	test("should navigate to About page when clicking About me link", async ({ page }) => {
 		const ABOUT_LINK = page.getByRole("link", {
-			name: SITE_CONFIG.nav[1].accessibleLabel,
+			name: SITE_CONFIG.nav[1].title,
+			exact: true,
 		});
 
 		await test.step("Click on About me link", async () => {

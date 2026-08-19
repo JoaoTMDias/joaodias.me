@@ -9,6 +9,12 @@ export const ContactLinkSchema = z.object({
 });
 export type ContactLink = z.infer<typeof ContactLinkSchema>;
 
+export const NavigationLinkSchema = z.object({
+	title: z.string(),
+	link: z.string(),
+});
+export type NavigationLink = z.infer<typeof NavigationLinkSchema>;
+
 export const CardSchema = z.object({
 	width: z.string(),
 	height: z.string(),
@@ -48,7 +54,7 @@ export const SiteConfigSchema = z.object({
 	seo: SeoSchema,
 	copyright: z.string(),
 	skipLinks: z.array(SkipLinkSchema),
-	nav: z.array(ContactLinkSchema),
+	nav: z.array(NavigationLinkSchema),
 	contactLinks: z.array(ContactLinkSchema),
 	footer: FooterSchema,
 });

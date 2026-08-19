@@ -100,7 +100,6 @@ const configCollection = defineCollection({
 		nav: z.array(
 			z.object({
 				title: z.string(),
-				accessibleLabel: z.string(),
 				link: z.string(),
 			}),
 		),

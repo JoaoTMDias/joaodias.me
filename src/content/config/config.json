@@ -20,22 +20,18 @@
 	"nav": [
 		{
 			"title": "Home",
-			"accessibleLabel": "Homepage",
 			"link": "/"
 		},
 		{
 			"title": "About me",
-			"accessibleLabel": "About me page",
 			"link": "/about"
 		},
 		{
 			"title": "Blog",
-			"accessibleLabel": "Blog page",
 			"link": "/blog"
 		},
 		{
 			"title": "Work",
-			"accessibleLabel": "Work portfolio page",
 			"link": "/work"
 		}
 	],

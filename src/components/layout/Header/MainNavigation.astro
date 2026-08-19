@@ -16,9 +16,7 @@ const currentPage = Astro.url.pathname;
           <li class={styles["main-navigation__item"]}>
             <a
               class={styles["main-navigation__link"]}
-              id={item.id}
               href={item.link}
-              aria-label={item.accessibleLabel}
               data-testid="top-nav-link"
               aria-current={isCurrentPage ? "page" : undefined}
             >

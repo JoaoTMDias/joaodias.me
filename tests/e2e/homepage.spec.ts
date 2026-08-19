@@ -33,7 +33,7 @@ test.describe("Homepage", () => {
 
 		for (const navItem of SITE_CONFIG.nav) {
 			const link = PAGE_TOP_NAV.getByRole("link", {
-				name: navItem.accessibleLabel,
+				name: navItem.title,
 				exact: true,
 			});
 			await expect(link).toBeVisible();
