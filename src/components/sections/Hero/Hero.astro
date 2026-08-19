@@ -32,7 +32,7 @@ const { title, subtitle, intro, profilePicture } = Astro.props as HeroProps;
     {intro && <p class={styles.hero__intro}>
       {intro}
     </p>}
-    <svg class={styles.hero__arrow} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 261">
+    <svg class={styles.hero__arrow} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 261">
       <path stroke="var(--arrow-color)" d="M12.66.178V163"></path>
       <path
         fill="var(--arrow-color)"

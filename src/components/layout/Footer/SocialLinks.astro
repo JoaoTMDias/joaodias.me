@@ -8,7 +8,7 @@ import styles from "./SocialLinks.module.scss";
 const config: Record<"data", SiteConfig> = await getEntry("config", "config");
 ---
 
-<div id="links-to-my-social-media" class={styles["social-links"]} aria-labelledby="contact-title">
+<nav id="links-to-my-social-media" class={styles["social-links"]} aria-labelledby="contact-title">
   <h2 id="contact-title" class={clsx(styles["social-links__title"], "sr-only")}>
     <span class="sr-only">Links to my </span>Social Media
   </h2>
@@ -21,4 +21,4 @@ const config: Record<"data", SiteConfig> = await getEntry("config", "config");
       ))
     }
   </ul>
-</div>
+</nav>
