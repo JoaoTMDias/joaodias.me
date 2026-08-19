@@ -43,19 +43,19 @@
 		{
 			"title": "Instagram",
 			"accessibleLabel": "Check my Instagram profile. This link opens in a new tab",
-			"link": "http://instagram.com/joaotmdias",
+			"link": "https://instagram.com/joaotmdias",
 			"icon": "TbBrandInstagram"
 		},
 		{
 			"title": "GitHub",
 			"accessibleLabel": "Check my projects and source code on Github. This link opens in a new tab",
-			"link": "http://github.com/joaotmdias",
+			"link": "https://github.com/joaotmdias",
 			"icon": "TbBrandGithub"
 		},
 		{
 			"title": "LinkedIn",
 			"accessibleLabel": "Add me on LinkedIn. This link opens in a new tab",
-			"link": "http://linkedin.com/in/joaotmdias",
+			"link": "https://linkedin.com/in/joaotmdias",
 			"icon": "TbBrandLinkedin"
 		},
 		{

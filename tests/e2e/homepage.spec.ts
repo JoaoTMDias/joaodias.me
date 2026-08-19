@@ -71,7 +71,7 @@ test.describe("Homepage", () => {
 		const contactLink = page.getByRole("link", { name: "Let's connect on LinkedIn" });
 
 		await expect(contactLink).toBeVisible();
-		await expect(contactLink).toHaveAttribute("href", "http://linkedin.com/in/joaotmdias");
+		await expect(contactLink).toHaveAttribute("href", "https://linkedin.com/in/joaotmdias");
 		await expect(contactLink).toHaveAttribute("target", "_blank");
 		await expect(contactLink).toHaveAttribute("rel", "noopener noreferrer");
 	});

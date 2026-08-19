@@ -32,7 +32,7 @@ test.describe("External Links", () => {
 			const href = await LINK.getAttribute("href");
 			expect(href).toBeTruthy();
 			expect(href).toBe(contact.link);
-			if (href) expect(href).toMatch(/^https?:\/\//);
+			if (href) expect(href).toMatch(/^https:\/\//);
 		}
 	});
 
