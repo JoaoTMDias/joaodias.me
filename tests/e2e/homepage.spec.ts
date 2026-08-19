@@ -53,4 +53,13 @@ test.describe("Homepage", () => {
 		await expect(page.getByRole("heading", { name: "Featured Work" })).toBeVisible();
 		await expect(page.locator("#featured-work")).toBeVisible();
 	});
+
+	test("should provide a clear contact action", async ({ page }) => {
+		const contactLink = page.getByRole("link", { name: "Let's connect on LinkedIn" });
+
+		await expect(contactLink).toBeVisible();
+		await expect(contactLink).toHaveAttribute("href", "http://linkedin.com/in/joaotmdias");
+		await expect(contactLink).toHaveAttribute("target", "_blank");
+		await expect(contactLink).toHaveAttribute("rel", "noopener noreferrer");
+	});
 });

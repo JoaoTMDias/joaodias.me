@@ -1,7 +1,12 @@
 ---
+import { getEntry } from "astro:content";
+import SectionLink from "../../ui/SectionLink/SectionLink.astro";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
 import styles from "./LetsConnect.module.scss";
 import Waves from "./Waves.astro";
+
+const config = await getEntry("config", "config");
+const linkedin = config.data.contactLinks.find((link) => link.title === "LinkedIn");
 ---
 
 <section id="lets-connect" class={styles["lets-connect"]}>
@@ -18,6 +23,11 @@ import Waves from "./Waves.astro";
       <p>
         Let's build digital products that meet the moment.
       </p>
+      {linkedin && (
+        <div class={styles["lets-connect__cta"]}>
+          <SectionLink href={linkedin.link} text="Let's connect on LinkedIn" isExternal={true} />
+        </div>
+      )}
     </div>
   </div>
 </section>

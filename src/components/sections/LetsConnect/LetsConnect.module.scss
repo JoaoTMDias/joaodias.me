@@ -55,7 +55,8 @@
         grid-template-areas:
             "first"
             "second"
-            "third";
+            "third"
+            "cta";
 
         p {
             font-size: var(--font-size-md);
@@ -79,7 +80,8 @@
             grid-template-columns: repeat(4, 1fr);
             grid-template-areas:
                 "first second second second"
-                "first third third third";
+                "first third third third"
+                "first cta cta cta";
         }
 
         @media (--large-viewport) {
@@ -91,5 +93,9 @@
             grid-column: 4 / 12;
             grid-row: 1;
         }
+    }
+
+    &__cta {
+        grid-area: cta;
     }
 }
