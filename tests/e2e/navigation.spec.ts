@@ -131,16 +131,40 @@ test.describe("Responsive Navigation and Theme", () => {
 		const themeLabel = page.locator("label:has(#theme-switch)");
 		const THEME_SWITCH = page.getByRole("switch");
 		await expect(THEME_SWITCH).toBeVisible();
+		await expect(THEME_SWITCH).not.toHaveAttribute("aria-checked");
+		await expect(THEME_SWITCH).toHaveAttribute("data-theme-switch-initialized", "true");
 
 		const initialTheme = await page.evaluate(() =>
 			document.documentElement.getAttribute("data-theme"),
 		);
 		const nextTheme = initialTheme === "dark" ? "light" : "dark";
 
+		if (initialTheme === "dark") {
+			await expect(THEME_SWITCH).toBeChecked();
+		} else {
+			await expect(THEME_SWITCH).not.toBeChecked();
+		}
+
 		await themeLabel.click();
 
 		await expect(page.locator("html")).toHaveAttribute("data-theme", nextTheme);
+		await expect(THEME_SWITCH).toHaveJSProperty("checked", nextTheme === "dark");
 		expect(await page.evaluate(() => localStorage.getItem("theme"))).toBe(nextTheme);
+	});
+
+	test("should follow system theme changes without a saved preference", async ({ page }) => {
+		await page.emulateMedia({ colorScheme: "dark" });
+		await page.goto("/");
+
+		const themeSwitch = page.getByRole("switch");
+		await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+		await expect(themeSwitch).toBeChecked();
+
+		await page.emulateMedia({ colorScheme: "light" });
+
+		await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+		await expect(themeSwitch).not.toBeChecked();
+		await expect(themeSwitch).not.toHaveAttribute("aria-checked");
 	});
 });
 

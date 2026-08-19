@@ -11,7 +11,6 @@ import styles from "./ThemeSwitcher.module.scss";
     class={styles["theme-switcher__input"]}
     type="checkbox"
     role="switch"
-    aria-checked="false"
   />
   <span class={styles["theme-switcher__track"]}></span>
   <span class={styles["theme-switcher__thumb"]}>
@@ -54,41 +53,41 @@ import styles from "./ThemeSwitcher.module.scss";
 </script>
 
 <script>
-  function setupThemeSwitcher() {
-    const themeSwitches = document.querySelectorAll(
-      "[data-theme-switch]"
-    ) as NodeListOf<HTMLInputElement>;
+  type Theme = "light" | "dark";
 
-    const themeLabels = document.querySelectorAll("[data-theme-label]") as NodeListOf<HTMLElement>;
+  function updateThemeControls(theme: Theme) {
+    const isDark = theme === "dark";
+    const labelText = isDark
+      ? "Dark theme. Press to switch to light theme"
+      : "Light theme. Press to switch to dark theme";
 
-    function updateUI(isDark: boolean) {
-      const labelText = isDark
-        ? "Dark theme. Press to switch to light theme"
-        : "Light theme. Press to switch to dark theme";
+    document.querySelectorAll<HTMLElement>("[data-theme-label]").forEach((label) => {
+      label.textContent = labelText;
+    });
 
-      themeLabels.forEach((label) => {
-        label.textContent = labelText;
-      });
+    document.querySelectorAll<HTMLInputElement>("[data-theme-switch]").forEach((themeSwitch) => {
+      themeSwitch.checked = isDark;
+    });
+  }
 
-      themeSwitches.forEach((themeSwitch) => {
-        themeSwitch.checked = isDark;
-        themeSwitch.setAttribute("aria-checked", String(isDark));
-      });
-    }
-
-    function applyTheme(theme: string) {
-      document.documentElement.setAttribute("data-theme", theme);
+  function applyTheme(theme: Theme, persist = false) {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (persist) {
       localStorage.setItem("theme", theme);
-      updateUI(theme === "dark");
     }
+    updateThemeControls(theme);
+  }
 
-    // Initialize from the theme already applied by the inline script
-    const currentTheme = document.documentElement.getAttribute("data-theme") ?? "light";
-    updateUI(currentTheme === "dark");
+  function setupThemeSwitcher() {
+    const currentTheme =
+      document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    updateThemeControls(currentTheme);
 
-    themeSwitches.forEach((themeSwitch) => {
+    document.querySelectorAll<HTMLInputElement>("[data-theme-switch]").forEach((themeSwitch) => {
+      if (themeSwitch.dataset.themeSwitchInitialized === "true") return;
+      themeSwitch.dataset.themeSwitchInitialized = "true";
       themeSwitch.addEventListener("change", () => {
-        applyTheme(themeSwitch.checked ? "dark" : "light");
+        applyTheme(themeSwitch.checked ? "dark" : "light", true);
       });
     });
   }
@@ -96,25 +95,9 @@ import styles from "./ThemeSwitcher.module.scss";
   setupThemeSwitcher();
   document.addEventListener("astro:page-load", setupThemeSwitcher);
 
-  // Sync with OS preference changes, but only when no manual override is stored
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
     if (!localStorage.getItem("theme")) {
-      const theme = e.matches ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", theme);
-      const themeSwitches = document.querySelectorAll(
-        "[data-theme-switch]"
-      ) as NodeListOf<HTMLInputElement>;
-      const themeLabels = document.querySelectorAll("[data-theme-label]") as NodeListOf<HTMLElement>;
-      const isDark = theme === "dark";
-      themeLabels.forEach((label) => {
-        label.textContent = isDark
-          ? "Dark theme. Press to switch to light theme"
-          : "Light theme. Press to switch to dark theme";
-      });
-      themeSwitches.forEach((themeSwitch) => {
-        themeSwitch.checked = isDark;
-        themeSwitch.setAttribute("aria-checked", String(isDark));
-      });
+      applyTheme(e.matches ? "dark" : "light");
     }
   });
 </script>
