@@ -10,6 +10,10 @@ description: >
   API. This little piece of software enables web developers and designers to
   pick foreground and background colours and get an instant preview of its
   contrast ratio.
+role: Product designer and frontend engineer
+problem: Windows designers and developers needed a quick way to sample colours and understand their text contrast.
+impact: A desktop prototype combined system colour picking with immediate WCAG contrast feedback.
+featuredOrder: 4
 sourceCode: "https://github.com/JoaoTMDias/winpicker"
 liveDemo: null
 skills:

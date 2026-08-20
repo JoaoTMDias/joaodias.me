@@ -47,6 +47,16 @@ const blogCollection = defineCollection({
 		]),
 		tags: z.array(z.string()).optional(),
 		featuredImage: z.string().optional(),
+		contentImages: z
+			.array(
+				z.object({
+					src: z.string(),
+					alt: z.string(),
+					caption: z.string().optional(),
+					credit: z.string().optional(),
+				}),
+			)
+			.optional(),
 		readingTime: z.number().optional(),
 	}),
 });
@@ -60,6 +70,10 @@ const projectsCollection = defineCollection({
 		date: z.coerce.date(),
 		shortDescription: z.string(),
 		description: z.string(),
+		role: z.string(),
+		problem: z.string(),
+		impact: z.string(),
+		featuredOrder: z.number().optional(),
 		sourceCode: z
 			.union([z.string(), z.null()])
 			.optional()

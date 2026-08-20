@@ -10,6 +10,10 @@ shortDescription: >-
 description: >
   A small component and utility library that eases the process of creating
   accessible web content. It is open-source and available on NPM.
+role: Library designer and maintainer
+problem: Product teams repeatedly implemented the same difficult accessibility patterns with inconsistent results.
+impact: A public npm library packages reusable React primitives for focus, navigation, announcements and semantic structure.
+featuredOrder: 2
 sourceCode: "https://github.com/JoaoTMDias/frontend/tree/main/packages/react-a11y-tools"
 liveDemo: null
 skills:

@@ -26,6 +26,7 @@ interface Props {
 		background: string;
 	};
 }
+const isPt = Astro.currentLocale === "pt";
 
 const { id, title, subtitle, skills, thumbnail, theme, index } = Astro.props;
 
@@ -83,7 +84,7 @@ const buttonStyle = {
 		</div>
 		<div class={styles.content__toggle}>
 			<p class={styles.content__toggle__label} data-testid="work-item-open">
-				View details<span class="sr-only"> of the {title} project</span>
+				{isPt ? "Ver detalhes" : "View details"}<span class="sr-only"> {isPt ? `do projeto ${title}` : `of the ${title} project`}</span>
 			</p>
 			<svg
 				class={styles.content__toggle__vector}

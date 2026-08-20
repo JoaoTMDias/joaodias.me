@@ -8,6 +8,9 @@ shortDescription: A browser extension that helps google chat users to type rich 
 description: >
   A browser extension that helps Google Chat users to create richer text
   content. Backed up by Preact, CSS Modules, Vite and Cypress component testing.
+role: Product designer and frontend engineer
+problem: Google Chat did not offer rich-text controls, while injecting UI into its unstable contenteditable implementation would be fragile.
+impact: An accessible browser-extension popup provided formatting until Google introduced its own native editor.
 sourceCode: "https://github.com/JoaoTMDias/g-chat-format-bar"
 liveDemo: null
 skills:

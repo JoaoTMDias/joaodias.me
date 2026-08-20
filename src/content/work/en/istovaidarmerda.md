@@ -11,6 +11,9 @@ description: >
   At the height of the pandemic lockdown, an online conference focused on the
   not-so-good stuff that was happening amongst several areas of society. And I
   build it's website.
+role: Frontend engineer, working from Henrique Macedo's visual identity
+problem: A pandemic-era online conference needed a distinctive site delivered over one weekend without sacrificing core usability.
+impact: The finished Next.js site supported the event and translated its playful identity into a tested, keyboard-operable experience.
 sourceCode: "https://github.com/JoaoTMDias/istovaidarmerda.online"
 liveDemo: null
 skills:

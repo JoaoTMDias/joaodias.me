@@ -10,6 +10,9 @@ description: >
   information is spread across different websites, news sources and blogs. The
   paper days are gone, so now we have all these devices where we should be
   getting information easily and without any biased curation.
+role: Product designer and frontend engineer
+problem: News was fragmented across sources and devices, making an unbiased, consistent reading experience difficult.
+impact: The concept demonstrated an installable, responsive and offline-capable reader built with web standards.
 sourceCode: "https://github.com/joaotmdias/paperboy"
 liveDemo: null
 skills:
