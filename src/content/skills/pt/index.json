@@ -9,14 +9,14 @@
 			"url": "https://www.cypress.io/"
 		},
 		{
-			"skill": "Sistemas de design"
+			"skill": "Design Systems"
 		},
 		{
 			"skill": "E.A.A",
 			"url": "https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en"
 		},
 		{
-			"skill": "Jest and Vitest",
+			"skill": "Jest e Vitest",
 			"url": "https://jestjs.io/"
 		},
 		{
@@ -71,7 +71,7 @@
 			"url": "https://react.dev/"
 		},
 		{
-			"skill": "Componentes web",
+			"skill": "Web components",
 			"url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components"
 		},
 		{

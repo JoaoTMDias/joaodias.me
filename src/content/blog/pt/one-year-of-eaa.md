@@ -1,8 +1,7 @@
 ---
-slug: screen-reader-testing-a-developers-perspective
-locale: en
+locale: pt
 translationKey: one-year-of-eaa
-title: One Year of EAA
+title: Um ano do Ato Europeu da Acessibilidade
 pubDate: 2025-07-28T17:40:11.883Z
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque lorem sit amet porttitor viverra. Curabitur posuere, lectus eu ullamcorper volutpat, felis eros venenatis massa, a scelerisque nisl felis eget odio. '
 category: accessibility
