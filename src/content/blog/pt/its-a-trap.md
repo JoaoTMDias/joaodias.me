@@ -7,6 +7,7 @@ updatedDate: 2026-08-20T00:00:00.000Z
 excerpt: "O acesso por teclado não está completo quando uma pessoa consegue entrar num componente mas não consegue sair. Saiba como o critério WCAG 2.1.2 se aplica a diálogos, widgets e conteúdo incorporado."
 category: accessibility
 featuredImage: /blog/keyboard-trap-cover.webp
+featuredImageAlt: Um indicador de foco fica em ciclo dentro de um componente, deixando o resto da página fora de alcance.
 readingTime: 6
 ---
 

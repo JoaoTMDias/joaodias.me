@@ -68,7 +68,7 @@ const transitionNames = getTransitionNames(article.id);
         src={article.data.featuredImage}
         width={960}
         height={480}
-        alt={article.data.title}
+        alt={article.data.featuredImageAlt ?? article.data.title}
         loading="lazy"
         transition:name={transitionNames.image}
       />}

@@ -7,6 +7,7 @@ updatedDate: 2026-08-20T00:00:00.000Z
 excerpt: "A year after the European Accessibility Act began applying, product teams need repeatable ways to understand scope, remove barriers and show progress."
 category: industry-advocacy
 featuredImage: /blog/eaa-one-year-cover.webp
+featuredImageAlt: A top-down desk with a keyboard, monitor, phone and payment terminal arranged around a sheet dated 28 June 2025.
 readingTime: 6
 ---
 

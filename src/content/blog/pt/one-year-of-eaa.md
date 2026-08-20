@@ -7,6 +7,7 @@ updatedDate: 2026-08-20T00:00:00.000Z
 excerpt: "Um ano depois do início da aplicação do Ato Europeu da Acessibilidade, as equipas precisam de processos repetíveis para compreender o âmbito, remover barreiras e demonstrar progresso."
 category: industry-advocacy
 featuredImage: /blog/eaa-one-year-cover.webp
+featuredImageAlt: Uma secretária vista de cima, com teclado, monitor, telefone e terminal de pagamento em redor de uma folha datada de 28 de junho de 2025.
 readingTime: 6
 ---
 

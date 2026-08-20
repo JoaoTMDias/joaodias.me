@@ -7,6 +7,7 @@ updatedDate: 2026-08-09T23:00:00.000Z
 excerpt: 'Keyboard navigation involves going from one website feature to another through the use of buttons like Tab and the arrows. If an interactive element, for instance, a modal, a video player, and even a custom date picker, locks focus inside itself without providing an escape point, then the rest of the website is inaccessible. According to WCAG 2.1.2 (No Keyboard Trap), every website feature that allows focus should provide an option to exit that feature using only the keyboard.'
 category: accessibility
 featuredImage: /blog/keyboard-trap-cover.webp
+featuredImageAlt: A focus indicator loops inside one interface component while the rest of the page remains out of reach.
 readingTime: 4
 ---
 
