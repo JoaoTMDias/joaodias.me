@@ -184,7 +184,7 @@ function buildLlmsContent(): string {
 		`- Headline: ${profileIntro}`,
 		`- About: ${aboutIntro}`,
 		"- Focus: Accessibility engineering, frontend architecture, design systems, quality and testing.",
-		`- Resume PDF: ${toUrl("/resume-joao-dias.pdf")}`,
+		`- Resume PDF: ${toUrl("/resume-joao-dias-en.pdf")}`,
 		"",
 		"## Structured CV",
 		...experience.entries.map(
@@ -251,7 +251,7 @@ function buildLlmsContent(): string {
 		`- Blog: ${toUrl("/blog")}`,
 		`- Work (navigation): ${toUrl("/work")}`,
 		`- Work projects: ${toUrl("/work")}`,
-		`- Resume: ${toUrl("/resume-joao-dias.pdf")}`,
+		`- Resume: ${toUrl("/resume-joao-dias-en.pdf")}`,
 		`- llms.txt: ${toUrl("/llms.txt")}`,
 		"",
 		"## Generation",
