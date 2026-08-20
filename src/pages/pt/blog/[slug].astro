@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
+import SectionLink from "../../../components/ui/SectionLink/SectionLink.astro";
 import TableOfContents from "../../../components/ui/TableOfContents/TableOfContents.astro";
 import { contentSlug, contentUrl, findCounterpart, formatDate } from "../../../i18n";
 import PageLayout from "../../../layouts/PageLayout.astro";
@@ -46,6 +47,7 @@ const transitionNames = getTransitionNames(article.id);
   <article class="section blog-article" itemprop="articleBody">
     <section class="blog-article__header">
       <div class="blog-article__header__lead">
+        <SectionLink href="/pt/blog" text="Voltar aos artigos" direction="back" />
         <h1 class="blog-article__header__title" data-testid="blog-article-title" transition:name={transitionNames.title}>{article.data.title}</h1>
         <div class="blog-article__header__meta" data-testid="blog-article-meta">
           <time class="blog-article__date" datetime={article.data.pubDate.toISOString()}>
@@ -77,7 +79,7 @@ const transitionNames = getTransitionNames(article.id);
         <Content />
       </div>
       <div class="blog-article__back-link">
-        <a href="/pt/blog" data-testid="blog-back-link">← Voltar aos artigos</a>
+        <SectionLink href="/pt/blog" text="Voltar aos artigos" direction="back" testId="blog-back-link" />
       </div>
     </section>
   </article>

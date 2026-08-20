@@ -7,16 +7,19 @@ interface Props {
 	text: string;
 	href: string;
 	isExternal?: boolean;
+	direction?: "forward" | "back";
+	testId?: string;
 }
 
-const { text, href, isExternal } = Astro.props;
+const { text, href, isExternal, direction = "forward", testId } = Astro.props;
 const locale = getLocale(Astro.currentLocale);
 ---
 
 <a
-  class={clsx("link", styles.section__link)}
+  class={clsx("link", styles.section__link, direction === "back" && styles["section__link--back"])}
   href={href} target={isExternal ? "_blank" : undefined}
   rel={isExternal ? "noopener noreferrer" : undefined  }
+  data-testid={testId}
 >
   <span class={styles.section__link__text}>{text}</span>
   {isExternal && <span class="sr-only">{locale === "pt" ? ". Esta liga��o abre num novo separador" : ". This link opens in a new tab"}</span>}

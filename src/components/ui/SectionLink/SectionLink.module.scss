@@ -23,6 +23,25 @@
     }
   }
 
+  &--back {
+    .section__link__arrow {
+      order: -1;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    @media (--with-motion) {
+      &:hover,
+      &:focus {
+        .section__link__arrow {
+          transform: translateX(-0.25rem);
+        }
+      }
+    }
+  }
+
   &__arrow {
     display: inline-flex;
     align-items: center;
