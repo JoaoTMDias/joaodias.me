@@ -1,58 +1,56 @@
 ---
-slug: one-year-of-eaa
 locale: en
 translationKey: one-year-of-eaa
-title: One Year of EAA
-pubDate: 2025-07-28T17:40:11.883Z
-excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque lorem sit amet porttitor viverra. Curabitur posuere, lectus eu ullamcorper volutpat, felis eros venenatis massa, a scelerisque nisl felis eget odio. '
-category: accessibility
+title: One year into the European Accessibility Act
+pubDate: 2026-07-28T17:40:11.883Z
+updatedDate: 2026-08-20T00:00:00.000Z
+excerpt: "A year after the European Accessibility Act began applying, product teams need repeatable ways to understand scope, remove barriers and show progress."
+category: industry-advocacy
 featuredImage: /pexels-bertellifotografia-29509535.jpg
-readingTime: 3
+readingTime: 6
 ---
 
-It has now been a year since the deadline related to the European Accessibility Act was met on June 28, 2025. Back then, the deadline was seen by many as the point after which all compliance requirements were fully in effect. In retrospect, one can see clearly now that the deadline represented not the end but rather the start of the enforcement period.
+The European Accessibility Act did not create a single finish line for every digital product. It created requirements for defined products and services, national systems for enforcement and continuing responsibilities for organisations in scope.
 
-According to a recent report by accessibility consulting company Deque, close to 95% of the organizations remain in the "informal" or "not started" state regarding their digital accessibility maturity levels. The regulators and civil society organizations are speeding up the process of conducting automated website audits, exchanging cross-border complaints, and pursuing high-profile cases.
+[Directive (EU) 2019/882](https://eur-lex.europa.eu/eli/dir/2019/882/oj) has applied from 28 June 2025. One year on, the practical lesson is that accessibility must operate as a maintained product capability, not as a project organised around one date.
 
-For everyone who works in the product space, here is the summary of what happened over the past year and its implications for the future of software development.
+## Start with scope
 
-## 1. Enforcement Has Now Become Practical
+The Directive covers selected products and services, including consumer computer systems, payment and certain self-service terminals, electronic communications, access to audiovisual services, elements of passenger transport, consumer banking, e-books and e-commerce.
 
-Within the past year, there have been two distinct enforcement avenues that have made significant strides in Europe: regulation and lawsuits.
+Not every organisation is treated identically. The text includes transition provisions, an exemption for microenterprises providing services and a documented process for assessing fundamental alteration or disproportionate burden.
 
-### The regulators are leaning towards scale
+These are legal questions depending on the product, service, Member State and operating model. A generic website scan cannot answer them. Teams should document what they provide, which requirements apply and who owns the decision.
 
-Not anymore are the national regulators idly awaiting the outcome of audits. In the Netherlands, the Dutch Authority for Consumers and Markets (ACM) conducted 100 audits on e-commerce, energy and telecom platforms, finding out that 61% of the companies did not adhere to the minimum accessibility requirements. Auditing is being carried out by German, Irish, Swedish and Polish regulators who hire around 70 full-time accessibility auditors.
+## The deadline began an operating period
 
-The key here is that these authorities are now interconnected. The European Commission established a centralized database which allows regulators in other states to instantly see the complaints submitted in another country. This means that if you are reported for some accessibility issues in Ireland, then Sweden and Germany will know about it too.
+Services in scope must be designed and provided according to the applicable requirements. Providers must also prepare information explaining how the service meets them and keep it available while the service operates.
 
-### Legal precedent is being set through civil society law suits
+Member States check compliance, follow complaints, verify remediation and define penalties in national law. Details therefore vary between countries within the shared European framework.
 
-In addition to governments, organizations working for people with disabilities are using a class-action like standing to directly sue companies.
+Products can regress after a successful audit. Releases, third-party components, content and design-system changes can reintroduce barriers. Conformity is not frozen on the date of a report.
 
-* Carrefour: On June 4, 2026, a French court ruled that Carrefour must make its online service accessible within six months, including hefty daily penalties.
-* The Government Sector: Organizations have also sued governmental infrastructure, for example, the French tax service impots.gouv.fr just before tax-filing season.
+## EAA, standards and WCAG
 
-The significance is far from being restricted to France because when a tactic works in one country, advocacy organizations throughout the EU have a successful strategy they can use in their courts.
+The Directive contains functional requirements and provides a route for referenced harmonised standards or technical specifications to create a presumption of conformity for what they cover.
 
-## 2. The Major Technical Mistake: Testing against the Wrong Standard
+[EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/) is a European ICT accessibility standard. Its web clauses incorporate WCAG requirements and it covers areas beyond ordinary web-content testing.
 
-Another mistake that engineers make when trying to adhere to accessibility regulations in Europe is thinking that if they pass a general WCAG test, they are already compliant.
+WCAG remains essential engineering guidance, but passing an automated WCAG scan is not a complete legal analysis. Automation does not determine scope, documentation, accessible support or whether an exception is justified.
 
-Under EAA, the correct standard is EN 301 549. Although EN 301 549 is all about WCAG, which includes its latest version of WCAG 2.1 AA (to be changed to WCAG 2.2 AA in 2026), it also includes some specific European standards which may not be included in a general WCAG test.
+A safer workflow is to determine scope with appropriate expertise, map requirements to journeys and components, use standards as engineering references, combine automated and manual testing, and keep evidence and remediation current.
 
-Also, the national standards of a country can be misleading. France’s national standard RGAA is known to require only 50% compliance, which is considered insufficient according to the European Commission. So if you rely only on local guidelines and legacy automatic checks, you might be accumulating technical debt unknowingly.
+## What teams should maintain
 
-## 3. How This Impacts Your Backlog Right Now
+- Design: define keyboard behaviour, focus, errors, reflow, targets, contrast and alternatives before implementation.
+- Engineering: put fast checks in CI and retain manual keyboard and assistive-technology testing for relevant changes.
+- Product: keep an accessibility backlog with owners and connect public feedback to product triage.
+- Leadership and procurement: fund remediation as product work and test third-party integrations in their real context.
 
-No, your regulators are not expecting you to solve all problems immediately, but they would like to see you making progress. Being ready to present the plan for remediation is much more effective than being silent and risking a fine.
+Useful evidence includes a scope decision, critical journeys, automated results linked to builds, manual test notes, known issues and owners, component tests, feedback and accurate public accessibility information.
 
-The following steps should be taken by different roles on the product team:
+## The next year
 
-* For Designers & UX Leads: Consider accessibility a design constraint. Build accessibility properties into design system components such as focus indicator, touch target, dynamic text resizing, and contrast ratios.
-* For Frontend Engineers: Upgrade your automated CI/CD testing suites (for example, axe-core) to the EN 301 549 requirements. Keep in mind that automated scans only identify about 30-40% of the accessibility problems—keyboard navigation, screen reader tests (for example, NVDA, VoiceOver) should become part of your "Definition of Done".
-* For Product Managers: Make sure your public site contains a statement regarding accessibility and a convenient feedback submission mechanism. Also, make sure that feedback reaches your engineering triage process and not just customer support.
+The stronger question is not whether an organisation can claim a permanent label of compliance. It is whether it can discover barriers, prioritise them, fix them and demonstrate that the improvement survives future releases.
 
-## The Way Forward
-
-With one year of the EAA under our belt, accessibility is no longer just a cosmetic improvement or an afterthought in a legal document. Accessibility is an essential metric of quality and access to the market in Europe. Embedding accessibility in your day-to-day design and engineering processes will not only safeguard you from potential regulation, but make a better product for all users.
+That capability produces clearer interfaces, more dependable components and products that work for more people.

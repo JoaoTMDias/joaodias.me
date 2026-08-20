@@ -57,7 +57,7 @@ Please note that maintaining the focus within an open modal dialog box is focus 
 
 ### Make use of Native HTML Modals
 
-The native `<dialog>` element should be your go to where you can. A simple call to `.showModal()` in JavaScript will handle the accessibility for you, with no extra work required. It will contain focus while the modal is up, return it to the element that opened it once closed, and respond to the `Escape` key to shut down on its own.
+The native `<dialog>` element and `.showModal()` provide useful browser behaviour, including making the rest of the document inert and supporting cancellation with `Escape`. They do not remove the need to choose sensible initial focus, provide a clear close action, restore focus logically and test the complete interaction with keyboard and assistive technology.
 
 ### Put third-party scripts to the test
 

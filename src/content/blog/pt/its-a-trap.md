@@ -1,80 +1,82 @@
 ---
 locale: pt
 translationKey: its-a-trap
-title: It's a trap!
+title: "É uma armadilha!"
 pubDate: 2026-08-10T02:37:07.191Z
-updatedDate: 2026-08-09T23:00:00.000Z
-excerpt: 'Keyboard navigation involves going from one website feature to another through the use of buttons like Tab and the arrows. If an interactive element, for instance, a modal, a video player, and even a custom date picker, locks focus inside itself without providing an escape point, then the rest of the website is inaccessible. According to WCAG 2.1.2 (No Keyboard Trap), every website feature that allows focus should provide an option to exit that feature using only the keyboard.'
+updatedDate: 2026-08-20T00:00:00.000Z
+excerpt: "O acesso por teclado não está completo quando uma pessoa consegue entrar num componente mas não consegue sair. Saiba como o critério WCAG 2.1.2 se aplica a diálogos, widgets e conteúdo incorporado."
 category: accessibility
 featuredImage: /its-a-trap.jpeg
-readingTime: 4
+readingTime: 6
 ---
 
-Imagine being in a room where the door locks upon entering from inside. Similarly, imagine the helplessness that users will feel when they accidentally step into a keyboard trap on your website—a user enters into an interactive element but has no way of escaping it.
+Imagina entrar numa sala e ouvir a porta a trancar-se atrás de ti. Uma armadilha de teclado cria o equivalente numa interface: o foco entra num componente, mas a pessoa que usa o teclado não o consegue retirar de lá.
 
-Web accessibility relies on keyboard navigation to some extent. It is here where you find everything you need to know about WCAG 2.1.2 (No Keyboard Trap): what it is, its importance, how to avoid certain mistakes, and even its solution.
+Para quem navega sem um dispositivo apontador, o resto da página pode ficar inacessível. Atualizar a página, abandonar uma tarefa ou sair do site nunca deveria ser a única forma de escapar.
 
-## No Keyboard Traps
+## O que exigem as WCAG
 
-An accessible site has to meet the non-negotiable standards set by WCAG 2.1.2, a **Level A** criterion known as **No Keyboard Trap**. The rule is straightforward: once keyboard focus enters a component, the user should be able to exit it with the keyboard alone. There are some allowances for when an unorthodox key combination is needed to get out, something other than the usual `Tab`, arrow or `Escape` keys; in such cases, the onus is on the page to provide clear directions to the user on how to do so.
+O [Critério de Sucesso 2.1.2 das WCAG 2.2, Sem Bloqueio do Teclado](https://www.w3.org/TR/WCAG22/#no-keyboard-trap), é um requisito de nível A. Quando o foco consegue entrar num componente, também deve ser possível afastá-lo usando apenas uma interface de teclado.
 
-## WCAG 2.1.2 is an extension of 2.1.1
+Se a saída exigir algo além das setas sem modificadores, Tab ou outro método habitual, a interface tem de explicar como sair. A [explicação do W3C](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html) acrescenta que uma armadilha pode interferir com a página inteira.
 
-One can think of these two as complementary standards:
+### Acesso e saída são complementares
 
-* **WCAG 2.1.1 (Keyboard)** is about the ability to *reach and operate* all functions with a keyboard.
-* **WCAG 2.1.2 (No Keyboard Trap)** makes sure that if one has entered a component, there is always a way to *exit*.
+O Critério 2.1.1 pergunta se a funcionalidade pode ser operada através de teclado. O Critério 2.1.2 pergunta se a pessoa consegue sair depois de entrar. Um calendário pode responder corretamente às setas e impedir que Tab ou Escape regressem ao formulário. Um leitor multimédia pode expor todos os controlos e repetir o foco internamente para sempre.
 
-## A case of hidden friction in UX
+## Quem é afetado
 
-For those who rely on a keyboard, navigation is a matter of moving through a page in sequence. But when focus is held captive by a component, the remainder of the site is effectively put out of reach. The user is then forced to make a choice: either hit refresh or simply walk away from the site.
+As armadilhas podem bloquear pessoas que utilizam:
 
-### Who is affected?
+- teclado sem rato;
+- leitores de ecrã e comandos de teclado;
+- dispositivos de comutação ou sistemas sip-and-puff;
+- software de voz que associa comandos a teclas;
+- fluxos temporariamente dependentes do teclado.
 
-* Keyboard only users navigating without using a mouse.
-* Users of screen readers who use keyboard shortcuts to understand elements in the interface.
-* Switch and sip-and-puff device users navigating hardware configured to perform actions using key presses.
-* Speech command users sending voice commands mapped to specific keystrokes.
+A necessidade comum é uma forma previsível de entrar, operar e sair de cada parte da interface.
 
-## Focus Management vs. Focus Trap
+## Gerir o foco não é criar uma armadilha
 
-Please note that maintaining the focus within an open modal dialog box is focus management and not a focus trap.
+Um diálogo modal mantém normalmente o foco dentro de si enquanto está aberto. Torna-se uma armadilha quando não pode ser fechado por teclado, a ação de fechar não recebe foco ou o foco regressa ao interior depois de uma tentativa válida de saída.
 
-* Correct Focus Trap: The focus cycles within an open modal until the dialog box is closed by pressing the Escape key or clicking the visible “Close” button.
-* Incorrect (Focus Trap): The focus is trapped within the modal; the Escape key doesn’t work, and the “close” button can’t be accessed using the Tab key.
+Um modal bem gerido move o foco para um elemento adequado, retira a página inativa da ordem de foco, oferece uma ação de fechar, suporta Escape quando apropriado e devolve o foco a um ponto lógico.
 
-## 5 Common Keyboard Trap Failures
+O elemento HTML `<dialog>` e `.showModal()` oferecem comportamento útil do navegador, mas não eliminam a necessidade de escolher o foco inicial e testar a interação completa.
 
-| **Failure**                    | **Description**                                                                                                                                |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1. Unescapable Modals**      | Focus enters a pop-up dialog, but `Escape` doesn't close it and the close button isn't keyboard-accessible.                                    |
-| **2. Greedy Embedded Widgets** | Third-party media players, chat widgets, or iframe ads grab focus and keep cycling internally without ever returning focus to the parent page. |
-| **3. Custom Date Pickers**     | Tabbing into a calendar control loops through dates endlessly with no way to press `Escape` or tab past to the next input field.               |
-| **4. Infinite Focus Loops**    | Pressing `Tab` continuously cycles through a navigation menu or media carousel without ever moving down to main content.                       |
-| **5. Secret Exit Keys**        | Leaving a component requires an obscure key combo (e.g., `Ctrl` + `Alt` + `M`), but no instructions are provided on-screen.                    |
+## Padrões comuns de falha
 
-## Best Practices and Practical Solutions
+### Conteúdo incorporado captura o foco
 
-### Make use of Native HTML Modals
+Leitores multimédia, editores e widgets de terceiros podem tratar Tab ou as setas internamente. Testa a integração real. Se não existir uma saída fiável, reconfigura, substitui ou isola o componente com instruções claras.
 
-The native `<dialog>` element should be your go to where you can. A simple call to `.showModal()` in JavaScript will handle the accessibility for you, with no extra work required. It will contain focus while the modal is up, return it to the element that opened it once closed, and respond to the `Escape` key to shut down on its own.
+### Widgets compostos entram em ciclo
 
-### Put third-party scripts to the test
+Menus, grelhas, comboboxes e seletores de data usam frequentemente setas internamente e Tab para sair. Segue os padrões relevantes do [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/) e separa a navegação interna da navegação da página.
 
-Before a launch, any embedded tools such as iframes, video players or chat widgets need to be put through their paces. Should a script from an outside vendor prove to be swallowing focus, the settings ought to be reconfigured. If that is not enough, look for a compliant replacement or ask the vendor for a patch.
+### Event handlers anulam a saída
 
-### Adhere to ARIA Guidelines
+Um handler global de `keydown` que chama `preventDefault()` de forma demasiado abrangente pode engolir Tab ou Escape. Cancela uma tecla nativa apenas quando existe uma alternativa completa e testada.
 
-In developing complicated custom controls like date picker or dropdown menu, use the ARIA Authoring Practices Guide (APG) for key behaviors that should be implemented. Ensure that your control works with actual assistive technology once you have developed it.
+### A saída existe mas não recebe foco
 
-### Instruction for nonstandard keys
+Um botão de fechar pode estar visível e ter sido removido da ordem de foco ou escondido das tecnologias de apoio. A inspeção visual não basta: o controlo tem de ser alcançável, ter nome e funcionar.
 
-If an application needs a special key combination for the user to get out of it, provide textual instructions on the screen for the same (like “Press Ctrl + Alt + M to exit”). Yet the most important thing is to make sure that the standard Tab navigation still works.
+## Um teste prático
 
-## Testing Your Website in 3 Simple Steps
+1. Afasta o rato e começa no início da página.
+2. Avança e recua com Tab e Shift+Tab.
+3. Opera controlos com Enter, Espaço e as setas quando esperado.
+4. Abre diálogos, menus, seletores, leitores e widgets incorporados.
+5. Experimenta todas as formas documentadas de sair.
+6. Confirma que o foco continua visível e regressa a um ponto lógico.
+7. Repete em diferentes tamanhos de ecrã.
+8. Inclui testes com leitor de ecrã quando a semântica ou os anúncios influenciam a interação.
 
-* Step 1. Stop using the mouse and explore the entire page only with the help of Tab, Shift + Tab, arrow keys, and Escape.
-* Step 2. Concentrate on elements which pose a higher risk: modals, mega-menus, embedded video players, custom date pickers, and chat widgets.
-* Step 3. Explore every possible way out, ensuring that it’s possible to both enter and leave all interactive elements effortlessly.
+As verificações automáticas encontram alguns erros, mas não provam que todos os estados têm uma saída com sentido. Este critério exige interação manual.
 
-And then everyone else will be able to do the same!
+## O modelo mental útil
+
+Não perguntes apenas: “Consigo chegar aqui com um teclado?” Faz três perguntas: consigo entrar, consigo operar e consigo sair?
+
+Quando as três respostas são previsíveis, o acesso por teclado torna-se parte do design de interação, em vez de uma verificação tardia.

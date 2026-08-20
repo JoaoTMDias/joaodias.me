@@ -6,7 +6,7 @@
 			"location": "Remote",
 			"startDate": "January 2026",
 			"endDate": "July 2026",
-			"isCurrent": true
+			"isCurrent": false
 		},
 		{
 			"title": "Feedzai",

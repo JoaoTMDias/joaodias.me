@@ -49,5 +49,5 @@ const isPt = Astro.currentLocale === "pt";
         ))
       }
   </ul>
-  <SectionLink href="/resume-joao-dias.pdf" text={isPt ? "Descarregar o meu currículo (PDF)" : "Download my Resume (PDF)"} isExternal={true} />
+  <SectionLink href={isPt ? "/resume-joao-dias-pt.pdf" : "/resume-joao-dias-en.pdf"} text={isPt ? "Descarregar o meu currículo (PDF)" : "Download my Resume (PDF)"} isExternal={true} />
 </div>

@@ -1,57 +1,56 @@
 ---
 locale: pt
 translationKey: one-year-of-eaa
-title: Um ano do Ato Europeu da Acessibilidade
-pubDate: 2025-07-28T17:40:11.883Z
-excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque lorem sit amet porttitor viverra. Curabitur posuere, lectus eu ullamcorper volutpat, felis eros venenatis massa, a scelerisque nisl felis eget odio. '
-category: accessibility
+title: Um ano de aplicação do Ato Europeu da Acessibilidade
+pubDate: 2026-07-28T17:40:11.883Z
+updatedDate: 2026-08-20T00:00:00.000Z
+excerpt: "Um ano depois do início da aplicação do Ato Europeu da Acessibilidade, as equipas precisam de processos repetíveis para compreender o âmbito, remover barreiras e demonstrar progresso."
+category: industry-advocacy
 featuredImage: /pexels-bertellifotografia-29509535.jpg
-readingTime: 3
+readingTime: 6
 ---
 
-It has now been a year since the deadline related to the European Accessibility Act was met on June 28, 2025. Back then, the deadline was seen by many as the point after which all compliance requirements were fully in effect. In retrospect, one can see clearly now that the deadline represented not the end but rather the start of the enforcement period.
+O Ato Europeu da Acessibilidade não criou uma única meta para todos os produtos digitais. Criou requisitos para determinados produtos e serviços, sistemas nacionais de fiscalização e responsabilidades contínuas para as organizações abrangidas.
 
-According to a recent report by accessibility consulting company Deque, close to 95% of the organizations remain in the "informal" or "not started" state regarding their digital accessibility maturity levels. The regulators and civil society organizations are speeding up the process of conducting automated website audits, exchanging cross-border complaints, and pursuing high-profile cases.
+A [Diretiva (UE) 2019/882](https://eur-lex.europa.eu/eli/dir/2019/882/oj) é aplicável desde 28 de junho de 2025. Um ano depois, a lição prática é que a acessibilidade tem de funcionar como uma capacidade mantida, não como um projeto organizado à volta de uma data.
 
-For everyone who works in the product space, here is the summary of what happened over the past year and its implications for the future of software development.
+## Começar pelo âmbito
 
-## 1. Enforcement Has Now Become Practical
+A Diretiva abrange produtos e serviços específicos, incluindo sistemas informáticos de consumo, terminais de pagamento e certos terminais de autosserviço, comunicações eletrónicas, acesso a serviços audiovisuais, elementos de transporte de passageiros, serviços bancários para consumidores, livros eletrónicos e comércio eletrónico.
 
-Within the past year, there have been two distinct enforcement avenues that have made significant strides in Europe: regulation and lawsuits.
+Nem todas as organizações são tratadas da mesma forma. O texto contém disposições transitórias, uma isenção para microempresas prestadoras de serviços e um processo documentado para avaliar alteração fundamental ou encargo desproporcionado.
 
-### The regulators are leaning towards scale
+São questões jurídicas que dependem do produto, serviço, Estado-Membro e modelo operacional. Uma análise genérica de um site não lhes responde. As equipas devem documentar o que fornecem, quais os requisitos aplicáveis e quem é responsável pela decisão.
 
-Not anymore are the national regulators idly awaiting the outcome of audits. In the Netherlands, the Dutch Authority for Consumers and Markets (ACM) conducted 100 audits on e-commerce, energy and telecom platforms, finding out that 61% of the companies did not adhere to the minimum accessibility requirements. Auditing is being carried out by German, Irish, Swedish and Polish regulators who hire around 70 full-time accessibility auditors.
+## O prazo iniciou um período operacional
 
-The key here is that these authorities are now interconnected. The European Commission established a centralized database which allows regulators in other states to instantly see the complaints submitted in another country. This means that if you are reported for some accessibility issues in Ireland, then Sweden and Germany will know about it too.
+Os serviços abrangidos têm de ser concebidos e prestados segundo os requisitos aplicáveis. Os prestadores também devem preparar informação que explique como o serviço os cumpre e mantê-la disponível enquanto o serviço funcionar.
 
-### Legal precedent is being set through civil society law suits
+Os Estados-Membros verificam a conformidade, acompanham queixas, confirmam a correção das falhas e definem sanções no direito nacional. Os detalhes variam entre países dentro do enquadramento europeu comum.
 
-In addition to governments, organizations working for people with disabilities are using a class-action like standing to directly sue companies.
+Um produto pode regredir depois de uma auditoria bem-sucedida. Novas versões, componentes de terceiros, conteúdo e alterações do design system podem reintroduzir barreiras. A conformidade não fica congelada na data de um relatório.
 
-* Carrefour: On June 4, 2026, a French court ruled that Carrefour must make its online service accessible within six months, including hefty daily penalties.
-* The Government Sector: Organizations have also sued governmental infrastructure, for example, the French tax service impots.gouv.fr just before tax-filing season.
+## EAA, normas e WCAG
 
-The significance is far from being restricted to France because when a tactic works in one country, advocacy organizations throughout the EU have a successful strategy they can use in their courts.
+A Diretiva contém requisitos funcionais e prevê que normas harmonizadas ou especificações técnicas referenciadas possam criar uma presunção de conformidade para o que cobrem.
 
-## 2. The Major Technical Mistake: Testing against the Wrong Standard
+A [EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/) é uma norma europeia de acessibilidade para TIC. As cláusulas para a Web incorporam requisitos das WCAG e a norma aborda áreas além de um teste comum de conteúdo web.
 
-Another mistake that engineers make when trying to adhere to accessibility regulations in Europe is thinking that if they pass a general WCAG test, they are already compliant.
+As WCAG continuam a ser uma referência essencial de engenharia, mas passar numa análise automática não constitui uma análise jurídica completa. A automação não determina o âmbito, a documentação, a acessibilidade do apoio ou a justificação de uma exceção.
 
-Under EAA, the correct standard is EN 301 549. Although EN 301 549 is all about WCAG, which includes its latest version of WCAG 2.1 AA (to be changed to WCAG 2.2 AA in 2026), it also includes some specific European standards which may not be included in a general WCAG test.
+Um fluxo mais seguro determina o âmbito com conhecimento adequado, mapeia requisitos para percursos e componentes, usa normas como referência de engenharia, combina testes automáticos e manuais e mantém atualizadas a evidência e a correção.
 
-Also, the national standards of a country can be misleading. France’s national standard RGAA is known to require only 50% compliance, which is considered insufficient according to the European Commission. So if you rely only on local guidelines and legacy automatic checks, you might be accumulating technical debt unknowingly.
+## O que as equipas devem manter
 
-## 3. How This Impacts Your Backlog Right Now
+- Design: definir teclado, foco, erros, reflow, áreas de toque, contraste e alternativas antes da implementação.
+- Engenharia: colocar verificações rápidas no CI e manter testes manuais com teclado e tecnologias de apoio nas alterações relevantes.
+- Produto: manter um backlog de acessibilidade com responsáveis e ligar o feedback público à triagem.
+- Liderança e compras: financiar a correção como trabalho de produto e testar integrações de terceiros no contexto real.
 
-No, your regulators are not expecting you to solve all problems immediately, but they would like to see you making progress. Being ready to present the plan for remediation is much more effective than being silent and risking a fine.
+A evidência útil inclui uma decisão de âmbito, percursos críticos, resultados automáticos ligados a builds, notas de testes manuais, problemas e responsáveis, testes de componentes, feedback e informação pública de acessibilidade atualizada.
 
-The following steps should be taken by different roles on the product team:
+## O próximo ano
 
-* For Designers & UX Leads: Consider accessibility a design constraint. Build accessibility properties into design system components such as focus indicator, touch target, dynamic text resizing, and contrast ratios.
-* For Frontend Engineers: Upgrade your automated CI/CD testing suites (for example, axe-core) to the EN 301 549 requirements. Keep in mind that automated scans only identify about 30-40% of the accessibility problems—keyboard navigation, screen reader tests (for example, NVDA, VoiceOver) should become part of your "Definition of Done".
-* For Product Managers: Make sure your public site contains a statement regarding accessibility and a convenient feedback submission mechanism. Also, make sure that feedback reaches your engineering triage process and not just customer support.
+A pergunta mais forte não é se uma organização consegue reclamar um rótulo permanente de conformidade. É se consegue descobrir barreiras, dar-lhes prioridade, corrigi-las e demonstrar que a melhoria sobrevive a versões futuras.
 
-## The Way Forward
-
-With one year of the EAA under our belt, accessibility is no longer just a cosmetic improvement or an afterthought in a legal document. Accessibility is an essential metric of quality and access to the market in Europe. Embedding accessibility in your day-to-day design and engineering processes will not only safeguard you from potential regulation, but make a better product for all users.
+Essa capacidade produz interfaces mais claras, componentes mais fiáveis e produtos que funcionam para mais pessoas.

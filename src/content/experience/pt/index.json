@@ -6,11 +6,11 @@
 			"location": "Remoto",
 			"startDate": "Janeiro 2026",
 			"endDate": "Julho 2026",
-			"isCurrent": true
+			"isCurrent": false
 		},
 		{
 			"title": "Feedzai",
-			"description": "Engenheiro Frontend avan\\u00e7ado e promotor de acessibilidade",
+			"description": "Engenheiro Frontend avançado e promotor de acessibilidade",
 			"location": "Coimbra, Portugal",
 			"startDate": "2024",
 			"endDate": "2026",
@@ -18,7 +18,7 @@
 		},
 		{
 			"title": "Farfetch",
-			"description": "Engenheiro de software s\\u00e9nior - Frontend",
+			"description": "Engenheiro de software sénior - Frontend",
 			"location": "Porto, Portugal",
 			"startDate": "2023",
 			"endDate": "2024",
@@ -26,7 +26,7 @@
 		},
 		{
 			"title": "Feedzai",
-			"description": "Engenheiro Frontend s\\u00e9nior e promotor de acessibilidade",
+			"description": "Engenheiro Frontend sénior e promotor de acessibilidade",
 			"location": "Coimbra, Portugal",
 			"startDate": "2019",
 			"endDate": "2023",
@@ -42,7 +42,7 @@
 		},
 		{
 			"title": "WIT Software",
-			"description": "Designer de UI e gr\\u00e1fico, programador Frontend",
+			"description": "Designer de UI e gráfico, programador Frontend",
 			"location": "Coimbra, Portugal",
 			"startDate": "2013",
 			"endDate": "2019",
@@ -50,7 +50,7 @@
 		},
 		{
 			"title": "Load Interactive",
-			"description": "Designer web, mobile e gr\\u00e1fico",
+			"description": "Designer web, mobile e gráfico",
 			"location": "Aveiro, Portugal",
 			"startDate": "2012",
 			"endDate": "2013",
@@ -58,7 +58,7 @@
 		},
 		{
 			"title": "joaodias.me",
-			"description": "Designer web e gr\\u00e1fico (freelancer)",
+			"description": "Designer web e gráfico (freelancer)",
 			"location": "Figueira da Foz, Portugal",
 			"startDate": "2008",
 			"endDate": "2012",
