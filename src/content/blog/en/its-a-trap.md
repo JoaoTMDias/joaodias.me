@@ -6,7 +6,7 @@ pubDate: 2026-08-10T02:37:07.191Z
 updatedDate: 2026-08-09T23:00:00.000Z
 excerpt: 'Keyboard navigation involves going from one website feature to another through the use of buttons like Tab and the arrows. If an interactive element, for instance, a modal, a video player, and even a custom date picker, locks focus inside itself without providing an escape point, then the rest of the website is inaccessible. According to WCAG 2.1.2 (No Keyboard Trap), every website feature that allows focus should provide an option to exit that feature using only the keyboard.'
 category: accessibility
-featuredImage: /its-a-trap.jpeg
+featuredImage: /blog/keyboard-trap-cover.webp
 readingTime: 4
 ---
 
@@ -25,6 +25,16 @@ One can think of these two as complementary standards:
 * **WCAG 2.1.1 (Keyboard)** is about the ability to *reach and operate* all functions with a keyboard.
 * **WCAG 2.1.2 (No Keyboard Trap)** makes sure that if one has entered a component, there is always a way to *exit*.
 
+<figure class="article-visual">
+  <figcaption>A complete keyboard journey</figcaption>
+  <ol class="article-flow">
+    <li>Enter the component</li>
+    <li>Operate every control</li>
+    <li>Leave for the next focusable element</li>
+  </ol>
+  <p>A trap breaks the final step: focus returns to the component instead of continuing through the page.</p>
+</figure>
+
 ## A case of hidden friction in UX
 
 For those who rely on a keyboard, navigation is a matter of moving through a page in sequence. But when focus is held captive by a component, the remainder of the site is effectively put out of reach. The user is then forced to make a choice: either hit refresh or simply walk away from the site.
@@ -42,6 +52,20 @@ Please note that maintaining the focus within an open modal dialog box is focus 
 
 * Correct Focus Trap: The focus cycles within an open modal until the dialog box is closed by pressing the Escape key or clicking the visible “Close” button.
 * Incorrect (Focus Trap): The focus is trapped within the modal; the Escape key doesn’t work, and the “close” button can’t be accessed using the Tab key.
+
+<figure class="article-visual">
+  <figcaption>Managed focus and a keyboard trap are not the same</figcaption>
+  <div class="article-comparison">
+    <section>
+      <h3>Managed modal focus</h3>
+      <p>Focus moves into the dialog, reaches every action, Escape or the close button dismisses it, and focus returns to the trigger.</p>
+    </section>
+    <section>
+      <h3>Keyboard trap</h3>
+      <p>Focus enters and cycles, but no reachable action or documented keyboard command lets the user close or leave the component.</p>
+    </section>
+  </div>
+</figure>
 
 ## 5 Common Keyboard Trap Failures
 
@@ -73,8 +97,15 @@ If an application needs a special key combination for the user to get out of it,
 
 ## Testing Your Website in 3 Simple Steps
 
-* Step 1. Stop using the mouse and explore the entire page only with the help of Tab, Shift + Tab, arrow keys, and Escape.
-* Step 2. Concentrate on elements which pose a higher risk: modals, mega-menus, embedded video players, custom date pickers, and chat widgets.
-* Step 3. Explore every possible way out, ensuring that it’s possible to both enter and leave all interactive elements effortlessly.
+<figure class="article-visual">
+  <figcaption>Keyboard test checklist</figcaption>
+  <ol class="article-checklist">
+    <li>Put the mouse aside and move forwards and backwards with Tab and Shift+Tab.</li>
+    <li>Operate controls with Enter, Space and arrow keys where the interaction expects them.</li>
+    <li>Open dialogs, menus, date pickers, media players and embedded widgets.</li>
+    <li>Try every visible or documented way to close and leave each component.</li>
+    <li>Confirm that focus remains visible and returns to a logical place.</li>
+  </ol>
+</figure>
 
 And then everyone else will be able to do the same!

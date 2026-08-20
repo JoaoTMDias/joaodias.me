@@ -6,7 +6,7 @@ pubDate: 2026-08-10T02:37:07.191Z
 updatedDate: 2026-08-20T00:00:00.000Z
 excerpt: "O acesso por teclado não está completo quando uma pessoa consegue entrar num componente mas não consegue sair. Saiba como o critério WCAG 2.1.2 se aplica a diálogos, widgets e conteúdo incorporado."
 category: accessibility
-featuredImage: /its-a-trap.jpeg
+featuredImage: /blog/keyboard-trap-cover.webp
 readingTime: 6
 ---
 
@@ -23,6 +23,16 @@ Se a saída exigir algo além das setas sem modificadores, Tab ou outro método 
 ### Acesso e saída são complementares
 
 O Critério 2.1.1 pergunta se a funcionalidade pode ser operada através de teclado. O Critério 2.1.2 pergunta se a pessoa consegue sair depois de entrar. Um calendário pode responder corretamente às setas e impedir que Tab ou Escape regressem ao formulário. Um leitor multimédia pode expor todos os controlos e repetir o foco internamente para sempre.
+
+<figure class="article-visual">
+  <figcaption>Um percurso de teclado completo</figcaption>
+  <ol class="article-flow">
+    <li>Entrar no componente</li>
+    <li>Operar todos os controlos</li>
+    <li>Sair para o elemento focável seguinte</li>
+  </ol>
+  <p>Uma armadilha interrompe o último passo: o foco regressa ao componente em vez de continuar pela página.</p>
+</figure>
 
 ## Quem é afetado
 
@@ -44,6 +54,20 @@ Um modal bem gerido move o foco para um elemento adequado, retira a página inat
 
 O elemento HTML `<dialog>` e `.showModal()` oferecem comportamento útil do navegador, mas não eliminam a necessidade de escolher o foco inicial e testar a interação completa.
 
+<figure class="article-visual">
+  <figcaption>Gerir o foco e criar uma armadilha não são a mesma coisa</figcaption>
+  <div class="article-comparison">
+    <section>
+      <h3>Foco modal bem gerido</h3>
+      <p>O foco entra no diálogo, alcança todas as ações, Escape ou o botão de fechar encerram-no e o foco regressa ao elemento que o abriu.</p>
+    </section>
+    <section>
+      <h3>Armadilha de teclado</h3>
+      <p>O foco entra e circula, mas nenhuma ação alcançável ou comando documentado permite fechar ou abandonar o componente.</p>
+    </section>
+  </div>
+</figure>
+
 ## Padrões comuns de falha
 
 ### Conteúdo incorporado captura o foco
@@ -64,14 +88,17 @@ Um botão de fechar pode estar visível e ter sido removido da ordem de foco ou 
 
 ## Um teste prático
 
-1. Afasta o rato e começa no início da página.
-2. Avança e recua com Tab e Shift+Tab.
-3. Opera controlos com Enter, Espaço e as setas quando esperado.
-4. Abre diálogos, menus, seletores, leitores e widgets incorporados.
-5. Experimenta todas as formas documentadas de sair.
-6. Confirma que o foco continua visível e regressa a um ponto lógico.
-7. Repete em diferentes tamanhos de ecrã.
-8. Inclui testes com leitor de ecrã quando a semântica ou os anúncios influenciam a interação.
+<figure class="article-visual">
+  <figcaption>Checklist de teste por teclado</figcaption>
+  <ol class="article-checklist">
+    <li>Afasta o rato e avança e recua com Tab e Shift+Tab.</li>
+    <li>Opera controlos com Enter, Espaço e as setas quando esperado.</li>
+    <li>Abre diálogos, menus, seletores, leitores e widgets incorporados.</li>
+    <li>Experimenta todas as formas visíveis ou documentadas de fechar e sair.</li>
+    <li>Confirma que o foco continua visível e regressa a um ponto lógico.</li>
+    <li>Repete em diferentes tamanhos de ecrã e, quando relevante, com leitor de ecrã.</li>
+  </ol>
+</figure>
 
 As verificações automáticas encontram alguns erros, mas não provam que todos os estados têm uma saída com sentido. Este critério exige interação manual.
 
