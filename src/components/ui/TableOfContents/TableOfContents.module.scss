@@ -2,7 +2,6 @@
 
 .toc {
   --toc-max-width: 100%;
-  --toc-background: var(--background-color);
   --toc-color: var(--text-color-faded);
   --toc-color-hover: var(--text-color);
 
@@ -12,18 +11,15 @@
   gap: var(--space-sm);
   width: 100%;
   max-width: var(--toc-max-width);
-  background-color: var(--toc-background);
   color: var(--toc-color);
   border-radius: var(--section-border-radius);
   margin-bottom: var(--space-lg);
 
   @media (--laptop-viewport) {
     --toc-max-width: 20ch;
-    --toc-background: var(--background-color);
     --toc-color: var(--text-color-faded);
 
     margin-bottom: 0;
-    background-color: var(--background-color);
     color: var(--text-color-faded);
     position: sticky;
     top: var(--space-lg);
