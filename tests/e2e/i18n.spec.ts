@@ -49,15 +49,13 @@ test.describe("Portuguese locale", () => {
 	});
 
 	test("uses listing fallback for an untranslated English article", async ({ page }) => {
-		await page.goto("/blog/screen-reader-testing-a-developers-perspective");
+		await page.goto("/blog/one-year-of-eaa");
 		await expect(page.getByRole("banner").locator('a[hreflang="pt-PT"]').first()).toHaveAttribute(
 			"href",
 			"/pt/blog",
 		);
 		await expect(page.locator('link[rel="alternate"][hreflang="pt-PT"]')).toHaveCount(0);
-		const response = await page.request.get(
-			"/pt/blog/screen-reader-testing-a-developers-perspective",
-		);
+		const response = await page.request.get("/pt/blog/one-year-of-eaa");
 		expect(response.status()).toBe(404);
 	});
 
@@ -66,7 +64,7 @@ test.describe("Portuguese locale", () => {
 		expect(response.ok()).toBeTruthy();
 		const xml = await response.text();
 		expect(xml).toContain("<rss");
-		expect(xml).not.toContain("screen-reader-testing-a-developers-perspective");
+		expect(xml).not.toContain("one-year-of-eaa");
 		expect(xml).not.toContain("<item>");
 	});
 
