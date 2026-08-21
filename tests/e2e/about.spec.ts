@@ -41,6 +41,16 @@ test.describe("About Page", () => {
 		await expect(page.getByTestId(PAGE_SELECTORS.experience)).toBeVisible();
 	});
 
+	test("should initially expand only the first service", async ({ page }) => {
+		const items = page.locator("jd-accordion-item");
+
+		await expect(items).toHaveCount(4);
+		await expect(items.nth(0).locator("button")).toHaveAttribute("aria-expanded", "true");
+		for (let index = 1; index < 4; index++) {
+			await expect(items.nth(index).locator("button")).toHaveAttribute("aria-expanded", "false");
+		}
+	});
+
 	test("should display currently listening section", async ({ page }) => {
 		const { container } = PAGE_SELECTORS.currentlyListening;
 		await expect(page.getByTestId(container)).toBeVisible();

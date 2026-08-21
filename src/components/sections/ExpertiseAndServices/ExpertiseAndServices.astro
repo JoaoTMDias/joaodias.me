@@ -68,7 +68,11 @@ const copy = isPt
     <div class={styles.services__list}>
       <jd-accordion>
         {copy.services.map(([category, label, description], index) => (
-          <jd-accordion-item category={category} label={label} open={index === 0}>
+          <jd-accordion-item
+            category={category}
+            label={label}
+            open={index === 0 ? true : undefined}
+          >
             <p>{description}</p>
           </jd-accordion-item>
         ))}
