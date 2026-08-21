@@ -8,7 +8,6 @@ description: A music-discovery tool that combines Last.fm data, Deezer imagery a
 role: Product designer and frontend engineer
 problem: While presenting a radio show, moving between separate artist pages made it difficult to research connections and compare related acts quickly on air.
 impact: Raider brings search, artist details, related acts and top tracks into one visual reference without requiring a third-party login.
-featuredOrder: 3
 sourceCode: https://github.com/JoaoTMDias/raider
 liveDemo: https://music-raider.netlify.app/
 skills:

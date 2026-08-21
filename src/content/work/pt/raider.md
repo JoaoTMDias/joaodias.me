@@ -8,7 +8,6 @@ description: Uma ferramenta de descoberta musical que combina dados do Last.fm, 
 role: Designer de produto e engenheiro frontend
 problem: Durante a apresentação de um programa de rádio, navegar entre páginas separadas dificultava a pesquisa de ligações e a comparação rápida de artistas relacionados em direto.
 impact: O Raider reúne pesquisa, detalhes de artistas, artistas relacionados e faixas populares numa referência visual sem exigir autenticação de terceiros.
-featuredOrder: 3
 sourceCode: https://github.com/JoaoTMDias/raider
 liveDemo: https://music-raider.netlify.app/
 skills:

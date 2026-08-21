@@ -2,7 +2,6 @@
 role: 'Product designer, architect and lead engineer'
 problem: 'During a major Feedzai website update, the team lacked a repeatable way to run basic accessibility checks across every page and track regressions between releases.'
 impact: 'Repeatable audits helped the team reduce accessibility violations on the published site, while the project grew into a reusable platform for local, CI and AI-assisted workflows.'
-featuredOrder: 1
 coverAlt: A11y Page Checker logo over a blurred view of the local audit dashboard.
 locale: en
 translationKey: a11y-page-checker

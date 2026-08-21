@@ -2,7 +2,6 @@
 role: 'Designer de produto, arquiteto e engenheiro principal'
 problem: 'Durante uma grande atualização do site da Feedzai, a equipa não tinha uma forma repetível de executar verificações básicas de acessibilidade em todas as páginas e acompanhar regressões entre versões.'
 impact: 'As auditorias repetíveis ajudaram a equipa a reduzir as violações de acessibilidade no site publicado, enquanto o projeto evoluiu para uma plataforma reutilizável em fluxos locais, de CI e assistidos por IA.'
-featuredOrder: 1
 coverAlt: Logótipo do A11y Page Checker sobre uma vista desfocada do painel local de auditoria.
 locale: pt
 translationKey: a11y-page-checker

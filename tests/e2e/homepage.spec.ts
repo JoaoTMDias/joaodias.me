@@ -50,8 +50,17 @@ test.describe("Homepage", () => {
 	});
 
 	test("should display the featured work section", async ({ page }) => {
+		const featuredWork = page.locator("#featured-work");
+		const featuredProjects = featuredWork.getByTestId("work-item");
+
 		await expect(page.getByRole("heading", { name: "Featured Work" })).toBeVisible();
-		await expect(page.locator("#featured-work")).toBeVisible();
+		await expect(featuredWork).toBeVisible();
+		await expect(featuredProjects).toHaveCount(3);
+		await expect(featuredProjects.nth(0).getByRole("heading", { name: "Squeeezer" })).toBeVisible();
+		await expect(featuredProjects.nth(1).getByRole("heading", { name: "Raider" })).toBeVisible();
+		await expect(
+			featuredProjects.nth(2).getByRole("heading", { name: "A11y Page Checker" }),
+		).toBeVisible();
 	});
 
 	test("should expose machine-readable broadcast dates", async ({ page }) => {

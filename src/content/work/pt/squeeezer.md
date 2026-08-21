@@ -48,8 +48,8 @@ galleryImages:
     caption: O Squeeezer pode ser instalado a partir de um navegador compatível, mantendo a mesma arquitetura local e sem backend.
     width: 1066
     height: 737
-themeBackground: "#0F172A"
-themeForeground: "#38BDF8"
+themeBackground: "#38BDF8"
+themeForeground: "#0F172A"
 ---
 
 ## Contexto

@@ -74,7 +74,6 @@ const projectsCollection = defineCollection({
 		role: z.string(),
 		problem: z.string(),
 		impact: z.string(),
-		featuredOrder: z.number().optional(),
 		archived: z.boolean().default(false),
 		sourceCode: z
 			.union([z.string(), z.null()])

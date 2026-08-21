@@ -11,7 +11,6 @@ description: >
 role: Product designer and frontend engineer
 problem: I wanted a simple Windows colour tool for my own workflow, but the available options did not combine system-wide sampling with clear accessibility feedback.
 impact: The personal prototype evolved from a Windows-only experiment into the basis for a lightweight, cross-platform desktop application.
-featuredOrder: 4
 sourceCode: "https://github.com/JoaoTMDias/winpicker"
 liveDemo: null
 skills:

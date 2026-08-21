@@ -11,6 +11,13 @@ test.describe("Portuguese locale", () => {
 		await expect(
 			page.getByRole("banner").locator('a[data-testid="top-nav-link"][href="/pt/"]').first(),
 		).toHaveAttribute("aria-current", "page");
+		const featuredProjects = page.locator("#featured-work").getByTestId("work-item");
+		await expect(featuredProjects).toHaveCount(3);
+		await expect(featuredProjects.nth(0).getByRole("heading", { name: "Squeeezer" })).toBeVisible();
+		await expect(featuredProjects.nth(1).getByRole("heading", { name: "Raider" })).toBeVisible();
+		await expect(
+			featuredProjects.nth(2).getByRole("heading", { name: "A11y Page Checker" }),
+		).toBeVisible();
 		await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
 			"href",
 			"https://joaodias.me/pt/",

@@ -13,11 +13,8 @@ type ProjectItem = CollectionEntry<"projects">;
 const projects: ProjectItem[] = (await getCollection("projects"))
 	.filter((entry) => entry.data.locale === (Astro.currentLocale === "pt" ? "pt" : "en"))
 	.filter((entry) => !entry.data.archived)
-	.filter((entry) => entry.data.featuredOrder !== undefined)
-	.sort(
-		(a: ProjectItem, b: ProjectItem) => (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99),
-	)
-	.slice(0, 4);
+	.sort((a: ProjectItem, b: ProjectItem) => b.data.date.getTime() - a.data.date.getTime())
+	.slice(0, 3);
 const isPt = Astro.currentLocale === "pt";
 ---
 

@@ -13,7 +13,6 @@ description: >
 role: Library creator and maintainer
 problem: Engineers at Feedzai repeatedly encountered complex accessibility patterns but did not always have the specialist knowledge or time to implement them consistently.
 impact: The library became an accessibility foundation for Escudo, Feedzai's internal design system, and continues to support personal and professional projects through my maintained fork.
-featuredOrder: 2
 sourceCode: "https://github.com/JoaoTMDias/frontend/tree/main/packages/react-a11y-tools"
 liveDemo: "https://www.npmjs.com/package/@jtmdias/react-a11y-tools"
 skills:

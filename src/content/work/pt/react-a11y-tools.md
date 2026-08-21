@@ -8,7 +8,6 @@ description: Uma biblioteca de código aberto que transforma gestão de foco, na
 role: Criador e responsável de manutenção da biblioteca
 problem: Na Feedzai, as equipas encontravam repetidamente padrões complexos de acessibilidade, mas nem sempre tinham o conhecimento especializado ou o tempo necessário para os implementar de forma consistente.
 impact: A biblioteca tornou-se uma base de acessibilidade do Escudo, o sistema de design interno da Feedzai, e continua a apoiar projetos pessoais e profissionais através da minha versão mantida.
-featuredOrder: 2
 sourceCode: https://github.com/JoaoTMDias/frontend/tree/main/packages/react-a11y-tools
 liveDemo: https://www.npmjs.com/package/@jtmdias/react-a11y-tools
 skills: [react, typescript, cypress-component-testing, vite, docusaurus]

@@ -8,7 +8,6 @@ description: Uma aplicação Tauri e React para recolher cores de primeiro plano
 role: Designer de produto e engenheiro frontend
 problem: Queria uma ferramenta de cores simples para o meu próprio fluxo em Windows, mas as opções disponíveis não combinavam recolha de cores em qualquer ponto do ecrã com informação clara sobre acessibilidade.
 impact: O protótipo pessoal evoluiu de uma experiência exclusiva para Windows para a base de uma aplicação desktop multiplataforma e leve.
-featuredOrder: 4
 sourceCode: https://github.com/JoaoTMDias/winpicker
 liveDemo: null
 skills: [react, typescript, vite, tauri, fluent-ui, playwright]
