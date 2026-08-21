@@ -4,24 +4,23 @@ translationKey: winpicker
 title: WinPicker
 slug: winpicker
 date: 2024-01-01T00:00:00.000Z
-shortDescription: A colour picker for Windows 11
+shortDescription: A cross-platform colour picker with immediate WCAG contrast feedback.
 description: >
-  I created a Fluent UI app for Windows 11 and used React, Electron and its Node
-  API. This little piece of software enables web developers and designers to
-  pick foreground and background colours and get an instant preview of its
-  contrast ratio.
+  A Tauri and React application for sampling foreground and background colours,
+  previewing them together and understanding their contrast.
 role: Product designer and frontend engineer
-problem: Windows designers and developers needed a quick way to sample colours and understand their text contrast.
-impact: A desktop prototype combined system colour picking with immediate WCAG contrast feedback.
+problem: I wanted a simple Windows colour tool for my own workflow, but the available options did not combine system-wide sampling with clear accessibility feedback.
+impact: The personal prototype evolved from a Windows-only experiment into the basis for a lightweight, cross-platform desktop application.
 featuredOrder: 4
 sourceCode: "https://github.com/JoaoTMDias/winpicker"
 liveDemo: null
 skills:
   - react
-  - vitejs
-  - electron
+  - typescript
+  - vite
+  - tauri
   - fluent-ui
-  - windows-11
+  - playwright
 thumbnail: /work/winpicker/project-icon.svg
 cover: /work/winpicker/winpicker-cover.jpeg
 galleryImages:
@@ -38,44 +37,30 @@ themeBackground: "#003C6D"
 themeForeground: "#FFB3B3"
 ---
 
-## Accessibility Considerations
+## Context
 
-WinPicker was built with accessibility as a core requirement from the start. The application uses Microsoft's Fluent UI components which follow WCAG 2.1 AA guidelines and provide built-in keyboard navigation support.
+WinPicker began as a personal tool. On Windows 11, I wanted a quick way to sample foreground and background colours from anywhere on screen, compare them and understand their text contrast without moving between separate utilities.
 
-Key accessibility features implemented:
+The first goal was deliberately narrow: improve my own design and development workflow using the web technologies I already knew. The longer-term opportunity was to build the same experience for more than one operating system.
 
-- Full keyboard navigation throughout the application
-- High contrast mode support following Windows 11 design guidelines
-- Screen reader compatibility through proper ARIA labels and semantic HTML
-- Focus management with visible focus indicators
-- Color contrast ratio calculations displayed prominently (AA and AAA levels for both large and regular text)
-- The color picker interface itself is accessible, allowing users to select colors using keyboard shortcuts
+## Process and decisions
 
-The app specifically helps developers and designers create accessible color combinations by providing real-time contrast ratio feedback and WCAG compliance indicators.
+I first explored React Native for Windows, then moved to Electron to prototype with React and reach beyond a Windows-only application. Electron made that transition easier, but packaging a complete browser runtime felt disproportionate for a small colour utility.
 
-## Technical Approach
+I later migrated the desktop shell to Tauri. The interface still uses React, Vite and Fluent UI, while Tauri produces a lighter native application by relying on each operating system's webview instead of shipping a full browser with every build.
 
-WinPicker was built using:
+The current version no longer depends on a custom Windows executable for colour sampling. It uses native web colour controls and the EyeDropper capability when the underlying browser or webview exposes system-level sampling. Keeping that boundary in the web layer supports the cross-platform direction without pretending that every runtime offers identical behaviour.
 
-- **React** for the user interface components
-- **Vite** for fast bundling and development experience
-- **Electron** for creating a native Windows application
-- **Fluent UI** (@fluentui/react) for native Windows 11 look and feel
+## Contrast and accessibility
 
-The color picker functionality uses an external .exe file that communicates with the Electron app through Node's ipcMain and ipcRenderer processes. This allows the app to access system-level color picker APIs while maintaining a web-based UI.
+The `get-contrast` package calculates the ratio between the selected foreground and background. I translate that value into a quick five-star scale and also show explicit WCAG AA and AAA results for normal and large text, so the visual summary never replaces the underlying criteria.
 
-The contrast ratio calculation follows WCAG guidelines and provides immediate feedback with a 5-star rating system and pass/fail indicators for AA and AAA compliance levels.
+Keyboard access, visible focus and assistive-technology support were part of the interface from the beginning. I tested the desktop experience with NVDA, Windows Narrator and VoiceOver, and checked the mobile interface with TalkBack. Playwright and axe-core provide additional integration and automated accessibility coverage.
 
-## Process
+## Result
 
-The development process started with exploring React Native for Windows, but quickly pivoted to Electron for faster prototyping and better web development experience.
+WinPicker is still a working prototype and needs another development pass before its first public executable release. I am planning that release for later in 2026, with cross-platform desktop builds as the immediate goal and the web-based interface leaving room for broader operating-system support.
 
-Accessibility considerations were integrated from the initial design phase, ensuring that all Fluent UI components were properly configured for screen readers and keyboard navigation. The color contrast calculation feature was designed to be the primary focus of the application, making it easy for developers to quickly assess accessibility compliance.
+## Learning
 
-Testing was done with Windows Narrator and NVDA to ensure proper screen reader compatibility.
-
-## Results & Impact
-
-WinPicker successfully fills the gap for Windows developers who need a native, accessible color picker tool. The application serves as a practical example of building accessible desktop applications using web technologies.
-
-The project demonstrates how accessibility can be integrated into the development workflow from the start, rather than being an afterthought.
+Cross-platform does not have to mean packaging the same heavy runtime everywhere. Building on native web capabilities and keeping the desktop shell replaceable allowed a small Windows tool to grow into a more portable product direction.
