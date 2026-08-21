@@ -36,7 +36,9 @@
     @supports (animation-timeline: view()) {
       @media (--large-viewport) and (--with-motion) {
         view-timeline-name: --slide-in-image;
-        animation: linear slideInImage both;
+        animation-name: slideInImage;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
         animation-timeline: --slide-in-image;
         animation-range: entry -15% cover 50%;
         transform: translateX(50%);
