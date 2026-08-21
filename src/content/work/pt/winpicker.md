@@ -2,7 +2,7 @@
 locale: pt
 translationKey: winpicker
 title: WinPicker
-date: 2022-01-01
+date: 2024-01-01T00:00:00.000Z
 shortDescription: Um seletor de cores e verificador de contraste para Windows.
 description: Uma aplicação Fluent UI que permite recolher cores do sistema, compará-las e consultar imediatamente o contraste WCAG.
 role: Designer de produto e engenheiro frontend
@@ -22,7 +22,7 @@ galleryImages:
   - image: /work/winpicker/winpicker-3.jpg
     alt: Resultados de contraste no WinPicker
 themeBackground: "#003C6D"
-themeForeground: "#FFCACA"
+themeForeground: "#FFB3B3"
 ---
 
 ## Contexto e processo

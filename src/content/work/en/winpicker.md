@@ -3,7 +3,7 @@ locale: en
 translationKey: winpicker
 title: WinPicker
 slug: winpicker
-date: 2022-01-01T00:00:00.000Z
+date: 2024-01-01T00:00:00.000Z
 shortDescription: A colour picker for Windows 11
 description: >
   I created a Fluent UI app for Windows 11 and used React, Electron and its Node
@@ -35,7 +35,7 @@ galleryImages:
     alt: Winpicker results view
     caption: ""
 themeBackground: "#003C6D"
-themeForeground: "#FFCACA"
+themeForeground: "#FFB3B3"
 ---
 
 ## Accessibility Considerations
