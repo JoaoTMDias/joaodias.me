@@ -21,7 +21,7 @@ skills:
   - cypress
   - jest
   - testing-library
-thumbnail: /work/istovaidarmerda.online/project-icon.png
+thumbnail: /work/istovaidarmerda.online/project-icon.svg
 cover: /work/istovaidarmerda.online/project-cover.jpg
 galleryImages:
   - image: /work/istovaidarmerda.online/project-1.jpg
