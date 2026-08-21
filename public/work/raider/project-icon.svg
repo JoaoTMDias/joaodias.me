@@ -1,0 +1,13 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="256" height="256" fill="black"/>
+<circle cx="56.5" cy="210.5" r="17.5" fill="#5705C9"/>
+<circle cx="104.5" cy="210.5" r="17.5" fill="#5705C9"/>
+<circle cx="152.5" cy="210.5" r="17.5" fill="#5705C9"/>
+<circle cx="200.5" cy="210.5" r="17.5" fill="#5705C9"/>
+<path d="M124 105L105 196" stroke="#5705C9" stroke-width="9" stroke-linecap="round"/>
+<path d="M134 105L153 196" stroke="#5705C9" stroke-width="9" stroke-linecap="round"/>
+<path d="M144 98L197 193" stroke="#5705C9" stroke-width="9" stroke-linecap="round"/>
+<path d="M115 98L61 196" stroke="#5705C9" stroke-width="9" stroke-linecap="round"/>
+<circle cx="128.5" cy="79.5" r="47" fill="#270A51" stroke="#5705C9" stroke-width="7"/>
+<path d="M141.36 62.6794V70.5758H133.439V90.3923C133.439 92.5673 132.665 94.4293 131.116 95.9782C129.567 97.5271 127.705 98.3014 125.53 98.3014C123.355 98.3014 121.493 97.527 119.944 95.9782C118.395 94.4292 117.621 92.5673 117.621 90.3923C117.621 88.2172 118.395 86.3553 119.944 84.8063C121.493 83.2574 123.355 82.4831 125.53 82.4831C126.288 82.4831 126.988 82.5734 127.63 82.7546C128.273 82.9358 128.891 83.2075 129.484 83.57L129.502 83.5817V62.6794H141.36Z" fill="#B78FF0" stroke="#5705C9" stroke-width="0.025"/>
+</svg>

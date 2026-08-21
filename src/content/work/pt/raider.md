@@ -18,7 +18,8 @@ skills:
   - visx
   - lastfm
   - playwright
-thumbnail: /work/raider/2-raider-related-artists.webp
+thumbnail: /work/raider/project-icon.svg
+cover: /work/raider/project-cover.webp
 galleryImages:
   - image: /work/raider/5-raider-artist-search.webp
     alt: Interface de pesquisa de artistas do Raider
@@ -26,8 +27,8 @@ galleryImages:
     alt: Detalhes de um artista, biografia e faixas populares
   - image: /work/raider/2-raider-related-artists.webp
     alt: Mapa visual de artistas relacionados
-themeBackground: "#111111"
-themeForeground: "#f5f5f5"
+themeBackground: "#000000"
+themeForeground: "#B78FF0"
 ---
 
 ## Contexto
