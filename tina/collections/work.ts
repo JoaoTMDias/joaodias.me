@@ -32,6 +32,13 @@ export const WorkCollection: Collection = {
 			required: true,
 		},
 		{
+			type: "boolean",
+			name: "archived",
+			label: "Archived",
+			required: false,
+			description: "Hide this project from listings while preserving its direct URL",
+		},
+		{
 			type: "string",
 			name: "shortDescription",
 			label: "Short Description",

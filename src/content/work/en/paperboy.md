@@ -4,6 +4,7 @@ translationKey: paperboy
 title: Paperboy
 slug: paperboy
 date: 2019-09-01
+archived: true
 shortDescription: A progressive web app for a concept news reader.
 description: >
   To be properly informed these days is a very tedious task. Plus, all the

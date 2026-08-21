@@ -26,15 +26,18 @@ themeForeground: "#0f1729"
 
 ## Contexto e processo
 
-A primeira hipótese foi inserir controlos junto ao campo do Google Chat. A aplicação usava um `contenteditable` sem identificadores estáveis, pelo que essa integração ficaria dependente de detalhes internos.
+Quando criei esta extensão, o Google Chat não tinha controlos de texto formatado. A primeira hipótese foi inserir uma barra junto ao editor, mas a interface usava um elemento `contenteditable` sem identificadores estáveis. Essa solução ficaria dependente de detalhes internos que a Google poderia alterar a qualquer momento.
 
-Optei por um popup independente em Preact. CSS Modules isolou estilos, Vite simplificou o build e os testes de componentes com Cypress validaram o comportamento num navegador real.
+Optei por um popup independente. As pessoas podiam preparar o texto numa interface previsível e colar o resultado no Google Chat, sem que a extensão manipulasse uma página de terceiros.
 
-## Acessibilidade
+O Preact manteve a interface pequena e um modelo de componentes familiar. CSS Modules isolou os estilos, Vite tratou do build e os testes de componentes com Cypress exercitaram o editor num navegador real, em vez de num DOM simulado.
 
-A interface suportava teclado, nomes acessíveis, gestão de foco e temas claro e escuro. O objetivo não era imitar o Google Chat, mas oferecer um fluxo previsível para preparar texto.
+O popup suportava teclado, nomes acessíveis, gestão de foco e temas claro e escuro. Estes comportamentos faziam parte dos testes de componentes, juntamente com verificações automáticas através do axe-core.
 
-## Resultado e aprendizagem
+## Resultado
 
-A extensão foi útil até o produto receber edição nativa. O projeto demonstrou que uma integração menos invasiva pode ser mais robusta e acessível do que manipular uma interface de terceiros.
+A extensão cumpriu o seu propósito durante vários meses. Quando a Google introduziu o seu próprio editor de formatação, deixou de ser necessária — um fim natural para uma ferramenta criada em resposta a uma lacuna temporária do produto.
 
+## Aprendizagem
+
+Uma integração menos invasiva pode ser mais resistente do que outra que interfere profundamente com uma interface fora do nosso controlo. Por vezes, ter sucesso também significa reconhecer que uma solução temporária já cumpriu o seu papel.

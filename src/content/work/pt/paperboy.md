@@ -3,6 +3,7 @@ locale: pt
 translationKey: paperboy
 title: Paperboy
 date: 2019-09-01
+archived: true
 shortDescription: Uma aplicação web progressiva para um conceito de leitor de notícias.
 description: Uma exploração de leitura agregada, responsiva e disponível offline, baseada em tecnologias web.
 role: Designer de produto e engenheiro frontend
@@ -31,4 +32,3 @@ Tipografia fluida, desenho responsivo e scroll snapping procuraram uma sensaçã
 ## Resultado e aprendizagem
 
 O Paperboy tornou-se uma demonstração de como padrões web podem oferecer instalação, funcionamento offline e alcance multiplataforma sem abandonar uma base acessível.
-

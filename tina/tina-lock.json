@@ -677,6 +677,16 @@
 						"uid": false
 					},
 					{
+						"type": "boolean",
+						"name": "archived",
+						"label": "Archived",
+						"required": false,
+						"description": "Hide this project from listings while preserving its direct URL",
+						"namespace": ["work", "archived"],
+						"searchable": true,
+						"uid": false
+					},
+					{
 						"type": "string",
 						"name": "shortDescription",
 						"label": "Short Description",
@@ -3709,6 +3719,12 @@
 					},
 					{
 						"kind": "FieldDefinition",
+						"name": { "kind": "Name", "value": "archived" },
+						"arguments": [],
+						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "Boolean" } }
+					},
+					{
+						"kind": "FieldDefinition",
 						"name": { "kind": "Name", "value": "shortDescription" },
 						"arguments": [],
 						"type": {
@@ -3875,6 +3891,11 @@
 						"kind": "InputValueDefinition",
 						"name": { "kind": "Name", "value": "date" },
 						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "DatetimeFilter" } }
+					},
+					{
+						"kind": "InputValueDefinition",
+						"name": { "kind": "Name", "value": "archived" },
+						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "BooleanFilter" } }
 					},
 					{
 						"kind": "InputValueDefinition",
@@ -5527,6 +5548,11 @@
 						"kind": "InputValueDefinition",
 						"name": { "kind": "Name", "value": "date" },
 						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "String" } }
+					},
+					{
+						"kind": "InputValueDefinition",
+						"name": { "kind": "Name", "value": "archived" },
+						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "Boolean" } }
 					},
 					{
 						"kind": "InputValueDefinition",

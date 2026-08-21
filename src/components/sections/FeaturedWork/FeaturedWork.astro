@@ -12,6 +12,7 @@ type ProjectItem = CollectionEntry<"projects">;
 
 const projects: ProjectItem[] = (await getCollection("projects"))
 	.filter((entry) => entry.data.locale === (Astro.currentLocale === "pt" ? "pt" : "en"))
+	.filter((entry) => !entry.data.archived)
 	.filter((entry) => entry.data.featuredOrder !== undefined)
 	.sort(
 		(a: ProjectItem, b: ProjectItem) => (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99),

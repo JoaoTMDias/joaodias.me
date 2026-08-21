@@ -4,10 +4,8 @@ translationKey: google-chat-formatter
 title: Google Chat Formatter
 slug: google-chat-formatter
 date: 2022-01-01T00:00:00.000Z
-shortDescription: A browser extension that helps google chat users to type rich text
-description: >
-  A browser extension that helps Google Chat users to create richer text
-  content. Backed up by Preact, CSS Modules, Vite and Cypress component testing.
+shortDescription: A browser extension for preparing formatted text before pasting it into Google Chat.
+description: A compact, accessible editor that filled a gap in Google Chat until native formatting arrived.
 role: Product designer and frontend engineer
 problem: Google Chat did not offer rich-text controls, while injecting UI into its unstable contenteditable implementation would be fragile.
 impact: An accessible browser-extension popup provided formatting until Google introduced its own native editor.
@@ -34,42 +32,22 @@ themeBackground: "#69f0ae"
 themeForeground: "#0f1729"
 ---
 
-## Accessibility Considerations
+## Context
 
-Accessibility was a top priority from the start of this project. The extension's popup interface was built with accessibility in mind:
+Google Chat did not provide rich-text controls when I built this extension. My first idea was to place a formatting toolbar beside its editor, but the interface used a `contenteditable` element without stable identifiers. Injecting controls there would tie the extension to implementation details that Google could change at any time.
 
-- Full keyboard navigation support throughout the toolbar and text editor
-- Proper ARIA labels and roles for all interactive elements
-- High contrast mode support through CSS custom properties
-- Screen reader announcements for formatting actions
-- Focus management when switching between toolbar and text area
-- Semantic HTML structure with proper heading hierarchy
+## Process and decisions
 
-The extension also supports dark and light themes, ensuring readability in various lighting conditions. All formatting controls are clearly labeled and can be activated via keyboard shortcuts, making the tool accessible to users who rely on keyboard navigation or assistive technologies.
+I chose an independent browser-extension popup instead. People could prepare formatted text in a predictable interface and paste the result into Google Chat without the extension manipulating a third-party page.
 
-## Technical Approach
+Preact kept the interface small while retaining a familiar component model. CSS Modules isolated its styles, Vite handled the extension build, and Cypress component tests exercised the editor in a real browser rather than a simulated DOM.
 
-Built with:
+The popup supported keyboard operation, accessible names, focus management, and light and dark themes. These behaviours were part of the component tests, alongside automated checks with axe-core.
 
-- **Preact** - The lightweight 3kb React alternative, chosen for its small bundle size and React compatibility
-- **CSS Modules** - For scoped styling
-- **Vite** - For fast development and building
-- **Cypress Component Testing** - For testing components in a real browser environment
+## Result
 
-The initial plan was to inject an inline panel next to Google Chat's textarea, but Google uses a contenteditable div instead of a native textarea, and there were no unique identifiers to reliably target. This would have created a fragile dependency on Google's internal implementation.
+The extension served its purpose for several months. When Google introduced its own formatting editor, the workaround was no longer necessary—a natural end for a tool built around a temporary product gap.
 
-Instead, I built a popup interface that provides a clean, accessible way to format text before pasting it into Google Chat.
+## Learning
 
-## Process
-
-The project started with exploring React, but quickly pivoted to Preact for its smaller bundle size and React compatibility layer. The popup approach was chosen after discovering the limitations of trying to inject UI into Google Chat's interface.
-
-Cypress component testing was used to test components in a real browser environment, which proved more reliable than Jest with JSDOM. This approach caught several bugs that wouldn't have been caught with traditional unit testing.
-
-Dark and light themes were implemented using CSS custom properties for easy theming and accessibility support.
-
-## Results & Impact
-
-The extension served me well for several months before Google implemented their own inline editor. However, this project was valuable for learning Preact, Vite, and Cypress component testing.
-
-The project demonstrates how to build accessible browser extensions and showcases the benefits of component testing in real browser environments over simulated DOM environments.
+A less invasive integration can be more resilient than one that reaches deeply into an interface you do not control. Sometimes success also means knowing when a workaround has finished its job.
