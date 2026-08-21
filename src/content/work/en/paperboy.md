@@ -3,7 +3,7 @@ locale: en
 translationKey: paperboy
 title: Paperboy
 slug: paperboy
-date: 2020-09-01T00:00:00.000Z
+date: 2019-09-01
 shortDescription: A progressive web app for a concept news reader.
 description: >
   To be properly informed these days is a very tedious task. Plus, all the
@@ -21,14 +21,14 @@ skills:
   - cypress
   - service-workers
   - styled-components
-thumbnail: /work/paperboy/project-icon.jpg
+thumbnail: /work/paperboy/project-icon.svg
 cover: /work/paperboy/project-cover.jpg
 galleryImages:
   - image: /work/paperboy/project-1.jpg
     alt: Paperboy application interface
     caption: ''
-themeBackground: "#ffffff"
-themeForeground: "#b12013"
+themeBackground: "#E84C3D"
+themeForeground: "#390500"
 ---
 
 ## Accessibility Considerations

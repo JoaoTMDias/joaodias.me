@@ -2,7 +2,7 @@
 locale: pt
 translationKey: paperboy
 title: Paperboy
-date: 2020-09-01
+date: 2019-09-01
 shortDescription: Uma aplicação web progressiva para um conceito de leitor de notícias.
 description: Uma exploração de leitura agregada, responsiva e disponível offline, baseada em tecnologias web.
 role: Designer de produto e engenheiro frontend
@@ -11,13 +11,13 @@ impact: O conceito demonstrou um leitor instalável e disponível offline com as
 sourceCode: https://github.com/joaotmdias/paperboy
 liveDemo: null
 skills: [gatsby, news-api, cypress, service-workers, styled-components]
-thumbnail: /work/paperboy/project-icon.jpg
+thumbnail: /work/paperboy/project-icon.svg
 cover: /work/paperboy/project-cover.jpg
 galleryImages:
   - image: /work/paperboy/project-1.jpg
     alt: Interface da aplicação Paperboy
-themeBackground: "#ffffff"
-themeForeground: "#b12013"
+themeBackground: "#E84C3D"
+themeForeground: "#390500"
 ---
 
 ## Contexto e processo
