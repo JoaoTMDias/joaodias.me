@@ -67,8 +67,8 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
 ---
 
 <PageLayout
-  title="Work Projects - João Dias"
-  description="Selected projects by João Dias, Frontend Engineer specializing in Web Accessibility"
+  title={t.work.pageTitle}
+  description={t.work.seoDescription}
 >
   <div class="section">
     <h1 class={styles.work__title}>{t.work.title}</h1>

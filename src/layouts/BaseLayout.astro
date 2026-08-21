@@ -5,19 +5,29 @@ import { getLocale, htmlLang, type Locale } from "../i18n";
 export interface Props {
 	title: string;
 	description: string;
-	itemtype?: string;
 	lang?: string;
 	locale?: Locale;
 	alternateUrls?: Partial<Record<Locale, string>>;
+	image?: string;
+	noindex?: boolean;
+	openGraphType?: "article" | "website";
+	publishedTime?: string;
+	modifiedTime?: string;
+	structuredData?: Record<string, unknown>;
 }
 
 const {
 	title,
 	description,
-	itemtype = "http://schema.org/WebPage",
 	locale = getLocale(Astro.currentLocale),
 	lang = htmlLang[locale],
 	alternateUrls,
+	image,
+	noindex,
+	openGraphType,
+	publishedTime,
+	modifiedTime,
+	structuredData,
 } = Astro.props;
 ---
 
@@ -25,12 +35,22 @@ const {
 <html
   lang={lang}
   prefix="http://ogp.me/ns#"
-  itemtype={itemtype}
   dir="ltr"
   data-testid="html-element"
 >
   <head>
-    <BaseHead title={title} description={description} locale={locale} alternateUrls={alternateUrls} />
+    <BaseHead
+      title={title}
+      description={description}
+      locale={locale}
+      alternateUrls={alternateUrls}
+      image={image}
+      noindex={noindex}
+      openGraphType={openGraphType}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      structuredData={structuredData}
+    />
   </head>
   <body>
     <slot />

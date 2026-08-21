@@ -34,6 +34,11 @@ test.describe("Portuguese locale", () => {
 			"href",
 			"https://joaodias.me/",
 		);
+		await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+			"content",
+			/Site pessoal de João Dias/,
+		);
+		await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "pt_PT");
 	});
 
 	test("switches core pages to their exact counterpart", async ({ page }) => {

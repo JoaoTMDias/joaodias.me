@@ -39,6 +39,15 @@ test.describe("Error States", () => {
 			"/",
 		);
 		await expect(page.locator('link[rel="alternate"]')).toHaveCount(0);
+		await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+	});
+
+	test("should exclude error pages from the sitemap", async ({ request }) => {
+		const response = await request.get("/sitemap-0.xml");
+		const sitemap = await response.text();
+
+		expect(response.ok()).toBeTruthy();
+		expect(sitemap).not.toContain("/404");
 	});
 
 	test("should handle Currently Listening API failure gracefully", async ({ page }) => {

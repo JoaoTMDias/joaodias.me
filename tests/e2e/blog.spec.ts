@@ -125,6 +125,28 @@ test.describe("Article Detail Page", () => {
 		await expect(ARTICLE_META).toBeVisible();
 	});
 
+	test("should expose article SEO and structured data", async ({ page }) => {
+		await expect(page.locator('meta[property="og:type"]')).toHaveAttribute("content", "article");
+		await expect(page.locator('meta[property="article:published_time"]')).toHaveCount(1);
+
+		const structuredDataText = await page
+			.locator('script[type="application/ld+json"]')
+			.textContent();
+		expect(structuredDataText).toBeTruthy();
+		const structuredData = JSON.parse(structuredDataText!);
+		expect(structuredData).toMatchObject({
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			author: { "@type": "Person", name: "João Dias" },
+			inLanguage: "en",
+		});
+		expect(structuredData.headline).toBeTruthy();
+		expect(structuredData.datePublished).toBeTruthy();
+		const mainEntityUrl = new URL(structuredData.mainEntityOfPage?.["@id"]);
+		expect(mainEntityUrl.origin).toBe("https://joaodias.me");
+		expect(mainEntityUrl.pathname).toBe(new URL(page.url()).pathname);
+	});
+
 	test("should display article content", async ({ page }) => {
 		const ARTICLE_CONTENT = page.getByTestId("blog-article-content");
 		await expect(ARTICLE_CONTENT).toBeVisible();

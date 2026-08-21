@@ -6,6 +6,7 @@ import SectionLink from "../../../components/ui/SectionLink/SectionLink.astro";
 import TableOfContents from "../../../components/ui/TableOfContents/TableOfContents.astro";
 import { contentSlug, contentUrl, findCounterpart, formatDate } from "../../../i18n";
 import PageLayout from "../../../layouts/PageLayout.astro";
+import { getArticleStructuredData } from "../../../utils/structured-data";
 
 export async function getStaticPaths() {
 	const allEntries = await getCollection("blog");
@@ -37,14 +38,21 @@ const counterpartUrl = counterpart ? contentUrl("en", "blog", counterpart.id) : 
 const alternateUrls = counterpart ? { pt: currentUrl, en: counterpartUrl } : undefined;
 const { Content, headings } = await render(article);
 const transitionNames = getTransitionNames(article.id);
+const structuredData = getArticleStructuredData(article, currentUrl, "pt", Astro.site!);
 ---
 
 <PageLayout
   title={`${article.data.title} - João Dias`}
   description={article.data.excerpt}
-  itemtype="http://schema.org/Article" languageUrl={counterpartUrl} alternateUrls={alternateUrls}
+  languageUrl={counterpartUrl}
+  alternateUrls={alternateUrls}
+  image={article.data.featuredImage}
+  openGraphType="article"
+  publishedTime={article.data.pubDate.toISOString()}
+  modifiedTime={(article.data.updatedDate ?? article.data.pubDate).toISOString()}
+  structuredData={structuredData}
 >
-  <article class="section blog-article" itemprop="articleBody">
+  <article class="section blog-article">
     <section class="blog-article__header">
       <div class="blog-article__header__lead">
         <SectionLink href="/pt/blog" text="Voltar aos artigos" direction="back" />

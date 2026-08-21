@@ -14,7 +14,7 @@ import { defineConfig } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://joaodias.me",
-	integrations: [react(), sitemap(), mdx()],
+	integrations: [react(), sitemap({ filter: (page) => !page.endsWith("/pt/404/") }), mdx()],
 	i18n: {
 		locales: ["en", "pt"],
 		defaultLocale: "en",

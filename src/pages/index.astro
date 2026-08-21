@@ -8,14 +8,17 @@ import PeerFeedback from "../components/sections/PeerFeedback/PeerFeedback.astro
 import RadioBroadcasts from "../components/sections/RadioBroadcasts/RadioBroadcasts.astro";
 import EN_CONTENT from "../data/index.json";
 import PT_CONTENT from "../data/index.pt.json";
+import { getLocale } from "../i18n";
+import { getMessages } from "../i18n/messages";
 
 const isPt = Astro.currentLocale === "pt";
 const PAGE_CONTENT = isPt ? PT_CONTENT : EN_CONTENT;
+const t = getMessages(getLocale(Astro.currentLocale));
 
 import PageLayout from "../layouts/PageLayout.astro";
 ---
 
-<PageLayout title={PAGE_CONTENT.title} description="João Dias">
+<PageLayout title={t.seo.homeTitle} description={t.seo.homeDescription}>
   <h1 class="sr-only">{isPt ? "P�gina inicial" : "Home page"}</h1>
   <div class="content">
     <Hero

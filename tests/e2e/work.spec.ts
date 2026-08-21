@@ -124,6 +124,26 @@ test.describe("Project Detail Page", () => {
 		}
 	});
 
+	test("should expose project structured data", async ({ page }) => {
+		const structuredDataText = await page
+			.locator('script[type="application/ld+json"]')
+			.textContent();
+		expect(structuredDataText).toBeTruthy();
+		const structuredData = JSON.parse(structuredDataText!);
+
+		expect(structuredData).toMatchObject({
+			"@context": "https://schema.org",
+			"@type": "CreativeWork",
+			creator: { "@type": "Person", name: "João Dias" },
+			inLanguage: "en",
+		});
+		expect(structuredData.name).toBeTruthy();
+		expect(structuredData.image).toMatch(/^https:\/\//);
+		const projectUrl = new URL(structuredData.url);
+		expect(projectUrl.origin).toBe("https://joaodias.me");
+		expect(projectUrl.pathname).toBe(new URL(page.url()).pathname);
+	});
+
 	test("should link to a live project when one is available", async ({ page }) => {
 		await page.goto("/work/raider");
 

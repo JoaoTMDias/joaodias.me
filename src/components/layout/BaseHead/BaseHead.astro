@@ -11,6 +11,11 @@ export interface Props {
 	image?: string;
 	locale: Locale;
 	alternateUrls?: Partial<Record<Locale, string>>;
+	noindex?: boolean;
+	openGraphType?: "article" | "website";
+	publishedTime?: string;
+	modifiedTime?: string;
+	structuredData?: Record<string, unknown>;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -21,7 +26,17 @@ const {
 	image = "/open-graph-picture.jpg",
 	locale,
 	alternateUrls,
+	noindex = false,
+	openGraphType = "website",
+	publishedTime,
+	modifiedTime,
+	structuredData,
 } = Astro.props;
+const openGraphLocale = locale === "pt" ? "pt_PT" : "en_US";
+const alternateOpenGraphLocale = locale === "pt" ? "en_US" : "pt_PT";
+const serializedStructuredData = structuredData
+	? JSON.stringify(structuredData).replace(/</g, "\\u003c")
+	: undefined;
 ---
 
 <!-- Global Metadata -->
@@ -46,20 +61,28 @@ const {
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, follow" />}
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={openGraphType} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:locale" content={openGraphLocale} />
+<meta property="og:locale:alternate" content={alternateOpenGraphLocale} />
+<meta property="og:site_name" content="joaodias.me" />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={Astro.url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
+
+{serializedStructuredData && <script type="application/ld+json" set:html={serializedStructuredData} />}
 
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />

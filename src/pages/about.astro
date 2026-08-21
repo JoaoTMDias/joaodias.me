@@ -7,16 +7,19 @@ import LetsConnect from "../components/sections/LetsConnect/LetsConnect.astro";
 import Skills from "../components/sections/Skills/Skills.astro";
 import EN_CONTENT from "../data/index.json";
 import PT_CONTENT from "../data/index.pt.json";
+import { getLocale } from "../i18n";
+import { getMessages } from "../i18n/messages";
 
 const isPt = Astro.currentLocale === "pt";
 const PAGE_CONTENT = isPt ? PT_CONTENT : EN_CONTENT;
+const t = getMessages(getLocale(Astro.currentLocale));
 
 import PageLayout from "../layouts/PageLayout.astro";
 ---
 
 <PageLayout
-	title="About João Dias - Frontend Engineer specializing in Web Accessibility"
-	description="Learn about João Dias, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal."
+	title={t.seo.aboutTitle}
+	description={t.seo.aboutDescription}
 >
   <h1 class="sr-only">{isPt ? "Sobre mim" : "About me"}</h1>
   <div class="content">

@@ -13,6 +13,14 @@ const en = {
 		light: "Light theme. Press to switch to dark theme",
 		dark: "Dark theme. Press to switch to light theme",
 	},
+	seo: {
+		homeTitle: "You have arrived at a website called joaodias.me: João Dias",
+		homeDescription:
+			"Personal website of João Dias, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal",
+		aboutTitle: "About João Dias - Frontend Engineer and Web Accessibility Specialist",
+		aboutDescription:
+			"Learn about João Dias, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal.",
+	},
 	blog: {
 		title: "Blog",
 		intro: "Find a topic of your choice",
@@ -71,6 +79,14 @@ const pt = {
 	theme: {
 		light: "Tema claro. Prima para mudar para o tema escuro",
 		dark: "Tema escuro. Prima para mudar para o tema claro",
+	},
+	seo: {
+		homeTitle: "Chegou a um site chamado joaodias.me: João Dias",
+		homeDescription:
+			"Site pessoal de João Dias, Engenheiro Frontend especializado em Acessibilidade Web, de Coimbra, Portugal",
+		aboutTitle: "Sobre João Dias - Engenheiro Frontend e especialista em Acessibilidade Web",
+		aboutDescription:
+			"Conheça João Dias, Engenheiro Frontend especializado em Acessibilidade Web, de Coimbra, Portugal.",
 	},
 	blog: {
 		title: "Blogue",

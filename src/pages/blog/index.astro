@@ -33,8 +33,8 @@ const searchableArticles = articles.map((article) => ({
 ---
 
 <PageLayout
-  title="Blog - João Dias"
-  description="Articles about Frontend Engineering and Web Accessibility by João Dias"
+  title={`${t.blog.title} - João Dias`}
+  description={t.blog.description}
 >
 	<div class="content">
 		<section class={clsx("section", styles.header)}>
