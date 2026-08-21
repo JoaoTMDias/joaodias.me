@@ -18,7 +18,7 @@ skills:
   - vitejs
   - cypress
   - chromium
-thumbnail: /work/g-chat-format-bar/project-icon.jpg
+thumbnail: /work/g-chat-format-bar/project-icon.svg
 cover: /work/g-chat-format-bar/project-cover.jpg
 galleryImages:
   - image: /work/g-chat-format-bar/project-1.jpg
@@ -30,8 +30,8 @@ galleryImages:
   - image: /work/g-chat-format-bar/project-3.jpg
     alt: Formatting toolbar with text editor
     caption: ""
-themeBackground: "#0f1729"
-themeForeground: "#69f0ae"
+themeBackground: "#69f0ae"
+themeForeground: "#0f1729"
 ---
 
 ## Accessibility Considerations

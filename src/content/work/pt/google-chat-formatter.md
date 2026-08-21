@@ -11,7 +11,7 @@ impact: O popup acessível resolveu a necessidade durante vários meses, até o 
 sourceCode: https://github.com/JoaoTMDias/g-chat-format-bar
 liveDemo: null
 skills: [preact, vite, cypress, chromium]
-thumbnail: /work/g-chat-format-bar/project-icon.jpg
+thumbnail: /work/g-chat-format-bar/project-icon.svg
 cover: /work/g-chat-format-bar/project-cover.jpg
 galleryImages:
   - image: /work/g-chat-format-bar/project-1.jpg
@@ -20,8 +20,8 @@ galleryImages:
     alt: Interface da extensão Google Chat Formatter
   - image: /work/g-chat-format-bar/project-3.jpg
     alt: Barra de formatação e editor de texto
-themeBackground: "#0f1729"
-themeForeground: "#69f0ae"
+themeBackground: "#69f0ae"
+themeForeground: "#0f1729"
 ---
 
 ## Contexto e processo
