@@ -1,15 +1,18 @@
 ---
+role: 'Product designer, architect and lead engineer'
+problem: 'Accessibility checks are often scattered across one-off scripts, browser extensions and reports that are difficult to repeat or share.'
+impact: 'The project turns the same audit engine into a CLI, local dashboard, HTML reporter and MCP server while isolating page-level failures.'
+featuredOrder: 1
+coverAlt: A11y Page Checker logo over a blurred view of the local audit dashboard.
 locale: en
 translationKey: a11y-page-checker
 title: A11y Page Checker
-date: 2026-08-01
-shortDescription: A local-first platform for repeatable accessibility audits across URLs, sitemaps and crawled sites.
-description: A multi-interface accessibility auditing platform built around one stable, typed result contract.
-role: Product designer, architect and lead engineer
-problem: Accessibility checks are often scattered across one-off scripts, browser extensions and reports that are difficult to repeat or share.
-impact: The project turns the same audit engine into a CLI, local dashboard, HTML reporter and MCP server while isolating page-level failures.
-featuredOrder: 1
-sourceCode: https://github.com/JoaoTMDias/a11y-page-checker
+slug: a11y-page-checker
+date: 2026-07-16T00:00:00.000Z
+shortDescription: 'A local-first platform for repeatable accessibility audits across URLs, sitemaps and crawled sites.'
+description: |
+  A multi-interface accessibility auditing platform built around one stable, typed result contract.
+sourceCode: 'https://github.com/JoaoTMDias/a11y-page-checker'
 liveDemo: null
 skills:
   - accessibility
@@ -18,9 +21,26 @@ skills:
   - typescript
   - react
   - mcp
-thumbnail: /logo.svg
-themeBackground: "#111827"
-themeForeground: "#facc15"
+thumbnail: /work/a11y-page-checker/project-icon.svg
+cover: /work/a11y-page-checker/project-cover.webp
+galleryImages:
+  - image: /work/a11y-page-checker/scan-setup.webp
+    alt: A11y Page Checker form configured to start a local sitemap scan.
+    caption: 'A scan can start from a crawl, sitemap or Markdown plan and runs only on the local machine.'
+  - image: /work/a11y-page-checker/findings-list.webp
+    alt: Completed sitemap scan with a progress summary and a list of colour contrast findings.
+    caption: The dashboard preserves the overall scan result while exposing findings for each page.
+  - image: /work/a11y-page-checker/finding-detail.webp
+    alt: 'Expanded accessibility findings with rule guidance, affected HTML and contrast details.'
+    caption: Each finding retains rule context and the affected page and element.
+  - image: /work/a11y-page-checker/html-report.webp
+    alt: Standalone HTML accessibility report summarising findings across scanned pages.
+    caption: The same normalized result contract produces a portable HTML report.
+  - image: /work/a11y-page-checker/cli-audit.webp
+    alt: Terminal running the A11y Page Checker CLI and reporting findings for several pages.
+    caption: The CLI uses the same audit engine for repeatable local and automated workflows.
+themeBackground: '#144232'
+themeForeground: '#C4EDDF'
 ---
 
 ## Context
@@ -46,4 +66,3 @@ The project now supports explicit URLs, sitemaps and same-origin crawls through 
 ## Learning
 
 The strongest architecture for developer tooling is a small dependable contract surrounded by replaceable interfaces.
-
