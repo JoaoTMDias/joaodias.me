@@ -150,9 +150,15 @@ async function crawlEpisodes(): Promise<RawEpisode[]> {
 						if (!podcast) return null;
 						const showSlug: string = data.props?.pageProps?.programSlug || "unknown";
 						const rawExcerpt: string = podcast.excerpt ?? "";
-						const div = document.createElement("div");
-						div.innerHTML = rawExcerpt;
-						const decoded = div.textContent ?? "";
+						const decoded = rawExcerpt
+							.replace(/<[^>]*>/g, " ")
+							.replace(/&nbsp;/gi, " ")
+							.replace(/&amp;/gi, "&")
+							.replace(/&lt;/gi, "<")
+							.replace(/&gt;/gi, ">")
+							.replace(/&#39;/gi, "'")
+							.replace(/&quot;/gi, '"')
+							.replace(/\s+/g, " ");
 						return {
 							show: showSlug,
 							title: podcast.title || "",
