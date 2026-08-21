@@ -3,7 +3,7 @@ locale: en
 translationKey: one-year-of-eaa
 title: One year into the European Accessibility Act
 pubDate: 2026-07-28T17:40:11.883Z
-updatedDate: 2026-08-20T00:00:00.000Z
+updatedDate: 2026-08-21T00:00:00.000Z
 excerpt: "A year after the European Accessibility Act began applying, product teams need repeatable ways to understand scope, remove barriers and show progress."
 category: industry-advocacy
 featuredImage: /blog/eaa-one-year-cover.webp
@@ -11,25 +11,25 @@ featuredImageAlt: A top-down desk with a keyboard, monitor, phone and payment te
 readingTime: 6
 ---
 
-The European Accessibility Act did not create a single finish line for every digital product. It created requirements for defined products and services, national systems for enforcement and continuing responsibilities for organisations in scope.
+The [European Accessibility Act](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en) did not create a single finish line for every digital product. It created requirements for defined products and services, national systems for enforcement and continuing responsibilities for organisations in scope.
 
-[Directive (EU) 2019/882](https://eur-lex.europa.eu/eli/dir/2019/882/oj) has applied from 28 June 2025. One year on, the practical lesson is that accessibility must operate as a maintained product capability, not as a project organised around one date.
+[Directive (EU) 2019/882](https://eur-lex.europa.eu/eli/dir/2019/882/oj/eng) has applied since 28 June 2025. One year on, the practical lesson is that accessibility must be an ongoing part of product work, not a project organised around one date.
 
 <figure class="article-visual">
   <figcaption>From adoption to the first year of application</figcaption>
   <ol class="article-timeline">
-    <li><strong>17 April 2019</strong><br>The Directive is adopted.</li>
+    <li><strong>17 April 2019</strong><br><a href="https://eur-lex.europa.eu/eli/dir/2019/882/oj/eng">The Directive is adopted</a>.</li>
     <li><strong>28 June 2022</strong><br>Deadline for Member States to transpose it.</li>
-    <li><strong>28 June 2025</strong><br>The applicable measures begin to operate.</li>
+    <li><strong>28 June 2025</strong><br>The applicable requirements begin to apply.</li>
     <li><strong>28 June 2026</strong><br>One year of implementation and maintenance.</li>
   </ol>
 </figure>
 
 ## Start with scope
 
-The Directive covers selected products and services, including consumer computer systems, payment and certain self-service terminals, electronic communications, access to audiovisual services, elements of passenger transport, consumer banking, e-books and e-commerce.
+[The Directive](https://eur-lex.europa.eu/eli/dir/2019/882/oj/eng) covers selected products and services, including consumer computer systems, payment and certain self-service terminals, electronic communications, access to audiovisual services, elements of passenger transport, consumer banking, e-books and e-commerce.
 
-Not every organisation is treated identically. The text includes transition provisions, an exemption for microenterprises providing services and a documented process for assessing fundamental alteration or disproportionate burden.
+Not every organisation is treated identically. The text includes [transition provisions in Article 32](https://eur-lex.europa.eu/eli/dir/2019/882/oj/eng), an exemption for microenterprises providing services and a documented process for assessing fundamental alteration or disproportionate burden.
 
 These are legal questions depending on the product, service, Member State and operating model. A generic website scan cannot answer them. Teams should document what they provide, which requirements apply and who owns the decision.
 
@@ -45,7 +45,7 @@ Products can regress after a successful audit. Releases, third-party components,
 
 The Directive contains functional requirements and provides a route for referenced harmonised standards or technical specifications to create a presumption of conformity for what they cover.
 
-[EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/) is a European ICT accessibility standard. Its web clauses incorporate WCAG requirements and it covers areas beyond ordinary web-content testing.
+[EN 301 549](https://accessible-eu-centre.ec.europa.eu/content-corner/digital-library/en-3015492021-accessibility-requirements-ict-products-and-services_en) is a European ICT accessibility standard. Its web clauses incorporate [WCAG 2.2](https://www.w3.org/TR/WCAG22/) requirements and it covers areas beyond ordinary web-content testing.
 
 WCAG remains essential engineering guidance, but passing an automated WCAG scan is not a complete legal analysis. Automation does not determine scope, documentation, accessible support or whether an exception is justified.
 
@@ -85,7 +85,7 @@ A safer workflow is to determine scope with appropriate expertise, map requireme
   </div>
 </figure>
 
-Useful evidence includes a scope decision, critical journeys, automated results linked to builds, manual test notes, known issues and owners, component tests, feedback and accurate public accessibility information.
+Useful evidence includes a documented scope decision, critical journeys, automated results linked to builds, manual test notes, known issues and owners, component tests, user feedback and up-to-date public information about the accessibility of the service.
 
 ## The next year
 

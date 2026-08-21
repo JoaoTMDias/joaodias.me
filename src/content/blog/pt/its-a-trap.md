@@ -3,7 +3,7 @@ locale: pt
 translationKey: its-a-trap
 title: "É uma armadilha!"
 pubDate: 2026-08-10T02:37:07.191Z
-updatedDate: 2026-08-20T00:00:00.000Z
+updatedDate: 2026-08-21T00:00:00.000Z
 excerpt: "O acesso por teclado não está completo quando uma pessoa consegue entrar num componente mas não consegue sair. Saiba como o critério WCAG 2.1.2 se aplica a diálogos, widgets e conteúdo incorporado."
 category: accessibility
 featuredImage: /blog/keyboard-trap-cover.webp
@@ -17,7 +17,7 @@ Para quem navega sem um dispositivo apontador, o resto da página pode ficar ina
 
 ## O que exigem as WCAG
 
-O [Critério de Sucesso 2.1.2 das WCAG 2.2, Sem Bloqueio do Teclado](https://www.w3.org/TR/WCAG22/#no-keyboard-trap), é um requisito de nível A. Quando o foco consegue entrar num componente, também deve ser possível afastá-lo usando apenas uma interface de teclado.
+O [Critério de Sucesso 2.1.2 das WCAG 2.2, Sem Bloqueio do Teclado](https://www.w3.org/TR/WCAG22/#no-keyboard-trap) é um requisito de nível A. Quando o foco consegue entrar num componente, também deve ser possível retirá-lo usando apenas uma interface de teclado.
 
 Se a saída exigir algo além das setas sem modificadores, Tab ou outro método habitual, a interface tem de explicar como sair. A [explicação do W3C](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html) acrescenta que uma armadilha pode interferir com a página inteira.
 
@@ -42,8 +42,7 @@ As armadilhas podem bloquear pessoas que utilizam:
 - teclado sem rato;
 - leitores de ecrã e comandos de teclado;
 - dispositivos de comutação ou sistemas sip-and-puff;
-- software de voz que associa comandos a teclas;
-- fluxos temporariamente dependentes do teclado.
+- software de voz que associa comandos a teclas.
 
 A necessidade comum é uma forma previsível de entrar, operar e sair de cada parte da interface.
 
@@ -51,7 +50,7 @@ A necessidade comum é uma forma previsível de entrar, operar e sair de cada pa
 
 Um diálogo modal mantém normalmente o foco dentro de si enquanto está aberto. Torna-se uma armadilha quando não pode ser fechado por teclado, a ação de fechar não recebe foco ou o foco regressa ao interior depois de uma tentativa válida de saída.
 
-Um modal bem gerido move o foco para um elemento adequado, retira a página inativa da ordem de foco, oferece uma ação de fechar, suporta Escape quando apropriado e devolve o foco a um ponto lógico.
+Um modal bem gerido move o foco para um elemento adequado, torna inerte o conteúdo subjacente, oferece uma ação de fechar, suporta Escape quando apropriado e devolve o foco a um ponto lógico.
 
 O elemento HTML `<dialog>` e `.showModal()` oferecem comportamento útil do navegador, mas não eliminam a necessidade de escolher o foco inicial e testar a interação completa.
 
@@ -79,7 +78,7 @@ Leitores multimédia, editores e widgets de terceiros podem tratar Tab ou as set
 
 Menus, grelhas, comboboxes e seletores de data usam frequentemente setas internamente e Tab para sair. Segue os padrões relevantes do [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/) e separa a navegação interna da navegação da página.
 
-### Event handlers anulam a saída
+### Gestores de eventos anulam a saída
 
 Um handler global de `keydown` que chama `preventDefault()` de forma demasiado abrangente pode engolir Tab ou Escape. Cancela uma tecla nativa apenas quando existe uma alternativa completa e testada.
 

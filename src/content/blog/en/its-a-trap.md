@@ -3,28 +3,27 @@ locale: en
 translationKey: its-a-trap
 title: It's a trap!
 pubDate: 2026-08-10T02:37:07.191Z
-updatedDate: 2026-08-09T23:00:00.000Z
-excerpt: 'Keyboard navigation involves going from one website feature to another through the use of buttons like Tab and the arrows. If an interactive element, for instance, a modal, a video player, and even a custom date picker, locks focus inside itself without providing an escape point, then the rest of the website is inaccessible. According to WCAG 2.1.2 (No Keyboard Trap), every website feature that allows focus should provide an option to exit that feature using only the keyboard.'
+updatedDate: 2026-08-21T00:00:00.000Z
+excerpt: "Keyboard access is incomplete when someone can enter a component but cannot leave it. Learn how WCAG 2.1.2 applies to dialogs, widgets and embedded content."
 category: accessibility
 featuredImage: /blog/keyboard-trap-cover.webp
 featuredImageAlt: A focus indicator loops inside one interface component while the rest of the page remains out of reach.
-readingTime: 4
+readingTime: 6
 ---
 
-Imagine being in a room where the door locks upon entering from inside. Similarly, imagine the helplessness that users will feel when they accidentally step into a keyboard trap on your website—a user enters into an interactive element but has no way of escaping it.
+Imagine entering a room and hearing the door lock behind you. A keyboard trap creates the equivalent experience in an interface: focus enters a component, but the person using the keyboard cannot move it out again.
 
-Web accessibility relies on keyboard navigation to some extent. It is here where you find everything you need to know about WCAG 2.1.2 (No Keyboard Trap): what it is, its importance, how to avoid certain mistakes, and even its solution.
+For someone navigating without a pointing device, the rest of the page may become inaccessible. Refreshing the page, abandoning a task or leaving the site should never be the only way out.
 
-## No Keyboard Traps
+## What WCAG requires
 
-An accessible site has to meet the non-negotiable standards set by WCAG 2.1.2, a **Level A** criterion known as **No Keyboard Trap**. The rule is straightforward: once keyboard focus enters a component, the user should be able to exit it with the keyboard alone. There are some allowances for when an unorthodox key combination is needed to get out, something other than the usual `Tab`, arrow or `Escape` keys; in such cases, the onus is on the page to provide clear directions to the user on how to do so.
+[WCAG 2.2 Success Criterion 2.1.2, No Keyboard Trap](https://www.w3.org/TR/WCAG22/#no-keyboard-trap), is a Level A requirement. When focus can enter a component, it must also be possible to move it away using only a keyboard interface.
 
-## WCAG 2.1.2 is an extension of 2.1.1
+If leaving requires more than unmodified arrow or Tab keys, or another standard way of exiting, the interface must explain how to leave. The [W3C guidance](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html) also notes that a trap can interfere with the use of the entire page.
 
-One can think of these two as complementary standards:
+### Access and exit are complementary
 
-* **WCAG 2.1.1 (Keyboard)** is about the ability to *reach and operate* all functions with a keyboard.
-* **WCAG 2.1.2 (No Keyboard Trap)** makes sure that if one has entered a component, there is always a way to *exit*.
+Criterion 2.1.1 asks whether functionality can be operated through a keyboard. Criterion 2.1.2 asks whether someone can leave after entering. A calendar may respond correctly to the arrow keys while preventing Tab or Escape from returning to the form. A media player may expose every control but cycle focus inside itself forever.
 
 <figure class="article-visual">
   <figcaption>A complete keyboard journey</figcaption>
@@ -36,23 +35,24 @@ One can think of these two as complementary standards:
   <p>A trap breaks the final step: focus returns to the component instead of continuing through the page.</p>
 </figure>
 
-## A case of hidden friction in UX
+## Who is affected
 
-For those who rely on a keyboard, navigation is a matter of moving through a page in sequence. But when focus is held captive by a component, the remainder of the site is effectively put out of reach. The user is then forced to make a choice: either hit refresh or simply walk away from the site.
+Keyboard traps can block people who use:
 
-### Who is affected?
+- a keyboard without a mouse;
+- screen readers and keyboard commands;
+- switch devices or sip-and-puff systems;
+- voice software that maps commands to keystrokes.
 
-* Keyboard only users navigating without using a mouse.
-* Users of screen readers who use keyboard shortcuts to understand elements in the interface.
-* Switch and sip-and-puff device users navigating hardware configured to perform actions using key presses.
-* Speech command users sending voice commands mapped to specific keystrokes.
+They all need a predictable way to enter, operate and leave each part of an interface.
 
-## Focus Management vs. Focus Trap
+## Managing focus is not creating a trap
 
-Please note that maintaining the focus within an open modal dialog box is focus management and not a focus trap.
+A modal dialog will usually keep focus within it while it is open. It becomes a trap when it cannot be closed with the keyboard, the close action cannot receive focus or focus returns to the dialog after a valid attempt to leave.
 
-* Correct Focus Trap: The focus cycles within an open modal until the dialog box is closed by pressing the Escape key or clicking the visible “Close” button.
-* Incorrect (Focus Trap): The focus is trapped within the modal; the Escape key doesn’t work, and the “close” button can’t be accessed using the Tab key.
+A well-managed modal moves focus to an appropriate element, makes the underlying page inert, provides a reachable close action, supports Escape where appropriate and returns focus to a logical place.
+
+The native `<dialog>` element and `.showModal()` provide useful browser behaviour, but they do not remove the need to choose sensible initial focus and test the complete interaction.
 
 <figure class="article-visual">
   <figcaption>Managed focus and a keyboard trap are not the same</figcaption>
@@ -68,35 +68,25 @@ Please note that maintaining the focus within an open modal dialog box is focus 
   </div>
 </figure>
 
-## 5 Common Keyboard Trap Failures
+## Common failure patterns
 
-| **Failure**                    | **Description**                                                                                                                                |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1. Unescapable Modals**      | Focus enters a pop-up dialog, but `Escape` doesn't close it and the close button isn't keyboard-accessible.                                    |
-| **2. Greedy Embedded Widgets** | Third-party media players, chat widgets, or iframe ads grab focus and keep cycling internally without ever returning focus to the parent page. |
-| **3. Custom Date Pickers**     | Tabbing into a calendar control loops through dates endlessly with no way to press `Escape` or tab past to the next input field.               |
-| **4. Infinite Focus Loops**    | Pressing `Tab` continuously cycles through a navigation menu or media carousel without ever moving down to main content.                       |
-| **5. Secret Exit Keys**        | Leaving a component requires an obscure key combo (e.g., `Ctrl` + `Alt` + `M`), but no instructions are provided on-screen.                    |
+### Embedded content captures focus
 
-## Best Practices and Practical Solutions
+Media players, editors and third-party widgets may handle Tab or the arrow keys internally. Test the actual integration. If there is no reliable exit, reconfigure or replace the component, or isolate it with clear instructions.
 
-### Make use of Native HTML Modals
+### Composite widgets enter a loop
 
-The native `<dialog>` element and `.showModal()` provide useful browser behaviour, including making the rest of the document inert and supporting cancellation with `Escape`. They do not remove the need to choose sensible initial focus, provide a clear close action, restore focus logically and test the complete interaction with keyboard and assistive technology.
+Menus, grids, comboboxes and date pickers often use arrow keys internally and Tab to leave. Follow the relevant [ARIA Authoring Practices Guide patterns](https://www.w3.org/WAI/ARIA/apg/patterns/) and keep navigation within the widget separate from navigation through the page.
 
-### Put third-party scripts to the test
+### Event handlers prevent an exit
 
-Before a launch, any embedded tools such as iframes, video players or chat widgets need to be put through their paces. Should a script from an outside vendor prove to be swallowing focus, the settings ought to be reconfigured. If that is not enough, look for a compliant replacement or ask the vendor for a patch.
+A global `keydown` handler that calls `preventDefault()` too broadly can swallow Tab or Escape. Cancel native key behaviour only when a complete, tested alternative is available.
 
-### Adhere to ARIA Guidelines
+### The exit cannot receive focus
 
-In developing complicated custom controls like date picker or dropdown menu, use the ARIA Authoring Practices Guide (APG) for key behaviors that should be implemented. Ensure that your control works with actual assistive technology once you have developed it.
+A close button may be visible while missing from the focus order or hidden from assistive technologies. Visual inspection is not enough: the control must be reachable, have an accessible name and work.
 
-### Instruction for nonstandard keys
-
-If an application needs a special key combination for the user to get out of it, provide textual instructions on the screen for the same (like “Press Ctrl + Alt + M to exit”). Yet the most important thing is to make sure that the standard Tab navigation still works.
-
-## Testing Your Website in 3 Simple Steps
+## A practical test
 
 <figure class="article-visual">
   <figcaption>Keyboard test checklist</figcaption>
@@ -106,7 +96,14 @@ If an application needs a special key combination for the user to get out of it,
     <li>Open dialogs, menus, date pickers, media players and embedded widgets.</li>
     <li>Try every visible or documented way to close and leave each component.</li>
     <li>Confirm that focus remains visible and returns to a logical place.</li>
+    <li>Repeat at different viewport sizes and, where relevant, with a screen reader.</li>
   </ol>
 </figure>
 
-And then everyone else will be able to do the same!
+Automated checks find some errors, but they cannot prove that every state provides a meaningful exit. This criterion requires manual interaction.
+
+## A useful mental model
+
+Do not ask only, “Can I reach this with a keyboard?” Ask three questions: can I enter, can I operate and can I leave?
+
+When all three answers are predictable, keyboard access becomes part of interaction design rather than a late-stage check.
