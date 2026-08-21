@@ -12,6 +12,14 @@ export const BioCollection: Collection = {
 		},
 	},
 	fields: [
+		{ type: "string", name: "locale", label: "Locale", required: true, options: ["en", "pt"] },
+		{
+			type: "string",
+			name: "translationKey",
+			label: "Translation key",
+			required: true,
+			description: "Stable identifier shared by translations",
+		},
 		{
 			name: "title",
 			label: "Section Title",
@@ -29,13 +37,9 @@ export const BioCollection: Collection = {
 		},
 		{
 			name: "description",
-			label: "Description Paragraphs",
-			type: "string",
+			label: "Description",
+			type: "rich-text",
 			required: true,
-			list: true,
-			ui: {
-				component: "textarea",
-			},
 		},
 		{
 			name: "picture",
@@ -73,4 +77,3 @@ export const BioCollection: Collection = {
 		},
 	],
 };
-

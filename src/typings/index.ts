@@ -6,4 +6,6 @@
  *
  * (c) 2022 joaodias.me, Rights Reserved.
  */
+
+export * from "./config";
 export * from "./last-fm";

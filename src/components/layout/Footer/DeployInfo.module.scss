@@ -1,0 +1,19 @@
+.footer__deploy {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-color);
+
+  &__link {
+    cursor: pointer;
+  }
+}
+
+.footer__deploy__hash {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  text-decoration: dotted;
+}

@@ -1,0 +1,30 @@
+---
+import SectionLink from "../components/ui/SectionLink/SectionLink.astro";
+import { getLocale, localePath } from "../i18n";
+import { getMessages } from "../i18n/messages";
+import PageLayout from "../layouts/PageLayout.astro";
+import styles from "./404.module.scss";
+
+const locale = getLocale(Astro.currentLocale);
+const t = getMessages(locale);
+---
+
+<PageLayout
+  title="Page not found - João Dias"
+  description={t.notFound.description}
+  languageUrl={locale === "pt" ? "/" : "/pt/"}
+  noindex
+>
+  <section class={styles["not-found"]}>
+    <p class={styles["not-found__code"]}>404</p>
+    <h1 class={styles["not-found__title"]}>{t.notFound.title}</h1>
+    <p class={styles["not-found__description"]}>
+      {t.notFound.description}
+    </p>
+    <ul class={styles["not-found__links"]}>
+      <li><SectionLink href={localePath(locale, "/")} text={t.notFound.home} /></li>
+      <li><SectionLink href={localePath(locale, "/work")} text={t.notFound.work} /></li>
+      <li><SectionLink href={localePath(locale, "/blog")} text={t.notFound.blog} /></li>
+    </ul>
+  </section>
+</PageLayout>

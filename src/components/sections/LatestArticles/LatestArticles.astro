@@ -1,0 +1,40 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import clsx from "clsx";
+import SectionLink from "../../ui/SectionLink/SectionLink.astro";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import LatestArticle from "./LatestArticle.astro";
+import styles from "./LatestArticles.module.scss";
+
+type BlogEntry = CollectionEntry<"blog">;
+
+const articles = (await getCollection("blog"))
+	.filter((entry) => entry.data.locale === (Astro.currentLocale === "pt" ? "pt" : "en"))
+	.sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+	.slice(0, 4);
+const isPt = Astro.currentLocale === "pt";
+---
+
+{articles.length > 0 && (
+  <section id="latest-articles" class="section section__stack">
+    <div class={clsx("section__container", styles["latest-articles__container"])}>
+      <SectionTitle text={isPt ? "No blogue" : "On the Blog"} />
+      <div class={styles["latest-articles__list"]}>
+        {
+          articles.map((article: BlogEntry) => (
+            <LatestArticle
+              id={article.id}
+              title={article.data.title}
+              pubDate={article.data.pubDate}
+              excerpt={article.data.excerpt}
+              featuredImage={article.data.featuredImage}
+              readingTime={article.data.readingTime}
+              locale={isPt ? "pt" : "en"}
+            />
+          ))
+        }
+      </div>
+    </div>
+    <SectionLink href={isPt ? "/pt/blog" : "/blog"} text={isPt ? "Ver todos os artigos" : "Visit all articles"} />
+  </section>
+)}

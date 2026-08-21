@@ -1,0 +1,52 @@
+name: Accessibility report
+description: Report an accessibility barrier or usability problem.
+title: "[Accessibility]: "
+labels:
+  - accessibility
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping make the site more accessible.
+  - type: input
+    id: page
+    attributes:
+      label: Page or URL
+      placeholder: https://joaodias.me/...
+    validations:
+      required: true
+  - type: textarea
+    id: barrier
+    attributes:
+      label: Describe the barrier
+      description: Explain what prevented or made it difficult to complete the task.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: technology
+    attributes:
+      label: Browser, operating system, and assistive technology
+      placeholder: Safari on macOS with VoiceOver
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected accessible experience
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Include screenshots or recordings if they do not expose private information.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues for this barrier.
+          required: true
+        - label: This report does not disclose a security vulnerability.
+          required: true

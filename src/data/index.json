@@ -1,29 +1,26 @@
 {
 	"title": "You have arrived at a website called joaodias.me: João Dias",
 	"hero": {
+		"title": "I bridge UX and Engineering",
+		"subtitle": "João Dias",
+		"intro": "I'm a Senior Frontend Engineer specializing in Web Accessibility from Portugal.",
 		"profile-picture": {
-			"src": "/ProfilePicture.jpg",
-			"width": "300",
-			"height": "400",
-			"alt": "João sitting at a bench, similing at the camera"
+			"src": "/photo-profile.webp",
+			"width": 560,
+			"height": 560,
+			"alt": "Headshot portrait of João Dias seated on a brown leather armchair. He has long wavy hair, glasses, a mustache, and visible forearm tattoos, wearing a short-sleeved black polo shirt against a warm, neutral backdrop."
 		},
 		"copyright": "Since 1987 © Limited Edition"
 	},
 	"about": {
-		"title": "Main Content",
-		"intro": {
-			"title": "Intro",
-			"subtitle": "Hey, what's up?",
-			"mainTitle": {
-				"title-first": "I'm",
-				"title-name": "João",
-				"title-second": ", a Frontend Engineer specializing in Web Accessibility from",
-				"title-location": "Coimbra, Portugal"
-			},
-			"currently-at": {
-				"href": "https://www.feedzai.com",
-				"text": "Feedzai"
-			}
+		"title": "Hello, I'm João",
+		"subtitle": "Web development & Accessibility",
+		"intro": "I focus on creating great, accessible and rich web experiences for everyone. I've been lucky enough to have been doing that for the last 15 years.",
+		"profile-picture": {
+			"src": "/about-profile.webp",
+			"width": 560,
+			"height": 560,
+			"alt": "Headshot portrait of João Dias seated on a brown leather armchair. He has long wavy hair, glasses, a mustache, and visible forearm tattoos, wearing a short-sleeved black polo shirt against a warm, neutral backdrop."
 		},
 		"skills": {
 			"title": "A list of my skill set",

@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import clsx from "clsx";
+import SectionLink from "../../ui/SectionLink/SectionLink.astro";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import styles from "./FeaturedWork.module.scss";
+import FeaturedWorkItem from "./FeaturedWorkItem.astro";
+
+// Data fetching and processing
+type ProjectItem = CollectionEntry<"projects">;
+
+const projects: ProjectItem[] = (await getCollection("projects"))
+	.filter((entry) => entry.data.locale === (Astro.currentLocale === "pt" ? "pt" : "en"))
+	.filter((entry) => !entry.data.archived)
+	.sort((a: ProjectItem, b: ProjectItem) => b.data.date.getTime() - a.data.date.getTime())
+	.slice(0, 3);
+const isPt = Astro.currentLocale === "pt";
+---
+
+<section id="featured-work" class={clsx("section", "section__stack", styles["featured-work"])}>
+  <div class={clsx("section__container", styles["featured-work__content"])}>
+    <SectionTitle text={isPt ? "Trabalho em destaque" : "Featured Work"} />
+    <div class={styles["featured-work__list"]}>
+      {projects.map((project) => <FeaturedWorkItem key={project.id} project={project} locale={isPt ? "pt" : "en"} />)}
+    </div>
+  </div>
+  <SectionLink href={isPt ? "/pt/work" : "/work"} text={isPt ? "Ver todos os projetos" : "Visit all featured projects"} />
+</section>

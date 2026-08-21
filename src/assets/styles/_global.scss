@@ -1,115 +1,220 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
-	box-sizing: border-box;
-	margin: 0;
+  margin: 0;
 }
 
-:root {
-	--background-color: hsl(0, 0%, 77%);
-	--background-color-faded: hsla(0, 0%, 77%, 0.25);
-	--text-color: hsl(0, 0%, 10%);
-	--text-color-faded: hsla(0, 0%, 10%, 0.25);
-	--text-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI, Helvetica,
-		Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-	--heading-font-family: "Cormorant", "Palatino Linotype", Palatino, Palladio, "URW Palladio L",
-		"Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L",
-		Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook",
-		"Century Schoolbook", "Century Schoolbook L", Georgia, serif;
-	--header-height: 3rem;
-	--hero-height: auto;
-	--scrollbar-width: 0.75rem;
-
-	@media (min-width: 60rem) {
-		--hero-height: 3rem;
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background-color: hsl(0, 0%, 10%);
-		--background-faded: hsla(0, 0%, 10%, 0.25);
-		--text-color: hsl(0, 0%, 77%);
-		--text-color-faded: hsla(0, 0%, 77%, 0.25);
-	}
+@media (--with-motion) {
+  html {
+    interpolate-size: allow-keywords;
+    scroll-behavior: smooth;
+  }
 }
 
 html {
-	scroll-behavior: smooth;
+    color-scheme: light dark;
 }
 
 body {
-	font-family: var(--text-font-family);
-	font-size: 1rem;
-	padding-block: 0;
-	padding-inline: 0;
-	width: 100%;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: stretch;
-	background: var(--background-color);
-	color: var(--text-color);
+  font-family: var(--text-font-family);
+  font-size: var(--font-size-base);
+  padding-block: 0;
+  padding-inline: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: var(--background-color);
+  background-position: 0 0;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
 
-	@media (min-width: 60rem) {
-		padding-block: 1rem;
-	}
+  @media (prefers-contrast: no-preference) {
+    html[data-theme="dark"] & {
+      background-image: radial-gradient(circle, var(--color-N100) 1px, transparent 1px);
+      background-size: var(--space-lg) var(--space-lg);
+      background-repeat: repeat;
+      background-position: 0 0;
+    }
+
+    html[data-theme="light"] & {
+      background-image: url(/white-texture.png);
+    }
+  }
+
+  @media (forced-colors: active) {
+    html &,
+    html[data-theme="dark"] &,
+    html[data-theme="light"] & {
+      background-image: none;
+    }
+  }
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
 a {
-	color: inherit;
+  color: var(--link-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button {
+  font-family: var(--heading-font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
+  line-height: 1.2;
+  color: var(--heading-color);
+}
+
+h1,
+.as-h1,
+h2,
+.as-h2 {
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+  margin-bottom: 1.5rem;
+
+  @media (--large-viewport) {
+    margin-bottom: 2rem;
+  }
+}
+
+h3,
+.as-h3 {
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+  margin-bottom: 1rem;
+
+  @media (--medium-viewport) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+h4,
+.as-h4,
+h5,
+.as-h5,
+h6,
+.as-h6 {
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+}
+
+h1,
+.as-h1 {
+  font-size: var(--font-size-xxxl);
+}
+
+h2,
+.as-h2 {
+  font-size: var(--font-size-xxl);
+}
+
+h3,
+.as-h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4,
+.as-h4 {
+  font-size: var(--font-size-lg);
+}
+
+h5,
+.as-h5 {
+  font-size: var(--font-size-md);
+}
+
+h6,
+.as-h6 {
+  font-size: var(--font-size-sm);
+}
+
+p,
+.as-p,
+a,
+button {
+  font-size: var(--font-size-base);
+}
+
+p {
+  font-family: var(--text-font-family);
+  margin-bottom: 1rem;
+  text-wrap: pretty;
 }
 
 .sr-only {
-	border: 0 !important;
-	clip: rect(1px, 1px, 1px, 1px) !important;
-	-webkit-clip-path: inset(50%) !important;
-	clip-path: inset(50%) !important;
-	height: 1px !important;
-	margin: -1px !important;
-	overflow: hidden !important;
-	padding: 0 !important;
-	position: absolute !important;
-	width: 1px !important;
-	white-space: nowrap !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
 }
 
-.sr-only-focusable:focus,
+.sr-only-focusable:focus-visible,
 .sr-only-focusable:active {
-	clip: auto !important;
-	-webkit-clip-path: none !important;
-	clip-path: none !important;
-	height: auto !important;
-	margin: auto !important;
-	overflow: visible !important;
-	width: auto !important;
-	white-space: normal !important;
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
 }
 
-*:focus {
-	outline-offset: 4px;
-	outline-color: var(--text-color);
-	outline-width: 2px;
-}
-
-*::-webkit-scrollbar {
-	width: var(--scrollbar-width);
-}
-
-*::-webkit-scrollbar-track {
-	background-color: var(--background-color-faded);
-	border-color: var(--text-color-faded);
-	border-style: solid;
-	border-width: 2px;
-	border-radius: var(--scrollbar-width);
-}
-
-*::-webkit-scrollbar-thumb {
-	background-color: var(--text-color);
-	border-radius: var(--scrollbar-width);
-
-	@media (forced-colors: active) {
-		border-color: var(--text-color-faded);
-		border-style: solid;
-		border-width: 2px;
-	}
+*:focus-visible {
+  outline-offset: 2px;
+  outline-color: var(--text-color);
+  outline-width: 2px;
+  outline-style: dashed;
 }

@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { contentUrl, type Locale } from "../../../i18n";
+import styles from "./FeaturedWork.module.scss";
+
+// Constants
+const DEFAULT_THEME = {
+	background: "#000000",
+	foreground: "#ffffff",
+} as const;
+
+// Helper functions
+function normalizeThumbnailPath(path: string): string {
+	return path.startsWith("/") ? path : `/${path}`;
+}
+
+function getProjectTheme(project: CollectionEntry<"projects">) {
+	return {
+		background: project.data.themeBackground || DEFAULT_THEME.background,
+		foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
+	};
+}
+
+function getTransitionNames(slug: string) {
+	return {
+		title: `project-title-${slug}`,
+		image: `project-image-${slug}`,
+	};
+}
+
+interface Props {
+	project: CollectionEntry<"projects">;
+	locale: Locale;
+}
+const { project, locale } = Astro.props;
+
+const thumbnailPath = normalizeThumbnailPath(project.data.thumbnail);
+const theme = getProjectTheme(project);
+const transitionNames = getTransitionNames(project.id);
+const cardStyle = {
+	"--work-background-color": theme.background,
+	"--work-text-color": theme.foreground,
+} as React.CSSProperties;
+---
+
+<article
+  class={styles.work}
+  data-testid="work-item"
+  style={cardStyle}
+>
+  <a href={contentUrl(locale, "work", project.id)} class={styles.work__link}>
+    <div class={styles["work__image"]}>
+      <Image
+        class={styles.work__image__img}
+        src={thumbnailPath}
+        width="360"
+        height="270"
+        loading="lazy"
+        alt=""
+        transition:name={transitionNames.image}
+      />
+      <span class={styles["work__image__cta"]} style={cardStyle}>{locale === "pt" ? "Ver projeto" : "View project"}</span>
+    </div>
+    <div class={styles.work__content}>
+      <h3 class={styles.work__title} transition:name={transitionNames.title}>
+        {project.data.title}
+      </h3>
+      <p class={styles.work__description}>
+        {project.data.shortDescription}
+      </p>
+    </div>
+  </a>
+</article>

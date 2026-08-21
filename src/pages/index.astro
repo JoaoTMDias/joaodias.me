@@ -1,78 +1,42 @@
 ---
-import { getCollection } from "astro:content";
-import Bio from "../components/bio/index.astro";
-import Experience from "../components/experience/index.astro";
-import Hero from "../components/hero/index.astro";
-import Intro from "../components/intro/index.astro";
-import Skills from "../components/skills/index.astro";
-import Work from "../components/work/index.astro";
-import PAGE_CONTENT from "../data/index.json";
+import ExpertiseAndServices from "../components/sections/ExpertiseAndServices/ExpertiseAndServices.astro";
+import FeaturedWork from "../components/sections/FeaturedWork/FeaturedWork.astro";
+import Hero from "../components/sections/Hero/Hero.astro";
+import LatestArticles from "../components/sections/LatestArticles/LatestArticles.astro";
+import LetsConnect from "../components/sections/LetsConnect/LetsConnect.astro";
+import PeerFeedback from "../components/sections/PeerFeedback/PeerFeedback.astro";
+import RadioBroadcasts from "../components/sections/RadioBroadcasts/RadioBroadcasts.astro";
+import EN_CONTENT from "../data/index.json";
+import PT_CONTENT from "../data/index.pt.json";
+import { getLocale } from "../i18n";
+import { getMessages } from "../i18n/messages";
+
+const isPt = Astro.currentLocale === "pt";
+const PAGE_CONTENT = isPt ? PT_CONTENT : EN_CONTENT;
+const t = getMessages(getLocale(Astro.currentLocale));
+
 import PageLayout from "../layouts/PageLayout.astro";
-
-// Fetch projects from Astro content collections
-const allProjects = await getCollection("projects");
-
-// Transform projects to match Work component's expected format
-// Sort by date (newest first) and take only the ones that should be featured
-const workProjects = allProjects
-	.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-	.map((project) => ({
-		id: project.slug,
-		title: project.data.title,
-		shortDescription: project.data.shortDescription,
-		skills: project.data.skills,
-		thumbnail: {
-			src: project.data.thumbnail.startsWith("/")
-				? project.data.thumbnail
-				: `/${project.data.thumbnail}`,
-			width: 123, // Default width, can be enhanced later
-			height: 123, // Default height, can be enhanced later
-			alt: `${project.data.title} project thumbnail`,
-		},
-		theme: {
-			background: project.data.themeBackground || "#000000",
-			foreground: project.data.themeForeground || "#ffffff",
-		},
-	}));
-
-const workData = {
-	title: PAGE_CONTENT.work.title,
-	description: PAGE_CONTENT.work.description,
-	data: workProjects,
-};
 ---
 
-<PageLayout title={PAGE_CONTENT.title} description="João Dias">
-	<main>
-		<Hero />
-		<section id="content" tabindex={-1} aria-labelledby="about">
-			<h2 id="about" class="sr-only">{PAGE_CONTENT.about.title}</h2>
-			<Intro />
-			<Skills />
-			<Bio />
-			<Experience />
-		</section>
-		<section class="section" aria-labelledby="work">
-			<Work title={workData.title} description={workData.description} data={workData.data} />
-		</section>
-	</main>
+<PageLayout title={t.seo.homeTitle} description={t.seo.homeDescription}>
+  <h1 class="sr-only">{isPt ? "P�gina inicial" : "Home page"}</h1>
+  <div class="content">
+    <Hero
+      title={PAGE_CONTENT.hero.title}
+      subtitle={PAGE_CONTENT.hero.subtitle}
+      intro={PAGE_CONTENT.hero.intro}
+      profilePicture={{
+        src: PAGE_CONTENT.hero["profile-picture"].src,
+        width: PAGE_CONTENT.hero["profile-picture"].width,
+        height: PAGE_CONTENT.hero["profile-picture"].height,
+        alt: PAGE_CONTENT.hero["profile-picture"].alt,
+      }}
+    />
+    <LatestArticles />
+    <FeaturedWork />
+    <ExpertiseAndServices />
+    <RadioBroadcasts />
+    <PeerFeedback />
+    <LetsConnect />
+  </div>
 </PageLayout>
-
-<style lang="scss">
-	.section,
-	section {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		padding-block: 10vh;
-		padding-inline: 1rem;
-		margin: 0 auto;
-		max-width: 100vw;
-
-		@media (min-width: 60rem) {
-			padding-block: 6rem;
-			padding-inline: 3rem;
-			max-width: 75rem;
-		}
-	}
-</style>

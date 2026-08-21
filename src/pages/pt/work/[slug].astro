@@ -1,0 +1,207 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+/**
+ * This file is open-source. This means that it can be reproduced in whole
+ * or in part, stored in a retrieval system transmitted in any form, or by
+ * any means electronic with my prior permission as an author and owner
+ * Please refer to the terms of the license agreement in the root of the project
+ *
+ * (c) 2022 joaodias.me, Rights Reserved.
+ */
+import { getCollection, render } from "astro:content";
+import SectionLink from "../../../components/ui/SectionLink/SectionLink.astro";
+import TableOfContents from "../../../components/ui/TableOfContents/TableOfContents.astro";
+import { contentSlug, contentUrl, findCounterpart, formatDate } from "../../../i18n";
+import PageLayout from "../../../layouts/PageLayout.astro";
+import { getProjectStructuredData } from "../../../utils/structured-data";
+import styles from "../../work/work.module.scss";
+
+// Constants
+const DEFAULT_THEME = {
+	background: "#000000",
+	foreground: "#ffffff",
+} as const;
+
+const IMAGE_DIMENSIONS = {
+	width: 640,
+	height: 480,
+} as const;
+
+// Helper functions
+function normalizeImagePath(path: string | undefined): string | null {
+	if (!path) return null;
+	return path.startsWith("/") ? path : `/${path}`;
+}
+
+export async function getStaticPaths() {
+	const allEntries = await getCollection("projects");
+	const projects = allEntries.filter((entry) => entry.data.locale === "pt");
+
+	return projects.map((project) => ({
+		params: { slug: contentSlug(project.id) },
+		props: {
+			project,
+			counterpart: findCounterpart(allEntries, project, "en"),
+		},
+	}));
+}
+
+type Props = {
+	project: CollectionEntry<"projects">;
+	counterpart?: CollectionEntry<"projects">;
+};
+
+const { project, counterpart } = Astro.props;
+const currentUrl = contentUrl("pt", "work", project.id);
+const counterpartUrl = counterpart ? contentUrl("en", "work", counterpart.id) : "/work";
+const alternateUrls = counterpart ? { pt: currentUrl, en: counterpartUrl } : undefined;
+const { Content, headings } = await render(project);
+
+// Computed values
+const transitionName = `project-title-${project.id}`;
+const imageTransitionName = `project-image-${project.id}`;
+
+const formattedDate = formatDate(project.data.date, "pt", {
+	year: "numeric",
+	month: "long",
+});
+
+const coverImage = normalizeImagePath(project.data.cover);
+
+const theme = {
+	background: project.data.themeBackground || DEFAULT_THEME.background,
+	foreground: project.data.themeForeground || DEFAULT_THEME.foreground,
+};
+
+const hasGalleryImages = project.data.galleryImages && project.data.galleryImages.length > 0;
+const structuredData = getProjectStructuredData(project, currentUrl, "pt", Astro.site!);
+---
+
+<PageLayout
+  title={`${project.data.title} - João Dias`}
+  description={project.data.shortDescription}
+  languageUrl={counterpartUrl}
+  alternateUrls={alternateUrls}
+  image={coverImage ?? project.data.thumbnail}
+  structuredData={structuredData}
+>
+  <div
+    class="content"
+  >
+    <section class={styles["work__top"]} data-testid="work-detail" style={`--work-background: ${theme.background}; --work-foreground: ${theme.foreground};`}>
+      {
+        coverImage && (
+          <div class={styles.work__cover}>
+            <Image
+              class={styles["work__cover-image"]}
+              src={coverImage}
+              width={IMAGE_DIMENSIONS.width}
+              height={IMAGE_DIMENSIONS.height}
+              alt={project.data.coverAlt ?? project.data.title + " imagem de capa"}
+              loading="lazy"
+              transition:name={imageTransitionName}
+            />
+          </div>
+        )
+      }
+      <div class={styles.work__header}>
+        <div class:list={[styles["work__back-link"], styles["work__back-link--top"]]}>
+          <SectionLink href="/pt/work" text="Voltar aos projetos" direction="back" />
+        </div>
+        <div class={styles["work__header-heading"]}>
+          <h1
+            id="project-header-title"
+            class={styles["work__header-title"]}
+            transition:name={transitionName}
+            data-testid="work-detail-title"
+          >
+            {project.data.title}
+          </h1>
+          <p class={styles["work__header-date"]} data-testid="work-detail-date">
+            <time datetime={project.data.date.toISOString()}>
+              {formattedDate}
+            </time>
+          </p>
+        </div>
+        <p class={styles["work__header-intro"]} data-testid="work-detail-intro">{project.data.description}</p>
+      </div>
+      <div class={styles.work__meta} >
+        <h2 class="sr-only">Informação do projeto</h2>
+        <div class={styles["work__meta-column"]}>
+          <h3 class={styles["work__meta-title"]}>Tecnologias</h3>
+          <ul class:list={[styles["work__meta-list"], styles["work__meta-list--hashed"]]}>
+            {project.data.skills.map((skill) => (
+              <li class={styles["work__meta-list-item"]}>{skill}</li>
+            ))}
+          </ul>
+        </div>
+        <div class={styles["work__meta-column"]}>
+          <h3 class={styles["work__meta-title"]}>Código-fonte</h3>
+          {
+            project.data.sourceCode ? (
+              <a
+                href={project.data.sourceCode}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={styles["work__meta-text"]}
+                data-testid="work-source-code-link"
+              >
+                Ver código-fonte
+              </a>
+            ) : (
+              <p class={styles["work__meta-text"]} data-testid="work-source-code-link">Não disponível</p>
+            )
+          }
+          {
+            project.data.liveDemo && (
+              <a
+                href={project.data.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={styles["work__meta-text"]}
+                data-testid="work-live-demo-link"
+              >
+                Visitar site
+                <span class="sr-only">. Esta ligação abre num novo separador</span>
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </section>
+    <section class={styles["work__main-content"]}>
+      {
+        hasGalleryImages && (
+          <div class={styles.work__gallery}>
+            {project.data.galleryImages?.map((item) => (
+              <figure class={styles["work__gallery-item"]}>
+                <Image
+                  class={styles["work__gallery-image"]}
+                  src={item.image}
+                  width={item.width ?? IMAGE_DIMENSIONS.width}
+                  height={item.height ?? IMAGE_DIMENSIONS.height}
+                  alt={item.alt}
+                  loading="lazy"
+                />
+                {item.caption && (
+                  <figcaption class={styles["work__gallery-caption"]}>{item.caption}</figcaption>
+                )}
+              </figure>
+            ))}
+          </div>
+        )
+      }
+
+      <div class="blog-article__content">
+        <TableOfContents headings={headings} title="Índice" />
+        <div class="blog-article__content__inner">
+          <Content />
+        </div>
+      </div>
+      <div class="blog-article__back-link">
+        <SectionLink href="/pt/work" text="Voltar aos projetos" direction="back" testId="work-back-link" />
+      </div>
+    </section>
+  </div>
+</PageLayout>

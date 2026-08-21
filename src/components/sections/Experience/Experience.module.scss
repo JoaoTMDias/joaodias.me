@@ -1,0 +1,88 @@
+@use "../../../assets/styles/custom-media.scss";
+
+.experience.experience {
+  --columns-per-section: 1;
+
+  grid-template-columns: repeat(var(--columns-per-section), 1fr);
+  grid-gap: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  @media (--medium-viewport) {
+    --columns-per-section: 2;
+  }
+
+  @media (--large-viewport) {
+    --columns-per-section: 3;
+  }
+
+  @media (--laptop-viewport) {
+    --columns-per-section: 4;
+  }
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  box-shadow: inset 0 -2px 0 0 var(--text-color-faded);
+
+  @media (--medium-viewport) {
+    box-shadow: inset 0 0 0 1px var(--text-color-faded);
+  }
+
+  &[data-current] {
+    background-color: var(--text-color);
+    color: var(--background-color);
+
+    &:before {
+      content: "Currently";
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: var(--space-xxs) var(--space-xs);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+  }
+}
+
+.title,
+.description,
+.metadata {
+  margin: 0;
+}
+
+.title {
+  color: inherit;
+  font-family: var(--heading-font-family);
+  font-size: var(--font-size-md);
+}
+
+.description {
+  font-family: var(--text-font-family);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+}
+
+.metadata {
+  font-family: var(--text-font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: var(--space-xxs);
+
+  * {
+    font-size: inherit;
+    margin: 0;
+  }
+}

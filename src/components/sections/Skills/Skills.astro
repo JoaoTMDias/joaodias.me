@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import styles from "./Skills.module.scss";
+
+const [collection] = (await getCollection("skills")).filter(
+	(entry) => entry.data.locale === (Astro.currentLocale === "pt" ? "pt" : "en"),
+);
+const skills = collection.data.entries;
+const isPt = Astro.currentLocale === "pt";
+---
+
+<section class="section section__stack">
+  <SectionTitle text={isPt ? "Competências técnicas" : "Tech Skills"} />
+  <ul class={styles["skills"]}>
+    {
+      skills.map((item) => (
+        <li
+          class={styles.item}
+          data-testid="skill-item"
+        >
+          <h3 class={styles.title}>{
+            item.url
+              ? <a class={styles.link} href={item.url} target="_blank" rel="noopener noreferrer">{item.skill}</a>
+              : <span>{item.skill}</span>}
+          </h3>
+          <span class={styles.slash} aria-hidden="true">/</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

@@ -1,23 +1,41 @@
 ---
-import Bio from "../components/bio/index.astro";
-import Experience from "../components/experience/index.astro";
-import Intro from "../components/intro/index.astro";
-import Skills from "../components/skills/index.astro";
-import PAGE_CONTENT from "../data/index.json";
+import Bio from "../components/sections/Bio/Bio.astro";
+import Experience from "../components/sections/Experience/Experience.astro";
+import ExpertiseAndServices from "../components/sections/ExpertiseAndServices/ExpertiseAndServices.astro";
+import Hero from "../components/sections/Hero/Hero.astro";
+import LetsConnect from "../components/sections/LetsConnect/LetsConnect.astro";
+import Skills from "../components/sections/Skills/Skills.astro";
+import EN_CONTENT from "../data/index.json";
+import PT_CONTENT from "../data/index.pt.json";
+import { getLocale } from "../i18n";
+import { getMessages } from "../i18n/messages";
+
+const isPt = Astro.currentLocale === "pt";
+const PAGE_CONTENT = isPt ? PT_CONTENT : EN_CONTENT;
+const t = getMessages(getLocale(Astro.currentLocale));
+
 import PageLayout from "../layouts/PageLayout.astro";
 ---
 
 <PageLayout
-	title="About João Dias - Frontend Engineer specializing in Web Accessibility"
-	description="Learn about João Dias, a Frontend Engineer specializing in Web Accessibility from Coimbra, Portugal. Currently at Feedzai."
+	title={t.seo.aboutTitle}
+	description={t.seo.aboutDescription}
 >
-	<main>
-		<section id="content" tabindex={-1} aria-labelledby="about">
-			<h1 id="about">{PAGE_CONTENT.about.title}</h1>
-			<Intro />
-			<Skills />
-			<Bio />
-			<Experience />
-		</section>
-	</main>
+  <h1 class="sr-only">{isPt ? "Sobre mim" : "About me"}</h1>
+  <div class="content">
+    <Hero
+      title={PAGE_CONTENT.about.title}
+      profilePicture={{
+        src: PAGE_CONTENT.about["profile-picture"].src,
+        width: PAGE_CONTENT.about["profile-picture"].width,
+        height: PAGE_CONTENT.about["profile-picture"].height,
+        alt: PAGE_CONTENT.about["profile-picture"].alt,
+      }}
+    />
+    <Bio />
+    <ExpertiseAndServices />
+    <Experience />
+    <Skills />
+    <LetsConnect />
+  </div>
 </PageLayout>

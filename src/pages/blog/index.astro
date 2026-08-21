@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import clsx from "clsx";
+import BlogSearch from "../../components/widgets/BlogSearch/BlogSearch";
+import { contentUrl, formatDate, getLocale } from "../../i18n";
+import { getMessages } from "../../i18n/messages";
+import PageLayout from "../../layouts/PageLayout.astro";
+import styles from "./index.module.scss";
+
+const locale = getLocale(Astro.currentLocale);
+const t = getMessages(locale);
+
+const articles = (await getCollection("blog"))
+	.filter((entry) => entry.data.locale === locale)
+	.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const searchableArticles = articles.map((article) => ({
+	id: article.id,
+	url: contentUrl(locale, "blog", article.id),
+	title: article.data.title,
+	excerpt: article.data.excerpt,
+	category: article.data.category,
+	tags: article.data.tags ?? [],
+	featuredImage: article.data.featuredImage,
+	readingTime: article.data.readingTime,
+	pubDateISO: article.data.pubDate.toISOString(),
+	pubDateLabel: formatDate(article.data.pubDate, locale, {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	}),
+}));
+---
+
+<PageLayout
+  title={`${t.blog.title} - João Dias`}
+  description={t.blog.description}
+>
+	<div class="content">
+		<section class={clsx("section", styles.header)}>
+			<h1 class={styles.header__title}>{t.blog.title}</h1>
+			<p>{t.blog.intro}</p>
+		</section>
+		<BlogSearch articles={searchableArticles} locale={locale} messages={t.search} client:load />
+	</div>
+</PageLayout>

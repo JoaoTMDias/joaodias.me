@@ -1,0 +1,49 @@
+---
+import clsx from "clsx";
+import SectionLink from "../../ui/SectionLink/SectionLink.astro";
+import styles from "./FooterLinks.module.scss";
+
+interface Props {
+	locale?: "en" | "pt";
+}
+const { locale = "en" } = Astro.props;
+const prefix = locale === "pt" ? "/pt" : "";
+
+const config = [
+	{
+		link: prefix + "/about",
+		title: locale === "pt" ? "Sobre mim" : "About me",
+	},
+	{
+		link: prefix + "/blog",
+		title: "Blog",
+	},
+	{
+		link: prefix + "/work",
+		title: locale === "pt" ? "Trabalho" : "Work",
+	},
+	{
+		link: prefix + "/rss.xml",
+		title: locale === "pt" ? "Feed RSS" : "RSS feed",
+	},
+	{
+		link: "/llms.txt",
+		title: "llms.txt",
+	},
+];
+---
+
+<nav id="footer-links" class={styles["footer-links"]} aria-labelledby="footer-title">
+  <h2 id="footer-title" class={clsx(styles["footer-links__title"], "sr-only")}>
+    {locale === "pt" ? "Ligações gerais" : "General Links"}
+  </h2>
+  <ul class={styles["footer-links__list"]}>
+    {
+      config.map((link) => (
+        <li class={styles["footer-links__item"]}>
+          <SectionLink href={link.link} text={link.title} />
+        </li>
+      ))
+    }
+  </ul>
+</nav>

@@ -1,0 +1,22 @@
+*::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--background-color-faded);
+  border-color: var(--text-color-faded);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: var(--scrollbar-width);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+  border-radius: var(--scrollbar-width);
+
+  @media (forced-colors: active) {
+    border-color: var(--text-color-faded);
+    border-style: solid;
+    border-width: 2px;
+  }
+}

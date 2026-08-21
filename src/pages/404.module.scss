@@ -1,0 +1,34 @@
+.not-found {
+  align-items: flex-start;
+  gap: var(--space-md);
+  max-width: 50rem;
+  padding-block: var(--space-xxl);
+
+  &__code {
+    color: var(--text-color-faded);
+    font-family: var(--text-font-family);
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  &__title {
+    font-size: var(--font-size-xl);
+    margin: 0;
+  }
+
+  &__description {
+    font-size: var(--font-size-md);
+    margin: 0;
+    max-width: 45ch;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    list-style: none;
+    margin: var(--space-base) 0 0;
+    padding: 0;
+  }
+}

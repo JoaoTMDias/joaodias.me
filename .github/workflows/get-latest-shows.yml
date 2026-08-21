@@ -1,0 +1,43 @@
+name: Get Latest Shows
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # Every 12 hours, matching the cache duration
+  workflow_dispatch: # Allow manual runs
+
+permissions:
+  contents: write # Required to commit generated files back
+
+jobs:
+  get-latest-shows:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.21.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install chromium --with-deps
+
+      - name: Run get-latest-shows script
+        run: pnpm run get-latest-shows
+
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/shows scripts/src/data/shows.json
+          git diff --cached --quiet || git commit -m "chore: update latest shows [skip ci]"
+          git push

@@ -1,12 +1,123 @@
-.header {
-	width: 100%;
-	max-width: 100%;
+.container {
+  --container-max-width: 100%;
+
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+
+  @media (--laptop-viewport) {
+    --container-max-width: 68.75rem;
+  }
+
+  @media (--laptop-hd-viewport) {
+    --container-max-width: 90rem;
+  }
 }
 
-.sub-section {
-	margin-block-start: clamp(7rem, 40vh, 24rem);
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxl);
+  width: 100%;
 }
 
-.modal--open {
-	overflow: hidden;
+section,
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: var(--global-padding);
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+}
+
+main,
+.main-content {
+  counter-reset: section;
+}
+
+.section__stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--space-md);
+
+  @media (--large-viewport) {
+  gap: var(--space-lg);
+  }
+}
+
+.section__container {
+  --columns-per-section: 6;
+  --section-column-gap: var(--space-xs);
+  --section-row-gap: var(--space-md);
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns-per-section), 1fr);
+  grid-template-areas:
+    "title"
+    "intro"
+    "content";
+  grid-column-gap: var(--section-column-gap);
+  grid-row-gap: var(--section-row-gap);
+  align-content: start;
+  width: 100%;
+  height: auto;
+  color: var(--text-color);
+
+  @media (--large-viewport) {
+    --columns-per-section: 12;
+    --section-column-gap: var(--space-md);
+    --section-row-gap: var(--space-lg);
+  }
+}
+
+.section__title,
+.section__intro {
+  text-align: left;
+}
+
+.section__title {
+  grid-area: title;
+  grid-column: 1 / -1;
+  font-family: var(--heading-font-family);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--text-color-faded);
+  text-align: left;
+  display: flex;
+  margin-bottom: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--space-xs);
+
+  &--number {
+    font-style: italic;
+    font-weight: 400;
+
+    &::before {
+      counter-increment: section;
+      content: counter(section, decimal-leading-zero) " /";
+    }
+  }
+
+  &--text {
+    font-weight: 700;
+    font-style: normal;
+  }
+}
+
+.section__intro {
+  grid-area: intro;
+  font-family: var(--text-font-family);
+  font-size: var(--font-size-md);
+  font-weight: 400;
+  color: var(--text-color);
+  text-align: left;
+  margin-bottom: var(--space-lg);
 }

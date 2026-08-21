@@ -1,0 +1,15 @@
+---
+import { getEntry } from "astro:content";
+import type { Locale } from "../../../i18n";
+import { getMessages } from "../../../i18n/messages";
+import styles from "./MainNavigation.module.scss";
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getMessages(locale);
+const config = await getEntry("config", locale + "/config");
+const currentPage = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+<nav aria-label={t.nav.label} class={styles["main-navigation"]}><ul class={styles["main-navigation__list"]}>{config?.data.nav.map((item)=><li class={styles["main-navigation__item"]}><a class={styles["main-navigation__link"]} href={item.link} data-testid="top-nav-link" aria-current={(item.link.replace(/\/$/,"")||"/")===currentPage?"page":undefined}>{item.title}</a></li>)}</ul></nav>

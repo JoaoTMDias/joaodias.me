@@ -1,0 +1,64 @@
+@use "../../../assets/styles/custom-media.scss";
+
+.section__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--link-color);
+
+  @media (--with-motion) {
+    transition: color var(--motion-duration-fast) var(--motion-ease-out),
+                text-underline-offset var(--motion-duration-fast) var(--motion-ease-out);
+
+    .section__link__arrow {
+      transition: background-color var(--motion-duration-fast) var(--motion-ease-out),
+                  transform var(--motion-duration-fast) var(--motion-ease-out);
+    }
+
+    &:hover,
+    &:focus {
+      .section__link__arrow {
+        transform: translateX(0.25rem);
+      }
+    }
+  }
+
+  &--back {
+    .section__link__arrow {
+      order: -1;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    @media (--with-motion) {
+      &:hover,
+      &:focus {
+        .section__link__arrow {
+          transform: translateX(-0.25rem);
+        }
+      }
+    }
+  }
+
+  &__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--link-active-color);
+    text-underline-offset: 0.5rem;
+
+    .section__link__arrow {
+      background-color: light-dark(var(--color-B00), var(--color-N90));
+    }
+  }
+}

@@ -1,0 +1,61 @@
+import * as z from "zod";
+
+export const ContactLinkSchema = z.object({
+	title: z.string(),
+	accessibleLabel: z.string(),
+	link: z.string(),
+	icon: z.string().optional(),
+	id: z.string().optional(),
+});
+export type ContactLink = z.infer<typeof ContactLinkSchema>;
+
+export const NavigationLinkSchema = z.object({
+	title: z.string(),
+	link: z.string(),
+});
+export type NavigationLink = z.infer<typeof NavigationLinkSchema>;
+
+export const CardSchema = z.object({
+	width: z.string(),
+	height: z.string(),
+});
+export type Card = z.infer<typeof CardSchema>;
+
+export const SeoSchema = z.object({
+	title: z.string(),
+	description: z.string(),
+	siteOwner: z.string(),
+});
+export type Seo = z.infer<typeof SeoSchema>;
+
+export const SkipLinkSchema = z.object({
+	target: z.string(),
+	text: z.string(),
+	as: z.string(),
+});
+export type SkipLink = z.infer<typeof SkipLinkSchema>;
+
+export const PlayerSchema = z.object({
+	loading: z.string(),
+	card: CardSchema,
+	track: z.string(),
+	artist: z.string(),
+	album: z.string(),
+});
+export type Player = z.infer<typeof PlayerSchema>;
+
+export const FooterSchema = z.object({
+	currentlyListeningTitle: z.string(),
+	player: PlayerSchema,
+});
+export type Footer = z.infer<typeof FooterSchema>;
+
+export const SiteConfigSchema = z.object({
+	seo: SeoSchema,
+	copyright: z.string(),
+	skipLinks: z.array(SkipLinkSchema),
+	nav: z.array(NavigationLinkSchema),
+	contactLinks: z.array(ContactLinkSchema),
+	footer: FooterSchema,
+});
+export type SiteConfig = z.infer<typeof SiteConfigSchema>;

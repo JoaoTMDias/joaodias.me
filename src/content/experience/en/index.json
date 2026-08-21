@@ -1,0 +1,70 @@
+{
+	"entries": [
+		{
+			"title": "Revolut",
+			"description": "Frontend Engineer",
+			"location": "Remote",
+			"startDate": "January 2026",
+			"endDate": "July 2026",
+			"isCurrent": false
+		},
+		{
+			"title": "Feedzai",
+			"description": "Advanced Frontend Engineer and Accessibility advocate",
+			"location": "Coimbra, Portugal",
+			"startDate": "2024",
+			"endDate": "2026",
+			"isCurrent": false
+		},
+		{
+			"title": "Farfetch",
+			"description": "Senior Software Engineer - Frontend",
+			"location": "Porto, Portugal",
+			"startDate": "2023",
+			"endDate": "2024",
+			"isCurrent": false
+		},
+		{
+			"title": "Feedzai",
+			"description": "Senior Frontend Engineer and Accessibility advocate",
+			"location": "Coimbra, Portugal",
+			"startDate": "2019",
+			"endDate": "2023",
+			"isCurrent": false
+		},
+		{
+			"title": "ISEC",
+			"description": "Invited assistant professor",
+			"location": "Coimbra, Portugal",
+			"startDate": "2022",
+			"endDate": "2023",
+			"isCurrent": false
+		},
+		{
+			"title": "WIT Software",
+			"description": "UI and Graphic Designer, Frontend Developer",
+			"location": "Coimbra, Portugal",
+			"startDate": "2013",
+			"endDate": "2019",
+			"isCurrent": false
+		},
+		{
+			"title": "Load Interactive",
+			"description": "Web, Mobile and Graphic Designer",
+			"location": "Aveiro, Portugal",
+			"startDate": "2012",
+			"endDate": "2013",
+			"isCurrent": false
+		},
+		{
+			"title": "joaodias.me",
+			"description": "Web and Graphic designer (freelance)",
+			"location": "Figueira da Foz, Portugal",
+			"startDate": "2008",
+			"endDate": "2012",
+			"isCurrent": false
+		}
+	],
+	"locale": "en",
+	"translationKey": "experience"
+}

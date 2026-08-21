@@ -1,0 +1,13 @@
+{
+	"title": "Biografia",
+	"mainTitle": "Crio experiências web acessíveis e inclusivas",
+	"description": "Sou Design Engineer, o que significa que trato de ambos os lados do processo de produtos digitais, desde o design original da UI e wireframes até ao código de produção. Em vez de passar os mockups e esperar pelo melhor, crio os designs tendo em conta as realidades técnicas e programo com olho para o detalhe.\n\nQuando não estou à frente de um ecrã, podes encontrar-me atrás de um microfone como locutor de rádio, a ver concertos ao vivo ou a mergulhar no mundo da cerveja artesanal. Também me mantenho ativo no ginásio e dou prioridade ao tempo de qualidade com a minha esposa e o meu filho.\n",
+	"picture": {
+		"src": "/about-grid.jpg",
+		"width": "640",
+		"height": "640",
+		"alt": "Retrato de João Dias sentado numa poltrona de couro castanha."
+	},
+	"locale": "pt",
+	"translationKey": "bio"
+}

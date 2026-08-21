@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import clsx from "clsx";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import styles from "./PeerFeedback.module.scss";
+import Testimonial from "./Testimonial.astro";
+
+const testimonials = (await getCollection("testimonials"))
+	.filter((entry) => entry.data.locale === (Astro.currentLocale === "pt" ? "pt" : "en"))
+	.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const isPt = Astro.currentLocale === "pt";
+---
+
+{testimonials.length > 0 && <section id="peer-feedback" class="section section__stack">
+  <div class={clsx("section__container", styles["peer-feedback__content"])}>
+    <SectionTitle text={isPt ? "Opiniões de colegas" : "Peer Feedback"} />
+    <p class={styles["peer-feedback__intro"]}>
+      {isPt ? "O que líderes de engenharia e parceiros de design dizem sobre trabalhar comigo" : "Here's what engineering leaders and design partners say about working with me"}
+    </p>
+    <div class={styles["peer-feedback__list"]}>
+      {
+        testimonials.map((item) => (
+          <Testimonial
+            avatarUrl={item.data.avatarUrl}
+            testimonial={item.data.testimonial}
+            name={item.data.name}
+            role={item.data.role}
+            avatarColors={item.data.avatarColors}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>}

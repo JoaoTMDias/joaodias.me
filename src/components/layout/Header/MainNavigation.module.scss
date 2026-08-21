@@ -1,0 +1,73 @@
+@use "../../../assets/styles/custom-media.scss";
+
+.main-navigation {
+  --main-navigation-background: transparent;
+
+  font-family: var(--text-font-family);
+  display: none;
+  align-items: stretch;
+  background-color: inherit;
+  display: flex;
+  flex-direction: row;
+  height: calc(var(--header-height) - 1rem);
+  justify-content: start;
+  margin-left: auto;
+  position: relative;
+  top: 0;
+  width: fit-content;
+  z-index: inherit;
+
+  @media (--medium-viewport) {
+    display: flex;
+  }
+}
+
+.main-navigation__list {
+  display: none;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  @media (--medium-viewport) {
+    display: flex;
+  }
+}
+
+.main-navigation__link {
+  font-size: 1.25rem;
+  height: 100%;
+  align-items: center;
+  display: none;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: start;
+  padding-inline: 1rem;
+  position: relative;
+  text-decoration: underline;
+  text-decoration-thickness: 0.125rem;
+  text-decoration-color: transparent;
+  text-underline-offset: var(--space-xxs);
+  width: fit-content;
+  font-family: inherit;
+
+  &[aria-current="page"] {
+    font-weight: 600;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--text-color-faded);
+  }
+
+  &:hover:not([aria-current="page"]),
+  &:focus:not([aria-current="page"]) {
+    text-decoration: underline;
+    text-decoration-color: var(--link-active-color, var(--text-color));
+  }
+
+  @media (--medium-viewport) {
+    display: flex;
+  }
+}

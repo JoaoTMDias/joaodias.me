@@ -145,11 +145,8 @@ dist
 playwright-report/
 test-results/
 
-# Don't allow lock files to be committed (This is for templates only)
-
-# Package Manager Lock Files
+# Lock files from package managers not used by this project
 package-lock.json
-pnpm-lock.yaml
 yarn.lock
 .yarn/cache
 bun.lockb
@@ -158,5 +155,13 @@ deno.lock
 
 node_modules
 src/data/build-info.json
-
+public/llms.txt
 .DS_Store
+
+# Shows script cache (regenerated on each CI run)
+scripts/src/data/shows.json
+
+# Debug/inspection scripts
+scripts/inspect-episode.mjs
+
+*:Zone.Identifier

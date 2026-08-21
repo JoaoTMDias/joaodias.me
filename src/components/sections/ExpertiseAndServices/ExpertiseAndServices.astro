@@ -1,0 +1,78 @@
+---
+import clsx from "clsx";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import styles from "./ExpertiseAndServices.module.scss";
+
+const isPt = Astro.currentLocale === "pt";
+const copy = isPt
+	? {
+			title: "Especialidades e serviços",
+			intro:
+				"Ajudo organizações a criar experiências digitais acessíveis e de elevado desempenho que superam as normas EAA, ADA e WCAG, com estruturas de conformidade sustentáveis.",
+			services: [
+				[
+					"Consultoria e formação",
+					"Workshops personalizados de acessibilidade e sistemas de design",
+					"Formação prática e adaptada que alinha equipas empresariais e académicas com as melhores práticas de acessibilidade e transforma normas complexas em processos aplicáveis.",
+				],
+				[
+					"Consultoria e formação",
+					"Liderança de pensamento e comunicação pública",
+					"Apresentações para conferências, empresas e universidades sobre a relação entre UX, desempenho frontend e planeamento estratégico de acessibilidade.",
+				],
+				[
+					"Engenharia e sistemas",
+					"Desenvolvimento frontend acessível",
+					"Desenvolvimento de aplicações web de elevada qualidade e desempenho, com foco em conformidade e governação global de acessibilidade.",
+				],
+				[
+					"Auditoria e estratégia",
+					"Auditorias de desempenho e qualidade",
+					"Análise estratégica de bases de código, com roteiros claros para alcançar conformidade internacional, otimizar o desempenho e melhorar a sustentabilidade do produto.",
+				],
+			],
+		}
+	: {
+			title: "Expertise & Services",
+			intro:
+				"I help organizations build accessible, high-performing digital experiences that don't just meet EAA, ADA, and WCAG standards - they exceed them, creating sustainable compliance frameworks that scale with regulatory evolution.",
+			services: [
+				[
+					"Consulting & Education",
+					"Custom Accessibility & Design System Workshops",
+					"Hands-on, tailored training that aligns corporate and academic teams on accessibility best practices. I translate complex standards into actionable workflows that ensure WCAG, EAA, and ADA compliance while establishing scalable, inclusive Design System foundations.",
+				],
+				[
+					"Consulting & Education",
+					"Thought Leadership & Public Speaking",
+					"Engaging presentations and keynotes for conferences, companies, and universities, exploring the intersection of UX excellence, frontend performance, and strategic accessibility planning.",
+				],
+				[
+					"Engineering & Systems",
+					"Accessible Frontend Development",
+					"Building high-quality, high-performance web applications with an unwavering focus on global accessibility compliance and governance.",
+				],
+				[
+					"Auditing & Strategy",
+					"Performance & Quality Audits",
+					"Strategic, in-depth analysis of existing codebases, delivering clear, actionable roadmaps to achieve international legal compliance, optimize performance, and elevate product quality.",
+				],
+			],
+		};
+---
+<script>import "../../ui/Accordion/Accordion";</script>
+<section id="expertise-and-services" class="section section__stack">
+  <div class={clsx("section__container", styles.services__container)}>
+    <SectionTitle text={copy.title} />
+    <p class={styles.services__intro}>{copy.intro}</p>
+    <div class={styles.services__list}>
+      <jd-accordion>
+        {copy.services.map(([category, label, description], index) => (
+          <jd-accordion-item category={category} label={label} open={index === 0}>
+            <p>{description}</p>
+          </jd-accordion-item>
+        ))}
+      </jd-accordion>
+    </div>
+  </div>
+</section>

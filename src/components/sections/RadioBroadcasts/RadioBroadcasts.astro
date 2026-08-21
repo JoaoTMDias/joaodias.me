@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import clsx from "clsx";
+import SectionLink from "../../ui/SectionLink/SectionLink.astro";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import styles from "./RadioBroadcasts.module.scss";
+import Show from "./Show.astro";
+
+const shows = (await getCollection("shows"))
+	.sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
+	.slice(0, 6);
+const isPt = Astro.currentLocale === "pt";
+---
+
+<section id="radio-broadcasts" class="section section__stack">
+  <div class={clsx("section__container", styles.broadcasts)}>
+    <SectionTitle text={isPt ? "Nas ondas" : "Over the air"} />
+    <p class={styles.broadcasts__intro}>
+      {isPt ? "Sou também locutor na " : "I am also a radio host at "}<strong
+        ><a href="https://ruc.pt/autor/joaotmdias" target="_blank" rel="noopener noreferrer" lang="pt-PT"
+          >Rádio Universidade de Coimbra</a
+        ></strong
+      >{isPt ? " (RUC), onde apresento programas de Jazz, Blues, Rock, Punk e Heavy Metal." : " (RUC), where I regularly broadcast shows that range from Jazz, Blues, Rock, Punk and Heavy Metal."}
+    </p>
+    <div class={styles.broadcasts__shows}>
+      <div class={styles.broadcasts__list}>
+        {
+          shows.map((show) => {
+            const href = `https://ruc.pt/podcast/${show.data.show}/${show.data.slug}`;
+            return (
+            <Show
+              href={href}
+              cover={show.data.coverURL}
+              colors={show.data.coverColors}
+              name={show.data.show}
+              published={show.data.published}
+              title={show.data.title}
+              description={show.data.summary}
+              locale={isPt ? "pt" : "en"}
+            />
+          )
+          })
+        }
+      </div>
+    </div>
+  </div>
+  <SectionLink href="https://ruc.pt/autor/joaotmdias" text={isPt ? "Todos os meus programas na RUC" : "All my shows on RUC"} isExternal={true} />
+</section>

@@ -1,0 +1,14 @@
+{
+	"documents": [
+		{
+			"locale": "en",
+			"documentId": "1oyUozruaNr1FVVqqlOKok7e02-rx4xXaBuAGaedDy0U",
+			"output": "public/resume-joao-dias-en.pdf"
+		},
+		{
+			"locale": "pt",
+			"documentId": "1oNtrKu84WCzvydIJdE4GTPY0qA0eiM6v02mTUTw6afo",
+			"output": "public/resume-joao-dias-pt.pdf"
+		}
+	]
+}

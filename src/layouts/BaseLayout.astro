@@ -1,82 +1,90 @@
 ---
-import { ClientRouter } from "astro:transitions";
+import BaseHead from "../components/layout/BaseHead/BaseHead.astro";
+import { getLocale, htmlLang, type Locale } from "../i18n";
 
 export interface Props {
 	title: string;
 	description: string;
-	itemtype?: string;
 	lang?: string;
+	locale?: Locale;
+	alternateUrls?: Partial<Record<Locale, string>>;
+	image?: string;
+	noindex?: boolean;
+	openGraphType?: "article" | "website";
+	publishedTime?: string;
+	modifiedTime?: string;
+	structuredData?: Record<string, unknown>;
 }
 
-const { title, description, itemtype = "http://schema.org/WebPage", lang = "en" } = Astro.props;
+const {
+	title,
+	description,
+	locale = getLocale(Astro.currentLocale),
+	lang = htmlLang[locale],
+	alternateUrls,
+	image,
+	noindex,
+	openGraphType,
+	publishedTime,
+	modifiedTime,
+	structuredData,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html
-	lang={lang}
-	prefix="http://ogp.me/ns#"
-	itemtype={itemtype}
-	dir="ltr"
-	data-testid="html-element"
+  lang={lang}
+  prefix="http://ogp.me/ns#"
+  dir="ltr"
+  data-testid="html-element"
 >
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
-		<title>{title}</title>
-		<meta name="description" content={description} />
-		<link rel="icon" type="image/png" href="/favicon_fallback.png" />
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<slot name="head" />
-		<ClientRouter />
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      locale={locale}
+      alternateUrls={alternateUrls}
+      image={image}
+      noindex={noindex}
+      openGraphType={openGraphType}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      structuredData={structuredData}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style lang="scss">
-	.container {
-		width: 100%;
-		display: grid;
-		grid-template-rows: var(--header-height) 1fr auto;
-		grid-gap: 3rem;
+  @use "../assets/styles/custom-media.scss";
 
-		@media (min-width: 60rem) {
-			grid-template-rows: auto 1fr auto;
-			grid-gap: 0;
-		}
-	}
+  .container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: var(--header-height) 1fr auto;
+    grid-gap: 3rem;
 
-	.main-content {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		padding-block: 10vh;
-		padding-inline: 1rem;
-		margin: 0 auto;
-		max-width: 100vw;
+    @media (--large-viewport) {
+      grid-template-rows: auto 1fr auto;
+      grid-gap: 0;
+    }
+  }
 
-		@media (min-width: 60rem) {
-			padding-block: 6rem;
-			padding-inline: 3rem;
-			max-width: 75rem;
-		}
-	}
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-block: 10vh;
+    padding-inline: 1rem;
+    margin: 0 auto;
+    max-width: 100vw;
 
-	.section {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		padding-block: 10vh;
-		padding-inline: 1rem;
-		margin: 0 auto;
-		max-width: 100vw;
-
-		@media (min-width: 60rem) {
-			padding-block: 6rem;
-			padding-inline: 3rem;
-			max-width: 75rem;
-		}
-	}
+    @media (--large-viewport) {
+      padding-block: 6rem;
+      padding-inline: 3rem;
+      max-width: 75rem;
+    }
+  }
 </style>

@@ -1,0 +1,49 @@
+{
+	"title": "Chegou a um site chamado joaodias.me: João Dias",
+	"hero": {
+		"title": "Sou a ponte entre UX e Engenharia",
+		"subtitle": "João Dias",
+		"intro": "Sou Engenheiro Frontend sénior, especializado em Acessibilidade para a Web e vivo em Portugal.",
+		"profile-picture": {
+			"src": "/photo-profile.webp",
+			"width": 560,
+			"height": 560,
+			"alt": "Retrato de João Dias sentado numa poltrona de couro castanha. Tem cabelo comprido e ondulado, óculos, bigode e tatuagens visíveis nos antebraços, e veste um polo preto de manga curta."
+		},
+		"copyright": "Desde 1987 © Edição limitada"
+	},
+	"about": {
+		"title": "Olá, sou o João",
+		"subtitle": "Desenvolvimento web e Acessibilidade",
+		"intro": "Crio experiências web ricas e acessíveis para todas as pessoas. Tenho a sorte de o fazer há 15 anos.",
+		"profile-picture": {
+			"src": "/about-profile.webp",
+			"width": 560,
+			"height": 560,
+			"alt": "Retrato de João Dias sentado numa poltrona de couro castanha. Tem cabelo comprido e ondulado, óculos, bigode e tatuagens visíveis nos antebraços, e veste um polo preto de manga curta."
+		},
+		"skills": {
+			"title": "Lista das minhas competências",
+			"items": [
+				"Acessibilidade",
+				"Cypress",
+				"Design de interfaces",
+				"Jest",
+				"Lit",
+				"Node",
+				"Playwright",
+				"React",
+				"Redux",
+				"Testing-Library",
+				"Typescript",
+				"Vite",
+				"Vue",
+				"Web Components"
+			]
+		}
+	},
+	"work": {
+		"title": "Trabalho selecionado",
+		"description": "Use as setas para navegar entre projetos"
+	}
+}

@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import styles from "./Show.module.scss";
+
+interface Props {
+	href: string;
+	cover?: string;
+	colors?: string[];
+	name: string;
+	published: Date;
+	title: string;
+	description?: string;
+	locale?: "en" | "pt";
+}
+
+const DEFAULT_COVER =
+	"https://ruc.pt/_next/image?url=https%3A%2F%2Fbucket.ruc.pt%2Fwp-content%2Fuploads%2F2026%2F01%2F05091026%2Fcover.jpeg&w=3840&q=75";
+
+const {
+	href,
+	cover = DEFAULT_COVER,
+	colors = [],
+	name,
+	published,
+	title,
+	description,
+	locale = "en",
+} = Astro.props;
+
+const formattedPublishedDate = published.toLocaleDateString("pt-PT", {
+	day: "2-digit",
+	month: "2-digit",
+	year: "numeric",
+});
+
+const [primaryColor] = colors;
+const cardStyle: Record<string, string> = {};
+if (primaryColor) {
+	cardStyle["--show-c1"] = primaryColor;
+}
+---
+
+<article class={styles.show} lang="pt-PT">
+	<a href={href} class={styles.card} target="_blank" rel="noopener noreferrer" style={cardStyle}>
+		<Image
+			class={styles.cover}
+			src={cover}
+			width={200}
+			height={200}
+			alt={`${name} - ${title}`}
+			loading="lazy"
+			decoding="async"
+		/>
+		<div class={styles.header}>
+			<time datetime={published.toISOString()} class={styles.date}>
+				<span class="sr-only">Emitido em</span>&nbsp;{formattedPublishedDate}
+			</time>
+			<h3 class={styles.title}>{title}</h3>
+			<span class={styles.name}>{name}</span>
+		</div>
+		<div class={styles.content}>
+			{description && <p class={styles.description}>{description}</p>}
+			<span class={styles.link}>
+				{locale === "pt" ? "Ouvir este programa" : "Listen to this show"}
+			</span>
+		</div>
+	</a>
+</article>

@@ -6,61 +6,74 @@ export const ExperienceCollection: Collection = {
 	path: "src/content/experience",
 	format: "json",
 	ui: {
+		allowedActions: {
+			create: false,
+			delete: false,
+		},
 		filename: {
 			readonly: false,
-			slugify: (values) => {
-				const company = values.title?.toLowerCase().replace(/\s+/g, "-") || "";
-				const year = values.startDate || "";
-				return `${company}-${year}`;
-			},
+			slugify: () => "index",
 		},
 	},
 	fields: [
+		{ type: "string", name: "locale", label: "Locale", required: true, options: ["en", "pt"] },
 		{
-			name: "title",
-			label: "Company/Organization Name",
 			type: "string",
+			name: "translationKey",
+			label: "Translation key",
 			required: true,
+			description: "Stable identifier shared by translations",
 		},
 		{
-			name: "description",
-			label: "Job Title/Role",
-			type: "string",
-			required: true,
+			name: "entries",
+			label: "Experience Entries",
+			type: "object",
+			list: true,
 			ui: {
-				component: "textarea",
+				itemProps: (item) => ({
+					label: item?.title ? `${item.title} (${item.startDate ?? ""})` : "Untitled",
+				}),
 			},
-		},
-		{
-			name: "location",
-			label: "Location",
-			type: "string",
-			required: true,
-		},
-		{
-			name: "startDate",
-			label: "Start Year",
-			type: "string",
-			required: true,
-		},
-		{
-			name: "endDate",
-			label: "End Year",
-			type: "string",
-			description: "Leave empty if current position",
-		},
-		{
-			name: "isCurrent",
-			label: "Is Current Position?",
-			type: "boolean",
-		},
-		{
-			name: "order",
-			label: "Display Order",
-			type: "number",
-			required: true,
-			description: "Lower numbers appear first",
+			fields: [
+				{
+					name: "title",
+					label: "Company/Organization Name",
+					type: "string",
+					required: true,
+				},
+				{
+					name: "description",
+					label: "Job Title/Role",
+					type: "string",
+					required: true,
+					ui: {
+						component: "textarea",
+					},
+				},
+				{
+					name: "location",
+					label: "Location",
+					type: "string",
+					required: true,
+				},
+				{
+					name: "startDate",
+					label: "Start Year",
+					type: "string",
+					required: true,
+				},
+				{
+					name: "endDate",
+					label: "End Year",
+					type: "string",
+					description: "Leave empty if current position",
+				},
+				{
+					name: "isCurrent",
+					label: "Is Current Position?",
+					type: "boolean",
+				},
+			],
 		},
 	],
 };
-

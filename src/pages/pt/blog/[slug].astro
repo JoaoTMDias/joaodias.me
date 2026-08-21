@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+import SectionLink from "../../../components/ui/SectionLink/SectionLink.astro";
+import TableOfContents from "../../../components/ui/TableOfContents/TableOfContents.astro";
+import { contentSlug, contentUrl, findCounterpart, formatDate } from "../../../i18n";
+import PageLayout from "../../../layouts/PageLayout.astro";
+import { getArticleStructuredData } from "../../../utils/structured-data";
+
+export async function getStaticPaths() {
+	const allEntries = await getCollection("blog");
+	const articles = allEntries.filter((entry) => entry.data.locale === "pt");
+	return articles.map((article) => ({
+		params: { slug: contentSlug(article.id) },
+		props: {
+			article,
+			counterpart: findCounterpart(allEntries, article, "en"),
+		},
+	}));
+}
+
+type Props = {
+	article: CollectionEntry<"blog">;
+	counterpart?: CollectionEntry<"blog">;
+};
+
+function getTransitionNames(slug: string) {
+	return {
+		title: `article-title-${slug}`,
+		image: `article-image-${slug}`,
+	};
+}
+
+const { article, counterpart } = Astro.props;
+const currentUrl = contentUrl("pt", "blog", article.id);
+const counterpartUrl = counterpart ? contentUrl("en", "blog", counterpart.id) : "/blog";
+const alternateUrls = counterpart ? { pt: currentUrl, en: counterpartUrl } : undefined;
+const { Content, headings } = await render(article);
+const transitionNames = getTransitionNames(article.id);
+const structuredData = getArticleStructuredData(article, currentUrl, "pt", Astro.site!);
+---
+
+<PageLayout
+  title={`${article.data.title} - João Dias`}
+  description={article.data.excerpt}
+  languageUrl={counterpartUrl}
+  alternateUrls={alternateUrls}
+  image={article.data.featuredImage}
+  openGraphType="article"
+  publishedTime={article.data.pubDate.toISOString()}
+  modifiedTime={(article.data.updatedDate ?? article.data.pubDate).toISOString()}
+  structuredData={structuredData}
+>
+  <article class="section blog-article">
+    <section class="blog-article__header">
+      <div class="blog-article__header__lead">
+        <SectionLink href="/pt/blog" text="Voltar aos artigos" direction="back" />
+        <h1 class="blog-article__header__title" data-testid="blog-article-title" transition:name={transitionNames.title}>{article.data.title}</h1>
+        <div class="blog-article__header__meta" data-testid="blog-article-meta">
+          <time class="blog-article__date" datetime={article.data.pubDate.toISOString()}>
+            {
+              formatDate(article.data.pubDate, "pt", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            }
+          </time>
+          <p class="blog-article__category">{article.data.category.replace("-", " ")}</p>
+          {article.data.readingTime && <p class="blog-article__reading-time">{article.data.readingTime} min de leitura</p>}
+        </div>
+      </div>
+      {article.data.featuredImage && <Image
+        class="blog-article__header__image"
+        src={article.data.featuredImage}
+        width={960}
+        height={480}
+        alt={article.data.featuredImageAlt ?? article.data.title}
+        loading="lazy"
+        transition:name={transitionNames.image}
+      />}
+    </section>
+    <section class="blog-article__content" data-testid="blog-article-content">
+      <TableOfContents headings={headings} title="Índice" />
+      <div class="blog-article__content__inner">
+        <Content />
+      </div>
+      <div class="blog-article__back-link">
+        <SectionLink href="/pt/blog" text="Voltar aos artigos" direction="back" testId="blog-back-link" />
+      </div>
+    </section>
+  </article>
+</PageLayout>

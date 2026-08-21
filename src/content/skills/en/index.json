@@ -1,0 +1,84 @@
+{
+	"entries": [
+		{
+			"skill": "A.D.A.",
+			"url": "https://www.ada.gov/resources/web-guidance/"
+		},
+		{
+			"skill": "Cypress",
+			"url": "https://www.cypress.io/"
+		},
+		{
+			"skill": "Design Systems"
+		},
+		{
+			"skill": "E.A.A",
+			"url": "https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en"
+		},
+		{
+			"skill": "Jest and Vitest",
+			"url": "https://jestjs.io/"
+		},
+		{
+			"skill": "Lit",
+			"url": "https://lit.dev/"
+		},
+		{
+			"skill": "MCP",
+			"url": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro"
+		},
+		{
+			"skill": "Node",
+			"url": "https://nodejs.org/en"
+		},
+		{
+			"skill": "Octane Js",
+			"url": "https://octanejs.dev/"
+		},
+		{
+			"skill": "Open source development"
+		},
+		{
+			"skill": "Playwright",
+			"url": "https://playwright.dev/"
+		},
+		{
+			"skill": "Testing Library",
+			"url": "https://testing-library.com/"
+		},
+		{
+			"skill": "Typescript",
+			"url": "https://www.typescriptlang.org/"
+		},
+		{
+			"skill": "Vite",
+			"url": "https://vite.dev/"
+		},
+		{
+			"skill": "Vue",
+			"url": "https://vuejs.org/"
+		},
+		{
+			"skill": "W.C.A.G.",
+			"url": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+		},
+		{
+			"skill": "Web Accessibility",
+			"url": "https://www.w3.org/WAI/fundamentals/accessibility-intro/"
+		},
+		{
+			"skill": "React",
+			"url": "https://react.dev/"
+		},
+		{
+			"skill": "Web components",
+			"url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components"
+		},
+		{
+			"skill": "Webpack",
+			"url": "https://webpack.js.org/"
+		}
+	],
+	"locale": "en",
+	"translationKey": "skills"
+}

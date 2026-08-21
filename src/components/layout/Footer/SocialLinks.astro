@@ -1,0 +1,26 @@
+---
+import { getEntry } from "astro:content";
+import clsx from "clsx";
+import { getLocale } from "../../../i18n";
+import type { SiteConfig } from "../../../typings";
+import SectionLink from "../../ui/SectionLink/SectionLink.astro";
+import styles from "./SocialLinks.module.scss";
+
+const locale = getLocale(Astro.currentLocale);
+const config: Record<"data", SiteConfig> = await getEntry("config", locale + "/config");
+---
+
+<nav id="links-to-my-social-media" class={styles["social-links"]} aria-labelledby="contact-title">
+  <h2 id="contact-title" class={clsx(styles["social-links__title"], "sr-only")}>
+    {locale === "pt" ? "Ligações para as minhas redes sociais" : "Links to my Social Media"}
+  </h2>
+  <ul class={styles["social-links__list"]}>
+    {
+      config.data.contactLinks.map((link) => (
+        <li class={styles["social-links__item"]}>
+          <SectionLink href={link.link} text={link.title} isExternal={true} />
+        </li>
+      ))
+    }
+  </ul>
+</nav>

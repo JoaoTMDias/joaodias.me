@@ -1,40 +1,41 @@
 import { defineConfig } from "tinacms";
 import {
-  ArticlesCollection,
-  BioCollection,
-  ExperienceCollection,
-  GlobalConfigCollection,
-  ProjectsCollection,
-  RadioShowsCollection,
+	BioCollection,
+	BlogCollection,
+	ExperienceCollection,
+	GlobalConfigCollection,
+	SkillsCollection,
+	TestimonialsCollection,
+	WorkCollection,
 } from "./collections";
 
-// Your hosting provider likely exposes this as an environment variable
 const branch =
-  process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
+	process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
 
 export default defineConfig({
-  branch,
-  clientId: process.env.PUBLIC_TINA_CLIENT_ID,
-  token: process.env.TINA_TOKEN,
+	branch,
+	clientId: process.env.PUBLIC_TINA_CLIENT_ID,
+	token: process.env.TINA_TOKEN,
 
-  build: {
-    outputFolder: "admin",
-    publicFolder: "public",
-  },
-  media: {
-    tina: {
-      mediaRoot: "",
-      publicFolder: "public",
-    },
-  },
-  schema: {
-    collections: [
-      GlobalConfigCollection,
-      ArticlesCollection,
-      BioCollection,
-      ExperienceCollection,
-      ProjectsCollection,
-      RadioShowsCollection,
-    ],
-  },
+	build: {
+		outputFolder: "admin",
+		publicFolder: "public",
+	},
+	media: {
+		tina: {
+			mediaRoot: "",
+			publicFolder: "public",
+		},
+	},
+	schema: {
+		collections: [
+			GlobalConfigCollection,
+			BlogCollection,
+			BioCollection,
+			ExperienceCollection,
+			WorkCollection,
+			SkillsCollection,
+			TestimonialsCollection,
+		],
+	},
 });

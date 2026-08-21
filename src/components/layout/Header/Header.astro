@@ -1,0 +1,22 @@
+---
+import { getEntry } from "astro:content";
+import type { Locale } from "../../../i18n";
+import Logo from "../../ui/Logo/Logo.astro";
+import SkipLink from "../../ui/SkipLink/SkipLink";
+import ThemeSwitcher from "../../ui/ThemeSwitcher/ThemeSwitcher.astro";
+import styles from "./Header.module.scss";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import MainNavigation from "./MainNavigation.astro";
+import MobileNavigation from "./MobileNavigation.astro";
+import MobileNavigationToggle from "./MobileNavigationToggle.astro";
+
+interface Props {
+	locale: Locale;
+	languageUrl: string;
+}
+const { locale, languageUrl } = Astro.props;
+const config = await getEntry("config", locale + "/config");
+---
+<header class={styles.header}>
+<SkipLink items={config?.data.skipLinks ?? []} /><div class={styles.header__container}><Logo /><div class={styles.header__nav}><MainNavigation locale={locale} /><LanguageSwitcher locale={locale} href={languageUrl} /><ThemeSwitcher locale={locale} /><MobileNavigationToggle locale={locale} /></div></div><MobileNavigation locale={locale} languageUrl={languageUrl} />
+</header>

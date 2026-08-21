@@ -1,5 +1,5 @@
-import { test, expect } from "utils";
 import { PAGE_SELECTORS } from "./constants";
+import { expect, test } from "./utils";
 
 test.beforeEach(async ({ page }) => {
 	await page.setViewportSize({ width: 1440, height: 900 });
@@ -7,20 +7,47 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("Error States", () => {
 	test("should handle 404 for non-existent project", async ({ page }) => {
-		await page.goto("/projects/non-existent-project-slug");
-		await page.waitForLoadState("networkidle");
+		const response = await page.goto("/work/non-existent-project-slug");
 
-		// Astro should return a 404 status
-		const response = await page.goto("/projects/non-existent-project-slug");
 		expect(response?.status()).toBe(404);
+		await expect(page.getByRole("heading", { level: 1, name: "Page not found" })).toBeVisible();
+		await expect(page.getByRole("link", { name: "Go to the homepage" })).toHaveAttribute(
+			"href",
+			"/",
+		);
 	});
 
 	test("should handle 404 for non-existent article", async ({ page }) => {
-		await page.goto("/articles/non-existent-article-slug");
-		await page.waitForLoadState("networkidle");
-
 		const response = await page.goto("/articles/non-existent-article-slug");
+
 		expect(response?.status()).toBe(404);
+		await expect(page.getByRole("link", { name: "Explore my work" })).toHaveAttribute(
+			"href",
+			"/work",
+		);
+		await expect(page.getByRole("link", { name: "Read the blog" })).toHaveAttribute(
+			"href",
+			"/blog",
+		);
+	});
+
+	test("should link localized error pages to the other locale's homepage", async ({ page }) => {
+		await page.goto("/pt/404");
+
+		await expect(page.getByRole("banner").locator('a[hreflang="en"]').first()).toHaveAttribute(
+			"href",
+			"/",
+		);
+		await expect(page.locator('link[rel="alternate"]')).toHaveCount(0);
+		await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+	});
+
+	test("should exclude error pages from the sitemap", async ({ request }) => {
+		const response = await request.get("/sitemap-0.xml");
+		const sitemap = await response.text();
+
+		expect(response.ok()).toBeTruthy();
+		expect(sitemap).not.toContain("/404");
 	});
 
 	test("should handle Currently Listening API failure gracefully", async ({ page }) => {
@@ -33,18 +60,14 @@ test.describe("Error States", () => {
 		});
 
 		await page.goto("/");
-		await page.waitForURL("http://localhost:4321/");
 
 		// Wait for the page to load
 		await page.waitForLoadState("networkidle");
 
-		// The currently listening component should still be present
-		// but might show an error state or be hidden
 		const CONTAINER = page.getByTestId(PAGE_SELECTORS.currentlyListening.container);
-		const containerExists = await CONTAINER.count();
-
-		// Component should exist even if API fails
-		expect(containerExists).toBeGreaterThan(0);
+		await expect(CONTAINER).toBeVisible();
+		await expect(CONTAINER).toContainText("Listening activity is currently unavailable.");
+		await expect(CONTAINER).not.toContainText("Loading...");
 	});
 
 	test("should handle Currently Listening API timeout gracefully", async ({ page }) => {
@@ -59,7 +82,6 @@ test.describe("Error States", () => {
 		});
 
 		await page.goto("/");
-		await page.waitForURL("http://localhost:4321/");
 
 		// Wait for page load (but not for the API)
 		await page.waitForLoadState("domcontentloaded");
@@ -70,11 +92,7 @@ test.describe("Error States", () => {
 	});
 
 	test("should handle invalid URL paths", async ({ page }) => {
-		const invalidPaths = [
-			"/invalid-path",
-			"/projects/invalid/project",
-			"/articles/invalid/article",
-		];
+		const invalidPaths = ["/invalid-path", "/work/invalid/project", "/articles/invalid/article"];
 
 		for (const path of invalidPaths) {
 			const response = await page.goto(path);

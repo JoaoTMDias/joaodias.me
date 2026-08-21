@@ -1,0 +1,24 @@
+@use "../../assets/styles/custom-media.scss";
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    gap: var(--space-base);
+
+    &__title {
+        padding-block-start: var(--space-lg);
+        display: flex;
+        align-items: start;
+        gap: 1rem;
+        font-size: var(--font-size-xl);
+        font-family: var(--heading-font-family);
+        font-style: normal;
+        font-weight: 700;
+        font-variation-settings: "wght" 700;
+        line-height: 1.2;
+        margin: 0;
+    }
+}

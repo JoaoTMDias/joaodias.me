@@ -1,0 +1,28 @@
+---
+import type { MarkdownHeading } from "astro";
+import clsx from "clsx";
+import styles from "./TableOfContents.module.scss";
+
+interface Props {
+	headings: MarkdownHeading[];
+	title?: string;
+}
+
+const { headings, title = "Table of Contents" } = Astro.props;
+
+// Only h2-h4 are shown; h1 is reserved for the page/article title
+const items = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 4);
+---
+
+{items.length > 0 && (
+  <aside class={styles.toc} aria-label={title} data-testid="table-of-contents">
+    <h2 class={styles.toc__title}>{title}</h2>
+    <ul class={styles.toc__list}>
+      {items.map((heading) => (
+        <li class={clsx(styles.toc__item, styles[`toc__item--h${heading.depth}`])}>
+          <a class={styles.toc__link} href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))}
+    </ul>
+  </aside>
+)}
