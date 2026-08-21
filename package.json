@@ -23,7 +23,7 @@
 		"lint:fix": "biome lint --write ./src",
 		"format": "biome format --write ./src",
 		"format:check": "biome format ./src",
-		"typecheck": "tsc --noEmit --skipLibCheck --project tsconfig.json",
+		"typecheck": "astro sync && tsc --noEmit --skipLibCheck --project tsconfig.json",
 		"generate-build-info": "node ./scripts/get-build-info.mjs",
 		"export-resumes": "node ./scripts/export-resumes.mjs",
 		"generate-llms-txt": "tsx ./scripts/generate-llms-txt.ts",
