@@ -3,11 +3,11 @@ locale: pt
 translationKey: js-utilities
 title: "@jtmdias/js-utilities"
 date: 2023-01-01
-shortDescription: Funções JavaScript e hooks React empacotados para reutilização entre projetos web.
-description: Um pequeno pacote público que substitui auxiliares repetidos em cada projeto por importações testadas e tipadas.
-role: Responsável de manutenção e autor da biblioteca
-problem: Reimplementar os mesmos utilitários e hooks cria divergências, testes duplicados e custos de bundle evitáveis.
-impact: Um pacote npm versionado fornece ESM, CommonJS, declarações de tipos e exportações separadas para hooks com um limite de 11 kB.
+shortDescription: Funções JavaScript e hooks React focados, partilhados entre produtos web sem dependências generalistas.
+description: Um pacote tipado e compatível com tree shaking que substitui auxiliares copiados e dependências usadas para uma única função por utilitários testados.
+role: Criador e responsável de manutenção da biblioteca
+problem: As equipas da Feedzai copiavam repetidamente os mesmos auxiliares ou instalavam bibliotecas como lodash e react-use para usar apenas uma ou duas funções.
+impact: O pacote partilhado reduziu a duplicação e o tamanho dos bundles de produção nos produtos da Feedzai, enquanto a versão que mantenho apoia o meu trabalho de código aberto.
 sourceCode: https://github.com/JoaoTMDias/frontend/tree/main/packages/js-utilities
 liveDemo: https://www.npmjs.com/package/@jtmdias/js-utilities
 skills:
@@ -41,19 +41,28 @@ themeForeground: "#25C2A0"
 
 ## Contexto
 
-Pequenos auxiliares tornam-se infraestrutura quando vários produtos dependem deles. Copiá-los esconde a responsabilidade e torna as correções inconsistentes.
+Comecei o JS Utilities na Feedzai depois de encontrar as mesmas pequenas funções copiadas entre produtos. Noutros casos, as equipas instalavam pacotes generalistas como lodash ou react-use para obter um ou dois auxiliares, acrescentando mais código e outra dependência para resolver um problema limitado.
+
+Cada função era simples. A implementação repetida, as correções inconsistentes e o custo acumulado nos bundles não eram. Queria uma única biblioteca testada que as equipas pudessem adotar seletivamente, sem a transformar noutro framework de utilitários demasiado grande.
 
 ## Processo e decisões
 
-Reuni funções JavaScript e hooks React recorrentes num pacote público do monorepo frontend. O pacote expõe um ponto de entrada geral e outro específico para hooks, ambos com declarações TypeScript.
+Construí a biblioteca a partir de padrões já usados em produção. Inclui pequenos auxiliares de teste como `random` e `draw`; verificações de tipo como `isNil`, `isEmpty` e `isPromise`; utilitários para arrays e objetos; abstrações para armazenamento no navegador e cookies; e hooks React como `useAutoId`, `useConstant`, `usePrevious`, `useMount` e `useIntersection`.
 
-O Vite produz versões ESM e CommonJS. Limites automáticos mantêm cada bundle publicado abaixo dos 11 kB definidos, enquanto os testes de componentes com Cypress validam o comportamento num navegador real.
+O pacote publica versões ESM e CommonJS com as respetivas declarações TypeScript. O CommonJS manteve a compatibilidade com ferramentas antigas da Feedzai, enquanto ESM e `sideEffects: false` permitem que os bundlers modernos removam código não utilizado.
+
+Os hooks React vivem numa exportação `./hooks` separada. Assim, quem usa JavaScript sem React pode importar funções como `classNames`, `chunk` ou `getValue` sem incluir código específico de React no bundle.
+
+O limite de 11 kB partiu do tamanho total do bundle da versão 1.0.0. Transformei esse valor inicial num limite automático, para impedir que novas conveniências se transformassem silenciosamente em peso desnecessário. Os testes de componentes com Cypress exercitam as funções e os hooks num navegador.
+
+A minha versão vive no monorepo frontend partilhado porque o React A11y Tools depende dela e porque os pacotes podem partilhar a infraestrutura de build, testes, documentação e publicação, em vez de repetirem essa configuração em repositórios separados.
 
 ## Resultado
 
-O pacote está publicado no npm e pode ser atualizado de forma independente, partilhando documentação e ferramentas com os restantes pacotes do monorepo.
+O pacote original `@feedzai/js-utilities` é usado nos principais produtos da Feedzai, incluindo Case Manager, Pulse, Genome, RiskOps Studio, SAR Manager e o sistema de design Escudo. A substituição de auxiliares copiados e dependências generalistas maiores reduziu a duplicação e o tamanho dos bundles de produção nesse conjunto de produtos.
+
+Continuo a manter e publicar `@jtmdias/js-utilities` no npm. Uso-o diariamente nos meus projetos, onde fornece a mesma base focada aos restantes pacotes do monorepo.
 
 ## Aprendizagem
 
-A reutilização compensa quando a superfície pública, a compatibilidade e o custo de publicação são menores do que a duplicação eliminada.
-
+Uma biblioteca de utilitários partilhada continua a ser útil quando cada adição justifica o seu lugar. Pontos de entrada separados, consumidores reais e um limite fixo de tamanho impedem que a conveniência se transforme noutra fonte de peso nas dependências.
