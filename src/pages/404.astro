@@ -12,6 +12,7 @@ const t = getMessages(locale);
 <PageLayout
   title="Page not found - João Dias"
   description={t.notFound.description}
+  languageUrl={locale === "pt" ? "/" : "/pt/"}
 >
   <section class={styles["not-found"]}>
     <p class={styles["not-found__code"]}>404</p>

@@ -31,6 +31,16 @@ test.describe("Error States", () => {
 		);
 	});
 
+	test("should link localized error pages to the other locale's homepage", async ({ page }) => {
+		await page.goto("/pt/404");
+
+		await expect(page.getByRole("banner").locator('a[hreflang="en"]').first()).toHaveAttribute(
+			"href",
+			"/",
+		);
+		await expect(page.locator('link[rel="alternate"]')).toHaveCount(0);
+	});
+
 	test("should handle Currently Listening API failure gracefully", async ({ page }) => {
 		// Intercept and fail the Last.fm API
 		await page.route("https://ws.audioscrobbler.com/2.0/**", (route) => {

@@ -51,6 +51,9 @@ test.describe("Blog Index Page", () => {
 
 	test("should search and clear articles", async ({ page }) => {
 		const searchInput = page.getByRole("searchbox", { name: "Search articles" });
+		const searchIsland = page.locator("astro-island").filter({ has: searchInput });
+
+		await expect(searchIsland).not.toHaveAttribute("ssr", "");
 
 		await searchInput.fill("no matching article");
 		await expect(page.getByText("2 articles", { exact: true })).toBeVisible();
