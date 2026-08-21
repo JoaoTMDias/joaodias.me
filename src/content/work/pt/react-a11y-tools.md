@@ -2,7 +2,7 @@
 locale: pt
 translationKey: react-a11y-tools
 title: "@jtmdias/react-a11y-tools"
-date: 2025-01-01
+date: 2022-08-01
 shortDescription: Componentes e utilitários React para implementar padrões recorrentes de acessibilidade.
 description: Uma biblioteca pública que transforma soluções repetidas de acessibilidade em primitivas reutilizáveis e testadas.
 role: Designer e responsável de manutenção da biblioteca
