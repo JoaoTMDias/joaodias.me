@@ -150,10 +150,9 @@ async function crawlEpisodes(): Promise<RawEpisode[]> {
 						if (!podcast) return null;
 						const showSlug: string = data.props?.pageProps?.programSlug || "unknown";
 						const rawExcerpt: string = podcast.excerpt ?? "";
-						const rawText = rawExcerpt.replace(/<[^>]*>/gm, "").trim();
 						const div = document.createElement("div");
-						div.innerHTML = rawText;
-						const decoded = div.textContent ?? rawText;
+						div.innerHTML = rawExcerpt;
+						const decoded = div.textContent ?? "";
 						return {
 							show: showSlug,
 							title: podcast.title || "",
