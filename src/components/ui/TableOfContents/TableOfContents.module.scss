@@ -57,13 +57,9 @@
   &__link {
     color: var(--toc-color);
     font-family: var(--text-font-family);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     text-decoration: dotted;
     text-underline-offset: 4px;
-
-    @media (--large-viewport) {
-      font-size: var(--font-size-base);
-    }
 
     &:hover,
     &:focus {

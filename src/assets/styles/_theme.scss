@@ -51,7 +51,7 @@
    --font-size-xxs: round(nearest, clamp(0.51rem, 0.45vi + 0.35rem, 0.6rem), 2px);
    --font-size-xs: round(nearest, clamp(0.64rem, 0.75vi + 0.3rem, 0.75rem), 2px);
    --font-size-sm: round(nearest, clamp(0.8rem, 1.15vi + 0.25rem, 0.94rem), 2px);
-   --font-size-base: round(nearest, clamp(1rem, 2.08vi + 0rem, 1.25rem), 2px);
+   --font-size-base: round(nearest, clamp(1.125rem, 2.08vi + 0rem, 1.25rem), 2px);
    --font-size-md: round(nearest, clamp(1.25rem, 3.47vi + -0.42rem, 1.56rem), 2px);
    --font-size-lg: round(nearest, clamp(1.875rem, 5.49vi + -1.07rem, 2.75rem), 2px);
    --font-size-xl: round(nearest, clamp(2.75rem, 8.4vi + -2.08rem, 3.75rem), 2px);
@@ -124,4 +124,3 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   color-scheme: dark;
 }
-
