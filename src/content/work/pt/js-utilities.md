@@ -1,8 +1,8 @@
 ---
 locale: pt
 translationKey: js-utilities
-title: JS Utilities
-date: 2025-01-01
+title: "@jtmdias/js-utilities"
+date: 2023-01-01
 shortDescription: Funções JavaScript e hooks React empacotados para reutilização entre projetos web.
 description: Um pequeno pacote público que substitui auxiliares repetidos em cada projeto por importações testadas e tipadas.
 role: Responsável de manutenção e autor da biblioteca
@@ -16,9 +16,27 @@ skills:
   - vite
   - cypress
   - npm
-thumbnail: /logo.svg
-themeBackground: "#f3f4f6"
-themeForeground: "#111827"
+thumbnail: /work/js-utilities/project-icon.svg
+cover: /work/js-utilities/project-cover.png
+coverAlt: Documentação do JS Utilities a apresentar o pacote e as suas funções reutilizáveis e hooks React.
+galleryImages:
+  - image: /work/js-utilities/api-overview.png
+    alt: Visão geral da documentação do JS Utilities com a API disponível organizada por categoria.
+    caption: A documentação facilita a descoberta e compreensão da API pública do pacote.
+    width: 1600
+    height: 1200
+  - image: /work/js-utilities/utility-example.png
+    alt: Documentação de uma função do JS Utilities com a assinatura, os parâmetros e um exemplo de utilização.
+    caption: Cada utilitário é documentado com a informação necessária para o utilizar sem consultar a implementação.
+    width: 1600
+    height: 1200
+  - image: /work/js-utilities/package-tests.png
+    alt: Resultados dos testes automatizados do pacote JS Utilities num terminal.
+    caption: Os testes automatizados protegem o comportamento das funções partilhadas e dos hooks React.
+    width: 1236
+    height: 666
+themeBackground: "#072720"
+themeForeground: "#25C2A0"
 ---
 
 ## Contexto
