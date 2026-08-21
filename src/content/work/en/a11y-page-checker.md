@@ -8,7 +8,7 @@ locale: en
 translationKey: a11y-page-checker
 title: A11y Page Checker
 slug: a11y-page-checker
-date: 2026-07-16T00:00:00.000Z
+date: 2026-01-16T00:00:00.000Z
 shortDescription: 'A local-first platform for repeatable accessibility audits across URLs, sitemaps, crawled sites and test plans.'
 description: |
   A Playwright and axe-core auditing platform with a CLI, local dashboard, portable reports and tools for AI agents.

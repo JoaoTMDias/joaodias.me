@@ -7,7 +7,7 @@ coverAlt: Logótipo do A11y Page Checker sobre uma vista desfocada do painel loc
 locale: pt
 translationKey: a11y-page-checker
 title: A11y Page Checker
-date: 2026-07-16T00:00:00.000Z
+date: 2026-01-16T00:00:00.000Z
 shortDescription: 'Uma plataforma local para auditorias de acessibilidade repetíveis em URL, sitemaps, sites explorados e planos de teste.'
 description: |
   Uma plataforma de auditoria com Playwright e axe-core, composta por CLI, painel local, relatórios portáteis e ferramentas para agentes de IA.
