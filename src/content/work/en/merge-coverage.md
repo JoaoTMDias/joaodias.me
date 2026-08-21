@@ -1,8 +1,8 @@
 ---
 locale: en
 translationKey: merge-coverage
-title: Merge Coverage
-date: 2025-01-01
+title: "@jtmdias/merge-coverage"
+date: 2023-04-01
 shortDescription: A CLI that combines coverage and test reports from Jest, Vitest and Cypress.
 description: A focused command-line tool for bringing fragmented test evidence into one CI-friendly output.
 role: CLI designer and maintainer
@@ -16,9 +16,11 @@ skills:
   - oclif
   - ci
   - testing
-thumbnail: /logo.svg
-themeBackground: "#172554"
-themeForeground: "#bfdbfe"
+thumbnail: /work/merge-coverage/project-icon.svg
+cover: /work/merge-coverage/project-cover.png
+coverAlt: Merge Coverage command-line interface combining test coverage reports into a single output.
+themeBackground: "#0080FF"
+themeForeground: "#00101F"
 ---
 
 ## Context
