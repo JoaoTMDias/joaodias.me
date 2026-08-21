@@ -10,7 +10,7 @@ problem: As listas de recomendações escondem a relação entre artistas e difi
 impact: O Raider combina pesquisa, detalhes, projetos relacionados e faixas populares numa interface visual sem exigir autenticação de terceiros.
 featuredOrder: 3
 sourceCode: https://github.com/JoaoTMDias/raider
-liveDemo: null
+liveDemo: https://music-raider.netlify.app/
 skills:
   - nextjs
   - react

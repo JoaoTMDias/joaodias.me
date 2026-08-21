@@ -10,7 +10,7 @@ problem: Recommendation lists hide why artists are connected and make it difficu
 impact: Raider combines search, artist detail, related acts and top tracks in a visual exploration interface without requiring third-party login.
 featuredOrder: 3
 sourceCode: https://github.com/JoaoTMDias/raider
-liveDemo: null
+liveDemo: https://music-raider.netlify.app/
 skills:
   - nextjs
   - react

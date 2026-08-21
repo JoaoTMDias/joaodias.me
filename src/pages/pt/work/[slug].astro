@@ -144,6 +144,20 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
               <p class={styles["work__meta-text"]} data-testid="work-source-code-link">Não disponível</p>
             )
           }
+          {
+            project.data.liveDemo && (
+              <a
+                href={project.data.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={styles["work__meta-text"]}
+                data-testid="work-live-demo-link"
+              >
+                Visitar site
+                <span class="sr-only">. Esta ligação abre num novo separador</span>
+              </a>
+            )
+          }
         </div>
       </div>
     </section>

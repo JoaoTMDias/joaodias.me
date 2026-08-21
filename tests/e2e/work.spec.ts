@@ -124,6 +124,15 @@ test.describe("Project Detail Page", () => {
 		}
 	});
 
+	test("should link to a live project when one is available", async ({ page }) => {
+		await page.goto("/work/raider");
+
+		const liveDemoLink = page.getByTestId("work-live-demo-link");
+		await expect(liveDemoLink).toHaveAttribute("href", "https://music-raider.netlify.app/");
+		await expect(liveDemoLink).toHaveAttribute("target", "_blank");
+		await expect(liveDemoLink).toHaveAttribute("rel", "noopener noreferrer");
+	});
+
 	test("should display project content", async ({ page }) => {
 		const content = page.locator("main");
 		await expect(content).toBeVisible();
