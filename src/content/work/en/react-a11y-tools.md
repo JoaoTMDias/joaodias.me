@@ -5,23 +5,23 @@ title: "@jtmdias/react-a11y-tools"
 slug: react-a11y-tools
 date: 2022-08-01
 shortDescription: >-
-  A small component library that eases the process of creating accessible design
-  systems, web apps or websites. Available on npm.
+  Tested React primitives for recurring accessibility patterns in design systems,
+  applications and websites.
 description: >
-  A small component and utility library that eases the process of creating
-  accessible web content. It is open-source and available on NPM.
-role: Library designer and maintainer
-problem: Product teams repeatedly implemented the same difficult accessibility patterns with inconsistent results.
-impact: A public npm library packages reusable React primitives for focus, navigation, announcements and semantic structure.
+  An open-source library that packages focus management, keyboard navigation,
+  announcements and semantic structure into reusable React components and hooks.
+role: Library creator and maintainer
+problem: Engineers at Feedzai repeatedly encountered complex accessibility patterns but did not always have the specialist knowledge or time to implement them consistently.
+impact: The library became an accessibility foundation for Escudo, Feedzai's internal design system, and continues to support personal and professional projects through my maintained fork.
 featuredOrder: 2
 sourceCode: "https://github.com/JoaoTMDias/frontend/tree/main/packages/react-a11y-tools"
-liveDemo: null
+liveDemo: "https://www.npmjs.com/package/@jtmdias/react-a11y-tools"
 skills:
   - react
-  - node
+  - typescript
   - cypress-component-testing
-  - esbuild
-  - rollup
+  - vite
+  - docusaurus
 thumbnail: /work/react-a11y-tools/project-icon.svg
 cover: /work/react-a11y-tools/project-cover.jpg
 galleryImages:
@@ -59,44 +59,26 @@ themeBackground: "#FFC9CB"
 themeForeground: "#1b1d1c"
 ---
 
-## Accessibility Considerations
+## Context
 
-This library is specifically designed to solve accessibility challenges in React applications:
+I created React A11y Tools while working at Feedzai, where teams build software for financial institutions and accessibility cannot be treated as a finishing touch. Engineers generally wanted to do the right thing, but complex interaction patterns require specialist knowledge and time that a delivery team may not always have.
 
-- **Route Announcements** - Helps screen reader users navigate single-page applications by announcing route changes (similar to what Gatsby had, but works with any router)
-- **Roving Tabindex** - Implements the roving tabindex pattern for keyboard navigation in menus, comboboxes, and other composite widgets
-- **Focus Trap** - Traps focus within modals and dialogs, ensuring keyboard users can't accidentally navigate outside the modal
-- **Heading Order** - Provides utilities to ensure correct heading hierarchy on pages
-- **Focusable Disabled Elements** - Allows traditionally keyboard-excluded components (like disabled buttons) to receive focus while remaining disabled and properly announced to screen readers
+The same challenges kept returning: managing focus in dialogs, implementing roving tabindex, announcing route changes and preserving a meaningful heading structure. Different teams solved them differently, and under pressure some patterns risked being simplified or skipped.
 
-All components are built following WCAG 2.1 guidelines and WAI-ARIA best practices. The library has been tested with screen readers including NVDA, JAWS, and VoiceOver.
+## Process and decisions
 
-Since version 1.0.0, this library has been used in production UI projects at Feedzai and Farfetch, demonstrating its real-world applicability.
+I turned those recurring solutions into a dedicated library of React components and hooks. The primitives provide behaviour for focus management, keyboard navigation, announcements, skip links and semantic headings while leaving visual design to the consuming product or design system.
 
-## Technical Approach
+The library was designed around WCAG 2.1 guidance and the WAI-ARIA Authoring Practices. Cypress component and integration tests exercise behaviour in a real browser, including keyboard interaction and automated accessibility checks.
 
-Built with:
+Adoption depended on more than a reliable API. I built interactive Docusaurus documentation with live examples and code samples so engineers could understand both how to use a primitive and which interaction problem it solved.
 
-- **React** - Component library for React applications
-- **Node** - For build tooling and npm package management
-- **Cypress Component Testing** - For testing components in real browser environments
-- **esbuild** - For fast builds during development
-- **Rollup** - For production builds and npm package bundling
+## Result
 
-The library follows the work done by Marcy Sutton for Gatsby's accessibility features, but extends it to work with any routing library including Next.js.
+The library was adopted quickly inside Feedzai and became an accessibility foundation for Escudo, its internal design system. Reusing the same patterns gave product teams a more consistent starting point and kept difficult interaction behaviour out of one-off implementations.
 
-Components are designed to be composable and work together seamlessly. The library focuses on common accessibility patterns that developers repeatedly implement across projects.
+I was the library's sole creator and maintainer at Feedzai. I now maintain the public `@jtmdias/react-a11y-tools` fork and use it regularly across personal and professional projects. The current package remains available on npm with primitives for route and message announcements, focus management, roving tabindex, keyboard-only testing, skip links, semantic headings and tabbable-element discovery.
 
-## Process
+## Learning
 
-The development process started with identifying common accessibility patterns that I was repeatedly implementing across different projects. The goal was to create reusable components that solve real accessibility challenges.
-
-Cypress component testing was used to test components in real browser environments, ensuring they work correctly with assistive technologies. The library was documented using Docusaurus to provide clear usage examples and API documentation.
-
-The library was developed iteratively, adding components as I encountered new accessibility challenges in my work.
-
-## Results & Impact
-
-The library has been successfully used in production at Feedzai and Farfetch, demonstrating its value in real-world applications. It's available on npm and has helped other developers implement accessibility features more easily.
-
-This project showcases how accessibility can be built into reusable components, making it easier for developers to create accessible applications without needing deep accessibility expertise.
+Accessibility scales more effectively when the difficult behaviour is reusable, tested and documented, while teams still retain responsibility for how it works in the finished product.
