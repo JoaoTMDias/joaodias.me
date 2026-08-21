@@ -10,6 +10,7 @@ import type { CollectionEntry } from "astro:content";
  * (c) 2022 joaodias.me, Rights Reserved.
  */
 import { getCollection, render } from "astro:content";
+import SectionLink from "../../../components/ui/SectionLink/SectionLink.astro";
 import TableOfContents from "../../../components/ui/TableOfContents/TableOfContents.astro";
 import { contentSlug, contentUrl, findCounterpart, formatDate } from "../../../i18n";
 import PageLayout from "../../../layouts/PageLayout.astro";
@@ -88,7 +89,7 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
               src={coverImage}
               width={IMAGE_DIMENSIONS.width}
               height={IMAGE_DIMENSIONS.height}
-              alt={project.data.title + " imagem de capa"}
+              alt={project.data.coverAlt ?? project.data.title + " imagem de capa"}
               loading="lazy"
               transition:name={imageTransitionName}
             />
@@ -96,6 +97,9 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
         )
       }
       <div class={styles.work__header}>
+        <div class:list={[styles["work__back-link"], styles["work__back-link--top"]]}>
+          <SectionLink href="/pt/work" text="Voltar aos projetos" direction="back" />
+        </div>
         <div class={styles["work__header-heading"]}>
           <h1
             id="project-header-title"
@@ -152,8 +156,8 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
                 <Image
                   class={styles["work__gallery-image"]}
                   src={item.image}
-                  width={IMAGE_DIMENSIONS.width}
-                  height={IMAGE_DIMENSIONS.height}
+                  width={item.width ?? IMAGE_DIMENSIONS.width}
+                  height={item.height ?? IMAGE_DIMENSIONS.height}
                   alt={item.alt}
                   loading="lazy"
                 />
@@ -173,7 +177,7 @@ const hasGalleryImages = project.data.galleryImages && project.data.galleryImage
         </div>
       </div>
       <div class="blog-article__back-link">
-        <a href="/pt/work" data-testid="work-back-link">← Voltar aos projetos</a>
+        <SectionLink href="/pt/work" text="Voltar aos projetos" direction="back" testId="work-back-link" />
       </div>
     </section>
   </div>

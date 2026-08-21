@@ -130,6 +130,19 @@
     }
   }
 
+  &__back-link {
+    align-self: flex-start;
+
+    &--top {
+      --link-color: light-dark(var(--work-background), var(--work-foreground));
+      --link-active-color: light-dark(var(--work-background), var(--work-foreground));
+
+      a {
+        --link-color: var(--link-color);
+      }
+    }
+  }
+
   &__meta {
     display: grid;
     grid-template-columns: 1fr;

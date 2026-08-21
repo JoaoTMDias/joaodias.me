@@ -86,12 +86,15 @@ const projectsCollection = defineCollection({
 		skills: z.array(z.string()),
 		thumbnail: z.string(),
 		cover: z.string().optional(),
+		coverAlt: z.string().optional(),
 		galleryImages: z
 			.array(
 				z.object({
 					image: z.string(),
 					alt: z.string(),
 					caption: z.string().optional(),
+					width: z.number().int().positive().optional(),
+					height: z.number().int().positive().optional(),
 				}),
 			)
 			.optional(),
