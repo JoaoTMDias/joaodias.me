@@ -17,7 +17,7 @@ Security vulnerabilities must follow [SECURITY.md](SECURITY.md), never the publi
 
 ## Development workflow
 
-1. Use Node 24 and pnpm 11.21.0.
+1. Use Node 24 and pnpm 11.22.0.
 2. Install dependencies with `pnpm install --frozen-lockfile`.
 3. Copy `.env.example` to `.env` and configure only the integrations needed for the change.
 4. Create a focused branch and keep unrelated changes out of the pull request.

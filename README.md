@@ -28,7 +28,7 @@ directory.
 ## Requirements
 
 - [Node.js 24](https://nodejs.org/) (also declared in `.nvmrc`)
-- [pnpm 11.21.0](https://pnpm.io/)
+- [pnpm 11.22.0](https://pnpm.io/)
 
 If Corepack is available, it can activate the package-manager version declared in `package.json`:
 
