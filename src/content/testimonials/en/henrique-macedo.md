@@ -3,7 +3,7 @@ locale: en
 translationKey: henrique-macedo
 name: "Henrique Macedo"
 role: "VP of Engineering at LayerX"
-avatarUrl: "/henrique-macedo.jpg"
-testimonial: "João is the engineer who guarantees quality. His focus on sustainable architecture, performance, and accessibility ensures we deliver high-impact products—not just features. He's an essential asset to any senior engineering team."
+avatarUrl: "/testimonials/henrique-macedo.webp"
+testimonial: "I've known João since university, and we've worked together professionally on several occasions and projects. I've never seen him deliver anything less than excellent. Dedicated, meticulous, and deeply professional, he's one of the people I most enjoy building with."
 order: 1
 ---
