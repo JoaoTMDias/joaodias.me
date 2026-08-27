@@ -1,16 +1,17 @@
 ---
 import type { Locale } from "../../../i18n";
 import { getMessages } from "../../../i18n/messages";
-import styles from "./MainNavigation.module.scss";
+import styles from "./LanguageSwitcher.module.scss";
 
 interface Props {
 	locale: Locale;
 	href: string;
+	variant?: "desktop" | "mobile";
 }
-const { locale, href } = Astro.props;
+const { locale, href, variant = "desktop" } = Astro.props;
 const t = getMessages(locale);
 const target = locale === "en" ? "pt" : "en";
 ---
-<a class={styles["main-navigation__link"]} href={href} hreflang={target==="pt"?"pt-PT":"en"} lang={target==="pt"?"pt-PT":"en"} aria-label={t.nav.language + ": " + (target === "pt" ? t.nav.portuguese : t.nav.english)}>
+<a class:list={[styles["language-switcher"], styles[`language-switcher--${variant}`]]} href={href} hreflang={target==="pt"?"pt-PT":"en"} lang={target==="pt"?"pt-PT":"en"} aria-label={t.nav.language + ": " + (target === "pt" ? t.nav.portuguese : t.nav.english)}>
   {target==="pt"?"PT":"EN"}
 </a>

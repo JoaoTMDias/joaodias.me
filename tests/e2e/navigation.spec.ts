@@ -79,6 +79,12 @@ test.describe("Responsive Navigation and Theme", () => {
 		await MOBILE_TOGGLE.click();
 		await expect(MOBILE_NAV).toBeVisible();
 
+		const languageSwitcher = MOBILE_NAV.getByRole("link", {
+			name: "Language: Português",
+		});
+		await expect(languageSwitcher).toBeVisible();
+		await expect(languageSwitcher).toHaveAttribute("href", "/pt/");
+
 		const MOBILE_LINKS = MOBILE_NAV.getByRole("link");
 		await expect(MOBILE_LINKS.first()).toBeVisible();
 		expect(await MOBILE_LINKS.count()).toBeGreaterThan(0);

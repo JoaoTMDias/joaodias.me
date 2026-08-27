@@ -31,6 +31,6 @@ const currentPage = Astro.url.pathname;
         </li>
       );
     })}
-    <li class={styles["mobile-navigation__item"]}><LanguageSwitcher locale={locale} href={languageUrl} /></li>
+    <li class={styles["mobile-navigation__item"]}><LanguageSwitcher locale={locale} href={languageUrl} variant="mobile" /></li>
   </ul>
 </nav>

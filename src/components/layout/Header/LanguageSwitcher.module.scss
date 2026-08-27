@@ -1,0 +1,39 @@
+@use "../../../assets/styles/custom-media.scss";
+
+.language-switcher {
+  align-items: center;
+  flex-direction: row;
+  font-family: inherit;
+  font-size: 1.25rem;
+  gap: 0.5rem;
+  height: 100%;
+  justify-content: start;
+  padding-inline: 1rem;
+  position: relative;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: var(--space-xxs);
+  width: fit-content;
+
+  &:hover,
+  &:focus {
+    text-decoration-color: var(--link-active-color, var(--text-color));
+  }
+
+  &--desktop {
+    display: none;
+
+    @media (--medium-viewport) {
+      display: flex;
+    }
+  }
+
+  &--mobile {
+    display: flex;
+
+    @media (--medium-viewport) {
+      display: none;
+    }
+  }
+}
