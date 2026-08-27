@@ -158,9 +158,6 @@ src/data/build-info.json
 public/llms.txt
 .DS_Store
 
-# Shows script cache (regenerated on each CI run)
-scripts/src/data/shows.json
-
 # Debug/inspection scripts
 scripts/inspect-episode.mjs
 
