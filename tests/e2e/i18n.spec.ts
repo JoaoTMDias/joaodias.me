@@ -82,7 +82,11 @@ test.describe("Portuguese locale", () => {
 		expect(xml).toContain("<rss");
 		expect(xml).toContain("one-year-of-eaa");
 		expect(xml).toContain("É uma armadilha!");
-		expect(xml.match(/<item>/g) ?? []).toHaveLength(2);
+		expect(xml).toContain("finally-were-fixing-headings");
+
+		const items = xml.match(/<item>[\s\S]*?<\/item>/g) ?? [];
+		expect(items.length).toBeGreaterThan(0);
+		expect(items.every((item) => item.includes("/pt/blog/"))).toBe(true);
 	});
 
 	test("has no automated accessibility violations on the Portuguese homepage", async ({ page }) => {
