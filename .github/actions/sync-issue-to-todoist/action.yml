@@ -1,0 +1,35 @@
+name: Sync GitHub issue to Todoist
+description: Creates and updates a Todoist task whose source of truth is a GitHub issue.
+
+inputs:
+  todoist-token:
+    description: Personal Todoist API token.
+    required: true
+  github-token:
+    description: GitHub token with permission to read and write issue comments.
+    required: true
+  event-action:
+    description: The GitHub issues event action (labeled, closed, or reopened).
+    required: true
+  issue:
+    description: The issue event payload serialized as JSON.
+    required: true
+  repository:
+    description: Repository name including its owner (owner/repo).
+    required: true
+  added-label:
+    description: Label added by a labeled event. Empty for other event actions.
+    required: false
+    default: ""
+  github-label:
+    description: GitHub label that opts an issue into synchronization.
+    required: false
+    default: todoist
+  todoist-labels:
+    description: Todoist label names as a JSON array.
+    required: false
+    default: '["✅_next", "🧑🏻‍💻_pc"]'
+
+runs:
+  using: node24
+  main: index.ts

@@ -100,6 +100,9 @@ GitHub Actions checks linting, formatting, types, unit tests, browser tests, and
 pushes and pull requests. A scheduled workflow refreshes radio-show content and commits changes
 when new entries are found.
 
+The repository also provides a reusable [GitHub Issues to Todoist action](docs/todoist-issues.md),
+including setup, cross-repository usage, versioning, and recovery instructions.
+
 ## Contributing and reporting problems
 
 Bug reports and accessibility feedback are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md)
