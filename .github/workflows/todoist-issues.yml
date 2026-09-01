@@ -1,0 +1,27 @@
+name: Sync issues to Todoist
+
+on:
+  issues:
+    types: [labeled, closed, reopened]
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: todoist-issue-${{ github.repository }}-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/sync-issue-to-todoist
+        with:
+          todoist-token: ${{ secrets.TODOIST_API_TOKEN }}
+          github-token: ${{ github.token }}
+          event-action: ${{ github.event.action }}
+          issue: ${{ toJson(github.event.issue) }}
+          repository: ${{ github.repository }}
+          added-label: ${{ github.event.label.name }}
