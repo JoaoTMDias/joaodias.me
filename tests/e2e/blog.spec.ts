@@ -52,16 +52,19 @@ test.describe("Blog Index Page", () => {
 	test("should search and clear articles", async ({ page }) => {
 		const searchInput = page.getByRole("searchbox", { name: "Search articles" });
 		const searchIsland = page.locator("astro-island").filter({ has: searchInput });
+		const resultsCount = page.locator("#blog-results-count");
 
 		await expect(searchIsland).not.toHaveAttribute("ssr", "");
+		const initialResultsCount = await resultsCount.textContent();
+		expect(initialResultsCount).toMatch(/^\d+ articles$/);
 
 		await searchInput.fill("no matching article");
-		await expect(page.getByText("2 articles", { exact: true })).toBeVisible();
+		await expect(resultsCount).toHaveText(initialResultsCount ?? "");
 		await expect(page.getByRole("button", { name: "Clear search" })).toBeVisible();
 		await page.getByRole("button", { name: "Search", exact: true }).click();
 
 		await expect(page).toHaveURL("/blog?q=no+matching+article");
-		await expect(page.getByText("0 articles", { exact: true })).toBeVisible();
+		await expect(resultsCount).toHaveText("0 articles");
 		const emptyState = page.locator(".empty-state");
 		await expect(emptyState).toContainText("No articles match your search. Try a different term.");
 
@@ -70,7 +73,7 @@ test.describe("Blog Index Page", () => {
 		await expect(page).toHaveURL("/blog");
 		await expect(searchInput).toHaveValue("");
 		await expect(searchInput).toBeFocused();
-		await expect(page.getByText("2 articles", { exact: true })).toBeVisible();
+		await expect(resultsCount).toHaveText(initialResultsCount ?? "");
 		await expect(page.getByText("All articles", { exact: true })).toBeVisible();
 	});
 
