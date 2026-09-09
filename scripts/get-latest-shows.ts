@@ -17,21 +17,40 @@ const projectRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), ".."
 const showsDir = path.join(projectRoot, "src", "content", "shows");
 const RUC_URL = "https://ruc.pt";
 const AUTHOR_SLUG = "joaotmdias";
-const REQUEST_ATTEMPTS = 3;
+const REQUEST_ATTEMPTS = 5;
 const EPISODE_CONCURRENCY = 5;
 
-async function request(url: string, responseType: "json" | "text"): Promise<unknown> {
+function retryDelay(attempt: number): number {
+	return 1_000 * 2 ** (attempt - 1) + Math.floor(Math.random() * 500);
+}
+
+async function request<T>(
+	url: string,
+	responseType: "json" | "text",
+	validate: (payload: unknown) => T,
+): Promise<T> {
 	let lastError: unknown;
 	for (let attempt = 1; attempt <= REQUEST_ATTEMPTS; attempt += 1) {
 		try {
-			const response = await fetch(url, { signal: AbortSignal.timeout(10_000) });
+			const response = await fetch(url, {
+				headers: {
+					Accept: responseType === "json" ? "application/json" : "text/html",
+					"Cache-Control": "no-cache",
+					"User-Agent": "joaodias.me show updater (+https://joaodias.me)",
+				},
+				signal: AbortSignal.timeout(20_000),
+			});
 			if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
-			return responseType === "json" ? await response.json() : await response.text();
+			return validate(responseType === "json" ? await response.json() : await response.text());
 		} catch (error) {
 			lastError = error;
 			if (attempt < REQUEST_ATTEMPTS) {
-				console.warn(`Request failed (${attempt}/${REQUEST_ATTEMPTS}): ${url}`);
-				await new Promise((resolve) => setTimeout(resolve, attempt * 500));
+				const delay = retryDelay(attempt);
+				const reason = error instanceof Error ? error.message : String(error);
+				console.warn(
+					`Request failed (${attempt}/${REQUEST_ATTEMPTS}): ${reason}; retrying in ${delay}ms: ${url}`,
+				);
+				await new Promise((resolve) => setTimeout(resolve, delay));
 			}
 		}
 	}
@@ -137,9 +156,8 @@ async function fetchNewEpisodes(
 		const batch = pending.slice(index, index + EPISODE_CONCURRENCY);
 		const results = await Promise.all(
 			batch.map(async (reference) =>
-				parseEpisodePayload(
-					await request(buildEpisodeDataUrl(RUC_URL, buildId, reference), "json"),
-					reference,
+				request(buildEpisodeDataUrl(RUC_URL, buildId, reference), "json", (payload) =>
+					parseEpisodePayload(payload, reference),
 				),
 			),
 		);
@@ -180,10 +198,15 @@ coverColors: ${episode.cover.colors ? JSON.stringify(episode.cover.colors) : "[]
 
 async function main(): Promise<void> {
 	console.log("Get Latest Shows - Starting...\n");
-	const html = (await request(`${RUC_URL}/autor/${AUTHOR_SLUG}`, "text")) as string;
-	const buildId = parseBuildId(html);
-	const authorPayload = await request(buildAuthorDataUrl(RUC_URL, buildId, AUTHOR_SLUG), "json");
-	const references = parseAuthorPayload(authorPayload);
+	const buildId = await request(`${RUC_URL}/autor/${AUTHOR_SLUG}`, "text", (payload) => {
+		if (typeof payload !== "string") throw new Error("RUC author page is not HTML");
+		return parseBuildId(payload);
+	});
+	const references = await request(
+		buildAuthorDataUrl(RUC_URL, buildId, AUTHOR_SLUG),
+		"json",
+		parseAuthorPayload,
+	);
 	const episodes = await fetchNewEpisodes(buildId, references, await getExistingEpisodes());
 
 	// Complete all remote work and validation before changing tracked files.
