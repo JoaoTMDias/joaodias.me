@@ -11,10 +11,14 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
+import rehypeImageCaptions from "./src/utils/rehype-image-captions";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://joaodias.me",
 	integrations: [react(), sitemap({ filter: (page) => !page.endsWith("/pt/404/") }), mdx()],
+	markdown: {
+		rehypePlugins: [rehypeImageCaptions],
+	},
 	i18n: {
 		locales: ["en", "pt"],
 		defaultLocale: "en",

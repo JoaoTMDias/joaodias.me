@@ -163,6 +163,25 @@
 				}
 			}
 
+			.article-image {
+				width: 100%;
+				margin: var(--space-lg) 0;
+
+				img {
+					display: block;
+					width: 100%;
+					height: auto;
+				}
+
+				figcaption {
+					margin-top: var(--space-xs);
+					color: var(--text-color-faded);
+					font-size: var(--font-size-sm);
+					font-style: italic;
+					line-height: 1.4;
+				}
+			}
+
 			ul,
 			ol {
 				margin: var(--space-md) 0;
