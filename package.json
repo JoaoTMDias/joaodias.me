@@ -37,7 +37,7 @@
 		]
 	},
 	"devDependencies": {
-		"@astrojs/react": "6.0.4",
+		"@astrojs/react": "6.0.5",
 		"@axe-core/playwright": "^4.13.0",
 		"@biomejs/biome": "2.5.10",
 		"@jtmdias/js-utilities": "^3.1.0",
