@@ -1,6 +1,6 @@
 {
 	"schema": {
-		"version": { "fullVersion": "2.4.9", "major": "2", "minor": "4", "patch": "9" },
+		"version": { "fullVersion": "3.0.0", "major": "3", "minor": "0", "patch": "0" },
 		"meta": { "flags": ["experimentalData"] },
 		"collections": [
 			{
@@ -1088,6 +1088,15 @@
 				"kind": "ScalarTypeDefinition",
 				"name": { "kind": "Name", "value": "JSON" },
 				"description": { "kind": "StringValue", "value": "" },
+				"directives": []
+			},
+			{
+				"kind": "ScalarTypeDefinition",
+				"name": { "kind": "Name", "value": "RichText" },
+				"description": {
+					"kind": "StringValue",
+					"value": "A rich-text document, renderable by TinaMarkdown"
+				},
 				"directives": []
 			},
 			{
@@ -2832,7 +2841,7 @@
 						"arguments": [],
 						"type": {
 							"kind": "NonNullType",
-							"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+							"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "RichText" } }
 						}
 					},
 					{
@@ -3209,7 +3218,7 @@
 						"arguments": [],
 						"type": {
 							"kind": "NonNullType",
-							"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+							"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "RichText" } }
 						}
 					},
 					{
@@ -3738,7 +3747,7 @@
 						"arguments": [],
 						"type": {
 							"kind": "NonNullType",
-							"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+							"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "RichText" } }
 						}
 					},
 					{
@@ -3811,7 +3820,7 @@
 						"kind": "FieldDefinition",
 						"name": { "kind": "Name", "value": "body" },
 						"arguments": [],
-						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "RichText" } }
 					},
 					{
 						"kind": "FieldDefinition",
@@ -5367,7 +5376,7 @@
 					{
 						"kind": "InputValueDefinition",
 						"name": { "kind": "Name", "value": "body" },
-						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "RichText" } }
 					}
 				]
 			},
@@ -5424,7 +5433,7 @@
 					{
 						"kind": "InputValueDefinition",
 						"name": { "kind": "Name", "value": "description" },
-						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "RichText" } }
 					},
 					{
 						"kind": "InputValueDefinition",
@@ -5562,7 +5571,7 @@
 					{
 						"kind": "InputValueDefinition",
 						"name": { "kind": "Name", "value": "description" },
-						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "RichText" } }
 					},
 					{
 						"kind": "InputValueDefinition",
@@ -5616,7 +5625,7 @@
 					{
 						"kind": "InputValueDefinition",
 						"name": { "kind": "Name", "value": "body" },
-						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "RichText" } }
 					}
 				]
 			},
