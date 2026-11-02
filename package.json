@@ -1,10 +1,9 @@
 {
 	"name": "joaodias.me",
 	"version": "6.0.0",
-	"packageManager": "pnpm@12.9.1",
 	"engines": {
-		"node": ">=24 <25",
-		"pnpm": ">=11 <12"
+		"node": ">=24",
+		"pnpm": ">=11"
 	},
 	"private": false,
 	"scripts": {
